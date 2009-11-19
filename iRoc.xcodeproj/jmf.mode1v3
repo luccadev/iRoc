@@ -250,6 +250,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -329,8 +331,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -348,7 +348,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>9C2F74FE10B5AB30007B96C7</string>
+										<string>9C2F751110B5AFB0007B96C7</string>
 										<key>history</key>
 										<array>
 											<string>9C00ECD610B3F07A0098BA59</string>
@@ -561,7 +561,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>280341296.45422101</real>
+	<real>280342448.03047699</real>
 	<key>ToolbarDisplayMode</key>
 	<integer>1</integer>
 	<key>ToolbarIsVisible</key>
@@ -576,6 +576,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>9C2F751210B5AFB0007B96C7</string>
 		<string>9C2F74C310B5A645007B96C7</string>
 		<string>9C2F74C510B5A645007B96C7</string>
 		<string>1C78EAAD065D492600B07095</string>

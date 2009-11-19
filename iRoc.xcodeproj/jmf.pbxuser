@@ -137,6 +137,10 @@
 			9C2F74F510B5AA25007B96C7 /* PBXTextBookmark */ = 9C2F74F510B5AA25007B96C7 /* PBXTextBookmark */;
 			9C2F74F910B5AA41007B96C7 /* PBXTextBookmark */ = 9C2F74F910B5AA41007B96C7 /* PBXTextBookmark */;
 			9C2F74FE10B5AB30007B96C7 /* PBXTextBookmark */ = 9C2F74FE10B5AB30007B96C7 /* PBXTextBookmark */;
+			9C2F750310B5AE02007B96C7 /* PBXTextBookmark */ = 9C2F750310B5AE02007B96C7 /* PBXTextBookmark */;
+			9C2F750510B5AE38007B96C7 /* PBXTextBookmark */ = 9C2F750510B5AE38007B96C7 /* PBXTextBookmark */;
+			9C2F750810B5AE53007B96C7 /* PBXTextBookmark */ = 9C2F750810B5AE53007B96C7 /* PBXTextBookmark */;
+			9C2F751110B5AFB0007B96C7 /* PBXTextBookmark */ = 9C2F751110B5AFB0007B96C7 /* PBXTextBookmark */;
 			9C54CFB410B3419D002AD98D = 9C54CFB410B3419D002AD98D /* PBXTextBookmark */;
 			9C891DEC10B44323000014D1 = 9C891DEC10B44323000014D1 /* PBXTextBookmark */;
 			9CCDADDD10B34A66004EADB2 = 9CCDADDD10B34A66004EADB2 /* PBXTextBookmark */;
@@ -450,7 +454,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 88";
 		rLen = 0;
-		rLoc = 2265;
+		rLoc = 2266;
 		rType = 0;
 		vrLen = 919;
 		vrLoc = 1837;
@@ -460,7 +464,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 87";
 		rLen = 0;
-		rLoc = 2214;
+		rLoc = 2215;
 		rType = 0;
 		vrLen = 715;
 		vrLoc = 1695;
@@ -470,7 +474,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 87";
 		rLen = 0;
-		rLoc = 2232;
+		rLoc = 2233;
 		rType = 0;
 		vrLen = 709;
 		vrLoc = 1719;
@@ -480,7 +484,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 87";
 		rLen = 0;
-		rLoc = 2218;
+		rLoc = 2219;
 		rType = 0;
 		vrLen = 703;
 		vrLoc = 1719;
@@ -490,7 +494,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 87";
 		rLen = 0;
-		rLoc = 2218;
+		rLoc = 2219;
 		rType = 0;
 		vrLen = 710;
 		vrLoc = 1719;
@@ -500,7 +504,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 87";
 		rLen = 0;
-		rLoc = 2216;
+		rLoc = 2217;
 		rType = 0;
 		vrLen = 710;
 		vrLoc = 1719;
@@ -510,7 +514,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 73";
 		rLen = 0;
-		rLoc = 1871;
+		rLoc = 1872;
 		rType = 0;
 		vrLen = 716;
 		vrLoc = 1719;
@@ -520,7 +524,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 77";
 		rLen = 0;
-		rLoc = 2023;
+		rLoc = 2024;
 		rType = 0;
 		vrLen = 736;
 		vrLoc = 1695;
@@ -530,7 +534,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 82";
 		rLen = 0;
-		rLoc = 2223;
+		rLoc = 2224;
 		rType = 0;
 		vrLen = 736;
 		vrLoc = 1695;
@@ -550,7 +554,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 72";
 		rLen = 0;
-		rLoc = 1863;
+		rLoc = 1864;
 		rType = 0;
 		vrLen = 861;
 		vrLoc = 1747;
@@ -560,7 +564,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 72";
 		rLen = 0;
-		rLoc = 1867;
+		rLoc = 1868;
 		rType = 0;
 		vrLen = 861;
 		vrLoc = 1747;
@@ -570,7 +574,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 72";
 		rLen = 0;
-		rLoc = 1858;
+		rLoc = 1859;
 		rType = 0;
 		vrLen = 873;
 		vrLoc = 1735;
@@ -660,7 +664,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 72";
 		rLen = 0;
-		rLoc = 1854;
+		rLoc = 1855;
 		rType = 0;
 		vrLen = 804;
 		vrLoc = 1735;
@@ -680,9 +684,49 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 85";
 		rLen = 0;
-		rLoc = 2271;
+		rLoc = 2516;
 		rType = 0;
 		vrLen = 788;
+		vrLoc = 1721;
+	};
+	9C2F750310B5AE02007B96C7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
+		name = "iRocTouchView.m: 92";
+		rLen = 0;
+		rLoc = 2508;
+		rType = 0;
+		vrLen = 766;
+		vrLoc = 1745;
+	};
+	9C2F750510B5AE38007B96C7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
+		name = "iRocTouchView.m: 91";
+		rLen = 0;
+		rLoc = 2474;
+		rType = 0;
+		vrLen = 918;
+		vrLoc = 1831;
+	};
+	9C2F750810B5AE53007B96C7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
+		name = "iRocTouchView.m: 93";
+		rLen = 0;
+		rLoc = 2514;
+		rType = 0;
+		vrLen = 960;
+		vrLoc = 1831;
+	};
+	9C2F751110B5AFB0007B96C7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
+		name = "iRocTouchView.m: 72";
+		rLen = 0;
+		rLoc = 1864;
+		rType = 0;
+		vrLen = 790;
 		vrLoc = 1721;
 	};
 	9C54CFB410B3419D002AD98D /* PBXTextBookmark */ = {
@@ -872,7 +916,7 @@
 		fRef = 9CDB1B3310B533F9001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 29";
 		rLen = 0;
-		rLoc = 1869;
+		rLoc = 1870;
 		rType = 0;
 		vrLen = 483;
 		vrLoc = 172;
@@ -902,7 +946,7 @@
 		fRef = 9CDB1B3310B533F9001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 45";
 		rLen = 0;
-		rLoc = 2514;
+		rLoc = 2759;
 		rType = 0;
 		vrLen = 745;
 		vrLoc = 344;
@@ -912,7 +956,7 @@
 		fRef = 9CDB1B3310B533F9001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 30";
 		rLen = 0;
-		rLoc = 1870;
+		rLoc = 1871;
 		rType = 0;
 		vrLen = 637;
 		vrLoc = 172;
@@ -1002,7 +1046,7 @@
 		fRef = 9CDB1B3310B533F9001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 30";
 		rLen = 0;
-		rLoc = 1870;
+		rLoc = 1871;
 		rType = 0;
 		vrLen = 396;
 		vrLoc = 1755;
@@ -1052,7 +1096,7 @@
 		fRef = 9CDB1B3310B533F9001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 87";
 		rLen = 0;
-		rLoc = 3330;
+		rLoc = 3575;
 		rType = 0;
 		vrLen = 621;
 		vrLoc = 1530;
@@ -1072,7 +1116,7 @@
 		fRef = 9CDB1B3310B533F9001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 76";
 		rLen = 0;
-		rLoc = 2985;
+		rLoc = 3230;
 		rType = 0;
 		vrLen = 642;
 		vrLoc = 1318;
@@ -1108,9 +1152,9 @@
 		path = /Users/jmf/lp/iRoc/Classes/iRocTouchView.m;
 		sourceTree = "<absolute>";
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {714, 1960}}";
-			sepNavSelRange = "{2271, 0}";
-			sepNavVisRange = "{1721, 788}";
+			sepNavIntBoundsRect = "{{0, 0}, {714, 2114}}";
+			sepNavSelRange = "{1864, 0}";
+			sepNavVisRange = "{1721, 790}";
 		};
 	};
 	9CDB1BFE10B54CAA001442F1 /* iRocViewController.m */ = {
@@ -1155,7 +1199,7 @@
 		fRef = 9CDB1B3310B533F9001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 76";
 		rLen = 0;
-		rLoc = 2985;
+		rLoc = 3230;
 		rType = 0;
 		vrLen = 640;
 		vrLoc = 1318;
@@ -1245,7 +1289,7 @@
 		fRef = 9CDB1B3310B533F9001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 76";
 		rLen = 0;
-		rLoc = 2985;
+		rLoc = 3230;
 		rType = 0;
 		vrLen = 577;
 		vrLoc = 142;
@@ -1285,7 +1329,7 @@
 		fRef = 9CDB1B3310B533F9001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 73";
 		rLen = 63;
-		rLoc = 2894;
+		rLoc = 3139;
 		rType = 0;
 		vrLen = 761;
 		vrLoc = 1002;
@@ -1315,7 +1359,7 @@
 		fRef = 9CDB1B3310B533F9001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 73";
 		rLen = 63;
-		rLoc = 2894;
+		rLoc = 3139;
 		rType = 0;
 		vrLen = 759;
 		vrLoc = 1004;
@@ -1335,7 +1379,7 @@
 		fRef = 9CDB1B3310B533F9001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 75";
 		rLen = 0;
-		rLoc = 2985;
+		rLoc = 3230;
 		rType = 0;
 		vrLen = 844;
 		vrLoc = 647;
@@ -1385,7 +1429,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 130";
 		rLen = 0;
-		rLoc = 3561;
+		rLoc = 3806;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 2151;
@@ -1435,7 +1479,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 116";
 		rLen = 0;
-		rLoc = 3561;
+		rLoc = 3806;
 		rType = 0;
 		vrLen = 465;
 		vrLoc = 1686;
@@ -1479,7 +1523,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 41";
 		rLen = 0;
-		rLoc = 2275;
+		rLoc = 2520;
 		rType = 0;
 		vrLen = 763;
 		vrLoc = 398;
@@ -1509,7 +1553,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 102";
 		rLen = 0;
-		rLoc = 3561;
+		rLoc = 3806;
 		rType = 0;
 		vrLen = 643;
 		vrLoc = 0;
@@ -1609,7 +1653,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 108";
 		rLen = 0;
-		rLoc = 3509;
+		rLoc = 3754;
 		rType = 0;
 		vrLen = 402;
 		vrLoc = 1749;
@@ -1629,7 +1673,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 97";
 		rLen = 0;
-		rLoc = 3503;
+		rLoc = 3748;
 		rType = 0;
 		vrLen = 568;
 		vrLoc = 205;
@@ -1649,7 +1693,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 33";
 		rLen = 0;
-		rLoc = 1870;
+		rLoc = 1871;
 		rType = 0;
 		vrLen = 508;
 		vrLoc = 0;
@@ -1669,7 +1713,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 38";
 		rLen = 0;
-		rLoc = 2273;
+		rLoc = 2518;
 		rType = 0;
 		vrLen = 541;
 		vrLoc = 35;
@@ -1689,7 +1733,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 38";
 		rLen = 0;
-		rLoc = 1918;
+		rLoc = 1919;
 		rType = 0;
 		vrLen = 784;
 		vrLoc = 305;
@@ -1814,7 +1858,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 105";
 		rLen = 0;
-		rLoc = 3533;
+		rLoc = 3778;
 		rType = 0;
 		vrLen = 478;
 		vrLoc = 0;
@@ -1978,7 +2022,7 @@
 		fRef = 9CDB1BFC10B54CA5001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 78";
 		rLen = 0;
-		rLoc = 1918;
+		rLoc = 1919;
 		rType = 0;
 		vrLen = 765;
 		vrLoc = 0;
@@ -1998,7 +2042,7 @@
 		fRef = 9CDB1DCC10B58C66001442F1 /* iRocTouchView.m */;
 		name = "iRocTouchView.m: 82";
 		rLen = 0;
-		rLoc = 1918;
+		rLoc = 1919;
 		rType = 0;
 		vrLen = 686;
 		vrLoc = 0;

@@ -69,7 +69,7 @@ void CGContextAddRoundedRect (CGContextRef c, CGRect rect, int corner_radius) {
 	
 	// Bar
 	CGContextSetRGBFillColor(context, 0, 0, 0, 1); 
-	rectVel = CGRectMake(1, 55, 260, 10);
+	rectVel = CGRectMake(10, 55, 260, 10);
 	CGContextFillRect(context, rectVel);
 
 	
@@ -82,6 +82,15 @@ void CGContextAddRoundedRect (CGContextRef c, CGRect rect, int corner_radius) {
 	CGContextSetRGBStrokeColor(context, 0, 0, 0, 1);  
 	CGContextAddRoundedRect(context, CGRectMake(x-20,10,40,100), 5);  
 	CGContextStrokePath(context);  
+	
+	/*
+	CGContextBeginPath(context);
+	CGContextMoveToPoint(context, x+10, 10);
+	CGContextAddLineToPoint(context, x+10, 10);
+	CGContextMoveToPoint(context, x+10, 55);
+	CGContextAddLineToPoint(context, x+10, 55);
+	CGContextClosePath(context);
+	*/
 	
 	}
 
