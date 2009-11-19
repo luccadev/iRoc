@@ -47,6 +47,7 @@ BOOL isConnected = FALSE;
 			}
 
 	}
+	return TRUE;
 
 }
 
