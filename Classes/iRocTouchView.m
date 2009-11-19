@@ -11,40 +11,6 @@
 
 @implementation iRocTouchView
 
-- (void)setPathToRoundedRect:(CGRect)rect forInset:(NSUInteger)inset inContext:(CGContextRef)context
-{
-	// Experimentally determined
-	static NSUInteger cornerRadius = 10;
-	
-	// Unpack size for compactness, find minimum dimension
-	CGFloat w = rect.size.width;
-	CGFloat h = rect.size.height;
-	CGFloat m = w<h?w:h;
-	
-	// Bounds
-	CGFloat b = rect.origin.y;
-	CGFloat t = b + h;
-	CGFloat l = rect.origin.x;
-	CGFloat r = l + w;
-	CGFloat d = (inset<cornerRadius)?(cornerRadius-inset):0;
-	
-	// Special case: Degenerate rectangles abort this method
-	if (m <= 0) return;
-	
-	// Limit radius to 1/2 of the rectangle's shortest axis
-	d = (d>0.5*m)?(0.5*m):d;
-	
-	// Define a CW path in the CG co-ordinate system (origin at LL)
-	CGContextBeginPath(context);
-	CGContextMoveToPoint(context, (l+r)/2, t);		// Begin at TDC
-	CGContextAddArcToPoint(context, r, t, r, b, d);	// UR corner
-	CGContextAddArcToPoint(context, r, b, l, b, d);	// LR corner
-	CGContextAddArcToPoint(context, l, b, l, t, d);	// LL corner
-	CGContextAddArcToPoint(context, l, t, r, t, d);	// UL corner
-	CGContextClosePath(context);					// End at TDC
-}
-
-
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
        
