@@ -17,9 +17,11 @@
 		28D7ACF80DDB3853001CB0EB /* iRocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* iRocViewController.m */; };
 		9C00EAC610B3C5820098BA59 /* IRocConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C00EAC510B3C5820098BA59 /* IRocConnector.m */; };
 		9C00EE6210B41B490098BA59 /* thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C00EE6110B41B490098BA59 /* thumb.png */; };
-		9C00EE6C10B41D790098BA59 /* LenientUISlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C00EE6B10B41D790098BA59 /* LenientUISlider.m */; };
-		9C00EE7110B41EA60098BA59 /* IRocSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C00EE7010B41EA60098BA59 /* IRocSlider.m */; };
 		9C891DE710B44289000014D1 /* SwitchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C891DE610B44289000014D1 /* SwitchView.xib */; };
+		9CDB1B3410B533F9001442F1 /* iRocTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDB1B3310B533F9001442F1 /* iRocTouchView.m */; };
+		9CDB1BE610B54843001442F1 /* iRocView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDB1BE510B54843001442F1 /* iRocView.m */; };
+		9CDB1D5910B57C11001442F1 /* donedown.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CDB1D5710B57C11001442F1 /* donedown.png */; };
+		9CDB1D5A10B57C11001442F1 /* doneup.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CDB1D5810B57C11001442F1 /* doneup.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,11 +41,13 @@
 		9C00EAC410B3C5820098BA59 /* IRocConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IRocConnector.h; path = ../IRocConnector.h; sourceTree = "<group>"; };
 		9C00EAC510B3C5820098BA59 /* IRocConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IRocConnector.m; path = ../IRocConnector.m; sourceTree = "<group>"; };
 		9C00EE6110B41B490098BA59 /* thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb.png; sourceTree = "<group>"; };
-		9C00EE6A10B41D790098BA59 /* LenientUISlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LenientUISlider.h; sourceTree = "<group>"; };
-		9C00EE6B10B41D790098BA59 /* LenientUISlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LenientUISlider.m; sourceTree = "<group>"; };
-		9C00EE6F10B41EA60098BA59 /* IRocSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRocSlider.h; sourceTree = "<group>"; };
-		9C00EE7010B41EA60098BA59 /* IRocSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRocSlider.m; sourceTree = "<group>"; };
 		9C891DE610B44289000014D1 /* SwitchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchView.xib; sourceTree = "<group>"; };
+		9CDB1B3210B533F9001442F1 /* iRocTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocTouchView.h; sourceTree = "<group>"; };
+		9CDB1B3310B533F9001442F1 /* iRocTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocTouchView.m; sourceTree = "<group>"; };
+		9CDB1BE410B54843001442F1 /* iRocView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocView.h; sourceTree = "<group>"; };
+		9CDB1BE510B54843001442F1 /* iRocView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocView.m; sourceTree = "<group>"; };
+		9CDB1D5710B57C11001442F1 /* donedown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = donedown.png; sourceTree = "<group>"; };
+		9CDB1D5810B57C11001442F1 /* doneup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doneup.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,10 +73,10 @@
 				1D3623250D0F684500981E51 /* iRocAppDelegate.m */,
 				28D7ACF60DDB3853001CB0EB /* iRocViewController.h */,
 				28D7ACF70DDB3853001CB0EB /* iRocViewController.m */,
-				9C00EE6A10B41D790098BA59 /* LenientUISlider.h */,
-				9C00EE6B10B41D790098BA59 /* LenientUISlider.m */,
-				9C00EE6F10B41EA60098BA59 /* IRocSlider.h */,
-				9C00EE7010B41EA60098BA59 /* IRocSlider.m */,
+				9CDB1B3210B533F9001442F1 /* iRocTouchView.h */,
+				9CDB1B3310B533F9001442F1 /* iRocTouchView.m */,
+				9CDB1BE410B54843001442F1 /* iRocView.h */,
+				9CDB1BE510B54843001442F1 /* iRocView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -109,6 +113,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9CDB1D5710B57C11001442F1 /* donedown.png */,
+				9CDB1D5810B57C11001442F1 /* doneup.png */,
 				9C00EE6110B41B490098BA59 /* thumb.png */,
 				2899E5210DE3E06400AC0155 /* iRocViewController.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
@@ -174,6 +180,8 @@
 				2899E5220DE3E06400AC0155 /* iRocViewController.xib in Resources */,
 				9C00EE6210B41B490098BA59 /* thumb.png in Resources */,
 				9C891DE710B44289000014D1 /* SwitchView.xib in Resources */,
+				9CDB1D5910B57C11001442F1 /* donedown.png in Resources */,
+				9CDB1D5A10B57C11001442F1 /* doneup.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,8 +196,8 @@
 				1D3623260D0F684500981E51 /* iRocAppDelegate.m in Sources */,
 				28D7ACF80DDB3853001CB0EB /* iRocViewController.m in Sources */,
 				9C00EAC610B3C5820098BA59 /* IRocConnector.m in Sources */,
-				9C00EE6C10B41D790098BA59 /* LenientUISlider.m in Sources */,
-				9C00EE7110B41EA60098BA59 /* IRocSlider.m in Sources */,
+				9CDB1B3410B533F9001442F1 /* iRocTouchView.m in Sources */,
+				9CDB1BE610B54843001442F1 /* iRocView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

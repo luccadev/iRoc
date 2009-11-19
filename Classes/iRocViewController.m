@@ -5,34 +5,17 @@
 //  Created by Jean-Michel Fischer on 17.11.09.
 //  Copyright __MyCompanyName__ 2009. All rights reserved.
 //
-
 #import "iRocViewController.h"
 
 @implementation iRocViewController
 
-@synthesize button; 
-@synthesize buttonAutoOff; 
 @synthesize buttonDir; 
 @synthesize slider; 
-@synthesize messageLabel;
 @synthesize textfieldLoc;
+@synthesize slideView;
 
 IRocConnector *rrconnection;
 NSString * stringDir; 
-
-- (IBAction) buttonClicked:(id) sender { 
-
-	[rrconnection sendMessage:@"auto" message:@"<auto cmd=\"on\"/>"];
-	
-	[self setLabel:@"Auto ON"];
-}
-
-- (IBAction) buttonAutoOffClicked:(id) sender { 
-	
-	[rrconnection sendMessage:@"auto" message:@"<auto cmd=\"off\"/>"];
-	
-	[self setLabel:@"Auto OFF"];
-}
 
 - (IBAction) buttonDirClicked:(id) sender { 
 	if(dir) {
@@ -45,29 +28,33 @@ NSString * stringDir;
 		stringDir = @"true";
 	}
 	
-	[slider setValue:0];
+	//[slider setValue:0];
 	
 	NSString * stringToSend; 			
-	stringToSend = [NSString stringWithFormat: @"<lc id=\"114\" V=\"0\"  fn=\"true\"  dir=\"%@\"/>", stringDir];
+	stringToSend = [NSString stringWithFormat: @"<lc id=\"%@\" V=\"0\"  fn=\"true\"  dir=\"%@\"/>",[textfieldLoc text], stringDir];
 	[rrconnection sendMessage:@"lc" message:stringToSend];
 }
 
 - (IBAction) sliderMoved:(id) sender { 	
 	
-	NSString * stringToSend; 			
-	stringToSend = [NSString stringWithFormat: @"<lc id=\"114\" V=\"%f\"  fn=\"true\"  dir=\"%@\"/>", [slider value]*100, stringDir];
+	int vVal = [slideView value]*100;
+		
+	if( prevVVal != vVal) {
+		NSString * stringToSend; 			
+		stringToSend = [NSString stringWithFormat: @"<lc id=\"%@\" V=\"%d\"  fn=\"true\"  dir=\"%@\"/>", [textfieldLoc text], vVal, stringDir];
+		NSLog(stringToSend);
+		//[self setLabel:stringToSend];
+		[rrconnection sendMessage:@"lc" message:stringToSend];
+	}
 	
-	[rrconnection sendMessage:@"lc" message:stringToSend];
-	
-	[self setLabel:stringToSend];
-}
+		prevVVal = vVal;
 
-- (void) setLabel:(id) message {
-	[messageLabel setText:message];
 }
 
 - (IBAction) textFieldDone:(id) sender {
+	NSLog(@"Keyboard Done Pressed");
 	
+	[textfieldLoc resignFirstResponder];
 }
 
 
@@ -85,18 +72,28 @@ NSString * stringDir;
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
 }
-*/
+ */
 
 
+- (void)doneButton:(id)sender {
+    NSLog(@"Input: XKJSBCKJBLKJADSV");
+    [textfieldLoc resignFirstResponder];
+}
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	//[slider setThumbImage:[UIImage imageNamed:@"thumb.png"] forState:UIControlStateNormal];
-
+	// Adding a DONE Button to the Numpad:
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+											 selector:@selector(keyboardWillShow:) 
+												 name:UIKeyboardWillShowNotification 
+											   object:nil];	
 	
-	dir = false;
+	
+	
+	prevVVal = 0;
+	dir = true;
 	stringDir = @"true";
 	[buttonDir setTitle:@">" forState:UIControlStateNormal];
 	
@@ -105,6 +102,26 @@ NSString * stringDir;
 	
 }
 
+// Adding the DONE button to the numpad
+- (void)keyboardWillShow:(NSNotification *)note {  
+    // create custom button
+    UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    doneButton.frame = CGRectMake(0, 163, 106, 53);
+    doneButton.adjustsImageWhenHighlighted = NO;
+    [doneButton setImage:[UIImage imageNamed:@"doneup.png"] forState:UIControlStateNormal];
+    [doneButton setImage:[UIImage imageNamed:@"donedown.png"] forState:UIControlStateHighlighted];
+    [doneButton addTarget:self action:@selector(doneButton:) forControlEvents:UIControlEventTouchUpInside];
+	
+    // locate keyboard view
+    UIWindow* tempWindow = [[[UIApplication sharedApplication] windows] objectAtIndex:1];
+    UIView* keyboard;
+    for(int i=0; i<[tempWindow.subviews count]; i++) {
+        keyboard = [tempWindow.subviews objectAtIndex:i];
+        // keyboard view found; add the custom button to it
+        if([[keyboard description] hasPrefix:@"<UIKeyboard"] == YES)
+            [keyboard addSubview:doneButton];
+    }
+}
 
 
 /*
@@ -129,6 +146,7 @@ NSString * stringDir;
 
 
 - (void)dealloc {
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
 }
 

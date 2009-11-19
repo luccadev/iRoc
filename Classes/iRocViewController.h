@@ -9,33 +9,25 @@
 #import <UIKit/UIKit.h>
 
 #import "IRocConnector.h"
+#import "iRocTouchView.h"
 
-@interface iRocViewController : UIViewController {
-	IBOutlet UIButton *button; 
-	IBOutlet UIButton *buttonAutoOff; 
+@interface iRocViewController : UIViewController <UITextFieldDelegate> {
 	IBOutlet UIButton *buttonDir;
-	IBOutlet UILabel  *messageLabel;
 	IBOutlet UISlider *slider;
 	IBOutlet UITextField *textfieldLoc;
+	IBOutlet iRocTouchView *slideView;
 	
 	BOOL dir;
+	int prevVVal;
 }
-
-@property (nonatomic, retain) UIButton *button; 
-@property (nonatomic, retain) UIButton *buttonAutoOff;
 @property (nonatomic, retain) UIButton *buttonDir; 
-@property (nonatomic, retain) UILabel  *messageLabel; 
 @property (nonatomic, retain) UISlider *slider;
 @property (nonatomic, retain) UITextField *textfieldLoc;
+@property (nonatomic, retain) iRocTouchView *slideView;
 
-- (IBAction) buttonClicked:(id) sender; 
-- (IBAction) buttonAutoOffClicked:(id) sender; 
 - (IBAction) buttonDirClicked:(id) sender; 
 - (IBAction) sliderMoved:(id) sender;
 - (IBAction) textFieldDone:(id) sender;
-
-- (void) setLabel:(id) message;
-
 
 @end
 
