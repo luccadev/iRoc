@@ -12,19 +12,22 @@
 @implementation iRocAppDelegate
 
 @synthesize window;
-@synthesize viewController;
+//@synthesize viewController;
+@synthesize tabBarController;
 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
     
     // Override point for customization after app launch    
-    [window addSubview:viewController.view];
-    [window makeKeyAndVisible];
+    //[window addSubview:viewController.view];
+    //[window makeKeyAndVisible];
+	[window addSubview:tabBarController.view];
 }
 
 
 - (void)dealloc {
-    [viewController release];
+    //[viewController release];
+	[tabBarController release];
     [window release];
     [super dealloc];
 }

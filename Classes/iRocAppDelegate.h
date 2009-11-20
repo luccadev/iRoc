@@ -12,11 +12,13 @@
 
 @interface iRocAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
-    iRocViewController *viewController;
+    //iRocViewController *viewController;
+	UITabBarController *tabBarController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet iRocViewController *viewController;
+//@property (nonatomic, retain) IBOutlet iRocViewController *viewController;
+@property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 
 @end
 
