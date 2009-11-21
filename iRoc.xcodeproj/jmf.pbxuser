@@ -44,7 +44,7 @@
 		addToTargets = (
 		);
 		breakpoints = (
-			9C93A9AE10B7FA6D00EB30E7 /* iRocViewController.m:177 */,
+			9C93A9AE10B7FA6D00EB30E7 /* iRocViewController.m:175 */,
 		);
 		codeSenseManager = 9CB6D89310B336D700B0D986 /* Code sense */;
 		executables = (
@@ -481,7 +481,7 @@
 		fRef = 9C93A9AC10B7FA6D00EB30E7 /* iRocViewController.m */;
 		name = "iRocViewController.m: 151";
 		rLen = 0;
-		rLoc = 4875;
+		rLoc = 4693;
 		rType = 0;
 		vrLen = 1041;
 		vrLoc = 4445;
@@ -491,7 +491,7 @@
 		fRef = 9C93A9AC10B7FA6D00EB30E7 /* iRocViewController.m */;
 		name = "iRocViewController.m: 151";
 		rLen = 0;
-		rLoc = 4875;
+		rLoc = 4693;
 		rType = 0;
 		vrLen = 900;
 		vrLoc = 4445;
@@ -501,7 +501,7 @@
 		fRef = 9C93A9AC10B7FA6D00EB30E7 /* iRocViewController.m */;
 		name = "iRocViewController.m: 59";
 		rLen = 0;
-		rLoc = 1984;
+		rLoc = 1800;
 		rType = 0;
 		vrLen = 1025;
 		vrLoc = 1330;
@@ -511,7 +511,7 @@
 		fRef = 9C93A9AC10B7FA6D00EB30E7 /* iRocViewController.m */;
 		name = "iRocViewController.m: 59";
 		rLen = 0;
-		rLoc = 1984;
+		rLoc = 1800;
 		rType = 0;
 		vrLen = 1025;
 		vrLoc = 1330;
@@ -627,7 +627,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {758, 1204}}";
 			sepNavSelRange = "{1371, 0}";
-			sepNavVisRange = "{1014, 913}";
+			sepNavVisRange = "{1017, 948}";
 		};
 	};
 	9C7286BB10B8227C00567A8A /* round.h */ = {
@@ -662,7 +662,7 @@
 		fRef = 9C93A9AC10B7FA6D00EB30E7 /* iRocViewController.m */;
 		name = "iRocViewController.m: 59";
 		rLen = 0;
-		rLoc = 1984;
+		rLoc = 1800;
 		rType = 0;
 		vrLen = 1023;
 		vrLoc = 1332;
@@ -832,7 +832,7 @@
 		fRef = 9C93A9AC10B7FA6D00EB30E7 /* iRocViewController.m */;
 		name = "iRocViewController.m: 59";
 		rLen = 0;
-		rLoc = 1984;
+		rLoc = 1800;
 		rType = 0;
 		vrLen = 1023;
 		vrLoc = 1332;
@@ -1477,7 +1477,7 @@
 			sepNavVisRange = "{1332, 1023}";
 		};
 	};
-	9C93A9AE10B7FA6D00EB30E7 /* iRocViewController.m:177 */ = {
+	9C93A9AE10B7FA6D00EB30E7 /* iRocViewController.m:175 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -1489,8 +1489,8 @@
 		functionName = "-keyboardWillShow:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 177;
-		modificationTime = 280505999.567781;
+		lineNumber = 175;
+		modificationTime = 280506546.352972;
 		state = 2;
 	};
 	9C93A9E510B7FDF800EB30E7 /* PBXTextBookmark */ = {
@@ -1498,7 +1498,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* iRocViewController.m */;
 		name = "iRocViewController.m: 217";
 		rLen = 0;
-		rLoc = 6824;
+		rLoc = 6642;
 		rType = 0;
 		vrLen = 817;
 		vrLoc = 0;
@@ -1548,7 +1548,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* iRocViewController.m */;
 		name = "iRocViewController.m: 165";
 		rLen = 0;
-		rLoc = 5088;
+		rLoc = 4906;
 		rType = 0;
 		vrLen = 822;
 		vrLoc = 0;
@@ -1658,7 +1658,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* iRocViewController.m */;
 		name = "iRocViewController.m: 165";
 		rLen = 0;
-		rLoc = 5087;
+		rLoc = 4905;
 		rType = 0;
 		vrLen = 1205;
 		vrLoc = 4847;
@@ -1698,7 +1698,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* iRocViewController.m */;
 		name = "iRocViewController.m: 38";
 		rLen = 0;
-		rLoc = 1106;
+		rLoc = 922;
 		rType = 0;
 		vrLen = 1012;
 		vrLoc = 363;
@@ -1748,7 +1748,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* iRocViewController.m */;
 		name = "iRocViewController.m: 161";
 		rLen = 0;
-		rLoc = 4979;
+		rLoc = 4797;
 		rType = 0;
 		vrLen = 877;
 		vrLoc = 1652;
@@ -1778,7 +1778,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* iRocViewController.m */;
 		name = "iRocViewController.m: 154";
 		rLen = 0;
-		rLoc = 4875;
+		rLoc = 4693;
 		rType = 0;
 		vrLen = 1073;
 		vrLoc = 3677;
@@ -1788,7 +1788,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* iRocViewController.m */;
 		name = "iRocViewController.m: 154";
 		rLen = 0;
-		rLoc = 4875;
+		rLoc = 4693;
 		rType = 0;
 		vrLen = 1073;
 		vrLoc = 3677;
@@ -1818,7 +1818,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* iRocViewController.m */;
 		name = "iRocViewController.m: 54";
 		rLen = 0;
-		rLoc = 1730;
+		rLoc = 1546;
 		rType = 0;
 		vrLen = 799;
 		vrLoc = 1513;
@@ -1986,7 +1986,7 @@
 		fRef = 9C93A9AC10B7FA6D00EB30E7 /* iRocViewController.m */;
 		name = "iRocViewController.m: 62";
 		rLen = 0;
-		rLoc = 1990;
+		rLoc = 1806;
 		rType = 0;
 		vrLen = 806;
 		vrLoc = 1513;
@@ -1996,7 +1996,7 @@
 		fRef = 9C93A9AC10B7FA6D00EB30E7 /* iRocViewController.m */;
 		name = "iRocViewController.m: 62";
 		rLen = 0;
-		rLoc = 1990;
+		rLoc = 1806;
 		rType = 0;
 		vrLen = 804;
 		vrLoc = 1513;
@@ -2006,7 +2006,7 @@
 		fRef = 9C93A9AC10B7FA6D00EB30E7 /* iRocViewController.m */;
 		name = "iRocViewController.m: 62";
 		rLen = 0;
-		rLoc = 1990;
+		rLoc = 1806;
 		rType = 0;
 		vrLen = 804;
 		vrLoc = 1513;
@@ -2016,7 +2016,7 @@
 		fRef = 9C93A9AC10B7FA6D00EB30E7 /* iRocViewController.m */;
 		name = "iRocViewController.m: 132";
 		rLen = 0;
-		rLoc = 4119;
+		rLoc = 3937;
 		rType = 0;
 		vrLen = 1054;
 		vrLoc = 3797;
@@ -2026,7 +2026,7 @@
 		fRef = 9C93A9AC10B7FA6D00EB30E7 /* iRocViewController.m */;
 		name = "iRocViewController.m: 132";
 		rLen = 0;
-		rLoc = 4147;
+		rLoc = 3965;
 		rType = 0;
 		vrLen = 958;
 		vrLoc = 3797;
@@ -2036,7 +2036,7 @@
 		fRef = 9C93A9AC10B7FA6D00EB30E7 /* iRocViewController.m */;
 		name = "iRocViewController.m: 59";
 		rLen = 0;
-		rLoc = 1990;
+		rLoc = 1806;
 		rType = 0;
 		vrLen = 822;
 		vrLoc = 1536;
@@ -2046,7 +2046,7 @@
 		fRef = 9C93A9AC10B7FA6D00EB30E7 /* iRocViewController.m */;
 		name = "iRocViewController.m: 59";
 		rLen = 0;
-		rLoc = 1990;
+		rLoc = 1806;
 		rType = 0;
 		vrLen = 927;
 		vrLoc = 1319;
@@ -2056,7 +2056,7 @@
 		fRef = 9C93A9AC10B7FA6D00EB30E7 /* iRocViewController.m */;
 		name = "iRocViewController.m: 94";
 		rLen = 0;
-		rLoc = 2923;
+		rLoc = 2739;
 		rType = 0;
 		vrLen = 1181;
 		vrLoc = 2098;
@@ -2066,7 +2066,7 @@
 		fRef = 9C93A9AC10B7FA6D00EB30E7 /* iRocViewController.m */;
 		name = "iRocViewController.m: 94";
 		rLen = 0;
-		rLoc = 3150;
+		rLoc = 2966;
 		rType = 0;
 		vrLen = 1179;
 		vrLoc = 2289;
@@ -2076,7 +2076,7 @@
 		fRef = 9C93A9AC10B7FA6D00EB30E7 /* iRocViewController.m */;
 		name = "iRocViewController.m: 94";
 		rLen = 0;
-		rLoc = 3030;
+		rLoc = 2846;
 		rType = 0;
 		vrLen = 1161;
 		vrLoc = 2390;
@@ -2086,7 +2086,7 @@
 		fRef = 9C93A9AC10B7FA6D00EB30E7 /* iRocViewController.m */;
 		name = "iRocViewController.m: 94";
 		rLen = 0;
-		rLoc = 3150;
+		rLoc = 2966;
 		rType = 0;
 		vrLen = 1309;
 		vrLoc = 2319;
@@ -2143,7 +2143,7 @@
 		fRef = 9CEAF19D10B80D8D0030548B /* iRocViewController.m */;
 		name = "iRocViewController.m: 151";
 		rLen = 0;
-		rLoc = 4875;
+		rLoc = 4693;
 		rType = 0;
 		vrLen = 1112;
 		vrLoc = 4473;
@@ -2153,7 +2153,7 @@
 		fRef = 9CEAF19D10B80D8D0030548B /* iRocViewController.m */;
 		name = "iRocViewController.m: 151";
 		rLen = 0;
-		rLoc = 4875;
+		rLoc = 4693;
 		rType = 0;
 		vrLen = 921;
 		vrLoc = 4473;

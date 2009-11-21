@@ -29,13 +29,11 @@
 		stringDir = @"true";
 	}
 	
-	AudioServicesPlaySystemSound (self.soundFileObject);
+	//AudioServicesPlaySystemSound (self.soundFileObject);
 	
 	// TODO:
 	//[slider setValue:0];
 	
-	//[[NSString alloc] initWithString: @"aString"];  			
-	//stringToSend = [NSString stringWithFormat: @"<lc id=\"%@\" V=\"0\"  fn=\"true\"  dir=\"%@\"/>",[textfieldLoc text], stringDir];
 	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc id=\"%@\" V=\"0\"  fn=\"%@\"  dir=\"%@\"/>",[textfieldLoc text],fnStates[0]?@"true":@"false", stringDir]] ];
 }
 
@@ -90,7 +88,7 @@
 	[rrconnection sendMessage:@"fn" message:stringToSend];
 	fnStates[fnIndex]?[((UIButton *)[functionButtons objectAtIndex:fnIndex]) setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal]:[((UIButton *)[functionButtons objectAtIndex:fnIndex]) setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];	
 	fnStates[fnIndex] = !fnStates[fnIndex];
-	AudioServicesPlaySystemSound (self.soundFileObject);
+	//AudioServicesPlaySystemSound (self.soundFileObject);
 }
 
 - (IBAction) textFieldDone:(id) sender {
