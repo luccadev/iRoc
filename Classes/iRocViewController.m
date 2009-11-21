@@ -13,6 +13,8 @@
 @synthesize slider; 
 @synthesize textfieldLoc;
 @synthesize slideView;
+@synthesize soundFileURLRef;
+@synthesize soundFileObject;
 
 IRocConnector *rrconnection;
 NSString * stringDir; 
@@ -28,6 +30,9 @@ NSString * stringDir;
 		stringDir = @"true";
 	}
 	
+	AudioServicesPlaySystemSound (self.soundFileObject);
+	
+	// TODO:
 	//[slider setValue:0];
 	
 	NSString * stringToSend; 			
@@ -76,6 +81,7 @@ NSString * stringDir;
 
 
 - (void)doneButton:(id)sender {
+	AudioServicesPlaySystemSound (self.soundFileObject);
     NSLog(@"Input: XKJSBCKJBLKJADSV");
     [textfieldLoc resignFirstResponder];
 }
@@ -90,6 +96,24 @@ NSString * stringDir;
 												 name:UIKeyboardWillShowNotification 
 											   object:nil];	
 	
+	//Sound
+	// Get the main bundle for the app
+	CFBundleRef mainBundle;
+	mainBundle = CFBundleGetMainBundle ();
+	
+	// Get the URL to the sound file to play
+	soundFileURLRef  =	CFBundleCopyResourceURL (
+												 mainBundle,
+												 CFSTR ("tap"),
+												 CFSTR ("aif"),
+												 NULL
+												 );
+	
+	// Create a system sound object representing the sound file
+	AudioServicesCreateSystemSoundID (
+									  soundFileURLRef,
+									  &soundFileObject
+									  );
 	
 	
 	prevVVal = 0;

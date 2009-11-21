@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="15"/>
+			<integer value="18"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -35,25 +35,25 @@
 			<object class="IBUITabBarController" id="621081161">
 				<object class="IBUISimulatedTabBarMetrics" key="IBUISimulatedBottomBarMetrics"/>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
-				<object class="IBUIViewController" key="IBUISelectedViewController" id="943309135">
-					<object class="IBUITabBarItem" key="IBUITabBarItem" id="15112564">
-						<string key="IBUITitle">Lok</string>
+				<object class="IBUIViewController" key="IBUISelectedViewController" id="543507587">
+					<object class="IBUITabBarItem" key="IBUITabBarItem" id="893544348">
+						<string key="IBUITitle">Item 2</string>
 						<reference key="IBUITabBar"/>
 					</object>
 					<reference key="IBUIParentViewController" ref="621081161"/>
-					<string key="IBUINibName">iRocViewController</string>
-					<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 				</object>
 				<object class="NSMutableArray" key="IBUIViewControllers">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<reference ref="943309135"/>
-					<object class="IBUIViewController" id="543507587">
-						<object class="IBUITabBarItem" key="IBUITabBarItem" id="893544348">
-							<string key="IBUITitle">Item 2</string>
+					<object class="IBUIViewController" id="943309135">
+						<object class="IBUITabBarItem" key="IBUITabBarItem" id="15112564">
+							<string key="IBUITitle">Lok</string>
 							<reference key="IBUITabBar"/>
 						</object>
 						<reference key="IBUIParentViewController" ref="621081161"/>
+						<string key="IBUINibName">iRocViewController</string>
+						<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 					</object>
+					<reference ref="543507587"/>
 				</object>
 				<object class="IBUITabBar" key="IBUITabBar" id="591515149">
 					<nil key="NSNextResponder"/>
@@ -214,7 +214,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>{{423, 276}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>{{420, 276}, {320, 480}}</string>
+					<string>{{427, 276}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

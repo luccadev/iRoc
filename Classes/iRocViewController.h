@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#include <AudioToolbox/AudioToolbox.h>
 
 #import "IRocConnector.h"
 #import "iRocTouchView.h"
@@ -17,6 +18,9 @@
 	IBOutlet UITextField *textfieldLoc;
 	IBOutlet iRocTouchView *slideView;
 	
+	CFURLRef		soundFileURLRef;
+	SystemSoundID	soundFileObject;
+		
 	BOOL dir;
 	int prevVVal;
 }
@@ -24,6 +28,9 @@
 @property (nonatomic, retain) UISlider *slider;
 @property (nonatomic, retain) UITextField *textfieldLoc;
 @property (nonatomic, retain) iRocTouchView *slideView;
+
+@property (readwrite)	CFURLRef		soundFileURLRef;
+@property (readonly)	SystemSoundID	soundFileObject;
 
 - (IBAction) buttonDirClicked:(id) sender; 
 - (IBAction) sliderMoved:(id) sender;
