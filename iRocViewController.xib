@@ -205,7 +205,7 @@ eHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</bytes>
 					<object class="IBUIView" id="568079828">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 286}, {280, 120}}</string>
+						<string key="NSFrame">{{0, 286}, {320, 120}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="IBUIBackgroundColor" ref="434824021"/>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
