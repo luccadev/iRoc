@@ -74,16 +74,7 @@ BOOL isConnected = FALSE;
 			marker += actuallyWritten;
 		}
 	}
-	
-	
-	/*
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connected!" message:stringToSend
-												   delegate:self cancelButtonTitle:@"OK" 
-										  otherButtonTitles: nil]; 
-	[alert show]; 
-	[alert release]; 
-	 */
-	 
+	NSLog([NSString stringWithFormat: @"##%@##"], stringToSend);		
 	return TRUE;
 }
 
@@ -111,48 +102,25 @@ BOOL isConnected = FALSE;
 
 
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode {
-	
     switch(eventCode) {
-			
         case NSStreamEventHasBytesAvailable:
-			
         {
-			
             if(!_data) {
-				
                 _data = [[NSMutableData data] retain];
-				
             }
-			 
-			
             uint8_t buf[1024];
-			
             unsigned int len = 0;
-			
             len = [(NSInputStream *)stream read:buf maxLength:1024];
-			
             if(len) {
-				
                 [_data appendBytes:(const void *)buf length:len];
 				
                 // bytesRead is an instance variable of type NSNumber.
-				
                 [bytesRead setIntValue:[bytesRead intValue]+len];
-				
             } else {
-				
                 NSLog(@"no buffer!");
-				
             }
-			
             break;
-			
         }
-			
-			// continued
-			
-			
-			
 	}
 }
 

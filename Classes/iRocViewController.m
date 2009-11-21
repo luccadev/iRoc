@@ -9,12 +9,13 @@
 
 @implementation iRocViewController
 
-@synthesize buttonDir; 
+@synthesize buttonDir, buttonF0, buttonF1, buttonF2, buttonF3, buttonF4, buttonF5, buttonF6, buttonF7, buttonF8, buttonFn; 
 @synthesize slider; 
 @synthesize textfieldLoc;
 @synthesize slideView;
 @synthesize soundFileURLRef;
 @synthesize soundFileObject;
+//@synthesize functionButtons;
 
 IRocConnector *rrconnection;
 NSString * stringDir; 
@@ -51,9 +52,51 @@ NSString * stringDir;
 		//[self setLabel:stringToSend];
 		[rrconnection sendMessage:@"lc" message:stringToSend];
 	}
-	
 		prevVVal = vVal;
+}
 
+
+- (IBAction) buttonF0Clicked:(id) sender {	
+	[self prepareFNCommand:0];
+	
+	((UIButton *)[functionButtons objectAtIndex:0]);
+	
+	
+	//fnStates[0]?[buttonF0 setTitleColor:fnButtonOnColor forState:UIControlStateNormal]:[buttonF0 setTitleColor:fnButtonOffColor forState:UIControlStateNormal];	
+}
+- (IBAction) buttonF1Clicked:(id) sender {
+	[self prepareFNCommand:1];
+}
+- (IBAction) buttonF2Clicked:(id) sender {
+	[self prepareFNCommand:2];
+}
+- (IBAction) buttonF3Clicked:(id) sender {
+	[self prepareFNCommand:3];
+}
+- (IBAction) buttonF4Clicked:(id) sender {
+	[self prepareFNCommand:4];
+}
+- (IBAction) buttonF5Clicked:(id) sender {
+	[self prepareFNCommand:5];
+}
+- (IBAction) buttonF6Clicked:(id) sender {
+	[self prepareFNCommand:6];
+}
+- (IBAction) buttonF7Clicked:(id) sender {
+	[self prepareFNCommand:7];
+}
+- (IBAction) buttonF8Clicked:(id) sender {
+	[self prepareFNCommand:8];
+}
+- (IBAction) buttonFnClicked:(id) sender {
+}
+
+- (void) prepareFNCommand:(int) fnIndex {
+	NSString * stringToSend = [NSString stringWithFormat: @"<fn group=\"1\" id=\"%@\" f%d=\"%@\"/>", [textfieldLoc text], fnIndex, fnStates[fnIndex]?strTrue:strFalse ];
+	[rrconnection sendMessage:@"fn" message:stringToSend];
+	//fnStates[fnIndex]?[((UIButton *)[functionButtons objectAtIndex:fnIndex]) setTitleColor:fnButtonOnColor forState:UIControlStateNormal]:[((UIButton *)[functionButtons objectAtIndex:fnIndex]) setTitleColor:fnButtonOffColor forState:UIControlStateNormal];	
+	fnStates[fnIndex] = !fnStates[fnIndex];
+	AudioServicesPlaySystemSound (self.soundFileObject);
 }
 
 - (IBAction) textFieldDone:(id) sender {
@@ -90,6 +133,8 @@ NSString * stringDir;
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
+	//functionButtons = [[NSArray alloc] arrayWithObjects:buttonF0,buttonF1,buttonF2,buttonF3,buttonF4,buttonF5,buttonF6,buttonF7,buttonF8,nil];
+	
 	// Adding a DONE Button to the Numpad:
 	[[NSNotificationCenter defaultCenter] addObserver:self 
 											 selector:@selector(keyboardWillShow:) 
@@ -102,23 +147,22 @@ NSString * stringDir;
 	mainBundle = CFBundleGetMainBundle ();
 	
 	// Get the URL to the sound file to play
-	soundFileURLRef  =	CFBundleCopyResourceURL (
-												 mainBundle,
-												 CFSTR ("tap"),
-												 CFSTR ("aif"),
-												 NULL
-												 );
+	soundFileURLRef  =	CFBundleCopyResourceURL ( mainBundle, CFSTR ("tap"), CFSTR ("aif"), NULL );
 	
 	// Create a system sound object representing the sound file
-	AudioServicesCreateSystemSoundID (
-									  soundFileURLRef,
-									  &soundFileObject
-									  );
+	AudioServicesCreateSystemSoundID ( soundFileURLRef, &soundFileObject);
 	
+	strTrue = @"true";
+	strFalse = @"false";
+	fnButtonOnColor = [UIColor orangeColor];
+	fnButtonOffColor = [UIColor blackColor];
+	
+	for(int i = 0; i < 9; i++)
+		fnStates[i] = false; 
 	
 	prevVVal = 0;
 	dir = true;
-	stringDir = @"true";
+	stringDir = strTrue;
 	[buttonDir setTitle:@">" forState:UIControlStateNormal];
 	
 	rrconnection = [[IRocConnector alloc] init];
@@ -171,6 +215,7 @@ NSString * stringDir;
 
 - (void)dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	[functionButtons dealloc];
     [super dealloc];
 }
 
