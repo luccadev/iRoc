@@ -36,7 +36,7 @@
 	
 	//[[NSString alloc] initWithString: @"aString"];  			
 	//stringToSend = [NSString stringWithFormat: @"<lc id=\"%@\" V=\"0\"  fn=\"true\"  dir=\"%@\"/>",[textfieldLoc text], stringDir];
-	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc id=\"%@\" V=\"0\"  fn=\"true\"  dir=\"%@\"/>",[textfieldLoc text], stringDir]] ];
+	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc id=\"%@\" V=\"0\"  fn=\"%@\"  dir=\"%@\"/>",[textfieldLoc text],fnStates[0]?@"true":@"false", stringDir]] ];
 }
 
 - (IBAction) sliderMoved:(id) sender { 	
@@ -45,7 +45,7 @@
 		
 	if( prevVVal != vVal) {
 		NSString * stringToSend; 			
-		stringToSend = [NSString stringWithFormat: @"<lc id=\"%@\" V=\"%d\"  fn=\"true\"  dir=\"%@\"/>", [textfieldLoc text], vVal, stringDir];
+		stringToSend = [NSString stringWithFormat: @"<lc id=\"%@\" V=\"%d\"  fn=\"%@\"  dir=\"%@\"/>", [textfieldLoc text], vVal, fnStates[0]?@"true":@"false", stringDir];
 		NSLog(stringToSend);
 		//[self setLabel:stringToSend];
 		[rrconnection sendMessage:@"lc" message:stringToSend];
@@ -56,11 +56,7 @@
 
 - (IBAction) buttonF0Clicked:(id) sender {	
 	[self prepareFNCommand:0];
-	
-	//((UIButton *)[functionButtons objectAtIndex:0]);
-	
-	
-	//fnStates[0]?[buttonF0 setTitleColor:[UIColor greyColor] forState:UIControlStateNormal]:[buttonF0 setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];	
+	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc id=\"%@\" fn=\"%@\"/>",[textfieldLoc text],fnStates[0]?@"true":@"false"]] ];
 }
 - (IBAction) buttonF1Clicked:(id) sender {
 	[self prepareFNCommand:1];

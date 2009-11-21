@@ -22,6 +22,7 @@
 		9C6FC84310B7CB0B009FD6FE /* tick.caf in Resources */ = {isa = PBXBuildFile; fileRef = 9C6FC84210B7CB0B009FD6FE /* tick.caf */; };
 		9C6FC89110B7CE8F009FD6FE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6FC89010B7CE8F009FD6FE /* AudioToolbox.framework */; };
 		9C6FC8AF10B7CF05009FD6FE /* tap.aif in Resources */ = {isa = PBXBuildFile; fileRef = 9C6FC8AE10B7CF05009FD6FE /* tap.aif */; };
+		9C72869310B81A4200567A8A /* iRocButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C72869210B81A4200567A8A /* iRocButton.m */; };
 		9C891DE710B44289000014D1 /* SwitchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C891DE610B44289000014D1 /* SwitchView.xib */; };
 		9CDB1B3410B533F9001442F1 /* iRocTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDB1B3310B533F9001442F1 /* iRocTouchView.m */; };
 		9CDB1BE610B54843001442F1 /* iRocView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDB1BE510B54843001442F1 /* iRocView.m */; };
@@ -52,6 +53,9 @@
 		9C6FC84210B7CB0B009FD6FE /* tick.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tick.caf; sourceTree = "<group>"; };
 		9C6FC89010B7CE8F009FD6FE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
 		9C6FC8AE10B7CF05009FD6FE /* tap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = tap.aif; sourceTree = "<group>"; };
+		9C72869110B81A4200567A8A /* iRocButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocButton.h; sourceTree = "<group>"; };
+		9C72869210B81A4200567A8A /* iRocButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocButton.m; sourceTree = "<group>"; };
+		9C7286BB10B8227C00567A8A /* round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = round.h; sourceTree = "<group>"; };
 		9C891DE610B44289000014D1 /* SwitchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchView.xib; sourceTree = "<group>"; };
 		9CDB1B3210B533F9001442F1 /* iRocTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocTouchView.h; sourceTree = "<group>"; };
 		9CDB1B3310B533F9001442F1 /* iRocTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocTouchView.m; sourceTree = "<group>"; };
@@ -91,6 +95,9 @@
 				9CDB1B3310B533F9001442F1 /* iRocTouchView.m */,
 				9CDB1BE410B54843001442F1 /* iRocView.h */,
 				9CDB1BE510B54843001442F1 /* iRocView.m */,
+				9C72869110B81A4200567A8A /* iRocButton.h */,
+				9C72869210B81A4200567A8A /* iRocButton.m */,
+				9C7286BB10B8227C00567A8A /* round.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -220,6 +227,7 @@
 				9CDB1B3410B533F9001442F1 /* iRocTouchView.m in Sources */,
 				9CDB1BE610B54843001442F1 /* iRocView.m in Sources */,
 				9C6FC7F410B72538009FD6FE /* ConnectController.m in Sources */,
+				9C72869310B81A4200567A8A /* iRocButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

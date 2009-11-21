@@ -37,7 +37,7 @@
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 				<object class="IBUIViewController" key="IBUISelectedViewController" id="543507587">
 					<object class="IBUITabBarItem" key="IBUITabBarItem" id="893544348">
-						<string key="IBUITitle">Item 2</string>
+						<string key="IBUITitle">Settings</string>
 						<reference key="IBUITabBar"/>
 					</object>
 					<reference key="IBUIParentViewController" ref="621081161"/>
@@ -214,7 +214,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>{{423, 276}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>{{427, 276}, {320, 480}}</string>
+					<string>{{341, 276}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -293,11 +293,31 @@
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>buttonDirClicked:</string>
+							<string>buttonF0Clicked:</string>
+							<string>buttonF1Clicked:</string>
+							<string>buttonF2Clicked:</string>
+							<string>buttonF3Clicked:</string>
+							<string>buttonF4Clicked:</string>
+							<string>buttonF5Clicked:</string>
+							<string>buttonF6Clicked:</string>
+							<string>buttonF7Clicked:</string>
+							<string>buttonF8Clicked:</string>
+							<string>buttonFnClicked:</string>
 							<string>sliderMoved:</string>
 							<string>textFieldDone:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -308,12 +328,32 @@
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>buttonDir</string>
+							<string>buttonF0</string>
+							<string>buttonF1</string>
+							<string>buttonF2</string>
+							<string>buttonF3</string>
+							<string>buttonF4</string>
+							<string>buttonF5</string>
+							<string>buttonF6</string>
+							<string>buttonF7</string>
+							<string>buttonF8</string>
+							<string>buttonFn</string>
 							<string>slideView</string>
 							<string>slider</string>
 							<string>textfieldLoc</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UIButton</string>
+							<string>UIButton</string>
+							<string>UIButton</string>
+							<string>UIButton</string>
+							<string>UIButton</string>
+							<string>UIButton</string>
+							<string>UIButton</string>
+							<string>UIButton</string>
+							<string>UIButton</string>
+							<string>UIButton</string>
 							<string>UIButton</string>
 							<string>iRocTouchView</string>
 							<string>UISlider</string>
