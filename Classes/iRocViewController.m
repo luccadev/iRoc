@@ -17,9 +17,6 @@
 @synthesize soundFileObject;
 //@synthesize functionButtons;
 
-IRocConnector *rrconnection;
-NSString * stringDir; 
-
 - (IBAction) buttonDirClicked:(id) sender { 
 	if(dir) {
 		[buttonDir setTitle:@"<" forState:UIControlStateNormal];
@@ -36,9 +33,9 @@ NSString * stringDir;
 	// TODO:
 	//[slider setValue:0];
 	
-	NSString * stringToSend; 			
-	stringToSend = [NSString stringWithFormat: @"<lc id=\"%@\" V=\"0\"  fn=\"true\"  dir=\"%@\"/>",[textfieldLoc text], stringDir];
-	[rrconnection sendMessage:@"lc" message:stringToSend];
+	//[[NSString alloc] initWithString: @"aString"];  			
+	//stringToSend = [NSString stringWithFormat: @"<lc id=\"%@\" V=\"0\"  fn=\"true\"  dir=\"%@\"/>",[textfieldLoc text], stringDir];
+	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc id=\"%@\" V=\"0\"  fn=\"true\"  dir=\"%@\"/>",[textfieldLoc text], stringDir]] ];
 }
 
 - (IBAction) sliderMoved:(id) sender { 	
@@ -59,7 +56,7 @@ NSString * stringDir;
 - (IBAction) buttonF0Clicked:(id) sender {	
 	[self prepareFNCommand:0];
 	
-	((UIButton *)[functionButtons objectAtIndex:0]);
+	//((UIButton *)[functionButtons objectAtIndex:0]);
 	
 	
 	//fnStates[0]?[buttonF0 setTitleColor:fnButtonOnColor forState:UIControlStateNormal]:[buttonF0 setTitleColor:fnButtonOffColor forState:UIControlStateNormal];	
@@ -92,7 +89,7 @@ NSString * stringDir;
 }
 
 - (void) prepareFNCommand:(int) fnIndex {
-	NSString * stringToSend = [NSString stringWithFormat: @"<fn group=\"1\" id=\"%@\" f%d=\"%@\"/>", [textfieldLoc text], fnIndex, fnStates[fnIndex]?strTrue:strFalse ];
+	NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<fn group=\"1\" id=\"%@\" f%d=\"%@\"/>", [textfieldLoc text], fnIndex, fnStates[fnIndex]?@"true":@"false" ] ];
 	[rrconnection sendMessage:@"fn" message:stringToSend];
 	//fnStates[fnIndex]?[((UIButton *)[functionButtons objectAtIndex:fnIndex]) setTitleColor:fnButtonOnColor forState:UIControlStateNormal]:[((UIButton *)[functionButtons objectAtIndex:fnIndex]) setTitleColor:fnButtonOffColor forState:UIControlStateNormal];	
 	fnStates[fnIndex] = !fnStates[fnIndex];
@@ -125,7 +122,6 @@ NSString * stringDir;
 
 - (void)doneButton:(id)sender {
 	AudioServicesPlaySystemSound (self.soundFileObject);
-    NSLog(@"Input: XKJSBCKJBLKJADSV");
     [textfieldLoc resignFirstResponder];
 }
 
@@ -152,17 +148,17 @@ NSString * stringDir;
 	// Create a system sound object representing the sound file
 	AudioServicesCreateSystemSoundID ( soundFileURLRef, &soundFileObject);
 	
-	strTrue = @"true";
-	strFalse = @"false";
-	fnButtonOnColor = [UIColor orangeColor];
-	fnButtonOffColor = [UIColor blackColor];
+	//strTrue = @"true";
+	//strFalse = @"false";
+	//fnButtonOnColor = [[UIColor alloc] orangeColor];
+	//fnButtonOffColor = [[UIColor alloc] blackColor];
 	
 	for(int i = 0; i < 9; i++)
 		fnStates[i] = false; 
 	
 	prevVVal = 0;
 	dir = true;
-	stringDir = strTrue;
+	stringDir = @"true";
 	[buttonDir setTitle:@">" forState:UIControlStateNormal];
 	
 	rrconnection = [[IRocConnector alloc] init];
@@ -215,7 +211,8 @@ NSString * stringDir;
 
 - (void)dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	[functionButtons dealloc];
+	//[functionButtons dealloc];
+	[rrconnection dealloc];
     [super dealloc];
 }
 

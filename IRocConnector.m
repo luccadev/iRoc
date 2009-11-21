@@ -74,7 +74,7 @@ BOOL isConnected = FALSE;
 			marker += actuallyWritten;
 		}
 	}
-	NSLog([NSString stringWithFormat: @"##%@##"], stringToSend);		
+	//NSLog([NSString stringWithFormat: @"##%@##"], stringToSend);		
 	return TRUE;
 }
 

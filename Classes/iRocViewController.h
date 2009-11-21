@@ -30,6 +30,9 @@
 	
 	CFURLRef		soundFileURLRef;
 	SystemSoundID	soundFileObject;
+	
+	IRocConnector *rrconnection;
+	NSString * stringDir; 
 		
 	BOOL fnStates[9];
 	
@@ -38,8 +41,8 @@
 	BOOL dir;
 	int prevVVal;
 	NSArray * functionButtons;
-	NSString * strTrue;
-	NSString * strFalse;
+	//NSString * strTrue;
+	//NSString * strFalse;
 }
 @property (nonatomic, retain) UIButton *buttonDir; 
 @property (nonatomic, retain) UIButton *buttonF0;
@@ -53,8 +56,10 @@
 @property (nonatomic, retain) UIButton *buttonF8; 
 @property (nonatomic, retain) UIButton *buttonFn; 
 
-//@property (nonatomic, retain) NSArray *functionButtons;
+//@property (nonatomic, retain) NSString *strTrue;
+//@property (nonatomic, retain) NSString *strFalse;
 
+@property (nonatomic, retain) IRocConnector *rrconnection;
 
 @property (nonatomic, retain) UISlider *slider;
 @property (nonatomic, retain) UITextField *textfieldLoc;
