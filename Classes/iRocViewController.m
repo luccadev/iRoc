@@ -15,7 +15,8 @@
 @synthesize slideView;
 @synthesize soundFileURLRef;
 @synthesize soundFileObject;
-//@synthesize functionButtons;
+@synthesize rrconnection;
+@synthesize functionButtons;
 
 - (IBAction) buttonDirClicked:(id) sender { 
 	if(dir) {
@@ -59,7 +60,7 @@
 	//((UIButton *)[functionButtons objectAtIndex:0]);
 	
 	
-	//fnStates[0]?[buttonF0 setTitleColor:fnButtonOnColor forState:UIControlStateNormal]:[buttonF0 setTitleColor:fnButtonOffColor forState:UIControlStateNormal];	
+	//fnStates[0]?[buttonF0 setTitleColor:[UIColor greyColor] forState:UIControlStateNormal]:[buttonF0 setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];	
 }
 - (IBAction) buttonF1Clicked:(id) sender {
 	[self prepareFNCommand:1];
@@ -91,7 +92,7 @@
 - (void) prepareFNCommand:(int) fnIndex {
 	NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<fn group=\"1\" id=\"%@\" f%d=\"%@\"/>", [textfieldLoc text], fnIndex, fnStates[fnIndex]?@"true":@"false" ] ];
 	[rrconnection sendMessage:@"fn" message:stringToSend];
-	//fnStates[fnIndex]?[((UIButton *)[functionButtons objectAtIndex:fnIndex]) setTitleColor:fnButtonOnColor forState:UIControlStateNormal]:[((UIButton *)[functionButtons objectAtIndex:fnIndex]) setTitleColor:fnButtonOffColor forState:UIControlStateNormal];	
+	fnStates[fnIndex]?[((UIButton *)[functionButtons objectAtIndex:fnIndex]) setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal]:[((UIButton *)[functionButtons objectAtIndex:fnIndex]) setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];	
 	fnStates[fnIndex] = !fnStates[fnIndex];
 	AudioServicesPlaySystemSound (self.soundFileObject);
 }
@@ -128,8 +129,8 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
-	//functionButtons = [[NSArray alloc] arrayWithObjects:buttonF0,buttonF1,buttonF2,buttonF3,buttonF4,buttonF5,buttonF6,buttonF7,buttonF8,nil];
+
+	functionButtons = [[NSArray arrayWithObjects:buttonF0,buttonF1,buttonF2,buttonF3,buttonF4,buttonF5,buttonF6,buttonF7,buttonF8,nil] retain];
 	
 	// Adding a DONE Button to the Numpad:
 	[[NSNotificationCenter defaultCenter] addObserver:self 
@@ -147,11 +148,6 @@
 	
 	// Create a system sound object representing the sound file
 	AudioServicesCreateSystemSoundID ( soundFileURLRef, &soundFileObject);
-	
-	//strTrue = @"true";
-	//strFalse = @"false";
-	//fnButtonOnColor = [[UIColor alloc] orangeColor];
-	//fnButtonOffColor = [[UIColor alloc] blackColor];
 	
 	for(int i = 0; i < 9; i++)
 		fnStates[i] = false; 
@@ -211,7 +207,7 @@
 
 - (void)dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	//[functionButtons dealloc];
+	[functionButtons dealloc];
 	[rrconnection dealloc];
     [super dealloc];
 }

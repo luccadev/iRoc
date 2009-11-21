@@ -56,8 +56,7 @@
 @property (nonatomic, retain) UIButton *buttonF8; 
 @property (nonatomic, retain) UIButton *buttonFn; 
 
-//@property (nonatomic, retain) NSString *strTrue;
-//@property (nonatomic, retain) NSString *strFalse;
+@property (nonatomic, retain) NSArray * functionButtons;
 
 @property (nonatomic, retain) IRocConnector *rrconnection;
 
