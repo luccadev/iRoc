@@ -25,6 +25,7 @@
 		9C6FC8AF10B7CF05009FD6FE /* tap.aif in Resources */ = {isa = PBXBuildFile; fileRef = 9C6FC8AE10B7CF05009FD6FE /* tap.aif */; };
 		9C72869310B81A4200567A8A /* iRocButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C72869210B81A4200567A8A /* iRocButton.m */; };
 		9C891DE710B44289000014D1 /* SwitchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C891DE610B44289000014D1 /* SwitchView.xib */; };
+		9CAFD95710B97B700029C16F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAFD95610B97B700029C16F /* Icon.png */; };
 		9CDB1B3410B533F9001442F1 /* iRocTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDB1B3310B533F9001442F1 /* iRocTouchView.m */; };
 		9CDB1BE610B54843001442F1 /* iRocView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDB1BE510B54843001442F1 /* iRocView.m */; };
 		9CDB1D5910B57C11001442F1 /* donedown.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CDB1D5710B57C11001442F1 /* donedown.png */; };
@@ -59,6 +60,7 @@
 		9C72869210B81A4200567A8A /* iRocButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocButton.m; sourceTree = "<group>"; };
 		9C7286BB10B8227C00567A8A /* round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = round.h; sourceTree = "<group>"; };
 		9C891DE610B44289000014D1 /* SwitchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchView.xib; sourceTree = "<group>"; };
+		9CAFD95610B97B700029C16F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		9CDB1B3210B533F9001442F1 /* iRocTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocTouchView.h; sourceTree = "<group>"; };
 		9CDB1B3310B533F9001442F1 /* iRocTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocTouchView.m; sourceTree = "<group>"; };
 		9CDB1BE410B54843001442F1 /* iRocView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocView.h; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				9CAFD95610B97B700029C16F /* Icon.png */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -214,6 +217,7 @@
 				9C6FC84310B7CB0B009FD6FE /* tick.caf in Resources */,
 				9C6FC8AF10B7CF05009FD6FE /* tap.aif in Resources */,
 				9C343D3010B900E500750B22 /* Settings.bundle in Resources */,
+				9CAFD95710B97B700029C16F /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,7 +246,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rob Versluis (7F9852X8U2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -250,7 +254,7 @@
 				GCC_PREFIX_HEADER = iRoc_Prefix.pch;
 				INFOPLIST_FILE = "iRoc-Info.plist";
 				PRODUCT_NAME = iRoc;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "76D7D6F9-3C40-4797-9CA9-1531981CB33F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 			};
 			name = Debug;
 		};
