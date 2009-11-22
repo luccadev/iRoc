@@ -29,23 +29,23 @@
 	
 	
 	//int shiftval = 30;
-	float maxval = 258.00; // - shiftval;
+	float maxval = 278.00; // - shiftval;
 	//x -= shiftval;
 	
-	if(x < 21)
-		x=21;
+	if(x < 41)
+		x=41;
 	
 	if( x>maxval)
 		x=maxval;
 
-	int off = 20;
+	int off = 0;
 	
 	// Bar
 	CGContextSetRGBFillColor(context, .1, .1, .1, 1); 
-	rectVel = CGRectMake(9+off, 54, 262, 12);
+	rectVel = CGRectMake(29, 54, 262, 12);
 	CGContextFillRect(context, rectVel);
 	CGContextSetRGBFillColor(context, .2, .2, .2, 1); 
-	rectVel = CGRectMake(10+off, 55, 260, 10);
+	rectVel = CGRectMake(30, 55, 260, 10);
 	CGContextFillRect(context, rectVel);
 	
 	//Knob
