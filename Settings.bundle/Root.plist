@@ -32,6 +32,18 @@
 			<key>KeyboardType</key>
 			<string>NumberPad</string>
 		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Loc</string>
+			<key>Key</key>
+			<string>loc_preference</string>
+			<key>DefaultValue</key>
+			<string>618</string>
+			<key>KeyboardType</key>
+			<string>NumberPad</string>
+		</dict>
 	</array>
 </dict>
 </plist>

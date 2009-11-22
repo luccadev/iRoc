@@ -94,11 +94,13 @@
 	//AudioServicesPlaySystemSound (self.soundFileObject);
 }
 
+/*
 - (IBAction) textFieldDone:(id) sender {
 	NSLog(@"Keyboard Done Pressed");
 	
 	[textfieldLoc resignFirstResponder];
 }
+ */
 
 
 /*
@@ -121,6 +123,10 @@
 - (void)doneButton:(id)sender {
 	AudioServicesPlaySystemSound (self.soundFileObject);
     [textfieldLoc resignFirstResponder];
+	
+
+	[[NSUserDefaults standardUserDefaults] setInteger:[[textfieldLoc text] intValue] forKey:@"loc_preference"];
+
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -158,52 +164,30 @@
 	[buttonDir setTitle:@">" forState:UIControlStateNormal];
 	
 	NSString * ip = [NSString stringWithString:[defaults stringForKey:@"ip_preference"]];
+	//stringLcPrev = [[NSString stringWithString:[defaults stringForKey:@"loc_preference"]] retain];
 	
 	rrconnection = [[IRocConnector alloc] init];
 	[rrconnection setDomain:ip];
 	[rrconnection setPort:[defaults integerForKey:@"port_preference"]]; 
-	//connectOK = [rrconnection connect];
+
 	
-	NSLog( [NSString stringWithFormat:@"IPPPP: %@ : %@", [defaults stringForKey:@"ip_preference"], ip]);
+	//[NSString stringWithFormat: @"Connect to: %@:%d ", domain, port]
+	//NSLog( @"%d",[defaults integerForKey:@"loc_preference"]);
+	textfieldLoc.text = [NSString stringWithFormat: @"%d",[defaults integerForKey:@"loc_preference"]];
 	
 	// Connect Thread
     [NSThread detachNewThreadSelector:@selector(connectThread) toTarget:self withObject:nil]; 
-	
-	
-	
-	//connectTimer = [[NSTimer scheduledTimerWithTimeInterval:(1.0/1.0) target:self selector:@selector(timerFired) userInfo:nil repeats:YES] retain]; 
-
-	
-		
-
-	//while( !connectOK) {
-		
-		//NSLog([NSString stringWithFormat: @"Connecting %d", [NSDate initWithTimeInterval:5 sinceDate:refdate] ]);
-		
-
-	//}
-	
-	//[connectTimer invalidate]; 
-	//timer = nil; // ensures we never invalidate an already invalid Timer 
-	
-	//NSLog([NSString stringWithFormat: @"IP: %@:%d %d",[defaults stringForKey:@"ip_preference"],[defaults integerForKey:@"port_preference"], ok]);
-	
-	//[self setTitle:[NSString stringWithFormat: @"iRoc:%@:%d %d",[defaults stringForKey:@"ip_preference"],[defaults integerForKey:@"port_preference"]]];
-}
+	}
 
 - (void)connectThread { 
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
-	NSLog(@"hello from connectorThread");
-	
+	// let's do it
 	connectOK = [rrconnection connect];
 	
-	if( connectOK){
-		textfieldLoc.text = [NSString stringWithFormat:@"OK"];
-	} else {
+	if( !connectOK){
 		textfieldLoc.text = [NSString stringWithFormat:@"No Connection!"];
 	}
-	
 	
 	[pool release]; 
 } 

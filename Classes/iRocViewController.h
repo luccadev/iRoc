@@ -33,6 +33,7 @@
 	
 	IRocConnector *rrconnection;
 	NSString * stringDir; 
+	NSString * stringLcPrev; 
 		
 	BOOL fnStates[9];
 	BOOL connectOK;
