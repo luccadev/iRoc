@@ -27,12 +27,17 @@
 	CGContextRef context = UIGraphicsGetCurrentContext(); 	
 	[super drawRect:rect];
 	
+	
+	//int shiftval = 30;
+	float maxval = 258.00; // - shiftval;
+	//x -= shiftval;
+	
 	if(x < 21)
-		x = 21;
+		x=21;
 	
-	if(x >258)
-		x = 258;
-	
+	if( x>maxval)
+		x=maxval;
+
 	int off = 20;
 	
 	// Bar
@@ -111,13 +116,20 @@
 
 - (float)value {
 	
-	if(x < 0)
-		x=0;
+	int shiftval = 30;
+	float maxval = 260.00 - shiftval;
+	int xout = x - shiftval;
 	
-	if( x>260 )
-		x=260;
 	
-	return (x/260.00);
+	if(xout < 0)
+		xout=0;
+	
+	if( xout>maxval)
+		xout=maxval;
+
+	//NSLog(@"iRocTouchView().value: (%d  ...  %f)", xout, (xout)/maxval);
+	
+	return (xout/maxval);
 }
 
 - (void)dealloc {
