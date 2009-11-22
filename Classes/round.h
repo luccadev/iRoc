@@ -3,7 +3,7 @@
  *  iRoc
  *
  *  Created by Jean-Michel Fischer on 21.11.09.
- *  Copyright 2009 __MyCompanyName__. All rights reserved.
+ *  Copyright 2009 rocrail.net . All rights reserved.
  *
  */
 #ifndef ROUND_H

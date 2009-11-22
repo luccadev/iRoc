@@ -17,6 +17,7 @@
 		28D7ACF80DDB3853001CB0EB /* iRocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* iRocViewController.m */; };
 		9C00EAC610B3C5820098BA59 /* IRocConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C00EAC510B3C5820098BA59 /* IRocConnector.m */; };
 		9C00EE6210B41B490098BA59 /* thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C00EE6110B41B490098BA59 /* thumb.png */; };
+		9C343D3010B900E500750B22 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9C343D2F10B900E500750B22 /* Settings.bundle */; };
 		9C6FC7F410B72538009FD6FE /* ConnectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6FC7F210B72538009FD6FE /* ConnectController.m */; };
 		9C6FC7F510B72538009FD6FE /* ConnectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C6FC7F310B72538009FD6FE /* ConnectController.xib */; };
 		9C6FC84310B7CB0B009FD6FE /* tick.caf in Resources */ = {isa = PBXBuildFile; fileRef = 9C6FC84210B7CB0B009FD6FE /* tick.caf */; };
@@ -47,6 +48,7 @@
 		9C00EAC410B3C5820098BA59 /* IRocConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IRocConnector.h; path = ../IRocConnector.h; sourceTree = "<group>"; };
 		9C00EAC510B3C5820098BA59 /* IRocConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IRocConnector.m; path = ../IRocConnector.m; sourceTree = "<group>"; };
 		9C00EE6110B41B490098BA59 /* thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb.png; sourceTree = "<group>"; };
+		9C343D2F10B900E500750B22 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		9C6FC7F110B72538009FD6FE /* ConnectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectController.h; path = ../ConnectController.h; sourceTree = "<group>"; };
 		9C6FC7F210B72538009FD6FE /* ConnectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConnectController.m; path = ../ConnectController.m; sourceTree = "<group>"; };
 		9C6FC7F310B72538009FD6FE /* ConnectController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConnectController.xib; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				9C343D2F10B900E500750B22 /* Settings.bundle */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				9C6FC7F510B72538009FD6FE /* ConnectController.xib in Resources */,
 				9C6FC84310B7CB0B009FD6FE /* tick.caf in Resources */,
 				9C6FC8AF10B7CF05009FD6FE /* tap.aif in Resources */,
+				9C343D3010B900E500750B22 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

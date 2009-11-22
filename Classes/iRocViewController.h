@@ -3,7 +3,7 @@
 //  iRoc
 //
 //  Created by Jean-Michel Fischer on 17.11.09.
-//  Copyright __MyCompanyName__ 2009. All rights reserved.
+//  Copyright rocrail.net 2009. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -35,7 +35,8 @@
 	NSString * stringDir; 
 		
 	BOOL fnStates[9];
-	
+	BOOL connectOK;
+
 	UIColor * fnButtonOnColor;
 	UIColor * fnButtonOffColor;
 	BOOL dir;
@@ -43,6 +44,7 @@
 	NSArray * functionButtons;
 	//NSString * strTrue;
 	//NSString * strFalse;
+	NSUserDefaults *defaults;
 }
 @property (nonatomic, retain) UIButton *buttonDir; 
 @property (nonatomic, retain) UIButton *buttonF0;
@@ -83,6 +85,8 @@
 - (IBAction) textFieldDone:(id) sender;
 
 - (void) prepareFNCommand:(int) fnIndex; 
+
+
 
 @end
 

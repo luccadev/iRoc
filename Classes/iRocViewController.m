@@ -3,7 +3,7 @@
 //  iRoc
 //
 //  Created by Jean-Michel Fischer on 17.11.09.
-//  Copyright __MyCompanyName__ 2009. All rights reserved.
+//  Copyright rocrail.net 2009. All rights reserved.
 //
 #import "iRocViewController.h"
 
@@ -86,7 +86,10 @@
 - (void) prepareFNCommand:(int) fnIndex {
 	NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<fn group=\"1\" id=\"%@\" f%d=\"%@\"/>", [textfieldLoc text], fnIndex, fnStates[fnIndex]?@"true":@"false" ] ];
 	[rrconnection sendMessage:@"fn" message:stringToSend];
-	fnStates[fnIndex]?[((UIButton *)[functionButtons objectAtIndex:fnIndex]) setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal]:[((UIButton *)[functionButtons objectAtIndex:fnIndex]) setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];	
+	//fnStates[fnIndex]?[((UIButton *)[functionButtons objectAtIndex:fnIndex]) setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal]:[((UIButton *)[functionButtons objectAtIndex:fnIndex]) setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];	
+	
+	[((UIButton *)[functionButtons objectAtIndex:fnIndex]) setBState:fnStates[fnIndex]?TRUE:FALSE];
+	
 	fnStates[fnIndex] = !fnStates[fnIndex];
 	//AudioServicesPlaySystemSound (self.soundFileObject);
 }
@@ -123,7 +126,10 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+	
+	// read preferences
+	defaults = [[NSUserDefaults standardUserDefaults] retain];
+	
 	functionButtons = [[NSArray arrayWithObjects:buttonF0,buttonF1,buttonF2,buttonF3,buttonF4,buttonF5,buttonF6,buttonF7,buttonF8,nil] retain];
 	
 	// Adding a DONE Button to the Numpad:
@@ -144,17 +150,65 @@
 	AudioServicesCreateSystemSoundID ( soundFileURLRef, &soundFileObject);
 	
 	for(int i = 0; i < 9; i++)
-		fnStates[i] = false; 
+		fnStates[i] = true; 
 	
 	prevVVal = 0;
 	dir = true;
 	stringDir = @"true";
 	[buttonDir setTitle:@">" forState:UIControlStateNormal];
 	
-	rrconnection = [[IRocConnector alloc] init];
-	[rrconnection start];
+	NSString * ip = [NSString stringWithString:[defaults stringForKey:@"ip_preference"]];
 	
+	rrconnection = [[IRocConnector alloc] init];
+	[rrconnection setDomain:ip];
+	[rrconnection setPort:[defaults integerForKey:@"port_preference"]]; 
+	//connectOK = [rrconnection connect];
+	
+	NSLog( [NSString stringWithFormat:@"IPPPP: %@ : %@", [defaults stringForKey:@"ip_preference"], ip]);
+	
+	// Connect Thread
+    [NSThread detachNewThreadSelector:@selector(connectThread) toTarget:self withObject:nil]; 
+	
+	
+	
+	//connectTimer = [[NSTimer scheduledTimerWithTimeInterval:(1.0/1.0) target:self selector:@selector(timerFired) userInfo:nil repeats:YES] retain]; 
+
+	
+		
+
+	//while( !connectOK) {
+		
+		//NSLog([NSString stringWithFormat: @"Connecting %d", [NSDate initWithTimeInterval:5 sinceDate:refdate] ]);
+		
+
+	//}
+	
+	//[connectTimer invalidate]; 
+	//timer = nil; // ensures we never invalidate an already invalid Timer 
+	
+	//NSLog([NSString stringWithFormat: @"IP: %@:%d %d",[defaults stringForKey:@"ip_preference"],[defaults integerForKey:@"port_preference"], ok]);
+	
+	//[self setTitle:[NSString stringWithFormat: @"iRoc:%@:%d %d",[defaults stringForKey:@"ip_preference"],[defaults integerForKey:@"port_preference"]]];
 }
+
+- (void)connectThread { 
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+	NSLog(@"hello from connectorThread");
+	
+	connectOK = [rrconnection connect];
+	
+	if( connectOK){
+		textfieldLoc.text = [NSString stringWithFormat:@"OK"];
+	} else {
+		textfieldLoc.text = [NSString stringWithFormat:@"No Connection!"];
+	}
+	
+	
+	[pool release]; 
+} 
+
+
 
 // Adding the DONE button to the numpad
 - (void)keyboardWillShow:(NSNotification *)note {  
