@@ -74,6 +74,7 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	
+	
 	// We only support single touches, so anyObject retrieves just that touch from touches
 	UITouch *touch = [touches anyObject];
 	x = [touch locationInView:self].x;
@@ -82,11 +83,13 @@
 	//NSLog(@"iRocTouchView(%d).touchesBegan: (%d, %d)", self, x, y);
 	
 	[self setNeedsDisplay];
-	[self sendActionsForControlEvents:UIControlEventValueChanged];
+	//[self sendActionsForControlEvents:UIControlEventValueChanged];
+	 
 }
 
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+	
 	
 	UITouch *touch = [touches anyObject];
 	x = [touch locationInView:self].x;
@@ -94,7 +97,8 @@
 	//NSLog(@"iRocTouchView(%d).touchesMoved: (%d, %d)", self, x, y);
 
 	[self setNeedsDisplay];
-	[self sendActionsForControlEvents:UIControlEventValueChanged];
+	//[self sendActionsForControlEvents:UIControlEventValueChanged];
+	 
 }
 
 

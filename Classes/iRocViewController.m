@@ -53,8 +53,11 @@
 
 
 - (IBAction) buttonF0Clicked:(id) sender {	
-	[self prepareFNCommand:0];
+	//[self prepareFNCommand:0];
+	
+	[((UIButton *)[functionButtons objectAtIndex:0]) setBState:fnStates[0]?TRUE:FALSE];
 	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc id=\"%@\" fn=\"%@\"/>",[textfieldLoc text],fnStates[0]?@"true":@"false"]] ];
+    fnStates[0] = !fnStates[0];
 }
 - (IBAction) buttonF1Clicked:(id) sender {
 	[self prepareFNCommand:1];
