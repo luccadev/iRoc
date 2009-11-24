@@ -148,7 +148,18 @@
 	AudioServicesPlaySystemSound (self.soundFileObject);
     [textfieldLoc resignFirstResponder];
 	
+	// Reset Fuction states TODO: this has be be later read from rr
+	for(int i = 0; i < 9; i++) {
+		fnStates[i] = FALSE; 
+		[((iRocButton *)[functionButtons objectAtIndex:i]) setBState:fnStates[i]];
+	}
+	
+	// Light on on init
+	fnStates[0] = TRUE;
+	[buttonF0 setBState:TRUE];
+	
 
+	// Save in Settings
 	[[NSUserDefaults standardUserDefaults] setInteger:[[textfieldLoc text] intValue] forKey:@"loc_preference"];
 
 }
