@@ -15,6 +15,7 @@
 }
 
 - (float)value;
+- (void)setValue:(int) val;
 
 @end
 

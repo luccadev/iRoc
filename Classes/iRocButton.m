@@ -47,7 +47,7 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
 
 - (id)initWithFrame:(CGRect)frame {
 	touchState = ended;
-	bState = false;
+	bState = FALSE;
 	
     if (self = [super initWithFrame:frame]) {
         // Initialization code
@@ -108,6 +108,9 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
 	[super touchesEnded:touches withEvent:event];
 	//NSLog(@"Touches Ended");
 	touchState = ended;
+	
+	//[self flipBState];
+	
 	[self setNeedsDisplay];
 }
 
@@ -116,6 +119,15 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
 	[self setNeedsDisplay];
 	
 	NSLog(@"bstate: %d", bState);
+}
+
+- (BOOL) getBState {
+	return bState;
+}
+
+- (void) flipBState {
+	bState = !bState;
+	[self setNeedsDisplay];
 }
 
 - (void)dealloc {

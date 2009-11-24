@@ -11,19 +11,20 @@
 
 #import "IRocConnector.h"
 #import "iRocTouchView.h"
+#import "iRocButton.h"
 
 @interface iRocViewController : UIViewController <UITextFieldDelegate> {
-	IBOutlet UIButton *buttonDir;
-	IBOutlet UIButton *buttonF0;
-	IBOutlet UIButton *buttonF1;
-	IBOutlet UIButton *buttonF2;
-	IBOutlet UIButton *buttonF3;
-	IBOutlet UIButton *buttonF4;
-	IBOutlet UIButton *buttonF5;
-	IBOutlet UIButton *buttonF6;
-	IBOutlet UIButton *buttonF7;
-	IBOutlet UIButton *buttonF8;
-	IBOutlet UIButton *buttonFn;
+	IBOutlet iRocButton *buttonDir;
+	IBOutlet iRocButton *buttonF0;
+	IBOutlet iRocButton *buttonF1;
+	IBOutlet iRocButton *buttonF2;
+	IBOutlet iRocButton *buttonF3;
+	IBOutlet iRocButton *buttonF4;
+	IBOutlet iRocButton *buttonF5;
+	IBOutlet iRocButton *buttonF6;
+	IBOutlet iRocButton *buttonF7;
+	IBOutlet iRocButton *buttonF8;
+	IBOutlet iRocButton *buttonFn;
 	IBOutlet UISlider *slider;
 	IBOutlet UITextField *textfieldLoc;
 	IBOutlet iRocTouchView *slideView;
@@ -47,17 +48,17 @@
 	//NSString * strFalse;
 	NSUserDefaults *defaults;
 }
-@property (nonatomic, retain) UIButton *buttonDir; 
-@property (nonatomic, retain) UIButton *buttonF0;
-@property (nonatomic, retain) UIButton *buttonF1; 
-@property (nonatomic, retain) UIButton *buttonF2; 
-@property (nonatomic, retain) UIButton *buttonF3; 
-@property (nonatomic, retain) UIButton *buttonF4; 
-@property (nonatomic, retain) UIButton *buttonF5; 
-@property (nonatomic, retain) UIButton *buttonF6; 
-@property (nonatomic, retain) UIButton *buttonF7; 
-@property (nonatomic, retain) UIButton *buttonF8; 
-@property (nonatomic, retain) UIButton *buttonFn; 
+@property (nonatomic, retain) iRocButton *buttonDir; 
+@property (nonatomic, retain) iRocButton *buttonF0;
+@property (nonatomic, retain) iRocButton *buttonF1; 
+@property (nonatomic, retain) iRocButton *buttonF2; 
+@property (nonatomic, retain) iRocButton *buttonF3; 
+@property (nonatomic, retain) iRocButton *buttonF4; 
+@property (nonatomic, retain) iRocButton *buttonF5; 
+@property (nonatomic, retain) iRocButton *buttonF6; 
+@property (nonatomic, retain) iRocButton *buttonF7; 
+@property (nonatomic, retain) iRocButton *buttonF8; 
+@property (nonatomic, retain) iRocButton *buttonFn; 
 
 @property (nonatomic, retain) NSArray * functionButtons;
 

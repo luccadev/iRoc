@@ -31,11 +31,9 @@
 	}
 	
 	//AudioServicesPlaySystemSound (self.soundFileObject);
-	
-	// TODO:
-	//[slider setValue:0];
-	
-	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc id=\"%@\" V=\"0\"  fn=\"%@\"  dir=\"%@\"/>",[textfieldLoc text],fnStates[0]?@"true":@"false", stringDir]] ];
+
+	[slideView setValue:0];	
+	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc id=\"%@\" V=\"0\" dir=\"%@\" fn=\"%@\"/>",[textfieldLoc text], stringDir, [buttonF0 getBState]?@"true":@"false"]] ];
 }
 
 - (IBAction) sliderMoved:(id) sender { 	
@@ -44,9 +42,8 @@
 		
 	if( prevVVal != vVal) {
 		NSString * stringToSend; 			
-		stringToSend = [NSString stringWithFormat: @"<lc id=\"%@\" V=\"%d\"  fn=\"%@\"  dir=\"%@\"/>", [textfieldLoc text], vVal, fnStates[0]?@"true":@"false", stringDir];
+		stringToSend = [NSString stringWithFormat: @"<lc id=\"%@\" V=\"%d\" dir=\"%@\" fn=\"%@\"/>", [textfieldLoc text], vVal, stringDir, [buttonF0 getBState]?@"true":@"false"];
 		NSLog(stringToSend);
-		//[self setLabel:stringToSend];
 		[rrconnection sendMessage:@"lc" message:stringToSend];
 	}
 		prevVVal = vVal;
@@ -54,11 +51,23 @@
 
 
 - (IBAction) buttonF0Clicked:(id) sender {	
-	//[self prepareFNCommand:0];
+	fnStates[0] = !fnStates[0];
+
+	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc id=\"%@\" fn=\"%@\"/>",[textfieldLoc text], fnStates[0]?@"true":@"false"]] ];
+    	
+	//NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<fn group=\"1\" id=\"%@\" f%d=\"%@\"/>", [textfieldLoc text], 0,  fnStates[0]?@"true":@"false" ] ];
+	//[rrconnection sendMessage:@"fn" message:stringToSend];
 	
-	[((iRocButton *)[functionButtons objectAtIndex:0]) setBState:fnStates[0]?TRUE:FALSE];
-	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc id=\"%@\" fn=\"%@\"/>",[textfieldLoc text],fnStates[0]?@"true":@"false"]] ];
-    fnStates[0] = !fnStates[0];
+	
+	[((iRocButton *)[functionButtons objectAtIndex:0]) setBState:fnStates[0]];
+	
+	/*
+	for (int i = 0; i < 9; i++) {
+		NSLog(@"F %d : %d", i, fnStates[i]);
+	}
+	*/
+	
+	//fnStates[0] = !fnStates[0];
 }
 - (IBAction) buttonF1Clicked:(id) sender {
 	[self prepareFNCommand:1];
@@ -88,13 +97,24 @@
 }
 
 - (void) prepareFNCommand:(int) fnIndex {
-	NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<fn group=\"1\" id=\"%@\" f%d=\"%@\"/>", [textfieldLoc text], fnIndex, fnStates[fnIndex]?@"true":@"false" ] ];
-	[rrconnection sendMessage:@"fn" message:stringToSend];
-	//fnStates[fnIndex]?[((UIButton *)[functionButtons objectAtIndex:fnIndex]) setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal]:[((UIButton *)[functionButtons objectAtIndex:fnIndex]) setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];	
-	
-	[((iRocButton *)[functionButtons objectAtIndex:fnIndex]) setBState:fnStates[fnIndex]?TRUE:FALSE];
-	
 	fnStates[fnIndex] = !fnStates[fnIndex];
+	
+	NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<fn group=\"1\" id=\"%@\" ", [textfieldLoc text]]];
+	
+	
+	for (int i = 0; i < 9; i++) {		
+		stringToSend = [stringToSend stringByAppendingString: [NSString stringWithFormat:@"f%d=\"%@\" ", i, fnStates[i]?@"true":@"false"] ];
+	}
+	stringToSend = [stringToSend stringByAppendingString: [NSString stringWithFormat:@"/>"] ];
+	
+	//NSLog(@"%@", stringToSend);
+	
+	
+	//NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<fn group=\"1\" id=\"%@\" f%d=\"%@\"/>", [textfieldLoc text], fnIndex, fnStates[fnIndex]?@"true":@"false" ] ];
+	[rrconnection sendMessage:@"fn" message:stringToSend];
+	
+	[((iRocButton *)[functionButtons objectAtIndex:fnIndex]) setBState:fnStates[fnIndex]];
+	
 	//AudioServicesPlaySystemSound (self.soundFileObject);
 }
 
@@ -159,8 +179,12 @@
 	// Create a system sound object representing the sound file
 	AudioServicesCreateSystemSoundID ( soundFileURLRef, &soundFileObject);
 	
+	// Fuction states
 	for(int i = 0; i < 9; i++)
-		fnStates[i] = true; 
+		fnStates[i] = FALSE; 
+	
+	fnStates[0] = TRUE;
+	[buttonF0 setBState:TRUE];
 	
 	prevVVal = 0;
 	dir = true;

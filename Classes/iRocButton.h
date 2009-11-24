@@ -19,6 +19,8 @@
 }
 
 - (void) setBState:(BOOL) staten;
+- (BOOL) getBState;
+- (void) flipBState;
 
 //@property (nonatomic) BOOL state; 
 
