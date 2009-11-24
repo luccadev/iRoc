@@ -14,7 +14,6 @@
 	CGRect rectVel;
 }
 
-//void CGContextAddRoundedRect (CGContextRef c, CGRect rect, int corner_radius);
 - (float)value;
 
 @end

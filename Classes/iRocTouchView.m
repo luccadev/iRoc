@@ -123,8 +123,7 @@
 	int shiftval = 30;
 	float maxval = 260.00 - shiftval;
 	int xout = x - shiftval;
-	
-	
+		
 	if(xout < 0)
 		xout=0;
 	

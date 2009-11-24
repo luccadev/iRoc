@@ -14,7 +14,6 @@
     NSString *domain;
     uint16_t port;
 	int connectTimeout;
-	NSTimer *connectTimer; 
 }
 
 - (BOOL)sendMessage:(NSString *)name message:(NSString *)msg;
@@ -29,8 +28,6 @@
 - (BOOL)stop;
 
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode;
-
-- (void)timerFired;
 
 @property(copy) NSString *domain;
 

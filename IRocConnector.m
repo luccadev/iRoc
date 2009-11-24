@@ -23,10 +23,6 @@ BOOL isConnected = FALSE;
 
 - (BOOL)connect {
 	
-	// Connect Thread
-	//[NSThread detachNewThreadSelector:@selector(timerFired) toTarget:self withObject:nil];
-	//connectTimer = [[NSTimer scheduledTimerWithTimeInterval:(1.0/1.0) target:self selector:@selector(timerFired) userInfo:nil repeats:YES] retain]; 
-
 	NSLog([NSString stringWithFormat: @"Connect to: %@:%d ", domain, port]);	
 	
 	BOOL connectOK = false;
@@ -77,15 +73,6 @@ BOOL isConnected = FALSE;
 - (BOOL)stop {
 	return TRUE;
 }
-
-
--(void)timerFired { 
-	
-	NSLog([NSString stringWithFormat:@"timerFired: %d", connectTimeout]);
-	connectTimeout += 1;
-	//textfieldLoc.text = [NSString stringWithFormat:@"%d", connectInt];
-	
-} 
 
 
 - (BOOL)sendMessage:(NSString *)name message:(NSString *)msg {
@@ -149,6 +136,8 @@ BOOL isConnected = FALSE;
             len = [(NSInputStream *)stream read:buf maxLength:1024];
             if(len) {
                 [_data appendBytes:(const void *)buf length:len];
+				
+				// TODO: here we go on in later ...
 				
                 // bytesRead is an instance variable of type NSNumber.
                 //[bytesRead setIntValue:[bytesRead intValue]+len];
