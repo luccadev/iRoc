@@ -6,6 +6,7 @@
 //  Copyright rocrail.net 2009. All rights reserved.
 //
 #import "iRocViewController.h"
+#import "iRocButton.h"
 
 @implementation iRocViewController
 
@@ -55,7 +56,7 @@
 - (IBAction) buttonF0Clicked:(id) sender {	
 	//[self prepareFNCommand:0];
 	
-	[((UIButton *)[functionButtons objectAtIndex:0]) setBState:fnStates[0]?TRUE:FALSE];
+	[((iRocButton *)[functionButtons objectAtIndex:0]) setBState:fnStates[0]?TRUE:FALSE];
 	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc id=\"%@\" fn=\"%@\"/>",[textfieldLoc text],fnStates[0]?@"true":@"false"]] ];
     fnStates[0] = !fnStates[0];
 }
@@ -91,7 +92,7 @@
 	[rrconnection sendMessage:@"fn" message:stringToSend];
 	//fnStates[fnIndex]?[((UIButton *)[functionButtons objectAtIndex:fnIndex]) setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal]:[((UIButton *)[functionButtons objectAtIndex:fnIndex]) setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];	
 	
-	[((UIButton *)[functionButtons objectAtIndex:fnIndex]) setBState:fnStates[fnIndex]?TRUE:FALSE];
+	[((iRocButton *)[functionButtons objectAtIndex:fnIndex]) setBState:fnStates[fnIndex]?TRUE:FALSE];
 	
 	fnStates[fnIndex] = !fnStates[fnIndex];
 	//AudioServicesPlaySystemSound (self.soundFileObject);

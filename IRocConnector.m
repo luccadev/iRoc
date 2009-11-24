@@ -8,6 +8,7 @@
 
 #import "IRocConnector.h"
 
+
 NSOutputStream *  oStream;
 NSInputStream *   iStream;
 
@@ -150,9 +151,7 @@ BOOL isConnected = FALSE;
                 [_data appendBytes:(const void *)buf length:len];
 				
                 // bytesRead is an instance variable of type NSNumber.
-                [bytesRead setIntValue:[bytesRead intValue]+len];
-				
-				//NSLog(bytesRead);
+                //[bytesRead setIntValue:[bytesRead intValue]+len];
             } else {
                 NSLog(@"no buffer!");
             }

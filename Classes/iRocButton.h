@@ -8,16 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class iRocButton;
 
 @interface iRocButton : UIButton {
 	CGContextRef context;
-	enum {began, moved, ended};
+	int began, moved, ended;
 	int touchState;
 	
 	BOOL bState;
 }
 
-- (void) setBState:(id)staten;
+- (void) setBState:(BOOL) staten;
 
 //@property (nonatomic) BOOL state; 
 

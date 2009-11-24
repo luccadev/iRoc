@@ -83,7 +83,7 @@
 - (IBAction) buttonFnClicked:(id) sender;
 - (IBAction) sliderMoved:(id) sender;
 
-- (IBAction) textFieldDone:(id) sender;
+//- (IBAction) textFieldDone:(id) sender;
 
 - (void) prepareFNCommand:(int) fnIndex; 
 
