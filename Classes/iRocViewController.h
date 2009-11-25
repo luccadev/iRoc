@@ -83,6 +83,7 @@
 - (IBAction) buttonF8Clicked:(id) sender;
 - (IBAction) buttonFnClicked:(id) sender;
 - (IBAction) sliderMoved:(id) sender;
+- (IBAction) doneButton:(id)sender;
 
 //- (IBAction) textFieldDone:(id) sender;
 

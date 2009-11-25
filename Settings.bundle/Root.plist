@@ -42,7 +42,17 @@
 			<key>DefaultValue</key>
 			<string>618</string>
 			<key>KeyboardType</key>
-			<string>NumberPad</string>
+			<string>Alphabet</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Numeric Keyboard</string>
+			<key>Key</key>
+			<string>keyb_preference</string>
+			<key>DefaultValue</key>
+			<true/>
 		</dict>
 	</array>
 </dict>

@@ -144,7 +144,7 @@
  */
 
 
-- (void)doneButton:(id)sender {
+- (IBAction)doneButton:(id)sender {
 	AudioServicesPlaySystemSound (self.soundFileObject);
     [textfieldLoc resignFirstResponder];
 	
@@ -160,7 +160,7 @@
 	
 
 	// Save in Settings
-	[[NSUserDefaults standardUserDefaults] setInteger:[[textfieldLoc text] intValue] forKey:@"loc_preference"];
+	[[NSUserDefaults standardUserDefaults] setObject:(NSString*)[textfieldLoc text] forKey:@"loc_preference"];
 
 }
 
@@ -173,11 +173,20 @@
 	
 	functionButtons = [[NSArray arrayWithObjects:buttonF0,buttonF1,buttonF2,buttonF3,buttonF4,buttonF5,buttonF6,buttonF7,buttonF8,nil] retain];
 	
-	// Adding a DONE Button to the Numpad:
-	[[NSNotificationCenter defaultCenter] addObserver:self 
-											 selector:@selector(keyboardWillShow:) 
-												 name:UIKeyboardWillShowNotification 
-											   object:nil];	
+		
+	if( [defaults boolForKey:@"keyb_preference"]) {
+		[textfieldLoc setKeyboardType:UIKeyboardTypeNumberPad];
+		
+		// Adding a DONE Button to the Numpad:
+		[[NSNotificationCenter defaultCenter] addObserver:self 
+												 selector:@selector(keyboardWillShow:) 
+													 name:UIKeyboardWillShowNotification 
+												   object:nil];			
+		
+	} else {
+		[textfieldLoc setKeyboardType:UIKeyboardTypeDefault];
+	}
+	
 	
 	//Sound
 	// Get the main bundle for the app
@@ -212,7 +221,7 @@
 	
 	//[NSString stringWithFormat: @"Connect to: %@:%d ", domain, port]
 	//NSLog( @"%d",[defaults integerForKey:@"loc_preference"]);
-	textfieldLoc.text = [NSString stringWithFormat: @"%d",[defaults integerForKey:@"loc_preference"]];
+	textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
 	
 	// Connect Thread
     [NSThread detachNewThreadSelector:@selector(connectThread) toTarget:self withObject:nil]; 
