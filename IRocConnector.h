@@ -14,6 +14,14 @@
     NSString *domain;
     uint16_t port;
 	int connectTimeout;
+	
+	NSOutputStream *  oStream;
+	NSInputStream *   iStream;
+	
+	NSHost* host;
+	
+	NSMutableData* _data;
+	NSNumber* bytesRead;
 }
 
 - (BOOL)sendMessage:(NSString *)name message:(NSString *)msg;

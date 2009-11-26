@@ -8,17 +8,6 @@
 
 #import "IRocConnector.h"
 
-
-NSOutputStream *  oStream;
-NSInputStream *   iStream;
-
-NSHost* host;
-
-NSMutableData* _data;
-NSNumber* bytesRead;
-
-BOOL isConnected = FALSE;
-
 @implementation IRocConnector
 
 - (BOOL)connect {
@@ -27,23 +16,22 @@ BOOL isConnected = FALSE;
 	
 	BOOL connectOK = false;
 	
-	CFReadStreamRef readStream = NULL;
-	CFWriteStreamRef writeStream = NULL;
+	//CFReadStreamRef readStream = NULL;
+	//CFWriteStreamRef writeStream = NULL;
 	iStream = NULL;
 	oStream = NULL;
 	
-	CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)domain, port, &readStream, &writeStream);
+	CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)domain, port, (CFReadStreamRef*)&iStream, (CFWriteStreamRef*)&oStream);
 	NSLog([NSString stringWithFormat: @"Connected?"]);	
-	if (readStream && writeStream) {
-		// CFReadStreamSetProperty(readStream, CFStreamPropertyShouldCloseNativeSocket, kCFBooleanTrue);
-		// CFWriteStreamSetProperty(writeStream, CFStreamPropertyShouldCloseNativeSocket, kCFBooleanTrue);
-		iStream = (NSInputStream *)readStream;
+	if (iStream && oStream) {
+		
+		//iStream = (NSInputStream *)readStream;
 		[iStream retain];
 		[iStream setDelegate:self];
 		[iStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 		[iStream open];
 		
-		oStream = (NSOutputStream *)writeStream;
+		//oStream = (NSOutputStream *)writeStream;
 		[oStream retain];
 		[oStream setDelegate:self];
 		[oStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
@@ -55,15 +43,15 @@ BOOL isConnected = FALSE;
 		while([oStream streamStatus] == NSStreamStatusOpening && [start timeIntervalSinceNow]*-1 < 5) { //![oStream streamStatus] == NSStreamStatusOpen && 
 			NSLog([NSString stringWithFormat: @"Opening I:%d, O:%d T:%f",[iStream streamStatus],[oStream streamStatus],[start timeIntervalSinceNow]]);
 		}
-		
-		if( [oStream streamStatus] == NSStreamStatusOpen ) {
+	
+		if( [oStream streamStatus] == NSStreamStatusOpen && [iStream streamStatus] == NSStreamStatusOpen ) {
 			connectOK = TRUE;
 		    [self sendMessage:@"model" message:@"<model cmd=\"plan\"/>"];
 		} else {
 			connectOK = FALSE;
 	    }
 		 
-			
+		[[NSRunLoop currentRunLoop] run];
 			
 	} 	
 	
@@ -71,6 +59,19 @@ BOOL isConnected = FALSE;
 }
 
 - (BOOL)stop {
+	
+	
+	[iStream close];
+    [oStream close];
+    [iStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [oStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [iStream setDelegate:nil];
+    [oStream setDelegate:nil];
+    [iStream release];
+    [oStream release];
+    iStream = nil;
+    oStream = nil;
+	
 	return TRUE;
 }
 
@@ -125,6 +126,9 @@ BOOL isConnected = FALSE;
 
 
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode {
+	
+	//NSLog(@"stream:handleEvent: is invoked...");
+	
     switch(eventCode) {
         case NSStreamEventHasBytesAvailable:
         {
@@ -139,11 +143,16 @@ BOOL isConnected = FALSE;
 				
 				// TODO: here we go on in later ...
 				
+				
+				
                 // bytesRead is an instance variable of type NSNumber.
                 //[bytesRead setIntValue:[bytesRead intValue]+len];
             } else {
                 NSLog(@"no buffer!");
             }
+			
+			
+			
             break;
         }
 	}
