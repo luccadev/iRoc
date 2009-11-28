@@ -94,7 +94,13 @@
 	//NSLog(@"iRocTouchView(%d).touchesMoved: (%d, %d)", self, x, y);
 
 	[self setNeedsDisplay];
-	//[self sendActionsForControlEvents:UIControlEventValueChanged];
+  
+  // read preferences
+	defaults = [[NSUserDefaults standardUserDefaults] retain];
+
+  // Optional move event.
+  if( [defaults boolForKey:@"moveevents_preference"])
+  	[self sendActionsForControlEvents:UIControlEventValueChanged];
 	 
 }
 

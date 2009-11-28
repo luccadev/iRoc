@@ -12,6 +12,7 @@
 @interface iRocTouchView : UIControl {
 	int x, y;
 	CGRect rectVel;
+	NSUserDefaults *defaults;
 }
 
 - (float)value;
