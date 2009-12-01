@@ -22,7 +22,12 @@
 	
 	NSMutableData* _data;
 	NSNumber* bytesRead;
+	
+	NSMutableString *header;
 }
+
+
+
 
 - (BOOL)sendMessage:(NSString *)name message:(NSString *)msg;
 
@@ -38,5 +43,6 @@
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode;
 
 @property(copy) NSString *domain;
+@property(nonatomic, retain) NSMutableString *header;
 
 @end

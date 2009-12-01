@@ -94,13 +94,13 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	[super touchesBegan:touches withEvent:event];
-	NSLog(@"Touches Began");
+	//NSLog(@"Touches Began");
 	touchState = began;
 	[self setNeedsDisplay];
 }
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
 	[super touchesMoved:touches withEvent:event];
-	NSLog(@"Touches Moved");
+	//NSLog(@"Touches Moved");
 	//touchState = moved;
 	//[self setNeedsDisplay];
 }

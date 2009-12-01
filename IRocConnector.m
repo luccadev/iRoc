@@ -10,7 +10,11 @@
 
 @implementation IRocConnector
 
+@synthesize header;
+
 - (BOOL)connect {
+	
+	header = [NSMutableString string];
 	
 	NSLog([NSString stringWithFormat: @"Connect to: %@:%d ", domain, port]);	
 	
@@ -46,7 +50,7 @@
 	
 		if( [oStream streamStatus] == NSStreamStatusOpen && [iStream streamStatus] == NSStreamStatusOpen ) {
 			connectOK = TRUE;
-		    [self sendMessage:@"model" message:@"<model cmd=\"plan\"/>"];
+		    [self sendMessage:@"model" message:@"<model cmd=\"lclist\"/>"];
 		} else {
 			connectOK = FALSE;
 	    }
@@ -59,7 +63,6 @@
 }
 
 - (BOOL)stop {
-	
 	
 	[iStream close];
     [oStream close];
@@ -123,11 +126,15 @@
     port = value;
 }
 
-
+bool readit;
 
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode {
 	
 	//NSLog(@"stream:handleEvent: is invoked...");
+	
+	
+	
+	readit = FALSE;
 	
     switch(eventCode) {
         case NSStreamEventHasBytesAvailable:
@@ -136,12 +143,74 @@
                 _data = [[NSMutableData data] retain];
             }
             uint8_t buf[1024];
-            unsigned int len = 0;
-            len = [(NSInputStream *)stream read:buf maxLength:1024];
+            unsigned int len = 1;
+			
+			
+			/*
+			while ( ![header hasSuffix:@"</xmlh>"] && read ){
+            len = [(NSInputStream *)stream read:buf maxLength:1];
+			
+			//NSLog(@"Output: %s", (const void *)buf);
+			
+			//NSLog(@"len: %d", len);
+			//header = [[NSString alloc] initWithBytes:(const void *)buf length:len encoding:NSUTF8StringEncoding];
+				
+			
+
+				
+			NSString *stringFragment = [[NSString string] initWithBytes:(uint8_t*)buf length:(NSUInteger)len encoding:NSUTF8StringEncoding];
+			[self.header appendString:stringFragment];
+	
+				
+				
+			//if (len)	
+			//	header = [[NSString alloc] stringWithFormat:@"%@%@", header, [NSString initWithBytes:(const void *)buf length:len encoding:NSUTF8StringEncoding]];
+				
+				
+				//[header appendString:[[NSString alloc] initWithBytes:(const void *)buf length:len encoding:NSUTF8StringEncoding]];
+				
+				
+			
+			//NSLog(@"val: %@", [[NSString alloc] initWithBytes:(const void *)buf length:len encoding:NSUTF8StringEncoding]);
+				
+			//NSLog(@"val: %@", header);
+				
+				
+			}
+			
+			if( [header hasSuffix:@"</xmlh>"] ) {
+				NSLog(@"value: %@", header);
+				
+				readit = FALSE;
+				
+				header = @"";
+				NSLog(@"####################################");
+			}
+			
+			
+			
+			
+			*/
+			
+			
+			
+			
+			
             if(len) {
                 [_data appendBytes:(const void *)buf length:len];
 				
 				// TODO: here we go on in later ...
+				
+				//NSLog(@"Output: %s", (const void *)buf);
+				
+				
+				//s = [[NSString alloc] initWithBytes:(const void *)buf length:len encoding:NSUTF8StringEncoding];
+				//NSLog(@"%@", s);
+				//[s release];
+				
+				
+				//if( 
+				
 				
 				
 				
@@ -152,6 +221,12 @@
             }
 			
 			
+			
+			/*
+			NSString *s = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
+			NSLog(@"%@", s);
+			[s release];
+			 */
 			
             break;
         }
