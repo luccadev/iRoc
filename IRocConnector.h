@@ -24,6 +24,8 @@
 	NSNumber* bytesRead;
 	
 	NSMutableString *header;
+	
+	BOOL isConnected;
 }
 
 

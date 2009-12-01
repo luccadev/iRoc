@@ -24,6 +24,7 @@
 	//CFWriteStreamRef writeStream = NULL;
 	iStream = NULL;
 	oStream = NULL;
+	isConnected = FALSE;
 	
 	CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)domain, port, (CFReadStreamRef*)&iStream, (CFWriteStreamRef*)&oStream);
 	NSLog([NSString stringWithFormat: @"Connected?"]);	
@@ -56,13 +57,15 @@
 	    }
 		 
 		[[NSRunLoop currentRunLoop] run];
-			
+		isConnected = TRUE;
 	} 	
 	
 	return connectOK;
 }
 
 - (BOOL)stop {
+	
+	isConnected = FALSE;
 	
 	[iStream close];
     [oStream close];
@@ -82,7 +85,7 @@
 - (BOOL)sendMessage:(NSString *)name message:(NSString *)msg {
 
 	//if( !isConnected)
-		//[self start];
+	//	[self connect];
 	
 	NSString * stringToSend; 			
 	stringToSend = [NSString stringWithFormat: @"<xmlh><xml size=\"%d\" name=\"%@\"/></xmlh>%@", [msg length], name, msg];

@@ -21,7 +21,11 @@
     // Override point for customization after app launch    
     //[window addSubview:viewController.view];
     //[window makeKeyAndVisible];
-	[window addSubview:tabBarController.view];
+	
+	
+	
+	
+	[window addSubview:tabBarController.view];	
 }
 
 
@@ -30,6 +34,15 @@
 	[tabBarController release];
     [window release];
     [super dealloc];
+}
+
+
+-(void) applicationWillResignActive:(UIApplication *)application {
+	[[(iRocViewController*) [tabBarController.viewControllers objectAtIndex:0] rrconnection] stop];
+}
+
+-(void) applicationDidBecomeActive:(UIApplication *)application {
+	[[(iRocViewController*) [tabBarController.viewControllers objectAtIndex:0] rrconnection] connect];
 }
 
 
