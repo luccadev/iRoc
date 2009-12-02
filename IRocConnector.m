@@ -170,7 +170,7 @@
 					[parser setDelegate:self];
 					[parser parse];
 					
-					NSLog(@"Header read: %@ \n size: %d", header, readsize);
+					NSLog(@"Header read ... size: %d", readsize);
 
 					[parser release]; 
 					[_data release];
@@ -184,16 +184,22 @@
 				
 			} else if ( readRocdata) {
 				
-				while ( readRocdata) {
+				//while ( readRocdata) {
 					
 					len = [(NSInputStream *)stream read:buf maxLength:1024];
 					[_data appendBytes:(const void *)buf length:len];
 					
-					//NSLog(@"readsize: %d len: %d", readsize, len);
-			
 					
-				// TODO: this is dangerous if the last chunk is 1024 bytes ...
-					if( len < 1024) {
+				if (readsize > len)
+					readsize  -= len;
+				else 
+					readsize = 0;
+				
+				
+				//NSLog(@"readsize: %d len: %d", readsize, len);
+					
+					
+					if( readsize < 1) {
 
 						NSXMLParser *parser = [[NSXMLParser alloc] initWithData:_data];
 						[parser setDelegate:self];
@@ -205,12 +211,15 @@
 						_data = nil;
 						[parser release];  
 						
-						readsize = 0;
+						//readsize = 0;
 						readHeader = TRUE;
 						readRocdata = FALSE;
 					}
+				
+				
+
 					
-				}
+				//}
 				
 				
 					
@@ -225,17 +234,11 @@
 				
 			break;
         }
-			/*
-		case NSStreamEventEndEncountered:
-		{
-			NSLog(@"ENDE");
 			
-			break;
-		}
-		
+		/*
 		default:
 			break;
-			 */
+			*/ 
 	}
 }
 
@@ -258,10 +261,14 @@ static NSString * const kEntryElementName = @"entry";
 	} else if ([elementName isEqualToString:@"lc"]) {
 		NSString *relAttribute = [attributeDict valueForKey:@"id"];		
         NSLog(@"parser: lc: %@", relAttribute);	
+	} else if ([elementName isEqualToString:@"sw"]) {
+		NSString *relAttribute = [attributeDict valueForKey:@"id"];		
+        NSLog(@"parser: sw: %@", relAttribute);	
 	} else if ([elementName isEqualToString:@"lclist"]) {
 		NSLog(@"parser: lclist");	
 	} else if ([elementName isEqualToString:@"exception"]) {
-		NSLog(@"parser: eception");
+		NSString *relAttribute = [attributeDict valueForKey:@"text"];		
+		NSLog(@"parser: exception = %@", relAttribute);
 	}
 	
 }
