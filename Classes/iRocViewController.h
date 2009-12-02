@@ -45,7 +45,7 @@
 	int prevVVal;
 	NSArray * functionButtons;
 	//NSString * strTrue;
-	//NSString * strFalse;
+	NSString * ip;
 	NSUserDefaults *defaults;
 }
 @property (nonatomic, retain) iRocButton *buttonDir; 
@@ -67,6 +67,8 @@
 @property (nonatomic, retain) UISlider *slider;
 @property (nonatomic, retain) UITextField *textfieldLoc;
 @property (nonatomic, retain) iRocTouchView *slideView;
+
+@property(nonatomic, retain) NSString *ip;
 
 @property (readwrite)	CFURLRef		soundFileURLRef;
 @property (readonly)	SystemSoundID	soundFileObject;

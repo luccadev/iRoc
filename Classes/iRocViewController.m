@@ -18,6 +18,7 @@
 @synthesize soundFileObject;
 @synthesize rrconnection;
 @synthesize functionButtons;
+@synthesize ip;
 
 - (IBAction) buttonDirClicked:(id) sender { 
 	if(dir) {
@@ -119,15 +120,6 @@
 }
 
 /*
-- (IBAction) textFieldDone:(id) sender {
-	NSLog(@"Keyboard Done Pressed");
-	
-	[textfieldLoc resignFirstResponder];
-}
- */
-
-
-/*
 // The designated initializer. Override to perform setup that is required before the view is loaded.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -211,7 +203,7 @@
 	stringDir = @"true";
 	[buttonDir setTitle:@">" forState:UIControlStateNormal];
 	
-	NSString * ip = [NSString stringWithString:[defaults stringForKey:@"ip_preference"]];
+	ip = [defaults stringForKey:@"ip_preference"];
 	//stringLcPrev = [[NSString stringWithString:[defaults stringForKey:@"loc_preference"]] retain];
 	
 	rrconnection = [[IRocConnector alloc] init];
@@ -230,7 +222,6 @@
 - (void)connectThread { 
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
-	// let's do it
 	connectOK = [rrconnection connect];
 	
 	if( !connectOK){
@@ -262,7 +253,6 @@
             [keyboard addSubview:doneButton];
     }
 }
-
 
 /*
 // Override to allow orientations other than the default portrait orientation.

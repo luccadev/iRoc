@@ -10,11 +10,16 @@
 
 @implementation IRocConnector
 
-@synthesize header;
+@synthesize header, rocdata;
 
 - (BOOL)connect {
 	
-	header = [NSMutableString string];
+	readsize = 0;
+	readRocdata = FALSE;
+	readHeader = TRUE;
+	
+	//header = [NSMutableString string];
+	//rocdata = [NSMutableString string];
 	
 	NSLog([NSString stringWithFormat: @"Connect to: %@:%d ", domain, port]);	
 	
@@ -129,15 +134,11 @@
     port = value;
 }
 
-bool readit;
-
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode {
 	
 	//NSLog(@"stream:handleEvent: is invoked...");
 	
-	
-	
-	readit = FALSE;
+
 	
     switch(eventCode) {
         case NSStreamEventHasBytesAvailable:
@@ -145,95 +146,142 @@ bool readit;
             if(!_data) {
                 _data = [[NSMutableData data] retain];
             }
+			
+			if(!header) {
+				header = [[NSMutableString string] retain];
+			}
+			
+			
             uint8_t buf[1024];
             unsigned int len = 1;
+		
 			
-			
-			/*
-			while ( ![header hasSuffix:@"</xmlh>"] && read ){
-            len = [(NSInputStream *)stream read:buf maxLength:1];
-			
-			//NSLog(@"Output: %s", (const void *)buf);
-			
-			//NSLog(@"len: %d", len);
-			//header = [[NSString alloc] initWithBytes:(const void *)buf length:len encoding:NSUTF8StringEncoding];
+			if( readHeader ) {
 				
-			
+				while ( ![header hasSuffix:@"</xmlh>"] && readsize == 0){
+					len = [(NSInputStream *)stream read:buf maxLength:1];
+					
+					[_data appendBytes:(const void *)buf length:len];
+					header = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
+				}
+				
+				if ( [header hasSuffix:@"</xmlh>"]){
+					NSXMLParser *parser = [[NSXMLParser alloc] initWithData:_data];
+					[parser setDelegate:self];
+					[parser parse];
+					
+					NSLog(@"Header read: %@ \n size: %d", header, readsize);
 
+					[parser release]; 
+					[_data release];
+					_data = nil;
+					[header release];
+					header = nil;
+					
+					readHeader = FALSE;
+					readRocdata = TRUE;
+				}
 				
-			NSString *stringFragment = [[NSString string] initWithBytes:(uint8_t*)buf length:(NSUInteger)len encoding:NSUTF8StringEncoding];
-			[self.header appendString:stringFragment];
-	
+			} else if ( readRocdata) {
 				
-				
-			//if (len)	
-			//	header = [[NSString alloc] stringWithFormat:@"%@%@", header, [NSString initWithBytes:(const void *)buf length:len encoding:NSUTF8StringEncoding]];
-				
-				
-				//[header appendString:[[NSString alloc] initWithBytes:(const void *)buf length:len encoding:NSUTF8StringEncoding]];
-				
-				
+				while ( readRocdata) {
+					
+					len = [(NSInputStream *)stream read:buf maxLength:1024];
+					[_data appendBytes:(const void *)buf length:len];
+					
+					//NSLog(@"readsize: %d len: %d", readsize, len);
 			
-			//NSLog(@"val: %@", [[NSString alloc] initWithBytes:(const void *)buf length:len encoding:NSUTF8StringEncoding]);
+					
+				// TODO: this is dangerous if the last chunk is 1024 bytes ...
+					if( len < 1024) {
+
+						NSXMLParser *parser = [[NSXMLParser alloc] initWithData:_data];
+						[parser setDelegate:self];
+						[parser parse];
+						
+						NSLog(@"Data read ... ");
+
+						[_data release];
+						_data = nil;
+						[parser release];  
+						
+						readsize = 0;
+						readHeader = TRUE;
+						readRocdata = FALSE;
+					}
+					
+				}
 				
-			//NSLog(@"val: %@", header);
 				
+					
+					//rocdata = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
+					//NSLog(@"Rocdata read: /n %@", rocdata);
+					
+					
+					
 				
 			}
-			
-			if( [header hasSuffix:@"</xmlh>"] ) {
-				NSLog(@"value: %@", header);
+		
 				
-				readit = FALSE;
-				
-				header = @"";
-				NSLog(@"####################################");
-			}
-			
-			
-			
-			
-			*/
-			
-			
-			
-			
-			
-            if(len) {
-                [_data appendBytes:(const void *)buf length:len];
-				
-				// TODO: here we go on in later ...
-				
-				//NSLog(@"Output: %s", (const void *)buf);
-				
-				
-				//s = [[NSString alloc] initWithBytes:(const void *)buf length:len encoding:NSUTF8StringEncoding];
-				//NSLog(@"%@", s);
-				//[s release];
-				
-				
-				//if( 
-				
-				
-				
-				
-                // bytesRead is an instance variable of type NSNumber.
-                //[bytesRead setIntValue:[bytesRead intValue]+len];
-            } else {
-                NSLog(@"no buffer!");
-            }
-			
-			
-			
-			/*
-			NSString *s = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
-			NSLog(@"%@", s);
-			[s release];
-			 */
-			
-            break;
+			break;
         }
+			/*
+		case NSStreamEventEndEncountered:
+		{
+			NSLog(@"ENDE");
+			
+			break;
+		}
+		
+		default:
+			break;
+			 */
 	}
 }
 
+#pragma mark Parser constants
+
+// Reduce potential parsing errors by using string constants declared in a single place.
+static NSString * const kEntryElementName = @"entry";
+
+
+#pragma mark NSXMLParser delegate methods
+
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
+
+	if ([elementName isEqualToString:@"xmlh"]) {
+		NSLog(@"parser: xmlh");
+	} else if ([elementName isEqualToString:@"xml"]) {
+		NSLog(@"parser: xml");		
+		NSString *relAttribute = [attributeDict valueForKey:@"size"];		
+		readsize = [relAttribute intValue];
+	} else if ([elementName isEqualToString:@"lc"]) {
+		NSString *relAttribute = [attributeDict valueForKey:@"id"];		
+        NSLog(@"parser: lc: %@", relAttribute);	
+	} else if ([elementName isEqualToString:@"lclist"]) {
+		NSLog(@"parser: lclist");	
+	} else if ([elementName isEqualToString:@"exception"]) {
+		NSLog(@"parser: eception");
+	}
+	
+}
+
+- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {     
+	if ([elementName isEqualToString:@"xmlh"]) {
+		NSLog(@"parser: /xmlh");
+	}
+}
+
+// This method is called by the parser when it find parsed character data ("PCDATA") in an element. The parser is not
+// guaranteed to deliver all of the parsed character data for an element in a single invocation, so it is necessary to
+// accumulate character data until the end of the element is reached.
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
+
+}
+
+- (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
+
+}
+
 @end
+

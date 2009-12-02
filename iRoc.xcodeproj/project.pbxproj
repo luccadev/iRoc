@@ -18,8 +18,6 @@
 		9C00EAC610B3C5820098BA59 /* IRocConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C00EAC510B3C5820098BA59 /* IRocConnector.m */; };
 		9C00EE6210B41B490098BA59 /* thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C00EE6110B41B490098BA59 /* thumb.png */; };
 		9C343D3010B900E500750B22 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9C343D2F10B900E500750B22 /* Settings.bundle */; };
-		9C6FC7F410B72538009FD6FE /* ConnectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6FC7F210B72538009FD6FE /* ConnectController.m */; };
-		9C6FC7F510B72538009FD6FE /* ConnectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C6FC7F310B72538009FD6FE /* ConnectController.xib */; };
 		9C6FC84310B7CB0B009FD6FE /* tick.caf in Resources */ = {isa = PBXBuildFile; fileRef = 9C6FC84210B7CB0B009FD6FE /* tick.caf */; };
 		9C6FC89110B7CE8F009FD6FE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6FC89010B7CE8F009FD6FE /* AudioToolbox.framework */; };
 		9C6FC8AF10B7CF05009FD6FE /* tap.aif in Resources */ = {isa = PBXBuildFile; fileRef = 9C6FC8AE10B7CF05009FD6FE /* tap.aif */; };
@@ -51,9 +49,6 @@
 		9C00EAC510B3C5820098BA59 /* IRocConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IRocConnector.m; path = ../IRocConnector.m; sourceTree = "<group>"; };
 		9C00EE6110B41B490098BA59 /* thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb.png; sourceTree = "<group>"; };
 		9C343D2F10B900E500750B22 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		9C6FC7F110B72538009FD6FE /* ConnectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectController.h; path = ../ConnectController.h; sourceTree = "<group>"; };
-		9C6FC7F210B72538009FD6FE /* ConnectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConnectController.m; path = ../ConnectController.m; sourceTree = "<group>"; };
-		9C6FC7F310B72538009FD6FE /* ConnectController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConnectController.xib; sourceTree = "<group>"; };
 		9C6FC84210B7CB0B009FD6FE /* tick.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tick.caf; sourceTree = "<group>"; };
 		9C6FC89010B7CE8F009FD6FE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
 		9C6FC8AE10B7CF05009FD6FE /* tap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = tap.aif; sourceTree = "<group>"; };
@@ -89,8 +84,6 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				9C6FC7F110B72538009FD6FE /* ConnectController.h */,
-				9C6FC7F210B72538009FD6FE /* ConnectController.m */,
 				9C00EAC410B3C5820098BA59 /* IRocConnector.h */,
 				9C00EAC510B3C5820098BA59 /* IRocConnector.m */,
 				1D3623240D0F684500981E51 /* iRocAppDelegate.h */,
@@ -145,7 +138,6 @@
 			children = (
 				9C6FC8AE10B7CF05009FD6FE /* tap.aif */,
 				9C6FC84210B7CB0B009FD6FE /* tick.caf */,
-				9C6FC7F310B72538009FD6FE /* ConnectController.xib */,
 				9CDB1D5710B57C11001442F1 /* donedown.png */,
 				9CDB1D5810B57C11001442F1 /* doneup.png */,
 				9C00EE6110B41B490098BA59 /* thumb.png */,
@@ -216,7 +208,6 @@
 				9C891DE710B44289000014D1 /* SwitchView.xib in Resources */,
 				9CDB1D5910B57C11001442F1 /* donedown.png in Resources */,
 				9CDB1D5A10B57C11001442F1 /* doneup.png in Resources */,
-				9C6FC7F510B72538009FD6FE /* ConnectController.xib in Resources */,
 				9C6FC84310B7CB0B009FD6FE /* tick.caf in Resources */,
 				9C6FC8AF10B7CF05009FD6FE /* tap.aif in Resources */,
 				9C343D3010B900E500750B22 /* Settings.bundle in Resources */,
@@ -238,7 +229,6 @@
 				9C00EAC610B3C5820098BA59 /* IRocConnector.m in Sources */,
 				9CDB1B3410B533F9001442F1 /* iRocTouchView.m in Sources */,
 				9CDB1BE610B54843001442F1 /* iRocView.m in Sources */,
-				9C6FC7F410B72538009FD6FE /* ConnectController.m in Sources */,
 				9C72869310B81A4200567A8A /* iRocButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

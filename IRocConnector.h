@@ -24,8 +24,15 @@
 	NSNumber* bytesRead;
 	
 	NSMutableString *header;
+	NSMutableString *rocdata;
 	
 	BOOL isConnected;
+	BOOL readRocdata;
+	
+	
+	BOOL readHeader;
+	
+	unsigned int readsize;
 }
 
 
@@ -46,5 +53,6 @@
 
 @property(copy) NSString *domain;
 @property(nonatomic, retain) NSMutableString *header;
+@property(nonatomic, retain) NSMutableString *rocdata;
 
 @end
