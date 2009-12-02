@@ -15,6 +15,9 @@
 @synthesize tabBarController;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
+	
+	application.idleTimerDisabled = YES;
+	
 	[window addSubview:tabBarController.view];	
 }
 

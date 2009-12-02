@@ -154,8 +154,10 @@
 			
             uint8_t buf[1024];
             unsigned int len = 1;
-		
 			
+			len = [(NSInputStream *)stream read:buf maxLength:1024];
+		
+			/*
 			if( readHeader ) {
 				
 				while ( ![header hasSuffix:@"</xmlh>"] && readsize == 0){
@@ -229,7 +231,7 @@
 					
 					
 				
-			}
+			}*/
 		
 				
 			break;
