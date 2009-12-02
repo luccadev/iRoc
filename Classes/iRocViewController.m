@@ -34,7 +34,7 @@
 	//AudioServicesPlaySystemSound (self.soundFileObject);
 
 	[slideView setValue:0];	
-	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc id=\"%@\" V=\"0\" dir=\"%@\" fn=\"%@\"/>",[textfieldLoc text], stringDir, [buttonF0 getBState]?@"true":@"false"]] ];
+	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc throttleid=\"iRoc\" id=\"%@\" V=\"0\" dir=\"%@\" fn=\"%@\"/>",[textfieldLoc text], stringDir, [buttonF0 getBState]?@"true":@"false"]] ];
 }
 
 - (IBAction) sliderMoved:(id) sender { 	
@@ -43,7 +43,7 @@
 		
 	if( prevVVal != vVal) {
 		NSString * stringToSend; 			
-		stringToSend = [NSString stringWithFormat: @"<lc id=\"%@\" V=\"%d\" dir=\"%@\" fn=\"%@\"/>", [textfieldLoc text], vVal, stringDir, [buttonF0 getBState]?@"true":@"false"];
+		stringToSend = [NSString stringWithFormat: @"<lc throttleid=\"iRoc\" id=\"%@\" V=\"%d\" dir=\"%@\" fn=\"%@\"/>", [textfieldLoc text], vVal, stringDir, [buttonF0 getBState]?@"true":@"false"];
 		NSLog(stringToSend);
 		[rrconnection sendMessage:@"lc" message:stringToSend];
 	}
@@ -54,7 +54,7 @@
 - (IBAction) buttonF0Clicked:(id) sender {	
 	fnStates[0] = !fnStates[0];
 
-	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc id=\"%@\" fn=\"%@\"/>",[textfieldLoc text], fnStates[0]?@"true":@"false"]] ];
+	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc throttleid=\"iRoc\" id=\"%@\" fn=\"%@\"/>",[textfieldLoc text], fnStates[0]?@"true":@"false"]] ];
     	
 	//NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<fn group=\"1\" id=\"%@\" f%d=\"%@\"/>", [textfieldLoc text], 0,  fnStates[0]?@"true":@"false" ] ];
 	//[rrconnection sendMessage:@"fn" message:stringToSend];
