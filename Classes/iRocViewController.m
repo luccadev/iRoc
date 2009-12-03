@@ -34,7 +34,9 @@
 	//AudioServicesPlaySystemSound (self.soundFileObject);
 
 	[slideView setValue:0];	
-	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc throttleid=\"iRoc\" id=\"%@\" V=\"0\" dir=\"%@\" fn=\"%@\"/>",[textfieldLoc text], stringDir, [buttonF0 getBState]?@"true":@"false"]] ];
+	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc throttleid=\"%@\" id=\"%@\" V=\"0\" dir=\"%@\" fn=\"%@\"/>",
+    (NSString*)[[UIDevice currentDevice] name],
+    [textfieldLoc text], stringDir, [buttonF0 getBState]?@"true":@"false"]] ];
 }
 
 - (IBAction) sliderMoved:(id) sender { 	
@@ -42,8 +44,12 @@
 	int vVal = [slideView value]*100;
 		
 	if( prevVVal != vVal) {
+    NSLog(@"%@", [[UIDevice currentDevice] name]);
+
 		NSString * stringToSend; 			
-		stringToSend = [NSString stringWithFormat: @"<lc throttleid=\"iRoc\" id=\"%@\" V=\"%d\" dir=\"%@\" fn=\"%@\"/>", [textfieldLoc text], vVal, stringDir, [buttonF0 getBState]?@"true":@"false"];
+		stringToSend = [NSString stringWithFormat: @"<lc throttleid=\"%@\" id=\"%@\" V=\"%d\" dir=\"%@\" fn=\"%@\"/>", 
+                    (NSString*)[[UIDevice currentDevice] name],
+                    [textfieldLoc text], vVal, stringDir, [buttonF0 getBState]?@"true":@"false"];
 		NSLog(stringToSend);
 		[rrconnection sendMessage:@"lc" message:stringToSend];
 	}
