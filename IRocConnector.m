@@ -156,12 +156,12 @@
         case NSStreamEventHasBytesAvailable:
         {
             if(!_data) {
-              NSLog(@"init data...");
+              //NSLog(@"init data...");
                 _data = [[NSMutableData data] retain];
             }
 			
 			if(!header) {
-        NSLog(@"init header...");
+				//NSLog(@"init header...");
 				header = [[NSMutableString string] retain];
 			}
 			
@@ -180,14 +180,14 @@
 					
 					//NSLog(@"%@", header);
 				}
-        NSLog(@"%@", header);
+        //NSLog(@"%@", header);
 				
 				if ( [header hasSuffix:@"</xmlh>"]){
 					NSXMLParser *parser = [[NSXMLParser alloc] initWithData:_data];
 					[parser setDelegate:self];
 					[parser parse];
 					
-					NSLog(@"Header read ... size: %d", readsize);
+					//NSLog(@"Header read ... size: %d", readsize);
 
 					[parser release]; 
 					[_data release];
@@ -210,7 +210,7 @@
 				[_data appendBytes:(const void *)buf length:len];
 
 				bytesread += imax;
-				NSLog(@"readsize: %d len: %d btr: %d", readsize, len, bytesread);
+				//NSLog(@"readsize: %d len: %d btr: %d", readsize, len, bytesread);
 
 				if( len < 1024 || readsize == bytesread) {
 					
@@ -224,7 +224,7 @@
 					[parser setDelegate:self];
 					[parser parse];
 					
-					NSLog(@"Data sent to parser ... ");
+					//NSLog(@"Data sent to parser ... ");
 					
 					[parser release];  
 					[_data release];
@@ -263,7 +263,7 @@ static NSString * const kEntryElementName = @"entry";
 	if ([elementName isEqualToString:@"xmlh"]) {
 		//NSLog(@"parser: xmlh");
 	} else if ([elementName isEqualToString:@"xml"]) {
-		NSLog(@"parser: xml");		
+		//NSLog(@"parser: xml");		
 		NSString *relAttribute = [attributeDict valueForKey:@"size"];		
 		readsize = [relAttribute intValue];
 	} else if ([elementName isEqualToString:@"lc"]) {
@@ -274,9 +274,17 @@ static NSString * const kEntryElementName = @"entry";
         NSLog(@"parser: sw: %@", relAttribute);	
 	} else if ([elementName isEqualToString:@"lclist"]) {
 		NSLog(@"parser: lclist");	
-	} else if ([elementName isEqualToString:@"exception"]) {
+	} /*else if ([elementName isEqualToString:@"exception"]) {
 		NSString *relAttribute = [attributeDict valueForKey:@"text"];		
 		NSLog(@"parser: exception = %@", relAttribute);
+	}*/ 
+	else if ([elementName isEqualToString:@"sys"]) {
+		NSString *relAttribute = [attributeDict valueForKey:@"cmd"];
+		if( [relAttribute isEqualToString:@"shutdown"] ) {
+			NSLog(@"We should go down now [%@]", relAttribute);
+			[self stop]; 
+			exit(0);
+		}
 	}
 	
 }
