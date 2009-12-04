@@ -1,5 +1,5 @@
 //
-//  Sender.m
+//  iRocConnector.m
 //  iRoc
 //
 //  Created by Jean-Michel Fischer on 18.11.09.
@@ -32,7 +32,7 @@
 	isConnected = FALSE;
 	
 	CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)domain, port, (CFReadStreamRef*)&iStream, (CFWriteStreamRef*)&oStream);
-	NSLog([NSString stringWithFormat: @"Connected?"]);	
+	//NSLog([NSString stringWithFormat: @"Connected?"]);	
 	if (iStream && oStream) {
 		
 		//iStream = (NSInputStream *)readStream;
@@ -151,20 +151,23 @@
 				header = [[NSMutableString string] retain];
 			}
 			
+			NSLog(@"readHeader: %d ... readRocdata: %d", readHeader, readRocdata);
 			
             uint8_t buf[1024];
             unsigned int len = 1;
 			
-			len = [(NSInputStream *)stream read:buf maxLength:1024];
+			//len = [(NSInputStream *)stream read:buf maxLength:1024];
 		
-			/*
+			
 			if( readHeader ) {
 				
-				while ( ![header hasSuffix:@"</xmlh>"] && readsize == 0){
+				while ( ![header hasSuffix:@"</xmlh>"]){
 					len = [(NSInputStream *)stream read:buf maxLength:1];
 					
 					[_data appendBytes:(const void *)buf length:len];
 					header = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
+					
+					//NSLog(@"%@", header);
 				}
 				
 				if ( [header hasSuffix:@"</xmlh>"]){
@@ -191,18 +194,22 @@
 					len = [(NSInputStream *)stream read:buf maxLength:1024];
 					[_data appendBytes:(const void *)buf length:len];
 					
-					
+				
+				NSLog(@"readsize: %d len: %d", readsize, len);
+				
+				/*
 				if (readsize > len)
-					readsize  -= len;
+					readsize  = readsize - len;
 				else 
 					readsize = 0;
+				*/
 				
-				
-				//NSLog(@"readsize: %d len: %d", readsize, len);
+				NSLog(@"readsize: %d len: %d", readsize, len);
 					
-					
-					if( readsize < 1) {
+					// mhhhhhhhhhhhhh????
+					if( len < 1024) {
 
+						
 						NSXMLParser *parser = [[NSXMLParser alloc] initWithData:_data];
 						[parser setDelegate:self];
 						[parser parse];
@@ -213,25 +220,16 @@
 						_data = nil;
 						[parser release];  
 						
-						//readsize = 0;
+			
 						readHeader = TRUE;
 						readRocdata = FALSE;
 					}
-				
-				
 
-					
-				//}
+			} else {
+			
+				NSLog(@"Somthing went wrong ... ");
 				
-				
-					
-					//rocdata = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
-					//NSLog(@"Rocdata read: /n %@", rocdata);
-					
-					
-					
-				
-			}*/
+			}
 		
 				
 			break;
