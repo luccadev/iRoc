@@ -56,7 +56,7 @@
 	
 		if( [oStream streamStatus] == NSStreamStatusOpen && [iStream streamStatus] == NSStreamStatusOpen ) {
 			connectOK = TRUE;
-		    [self sendMessage:@"model" message:@"<model cmd=\"lclist\"/>"];
+		    [self sendMessage:@"model" message:@"<model cmd=\"plan\"/>"];
 		} else {
 			connectOK = FALSE;
 	    }
@@ -151,7 +151,7 @@
 				header = [[NSMutableString string] retain];
 			}
 			
-			NSLog(@"readHeader: %d ... readRocdata: %d", readHeader, readRocdata);
+			//NSLog(@"readHeader: %d ... readRocdata: %d", readHeader, readRocdata);
 			
             uint8_t buf[1024];
             unsigned int len = 1;
@@ -189,13 +189,11 @@
 				
 			} else if ( readRocdata) {
 				
-				//while ( readRocdata) {
-					
-					len = [(NSInputStream *)stream read:buf maxLength:1024];
-					[_data appendBytes:(const void *)buf length:len];
-					
+				len = [(NSInputStream *)stream read:buf maxLength:1024];
+				[_data appendBytes:(const void *)buf length:len];
 				
-				NSLog(@"readsize: %d len: %d", readsize, len);
+				
+				//NSLog(@"readsize: %d len: %d", readsize, len);
 				
 				/*
 				if (readsize > len)
@@ -204,41 +202,42 @@
 					readsize = 0;
 				*/
 				
-				NSLog(@"readsize: %d len: %d", readsize, len);
+				//NSLog(@"readsize: %d len: %d", readsize, len);
+				
+				// mhhhhhhhhhhhhh????
+				if( len < 1024) {
 					
-					// mhhhhhhhhhhhhh????
-					if( len < 1024) {
-
-						
-						NSXMLParser *parser = [[NSXMLParser alloc] initWithData:_data];
-						[parser setDelegate:self];
-						[parser parse];
-						
-						NSLog(@"Data read ... ");
-
-						[_data release];
-						_data = nil;
-						[parser release];  
-						
-			
-						readHeader = TRUE;
-						readRocdata = FALSE;
-					}
-
+					//NSLog(@"###################################################################");
+					//NSLog([[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding]);
+					//NSLog(@"###################################################################");
+					
+					
+					NSXMLParser *parser = [[[NSXMLParser alloc] initWithData:_data] retain];
+					[parser setDelegate:self];
+					[parser parse];
+					
+					NSLog(@"Data sent to parser ... ");
+					
+					
+					
+					[parser release];  
+					[_data release];
+					_data = nil;
+					
+					// start from the beginning ....
+					readHeader = TRUE;
+					readRocdata = FALSE;
+				}
+				
 			} else {
-			
+				
 				NSLog(@"Somthing went wrong ... ");
 				
 			}
-		
+			
 				
 			break;
         }
-			
-		/*
-		default:
-			break;
-			*/ 
 	}
 }
 
@@ -252,8 +251,11 @@ static NSString * const kEntryElementName = @"entry";
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
 
+	//NSLog(@"Parser didStartElement ... %@", elementName);
+	
+	
 	if ([elementName isEqualToString:@"xmlh"]) {
-		NSLog(@"parser: xmlh");
+		//NSLog(@"parser: xmlh");
 	} else if ([elementName isEqualToString:@"xml"]) {
 		NSLog(@"parser: xml");		
 		NSString *relAttribute = [attributeDict valueForKey:@"size"];		
@@ -275,7 +277,7 @@ static NSString * const kEntryElementName = @"entry";
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {     
 	if ([elementName isEqualToString:@"xmlh"]) {
-		NSLog(@"parser: /xmlh");
+		//NSLog(@"parser: /xmlh");
 	}
 }
 
