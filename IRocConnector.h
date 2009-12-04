@@ -48,8 +48,11 @@
 
 - (BOOL)connect;
 - (BOOL)stop;
+- (void)requestPlan;
 
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode;
+
+@property(readwrite) BOOL isConnected;
 
 @property(copy) NSString *domain;
 @property(nonatomic, retain) NSMutableString *header;

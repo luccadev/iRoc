@@ -10,7 +10,7 @@
 
 @implementation IRocConnector
 
-@synthesize header, rocdata;
+@synthesize header, rocdata, isConnected;
 
 - (BOOL)connect {
 	
@@ -56,16 +56,21 @@
 	
 		if( [oStream streamStatus] == NSStreamStatusOpen && [iStream streamStatus] == NSStreamStatusOpen ) {
 			connectOK = TRUE;
-		    [self sendMessage:@"model" message:@"<model cmd=\"plan\"/>"];
+		    //[self sendMessage:@"model" message:@"<model cmd=\"plan\"/>"];
 		} else {
 			connectOK = FALSE;
 	    }
 		 
-		[[NSRunLoop currentRunLoop] run];
 		isConnected = TRUE;
+		[[NSRunLoop currentRunLoop] run];
+
 	} 	
 	
 	return connectOK;
+}
+
+- (void)requestPlan {
+  [self sendMessage:@"model" message:@"<model cmd=\"plan\"/>"];
 }
 
 - (BOOL)stop {
@@ -96,6 +101,7 @@
 	stringToSend = [NSString stringWithFormat: @"<xmlh><xml size=\"%d\" name=\"%@\"/></xmlh>%@", [msg length], name, msg];
 	stringToSend = [stringToSend stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	
+	NSLog([NSString stringWithFormat: @">> %@"], stringToSend);		
 	
 	NSData * dataToSend = [stringToSend dataUsingEncoding:NSUTF8StringEncoding];
 	
@@ -109,7 +115,6 @@
 			marker += actuallyWritten;
 		}
 	}
-	//NSLog([NSString stringWithFormat: @"##%@##"], stringToSend);		
 	return TRUE;
 }
 
@@ -169,6 +174,7 @@
 					
 					//NSLog(@"%@", header);
 				}
+        NSLog(@"%@", header);
 				
 				if ( [header hasSuffix:@"</xmlh>"]){
 					NSXMLParser *parser = [[NSXMLParser alloc] initWithData:_data];
@@ -188,8 +194,11 @@
 				}
 				
 			} else if ( readRocdata) {
+        int imax = 1024;
+        if( len < imax )
+          imax = len;
 				
-				len = [(NSInputStream *)stream read:buf maxLength:1024];
+				len = [(NSInputStream *)stream read:buf maxLength:imax];
 				[_data appendBytes:(const void *)buf length:len];
 				
 				
@@ -202,14 +211,14 @@
 					readsize = 0;
 				*/
 				
-				//NSLog(@"readsize: %d len: %d", readsize, len);
+				NSLog(@"readsize: %d len: %d", readsize, len);
 				
 				// mhhhhhhhhhhhhh????
 				if( len < 1024) {
 					
-					//NSLog(@"###################################################################");
-					//NSLog([[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding]);
-					//NSLog(@"###################################################################");
+					NSLog(@"###################################################################");
+					NSLog([[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding]);
+					NSLog(@"###################################################################");
 					
 					
 					NSXMLParser *parser = [[[NSXMLParser alloc] initWithData:_data] retain];

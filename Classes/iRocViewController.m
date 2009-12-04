@@ -232,8 +232,22 @@
 	textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
 	
 	// Connect Thread
+  rrconnection.isConnected = FALSE;
     [NSThread detachNewThreadSelector:@selector(connectThread) toTarget:self withObject:nil]; 
-	}
+
+  int retry = 100;
+  while( retry > 0 ) {
+    NSLog( @"retry=%d isConnected=%d",retry,rrconnection.isConnected);
+    retry--;  
+   if( rrconnection.isConnected ) {
+     [rrconnection requestPlan];
+     break;
+   } 
+    else
+      [NSThread sleepForTimeInterval:1];
+  }
+
+}
 
 - (void)connectThread { 
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
