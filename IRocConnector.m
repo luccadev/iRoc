@@ -14,6 +14,7 @@
 
 - (BOOL)connect {
 	
+	bytesread = 0;
 	readsize = 0;
 	readRocdata = FALSE;
 	readHeader = TRUE;
@@ -164,7 +165,7 @@
 				header = [[NSMutableString string] retain];
 			}
 			
-			NSLog(@"readHeader: %d ... readRocdata: %d", readHeader, readRocdata);
+			//NSLog(@"readHeader: %d ... readRocdata: %d", readHeader, readRocdata);
 			
             uint8_t buf[1024];
             unsigned int len = 1;
@@ -196,43 +197,34 @@
 					
 					readHeader = FALSE;
 					readRocdata = TRUE;
+					
+					bytesread = 0;
 				}
 				
 			} else if ( readRocdata) {
-        int imax = 1024;
-        if( readsize < imax )
-          imax = readsize;
+				int imax = 1024;
+				if( readsize < imax )
+					imax = readsize;
 				
 				len = [(NSInputStream *)stream read:buf maxLength:imax];
 				[_data appendBytes:(const void *)buf length:len];
-				
-				
-				NSLog(@"readsize: %d len: %d", readsize, len);
-				
-				/*
-				if (readsize > len)
-					readsize  = readsize - len;
-				else 
-					readsize = 0;
-				*/
-				
-				NSLog(@"readsize: %d len: %d", readsize, len);
-				
-				// mhhhhhhhhhhhhh????
-				if( len < 1024) {
+
+				bytesread += imax;
+				NSLog(@"readsize: %d len: %d btr: %d", readsize, len, bytesread);
+
+				if( len < 1024 || readsize == bytesread) {
 					
+					/*
 					NSLog(@"###################################################################");
 					NSLog([[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding]);
 					NSLog(@"###################################################################");
-					
+					*/
 					
 					NSXMLParser *parser = [[[NSXMLParser alloc] initWithData:_data] retain];
 					[parser setDelegate:self];
 					[parser parse];
 					
 					NSLog(@"Data sent to parser ... ");
-					
-					
 					
 					[parser release];  
 					[_data release];

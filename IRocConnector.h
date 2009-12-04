@@ -33,6 +33,7 @@
 	BOOL readHeader;
 	
 	unsigned int readsize;
+	int bytesread;
 }
 
 
