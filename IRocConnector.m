@@ -200,8 +200,8 @@
 				
 			} else if ( readRocdata) {
         int imax = 1024;
-        if( len < imax )
-          imax = len;
+        if( readsize < imax )
+          imax = readsize;
 				
 				len = [(NSInputStream *)stream read:buf maxLength:imax];
 				[_data appendBytes:(const void *)buf length:len];
