@@ -17,6 +17,9 @@
 	readsize = 0;
 	readRocdata = FALSE;
 	readHeader = TRUE;
+  _data = NULL;
+  header = NULL;
+  rocdata = NULL;
 	
 	//header = [NSMutableString string];
 	//rocdata = [NSMutableString string];
