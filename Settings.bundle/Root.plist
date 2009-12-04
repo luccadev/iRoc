@@ -54,15 +54,33 @@
 			<key>DefaultValue</key>
 			<true/>
 		</dict>
+    <dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Velocity Control Settings</string>
+    </dict>
 		<dict>
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>Events on Move</string>
+			<string>High Sensitive</string>
 			<key>Key</key>
 			<string>moveevents_preference</string>
 			<key>DefaultValue</key>
 			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Velocity Delta</string>
+			<key>Key</key>
+			<string>vdelta_preference</string>
+			<key>DefaultValue</key>
+			<string>4</string>
+			<key>KeyboardType</key>
+			<string>NumberPad</string>
 		</dict>
 	</array>
 </dict>

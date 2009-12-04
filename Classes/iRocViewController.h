@@ -28,6 +28,7 @@
 	IBOutlet UISlider *slider;
 	IBOutlet UITextField *textfieldLoc;
 	IBOutlet iRocTouchView *slideView;
+  int VDelta;
 	
 	CFURLRef		soundFileURLRef;
 	SystemSoundID	soundFileObject;
@@ -38,6 +39,7 @@
 		
 	BOOL fnStates[9];
 	BOOL connectOK;
+	BOOL processAll;
 
 	UIColor * fnButtonOnColor;
 	UIColor * fnButtonOffColor;
@@ -72,6 +74,7 @@
 
 @property (readwrite)	CFURLRef		soundFileURLRef;
 @property (readonly)	SystemSoundID	soundFileObject;
+@property (readwrite)	int VDelta;
 
 - (IBAction) buttonDirClicked:(id) sender; 
 - (IBAction) buttonF0Clicked:(id) sender;
@@ -90,6 +93,7 @@
 //- (IBAction) textFieldDone:(id) sender;
 
 - (void) prepareFNCommand:(int) fnIndex; 
+- (void) processAllEvents:(int) _VDelta; 
 
 
 

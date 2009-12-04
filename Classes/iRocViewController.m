@@ -19,6 +19,7 @@
 @synthesize rrconnection;
 @synthesize functionButtons;
 @synthesize ip;
+@synthesize VDelta;
 
 - (IBAction) buttonDirClicked:(id) sender { 
 	if(dir) {
@@ -42,6 +43,9 @@
 - (IBAction) sliderMoved:(id) sender { 	
 	
 	int vVal = [slideView value]*100;
+  
+  if( processAll && abs( prevVVal - vVal) < VDelta )
+    return;
 		
 	if( prevVVal != vVal) {
     NSLog(@"%@", [[UIDevice currentDevice] name]);
@@ -102,6 +106,12 @@
 }
 - (IBAction) buttonFnClicked:(id) sender {
 }
+
+- (void) processAllEvents:(int) _VDelta {
+  VDelta = _VDelta;
+  processAll = TRUE;
+} 
+
 
 - (void) prepareFNCommand:(int) fnIndex {
 	fnStates[fnIndex] = !fnStates[fnIndex];

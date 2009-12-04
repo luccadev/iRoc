@@ -17,6 +17,13 @@
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	
 	application.idleTimerDisabled = YES;
+
+  // read preferences
+	NSUserDefaults *defaults = [[NSUserDefaults standardUserDefaults] retain];
+  
+  // Optional move event.
+  if( [defaults boolForKey:@"moveevents_preference"])
+  	[(iRocViewController*) [tabBarController.viewControllers objectAtIndex:0] processAllEvents: [defaults integerForKey:@"vdelta_preference"]];
 	
 	[window addSubview:tabBarController.view];	
 }
