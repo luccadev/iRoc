@@ -101,7 +101,7 @@
 	stringToSend = [NSString stringWithFormat: @"<xmlh><xml size=\"%d\" name=\"%@\"/></xmlh>%@", [msg length], name, msg];
 	stringToSend = [stringToSend stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	
-	NSLog([NSString stringWithFormat: @">> %@"], stringToSend);		
+	//NSLog([NSString stringWithFormat: @">> %@"], stringToSend);		
 	
 	NSData * dataToSend = [stringToSend dataUsingEncoding:NSUTF8StringEncoding];
 	
@@ -111,8 +111,11 @@
 		while (0 < remainingToWrite) {
 			int actuallyWritten = 0;
 			actuallyWritten = [oStream write:marker maxLength:remainingToWrite];
-			remainingToWrite -= actuallyWritten;
-			marker += actuallyWritten;
+      if( actuallyWritten > 0 ) {
+  			remainingToWrite -= actuallyWritten;
+        NSLog(@"actuallyWritten=%d remainingToWrite=%d", actuallyWritten, remainingToWrite);		
+	  		marker += actuallyWritten;
+      }
 		}
 	}
 	return TRUE;
@@ -149,20 +152,19 @@
         case NSStreamEventHasBytesAvailable:
         {
             if(!_data) {
+              NSLog(@"init data...");
                 _data = [[NSMutableData data] retain];
             }
 			
 			if(!header) {
+        NSLog(@"init header...");
 				header = [[NSMutableString string] retain];
 			}
 			
-			//NSLog(@"readHeader: %d ... readRocdata: %d", readHeader, readRocdata);
+			NSLog(@"readHeader: %d ... readRocdata: %d", readHeader, readRocdata);
 			
             uint8_t buf[1024];
             unsigned int len = 1;
-			
-			//len = [(NSInputStream *)stream read:buf maxLength:1024];
-		
 			
 			if( readHeader ) {
 				
@@ -202,7 +204,7 @@
 				[_data appendBytes:(const void *)buf length:len];
 				
 				
-				//NSLog(@"readsize: %d len: %d", readsize, len);
+				NSLog(@"readsize: %d len: %d", readsize, len);
 				
 				/*
 				if (readsize > len)
