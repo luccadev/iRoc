@@ -7,18 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "iRocLocTableViewController.h"
+#import "iRocViewController.h"
 
 @class iRocViewController;
 
 @interface iRocAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
-    //iRocViewController *viewController;
+    iRocViewController *viewController;
 	UITabBarController *tabBarController;
+	
+	IBOutlet iRocLocTableViewController *locTableViewController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-//@property (nonatomic, retain) IBOutlet iRocViewController *viewController;
+@property (nonatomic, retain) IBOutlet iRocViewController *viewController;
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
+
+@property (nonatomic, retain) IBOutlet iRocLocTableViewController *locTableViewController;
+
 
 @end
 

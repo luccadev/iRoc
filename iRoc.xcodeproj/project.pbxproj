@@ -24,6 +24,9 @@
 		9C72869310B81A4200567A8A /* iRocButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C72869210B81A4200567A8A /* iRocButton.m */; };
 		9C7F1BE910CBF2A900ACF0A7 /* iRocAboutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F1BE810CBF2A900ACF0A7 /* iRocAboutView.m */; };
 		9C891DE710B44289000014D1 /* SwitchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C891DE610B44289000014D1 /* SwitchView.xib */; };
+		9CA62C8410CD0AF0008E37AB /* iRocLocTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA62C8210CD0AF0008E37AB /* iRocLocTableViewController.m */; };
+		9CA62C8510CD0AF0008E37AB /* iRocLocTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CA62C8310CD0AF0008E37AB /* iRocLocTableViewController.xib */; };
+		9CA62C9110CD0B6C008E37AB /* Loc.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA62C9010CD0B6C008E37AB /* Loc.m */; };
 		9CAF71A610CBE78D00392643 /* iRocAboutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CAF71A410CBE78D00392643 /* iRocAboutView.xib */; };
 		9CAFD95710B97B700029C16F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAFD95610B97B700029C16F /* Icon.png */; };
 		9CDB1B3410B533F9001442F1 /* iRocTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDB1B3310B533F9001442F1 /* iRocTouchView.m */; };
@@ -60,6 +63,11 @@
 		9C7F1BE710CBF2A900ACF0A7 /* iRocAboutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocAboutView.h; sourceTree = "<group>"; };
 		9C7F1BE810CBF2A900ACF0A7 /* iRocAboutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocAboutView.m; sourceTree = "<group>"; };
 		9C891DE610B44289000014D1 /* SwitchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchView.xib; sourceTree = "<group>"; };
+		9CA62C8110CD0AF0008E37AB /* iRocLocTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iRocLocTableViewController.h; path = ../iRocLocTableViewController.h; sourceTree = "<group>"; };
+		9CA62C8210CD0AF0008E37AB /* iRocLocTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iRocLocTableViewController.m; path = ../iRocLocTableViewController.m; sourceTree = "<group>"; };
+		9CA62C8310CD0AF0008E37AB /* iRocLocTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = iRocLocTableViewController.xib; sourceTree = "<group>"; };
+		9CA62C8F10CD0B6C008E37AB /* Loc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loc.h; sourceTree = "<group>"; };
+		9CA62C9010CD0B6C008E37AB /* Loc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Loc.m; sourceTree = "<group>"; };
 		9CAF71A410CBE78D00392643 /* iRocAboutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = iRocAboutView.xib; sourceTree = "<group>"; };
 		9CAFD95610B97B700029C16F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		9CDB1B3210B533F9001442F1 /* iRocTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocTouchView.h; sourceTree = "<group>"; };
@@ -104,6 +112,10 @@
 				9C72869110B81A4200567A8A /* iRocButton.h */,
 				9C72869210B81A4200567A8A /* iRocButton.m */,
 				9C7286BB10B8227C00567A8A /* round.h */,
+				9CA62C8110CD0AF0008E37AB /* iRocLocTableViewController.h */,
+				9CA62C8210CD0AF0008E37AB /* iRocLocTableViewController.m */,
+				9CA62C8F10CD0B6C008E37AB /* Loc.h */,
+				9CA62C9010CD0B6C008E37AB /* Loc.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -143,6 +155,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9CA62C8310CD0AF0008E37AB /* iRocLocTableViewController.xib */,
 				9C6FC8AE10B7CF05009FD6FE /* tap.aif */,
 				9C6FC84210B7CB0B009FD6FE /* tick.caf */,
 				9CDB1D5710B57C11001442F1 /* donedown.png */,
@@ -222,6 +235,7 @@
 				9CAFD95710B97B700029C16F /* Icon.png in Resources */,
 				9CFDBF6610BD081600E9E9DE /* Entitlements.plist in Resources */,
 				9CAF71A610CBE78D00392643 /* iRocAboutView.xib in Resources */,
+				9CA62C8510CD0AF0008E37AB /* iRocLocTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +254,8 @@
 				9CDB1BE610B54843001442F1 /* iRocView.m in Sources */,
 				9C72869310B81A4200567A8A /* iRocButton.m in Sources */,
 				9C7F1BE910CBF2A900ACF0A7 /* iRocAboutView.m in Sources */,
+				9CA62C8410CD0AF0008E37AB /* iRocLocTableViewController.m in Sources */,
+				9CA62C9110CD0B6C008E37AB /* Loc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,10 +9,13 @@
 #import "iRocAppDelegate.h"
 #import "iRocViewController.h"
 
+
 @implementation iRocAppDelegate
 
 @synthesize window;
 @synthesize tabBarController;
+@synthesize locTableViewController;
+@synthesize viewController;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	
@@ -22,10 +25,29 @@
 	NSUserDefaults *defaults = [[NSUserDefaults standardUserDefaults] retain];
   
   // Optional move event.
-  if( [defaults boolForKey:@"moveevents_preference"])
-  	[(iRocViewController*) [tabBarController.viewControllers objectAtIndex:0] processAllEvents: [defaults integerForKey:@"vdelta_preference"]];
-	
+	if( [defaults boolForKey:@"moveevents_preference"]) {
+		//[(iRocViewController*) [tabBarController.viewControllers objectAtIndex:0] processAllEvents: [defaults integerForKey:@"vdelta_preference"]];
+		[viewController processAllEvents:[defaults integerForKey:@"vdelta_preference"]];
+	}
 	[window addSubview:tabBarController.view];	
+	
+	NSArray *testarray;
+	testarray = [[NSArray arrayWithObjects: @"One", @"Two", @"Three", nil] retain];
+	
+	
+	
+	NSLog(@" IP %@", [[viewController rrconnection] domain]);
+	
+	
+	//((iRocLocTableViewController*) [tabBarController.viewControllers objectAtIndex:1]).locList = [[(iRocViewController*) [tabBarController.viewControllers objectAtIndex:0] rrconnection] locList];
+	
+	
+	//testarray = [[(iRocViewController*) [tabBarController.viewControllers objectAtIndex:0] rrconnection] locList];
+
+	NSLog(@" ccc %d", [[[viewController rrconnection] locList] count]);
+	
+	locTableViewController.locList = [[viewController rrconnection] locList];
+	
 }
 
 
@@ -37,11 +59,11 @@
 
 
 -(void) applicationWillResignActive:(UIApplication *)application {
-	[[(iRocViewController*) [tabBarController.viewControllers objectAtIndex:0] rrconnection] stop];
+	[[viewController rrconnection] stop];
 }
 
 -(void) applicationDidBecomeActive:(UIApplication *)application {
-	[[(iRocViewController*) [tabBarController.viewControllers objectAtIndex:0] rrconnection] connect];
+	[[viewController rrconnection] connect];
 }
 
 

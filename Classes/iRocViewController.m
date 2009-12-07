@@ -38,6 +38,14 @@
 	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc throttleid=\"%@\" id=\"%@\" V=\"0\" dir=\"%@\" fn=\"%@\"/>",
     (NSString*)[[UIDevice currentDevice] name],
     [textfieldLoc text], stringDir, [buttonF0 getBState]?@"true":@"false"]] ];
+	
+	//TMP
+	
+	///UIWindow* tempWindow = [[[UIApplication sharedApplication] windows] objectAtIndex:1];
+	
+	
+	
+	
 }
 
 - (IBAction) sliderMoved:(id) sender { 	
@@ -226,7 +234,7 @@
 	[rrconnection setDomain:ip];
 	[rrconnection setPort:[defaults integerForKey:@"port_preference"]]; 
 
-	
+
 	//[NSString stringWithFormat: @"Connect to: %@:%d ", domain, port]
 	//NSLog( @"%d",[defaults integerForKey:@"loc_preference"]);
 	textfieldLoc.text = [defaults stringForKey:@"loc_preference"];

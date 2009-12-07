@@ -8,12 +8,26 @@
 
 #import "IRocConnector.h"
 
+
 @implementation IRocConnector
 
-@synthesize header, rocdata, isConnected;
+@synthesize header, rocdata, isConnected, locList, currentLocObject, currentParseBatch;
+
+- (id) init {
+	[super init];
+	self.locList = [[NSMutableArray array] retain];
+	//locTableViewController.locList = locList; 
+	
+	
+    
+	NSLog(@"Connector init ...");
+
+	return self;
+}
+
 
 - (BOOL)connect {
-	
+
 	bytesread = 0;
 	readsize = 0;
 	readRocdata = FALSE;
@@ -250,8 +264,8 @@
 #pragma mark Parser constants
 
 // Reduce potential parsing errors by using string constants declared in a single place.
-static NSString * const kEntryElementName = @"entry";
-
+static NSString * const kLocElementName = @"lc";
+static NSString * const kIdElementName = @"id";
 
 #pragma mark NSXMLParser delegate methods
 
@@ -266,9 +280,23 @@ static NSString * const kEntryElementName = @"entry";
 		//NSLog(@"parser: xml");		
 		NSString *relAttribute = [attributeDict valueForKey:@"size"];		
 		readsize = [relAttribute intValue];
-	} else if ([elementName isEqualToString:@"lc"]) {
-		NSString *relAttribute = [attributeDict valueForKey:@"id"];		
-        NSLog(@"parser: lc: %@", relAttribute);	
+	} else if ([elementName isEqualToString:kLocElementName]) {
+		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];		
+        //NSLog(@"parser: lc: %@", relAttribute);	
+		
+		Loc *loc = [[[Loc alloc] init] retain];
+        //self.currentLocObject = loc;
+        //[loc release];
+		
+		loc.locid = relAttribute;
+		
+		NSLog(@"-------- %@ ----------", loc.locid);	
+		
+		//[self.currentParseBatch addObject:self.currentLocObject];
+		
+		[self.locList addObject:loc];
+		
+		
 	} else if ([elementName isEqualToString:@"sw"]) {
 		NSString *relAttribute = [attributeDict valueForKey:@"id"];		
         NSLog(@"parser: sw: %@", relAttribute);	
@@ -290,8 +318,12 @@ static NSString * const kEntryElementName = @"entry";
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {     
-	if ([elementName isEqualToString:@"xmlh"]) {
-		//NSLog(@"parser: /xmlh");
+	if ([elementName isEqualToString:@"lclist"]) {
+		NSLog(@"parser lclist end");
+		[self performSelectorOnMainThread:@selector(addLocToList:) withObject:self.locList waitUntilDone:NO];
+		
+		//NSLog(@"currentParseBatch ... %d", [self.currentParseBatch count]);
+
 	}
 }
 
@@ -304,6 +336,20 @@ static NSString * const kEntryElementName = @"entry";
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
 
+}
+
+- (void)addLocToList:(NSArray *)locs {
+    //[self.locList addObjectsFromArray:locList];
+	
+	NSLog(@"%d locs added ... ", [locList count]);
+	
+	
+	
+	// The table needs to be reloaded to reflect the new content of the list.
+	//[locTableViewController.tableView reloadData];
+	
+	//[[[UIApplication sharedApplication] locTableViewController] reloadData];
+	
 }
 
 @end

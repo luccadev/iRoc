@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Loc.h"
 
+
+@class Loc;
 
 @interface IRocConnector : NSObject {
 @private
@@ -34,10 +37,16 @@
 	
 	unsigned int readsize;
 	int bytesread;
+	
+	
+	
+	Loc *currentLocObject;
+	
+	
+
+	@public
+	NSMutableArray *locList;
 }
-
-
-
 
 - (BOOL)sendMessage:(NSString *)name message:(NSString *)msg;
 
@@ -53,10 +62,17 @@
 
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode;
 
+- (void)addLocToList:(NSArray *)locs;
+
 @property(readwrite) BOOL isConnected;
 
 @property(copy) NSString *domain;
 @property(nonatomic, retain) NSMutableString *header;
 @property(nonatomic, retain) NSMutableString *rocdata;
+@property(nonatomic, retain) NSMutableArray *locList;
+
+@property (nonatomic, retain) Loc *currentLocObject;
+@property (nonatomic, retain) NSMutableArray *currentParseBatch;
+
 
 @end

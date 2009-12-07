@@ -33,7 +33,7 @@
 	CFURLRef		soundFileURLRef;
 	SystemSoundID	soundFileObject;
 	
-	IRocConnector *rrconnection;
+
 	NSString * stringDir; 
 	NSString * stringLcPrev; 
 		
@@ -49,6 +49,11 @@
 	//NSString * strTrue;
 	NSString * ip;
 	NSUserDefaults *defaults;
+	
+	
+	@public
+		IRocConnector *rrconnection;
+	
 }
 @property (nonatomic, retain) iRocButton *buttonDir; 
 @property (nonatomic, retain) iRocButton *buttonF0;
