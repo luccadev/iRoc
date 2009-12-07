@@ -38,14 +38,6 @@
 	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc throttleid=\"%@\" id=\"%@\" V=\"0\" dir=\"%@\" fn=\"%@\"/>",
     (NSString*)[[UIDevice currentDevice] name],
     [textfieldLoc text], stringDir, [buttonF0 getBState]?@"true":@"false"]] ];
-	
-	//TMP
-	
-	///UIWindow* tempWindow = [[[UIApplication sharedApplication] windows] objectAtIndex:1];
-	
-	
-	
-	
 }
 
 - (IBAction) sliderMoved:(id) sender { 	
@@ -74,8 +66,8 @@
 
 	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc throttleid=\"iRoc\" id=\"%@\" fn=\"%@\"/>",[textfieldLoc text], fnStates[0]?@"true":@"false"]] ];
     	
-	//NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<fn group=\"1\" id=\"%@\" f%d=\"%@\"/>", [textfieldLoc text], 0,  fnStates[0]?@"true":@"false" ] ];
-	//[rrconnection sendMessage:@"fn" message:stringToSend];
+	NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<fn group=\"1\" id=\"%@\" f%d=\"%@\"/>", [textfieldLoc text], 0,  fnStates[0]?@"true":@"false" ] ];
+	[rrconnection sendMessage:@"fn" message:stringToSend];
 	
 	
 	[((iRocButton *)[functionButtons objectAtIndex:0]) setBState:fnStates[0]];
@@ -182,9 +174,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
-	
-	
+
 	// read preferences
 	defaults = [[NSUserDefaults standardUserDefaults] retain];
 	
@@ -229,8 +219,10 @@
 	[buttonDir setTitle:@">" forState:UIControlStateNormal];
 	
 	ip = [defaults stringForKey:@"ip_preference"];
-	//stringLcPrev = [[NSString stringWithString:[defaults stringForKey:@"loc_preference"]] retain];
 	
+	textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
+	
+	/*
 	rrconnection = [[IRocConnector alloc] init];
 	
 	[rrconnection setDomain:ip];
@@ -239,7 +231,7 @@
 
 	//[NSString stringWithFormat: @"Connect to: %@:%d ", domain, port]
 	//NSLog( @"%d",[defaults integerForKey:@"loc_preference"]);
-	textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
+	
 	
 	// Connect Thread
   rrconnection.isConnected = FALSE;
@@ -256,9 +248,11 @@
     else
       [NSThread sleepForTimeInterval:1];
   }
+	 */
 
 }
 
+/*
 - (void)connectThread { 
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
@@ -270,6 +264,7 @@
 	
 	[pool release]; 
 } 
+ */
 
 // Adding the DONE button to the numpad
 - (void)keyboardWillShow:(NSNotification *)note {  
@@ -310,14 +305,14 @@
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
-	[rrconnection stop];
+	//[rrconnection stop];
 }
 
 
 - (void)dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[functionButtons dealloc];
-	[rrconnection dealloc];
+	//[rrconnection dealloc];
     [super dealloc];
 }
 

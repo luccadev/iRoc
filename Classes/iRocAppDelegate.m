@@ -17,7 +17,7 @@
 @synthesize locTableViewControllerApp;
 @synthesize viewController;
 
-@synthesize locList;
+@synthesize locList, rrconnection;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	
@@ -28,7 +28,6 @@
   
   // Optional move event.
 	if( [defaults boolForKey:@"moveevents_preference"]) {
-		//[(iRocViewController*) [tabBarController.viewControllers objectAtIndex:0] processAllEvents: [defaults integerForKey:@"vdelta_preference"]];
 		[viewController processAllEvents:[defaults integerForKey:@"vdelta_preference"]];
 	}
 	[window addSubview:tabBarController.view];	
@@ -37,44 +36,65 @@
 	testarray = [[NSArray arrayWithObjects: @"OneApp", @"TwoApp", @"ThreeApp", nil] retain];
 	[locTableViewControllerApp setLocList:testarray];
 	
-	/*
-	//[viewController setRrconnection:[[IRocConnector alloc] init]];
+	// read preferences
+	defaults = [[NSUserDefaults standardUserDefaults] retain];
+	
+	rrconnection = [[IRocConnector alloc] init];
+	[rrconnection setDomain:[defaults stringForKey:@"ip_preference"]];
+	[rrconnection setPort:[defaults integerForKey:@"port_preference"]];
+	viewController.textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
 	
 	
-	self.locList = [[NSMutableArray array] retain];
+	// Connect Thread
+	rrconnection.isConnected = FALSE;
+	[NSThread detachNewThreadSelector:@selector(connectThread) toTarget:self withObject:nil]; 
 	
-	NSLog(@" Pointer %d", self.locList);
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
-	[[viewController rrconnection] setLocList:self.locList];
+	int retry = 10;
+	while( retry > 0 ) {
+		NSLog( @"retry=%d isConnected=%d",retry,rrconnection.isConnected);
+		retry--;  
+		if( rrconnection.isConnected ) {
+			[rrconnection requestPlan];
+			break;
+		} 
+		else
+			[NSThread sleepForTimeInterval:1];
+	}
 	
-	NSLog(@" Pointer %d", [[viewController rrconnection] locList]);
 	
-	
-	//((iRocLocTableViewController*) [tabBarController.viewControllers objectAtIndex:1]).locList = [[(iRocViewController*) [tabBarController.viewControllers objectAtIndex:0] rrconnection] locList];
-	
-	
-	//testarray = [[(iRocViewController*) [tabBarController.viewControllers objectAtIndex:0] rrconnection] locList];
+	[viewController setRrconnection:self.rrconnection];
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 
-	NSLog(@" ccc %d", [[[viewController rrconnection] locList] count]);
-	
-	[locTableViewController setLocList:self.locList];
-	*/
 }
+
+
+- (void)connectThread { 
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	
+	[rrconnection connect];
+
+	[pool release]; 
+} 
+
+
 
 
 - (void)dealloc {
 	[tabBarController release];
+	[rrconnection release];
     [window release];
     [super dealloc];
 }
 
 
 -(void) applicationWillResignActive:(UIApplication *)application {
-	[[viewController rrconnection] stop];
+	//[[self rrconnection] stop];
 }
 
 -(void) applicationDidBecomeActive:(UIApplication *)application {
-	[[viewController rrconnection] connect];
+	//[[self rrconnection] connect];
 }
 
 

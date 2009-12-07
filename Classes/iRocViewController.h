@@ -51,8 +51,7 @@
 	NSUserDefaults *defaults;
 	
 	
-	@public
-		IRocConnector *rrconnection;
+	IRocConnector *rrconnection;
 	
 }
 @property (nonatomic, retain) iRocButton *buttonDir; 

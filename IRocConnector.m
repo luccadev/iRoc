@@ -11,9 +11,11 @@
 
 @implementation IRocConnector
 
-@synthesize header, rocdata, isConnected, currentLocObject, locList;
+@synthesize header, rocdata, isConnected, currentLocObject, currentParseBatch, locList;
 @synthesize locTableViewController;
 
+
+/*
 - (id) init {
 	[super init];
 	self.locList = [[NSMutableArray array] retain];
@@ -31,6 +33,7 @@
 
 	return self;
 }
+ */
 
 
 - (BOOL)connect {
@@ -39,14 +42,14 @@
 	readsize = 0;
 	readRocdata = FALSE;
 	readHeader = TRUE;
-  _data = NULL;
-  header = NULL;
-  rocdata = NULL;
+    _data = NULL;
+    header = NULL;
+    rocdata = NULL;
 	
 	//header = [NSMutableString string];
 	//rocdata = [NSMutableString string];
 	
-	NSLog([NSString stringWithFormat: @"Connect to: %@:%d ", domain, port]);	
+	NSLog([NSString stringWithFormat: @"Connect tox: %@:%d ", domain, port]);	
 	
 	BOOL connectOK = false;
 	
@@ -81,7 +84,6 @@
 	
 		if( [oStream streamStatus] == NSStreamStatusOpen && [iStream streamStatus] == NSStreamStatusOpen ) {
 			connectOK = TRUE;
-		    //[self sendMessage:@"model" message:@"<model cmd=\"plan\"/>"];
 		} else {
 			connectOK = FALSE;
 	    }
@@ -118,9 +120,6 @@
 
 
 - (BOOL)sendMessage:(NSString *)name message:(NSString *)msg {
-
-	//if( !isConnected)
-	//	[self connect];
 	
 	NSString * stringToSend; 			
 	stringToSend = [NSString stringWithFormat: @"<xmlh><xml size=\"%d\" name=\"%@\"/></xmlh>%@", [msg length], name, msg];
@@ -171,8 +170,6 @@
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode {
 	
 	//NSLog(@"stream:handleEvent: is invoked...");
-	
-
 	
     switch(eventCode) {
         case NSStreamEventHasBytesAvailable:
@@ -292,6 +289,7 @@ static NSString * const kIdElementName = @"id";
 		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];		
         //NSLog(@"parser: lc: %@", relAttribute);	
 		
+		
 		Loc *loc = [[[Loc alloc] init] retain];
         //self.currentLocObject = loc;
         //[loc release];
@@ -303,6 +301,7 @@ static NSString * const kIdElementName = @"id";
 		//[self.currentParseBatch addObject:self.currentLocObject];
 		
 		[self.locList addObject:loc];
+		 
 		
 		
 	} else if ([elementName isEqualToString:@"sw"]) {
@@ -350,9 +349,7 @@ static NSString * const kIdElementName = @"id";
     //[self.locList addObjectsFromArray:locList];
 	
 	NSLog(@"%d locs added ... ", [locList count]);
-	
-	
-	
+
 	// The table needs to be reloaded to reflect the new content of the list.
 	//[locTableViewController.tableView reloadData];
 	

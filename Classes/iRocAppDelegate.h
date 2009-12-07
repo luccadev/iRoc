@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "iRocLocTableViewController.h"
-//#import "iRocViewController.h"
+#import "IRocConnector.h"
 
 @class iRocViewController;
 
@@ -20,6 +20,8 @@
 	IBOutlet iRocLocTableViewController *locTableViewControllerApp;
 	
 	NSMutableArray *locList;
+	
+	IRocConnector *rrconnection;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -29,6 +31,7 @@
 @property (nonatomic, retain) IBOutlet iRocLocTableViewController *locTableViewControllerApp;
 
 @property(nonatomic, retain) NSMutableArray *locList;
+@property (nonatomic, retain) IRocConnector *rrconnection;
 
 @end
 
