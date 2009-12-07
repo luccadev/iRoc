@@ -17,7 +17,7 @@
     iRocViewController *viewController;
 	UITabBarController *tabBarController;
 	
-	//IBOutlet iRocLocTableViewController *locTableViewController;
+	IBOutlet iRocLocTableViewController *locTableViewControllerApp;
 	
 	NSMutableArray *locList;
 }
@@ -26,7 +26,7 @@
 @property (nonatomic, retain) IBOutlet iRocViewController *viewController;
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 
-//@property (nonatomic, retain) IBOutlet iRocLocTableViewController *locTableViewController;
+@property (nonatomic, retain) IBOutlet iRocLocTableViewController *locTableViewControllerApp;
 
 @property(nonatomic, retain) NSMutableArray *locList;
 

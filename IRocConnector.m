@@ -11,13 +11,18 @@
 
 @implementation IRocConnector
 
-@synthesize header, rocdata, isConnected, currentLocObject, currentParseBatch, locList, locTableViewController;
+@synthesize header, rocdata, isConnected, currentLocObject, currentParseBatch, locList;
+@synthesize locTableViewController;
 
 - (id) init {
 	[super init];
 	self.locList = [[NSMutableArray array] retain];
 	[locTableViewController setLocList:self.locList];
 	
+	
+	NSArray *testarray;
+	testarray = [[NSArray arrayWithObjects: @"One", @"Two", @"Three", nil] retain];
+	[locTableViewController setLocList:testarray];
 	
 	NSLog(@"P1: %d  P2: %d", self.locList, [locTableViewController locList]);
 	

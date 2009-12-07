@@ -14,7 +14,7 @@
 
 @synthesize window;
 @synthesize tabBarController;
-//@synthesize locTableViewController;
+@synthesize locTableViewControllerApp;
 @synthesize viewController;
 
 @synthesize locList;
@@ -33,8 +33,9 @@
 	}
 	[window addSubview:tabBarController.view];	
 	
-	//NSArray *testarray;
-	//testarray = [[NSArray arrayWithObjects: @"One", @"Two", @"Three", nil] retain];
+	NSArray *testarray;
+	testarray = [[NSArray arrayWithObjects: @"OneApp", @"TwoApp", @"ThreeApp", nil] retain];
+	[locTableViewControllerApp setLocList:testarray];
 	
 	/*
 	//[viewController setRrconnection:[[IRocConnector alloc] init]];
