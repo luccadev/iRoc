@@ -11,13 +11,15 @@
 
 @implementation IRocConnector
 
-@synthesize header, rocdata, isConnected, locList, currentLocObject, currentParseBatch;
+@synthesize header, rocdata, isConnected, currentLocObject, currentParseBatch, locList, locTableViewController;
 
 - (id) init {
 	[super init];
 	self.locList = [[NSMutableArray array] retain];
-	//locTableViewController.locList = locList; 
+	[locTableViewController setLocList:self.locList];
 	
+	
+	NSLog(@"P1: %d  P2: %d", self.locList, [locTableViewController locList]);
 	
     
 	NSLog(@"Connector init ...");
@@ -159,6 +161,7 @@
 - (void)setPort:(uint16_t)value {
     port = value;
 }
+
 
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode {
 	

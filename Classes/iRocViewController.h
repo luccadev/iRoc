@@ -100,7 +100,5 @@
 - (void) prepareFNCommand:(int) fnIndex; 
 - (void) processAllEvents:(int) _VDelta; 
 
-
-
 @end
 

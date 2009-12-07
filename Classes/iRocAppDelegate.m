@@ -14,8 +14,10 @@
 
 @synthesize window;
 @synthesize tabBarController;
-@synthesize locTableViewController;
+//@synthesize locTableViewController;
 @synthesize viewController;
+
+@synthesize locList;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	
@@ -31,12 +33,20 @@
 	}
 	[window addSubview:tabBarController.view];	
 	
-	NSArray *testarray;
-	testarray = [[NSArray arrayWithObjects: @"One", @"Two", @"Three", nil] retain];
+	//NSArray *testarray;
+	//testarray = [[NSArray arrayWithObjects: @"One", @"Two", @"Three", nil] retain];
+	
+	/*
+	//[viewController setRrconnection:[[IRocConnector alloc] init]];
 	
 	
+	self.locList = [[NSMutableArray array] retain];
 	
-	NSLog(@" IP %@", [[viewController rrconnection] domain]);
+	NSLog(@" Pointer %d", self.locList);
+	
+	[[viewController rrconnection] setLocList:self.locList];
+	
+	NSLog(@" Pointer %d", [[viewController rrconnection] locList]);
 	
 	
 	//((iRocLocTableViewController*) [tabBarController.viewControllers objectAtIndex:1]).locList = [[(iRocViewController*) [tabBarController.viewControllers objectAtIndex:0] rrconnection] locList];
@@ -46,8 +56,8 @@
 
 	NSLog(@" ccc %d", [[[viewController rrconnection] locList] count]);
 	
-	locTableViewController.locList = [[viewController rrconnection] locList];
-	
+	[locTableViewController setLocList:self.locList];
+	*/
 }
 
 

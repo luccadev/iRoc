@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "iRocLocTableViewController.h"
-#import "iRocViewController.h"
+//#import "iRocViewController.h"
 
 @class iRocViewController;
 
@@ -17,15 +17,18 @@
     iRocViewController *viewController;
 	UITabBarController *tabBarController;
 	
-	IBOutlet iRocLocTableViewController *locTableViewController;
+	//IBOutlet iRocLocTableViewController *locTableViewController;
+	
+	NSMutableArray *locList;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet iRocViewController *viewController;
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 
-@property (nonatomic, retain) IBOutlet iRocLocTableViewController *locTableViewController;
+//@property (nonatomic, retain) IBOutlet iRocLocTableViewController *locTableViewController;
 
+@property(nonatomic, retain) NSMutableArray *locList;
 
 @end
 

@@ -159,7 +159,6 @@
 }
  */
 
-
 - (IBAction)doneButton:(id)sender {
 	AudioServicesPlaySystemSound (self.soundFileObject);
     [textfieldLoc resignFirstResponder];
@@ -183,6 +182,8 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	
 	
 	// read preferences
 	defaults = [[NSUserDefaults standardUserDefaults] retain];
@@ -231,6 +232,7 @@
 	//stringLcPrev = [[NSString stringWithString:[defaults stringForKey:@"loc_preference"]] retain];
 	
 	rrconnection = [[IRocConnector alloc] init];
+	
 	[rrconnection setDomain:ip];
 	[rrconnection setPort:[defaults integerForKey:@"port_preference"]]; 
 
@@ -268,8 +270,6 @@
 	
 	[pool release]; 
 } 
-
-
 
 // Adding the DONE button to the numpad
 - (void)keyboardWillShow:(NSNotification *)note {  

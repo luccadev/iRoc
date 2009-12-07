@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Loc.h"
-
+#import "iRocLocTableViewController.h"
 
 @class Loc;
 
@@ -42,7 +42,7 @@
 	
 	Loc *currentLocObject;
 	
-	
+	IBOutlet iRocLocTableViewController *locTableViewController;
 
 	@public
 	NSMutableArray *locList;
@@ -74,5 +74,6 @@
 @property (nonatomic, retain) Loc *currentLocObject;
 @property (nonatomic, retain) NSMutableArray *currentParseBatch;
 
+@property (nonatomic, retain) IBOutlet iRocLocTableViewController *locTableViewController;
 
 @end

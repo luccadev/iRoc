@@ -33,7 +33,7 @@
 	NSLog(@"iRocLocTableView (lclistcount): %d", [locList count]);
 	
 	
-	NSLog(@"iRocLocTableView loaded ...");
+	NSLog(@"iRocLocTableView loaded ... loclist P : %d", locList);
 }
 
 
