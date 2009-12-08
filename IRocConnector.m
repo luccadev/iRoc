@@ -11,7 +11,7 @@
 
 @implementation IRocConnector
 
-@synthesize header, rocdata, isConnected, currentLocObject, currentParseBatch, locList, rtList;
+@synthesize header, rocdata, isConnected, currentLocObject, locList, rtList;
 @synthesize locTableViewController;
 
 

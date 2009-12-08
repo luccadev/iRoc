@@ -79,7 +79,6 @@
 @property(nonatomic, retain) NSMutableArray *rtList;
 
 @property (nonatomic, retain) Loc *currentLocObject;
-@property (nonatomic, retain) NSMutableArray *currentParseBatch;
 
 @property (nonatomic, retain) IBOutlet iRocLocTableViewController *locTableViewController;
 
