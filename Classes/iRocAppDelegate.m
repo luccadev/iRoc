@@ -32,9 +32,16 @@
 	}
 	[window addSubview:tabBarController.view];	
 	
+	//locList = [[NSMutableArray array] retain];
+	//[rrconnection setLocList:locList];
+	
+	
+	
 	NSArray *testarray;
 	testarray = [[NSArray arrayWithObjects: @"OneApp", @"TwoApp", @"ThreeApp", nil] retain];
 	[locTableViewControllerApp setLocList:testarray];
+	
+
 	
 	// read preferences
 	defaults = [[NSUserDefaults standardUserDefaults] retain];
@@ -42,6 +49,7 @@
 	rrconnection = [[IRocConnector alloc] init];
 	[rrconnection setDomain:[defaults stringForKey:@"ip_preference"]];
 	[rrconnection setPort:[defaults integerForKey:@"port_preference"]];
+	[rrconnection setDelegate:self];
 	viewController.textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
 	
 	
@@ -78,6 +86,12 @@
 	[pool release]; 
 } 
 
+
+- (void)lcListLoaded {
+	
+	NSLog(@"HA #########");
+	
+}
 
 
 

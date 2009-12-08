@@ -12,7 +12,7 @@
 
 @class iRocViewController;
 
-@interface iRocAppDelegate : NSObject <UIApplicationDelegate> {
+@interface iRocAppDelegate : NSObject {
     UIWindow *window;
     iRocViewController *viewController;
 	UITabBarController *tabBarController;

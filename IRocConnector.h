@@ -46,7 +46,13 @@
 
 	@public
 	NSMutableArray *locList;
+	
+	id _delegate;
 }
+
+- (id)delegate;
+- (void)setDelegate:(id)new_delegate;
+
 
 - (BOOL)sendMessage:(NSString *)name message:(NSString *)msg;
 
@@ -62,7 +68,7 @@
 
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode;
 
-- (void)addLocToList:(NSArray *)locs;
+//- (void)addLocToList:(NSArray *)locs;
 
 @property(readwrite) BOOL isConnected;
 
@@ -77,3 +83,12 @@
 @property (nonatomic, retain) IBOutlet iRocLocTableViewController *locTableViewController;
 
 @end
+
+
+@interface NSObject (IRocConnector)
+ 
+ - (void)lcListLoaded;
+ 
+@end
+
+

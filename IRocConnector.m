@@ -15,26 +15,14 @@
 @synthesize locTableViewController;
 
 
-/*
+
 - (id) init {
 	[super init];
 	self.locList = [[NSMutableArray array] retain];
-	[locTableViewController setLocList:self.locList];
-	
-	
-	NSArray *testarray;
-	testarray = [[NSArray arrayWithObjects: @"One", @"Two", @"Three", nil] retain];
-	[locTableViewController setLocList:testarray];
-	
-	NSLog(@"P1: %d  P2: %d", self.locList, [locTableViewController locList]);
-	
-    
 	NSLog(@"Connector init ...");
 
 	return self;
 }
- */
-
 
 - (BOOL)connect {
 
@@ -97,7 +85,7 @@
 }
 
 - (void)requestPlan {
-  [self sendMessage:@"model" message:@"<model cmd=\"plan\"/>"];
+  [self sendMessage:@"model" message:@"<model cmd=\"lclist\"/>"];
 }
 
 - (BOOL)stop {
@@ -194,6 +182,8 @@
 				while ( ![header hasSuffix:@"</xmlh>"]){
 					len = [(NSInputStream *)stream read:buf maxLength:1];
 					
+					//NSLog(@"len: %d", len);
+					
 					[_data appendBytes:(const void *)buf length:len];
 					header = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
 					
@@ -243,7 +233,7 @@
 					[parser setDelegate:self];
 					[parser parse];
 					
-					//NSLog(@"Data sent to parser ... ");
+					NSLog(@"Data sent to parser ... ");
 					
 					[parser release];  
 					[_data release];
@@ -252,6 +242,7 @@
 					// start from the beginning ....
 					readHeader = TRUE;
 					readRocdata = FALSE;
+
 				}
 				
 			} else {
@@ -266,13 +257,13 @@
 	}
 }
 
-#pragma mark Parser constants
+//#pragma mark Parser constants
 
 // Reduce potential parsing errors by using string constants declared in a single place.
 static NSString * const kLocElementName = @"lc";
 static NSString * const kIdElementName = @"id";
 
-#pragma mark NSXMLParser delegate methods
+//#pragma mark NSXMLParser delegate methods
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
 
@@ -292,21 +283,24 @@ static NSString * const kIdElementName = @"id";
 		
 		Loc *loc = [[[Loc alloc] init] retain];
         //self.currentLocObject = loc;
-        //[loc release];
+        //
 		
 		loc.locid = relAttribute;
 		
-		NSLog(@"-------- %@ ----------", loc.locid);	
+		//NSLog(@"-------- %@ ----------", loc.locid);	
 		
 		//[self.currentParseBatch addObject:self.currentLocObject];
 		
-		[self.locList addObject:loc];
-		 
+		if( self.locList == nil)
+			self.locList = [[NSMutableArray array] retain];
 		
+		//[self.locList addObject:loc];
+		 
+		//[loc release];
 		
 	} else if ([elementName isEqualToString:@"sw"]) {
-		NSString *relAttribute = [attributeDict valueForKey:@"id"];		
-        NSLog(@"parser: sw: %@", relAttribute);	
+		//NSString *relAttribute = [attributeDict valueForKey:@"id"];		
+        //NSLog(@"parser: sw: %@", relAttribute);	
 	} else if ([elementName isEqualToString:@"lclist"]) {
 		NSLog(@"parser: lclist");	
 	} /*else if ([elementName isEqualToString:@"exception"]) {
@@ -327,10 +321,18 @@ static NSString * const kIdElementName = @"id";
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {     
 	if ([elementName isEqualToString:@"lclist"]) {
 		NSLog(@"parser lclist end");
-		[self performSelectorOnMainThread:@selector(addLocToList:) withObject:self.locList waitUntilDone:NO];
+		//[self performSelectorOnMainThread:@selector(addLocToList:) withObject:self.locList waitUntilDone:NO];
+		
+		
+		if ( [_delegate respondsToSelector:@selector(lcListLoaded)] ) {
+			[_delegate lcListLoaded];
+		} else {
+			NSLog(@"Why Not?");
+		}
+		
 		
 		//NSLog(@"currentParseBatch ... %d", [self.currentParseBatch count]);
-
+		NSLog(@"%d locs added ... ", [locList count]);
 	}
 }
 
@@ -342,9 +344,19 @@ static NSString * const kIdElementName = @"id";
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
+	NSLog(@"Parse Error!");
+	
+	// start from the beginning ....	
+	[_data release];
+	_data = nil;
+	[header release];
+	header =nil;	
 
+	readHeader = TRUE;
+	readRocdata = FALSE;
 }
 
+/*
 - (void)addLocToList:(NSArray *)locs {
     //[self.locList addObjectsFromArray:locList];
 	
@@ -356,6 +368,18 @@ static NSString * const kIdElementName = @"id";
 	//[[[UIApplication sharedApplication] locTableViewController] reloadData];
 	
 }
+ */
+
+- (id)delegate
+{
+    return _delegate;
+}
+
+- (void)setDelegate:(id)new_delegate
+{
+    _delegate = new_delegate;
+}
+
 
 @end
 
