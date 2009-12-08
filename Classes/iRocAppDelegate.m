@@ -32,14 +32,14 @@
 	}
 	[window addSubview:tabBarController.view];	
 	
-	//locList = [[NSMutableArray array] retain];
-	//[rrconnection setLocList:locList];
+	locList = [[NSMutableArray array] retain];
 	
 	
+	NSLog(@"App: locList P: %d", self.locList);
 	
-	NSArray *testarray;
-	testarray = [[NSArray arrayWithObjects: @"OneApp", @"TwoApp", @"ThreeApp", nil] retain];
-	[locTableViewControllerApp setLocList:testarray];
+	//NSArray *testarray;
+	//testarray = [[NSArray arrayWithObjects: @"OneApp", @"TwoApp", @"ThreeApp", nil] retain];
+	[locTableViewControllerApp setLocList:self.locList];
 	
 
 	
@@ -50,6 +50,7 @@
 	[rrconnection setDomain:[defaults stringForKey:@"ip_preference"]];
 	[rrconnection setPort:[defaults integerForKey:@"port_preference"]];
 	[rrconnection setDelegate:self];
+	[rrconnection setLocList:self.locList];
 	viewController.textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
 	
 	
@@ -89,7 +90,8 @@
 
 - (void)lcListLoaded {
 	
-	NSLog(@"HA #########");
+	NSLog(@"Reload Data in Loc View");
+	[locTableViewControllerApp.tableView reloadData];
 	
 }
 

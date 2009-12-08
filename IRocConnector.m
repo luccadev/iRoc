@@ -18,7 +18,7 @@
 
 - (id) init {
 	[super init];
-	self.locList = [[NSMutableArray array] retain];
+	//self.locList = [[NSMutableArray array] retain];
 	NSLog(@"Connector init ...");
 
 	return self;
@@ -247,7 +247,7 @@
 				
 			} else {
 				
-				NSLog(@"Somthing went wrong ... ");
+				NSLog(@"Something went wrong ... ");
 				
 			}
 			
@@ -291,10 +291,12 @@ static NSString * const kIdElementName = @"id";
 		
 		//[self.currentParseBatch addObject:self.currentLocObject];
 		
-		if( self.locList == nil)
-			self.locList = [[NSMutableArray array] retain];
+		//if( self.locList == nil)
+		//	self.locList = [[NSMutableArray array] retain];
 		
-		//[self.locList addObject:loc];
+		[self.locList addObject:loc];
+		
+		//NSLog(@"parser: locList P: %d", self.locList);
 		 
 		//[loc release];
 		
@@ -323,12 +325,10 @@ static NSString * const kIdElementName = @"id";
 		NSLog(@"parser lclist end");
 		//[self performSelectorOnMainThread:@selector(addLocToList:) withObject:self.locList waitUntilDone:NO];
 		
-		
+		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(lcListLoaded)] ) {
 			[_delegate lcListLoaded];
-		} else {
-			NSLog(@"Why Not?");
-		}
+		} 
 		
 		
 		//NSLog(@"currentParseBatch ... %d", [self.currentParseBatch count]);
@@ -344,7 +344,8 @@ static NSString * const kIdElementName = @"id";
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
-	NSLog(@"Parse Error!");
+	NSLog(@"### Parse Error: %@ ", [parseError localizedDescription]);
+
 	
 	// start from the beginning ....	
 	[_data release];
@@ -354,6 +355,7 @@ static NSString * const kIdElementName = @"id";
 
 	readHeader = TRUE;
 	readRocdata = FALSE;
+	bytesread = 0;
 }
 
 /*

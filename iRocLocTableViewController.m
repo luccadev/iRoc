@@ -28,12 +28,7 @@
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-	self.tableView.rowHeight = 44.0;
-	
-	NSLog(@"iRocLocTableView (lclistcount): %d", [locList count]);
-	
-	
-	NSLog(@"iRocLocTableView loaded ... loclist P : %d", locList);
+	self.tableView.rowHeight = 40.0;
 }
 
 
@@ -43,12 +38,11 @@
 }
 */
 
+/*
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-	
-	
-	[self.tableView reloadData];
 }
+ */
 
 /*
 - (void)viewWillDisappear:(BOOL)animated {
@@ -93,17 +87,13 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	
-	NSLog(@"Cell (loclistcount): %d", [locList count]);
     return [locList count];
 }
 
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-	NSLog(@"Cell (TABLE):");
-	
+  
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -117,17 +107,9 @@
 	[cell.contentView addSubview:locidLabel];
 	
 	// Get the specific loc for this row.
-	//Loc *loc = [locList objectAtIndex:indexPath.row];
-    //locidLabel.text = loc.locid;
-	
-	
-	locidLabel.text = [locList objectAtIndex:indexPath.row];
-	
-	//NSLog(@"Cell: %@", loc.locid);
-	
-    // Set up the cell...
-	 
-	
+	Loc *loc = [locList objectAtIndex:indexPath.row];
+    locidLabel.text = loc.locid;
+	 	
     return cell;
 }
 
@@ -137,6 +119,9 @@
 	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
 	// [self.navigationController pushViewController:anotherViewController];
 	// [anotherViewController release];
+	
+	
+	NSLog(@"selected row: %d : %@", indexPath.row, ((Loc*) [locList objectAtIndex:indexPath.row]).locid);
 }
 
 
