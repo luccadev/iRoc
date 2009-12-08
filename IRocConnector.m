@@ -11,7 +11,7 @@
 
 @implementation IRocConnector
 
-@synthesize header, rocdata, isConnected, currentLocObject, currentParseBatch, locList;
+@synthesize header, rocdata, isConnected, currentLocObject, currentParseBatch, locList, rtList;
 @synthesize locTableViewController;
 
 
@@ -279,17 +279,21 @@ static NSString * const kIdElementName = @"id";
 	} else if ([elementName isEqualToString:kLocElementName]) {
 		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];		
         //NSLog(@"parser: lc: %@", relAttribute);	
-		
-		
+
 		Loc *loc = [[[Loc alloc] init] retain];
 		loc.locid = relAttribute;
 		[self.locList addObject:loc];
-
-		//[loc release];
 		
 	} else if ([elementName isEqualToString:@"sw"]) {
 		//NSString *relAttribute = [attributeDict valueForKey:@"id"];		
         //NSLog(@"parser: sw: %@", relAttribute);	
+	} else if ([elementName isEqualToString:@"st"]) {
+		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];		
+        
+		Route *rt = [[[Route alloc] init] retain];
+		rt.rtid = relAttribute;
+		[self.rtList addObject:rt];
+		
 	} else if ([elementName isEqualToString:@"lclist"]) {
 		NSLog(@"parser: lclist");	
 	} /*else if ([elementName isEqualToString:@"exception"]) {
@@ -309,18 +313,19 @@ static NSString * const kIdElementName = @"id";
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {     
 	if ([elementName isEqualToString:@"lclist"]) {
-		NSLog(@"parser lclist end");
-		//[self performSelectorOnMainThread:@selector(addLocToList:) withObject:self.locList waitUntilDone:NO];
-		
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(lcListLoaded)] ) {
 			[_delegate lcListLoaded];
 		} 
-		
-		
-		//NSLog(@"currentParseBatch ... %d", [self.currentParseBatch count]);
 		NSLog(@"%d locs added ... ", [locList count]);
+	} else if ([elementName isEqualToString:@"lclist"]) {
+		// inform the delegate
+		if ( [_delegate respondsToSelector:@selector(rtListLoaded)] ) {
+			[_delegate rtListLoaded];
+		} 
+		NSLog(@"%d rts added ... ", [locList count]);
 	}
+	
 }
 
 // This method is called by the parser when it find parsed character data ("PCDATA") in an element. The parser is not

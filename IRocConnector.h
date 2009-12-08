@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "Loc.h"
+#import "Route.h"
+
+
 #import "iRocLocTableViewController.h"
 
 @class Loc;
@@ -38,14 +41,13 @@
 	unsigned int readsize;
 	int bytesread;
 	
-	
-	
 	Loc *currentLocObject;
 	
 	IBOutlet iRocLocTableViewController *locTableViewController;
 
 	@public
 	NSMutableArray *locList;
+	NSMutableArray *rtList;
 	
 	id _delegate;
 }
@@ -68,14 +70,13 @@
 
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode;
 
-//- (void)addLocToList:(NSArray *)locs;
-
 @property(readwrite) BOOL isConnected;
 
 @property(copy) NSString *domain;
 @property(nonatomic, retain) NSMutableString *header;
 @property(nonatomic, retain) NSMutableString *rocdata;
 @property(nonatomic, retain) NSMutableArray *locList;
+@property(nonatomic, retain) NSMutableArray *rtList;
 
 @property (nonatomic, retain) Loc *currentLocObject;
 @property (nonatomic, retain) NSMutableArray *currentParseBatch;
@@ -88,7 +89,8 @@
 @interface NSObject (IRocConnector)
  
  - (void)lcListLoaded;
- 
+ - (void)rtListLoaded;
+
 @end
 
 

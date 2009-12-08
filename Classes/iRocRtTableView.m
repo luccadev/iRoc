@@ -1,17 +1,17 @@
 //
-//  iRocLocTableViewController.m
+//  iRocRtTableView.m
 //  iRoc
 //
-//  Created by Jean-Michel Fischer on 07.12.09.
+//  Created by Jean-Michel Fischer on 08.12.09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "iRocLocTableViewController.h"
+#import "iRocRtTableView.h"
 
 
-@implementation iRocLocTableViewController
+@implementation iRocRtTableView
 
-@synthesize locList;
+@synthesize rtList;
 
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -37,13 +37,11 @@
     [super viewWillAppear:animated];
 }
 */
-
 /*
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }
- */
-
+*/
 /*
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
@@ -78,38 +76,35 @@
 
 #pragma mark Table view methods
 
-/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
- */
 
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [locList count];
+    return [rtList count];
 }
 
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  
+    
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-	
-	
-	UILabel *locidLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 3, 190, 20)] autorelease];
-	locidLabel.font = [UIFont boldSystemFontOfSize:14];
-	[cell.contentView addSubview:locidLabel];
+    
+	UILabel *rtidLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 3, 190, 20)] autorelease];
+	rtidLabel.font = [UIFont boldSystemFontOfSize:14];
+	[cell.contentView addSubview:rtidLabel];
 	
 	// Get the specific loc for this row.
-	Loc *loc = [locList objectAtIndex:indexPath.row];
-    locidLabel.text = loc.locid;
-	 	
+	Route *rt = [rtList objectAtIndex:indexPath.row];
+    rtidLabel.text = rt.rtid;
+	
     return cell;
 }
 
@@ -120,8 +115,10 @@
 	// [self.navigationController pushViewController:anotherViewController];
 	// [anotherViewController release];
 	
+    NSLog(@"selected row: %d : %@", indexPath.row, ((Route*) [rtList objectAtIndex:indexPath.row]).rtid);
 	
-	NSLog(@"selected row: %d : %@", indexPath.row, ((Loc*) [locList objectAtIndex:indexPath.row]).locid);
+	
+	[_delegate rtAction:((Route*) [rtList objectAtIndex:indexPath.row]).rtid];
 	
 }
 
@@ -165,10 +162,18 @@
 }
 */
 
+- (id)delegate
+{
+    return _delegate;
+}
+
+- (void)setDelegate:(id)new_delegate
+{
+    _delegate = new_delegate;
+}
+
 
 - (void)dealloc {
-	[locList release];
-	
     [super dealloc];
 }
 
