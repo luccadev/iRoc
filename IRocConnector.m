@@ -85,7 +85,7 @@
 }
 
 - (void)requestPlan {
-  [self sendMessage:@"model" message:@"<model cmd=\"lclist\"/>"];
+  [self sendMessage:@"model" message:@"<model cmd=\"plan\"/>"];
 }
 
 - (BOOL)stop {
@@ -282,22 +282,9 @@ static NSString * const kIdElementName = @"id";
 		
 		
 		Loc *loc = [[[Loc alloc] init] retain];
-        //self.currentLocObject = loc;
-        //
-		
 		loc.locid = relAttribute;
-		
-		//NSLog(@"-------- %@ ----------", loc.locid);	
-		
-		//[self.currentParseBatch addObject:self.currentLocObject];
-		
-		//if( self.locList == nil)
-		//	self.locList = [[NSMutableArray array] retain];
-		
 		[self.locList addObject:loc];
-		
-		//NSLog(@"parser: locList P: %d", self.locList);
-		 
+
 		//[loc release];
 		
 	} else if ([elementName isEqualToString:@"sw"]) {
