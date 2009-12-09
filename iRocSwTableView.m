@@ -87,10 +87,12 @@
     
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
+	
+    UITableViewCell *cell; // = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    //if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
+    //}
+	 
     
 	UILabel *rtidLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 3, 190, 20)] autorelease];
 	rtidLabel.font = [UIFont boldSystemFontOfSize:14];
