@@ -11,8 +11,10 @@
 
 @interface Switch : NSObject {
 	NSString *swid;
+	NSString *type;
  }
 
 @property (nonatomic, retain) NSString *swid;
+@property (nonatomic, retain) NSString *type;
 
 @end

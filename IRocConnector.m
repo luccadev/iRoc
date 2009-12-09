@@ -280,11 +280,13 @@ static NSString * const kIdElementName = @"id";
 		[self.locList addObject:loc];
 		
 	} else if ([elementName isEqualToString:@"sw"]) {
-		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];		
+		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
+		NSString *type = [attributeDict valueForKey:@"type"];
 		//NSLog(@"parser: sw: %@", [attributeDict valueForKey:kIdElementName]);
 		
 		Switch *sw = [[[Switch alloc] init] retain];
 		sw.swid = relAttribute;
+		sw.type = type;
 		[self.swList addObject:sw];
         
 	} else if ([elementName isEqualToString:@"st"]) {

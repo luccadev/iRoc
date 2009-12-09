@@ -10,10 +10,11 @@
 
 
 @implementation Switch
-@synthesize swid;
+@synthesize swid, type;
 
 - (void)dealloc {
     [swid release];
+	[type release];
     [super dealloc];
 }
 @end
