@@ -168,7 +168,6 @@
 
 - (void)dealloc {
 	[locList release];
-	
     [super dealloc];
 }
 

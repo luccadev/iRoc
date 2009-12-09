@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "Loc.h"
 #import "Route.h"
+#import "Switch.h"
 
 
 #import "iRocLocTableViewController.h"
+#import "iRocRtTableView.h"
+#import "iRocSwTableView.h"
 
 @class Loc;
 
@@ -35,7 +38,6 @@
 	BOOL isConnected;
 	BOOL readRocdata;
 	
-	
 	BOOL readHeader;
 	
 	unsigned int readsize;
@@ -48,6 +50,7 @@
 	@public
 	NSMutableArray *locList;
 	NSMutableArray *rtList;
+	NSMutableArray *swList;
 	
 	id _delegate;
 }
@@ -77,6 +80,7 @@
 @property(nonatomic, retain) NSMutableString *rocdata;
 @property(nonatomic, retain) NSMutableArray *locList;
 @property(nonatomic, retain) NSMutableArray *rtList;
+@property(nonatomic, retain) NSMutableArray *swList;
 
 @property (nonatomic, retain) Loc *currentLocObject;
 
@@ -89,6 +93,7 @@
  
  - (void)lcListLoaded;
  - (void)rtListLoaded;
+ - (void)swListLoaded;
 
 @end
 

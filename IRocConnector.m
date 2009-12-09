@@ -11,7 +11,7 @@
 
 @implementation IRocConnector
 
-@synthesize header, rocdata, isConnected, currentLocObject, locList, rtList;
+@synthesize header, rocdata, isConnected, currentLocObject, locList, rtList, swList;
 @synthesize locTableViewController;
 
 
@@ -34,15 +34,10 @@
     header = NULL;
     rocdata = NULL;
 	
-	//header = [NSMutableString string];
-	//rocdata = [NSMutableString string];
-	
 	NSLog([NSString stringWithFormat: @"Connect tox: %@:%d ", domain, port]);	
 	
-	BOOL connectOK = false;
-	
-	//CFReadStreamRef readStream = NULL;
-	//CFWriteStreamRef writeStream = NULL;
+	BOOL connectOK = FALSE;
+
 	iStream = NULL;
 	oStream = NULL;
 	isConnected = FALSE;
@@ -285,8 +280,13 @@ static NSString * const kIdElementName = @"id";
 		[self.locList addObject:loc];
 		
 	} else if ([elementName isEqualToString:@"sw"]) {
-		//NSString *relAttribute = [attributeDict valueForKey:@"id"];		
-        //NSLog(@"parser: sw: %@", relAttribute);	
+		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];		
+		//NSLog(@"parser: sw: %@", [attributeDict valueForKey:kIdElementName]);
+		
+		Switch *sw = [[[Switch alloc] init] retain];
+		sw.swid = relAttribute;
+		[self.swList addObject:sw];
+        
 	} else if ([elementName isEqualToString:@"st"]) {
 		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];		
         
@@ -318,12 +318,18 @@ static NSString * const kIdElementName = @"id";
 			[_delegate lcListLoaded];
 		} 
 		NSLog(@"%d locs added ... ", [locList count]);
-	} else if ([elementName isEqualToString:@"lclist"]) {
+	} else if ([elementName isEqualToString:@"rtlist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(rtListLoaded)] ) {
 			[_delegate rtListLoaded];
 		} 
-		NSLog(@"%d rts added ... ", [locList count]);
+		NSLog(@"%d rts added ... ", [rtList count]);
+	} else if ([elementName isEqualToString:@"swlist"]) {
+		// inform the delegate
+		if ( [_delegate respondsToSelector:@selector(swListLoaded)] ) {
+			[_delegate swListLoaded];
+		} 
+		NSLog(@"%d sws added ... ", [swList count]);
 	}
 	
 }
@@ -336,9 +342,8 @@ static NSString * const kIdElementName = @"id";
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
-	NSLog(@"### Parse Error: %@ ", [parseError localizedDescription]);
-
-	
+	//NSLog(@"### Parse Error: %@ ", [parseError localizedDescription]);
+	// TODO: somthing is wrong with the parser
 	// start from the beginning ....	
 	[_data release];
 	_data = nil;
@@ -350,19 +355,6 @@ static NSString * const kIdElementName = @"id";
 	bytesread = 0;
 }
 
-/*
-- (void)addLocToList:(NSArray *)locs {
-    //[self.locList addObjectsFromArray:locList];
-	
-	NSLog(@"%d locs added ... ", [locList count]);
-
-	// The table needs to be reloaded to reflect the new content of the list.
-	//[locTableViewController.tableView reloadData];
-	
-	//[[[UIApplication sharedApplication] locTableViewController] reloadData];
-	
-}
- */
 
 - (id)delegate
 {

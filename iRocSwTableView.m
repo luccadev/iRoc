@@ -1,17 +1,16 @@
 //
-//  iRocRtTableView.m
+//  iRocSwTableView.m
 //  iRoc
 //
-//  Created by Jean-Michel Fischer on 08.12.09.
+//  Created by Jean-Michel Fischer on 09.12.09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "iRocRtTableView.h"
+#import "iRocSwTableView.h"
 
 
-@implementation iRocRtTableView
-@synthesize rtList, menuname;
-
+@implementation iRocSwTableView
+@synthesize swList, menuname;
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
     // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -21,16 +20,14 @@
 }
 */
 
-
+/*
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-	self.tableView.rowHeight = 40.0;
-	[self setTitle:@"Routes"];
 }
-
+*/
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -83,7 +80,7 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [rtList count];
+    return [swList count];
 }
 
 
@@ -97,21 +94,21 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-	
 	UILabel *rtidLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 3, 190, 20)] autorelease];
 	rtidLabel.font = [UIFont boldSystemFontOfSize:14];
 	[cell.contentView addSubview:rtidLabel];
-	 	
-	Route *rt = [rtList objectAtIndex:indexPath.row];
-    rtidLabel.text = rt.rtid;
-
+	
+	Switch *rt = [swList objectAtIndex:indexPath.row];
+    rtidLabel.text = rt.swid;
+	
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	[_delegate rtAction:((Route*) [rtList objectAtIndex:indexPath.row]).rtid];
+	[_delegate swAction:((Switch*) [swList objectAtIndex:indexPath.row]).swid];
 }
+
 
 
 /*
@@ -162,7 +159,6 @@
 {
     _delegate = new_delegate;
 }
-
 
 - (void)dealloc {
     [super dealloc];

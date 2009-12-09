@@ -82,8 +82,7 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //return [menuItems count];
-	return 1;
+    return [menuItems count];
 }
 
 
@@ -106,9 +105,9 @@
 	
 	// Get the specific loc for this row.
 	//Route *rt = [rtList objectAtIndex:indexPath.row];
-    rtidLabel.text = [((iRocRtTableView*)[menuItems objectAtIndex:indexPath.row]) menuname];
+    rtidLabel.text = [[menuItems objectAtIndex:indexPath.row] menuname];
 	
-	//rtidLabel.text = @"EINS";
+	
 	
     return cell;
 }
@@ -121,8 +120,6 @@
 	// [anotherViewController release];
 	
 	[self.navigationController pushViewController:[menuItems objectAtIndex:indexPath.row] animated:YES];
-	
-	NSLog(@"HALLO?");
 }
 
 

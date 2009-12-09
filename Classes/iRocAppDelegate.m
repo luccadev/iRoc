@@ -16,9 +16,9 @@
 @synthesize tabBarController;
 @synthesize locTableViewControllerApp;
 @synthesize viewController;
-@synthesize rtTableView, menuTableView;
+@synthesize rtTableView, swTableView, menuTableView;
 
-@synthesize rtList, locList, rrconnection, menuItems;
+@synthesize rtList, swList, locList, rrconnection, menuItems;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	
@@ -35,15 +35,15 @@
 	
 	locList = [[NSMutableArray array] retain];
 	rtList = [[NSMutableArray array] retain];
+	swList = [[NSMutableArray array] retain];
 	menuItems = [[NSMutableArray array] retain];
 	
-	//NSLog(@"App: locList P: %d", self.locList);
-	
-	//NSArray *testarray;
-	//testarray = [[NSArray arrayWithObjects: @"OneApp", @"TwoApp", @"ThreeApp", nil] retain];
 	[locTableViewControllerApp setLocList:self.locList];
-	
-	//menuTableView = [[iRocMenuTableView alloc] initWithNibName:@"iRocMenuTableView" bundle:nil];
+
+	swTableView = [[iRocSwTableView alloc] initWithNibName:@"iRocSwTableView" bundle:nil];
+	[swTableView setSwList:self.swList];
+	[swTableView setDelegate:self];
+	[swTableView setMenuname:@"Switches"];
 	
 	rtTableView = [[iRocRtTableView alloc] initWithNibName:@"iRocRtTableView" bundle:nil];
 	[rtTableView setRtList:self.rtList];
@@ -51,6 +51,7 @@
 	[rtTableView setMenuname:@"Routes"];
 	
 	[menuItems addObject:rtTableView];
+	[menuItems addObject:swTableView];
 	[menuTableView setMenuItems:menuItems];
 	
 	
@@ -63,6 +64,7 @@
 	[rrconnection setDelegate:self];
 	[rrconnection setLocList:self.locList];
 	[rrconnection setRtList:self.rtList];
+	[rrconnection setSwList:self.swList];
 	viewController.textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
 	
 	
@@ -110,13 +112,14 @@
 	[rtTableView.tableView reloadData];
 }
 
-- (void)rtAction:(NSString *)rtid {
-	
+- (void)rtAction:(NSString *)rtid {	
 	NSLog(@"rtAction: %@", rtid);
-	
-	
 	[rrconnection sendMessage:@"st" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<st id=\"%@\" cmd=\"go\"/>", rtid]]];
-	
+}
+
+- (void)swAction:(NSString *)swid {	
+	NSLog(@"swAction: %@", swid);
+	[rrconnection sendMessage:@"sw" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<sw id=\"%@\" cmd=\"flip\"/>", swid]]];
 }
 
 
