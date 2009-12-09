@@ -16,9 +16,9 @@
 @synthesize tabBarController;
 @synthesize locTableViewControllerApp;
 @synthesize viewController;
-@synthesize rtTableView;
+@synthesize rtTableView, menuTableView;
 
-@synthesize rtList, locList, rrconnection;
+@synthesize rtList, locList, rrconnection, menuItems;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	
@@ -35,7 +35,7 @@
 	
 	locList = [[NSMutableArray array] retain];
 	rtList = [[NSMutableArray array] retain];
-	
+	menuItems = [[NSMutableArray array] retain];
 	
 	//NSLog(@"App: locList P: %d", self.locList);
 	
@@ -43,9 +43,16 @@
 	//testarray = [[NSArray arrayWithObjects: @"OneApp", @"TwoApp", @"ThreeApp", nil] retain];
 	[locTableViewControllerApp setLocList:self.locList];
 	
+	//menuTableView = [[iRocMenuTableView alloc] initWithNibName:@"iRocMenuTableView" bundle:nil];
+	
+	//rtTableView = [[iRocRtTableView alloc] initWithNibName:@"iRocRtTableView" bundle:nil];
 	[rtTableView setRtList:self.rtList];
 	[rtTableView setDelegate:self];
-
+	[rtTableView setMenuname:@"Routes"];
+	
+	//[menuItems addObject:rtTableView];
+	//[menuTableView setMenuItems:menuItems];
+	
 	
 	// read preferences
 	defaults = [[NSUserDefaults standardUserDefaults] retain];

@@ -1,17 +1,17 @@
 //
-//  iRocRtTableView.m
+//  iRocMenuTableView.m
 //  iRoc
 //
-//  Created by Jean-Michel Fischer on 08.12.09.
+//  Created by Jean-Michel Fischer on 09.12.09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "iRocRtTableView.h"
+#import "iRocMenuTableView.h"
 
 
-@implementation iRocRtTableView
+@implementation iRocMenuTableView
 
-@synthesize rtList, menuname;
+@synthesize menuItems;
 
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -22,15 +22,14 @@
 }
 */
 
-
+/*
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-	self.tableView.rowHeight = 40.0;
 }
-
+*/
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -83,7 +82,8 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [rtList count];
+    //return [menuItems count];
+	return 1;
 }
 
 
@@ -96,16 +96,20 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-    
+	
+	[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+	
 	
 	UILabel *rtidLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 3, 190, 20)] autorelease];
 	rtidLabel.font = [UIFont boldSystemFontOfSize:14];
 	[cell.contentView addSubview:rtidLabel];
-	 	
+	
 	// Get the specific loc for this row.
-	Route *rt = [rtList objectAtIndex:indexPath.row];
-    rtidLabel.text = rt.rtid;
-
+	//Route *rt = [rtList objectAtIndex:indexPath.row];
+    //rtidLabel.text = [((iRocRtTableView*)[menuItems objectAtIndex:indexPath.row]) menuname];
+	
+	rtidLabel.text = @"EINS";
+	
     return cell;
 }
 
@@ -116,11 +120,9 @@
 	// [self.navigationController pushViewController:anotherViewController];
 	// [anotherViewController release];
 	
-    NSLog(@"selected row: %d : %@", indexPath.row, ((Route*) [rtList objectAtIndex:indexPath.row]).rtid);
+	[self.navigationController pushViewController:[menuItems objectAtIndex:indexPath.row] animated:YES];
 	
-	
-	[_delegate rtAction:((Route*) [rtList objectAtIndex:indexPath.row]).rtid];
-	
+	NSLog(@"HALLO?");
 }
 
 
@@ -162,16 +164,6 @@
     return YES;
 }
 */
-
-- (id)delegate
-{
-    return _delegate;
-}
-
-- (void)setDelegate:(id)new_delegate
-{
-    _delegate = new_delegate;
-}
 
 
 - (void)dealloc {

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "iRocLocTableViewController.h"
 #import "iRocRtTableView.h"
+#import "iRocMenuTableView.h"
 #import "IRocConnector.h"
 
 @class iRocViewController;
@@ -20,9 +21,11 @@
 	
 	IBOutlet iRocLocTableViewController *locTableViewControllerApp;
 	IBOutlet iRocRtTableView *rtTableView;
+	IBOutlet iRocMenuTableView *menuTableView;
 	
 	NSMutableArray *locList;
 	NSMutableArray *rtList;
+	NSMutableArray *menuItems;
 	
 	IRocConnector *rrconnection;
 }
@@ -33,9 +36,11 @@
 
 @property (nonatomic, retain) IBOutlet iRocLocTableViewController *locTableViewControllerApp;
 @property (nonatomic, retain) IBOutlet iRocRtTableView *rtTableView;
+@property (nonatomic, retain) IBOutlet iRocMenuTableView *menuTableView;
 
 @property(nonatomic, retain) NSMutableArray *locList;
 @property(nonatomic, retain) NSMutableArray *rtList;
+@property(nonatomic, retain) NSMutableArray *menuItems;
 
 @property (nonatomic, retain) IRocConnector *rrconnection;
 

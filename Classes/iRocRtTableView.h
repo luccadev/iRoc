@@ -13,12 +13,14 @@
 @interface iRocRtTableView : UITableViewController {
 	NSArray *rtList;
 	id _delegate;
+	NSString *menuname;
 }
 
 - (id)delegate;
 - (void)setDelegate:(id)new_delegate;
 
 @property (nonatomic, retain) NSArray *rtList;
+@property (nonatomic, retain) NSString *menuname;
 
 @end
 
