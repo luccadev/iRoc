@@ -34,7 +34,7 @@
     header = NULL;
     rocdata = NULL;
 	
-	NSLog([NSString stringWithFormat: @"Connect tox: %@:%d ", domain, port]);	
+	NSLog([NSString stringWithFormat: @"Connect to: %@:%d ", domain, port]);	
 	
 	BOOL connectOK = FALSE;
 
@@ -120,7 +120,7 @@
 			actuallyWritten = [oStream write:marker maxLength:remainingToWrite];
       if( actuallyWritten > 0 ) {
   			remainingToWrite -= actuallyWritten;
-        NSLog(@"actuallyWritten=%d remainingToWrite=%d", actuallyWritten, remainingToWrite);		
+        //NSLog(@"actuallyWritten=%d remainingToWrite=%d", actuallyWritten, remainingToWrite);		
 	  		marker += actuallyWritten;
       }
 		}
@@ -228,7 +228,7 @@
 					[parser setDelegate:self];
 					[parser parse];
 					
-					NSLog(@"Data sent to parser ... ");
+					//NSLog(@"Data sent to parser ... ");
 					
 					[parser release];  
 					[_data release];

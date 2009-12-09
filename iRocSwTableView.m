@@ -99,6 +99,15 @@
 	Switch *rt = [swList objectAtIndex:indexPath.row];
     rtidLabel.text = rt.swid;
 	
+	
+	
+	
+	UIImage *image = [UIImage imageNamed:@"turnout-ls-1.gif"];
+	CGRect imageframe = CGRectMake(270,15,20,20);	
+	UIImageView *imageview = [[UIImageView alloc] initWithFrame:imageframe];
+	imageview.image = image; 
+	[cell.contentView addSubview:imageview];  
+			
     return cell;
 }
 
