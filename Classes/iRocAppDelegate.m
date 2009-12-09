@@ -45,13 +45,13 @@
 	
 	//menuTableView = [[iRocMenuTableView alloc] initWithNibName:@"iRocMenuTableView" bundle:nil];
 	
-	//rtTableView = [[iRocRtTableView alloc] initWithNibName:@"iRocRtTableView" bundle:nil];
+	rtTableView = [[iRocRtTableView alloc] initWithNibName:@"iRocRtTableView" bundle:nil];
 	[rtTableView setRtList:self.rtList];
 	[rtTableView setDelegate:self];
 	[rtTableView setMenuname:@"Routes"];
 	
-	//[menuItems addObject:rtTableView];
-	//[menuTableView setMenuItems:menuItems];
+	[menuItems addObject:rtTableView];
+	[menuTableView setMenuItems:menuItems];
 	
 	
 	// read preferences

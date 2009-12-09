@@ -106,9 +106,9 @@
 	
 	// Get the specific loc for this row.
 	//Route *rt = [rtList objectAtIndex:indexPath.row];
-    //rtidLabel.text = [((iRocRtTableView*)[menuItems objectAtIndex:indexPath.row]) menuname];
+    rtidLabel.text = [((iRocRtTableView*)[menuItems objectAtIndex:indexPath.row]) menuname];
 	
-	rtidLabel.text = @"EINS";
+	//rtidLabel.text = @"EINS";
 	
     return cell;
 }
