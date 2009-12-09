@@ -128,8 +128,6 @@
 		9CBF129910CFF15900FF29DA /* signal-y-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF11B310CFF15900FF29DA /* signal-y-3.png */; };
 		9CBF129B10CFF15900FF29DA /* signal-y-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF11B510CFF15900FF29DA /* signal-y-4.png */; };
 		9CBF129D10CFF15900FF29DA /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF11B710CFF15900FF29DA /* stop.png */; };
-		9CBF129E10CFF15900FF29DA /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF11B810CFF15900FF29DA /* Thumbs.db */; };
-		9CBF129F10CFF15900FF29DA /* Thumbs.dbencryptable in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF11B910CFF15900FF29DA /* Thumbs.dbencryptable */; };
 		9CBF12A110CFF15900FF29DA /* track-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF11BB10CFF15900FF29DA /* track-1.png */; };
 		9CBF12A310CFF15900FF29DA /* track-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF11BD10CFF15900FF29DA /* track-2.png */; };
 		9CBF12A510CFF15900FF29DA /* turnout-ls-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF11BF10CFF15900FF29DA /* turnout-ls-1.png */; };
@@ -294,8 +292,6 @@
 		9CBF11B310CFF15900FF29DA /* signal-y-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signal-y-3.png"; sourceTree = "<group>"; };
 		9CBF11B510CFF15900FF29DA /* signal-y-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signal-y-4.png"; sourceTree = "<group>"; };
 		9CBF11B710CFF15900FF29DA /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
-		9CBF11B810CFF15900FF29DA /* Thumbs.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Thumbs.db; sourceTree = "<group>"; };
-		9CBF11B910CFF15900FF29DA /* Thumbs.dbencryptable */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Thumbs.dbencryptable; sourceTree = "<group>"; };
 		9CBF11BB10CFF15900FF29DA /* track-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "track-1.png"; sourceTree = "<group>"; };
 		9CBF11BD10CFF15900FF29DA /* track-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "track-2.png"; sourceTree = "<group>"; };
 		9CBF11BF10CFF15900FF29DA /* turnout-ls-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "turnout-ls-1.png"; sourceTree = "<group>"; };
@@ -538,8 +534,6 @@
 				9CBF11B310CFF15900FF29DA /* signal-y-3.png */,
 				9CBF11B510CFF15900FF29DA /* signal-y-4.png */,
 				9CBF11B710CFF15900FF29DA /* stop.png */,
-				9CBF11B810CFF15900FF29DA /* Thumbs.db */,
-				9CBF11B910CFF15900FF29DA /* Thumbs.dbencryptable */,
 				9CBF11BB10CFF15900FF29DA /* track-1.png */,
 				9CBF11BD10CFF15900FF29DA /* track-2.png */,
 				9CBF11BF10CFF15900FF29DA /* turnout-ls-1.png */,
@@ -713,8 +707,6 @@
 				9CBF129910CFF15900FF29DA /* signal-y-3.png in Resources */,
 				9CBF129B10CFF15900FF29DA /* signal-y-4.png in Resources */,
 				9CBF129D10CFF15900FF29DA /* stop.png in Resources */,
-				9CBF129E10CFF15900FF29DA /* Thumbs.db in Resources */,
-				9CBF129F10CFF15900FF29DA /* Thumbs.dbencryptable in Resources */,
 				9CBF12A110CFF15900FF29DA /* track-1.png in Resources */,
 				9CBF12A310CFF15900FF29DA /* track-2.png in Resources */,
 				9CBF12A510CFF15900FF29DA /* turnout-ls-1.png in Resources */,
