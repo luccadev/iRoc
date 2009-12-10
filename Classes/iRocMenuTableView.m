@@ -120,6 +120,10 @@
 	// [anotherViewController release];
 	
 	[self.navigationController pushViewController:[menuItems objectAtIndex:indexPath.row] animated:YES];
+	
+	
+	
+	//[self.navigationController set :[menuItems objectAtIndex:indexPath.row]];
 }
 
 

@@ -50,9 +50,11 @@
 	NSString * ip;
 	NSUserDefaults *defaults;
 	
+	UIView* keyboard;
 	
 	IRocConnector *rrconnection;
 	
+	id delegate;
 }
 @property (nonatomic, retain) iRocButton *buttonDir; 
 @property (nonatomic, retain) iRocButton *buttonF0;
@@ -65,6 +67,9 @@
 @property (nonatomic, retain) iRocButton *buttonF7; 
 @property (nonatomic, retain) iRocButton *buttonF8; 
 @property (nonatomic, retain) iRocButton *buttonFn; 
+@property (nonatomic, retain) id delegate; 
+
+@property (nonatomic, retain) UIView* keyboard;
 
 @property (nonatomic, retain) NSArray * functionButtons;
 
@@ -93,11 +98,18 @@
 - (IBAction) buttonFnClicked:(id) sender;
 - (IBAction) sliderMoved:(id) sender;
 - (IBAction) doneButton:(id)sender;
+- (IBAction) locTextTouched:(id)sender;
 
 //- (IBAction) textFieldDone:(id) sender;
 
 - (void) prepareFNCommand:(int) fnIndex; 
 - (void) processAllEvents:(int) _VDelta; 
+
+@end
+
+@interface NSObject (iRocViewController)
+
+- (void)lcTextFieldAction;
 
 @end
 

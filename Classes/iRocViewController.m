@@ -12,7 +12,7 @@
 
 @synthesize buttonDir, buttonF0, buttonF1, buttonF2, buttonF3, buttonF4, buttonF5, buttonF6, buttonF7, buttonF8, buttonFn; 
 @synthesize slider; 
-@synthesize textfieldLoc;
+@synthesize textfieldLoc, keyboard, delegate;
 @synthesize slideView;
 @synthesize soundFileURLRef;
 @synthesize soundFileObject;
@@ -178,6 +178,9 @@
 	
 	functionButtons = [[NSArray arrayWithObjects:buttonF0,buttonF1,buttonF2,buttonF3,buttonF4,buttonF5,buttonF6,buttonF7,buttonF8,nil] retain];
 	
+	
+	
+	[textfieldLoc setDelegate:self];
 		
 	if( [defaults boolForKey:@"keyb_preference"]) {
 		[textfieldLoc setKeyboardType:UIKeyboardTypeNumberPad];
@@ -233,7 +236,7 @@
 	
     // locate keyboard view
     UIWindow* tempWindow = [[[UIApplication sharedApplication] windows] objectAtIndex:1];
-    UIView* keyboard;
+    //UIView* keyboard;
     for(int i=0; i<[tempWindow.subviews count]; i++) {
         keyboard = [tempWindow.subviews objectAtIndex:i];
         // keyboard view found; add the custom button to it
@@ -249,6 +252,20 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 */
+
+// delegate method from textField
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+	// Hide the Keyboard
+	
+	[delegate lcTextFieldAction];
+	
+	return [[NSUserDefaults standardUserDefaults] boolForKey:@"locenter_preference"];
+}
+
+
+- (IBAction) locTextTouched:(id)sender {
+	//[delegate lcTextFieldAction];
+}
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.

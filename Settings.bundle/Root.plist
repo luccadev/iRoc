@@ -54,12 +54,22 @@
 			<key>DefaultValue</key>
 			<true/>
 		</dict>
-    <dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Keyboard to enter Loc</string>
+			<key>Key</key>
+			<string>locenter_preference</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
 			<string>Velocity Control Settings</string>
-    </dict>
+		</dict>
 		<dict>
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>

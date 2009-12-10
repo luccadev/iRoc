@@ -22,6 +22,8 @@
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	
 	application.idleTimerDisabled = YES;
+	
+	[viewController setDelegate:self];
 
   // read preferences
 	NSUserDefaults *defaults = [[NSUserDefaults standardUserDefaults] retain];
@@ -153,6 +155,15 @@
 	self.viewController.textfieldLoc.text = lcid;
 	[self.tabBarController setSelectedViewController:viewController];
 	[[NSUserDefaults standardUserDefaults] setObject:(NSString*)[self.viewController.textfieldLoc text] forKey:@"loc_preference"];
+	
+	[self.tabBarController dismissModalViewControllerAnimated:YES];
+}
+
+// delegate method from locDriveView
+- (void)lcTextFieldAction {
+
+	[self.tabBarController presentModalViewController:lcTableView animated:YES];
+
 }
 
 
