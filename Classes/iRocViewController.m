@@ -257,7 +257,8 @@
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
 	// Hide the Keyboard
 	
-	[delegate lcTextFieldAction];
+	if( ![[NSUserDefaults standardUserDefaults] boolForKey:@"locenter_preference"])
+		[delegate lcTextFieldAction];
 	
 	return [[NSUserDefaults standardUserDefaults] boolForKey:@"locenter_preference"];
 }

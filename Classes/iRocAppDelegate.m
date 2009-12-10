@@ -161,9 +161,7 @@
 
 // delegate method from locDriveView
 - (void)lcTextFieldAction {
-
 	[self.tabBarController presentModalViewController:lcTableView animated:YES];
-
 }
 
 
