@@ -286,7 +286,9 @@
 				<reference key="NSSuperview"/>
 				<reference key="IBUIBackgroundColor" ref="434824021"/>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
-				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
+				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
+					<int key="IBUIStatusBarStyle">2</int>
+				</object>
 			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -759,6 +761,13 @@
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier" id="710330493">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">Classes/iRocViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">NSObject</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">IRocConnector.h</string>
@@ -865,6 +874,7 @@
 							<string>buttonF7</string>
 							<string>buttonF8</string>
 							<string>buttonFn</string>
+							<string>delegate</string>
 							<string>slideView</string>
 							<string>slider</string>
 							<string>textfieldLoc</string>
@@ -882,15 +892,13 @@
 							<string>iRocButton</string>
 							<string>iRocButton</string>
 							<string>iRocButton</string>
+							<string>id</string>
 							<string>iRocTouchView</string>
 							<string>UISlider</string>
 							<string>UITextField</string>
 						</object>
 					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">Classes/iRocViewController.h</string>
-					</object>
+					<reference key="sourceIdentifier" ref="710330493"/>
 				</object>
 			</object>
 		</object>

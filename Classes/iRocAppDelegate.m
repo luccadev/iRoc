@@ -21,6 +21,8 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+	
 	application.idleTimerDisabled = YES;
 	
 	[viewController setDelegate:self];
