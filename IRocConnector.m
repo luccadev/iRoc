@@ -155,7 +155,8 @@
         {
             if(!_data) {
               //NSLog(@"init data...");
-                _data = [[NSMutableData data] retain];
+                //_data = [[NSMutableData data] retain];
+				_data = [[NSMutableData data] retain];
             }
 			
 			if(!header) {
@@ -179,7 +180,7 @@
 				// TODO: Here is a BIG Problem!!!
 					
 					//if( _data != nil) {
-						[_data appendBytes:(const void *)buf length:len];
+						[_data appendBytes:(uint8_t*)buf length:len];
 						header = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
 					//}
 					
@@ -273,12 +274,12 @@ static NSString * const kIdElementName = @"id";
 		NSString *relAttribute = [attributeDict valueForKey:@"size"];		
 		readsize = [relAttribute intValue];
 	} else if ([elementName isEqualToString:kLocElementName]) {
-		if( [[attributeDict valueForKey:@"show"] isEqualToString:@"true"] ) {
+		//if( [[attributeDict valueForKey:@"show"] isEqualToString:@"true"] ) {
 			NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
 			Loc *loc = [[[Loc alloc] init] retain];
 			loc.locid = relAttribute;
 			[self.locList addObject:loc];
-		}
+		//}
 	} else if ([elementName isEqualToString:@"sw"]) {
 		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
 		NSString *type = [attributeDict valueForKey:@"type"];
