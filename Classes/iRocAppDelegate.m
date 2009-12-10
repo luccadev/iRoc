@@ -152,7 +152,8 @@
 - (void)lcAction:(NSString *)lcid {	
 	NSLog(@"lcAction: %@", lcid);
 	self.viewController.textfieldLoc.text = lcid;
-	//[self.viewController pushViewController:viewController animated:YES];
+	[self.tabBarController setSelectedViewController:viewController];
+	[[NSUserDefaults standardUserDefaults] setObject:(NSString*)[self.viewController.textfieldLoc text] forKey:@"loc_preference"];
 }
 
 
