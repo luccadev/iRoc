@@ -1,0 +1,31 @@
+//
+//  iRocLocTableViewController.h
+//  iRoc
+//
+//  Created by Jean-Michel Fischer on 07.12.09.
+//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "Loc.h"
+
+
+@interface iRocLcTableView : UITableViewController  <UIActionSheetDelegate> {
+	NSArray *lcList;
+	id _delegate;
+	NSString *menuname;
+}
+
+- (id)delegate;
+- (void)setDelegate:(id)new_delegate;
+
+@property (nonatomic, retain) NSArray *lcList;
+@property (nonatomic, retain) NSString *menuname;
+
+@end
+
+@interface NSObject (iRocLcTableView)
+
+- (void)lcAction:(NSString *)rtid;
+
+@end

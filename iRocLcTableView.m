@@ -6,12 +6,12 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "iRocLocTableViewController.h"
+#import "iRocLcTableView.h"
 
 
-@implementation iRocLocTableViewController
+@implementation iRocLcTableView
 
-@synthesize locList;
+@synthesize lcList, menuname;
 
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -87,42 +87,35 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [locList count];
+    return [lcList count];
 }
 
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   
-    static NSString *CellIdentifier = @"Cell";
+	// Get the specific loc for this row.
+	Loc *loc = [lcList objectAtIndex:indexPath.row];
+    
+	NSString *CellIdentifier = [NSString stringWithFormat:@"Cell_%@",loc.locid];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+	cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-	
 	
 	UILabel *locidLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 3, 190, 20)] autorelease];
 	locidLabel.font = [UIFont boldSystemFontOfSize:14];
 	[cell.contentView addSubview:locidLabel];
 	
-	// Get the specific loc for this row.
-	Loc *loc = [locList objectAtIndex:indexPath.row];
-    locidLabel.text = loc.locid;
-	 	
+	locidLabel.text = loc.locid;
+	
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
-	// [self.navigationController pushViewController:anotherViewController];
-	// [anotherViewController release];
-	
-	
-	NSLog(@"selected row: %d : %@", indexPath.row, ((Loc*) [locList objectAtIndex:indexPath.row]).locid);
-	
+	[_delegate lcAction:((Loc*) [lcList objectAtIndex:indexPath.row]).locid];
 }
 
 
@@ -165,9 +158,18 @@
 }
 */
 
+- (id)delegate
+{
+    return _delegate;
+}
+
+- (void)setDelegate:(id)new_delegate
+{
+    _delegate = new_delegate;
+}
 
 - (void)dealloc {
-	[locList release];
+	[lcList release];
     [super dealloc];
 }
 

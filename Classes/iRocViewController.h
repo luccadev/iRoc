@@ -28,7 +28,7 @@
 	IBOutlet UISlider *slider;
 	IBOutlet UITextField *textfieldLoc;
 	IBOutlet iRocTouchView *slideView;
-  int VDelta;
+    int VDelta;
 	
 	CFURLRef		soundFileURLRef;
 	SystemSoundID	soundFileObject;

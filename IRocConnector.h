@@ -13,7 +13,7 @@
 #import "Output.h"
 
 
-#import "iRocLocTableViewController.h"
+#import "iRocLcTableView.h"
 #import "iRocRtTableView.h"
 #import "iRocSwTableView.h"
 
@@ -46,7 +46,7 @@
 	
 	Loc *currentLocObject;
 	
-	IBOutlet iRocLocTableViewController *locTableViewController;
+	//IBOutlet iRocLcTableView *lcTableView;
 
 	@public
 	NSMutableArray *locList;
@@ -87,7 +87,7 @@
 
 @property (nonatomic, retain) Loc *currentLocObject;
 
-@property (nonatomic, retain) IBOutlet iRocLocTableViewController *locTableViewController;
+//@property (nonatomic, retain) IBOutlet iRocLocTableViewController *locTableViewController;
 
 @end
 

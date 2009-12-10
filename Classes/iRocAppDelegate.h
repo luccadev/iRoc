@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "iRocLocTableViewController.h"
 
+#import "iRocLcTableView.h"
 #import "iRocRtTableView.h"
 #import "iRocSwTableView.h"
 #import "iRocCoTableView.h"
@@ -23,16 +23,14 @@
     iRocViewController *viewController;
 	UITabBarController *tabBarController;
 	
-	IBOutlet iRocLocTableViewController *locTableViewControllerApp;
-	
+	IBOutlet iRocLcTableView *lcTableView;
 	IBOutlet iRocRtTableView *rtTableView;
 	IBOutlet iRocSwTableView *swTableView;
 	IBOutlet iRocCoTableView *coTableView;
 	
 	IBOutlet iRocMenuTableView *menuTableView;
 	
-	NSMutableArray *locList;
-	
+	NSMutableArray *lcList;	
 	NSMutableArray *rtList;
 	NSMutableArray *swList;
 	NSMutableArray *coList;
@@ -46,16 +44,17 @@
 @property (nonatomic, retain) IBOutlet iRocViewController *viewController;
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 
-@property (nonatomic, retain) IBOutlet iRocLocTableViewController *locTableViewControllerApp;
+@property (nonatomic, retain) IBOutlet iRocLcTableView *lcTableView;
 @property (nonatomic, retain) IBOutlet iRocRtTableView *rtTableView;
 @property (nonatomic, retain) IBOutlet iRocSwTableView *swTableView;
 @property (nonatomic, retain) IBOutlet iRocCoTableView *coTableView;
 @property (nonatomic, retain) IBOutlet iRocMenuTableView *menuTableView;
 
-@property(nonatomic, retain) NSMutableArray *locList;
+@property(nonatomic, retain) NSMutableArray *lcList;
 @property(nonatomic, retain) NSMutableArray *rtList;
 @property(nonatomic, retain) NSMutableArray *swList;
 @property(nonatomic, retain) NSMutableArray *coList;
+
 @property(nonatomic, retain) NSMutableArray *menuItems;
 
 @property (nonatomic, retain) IRocConnector *rrconnection;

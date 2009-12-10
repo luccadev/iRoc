@@ -14,11 +14,10 @@
 
 @synthesize window;
 @synthesize tabBarController;
-@synthesize locTableViewControllerApp;
 @synthesize viewController;
-@synthesize rtTableView, swTableView, coTableView, menuTableView;
+@synthesize lcTableView, rtTableView, swTableView, coTableView, menuTableView;
 
-@synthesize rtList, swList, coList, locList, rrconnection, menuItems;
+@synthesize rtList, swList, coList, lcList, rrconnection, menuItems;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	
@@ -33,13 +32,17 @@
 	}
 	[window addSubview:tabBarController.view];	
 	
-	locList = [[NSMutableArray array] retain];
+	lcList = [[NSMutableArray array] retain];
 	rtList = [[NSMutableArray array] retain];
 	swList = [[NSMutableArray array] retain];
 	coList = [[NSMutableArray array] retain];
 	menuItems = [[NSMutableArray array] retain];
 	
-	[locTableViewControllerApp setLocList:self.locList];
+
+	lcTableView = [[iRocLcTableView alloc] initWithNibName:@"iRocLcTableView" bundle:nil];
+	[lcTableView setLcList:self.lcList];
+	[lcTableView setDelegate:self];
+	[lcTableView setMenuname:@"Locomotives"];
 
 	swTableView = [[iRocSwTableView alloc] initWithNibName:@"iRocSwTableView" bundle:nil];
 	[swTableView setSwList:self.swList];
@@ -56,6 +59,7 @@
 	[coTableView setDelegate:self];
 	[coTableView setMenuname:@"Outputs"];
 	
+	[menuItems addObject:lcTableView];
 	[menuItems addObject:rtTableView];
 	[menuItems addObject:swTableView];
 	[menuItems addObject:coTableView];
@@ -69,7 +73,7 @@
 	[rrconnection setDomain:[defaults stringForKey:@"ip_preference"]];
 	[rrconnection setPort:[defaults integerForKey:@"port_preference"]];
 	[rrconnection setDelegate:self];
-	[rrconnection setLocList:self.locList];
+	[rrconnection setLocList:self.lcList];
 	[rrconnection setRtList:self.rtList];
 	[rrconnection setSwList:self.swList];
 	[rrconnection setCoList:self.coList];
@@ -112,7 +116,7 @@
 // Delegate Methods
 - (void)lcListLoaded {
 	//NSLog(@"Reload Data in Loc View");
-	[locTableViewControllerApp.tableView reloadData];
+	[lcTableView.tableView reloadData];
 }
 
 - (void)rtListLoaded {
@@ -143,6 +147,12 @@
 - (void)coAction:(NSString *)coid {	
 	NSLog(@"coAction: %@", coid);
 	[rrconnection sendMessage:@"co" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<co id=\"%@\" cmd=\"on\"/>", coid]]];
+}
+
+- (void)lcAction:(NSString *)lcid {	
+	NSLog(@"lcAction: %@", lcid);
+	self.viewController.textfieldLoc.text = lcid;
+	//[self.viewController pushViewController:viewController animated:YES];
 }
 
 
