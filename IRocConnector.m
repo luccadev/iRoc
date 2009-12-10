@@ -183,7 +183,7 @@
 						header = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
 					//}
 					
-					NSLog(@"connector: len: %d", len);
+					//NSLog(@"connector: len: %d", len);
 				}
         //NSLog(@"%@", header);
 				
@@ -359,7 +359,12 @@ static NSString * const kIdElementName = @"id";
 			[_delegate coListLoaded];
 		} 
 		NSLog(@"%d cos added ... ", [coList count]);
+	} else if ([elementName isEqualToString:@"plan"]) {
+		// inform the delegate
+		NSLog(@"The Plan arrived.");
+		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	}
+	
 	
 }
 
