@@ -273,13 +273,12 @@ static NSString * const kIdElementName = @"id";
 		NSString *relAttribute = [attributeDict valueForKey:@"size"];		
 		readsize = [relAttribute intValue];
 	} else if ([elementName isEqualToString:kLocElementName]) {
-		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];		
-        //NSLog(@"parser: lc: %@", relAttribute);	
-
-		Loc *loc = [[[Loc alloc] init] retain];
-		loc.locid = relAttribute;
-		[self.locList addObject:loc];
-		
+		if( [[attributeDict valueForKey:@"show"] isEqualToString:@"true"] ) {
+			NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
+			Loc *loc = [[[Loc alloc] init] retain];
+			loc.locid = relAttribute;
+			[self.locList addObject:loc];
+		}
 	} else if ([elementName isEqualToString:@"sw"]) {
 		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
 		NSString *type = [attributeDict valueForKey:@"type"];
