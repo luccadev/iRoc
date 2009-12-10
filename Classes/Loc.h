@@ -12,9 +12,10 @@
 @interface Loc : NSObject {
 @private 
 	NSString *locid;
-	
+	NSData *locpic;
 }
 
 @property (nonatomic, retain) NSString *locid;
+@property (nonatomic, retain) NSData *locpic;
 
 @end

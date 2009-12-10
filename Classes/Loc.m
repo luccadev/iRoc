@@ -11,10 +11,11 @@
 
 @implementation Loc
 
-@synthesize locid;
+@synthesize locid, locpic;
 
 - (void)dealloc {
     [locid release];
+	[locpic release];
     [super dealloc];
 }
 

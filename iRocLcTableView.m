@@ -110,6 +110,17 @@
 	
 	locidLabel.text = loc.locid;
 	
+	/*
+	Loc *loc2 = [lcList objectAtIndex:0];
+	UIImage *image = [UIImage imageWithData:loc2.locpic];
+	CGRect imageframe = CGRectMake(270,15,20,20);	
+	UIImageView *imageview = [[UIImageView alloc] initWithFrame:imageframe];
+	imageview.image = image; 
+	[cell.contentView addSubview:imageview];  
+	*/
+	
+	//[self.tableView reloadData];
+	
     return cell;
 }
 

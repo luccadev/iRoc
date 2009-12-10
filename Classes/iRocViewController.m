@@ -105,6 +105,11 @@
 	[self prepareFNCommand:8];
 }
 - (IBAction) buttonFnClicked:(id) sender {
+	
+	[rrconnection sendMessage:@"datareq" 
+					  message:[[NSString alloc] 
+			   initWithString: [NSString stringWithFormat: @"<datareq id=\"630\" filename=\"630.xpm\"/>"]]];
+	
 }
 
 - (void) processAllEvents:(int) _VDelta {
@@ -255,7 +260,7 @@
 
 // delegate method from textField
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-	// Hide the Keyboard
+	// Don't show the Keyboard
 	
 	if( ![[NSUserDefaults standardUserDefaults] boolForKey:@"locenter_preference"])
 		[delegate lcTextFieldAction];
@@ -265,7 +270,7 @@
 
 
 - (IBAction) locTextTouched:(id)sender {
-	//[delegate lcTextFieldAction];
+	// Loc Text Touched
 }
 
 - (void)didReceiveMemoryWarning {

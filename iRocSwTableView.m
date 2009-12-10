@@ -111,6 +111,7 @@
 	UIImage *image = [UIImage imageNamed:imgname];
 	
 	
+	
 	CGRect imageframe = CGRectMake(270,15,20,20);	
 	UIImageView *imageview = [[UIImageView alloc] initWithFrame:imageframe];
 	imageview.image = image; 
