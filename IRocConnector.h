@@ -10,6 +10,7 @@
 #import "Loc.h"
 #import "Route.h"
 #import "Switch.h"
+#import "Output.h"
 
 
 #import "iRocLocTableViewController.h"
@@ -51,6 +52,7 @@
 	NSMutableArray *locList;
 	NSMutableArray *rtList;
 	NSMutableArray *swList;
+	NSMutableArray *coList;
 	
 	id _delegate;
 }
@@ -81,6 +83,7 @@
 @property(nonatomic, retain) NSMutableArray *locList;
 @property(nonatomic, retain) NSMutableArray *rtList;
 @property(nonatomic, retain) NSMutableArray *swList;
+@property(nonatomic, retain) NSMutableArray *coList;
 
 @property (nonatomic, retain) Loc *currentLocObject;
 
@@ -94,6 +97,7 @@
  - (void)lcListLoaded;
  - (void)rtListLoaded;
  - (void)swListLoaded;
+ - (void)coListLoaded;
 
 @end
 

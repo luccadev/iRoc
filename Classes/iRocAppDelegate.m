@@ -16,9 +16,9 @@
 @synthesize tabBarController;
 @synthesize locTableViewControllerApp;
 @synthesize viewController;
-@synthesize rtTableView, swTableView, menuTableView;
+@synthesize rtTableView, swTableView, coTableView, menuTableView;
 
-@synthesize rtList, swList, locList, rrconnection, menuItems;
+@synthesize rtList, swList, coList, locList, rrconnection, menuItems;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	
@@ -36,6 +36,7 @@
 	locList = [[NSMutableArray array] retain];
 	rtList = [[NSMutableArray array] retain];
 	swList = [[NSMutableArray array] retain];
+	coList = [[NSMutableArray array] retain];
 	menuItems = [[NSMutableArray array] retain];
 	
 	[locTableViewControllerApp setLocList:self.locList];
@@ -50,8 +51,14 @@
 	[rtTableView setDelegate:self];
 	[rtTableView setMenuname:@"Routes"];
 	
+	coTableView = [[iRocCoTableView alloc] initWithNibName:@"iRocCoTableView" bundle:nil];
+	[coTableView setCoList:self.coList];
+	[coTableView setDelegate:self];
+	[coTableView setMenuname:@"Outputs"];
+	
 	[menuItems addObject:rtTableView];
 	[menuItems addObject:swTableView];
+	[menuItems addObject:coTableView];
 	[menuTableView setMenuItems:menuItems];
 	
 	
@@ -65,6 +72,7 @@
 	[rrconnection setLocList:self.locList];
 	[rrconnection setRtList:self.rtList];
 	[rrconnection setSwList:self.swList];
+	[rrconnection setCoList:self.coList];
 	viewController.textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
 	
 	
@@ -103,13 +111,23 @@
 
 // Delegate Methods
 - (void)lcListLoaded {
-	NSLog(@"Reload Data in Loc View");
+	//NSLog(@"Reload Data in Loc View");
 	[locTableViewControllerApp.tableView reloadData];
 }
 
 - (void)rtListLoaded {
-	NSLog(@"Reload Data in Route View");
+	//NSLog(@"Reload Data in Route View");
 	[rtTableView.tableView reloadData];
+}
+
+- (void)swListLoaded {
+	//NSLog(@"Reload Data in Route View");
+	[swTableView.tableView reloadData];
+}
+
+- (void)coListLoaded {
+	//NSLog(@"Reload Data in Route View");
+	[coTableView.tableView reloadData];
 }
 
 - (void)rtAction:(NSString *)rtid {	
@@ -120,6 +138,11 @@
 - (void)swAction:(NSString *)swid {	
 	NSLog(@"swAction: %@", swid);
 	[rrconnection sendMessage:@"sw" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<sw id=\"%@\" cmd=\"flip\"/>", swid]]];
+}
+
+- (void)coAction:(NSString *)coid {	
+	NSLog(@"coAction: %@", coid);
+	[rrconnection sendMessage:@"co" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<co id=\"%@\" cmd=\"on\"/>", coid]]];
 }
 
 

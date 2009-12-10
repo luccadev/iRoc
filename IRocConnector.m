@@ -11,7 +11,7 @@
 
 @implementation IRocConnector
 
-@synthesize header, rocdata, isConnected, currentLocObject, locList, rtList, swList;
+@synthesize header, rocdata, isConnected, currentLocObject, locList, rtList, swList, coList;
 @synthesize locTableViewController;
 
 
@@ -296,8 +296,14 @@ static NSString * const kIdElementName = @"id";
 		rt.rtid = relAttribute;
 		[self.rtList addObject:rt];
 		
+	} else if ([elementName isEqualToString:@"co"]) {
+		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];		
+        //NSLog(@"parser: co: %@", [attributeDict valueForKey:kIdElementName]);
+		Output *co = [[[Output alloc] init] retain];
+		co.coid = relAttribute;
+		[self.coList addObject:co];
 	} else if ([elementName isEqualToString:@"lclist"]) {
-		NSLog(@"parser: lclist");	
+		//NSLog(@"parser: lclist");	
 	} /*else if ([elementName isEqualToString:@"exception"]) {
 		NSString *relAttribute = [attributeDict valueForKey:@"text"];		
 		NSLog(@"parser: exception = %@", relAttribute);
@@ -320,7 +326,7 @@ static NSString * const kIdElementName = @"id";
 			[_delegate lcListLoaded];
 		} 
 		NSLog(@"%d locs added ... ", [locList count]);
-	} else if ([elementName isEqualToString:@"rtlist"]) {
+	} else if ([elementName isEqualToString:@"stlist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(rtListLoaded)] ) {
 			[_delegate rtListLoaded];
@@ -332,6 +338,12 @@ static NSString * const kIdElementName = @"id";
 			[_delegate swListLoaded];
 		} 
 		NSLog(@"%d sws added ... ", [swList count]);
+	} else if ([elementName isEqualToString:@"colist"]) {
+		// inform the delegate
+		if ( [_delegate respondsToSelector:@selector(coListLoaded)] ) {
+			[_delegate coListLoaded];
+		} 
+		NSLog(@"%d cos added ... ", [coList count]);
 	}
 	
 }
