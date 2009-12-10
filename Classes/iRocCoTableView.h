@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "iRocTableView.h"
 #import "Output.h"
 
 
-@interface iRocCoTableView : UITableViewController {
+@interface iRocCoTableView : iRocTableView {
 	NSArray *coList;
 	id _delegate;
 	NSString *menuname;

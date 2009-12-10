@@ -23,6 +23,7 @@
 		9C39142010D00B6600F9C42D /* Output.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39141F10D00B6600F9C42D /* Output.m */; };
 		9C39142410D00BE400F9C42D /* iRocCoTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39142210D00BE400F9C42D /* iRocCoTableView.m */; };
 		9C39142510D00BE400F9C42D /* iRocCoTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C39142310D00BE400F9C42D /* iRocCoTableView.xib */; };
+		9C5CF49C10D130720043D544 /* iRocTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5CF49B10D130720043D544 /* iRocTableView.m */; };
 		9C6FC84310B7CB0B009FD6FE /* tick.caf in Resources */ = {isa = PBXBuildFile; fileRef = 9C6FC84210B7CB0B009FD6FE /* tick.caf */; };
 		9C6FC89110B7CE8F009FD6FE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6FC89010B7CE8F009FD6FE /* AudioToolbox.framework */; };
 		9C6FC8AF10B7CF05009FD6FE /* tap.aif in Resources */ = {isa = PBXBuildFile; fileRef = 9C6FC8AE10B7CF05009FD6FE /* tap.aif */; };
@@ -185,6 +186,8 @@
 		9C39142110D00BE400F9C42D /* iRocCoTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocCoTableView.h; sourceTree = "<group>"; };
 		9C39142210D00BE400F9C42D /* iRocCoTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocCoTableView.m; sourceTree = "<group>"; };
 		9C39142310D00BE400F9C42D /* iRocCoTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = iRocCoTableView.xib; path = Classes/iRocCoTableView.xib; sourceTree = "<group>"; };
+		9C5CF49A10D130720043D544 /* iRocTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocTableView.h; sourceTree = "<group>"; };
+		9C5CF49B10D130720043D544 /* iRocTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocTableView.m; sourceTree = "<group>"; };
 		9C6FC84210B7CB0B009FD6FE /* tick.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tick.caf; sourceTree = "<group>"; };
 		9C6FC89010B7CE8F009FD6FE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
 		9C6FC8AE10B7CF05009FD6FE /* tap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = tap.aif; sourceTree = "<group>"; };
@@ -373,6 +376,8 @@
 				9CBF101410CFE1CA00FF29DA /* iRocSwTableView.m */,
 				9C39142110D00BE400F9C42D /* iRocCoTableView.h */,
 				9C39142210D00BE400F9C42D /* iRocCoTableView.m */,
+				9C5CF49A10D130720043D544 /* iRocTableView.h */,
+				9C5CF49B10D130720043D544 /* iRocTableView.m */,
 				9CA62C8F10CD0B6C008E37AB /* Loc.h */,
 				9CA62C9010CD0B6C008E37AB /* Loc.m */,
 				9CE17DD710CE857B00170A98 /* Route.h */,
@@ -421,7 +426,6 @@
 			isa = PBXGroup;
 			children = (
 				9CBF10F610CFF14100FF29DA /* Symbols */,
-				9CCF669410CFD0F100F5E110 /* iRocMenuTableView.xib */,
 				9C6FC8AE10B7CF05009FD6FE /* tap.aif */,
 				9C6FC84210B7CB0B009FD6FE /* tick.caf */,
 				9CDB1D5710B57C11001442F1 /* donedown.png */,
@@ -431,6 +435,7 @@
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* iRoc-Info.plist */,
 				9CAF71A410CBE78D00392643 /* iRocAboutView.xib */,
+				9CCF669410CFD0F100F5E110 /* iRocMenuTableView.xib */,
 				9CA62C8310CD0AF0008E37AB /* iRocLcTableView.xib */,
 				9C31162D10CE624B005A009B /* iRocRtTableView.xib */,
 				9CBF101510CFE1CA00FF29DA /* iRocSwTableView.xib */,
@@ -766,6 +771,7 @@
 				9CBF101610CFE1CA00FF29DA /* iRocSwTableView.m in Sources */,
 				9C39142010D00B6600F9C42D /* Output.m in Sources */,
 				9C39142410D00BE400F9C42D /* iRocCoTableView.m in Sources */,
+				9C5CF49C10D130720043D544 /* iRocTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

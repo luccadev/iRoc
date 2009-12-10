@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "iRocTableView.h"
 #import "Route.h"
 
 
-@interface iRocRtTableView : UITableViewController {
+@interface iRocRtTableView : iRocTableView {
 	NSArray *rtList;
 	id _delegate;
 	NSString *menuname;

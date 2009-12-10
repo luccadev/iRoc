@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "iRocTableView.h"
 #import "Switch.h"
 
-@interface iRocSwTableView : UITableViewController {
+@interface iRocSwTableView : iRocTableView {
 	NSArray *swList;
 	id _delegate;
 	NSString *menuname;

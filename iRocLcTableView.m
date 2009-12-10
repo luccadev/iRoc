@@ -6,6 +6,7 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
+
 #import "iRocLcTableView.h"
 
 
@@ -28,7 +29,7 @@
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-	self.tableView.rowHeight = 40.0;
+	
 }
 
 
@@ -104,8 +105,12 @@
 	cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
 	
-	UILabel *locidLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 3, 190, 20)] autorelease];
-	locidLabel.font = [UIFont boldSystemFontOfSize:14];
+	cell.selectionStyle = UITableViewCellSelectionStyleGray;
+	
+	UILabel *locidLabel = [[[UILabel alloc] initWithFrame:celltextRect] autorelease];
+	locidLabel.font = [UIFont boldSystemFontOfSize:cellfontsize];
+	locidLabel.textColor = celltextcolor;
+	locidLabel.backgroundColor = cellbackcolor;
 	[cell.contentView addSubview:locidLabel];
 	
 	locidLabel.text = loc.locid;

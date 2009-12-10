@@ -165,7 +165,7 @@
 			
 			//NSLog(@"readHeader: %d ... readRocdata: %d", readHeader, readRocdata);
 			
-            uint8_t buf[1024];
+            uint8_t buf[2048];
             unsigned int len = 1;
 			
 			if( readHeader ) {
@@ -173,12 +173,17 @@
 				while ( ![header hasSuffix:@"</xmlh>"]){
 					len = [(NSInputStream *)stream read:buf maxLength:1];
 					
-					//NSLog(@"len: %d", len);
+					if (_data == nil)
+					    NSLog(@"##################### OHHHH", _data);
 					
-					[_data appendBytes:(const void *)buf length:len];
-					header = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
+				// TODO: Here is a BIG Problem!!!
 					
-					//NSLog(@"%@", header);
+					//if( _data != nil) {
+						[_data appendBytes:(const void *)buf length:len];
+						header = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
+					//}
+					
+					NSLog(@"connector: len: %d", len);
 				}
         //NSLog(@"%@", header);
 				
@@ -367,13 +372,16 @@ static NSString * const kIdElementName = @"id";
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
-	//NSLog(@"### Parse Error: %@ ", [parseError localizedDescription]);
+	NSLog(@"### Parse Error: %@ ", [parseError localizedDescription]);
 	// TODO: somthing is wrong with the parser
 	// start from the beginning ....	
+	
+	/*
 	[_data release];
 	_data = nil;
 	[header release];
 	header =nil;	
+	 */
 
 	readHeader = TRUE;
 	readRocdata = FALSE;

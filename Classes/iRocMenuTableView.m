@@ -22,14 +22,14 @@
 }
 */
 
-/*
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+
 }
-*/
+
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -96,16 +96,22 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
 	
+	cell.selectionStyle = UITableViewCellSelectionStyleGray;
 	[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+
 	
 	
-	UILabel *rtidLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 3, 190, 20)] autorelease];
-	rtidLabel.font = [UIFont boldSystemFontOfSize:14];
-	[cell.contentView addSubview:rtidLabel];
+	UILabel *idLabel = [[[UILabel alloc] initWithFrame:celltextRect] autorelease];
+	idLabel.font = [UIFont boldSystemFontOfSize:cellfontsize];
+	idLabel.textColor = celltextcolor;
+	idLabel.backgroundColor = cellbackcolor;
 	
+	
+	
+	[cell.contentView addSubview:idLabel];
 	// Get the specific loc for this row.
 	//Route *rt = [rtList objectAtIndex:indexPath.row];
-    rtidLabel.text = [[menuItems objectAtIndex:indexPath.row] menuname];
+    idLabel.text = [[menuItems objectAtIndex:indexPath.row] menuname];
 	
 	
 	

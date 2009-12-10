@@ -92,10 +92,14 @@
     //if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     //}
+	
+	cell.selectionStyle = UITableViewCellSelectionStyleGray;
 	 
     
-	UILabel *rtidLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 3, 190, 20)] autorelease];
-	rtidLabel.font = [UIFont boldSystemFontOfSize:14];
+	UILabel *rtidLabel = [[[UILabel alloc] initWithFrame:celltextRect] autorelease];
+	rtidLabel.font = [UIFont boldSystemFontOfSize:cellfontsize];
+	rtidLabel.textColor = celltextcolor;
+	rtidLabel.backgroundColor = cellbackcolor;
 	[cell.contentView addSubview:rtidLabel];
 	
 	Switch *sw = [swList objectAtIndex:indexPath.row];

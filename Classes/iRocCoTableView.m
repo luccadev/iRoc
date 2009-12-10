@@ -93,12 +93,19 @@
 	cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     //}
 	
-	UILabel *coidLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 3, 190, 20)] autorelease];
-	coidLabel.font = [UIFont boldSystemFontOfSize:14];
-	[cell.contentView addSubview:coidLabel];
+	cell.selectionStyle = UITableViewCellSelectionStyleGray;
+	
+	UILabel *idLabel = [[[UILabel alloc] initWithFrame:celltextRect] autorelease];
+	idLabel.font = [UIFont boldSystemFontOfSize:cellfontsize];
+	idLabel.textColor = celltextcolor;
+	idLabel.backgroundColor = cellbackcolor;
+	[cell.contentView addSubview:idLabel];
 	
 	Output *co = [coList objectAtIndex:indexPath.row];
-    coidLabel.text = co.coid;
+	
+	NSLog(@"COID: %@", co.coid);
+	
+    idLabel.text = co.coid;
 	
     return cell;
 }

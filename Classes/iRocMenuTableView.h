@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "iRocTableView.h"
 #import "iRocRtTableView.h"
 
 
-@interface iRocMenuTableView : UITableViewController {
+@interface iRocMenuTableView : iRocTableView {
 	NSMutableArray *menuItems;
 }
 

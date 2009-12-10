@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "iRocTableView.h"
 #import "Loc.h"
 
 
-@interface iRocLcTableView : UITableViewController  <UIActionSheetDelegate> {
+@interface iRocLcTableView : iRocTableView  <UIActionSheetDelegate> {
 	NSArray *lcList;
 	id _delegate;
 	NSString *menuname;
