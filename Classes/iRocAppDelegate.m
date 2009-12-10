@@ -100,8 +100,6 @@
 	
 	
 	[viewController setRrconnection:self.rrconnection];
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-
 }
 
 
@@ -132,6 +130,7 @@
 - (void)coListLoaded {
 	//NSLog(@"Reload Data in Route View");
 	[coTableView.tableView reloadData];
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 - (void)rtAction:(NSString *)rtid {	

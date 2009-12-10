@@ -118,7 +118,7 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
 	bState = staten;
 	[self setNeedsDisplay];
 	
-	NSLog(@"bstate: %d", bState);
+	//NSLog(@"bstate: %d", bState);
 }
 
 - (BOOL) getBState {

@@ -48,13 +48,13 @@
     return;
 		
 	if( prevVVal != vVal) {
-    NSLog(@"%@", [[UIDevice currentDevice] name]);
+    //NSLog(@"%@", [[UIDevice currentDevice] name]);
 
 		NSString * stringToSend; 			
 		stringToSend = [NSString stringWithFormat: @"<lc throttleid=\"%@\" id=\"%@\" V=\"%d\" dir=\"%@\" fn=\"%@\"/>", 
                     (NSString*)[[UIDevice currentDevice] name],
                     [textfieldLoc text], vVal, stringDir, [buttonF0 getBState]?@"true":@"false"];
-		NSLog(stringToSend);
+		//NSLog(stringToSend);
 		[rrconnection sendMessage:@"lc" message:stringToSend];
 	}
 		prevVVal = vVal;
@@ -164,11 +164,9 @@
 	// Light on on init
 	fnStates[0] = TRUE;
 	[buttonF0 setBState:TRUE];
-	
 
 	// Save in Settings
 	[[NSUserDefaults standardUserDefaults] setObject:(NSString*)[textfieldLoc text] forKey:@"loc_preference"];
-
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -221,9 +219,6 @@
 	ip = [defaults stringForKey:@"ip_preference"];
 	
 	textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
-	
-
-
 }
 
 // Adding the DONE button to the numpad
