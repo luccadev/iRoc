@@ -278,6 +278,13 @@ static NSString * const kIdElementName = @"id";
 			NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
 			Loc *loc = [[[Loc alloc] init] retain];
 			loc.locid = relAttribute;
+
+			NSString *imgname = [attributeDict valueForKey:@"image"];
+			if( ![imgname isEqualToString:@""] ) {
+				//NSLog(@"%@ : %@", relAttribute, imgname);
+			
+				loc.imgname = imgname;
+			}
 			[self.locList addObject:loc];
 		}
 	} else if ([elementName isEqualToString:@"sw"]) {
@@ -303,20 +310,19 @@ static NSString * const kIdElementName = @"id";
 		Output *co = [[[Output alloc] init] retain];
 		co.coid = relAttribute;
 		[self.coList addObject:co];
-	} /*else if ([elementName isEqualToString:@"datareq"]) {
-		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
-		NSData *data = [attributeDict valueForKey:@"data"];
-        NSLog(@"parser: data: %@", relAttribute);
+	} else if ([elementName isEqualToString:@"datareq"]) {
+		//NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
+		
+
+		NSString *data = [attributeDict valueForKey:@"data"];
+        //NSLog(@"parser: data: %@", relAttribute);
 		//NSLog(@"data: %@", data);
+	
 		
 		
-		[((Loc*) [self.locList objectAtIndex:0]) setLocpic:data]; 
+		[((Loc*) [self.locList objectAtIndex:0]) setLocpicdata:data]; 
 		
-		
-		//Output *co = [[[Output alloc] init] retain];
-		//co.coid = relAttribute;
-		//[self.coList addObject:co];
-	} */
+	} 
 	
 	else if ([elementName isEqualToString:@"lclist"]) {
 		//NSLog(@"parser: lclist");	

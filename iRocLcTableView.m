@@ -26,9 +26,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	
 }
 
@@ -115,17 +112,22 @@
 	
 	locidLabel.text = loc.locid;
 	
-	/*
-	Loc *loc2 = [lcList objectAtIndex:0];
-	UIImage *image = [UIImage imageWithData:loc2.locpic];
-	CGRect imageframe = CGRectMake(270,15,20,20);	
+	//UIImage *img = [[loc getImage] retain];
+	
+	CGRect imageframe = CGRectMake(270,10,20,20);	
 	UIImageView *imageview = [[UIImageView alloc] initWithFrame:imageframe];
-	imageview.image = image; 
-	[cell.contentView addSubview:imageview];  
-	*/
 	
-	//[self.tableView reloadData];
+	if( [loc getImage] != NULL) {
+		NSLog(@"IMG NOT NULL LcTable");
+		imageview.image = [loc getImage];
+	} else {
+		imageview.image = [UIImage imageNamed:@"turnout-rs-1.png"];
+	}
 	
+	
+	
+	[cell.contentView addSubview:imageview];
+
     return cell;
 }
 

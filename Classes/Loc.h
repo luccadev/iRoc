@@ -12,10 +12,16 @@
 @interface Loc : NSObject {
 @private 
 	NSString *locid;
-	NSData *locpic;
+	NSString *locpicdata;
+	NSString *imgname;
+	UIImage *lcimage;
 }
 
 @property (nonatomic, retain) NSString *locid;
-@property (nonatomic, retain) NSData *locpic;
+@property (nonatomic, retain) NSString *locpicdata;
+@property (nonatomic, retain) NSString *imgname;
+@property (nonatomic, retain) UIImage *lcimage;
+
+- (UIImage*) getImage;
 
 @end
