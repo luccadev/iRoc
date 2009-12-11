@@ -117,16 +117,21 @@
 	CGRect imageframe = CGRectMake(270,10,20,20);	
 	UIImageView *imageview = [[UIImageView alloc] initWithFrame:imageframe];
 	
-	if( [loc getImage] != NULL) {
+	if( [loc getImage] != nil) {
 		NSLog(@"IMG NOT NULL LcTable");
 		imageview.image = [loc getImage];
-	} else {
-		imageview.image = [UIImage imageNamed:@"turnout-rs-1.png"];
-	}
+		
+		NSLog(@" lcimage2: %d  ", imageview.image);
+		
+		NSLog(@"(Table) width: %d height: %d ", [imageview.image size].width, [imageview.image size].height);
+		
+		[cell.contentView addSubview:imageview];
+	} //else {
+		//imageview.image = [UIImage imageNamed:@"turnout-rs-1.png"];
+	//}
 	
+			
 	
-	
-	[cell.contentView addSubview:imageview];
 
     return cell;
 }

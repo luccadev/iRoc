@@ -17,6 +17,7 @@
     [locid release];
 	[locpicdata release];
 	[imgname release];
+	[lcimage release];
     [super dealloc];
 }
 
@@ -31,27 +32,53 @@
 			char val[3] = {0};
 			val[0] = [locpicdata characterAtIndex:i];  //s[i];
 			val[1] = [locpicdata characterAtIndex:i+1];
-			val[2] = '\0';
+			val[2] = '\0';  //'\0';
 			b[i/2] = (unsigned char*)(strtol( val, NULL, 16)&0xFF);
-			
-			
 		}
 		
-		for (i = 0; i < 10; i++)
-			NSLog(@"%X",([data bytes]) );
+		
+		for (i = 0; i <  len/2 + 1; i++) {
+			if( b[i] == 0)
+				NSLog(@"fuck");
+		}
+			
 
 		
 		NSLog(@" len: %d  ", len);
 		
-		NSData *data = [NSData dataWithBytes:b length:(len/2 + 1)];
+		NSData *data = [[NSData dataWithBytes:b length:(len/2 + 1)] retain];
+		
+		NSLog(@" data: %d  ", data);
+		
+		/*
+		UIImage* pic = [UIImage imageNamed:@"sample.png"];
+		NSData* pictureData = UIImagePNGRepresentation(pic);
+		NSString* pictureDataString = [pictureData base64Encoding];
+		*/
 		
 		
+		
+		
+		//lcimage = [UIImage imageWithData:[NSData dataFromBase64EncodedString:locpicdata]];
+		lcimage = [UIImage imageWithData:[NSData dataWithBytes:b length:(len/2 + 1)]];
+
+		
+		
+		/*
 		//NSLog(@"IMG NOT NULL LOC %d #############", [data length]);
+		lcimage = [UIImage imageNamed:@"signal-g-1.png"]; 
+		NSLog(@" lcimage1a: %d  ", lcimage);
 		lcimage = [[UIImage imageWithData:data] retain];
+		NSLog(@" lcimage1b: %d  ", lcimage);
 		
-		NSLog(@" width: %d height: %d ", [lcimage size].width, [lcimage size].height);
+		NSLog(@"(Loc) width: %d height: %d ", [lcimage size].width, [lcimage size].height);
+		*/
 		
-		return lcimage; //[UIImage imageNamed:@"signal-g-1.png"];
+		
+		NSLog(@" lcimage1: %d  ", lcimage);
+		
+		
+		return lcimage; //
 		
 	} else {
 		NSLog(@"IMG NULL LOC");
