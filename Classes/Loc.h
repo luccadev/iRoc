@@ -14,6 +14,9 @@
 	NSString *locid;
 	NSString *locpicdata;
 	NSString *imgname;
+	NSString *desc;
+	
+	
 	UIImage *lcimage;
 	
 	BOOL hasImage;
@@ -23,6 +26,7 @@
 @property (nonatomic, retain) NSString *locid;
 //@property (nonatomic, retain) NSString *locpicdata;
 @property (nonatomic, retain) NSString *imgname;
+@property (nonatomic, retain) NSString *desc;
 @property (nonatomic, retain) UIImage *lcimage;
 @property BOOL hasImage;
 @property BOOL imageLoaded;

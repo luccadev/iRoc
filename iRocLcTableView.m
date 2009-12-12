@@ -109,9 +109,17 @@
 	locidLabel.font = [UIFont boldSystemFontOfSize:cellfontsize];
 	locidLabel.textColor = celltextcolor;
 	locidLabel.backgroundColor = cellbackcolor;
+	
+	UILabel *descLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 25, 100, 20)] autorelease];
+	descLabel.font = [UIFont boldSystemFontOfSize:12];
+	descLabel.textColor = celltextcolor;
+	descLabel.backgroundColor = cellbackcolor;
+    
+	[cell.contentView addSubview:descLabel];
 	[cell.contentView addSubview:locidLabel];
 	
 	locidLabel.text = loc.locid;
+	descLabel.text = loc.desc;
 		
 	//NSLog(@"ONE");
 	

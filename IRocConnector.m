@@ -288,11 +288,12 @@ static NSString * const kIdElementName = @"id";
 			NSString *imgname = [attributeDict valueForKey:@"image"];
 			if( ![imgname isEqualToString:@""] ) {
 				NSLog(@"%@ : %@", relAttribute, imgname);
-
 				loc.hasImage = YES;
 				loc.imgname = imgname;
-
 			}
+			[loc setDesc:[attributeDict valueForKey:@"desc"]];
+			
+			
 			[self.locIndexList addObject:relAttribute];
 			[self.locList addObject:loc];
 		}

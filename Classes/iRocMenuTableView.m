@@ -98,22 +98,13 @@
 	
 	cell.selectionStyle = UITableViewCellSelectionStyleGray;
 	[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-
-	
 	
 	UILabel *idLabel = [[[UILabel alloc] initWithFrame:celltextRect] autorelease];
 	idLabel.font = [UIFont boldSystemFontOfSize:cellfontsize];
 	idLabel.textColor = celltextcolor;
 	idLabel.backgroundColor = cellbackcolor;
-	
-	
-	
 	[cell.contentView addSubview:idLabel];
-	// Get the specific loc for this row.
-	//Route *rt = [rtList objectAtIndex:indexPath.row];
-    idLabel.text = [[menuItems objectAtIndex:indexPath.row] menuname];
-	
-	
+	idLabel.text = [[menuItems objectAtIndex:indexPath.row] menuname];
 	
     return cell;
 }

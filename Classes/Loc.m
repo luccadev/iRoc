@@ -11,7 +11,7 @@
 
 @implementation Loc
 
-@synthesize locid, imgname, lcimage, hasImage, imageLoaded;
+@synthesize locid, imgname, lcimage, hasImage, imageLoaded, desc;
 
 - (id) init {
 	[super init];	
