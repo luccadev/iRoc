@@ -32,14 +32,14 @@
 			char val[3] = {0};
 			val[0] = [locpicdata characterAtIndex:i];  //s[i];
 			val[1] = [locpicdata characterAtIndex:i+1];
-			val[2] = '\0';  //'\0';
+			val[2] = '\0';
 			b[i/2] = (unsigned char*)(strtol( val, NULL, 16)&0xFF);
 		}
 		
 		
 		for (i = 0; i <  len/2 + 1; i++) {
 			if( b[i] == 0)
-				NSLog(@"fuck");
+				NSLog(@"NULL in Stream");
 		}
 			
 
