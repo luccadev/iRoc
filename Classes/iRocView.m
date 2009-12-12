@@ -8,7 +8,6 @@
 
 #import "iRocView.h"
 
-
 @implementation iRocView
 
 - (id)initWithFrame:(CGRect)frame {
@@ -18,15 +17,12 @@
     return self;
 }
 
-
 - (void)drawRect:(CGRect)rect {
     // Drawing code
 }
 
-
 - (void)dealloc {
     [super dealloc];
 }
-
 
 @end

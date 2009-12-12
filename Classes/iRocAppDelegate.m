@@ -27,10 +27,10 @@
 	
 	[viewController setDelegate:self];
 
-  // read preferences
+    // read preferences
 	NSUserDefaults *defaults = [[NSUserDefaults standardUserDefaults] retain];
   
-  // Optional move event.
+    // Optional move event.
 	if( [defaults boolForKey:@"moveevents_preference"]) {
 		[viewController processAllEvents:[defaults integerForKey:@"vdelta_preference"]];
 	}
@@ -71,7 +71,6 @@
 	[menuItems addObject:coTableView];
 	[menuTableView setMenuItems:menuItems];
 	
-	
 	// read preferences
 	defaults = [[NSUserDefaults standardUserDefaults] retain];
 	
@@ -85,7 +84,6 @@
 	[rrconnection setSwList:self.swList];
 	[rrconnection setCoList:self.coList];
 	viewController.textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
-	
 	
 	// Connect Thread
 	rrconnection.isConnected = FALSE;
@@ -104,8 +102,7 @@
 		else
 			[NSThread sleepForTimeInterval:1];
 	}
-	
-	
+
 	[viewController setRrconnection:self.rrconnection];
 }
 
@@ -163,18 +160,13 @@
 	[self.tabBarController dismissModalViewControllerAnimated:YES];
 }
 
-
 - (void)askForLocpic:(NSString *)lcid withFilename:(NSString*)filename {
 	[rrconnection requestLocpic:lcid withFilename:filename];
 }
 
-
-// delegate method from locDriveView
 - (void)lcTextFieldAction {
 	[self.tabBarController presentModalViewController:lcTableView animated:YES];
 }
-
-
 
 - (void)dealloc {
 	[tabBarController release];
@@ -182,7 +174,6 @@
     [window release];
     [super dealloc];
 }
-
 
 -(void) applicationWillResignActive:(UIApplication *)application {
 	//[[self rrconnection] stop];

@@ -27,6 +27,7 @@
 	IBOutlet iRocButton *buttonFn;
 	IBOutlet UISlider *slider;
 	IBOutlet UITextField *textfieldLoc;
+	IBOutlet UIImageView *imageviewLoc;
 	IBOutlet iRocTouchView *slideView;
     int VDelta;
 	
@@ -78,6 +79,7 @@
 @property (nonatomic, retain) UISlider *slider;
 @property (nonatomic, retain) UITextField *textfieldLoc;
 @property (nonatomic, retain) iRocTouchView *slideView;
+@property (nonatomic, retain) IBOutlet UIImageView *imageviewLoc;
 
 @property(nonatomic, retain) NSString *ip;
 

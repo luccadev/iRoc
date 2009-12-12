@@ -12,7 +12,7 @@
 
 @synthesize buttonDir, buttonF0, buttonF1, buttonF2, buttonF3, buttonF4, buttonF5, buttonF6, buttonF7, buttonF8, buttonFn; 
 @synthesize slider; 
-@synthesize textfieldLoc, keyboard, delegate;
+@synthesize textfieldLoc, keyboard, delegate, imageviewLoc;
 @synthesize slideView;
 @synthesize soundFileURLRef;
 @synthesize soundFileObject;

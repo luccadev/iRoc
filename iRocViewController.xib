@@ -77,7 +77,7 @@
 					<object class="IBUITextField" id="1001968480">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 20}, {280, 71}}</string>
+						<string key="NSFrame">{{20, 20}, {136, 71}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -280,6 +280,16 @@
 						<reference key="IBUIHighlightedTitleColor" ref="723076371"/>
 						<reference key="IBUINormalTitleColor" ref="556259825"/>
 						<reference key="IBUINormalTitleShadowColor" ref="227757602"/>
+					</object>
+					<object class="IBUIImageView" id="1071647077">
+						<reference key="NSNextResponder" ref="774585933"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{164, 20}, {136, 71}}</string>
+						<reference key="NSSuperview" ref="774585933"/>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
+						<int key="IBUIContentMode">4</int>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
 					</object>
 				</object>
 				<string key="NSFrameSize">{320, 460}</string>
@@ -540,6 +550,14 @@
 					</object>
 					<int key="connectionID">97</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">imageviewLoc</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="1071647077"/>
+					</object>
+					<int key="connectionID">99</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -581,6 +599,7 @@
 							<reference ref="143585510"/>
 							<reference ref="489415213"/>
 							<reference ref="1001968480"/>
+							<reference ref="1071647077"/>
 						</object>
 						<reference key="parent" ref="515030242"/>
 					</object>
@@ -649,6 +668,11 @@
 						<reference key="object" ref="143585510"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">98</int>
+						<reference key="object" ref="1071647077"/>
+						<reference key="parent" ref="774585933"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -685,6 +709,7 @@
 					<string>73.IBPluginDependency</string>
 					<string>74.CustomClassName</string>
 					<string>74.IBPluginDependency</string>
+					<string>98.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -718,6 +743,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>iRocButton</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -740,7 +766,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">97</int>
+			<int key="maxID">99</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -875,6 +901,7 @@
 							<string>buttonF8</string>
 							<string>buttonFn</string>
 							<string>delegate</string>
+							<string>imageviewLoc</string>
 							<string>slideView</string>
 							<string>slider</string>
 							<string>textfieldLoc</string>
@@ -893,6 +920,7 @@
 							<string>iRocButton</string>
 							<string>iRocButton</string>
 							<string>id</string>
+							<string>UIImageView</string>
 							<string>iRocTouchView</string>
 							<string>UISlider</string>
 							<string>UITextField</string>

@@ -44,7 +44,6 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
 	CGContextClosePath(c);
 }
 
-
 - (id)initWithFrame:(CGRect)frame {
 	touchState = ended;
 	bState = FALSE;
@@ -64,21 +63,11 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
 - (void)drawRect:(CGRect)rect {
 	[super drawRect:rect];
     context = UIGraphicsGetCurrentContext();
-	
-	//touchState = ended;
- 	/*
-	if( touchState == began){
-		CGContextSetRGBFillColor(context, .5, .5, .5, 1);
-	} else {
-		CGContextSetRGBFillColor(context, .3, .3, .3, 1);
-	} */
+
 	CGContextSetRGBFillColor(context, .3, .3, .3, 1);
-	
-	
 	CGContextAddRoundedRectA(context, CGRectMake(0,0, CGRectGetWidth(rect), CGRectGetHeight( rect)), 5);  
 	CGContextFillPath(context);
 
-	
 	//border
 	CGContextSetLineWidth(context, .5);
 	CGContextSetRGBStrokeColor(context, .5, .5, .5, 1);
