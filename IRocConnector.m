@@ -11,7 +11,7 @@
 
 @implementation IRocConnector
 
-@synthesize header, rocdata, isConnected, currentLocObject, locList, rtList, swList, coList;
+@synthesize header, rocdata, isConnected, currentLocObject, locList, locIndexList, rtList, swList, coList;
 //@synthesize locTableViewController;
 
 - (id) init {
@@ -79,6 +79,12 @@
 
 - (void)requestPlan {
   [self sendMessage:@"model" message:@"<model cmd=\"plan\"/>"];
+}
+
+- (void)requestLocpic:(NSString*)lcid {
+	[self sendMessage:@"datareq" 
+			  message:[[NSString alloc] 
+	   initWithString:[NSString stringWithFormat: @"<datareq id=\"%@\" filename=\"%@.png\"/>",lcid,lcid]]];
 }
 
 - (BOOL)stop {
@@ -281,10 +287,13 @@ static NSString * const kIdElementName = @"id";
 
 			NSString *imgname = [attributeDict valueForKey:@"image"];
 			if( ![imgname isEqualToString:@""] ) {
-				//NSLog(@"%@ : %@", relAttribute, imgname);
-			
+				NSLog(@"%@ : %@", relAttribute, imgname);
+
+				loc.hasImage = YES;
 				loc.imgname = imgname;
+
 			}
+			[self.locIndexList addObject:relAttribute];
 			[self.locList addObject:loc];
 		}
 	} else if ([elementName isEqualToString:@"sw"]) {
@@ -311,16 +320,24 @@ static NSString * const kIdElementName = @"id";
 		co.coid = relAttribute;
 		[self.coList addObject:co];
 	} else if ([elementName isEqualToString:@"datareq"]) {
-		//NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
+		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
 		
+		NSLog(@"connector LOCPIC: %@ ",relAttribute );
 
 		NSString *data = [attributeDict valueForKey:@"data"];
-        //NSLog(@"parser: data: %@", relAttribute);
-		//NSLog(@"data: %@", data);
-	
 		
 		
-		[((Loc*) [self.locList objectAtIndex:0]) setLocpicdata:data]; 
+		Loc *loc = (Loc*) [self.locList objectAtIndex:[locIndexList indexOfObject:relAttribute]];
+		
+		NSLog(@"connector FORLOC: %@ ",loc.locid );
+		
+		//[loc setLocpicdata:data];
+		
+		[((Loc*) [self.locList objectAtIndex:[locIndexList indexOfObject:relAttribute]]) setLocpicdata:data]; 
+		
+		
+		
+		
 		
 	} 
 	

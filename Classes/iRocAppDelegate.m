@@ -15,7 +15,7 @@
 @synthesize window;
 @synthesize tabBarController;
 @synthesize viewController;
-@synthesize lcTableView, rtTableView, swTableView, coTableView, menuTableView;
+@synthesize lcTableView, rtTableView, swTableView, coTableView, menuTableView, lcIndexList;
 
 @synthesize rtList, swList, coList, lcList, rrconnection, menuItems;
 
@@ -37,6 +37,8 @@
 	[window addSubview:tabBarController.view];	
 	
 	lcList = [[NSMutableArray array] retain];
+	lcIndexList = [[NSMutableArray array] retain];
+	
 	rtList = [[NSMutableArray array] retain];
 	swList = [[NSMutableArray array] retain];
 	coList = [[NSMutableArray array] retain];
@@ -78,6 +80,7 @@
 	[rrconnection setPort:[defaults integerForKey:@"port_preference"]];
 	[rrconnection setDelegate:self];
 	[rrconnection setLocList:self.lcList];
+	[rrconnection setLocIndexList:self.lcIndexList];
 	[rrconnection setRtList:self.rtList];
 	[rrconnection setSwList:self.swList];
 	[rrconnection setCoList:self.coList];
@@ -159,6 +162,12 @@
 	
 	[self.tabBarController dismissModalViewControllerAnimated:YES];
 }
+
+
+- (void)askForLocpic:(NSString *)lcid {
+	[rrconnection requestLocpic:lcid];
+}
+
 
 // delegate method from locDriveView
 - (void)lcTextFieldAction {

@@ -29,4 +29,6 @@
 
 - (void)lcAction:(NSString *)rtid;
 
+- (void)askForLocpic:(NSString *)lcid;
+
 @end

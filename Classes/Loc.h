@@ -15,13 +15,20 @@
 	NSString *locpicdata;
 	NSString *imgname;
 	UIImage *lcimage;
+	
+	BOOL hasImage;
+	BOOL imageLoaded;
 }
 
 @property (nonatomic, retain) NSString *locid;
-@property (nonatomic, retain) NSString *locpicdata;
+//@property (nonatomic, retain) NSString *locpicdata;
 @property (nonatomic, retain) NSString *imgname;
 @property (nonatomic, retain) UIImage *lcimage;
+@property BOOL hasImage;
+@property BOOL imageLoaded;
 
+- (void) prepareImage;
 - (UIImage*) getImage;
+- (void) setLocpicdata:(NSString *) picdata;
 
 @end

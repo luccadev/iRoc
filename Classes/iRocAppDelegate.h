@@ -31,6 +31,8 @@
 	IBOutlet iRocMenuTableView *menuTableView;
 	
 	NSMutableArray *lcList;	
+	NSMutableArray *lcIndexList;	
+	
 	NSMutableArray *rtList;
 	NSMutableArray *swList;
 	NSMutableArray *coList;
@@ -51,6 +53,8 @@
 @property (nonatomic, retain) IBOutlet iRocMenuTableView *menuTableView;
 
 @property(nonatomic, retain) NSMutableArray *lcList;
+@property(nonatomic, retain) NSMutableArray *lcIndexList;
+
 @property(nonatomic, retain) NSMutableArray *rtList;
 @property(nonatomic, retain) NSMutableArray *swList;
 @property(nonatomic, retain) NSMutableArray *coList;

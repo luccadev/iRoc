@@ -106,9 +106,11 @@
 }
 - (IBAction) buttonFnClicked:(id) sender {
 	
+	/*
 	[rrconnection sendMessage:@"datareq" 
 					  message:[[NSString alloc] 
-			   initWithString: [NSString stringWithFormat: @"<datareq id=\"16\" filename=\"19.png\"/>"]]];
+			   initWithString: [NSString stringWithFormat: @"<datareq id=\"705\" filename=\"705.png\"/>"]]];
+	 */
 	
 }
 
@@ -121,6 +123,14 @@
 - (void) prepareFNCommand:(int) fnIndex {
 	fnStates[fnIndex] = !fnStates[fnIndex];
 	
+	int tmp = (fnIndex-1)/4 +1;
+	NSLog(@"FNG: %d", tmp);
+	
+	
+	NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<fn group=\"%d\" id=\"%@\" f%d=\"%@\"/>", tmp, [textfieldLoc text], fnIndex,  fnStates[fnIndex]?@"true":@"false" ] ];
+	[rrconnection sendMessage:@"fn" message:stringToSend];
+	
+	/*
 	NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<fn group=\"1\" id=\"%@\" ", [textfieldLoc text]]];
 	
 	
@@ -128,12 +138,12 @@
 		stringToSend = [stringToSend stringByAppendingString: [NSString stringWithFormat:@"f%d=\"%@\" ", i, fnStates[i]?@"true":@"false"] ];
 	}
 	stringToSend = [stringToSend stringByAppendingString: [NSString stringWithFormat:@"/>"] ];
-	
-	//NSLog(@"%@", stringToSend);
+	*/
+	NSLog(@"FN: %@", stringToSend);
 	
 	
 	//NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<fn group=\"1\" id=\"%@\" f%d=\"%@\"/>", [textfieldLoc text], fnIndex, fnStates[fnIndex]?@"true":@"false" ] ];
-	[rrconnection sendMessage:@"fn" message:stringToSend];
+	//[rrconnection sendMessage:@"fn" message:stringToSend];
 	
 	[((iRocButton *)[functionButtons objectAtIndex:fnIndex]) setBState:fnStates[fnIndex]];
 	

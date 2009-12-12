@@ -27,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
+	[self.tableView setRowHeight:80];
 }
 
 
@@ -111,11 +112,32 @@
 	[cell.contentView addSubview:locidLabel];
 	
 	locidLabel.text = loc.locid;
+		
+	//NSLog(@"ONE");
 	
-	//UIImage *img = [[loc getImage] retain];
+	if( [loc hasImage] ) {
+		
+		//NSLog(@"TWO");
+		
+		CGRect imageframe = CGRectMake(270,10,20,20);	
+		UIImageView *imageview = [[UIImageView alloc] initWithFrame:imageframe];
+
+		if( [loc imageLoaded]) {
+			
+			//NSLog(@"THREE");
+			
+			imageview.image = [loc getImage];
+			[cell.contentView addSubview:imageview];
+		} else {
+			
+			NSLog(@"ONLY ONCE ... : %@", loc.locid);
+			[_delegate askForLocpic:loc.locid];
+		}
+	}
 	
-	CGRect imageframe = CGRectMake(270,10,20,20);	
-	UIImageView *imageview = [[UIImageView alloc] initWithFrame:imageframe];
+	
+	
+	/*
 	
 	if( [loc getImage] != nil) {
 		NSLog(@"IMG NOT NULL LcTable");
@@ -129,6 +151,7 @@
 	} //else {
 		//imageview.image = [UIImage imageNamed:@"turnout-rs-1.png"];
 	//}
+	 */
 	
 			
 	

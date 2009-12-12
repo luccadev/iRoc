@@ -50,6 +50,7 @@
 
 	@public
 	NSMutableArray *locList;
+    NSMutableArray *locIndexList;
 	NSMutableArray *rtList;
 	NSMutableArray *swList;
 	NSMutableArray *coList;
@@ -72,6 +73,7 @@
 - (BOOL)connect;
 - (BOOL)stop;
 - (void)requestPlan;
+- (void)requestLocpic:(NSString*)lcid;
 
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode;
 
@@ -81,6 +83,7 @@
 @property(nonatomic, retain) NSMutableString *header;
 @property(nonatomic, retain) NSMutableString *rocdata;
 @property(nonatomic, retain) NSMutableArray *locList;
+@property(nonatomic, retain) NSMutableArray *locIndexList;
 @property(nonatomic, retain) NSMutableArray *rtList;
 @property(nonatomic, retain) NSMutableArray *swList;
 @property(nonatomic, retain) NSMutableArray *coList;
