@@ -37,16 +37,24 @@
 		}
 		
 		
-		for (i = 0; i <  len/2 + 1; i++) {
-			if( b[i] == 0)
-				NSLog(@"NULL in Stream");
-		}
+		unsigned char* b1;
+		unsigned char* b2;
 			
 
 		
-		NSLog(@" len: %d  ", len);
+		//NSLog(@" len: %d  ", len);
+		//NSLog(@" len/2 + 1: %d  ", len/2 + 1);
 		
-		NSData *data = [[NSData dataWithBytes:b length:(len/2 + 1)] retain];
+		NSData *data1 = [NSData dataWithBytes:b length:(len/2 + 1)];
+		NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://www.polygonpunkt.de/19.png"]];
+		
+		b1 = (unsigned char*)[data1 bytes];
+		b2 = (unsigned char*)[data bytes];
+		
+		for (i = 0; i <  20; i++) {
+			NSLog(@"D1 : %x  D2: %x", b1[i], b2[i]);
+		}
+		
 		
 		NSLog(@" data: %d  ", data);
 		
@@ -56,11 +64,7 @@
 		NSString* pictureDataString = [pictureData base64Encoding];
 		*/
 		
-		
-		
-		
-		//lcimage = [UIImage imageWithData:[NSData dataFromBase64EncodedString:locpicdata]];
-		lcimage = [UIImage imageWithData:[NSData dataWithBytes:b length:(len/2 + 1)]];
+		lcimage = [[UIImage alloc] initWithData:data];
 
 		
 		

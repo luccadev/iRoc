@@ -383,7 +383,7 @@ static NSString * const kIdElementName = @"id";
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
-	NSLog(@"### Parse Error: %@ ", [parseError localizedDescription]);
+	//NSLog(@"### Parse Error: %@ ", [parseError localizedDescription]);
 	// TODO: somthing is wrong with the parser
 	// start from the beginning ....	
 	

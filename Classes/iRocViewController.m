@@ -108,7 +108,7 @@
 	
 	[rrconnection sendMessage:@"datareq" 
 					  message:[[NSString alloc] 
-			   initWithString: [NSString stringWithFormat: @"<datareq id=\"16\" filename=\"705.jpg\"/>"]]];
+			   initWithString: [NSString stringWithFormat: @"<datareq id=\"16\" filename=\"19.png\"/>"]]];
 	
 }
 
