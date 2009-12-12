@@ -25,6 +25,10 @@
 	
 	if( locpicdata != NULL ){
 		
+		//NSData *data0 = [NSData ];
+		//unsigned char* b0;
+		//b0 = (unsigned char*)[data0 bytes];
+		
 		int i = 0;
 		int len = [locpicdata length]; // StrOp.len(s);
 		unsigned char* b[len/2 + 1];
@@ -34,25 +38,27 @@
 			val[1] = [locpicdata characterAtIndex:i+1];
 			val[2] = '\0';
 			b[i/2] = (unsigned char*)(strtol( val, NULL, 16)&0xFF);
+			
+			//b0[i/2] = (unsigned char*)(strtol( val, NULL, 16)&0xFF);
 		}
 		
 		
 		unsigned char* b1;
 		unsigned char* b2;
 			
-
+	
 		
 		//NSLog(@" len: %d  ", len);
 		//NSLog(@" len/2 + 1: %d  ", len/2 + 1);
 		
-		NSData *data1 = [NSData dataWithBytes:b length:(len/2 + 1)];
+		NSData *data1 = [NSData dataWithBytesNoCopy:(unsigned char*)b length:(len/2 + 1)];
 		NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://www.polygonpunkt.de/19.png"]];
 		
 		b1 = (unsigned char*)[data1 bytes];
 		b2 = (unsigned char*)[data bytes];
 		
 		for (i = 0; i <  20; i++) {
-			NSLog(@"D1 : %x  D2: %x", b1[i], b2[i]);
+			NSLog(@"b: %x b1 : %x  b2: %x", b[i], b1[i], b2[i]);
 		}
 		
 		
