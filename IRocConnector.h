@@ -73,7 +73,7 @@
 - (BOOL)connect;
 - (BOOL)stop;
 - (void)requestPlan;
-- (void)requestLocpic:(NSString*)lcid;
+- (void)requestLocpic:(NSString*)lcid withFilename:(NSString*)filename;
 
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode;
 

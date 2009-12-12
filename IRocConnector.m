@@ -81,10 +81,10 @@
   [self sendMessage:@"model" message:@"<model cmd=\"plan\"/>"];
 }
 
-- (void)requestLocpic:(NSString*)lcid {
+- (void)requestLocpic:(NSString*)lcid withFilename:(NSString*)filename{
 	[self sendMessage:@"datareq" 
 			  message:[[NSString alloc] 
-	   initWithString:[NSString stringWithFormat: @"<datareq id=\"%@\" filename=\"%@.png\"/>",lcid,lcid]]];
+	   initWithString:[NSString stringWithFormat: @"<datareq id=\"%@\" filename=\"%@\"/>",lcid,filename]]];
 }
 
 - (BOOL)stop {

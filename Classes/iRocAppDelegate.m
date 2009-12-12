@@ -164,8 +164,8 @@
 }
 
 
-- (void)askForLocpic:(NSString *)lcid {
-	[rrconnection requestLocpic:lcid];
+- (void)askForLocpic:(NSString *)lcid withFilename:(NSString*)filename {
+	[rrconnection requestLocpic:lcid withFilename:filename];
 }
 
 

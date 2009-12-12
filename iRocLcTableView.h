@@ -29,6 +29,6 @@
 
 - (void)lcAction:(NSString *)rtid;
 
-- (void)askForLocpic:(NSString *)lcid;
+- (void)askForLocpic:(NSString *)lcid withFilename:(NSString *)filename;
 
 @end
