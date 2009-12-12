@@ -120,7 +120,6 @@
 	locidLabel.text = loc.locid;
 	descLabel.text = loc.desc;
 	
-	
 	if( [loc imageLoaded] && [loc hasImage]) {
 		UIImage *img = [loc getImage];
 		
