@@ -298,7 +298,7 @@
 					<object class="IBUIButton" id="168566105">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, -7}, {280, 44}}</string>
+						<string key="NSFrame">{{20, 20}, {280, 71}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -306,7 +306,6 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="149166143"/>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">XX</string>
 						<reference key="IBUIHighlightedTitleColor" ref="723076371"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>

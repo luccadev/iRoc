@@ -15,15 +15,21 @@
 {
     if (self = [super initWithCoder:decoder])
     {
+
+		idLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,10, 190, 20)];
+		idLabel.font = [UIFont boldSystemFontOfSize:20];
+		idLabel.textColor = [UIColor lightGrayColor];
+		idLabel.backgroundColor = [UIColor darkGrayColor];
 		
+		descLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 30, 100, 20)] autorelease];
+		descLabel.font = [UIFont boldSystemFontOfSize:12];
+		descLabel.textColor = [UIColor lightGrayColor];
+		descLabel.backgroundColor = [UIColor darkGrayColor];
 		
-		label = [[UILabel alloc] initWithFrame:CGRectMake(10,10,30,50)];
-		label.text = @"XXX";
+		[self addSubview:idLabel];
+		[self addSubview:descLabel];
+		[self setBackgroundColor:[UIColor darkGrayColor]];
 		
-		[self addSubview:label];
-		[self setBackgroundColor:[UIColor redColor]];
-		
-		NSLog(@"iRocLocProps:initWithCoder");
 	}
     return self;
 }
@@ -47,30 +53,35 @@
 */
 
 - (void)setLoc:(Loc*)loci {
-	
-	
-	NSLog(@"setLoc: Hääääää?");
+
 	
 	loc = loci;
 	
 	NSLog(@"setLoc: %@", [loc locid]);
-	label.text = [loc locid];
+	idLabel.text = [loc locid];
+	descLabel.text = [loc desc];
+	
+	
+	
+	if( imageview != NULL )
+		[imageview removeFromSuperview];
+	
+	
+	if( [loc hasImage] ) {
+		UIImage *img = [loc getImage];
+		
+		int breite = 51*(img.size.width/img.size.height);
+		int diff = 150 - breite;
+		CGRect imageframe = CGRectMake(120 + diff,10 ,breite,51);	
 
-	UIImage *img = [loc getImage];
+		imageview = [[UIImageView alloc] initWithFrame:imageframe];
+		imageview.image = img;
+		
+		[self addSubview:imageview];
+		
+		//[imageview release];
+	}
 	
-	int breite = 60*(img.size.width/img.size.height);
-	int diff = 150 - breite;
-	CGRect imageframe = CGRectMake(160 + diff,10,breite,60);	
-	
-	//[imageview removeFromSuperview];
-	
-	imageview = [[UIImageView alloc] initWithFrame:imageframe];
-	imageview.image = img;
-	
-	[self addSubview:imageview];
-	
-	[imageview release];
-	 
 }
 
 

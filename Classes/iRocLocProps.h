@@ -13,7 +13,8 @@
 
 @interface iRocLocProps : UIButton {
 	Loc *loc;
-	UILabel *label;
+	UILabel *idLabel;
+	UILabel *descLabel;
 	UIImageView *imageview;
 }
 

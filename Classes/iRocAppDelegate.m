@@ -160,6 +160,8 @@
 	[self.tabBarController dismissModalViewControllerAnimated:YES];
 	
 	Loc *loc = [self.lcList objectAtIndex:[lcIndexList indexOfObject:lcid]];
+	 
+	/*
 	UIImage *img = [loc getImage]; //[((Loc*) [self.lcList objectAtIndex:[lcIndexList indexOfObject:lcid]]) getImage];
 	
 	
@@ -171,12 +173,14 @@
 	
 	//CGRect imageframe = CGRectMake(164,21,136,69);
 	
+	
 	imageview = [[UIImageView alloc] initWithFrame:imageframe];
 	imageview.image = img;
 
 	[viewController.view addSubview:imageview];
 
 	[imageview release];
+	 */
 	
 	// The new one:
 	[viewController.locProps setLoc:loc];
