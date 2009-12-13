@@ -204,7 +204,8 @@
 }
 
 -(void) applicationWillResignActive:(UIApplication *)application {
-	//[[self rrconnection] stop];
+	[[self rrconnection] stop];
+	exit(0);
 }
 
 -(void) applicationDidBecomeActive:(UIApplication *)application {
