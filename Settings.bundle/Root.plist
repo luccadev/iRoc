@@ -48,17 +48,7 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>Numeric Keyboard</string>
-			<key>Key</key>
-			<string>keyb_preference</string>
-			<key>DefaultValue</key>
-			<true/>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
-			<key>Title</key>
-			<string>Keyboard to enter Loc</string>
+			<string>Keyboard</string>
 			<key>Key</key>
 			<string>locenter_preference</string>
 			<key>DefaultValue</key>

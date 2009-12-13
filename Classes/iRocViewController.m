@@ -202,18 +202,14 @@
 		
 		[self.view addSubview:textfieldLoc];
 		
-		if( [defaults boolForKey:@"keyb_preference"]) {
-			[textfieldLoc setKeyboardType:UIKeyboardTypeNumberPad];
+		[textfieldLoc setKeyboardType:UIKeyboardTypeNumberPad];
 			
-			// Adding a DONE Button to the Numpad:
-			[[NSNotificationCenter defaultCenter] addObserver:self 
-													 selector:@selector(keyboardWillShow:) 
-														 name:UIKeyboardWillShowNotification 
-													   object:nil];			
-			
-		} else {
-			[textfieldLoc setKeyboardType:UIKeyboardTypeDefault];
-		}
+		// Adding a DONE Button to the Numpad:
+		[[NSNotificationCenter defaultCenter] addObserver:self 
+												 selector:@selector(keyboardWillShow:) 
+													 name:UIKeyboardWillShowNotification 
+												   object:nil];			
+		
 		
 	}
 	
