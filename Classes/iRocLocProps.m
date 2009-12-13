@@ -9,7 +9,7 @@
 #import "iRocLocProps.h"
 
 @implementation iRocLocProps
-
+@synthesize idLabel;
 
 - (id)initWithCoder:(NSCoder *)decoder
 {

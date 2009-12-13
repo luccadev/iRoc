@@ -18,6 +18,8 @@
 	UIImageView *imageview;
 }
 
+@property(nonatomic,retain) UILabel *idLabel;
+
 - (void)setLoc:(Loc*)loci;
 
 @end

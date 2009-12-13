@@ -192,7 +192,11 @@
 	
 	textfieldLoc = [[UITextField alloc] initWithFrame:CGRectMake(20, 20, 280, 71)];
 	[textfieldLoc setDelegate:self];
-	
+	[textfieldLoc setBackgroundColor:[UIColor darkGrayColor]];
+	[textfieldLoc setTextColor:[UIColor lightGrayColor]];
+	textfieldLoc.clearsOnBeginEditing = YES;
+	[textfieldLoc setTextAlignment:UITextAlignmentCenter];
+	textfieldLoc.font = [UIFont boldSystemFontOfSize:60];
 	
 	if( [[NSUserDefaults standardUserDefaults] boolForKey:@"locenter_preference"]) {
 		
@@ -240,7 +244,7 @@
 	ip = [defaults stringForKey:@"ip_preference"];
 	
 	textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
-	
+	locProps.idLabel.text = [defaults stringForKey:@"loc_preference"];
 	}
 
 // Adding the DONE button to the numpad
