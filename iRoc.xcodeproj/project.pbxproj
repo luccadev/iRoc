@@ -406,7 +406,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				9CAFD95610B97B700029C16F /* Icon.png */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -430,6 +429,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9CAFD95610B97B700029C16F /* Icon.png */,
 				9CBF10F610CFF14100FF29DA /* Symbols */,
 				9C6FC8AE10B7CF05009FD6FE /* tap.aif */,
 				9C6FC84210B7CB0B009FD6FE /* tick.caf */,

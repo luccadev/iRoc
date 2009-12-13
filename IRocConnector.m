@@ -163,13 +163,13 @@
     switch(eventCode) {
         case NSStreamEventHasBytesAvailable:
         {
-            if(!_data) {
+            if(_data == nil) {
               //NSLog(@"init data...");
                 //_data = [[NSMutableData data] retain];
 				_data = [[NSMutableData data] retain];
             }
 			
-			if(!header) {
+			if(header == nil) {
 				//NSLog(@"init header...");
 				header = [[NSMutableString string] retain];
 			}
@@ -185,7 +185,7 @@
 					len = [(NSInputStream *)stream read:buf maxLength:1];
 					
 					if (_data == nil)
-					    NSLog(@"##################### OHHHH", _data);
+					    NSLog(@"##################### OHHHH");
 					
 				// TODO: Here is a BIG Problem!!!
 					
@@ -394,7 +394,7 @@ static NSString * const kIdElementName = @"id";
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
-	//NSLog(@"### Parse Error: %@ ", [parseError localizedDescription]);
+	NSLog(@"### Parse Error: %@ ", [parseError localizedDescription]);
 	// TODO: somthing is wrong with the parser
 	// start from the beginning ....	
 	

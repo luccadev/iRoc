@@ -190,20 +190,27 @@
 	functionButtons = [[NSArray arrayWithObjects:buttonF0,buttonF1,buttonF2,buttonF3,buttonF4,buttonF5,buttonF6,buttonF7,buttonF8,nil] retain];
 	
 	
-	
+	textfieldLoc = [[UITextField alloc] initWithFrame:CGRectMake(20, 20, 280, 71)];
 	[textfieldLoc setDelegate:self];
+	
+	
+	if( [[NSUserDefaults standardUserDefaults] boolForKey:@"locenter_preference"]) {
 		
-	if( [defaults boolForKey:@"keyb_preference"]) {
-		[textfieldLoc setKeyboardType:UIKeyboardTypeNumberPad];
+		[self.view addSubview:textfieldLoc];
 		
-		// Adding a DONE Button to the Numpad:
-		[[NSNotificationCenter defaultCenter] addObserver:self 
-												 selector:@selector(keyboardWillShow:) 
-													 name:UIKeyboardWillShowNotification 
-												   object:nil];			
+		if( [defaults boolForKey:@"keyb_preference"]) {
+			[textfieldLoc setKeyboardType:UIKeyboardTypeNumberPad];
+			
+			// Adding a DONE Button to the Numpad:
+			[[NSNotificationCenter defaultCenter] addObserver:self 
+													 selector:@selector(keyboardWillShow:) 
+														 name:UIKeyboardWillShowNotification 
+													   object:nil];			
+			
+		} else {
+			[textfieldLoc setKeyboardType:UIKeyboardTypeDefault];
+		}
 		
-	} else {
-		[textfieldLoc setKeyboardType:UIKeyboardTypeDefault];
 	}
 	
 	
@@ -234,8 +241,7 @@
 	
 	textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
 	
-	
-}
+	}
 
 // Adding the DONE button to the numpad
 - (void)keyboardWillShow:(NSNotification *)note {  
@@ -270,8 +276,10 @@
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
 	// Don't show the Keyboard
 	
-	if( ![[NSUserDefaults standardUserDefaults] boolForKey:@"locenter_preference"])
+	if( ![[NSUserDefaults standardUserDefaults] boolForKey:@"locenter_preference"]){
 		[delegate lcTextFieldAction];
+		
+	}
 	
 	return [[NSUserDefaults standardUserDefaults] boolForKey:@"locenter_preference"];
 }
