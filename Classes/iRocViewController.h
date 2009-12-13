@@ -12,6 +12,7 @@
 #import "IRocConnector.h"
 #import "iRocTouchView.h"
 #import "iRocButton.h"
+#import "iRocLocProps.h"
 
 @interface iRocViewController : UIViewController <UITextFieldDelegate> {
 	IBOutlet iRocButton *buttonDir;
@@ -29,6 +30,8 @@
 	IBOutlet UITextField *textfieldLoc;
 	IBOutlet UIImageView *imageviewLoc;
 	IBOutlet iRocTouchView *slideView;
+	IBOutlet iRocLocProps *locProps;
+	
     int VDelta;
 	
 	CFURLRef		soundFileURLRef;
@@ -79,7 +82,8 @@
 @property (nonatomic, retain) UISlider *slider;
 @property (nonatomic, retain) UITextField *textfieldLoc;
 @property (nonatomic, retain) iRocTouchView *slideView;
-@property (nonatomic, retain) IBOutlet UIImageView *imageviewLoc;
+@property (nonatomic, retain) UIImageView *imageviewLoc;
+@property (nonatomic, retain) iRocLocProps *locProps;
 
 @property(nonatomic, retain) NSString *ip;
 

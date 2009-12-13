@@ -12,7 +12,7 @@
 
 @synthesize buttonDir, buttonF0, buttonF1, buttonF2, buttonF3, buttonF4, buttonF5, buttonF6, buttonF7, buttonF8, buttonFn; 
 @synthesize slider; 
-@synthesize textfieldLoc, keyboard, delegate, imageviewLoc;
+@synthesize textfieldLoc, keyboard, delegate, imageviewLoc, locProps;
 @synthesize slideView;
 @synthesize soundFileURLRef;
 @synthesize soundFileObject;
@@ -105,12 +105,6 @@
 	[self prepareFNCommand:8];
 }
 - (IBAction) buttonFnClicked:(id) sender {
-	
-	/*
-	[rrconnection sendMessage:@"datareq" 
-					  message:[[NSString alloc] 
-			   initWithString: [NSString stringWithFormat: @"<datareq id=\"705\" filename=\"705.png\"/>"]]];
-	 */
 	
 }
 
@@ -240,6 +234,7 @@
 	
 	textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
 	
+	
 }
 
 // Adding the DONE button to the numpad
@@ -283,7 +278,7 @@
 
 
 - (IBAction) locTextTouched:(id)sender {
-	// Loc Text Touched
+	[delegate lcTextFieldAction];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -17,6 +17,7 @@
 		x = 0;
 		y = 0;
 		
+		NSLog(@"iRocTouchView ... (id)initWithFrame:(CGRect)frame");
 	}
     return self;
 }

@@ -84,10 +84,11 @@
 - (void)requestLocpic:(NSString*)lcid withFilename:(NSString*)filename{
 	
 	NSLog(@"requesteLocpic: %@ - %@", lcid, filename);
-	
+
 	[self sendMessage:@"datareq" 
 			  message:[[NSString alloc] 
 	   initWithString:[NSString stringWithFormat: @"<datareq id=\"%@\" filename=\"%@\"/>",lcid,filename]]];
+	 
 }
 
 - (BOOL)stop {
