@@ -158,6 +158,23 @@
 	[[NSUserDefaults standardUserDefaults] setObject:(NSString*)[self.viewController.textfieldLoc text] forKey:@"loc_preference"];
 	
 	[self.tabBarController dismissModalViewControllerAnimated:YES];
+	
+	Loc *loc = [self.lcList objectAtIndex:[lcIndexList indexOfObject:lcid]];
+	UIImage *img = [loc getImage]; //[((Loc*) [self.lcList objectAtIndex:[lcIndexList indexOfObject:lcid]]) getImage];
+	
+	/*
+	int breite = 60*(img.size.width/img.size.height);
+	int diff = 150 - breite;
+	CGRect imageframe = CGRectMake(160 + diff,10,breite,60);	
+	 */
+	
+	CGRect imageframe = CGRectMake(164,21,136,69);
+	UIImageView *imageview = [[UIImageView alloc] initWithFrame:imageframe];
+	imageview.image = img;
+
+	[viewController.view addSubview:imageview];
+	
+	[imageview release];
 }
 
 - (void)askForLocpic:(NSString *)lcid withFilename:(NSString*)filename {

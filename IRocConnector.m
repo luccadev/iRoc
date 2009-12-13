@@ -82,6 +82,9 @@
 }
 
 - (void)requestLocpic:(NSString*)lcid withFilename:(NSString*)filename{
+	
+	NSLog(@"requesteLocpic: %@ - %@", lcid, filename);
+	
 	[self sendMessage:@"datareq" 
 			  message:[[NSString alloc] 
 	   initWithString:[NSString stringWithFormat: @"<datareq id=\"%@\" filename=\"%@\"/>",lcid,filename]]];
@@ -287,7 +290,7 @@ static NSString * const kIdElementName = @"id";
 
 			NSString *imgname = [attributeDict valueForKey:@"image"];
 			if( ![imgname isEqualToString:@""] ) {
-				NSLog(@"%@ : %@", relAttribute, imgname);
+				NSLog(@"connector %@ : %@", relAttribute, imgname);
 				loc.hasImage = YES;
 				loc.imgname = imgname;
 			}
@@ -323,22 +326,11 @@ static NSString * const kIdElementName = @"id";
 	} else if ([elementName isEqualToString:@"datareq"]) {
 		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
 		
-		NSLog(@"connector LOCPIC: %@ ",relAttribute );
+		//NSLog(@"connector LOCPIC: %@ ",relAttribute );
 
 		NSString *data = [attributeDict valueForKey:@"data"];
-		
-		
-		Loc *loc = (Loc*) [self.locList objectAtIndex:[locIndexList indexOfObject:relAttribute]];
-		
-		NSLog(@"connector FORLOC: %@ ",loc.locid );
-		
-		//[loc setLocpicdata:data];
-		
+		//Loc *loc = (Loc*) [self.locList objectAtIndex:[locIndexList indexOfObject:relAttribute]];
 		[((Loc*) [self.locList objectAtIndex:[locIndexList indexOfObject:relAttribute]]) setLocpicdata:data]; 
-		
-		
-		
-		
 		
 	} 
 	

@@ -131,7 +131,8 @@
 		UIImageView *imageview = [[UIImageView alloc] initWithFrame:imageframe];
 		imageview.image = [loc getImage];
 		[cell.contentView addSubview:imageview];
-	} else {
+		[imageview release];
+	} else if( [loc hasImage]){
 		[_delegate askForLocpic:loc.locid withFilename:loc.imgname];
 	}
 	

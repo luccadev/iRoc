@@ -182,6 +182,8 @@
 
 	// Save in Settings
 	[[NSUserDefaults standardUserDefaults] setObject:(NSString*)[textfieldLoc text] forKey:@"loc_preference"];
+	
+	
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
