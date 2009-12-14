@@ -163,8 +163,6 @@
 	
 	// The new one:
 	[viewController.locProps setLoc:loc];
-	
-	
 }
 
 - (void)askForLocpic:(NSString *)lcid withFilename:(NSString*)filename {

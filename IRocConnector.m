@@ -348,8 +348,7 @@ static NSString * const kIdElementName = @"id";
 			[self stop]; 
 			exit(0);
 		}
-	}
-	
+	} 
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {     
@@ -381,7 +380,10 @@ static NSString * const kIdElementName = @"id";
 		// inform the delegate
 		NSLog(@"The Plan arrived.");
 		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	}  else {
+		//NSLog(@"%@", elementName);
 	}
+	
 	
 	
 }

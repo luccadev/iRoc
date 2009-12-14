@@ -120,6 +120,7 @@
 	locidLabel.text = loc.locid;
 	descLabel.text = loc.desc;
 	
+	/*
 	if( [loc imageLoaded] && [loc hasImage]) {
 		UIImage *img = [loc getImage];
 		
@@ -135,7 +136,7 @@
 	} else if( [loc hasImage]){
 		[_delegate askForLocpic:loc.locid withFilename:loc.imgname];
 	}
-	
+	*/
 	
     return cell;
 }

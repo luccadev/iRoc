@@ -241,6 +241,7 @@
 	
 	textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
 	locProps.idLabel.text = [defaults stringForKey:@"loc_preference"];
+	
 	}
 
 // Adding the DONE button to the numpad
