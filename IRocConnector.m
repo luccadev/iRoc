@@ -183,20 +183,11 @@
 				
 				while ( ![header hasSuffix:@"</xmlh>"]){
 					len = [(NSInputStream *)stream read:buf maxLength:1];
-					
-					if (_data == nil)
-					    NSLog(@"##################### OHHHH");
-					
-				// TODO: Here is a BIG Problem!!!
-					
-					//if( _data != nil) {
-						[_data appendBytes:(uint8_t*)buf length:len];
-						header = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
-					//}
-					
-					//NSLog(@"connector: len: %d", len);
+
+					[_data appendBytes:(uint8_t*)buf length:len];
+					header = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
+
 				}
-        //NSLog(@"%@", header);
 				
 				if ( [header hasSuffix:@"</xmlh>"]){
 					NSXMLParser *parser = [[NSXMLParser alloc] initWithData:_data];
