@@ -40,6 +40,7 @@
 	BOOL readRocdata;
 	
 	BOOL readHeader;
+	BOOL debug;
 	
 	unsigned int readsize;
 	int bytesread;

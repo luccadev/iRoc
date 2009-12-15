@@ -18,24 +18,25 @@
 	[super init];
 	//self.locList = [[NSMutableArray array] retain];
 	NSLog(@"Connector init ...");
-
+  
 	return self;
 }
 
 - (BOOL)connect {
-
+  
 	bytesread = 0;
 	readsize = 0;
 	readRocdata = FALSE;
 	readHeader = TRUE;
-    _data = NULL;
-    header = NULL;
-    rocdata = NULL;
+  _data = NULL;
+  header = NULL;
+  rocdata = NULL;
+  debug = FALSE;
 	
 	NSLog([NSString stringWithFormat: @"Connect to: %@:%d ", domain, port]);	
 	
 	BOOL connectOK = FALSE;
-
+  
 	iStream = NULL;
 	oStream = NULL;
 	isConnected = FALSE;
@@ -55,23 +56,23 @@
 		[oStream setDelegate:self];
 		[oStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 		[oStream open];
-
+    
 		NSDate *start = [NSDate date];
-
+    
 		// Wait for the oStream to get ready
 		while([oStream streamStatus] == NSStreamStatusOpening && [start timeIntervalSinceNow]*-1 < 5) { //![oStream streamStatus] == NSStreamStatusOpen && 
 			NSLog([NSString stringWithFormat: @"Opening I:%d, O:%d T:%f",[iStream streamStatus],[oStream streamStatus],[start timeIntervalSinceNow]]);
 		}
-	
+    
 		if( [oStream streamStatus] == NSStreamStatusOpen && [iStream streamStatus] == NSStreamStatusOpen ) {
 			connectOK = TRUE;
 		} else {
 			connectOK = FALSE;
-	    }
-		 
+    }
+    
 		isConnected = TRUE;
 		[[NSRunLoop currentRunLoop] run];
-
+    
 	} 	
 	
 	return connectOK;
@@ -84,11 +85,11 @@
 - (void)requestLocpic:(NSString*)lcid withFilename:(NSString*)filename{
 	
 	NSLog(@"requesteLocpic: %@ - %@", lcid, filename);
-
+  
 	[self sendMessage:@"datareq" 
-			  message:[[NSString alloc] 
-	   initWithString:[NSString stringWithFormat: @"<datareq id=\"%@\" filename=\"%@\"/>",lcid,filename]]];
-	 
+            message:[[NSString alloc] 
+                     initWithString:[NSString stringWithFormat: @"<datareq id=\"%@\" filename=\"%@\"/>",lcid,filename]]];
+  
 }
 
 - (BOOL)stop {
@@ -96,15 +97,15 @@
 	isConnected = FALSE;
 	
 	[iStream close];
-    [oStream close];
-    [iStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [oStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [iStream setDelegate:nil];
-    [oStream setDelegate:nil];
-    [iStream release];
-    [oStream release];
-    iStream = nil;
-    oStream = nil;
+  [oStream close];
+  [iStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+  [oStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+  [iStream setDelegate:nil];
+  [oStream setDelegate:nil];
+  [iStream release];
+  [oStream release];
+  iStream = nil;
+  oStream = nil;
 	
 	return TRUE;
 }
@@ -137,22 +138,22 @@
 }
 
 - (NSString *)domain {
-    return domain;
+  return domain;
 }
 
 - (void)setDomain:(NSString *)value {
-    if (domain != value) {
-        [domain release];
-        domain = [value copy];
-    }
+  if (domain != value) {
+    [domain release];
+    domain = [value copy];
+  }
 }
 
 - (uint16_t)port {
-    return port;
+  return port;
 }
 
 - (void)setPort:(uint16_t)value {
-    port = value;
+  port = value;
 }
 
 
@@ -160,14 +161,14 @@
 	
 	//NSLog(@"stream:handleEvent: is invoked...");
 	
-    switch(eventCode) {
-        case NSStreamEventHasBytesAvailable:
-        {
-            if(_data == nil) {
-              //NSLog(@"init data...");
-                //_data = [[NSMutableData data] retain];
+  switch(eventCode) {
+    case NSStreamEventHasBytesAvailable:
+    {
+      if(_data == nil) {
+        //NSLog(@"init data...");
+        //_data = [[NSMutableData data] retain];
 				_data = [[NSMutableData data] retain];
-            }
+      }
 			
 			if(header == nil) {
 				//NSLog(@"init header...");
@@ -176,63 +177,124 @@
 			
 			//NSLog(@"readHeader: %d ... readRocdata: %d", readHeader, readRocdata);
 			
-            uint8_t buf[2048];
-            unsigned int len = 1;
+      uint8_t buf[2048];
+      unsigned int len = 1;
 			
 			if( readHeader ) {
-				
+        
 				while ( ![header hasSuffix:@"</xmlh>"]){
 					len = [(NSInputStream *)stream read:buf maxLength:1];
-
+          
 					[_data appendBytes:(uint8_t*)buf length:len];
 					header = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
-
+          
 				}
 				
+				BOOL validHeader = FALSE;
+				
 				if ( [header hasSuffix:@"</xmlh>"]){
+				  // search for the start of the header
+          
+				  
+          NSUInteger start = [header rangeOfString:@"<?xml"].location;
+				  if (start != NSNotFound) {
+            if( start != 0 ) {
+              NSLog(@"Start of header found at %d\n%@", start, header);
+              NSRange range;
+              range.location = start;
+              range.length = [_data length]-start;
+              //NSString* tmp = [[NSString alloc] initWithData:[_data subdataWithRange:range] encoding:NSUTF8StringEncoding];
+              //NSLog([tmp substringFromIndex:start]);
+              [header release];
+              header = [[NSString alloc] initWithData:[_data subdataWithRange:range] encoding:NSUTF8StringEncoding];
+
+              //header = [[NSString alloc] initWithString:[tmp substringFromIndex:start]];
+            }
+				    validHeader = TRUE;
+				  }
+				  else {
+				    // invalid header.
+  					NSLog(@"Start of header not found; flush buffer.");
+					  [_data release];
+					  _data = nil;
+  					[header release];
+	  				header = nil;
+					  readHeader = TRUE;
+					  readRocdata = FALSE;
+				  }
+				}
+				
+				
+				
+				if ( validHeader ){
 					NSXMLParser *parser = [[NSXMLParser alloc] initWithData:_data];
 					[parser setDelegate:self];
-					[parser parse];
+          
+          [parser setShouldProcessNamespaces:NO];
+          [parser setShouldReportNamespacePrefixes:NO];
+          
+					BOOL ok = [parser parse];
 					
 					//NSLog(@"Header read ... size: %d", readsize);
-
+          
 					[parser release]; 
-					[_data release];
-					_data = nil;
-					[header release];
-					header = nil;
 					
-					readHeader = FALSE;
-					readRocdata = TRUE;
+          [_data release];
+          _data = nil;
 					
+					if( !ok ) {
+            NSLog(@"parser error in header detected...");
+					  readHeader = TRUE;
+					  readRocdata = FALSE;
+            [header release];
+            header = nil;
+          }
+          else {		
+					  readHeader = FALSE;
+					  readRocdata = TRUE;
+          }
+          
 					bytesread = 0;
 				}
 				
-			} else if ( readRocdata) {
+			} 
+      else if ( readRocdata) {
 				int imax = 1024;
 				if( readsize < imax )
 					imax = readsize;
 				
 				len = [(NSInputStream *)stream read:buf maxLength:imax];
 				[_data appendBytes:(const void *)buf length:len];
-
+        
 				bytesread += imax;
 				//NSLog(@"readsize: %d len: %d btr: %d", readsize, len, bytesread);
-
+        
 				if( len < 1024 || readsize == bytesread) {
 					
 					/*
-					NSLog(@"###################################################################");
-					NSLog([[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding]);
-					NSLog(@"###################################################################");
-					*/
+           NSLog(@"###################################################################");
+           NSLog([[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding]);
+           NSLog(@"###################################################################");
+           */
 					
 					NSXMLParser *parser = [[[NSXMLParser alloc] initWithData:_data] retain];
 					[parser setDelegate:self];
-					[parser parse];
+          [parser setShouldProcessNamespaces:NO];
+          [parser setShouldReportNamespacePrefixes:NO];
+
+					BOOL ok = [parser parse];
+					
+          if( !ok && debug ) {
+            NSLog(@"parser error in data detected...");
+            NSString* xml = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
+            NSLog(@"\n%@", xml);
+            [xml release];
+          }
 					
 					//NSLog(@"Data sent to parser ... ");
-					
+          [header release];
+          header = nil;
+
 					[parser release];  
 					[_data release];
 					_data = nil;
@@ -240,7 +302,7 @@
 					// start from the beginning ....
 					readHeader = TRUE;
 					readRocdata = FALSE;
-
+          
 				}
 				
 			} else {
@@ -249,9 +311,9 @@
 				
 			}
 			
-				
+      
 			break;
-        }
+    }
 	}
 }
 
@@ -264,7 +326,7 @@ static NSString * const kIdElementName = @"id";
 //#pragma mark NSXMLParser delegate methods
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
-
+  
 	//NSLog(@"Parser didStartElement ... %@", elementName);
 	
 	
@@ -279,7 +341,7 @@ static NSString * const kIdElementName = @"id";
 			NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
 			Loc *loc = [[[Loc alloc] init] retain];
 			loc.locid = relAttribute;
-
+      
 			NSString *imgname = [attributeDict valueForKey:@"image"];
 			if( ![imgname isEqualToString:@""] ) {
 				NSLog(@"connector %@ : %@", relAttribute, imgname);
@@ -301,17 +363,17 @@ static NSString * const kIdElementName = @"id";
 		sw.swid = relAttribute;
 		sw.type = type;
 		[self.swList addObject:sw];
-        
+    
 	} else if ([elementName isEqualToString:@"st"]) {
 		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];		
-        
+    
 		Route *rt = [[[Route alloc] init] retain];
 		rt.rtid = relAttribute;
 		[self.rtList addObject:rt];
 		
 	} else if ([elementName isEqualToString:@"co"]) {
 		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];		
-        //NSLog(@"parser: co: %@", [attributeDict valueForKey:kIdElementName]);
+    //NSLog(@"parser: co: %@", [attributeDict valueForKey:kIdElementName]);
 		Output *co = [[[Output alloc] init] retain];
 		co.coid = relAttribute;
 		[self.coList addObject:co];
@@ -319,7 +381,7 @@ static NSString * const kIdElementName = @"id";
 		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
 		
 		//NSLog(@"connector LOCPIC: %@ ",relAttribute );
-
+    
 		NSString *data = [attributeDict valueForKey:@"data"];
 		//Loc *loc = (Loc*) [self.locList objectAtIndex:[locIndexList indexOfObject:relAttribute]];
 		[((Loc*) [self.locList objectAtIndex:[locIndexList indexOfObject:relAttribute]]) setLocpicdata:data]; 
@@ -329,9 +391,9 @@ static NSString * const kIdElementName = @"id";
 	else if ([elementName isEqualToString:@"lclist"]) {
 		//NSLog(@"parser: lclist");	
 	} /*else if ([elementName isEqualToString:@"exception"]) {
-		NSString *relAttribute = [attributeDict valueForKey:@"text"];		
-		NSLog(@"parser: exception = %@", relAttribute);
-	}*/ 
+     NSString *relAttribute = [attributeDict valueForKey:@"text"];		
+     NSLog(@"parser: exception = %@", relAttribute);
+     }*/ 
 	else if ([elementName isEqualToString:@"sys"]) {
 		NSString *relAttribute = [attributeDict valueForKey:@"cmd"];
 		if( [relAttribute isEqualToString:@"shutdown"] ) {
@@ -339,7 +401,14 @@ static NSString * const kIdElementName = @"id";
 			[self stop]; 
 			exit(0);
 		}
-	} 
+  } else if ([elementName isEqualToString:@"clock"]) {
+    NSString *relAttribute = [attributeDict valueForKey:@"time"];		
+    NSLog(@"clock [%@]", relAttribute);
+  }
+  else {
+    if( debug )
+      NSLog(@"unhandled: [%@]", elementName);
+  }
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {     
@@ -371,8 +440,9 @@ static NSString * const kIdElementName = @"id";
 		// inform the delegate
 		NSLog(@"The Plan arrived.");
 		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-	}  else {
-		//NSLog(@"%@", elementName);
+	} else if ([elementName isEqualToString:@"clock"]) {
+		// inform the delegate
+		NSLog(@"Clock tick.");
 	}
 	
 	
@@ -383,35 +453,33 @@ static NSString * const kIdElementName = @"id";
 // guaranteed to deliver all of the parsed character data for an element in a single invocation, so it is necessary to
 // accumulate character data until the end of the element is reached.
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-
+  //NSLog(@"PCDATA:\n%@", string);
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
-	NSLog(@"### Parse Error: %@ ", [parseError localizedDescription]);
 	// TODO: somthing is wrong with the parser
 	// start from the beginning ....	
-	
-	/*
-	[_data release];
-	_data = nil;
-	[header release];
-	header =nil;	
-	 */
-
-	readHeader = TRUE;
-	readRocdata = FALSE;
-	bytesread = 0;
+  if( debug ) {
+    NSLog(@"### Parse Error: %@ ", [parseError localizedDescription]);
+	  if( header != nil )
+	    NSLog(@"Header:\n%@", header);
+	  if( _data != nil ) {
+      NSString* xml = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
+	    NSLog(@"Data:\n%@", xml);
+      [xml release];
+    }
+  }	
 }
 
 
 - (id)delegate
 {
-    return _delegate;
+  return _delegate;
 }
 
 - (void)setDelegate:(id)new_delegate
 {
-    _delegate = new_delegate;
+  _delegate = new_delegate;
 }
 
 
