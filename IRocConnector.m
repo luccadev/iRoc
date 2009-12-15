@@ -70,7 +70,7 @@
 			connectOK = FALSE;
     }
     
-		isConnected = TRUE;
+		isConnected = connectOK;
 		[[NSRunLoop currentRunLoop] run];
     
 	} 	
