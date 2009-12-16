@@ -64,7 +64,8 @@
 - (IBAction) buttonF0Clicked:(id) sender {	
 	fnStates[0] = !fnStates[0];
 
-	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc throttleid=\"iRoc\" id=\"%@\" fn=\"%@\"/>",[textfieldLoc text], fnStates[0]?@"true":@"false"]] ];
+	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc throttleid=\"%@\" id=\"%@\" fn=\"%@\"/>",
+    (NSString*)[[UIDevice currentDevice] name], [textfieldLoc text], fnStates[0]?@"true":@"false"]] ];
     	
 	NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<fn group=\"1\" id=\"%@\" f%d=\"%@\"/>", [textfieldLoc text], 0,  fnStates[0]?@"true":@"false" ] ];
 	[rrconnection sendMessage:@"fn" message:stringToSend];
@@ -105,7 +106,9 @@
 	[self prepareFNCommand:8];
 }
 - (IBAction) buttonFnClicked:(id) sender {
-	
+	NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc throttleid=\"%@\" cmd=\"release\" id=\"%@\"/>", 
+    (NSString*)[[UIDevice currentDevice] name], [textfieldLoc text] ] ];
+	[rrconnection sendMessage:@"lc" message:stringToSend];
 }
 
 - (void) processAllEvents:(int) _VDelta {
