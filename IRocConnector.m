@@ -135,6 +135,9 @@
       }
 		}
 	}
+  else {
+    NSLog( @"offline: message not send.");
+  }
 	return TRUE;
 }
 

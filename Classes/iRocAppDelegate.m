@@ -105,6 +105,8 @@
 	  		[rrconnection requestPlan];
 	  	else {
 	  	  // no connection possible: show a message or jump to the Info Page. (Extend the info page with connection details...)
+        NSLog( @"no connection: offline");
+        [self.tabBarController setSelectedViewController:aboutView];
 	  	}
 			break;
 		} 
