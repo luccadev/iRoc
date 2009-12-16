@@ -91,12 +91,21 @@
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
-	int retry = 10;
+	int retry = 5;
 	while( retry > 0 ) {
 		NSLog( @"retry=%d isConnected=%d",retry,rrconnection.isConnected);
 		retry--;  
 		if( rrconnection.isConnected ) {
 			[rrconnection requestPlan];
+			break;
+		} 
+		else if( rrconnection.readyConnecting ) {
+  		NSLog( @"ready connecting: isConnected=%d",rrconnection.isConnected);
+  		if( rrconnection.isConnected )
+	  		[rrconnection requestPlan];
+	  	else {
+	  	  // no connection possible: show a message or jump to the Info Page. (Extend the info page with connection details...)
+	  	}
 			break;
 		} 
 		else

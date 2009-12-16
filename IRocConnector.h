@@ -37,6 +37,7 @@
 	NSMutableString *rocdata;
 	
 	BOOL isConnected;
+	BOOL readyConnecting;
 	BOOL readRocdata;
 	
 	BOOL readHeader;
@@ -79,6 +80,7 @@
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode;
 
 @property(readwrite) BOOL isConnected;
+@property(readwrite) BOOL readyConnecting;
 
 @property(copy) NSString *domain;
 @property(nonatomic, retain) NSMutableString *header;

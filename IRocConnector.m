@@ -11,7 +11,7 @@
 
 @implementation IRocConnector
 
-@synthesize header, rocdata, isConnected, currentLocObject, locList, locIndexList, rtList, swList, coList;
+@synthesize header, rocdata, isConnected, readyConnecting, currentLocObject, locList, locIndexList, rtList, swList, coList;
 //@synthesize locTableViewController;
 
 - (id) init {
@@ -40,6 +40,7 @@
 	iStream = NULL;
 	oStream = NULL;
 	isConnected = FALSE;
+	readyConnecting = FALSE;
 	
 	CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)domain, port, (CFReadStreamRef*)&iStream, (CFWriteStreamRef*)&oStream);
 	//NSLog([NSString stringWithFormat: @"Connected?"]);	
@@ -69,7 +70,7 @@
 		} else {
 			connectOK = FALSE;
     }
-    
+  	readyConnecting = TRUE;
 		isConnected = connectOK;
 		[[NSRunLoop currentRunLoop] run];
     
@@ -121,7 +122,7 @@
 	
 	NSData * dataToSend = [stringToSend dataUsingEncoding:NSUTF8StringEncoding];
 	
-	if (oStream) {
+	if (isConnected && oStream) {
 		int remainingToWrite = [dataToSend length];
 		void * marker = (void *)[dataToSend bytes];
 		while (0 < remainingToWrite) {
