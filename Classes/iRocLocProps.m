@@ -11,6 +11,42 @@
 @implementation iRocLocProps
 @synthesize idLabel;
 
+
+void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
+	int x_left = rect.origin.x;
+	int x_left_center = rect.origin.x + corner_radius;
+	int x_right_center = rect.origin.x + rect.size.width - corner_radius;
+	int x_right = rect.origin.x + rect.size.width;
+	int y_top = rect.origin.y;
+	int y_top_center = rect.origin.y + corner_radius;
+	int y_bottom_center = rect.origin.y + rect.size.height - corner_radius;
+	int y_bottom = rect.origin.y + rect.size.height;
+	
+	/* Begin! */
+	CGContextBeginPath(c);
+	CGContextMoveToPoint(c, x_left, y_top_center);
+	
+	/* First corner */
+	CGContextAddArcToPoint(c, x_left, y_top, x_left_center, y_top, corner_radius);
+	CGContextAddLineToPoint(c, x_right_center, y_top);
+	
+	/* Second corner */
+	CGContextAddArcToPoint(c, x_right, y_top, x_right, y_top_center, corner_radius);
+	CGContextAddLineToPoint(c, x_right, y_bottom_center);
+	
+	/* Third corner */
+	CGContextAddArcToPoint(c, x_right, y_bottom, x_right_center, y_bottom, corner_radius);
+	CGContextAddLineToPoint(c, x_left_center, y_bottom);
+	
+	/* Fourth corner */
+	CGContextAddArcToPoint(c, x_left, y_bottom, x_left, y_bottom_center, corner_radius);
+	CGContextAddLineToPoint(c, x_left, y_top_center);
+	
+	/* Done */
+	CGContextClosePath(c);
+}
+
+
 - (id)initWithCoder:(NSCoder *)decoder
 {
     if (self = [super initWithCoder:decoder])
@@ -27,9 +63,7 @@
 		descLabel.backgroundColor = [UIColor darkGrayColor];
 		
 		[self addSubview:idLabel];
-		[self addSubview:descLabel];
-		[self setBackgroundColor:[UIColor darkGrayColor]];
-		
+		[self addSubview:descLabel];		
 	}
     return self;
 }
@@ -46,15 +80,25 @@
     return self;
 }
 
-/*
+
 - (void)drawRect:(CGRect)rect {
 	[super drawRect:rect];
+    context = UIGraphicsGetCurrentContext();
+	
+
+	CGContextSetFillColorWithColor(context, [[UIColor darkGrayColor] CGColor]);
+	CGContextAddRoundedRectB(context, CGRectMake(0,0, CGRectGetWidth(rect), CGRectGetHeight( rect)), 5);  
+	CGContextFillPath(context);
+	
+	//border
+	CGContextSetLineWidth(context, .5);
+	CGContextSetRGBStrokeColor(context, .5, .5, .5, 1);
+	CGContextAddRoundedRectB(context, CGRectMake(0,0, CGRectGetWidth(rect), CGRectGetHeight( rect)), 5);  
+	CGContextStrokePath(context);  
 }
-*/
+
 
 - (void)setLoc:(Loc*)loci {
-
-	
 	loc = loci;
 	
 	NSLog(@"setLoc: %@", [loc locid]);

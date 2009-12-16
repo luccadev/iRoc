@@ -15,6 +15,7 @@
 
 #import "iRocMenuTableView.h"
 #import "IRocConnector.h"
+#import "iRocAboutView.h"
 
 
 @class iRocViewController;
@@ -31,6 +32,7 @@
 	
 	IBOutlet iRocMenuTableView *menuTableView;
 
+	iRocAboutView IBOutlet *aboutView;
 	
 	NSMutableArray *lcList;	
 	NSMutableArray *lcIndexList;	
@@ -55,6 +57,8 @@
 @property (nonatomic, retain) IBOutlet iRocCoTableView *coTableView;
 @property (nonatomic, retain) IBOutlet iRocMenuTableView *menuTableView;
 
+@property (nonatomic, retain) IBOutlet iRocAboutView *aboutView;
+
 
 @property(nonatomic, retain) NSMutableArray *lcList;
 @property(nonatomic, retain) NSMutableArray *lcIndexList;
@@ -66,6 +70,8 @@
 @property(nonatomic, retain) NSMutableArray *menuItems;
 
 @property (nonatomic, retain) IRocConnector *rrconnection;
+
+
 
 @end
 

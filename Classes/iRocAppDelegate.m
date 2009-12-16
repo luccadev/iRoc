@@ -17,7 +17,7 @@
 @synthesize viewController;
 @synthesize lcTableView, rtTableView, swTableView, coTableView, menuTableView, lcIndexList;
 
-@synthesize rtList, swList, coList, lcList, rrconnection, menuItems;
+@synthesize rtList, swList, coList, lcList, rrconnection, menuItems, aboutView;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	
@@ -169,6 +169,8 @@
 	[self.tabBarController dismissModalViewControllerAnimated:YES];
 	
 	Loc *loc = [self.lcList objectAtIndex:[lcIndexList indexOfObject:lcid]];
+	
+	
 	
 	// The new one:
 	[viewController.locProps setLoc:loc];

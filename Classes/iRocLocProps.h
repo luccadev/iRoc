@@ -12,6 +12,7 @@
 @class iRocLocProps;
 
 @interface iRocLocProps : UIButton {
+	CGContextRef context;
 	Loc *loc;
 	UILabel *idLabel;
 	UILabel *descLabel;
