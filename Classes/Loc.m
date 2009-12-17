@@ -42,7 +42,7 @@
 	
 	NSData *data = [NSData dataWithBytes:(unsigned char*)b length:(len/2 + 1)];
 	
-	self.lcimage = [[UIImage alloc] initWithData:data];
+	self.lcimage = [[[UIImage alloc] initWithData:data] retain];
 	
 	imageLoaded = YES;
 	
@@ -57,7 +57,6 @@
 	}
 	
 
-	
 	if( self.hasImage && self.imageLoaded ){
 		return self.lcimage;
 	} else {
@@ -71,7 +70,7 @@
 	
 	[self prepareImage];
 	
-	//NSLog(@"SETLOCPICDATA");
+	NSLog(@"SETLOCPICDATA FOR: %@", self.locid);
 	
 }
 /*
