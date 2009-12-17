@@ -79,7 +79,7 @@
 - (BOOL)stop;
 - (void)requestPlan;
 - (void)requestLocpic:(NSString*)lcid withFilename:(NSString*)filename;
-- (void)nextLocpic;
+- (void)nextLocpic:(BOOL)fromSax;
 
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode;
 

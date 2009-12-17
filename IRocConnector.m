@@ -90,14 +90,16 @@
   
   NSLog(@"requesteLocpic: %@ - %@", lcid, filename);
   [messageQueue addObject:[[NSString alloc] 
-                           initWithString:[NSString stringWithFormat: @"<datareq id=\"%@\" filename=\"%@\"/>",lcid,filename]]];
+                           initWithString:[[NSString stringWithFormat: @"<datareq id=\"%@\" filename=\"%@\"/>",lcid,filename]retain]]];
 
-  [self nextLocpic];
+  [self nextLocpic:FALSE];
 }
 
-- (void)nextLocpic{
+- (void)nextLocpic:(BOOL)fromSax{
   
-  if( !pendingLocoPic && [messageQueue count] > 0 ) {
+  NSLog(@"nextLocpic: pending=%d fromSax=%d queue=%d", pendingLocoPic, fromSax, [messageQueue count]);
+  
+  if( (!pendingLocoPic||fromSax) && [messageQueue count] > 0 ) {
     
     pendingLocoPic = TRUE;
     NSString* msg = [messageQueue objectAtIndex:0];
@@ -110,8 +112,13 @@
       [messageQueue removeObjectAtIndex:0];
     [msg release];
     }
-    
+
+
   }
+  else {
+  	NSLog(@"sorry, pending...");
+  }
+  
   
 }
 
@@ -137,8 +144,9 @@
 
 - (BOOL)sendMessage:(NSString *)name message:(NSString *)msg {
 	
+	NSData * tmp = [msg dataUsingEncoding:NSUTF8StringEncoding];
 	NSString * stringToSend; 			
-	stringToSend = [NSString stringWithFormat: @"<xmlh><xml size=\"%d\" name=\"%@\"/></xmlh>%@", [msg length], name, msg];
+	stringToSend = [NSString stringWithFormat: @"<xmlh><xml size=\"%d\" name=\"%@\"/></xmlh>%@", [tmp length], name, msg];
 	stringToSend = [stringToSend stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	
 	//NSLog([NSString stringWithFormat: @">> %@"], stringToSend);		
@@ -412,8 +420,8 @@ static NSString * const kIdElementName = @"id";
 		NSString *data = [attributeDict valueForKey:@"data"];
 		//Loc *loc = (Loc*) [self.locList objectAtIndex:[locIndexList indexOfObject:relAttribute]];
 		[((Loc*) [self.locList objectAtIndex:[locIndexList indexOfObject:relAttribute]]) setLocpicdata:data]; 
+    [self nextLocpic:TRUE];
     pendingLocoPic = FALSE;
-    [self nextLocpic];
 
 	} 
 	
@@ -475,7 +483,7 @@ static NSString * const kIdElementName = @"id";
 		if ( [_delegate respondsToSelector:@selector(askForAllLocPics)] ) {
 			[_delegate askForAllLocPics];
 		} 
-    */
+     */
 
 	} else if ([elementName isEqualToString:@"datareq"]) {
 		// inform the delegate
