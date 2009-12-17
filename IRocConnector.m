@@ -24,6 +24,8 @@
 
 - (BOOL)connect {
   
+	messageQueue = [[NSMutableArray array] retain];
+  
 	bytesread = 0;
 	readsize = 0;
 	readRocdata = FALSE;
@@ -32,6 +34,7 @@
   header = NULL;
   rocdata = NULL;
   debug = FALSE;
+  pendingLocoPic = FALSE;
 	
 	NSLog([NSString stringWithFormat: @"Connect to: %@:%d ", domain, port]);	
 	
@@ -84,14 +87,34 @@
 }
 
 - (void)requestLocpic:(NSString*)lcid withFilename:(NSString*)filename{
-	
-	NSLog(@"requesteLocpic: %@ - %@", lcid, filename);
   
-	[self sendMessage:@"datareq" 
-            message:[[NSString alloc] 
-                     initWithString:[NSString stringWithFormat: @"<datareq id=\"%@\" filename=\"%@\"/>",lcid,filename]]];
+  NSLog(@"requesteLocpic: %@ - %@", lcid, filename);
+  [messageQueue addObject:[[NSString alloc] 
+                           initWithString:[NSString stringWithFormat: @"<datareq id=\"%@\" filename=\"%@\"/>",lcid,filename]]];
+
+  [self nextLocpic];
+}
+
+- (void)nextLocpic{
+  
+  if( !pendingLocoPic && [messageQueue count] > 0 ) {
+    
+    pendingLocoPic = TRUE;
+    NSString* msg = [messageQueue objectAtIndex:0];
+    if( msg != nil ) {
+      
+
+  	NSLog(@"requesting Locpic: %@", msg);
+    
+  	[self sendMessage:@"datareq" message:msg];
+      [messageQueue removeObjectAtIndex:0];
+    [msg release];
+    }
+    
+  }
   
 }
+
 
 - (BOOL)stop {
 	
@@ -384,12 +407,14 @@ static NSString * const kIdElementName = @"id";
 	} else if ([elementName isEqualToString:@"datareq"]) {
 		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
 		
-		//NSLog(@"connector LOCPIC: %@ ",relAttribute );
+		NSLog(@"connector LOCPIC: %@ ",relAttribute );
     
 		NSString *data = [attributeDict valueForKey:@"data"];
 		//Loc *loc = (Loc*) [self.locList objectAtIndex:[locIndexList indexOfObject:relAttribute]];
 		[((Loc*) [self.locList objectAtIndex:[locIndexList indexOfObject:relAttribute]]) setLocpicdata:data]; 
-		
+    pendingLocoPic = FALSE;
+    [self nextLocpic];
+
 	} 
 	
 	else if ([elementName isEqualToString:@"lclist"]) {
@@ -446,10 +471,16 @@ static NSString * const kIdElementName = @"id";
 		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 		
 		// TEST
+    /*
 		if ( [_delegate respondsToSelector:@selector(askForAllLocPics)] ) {
 			[_delegate askForAllLocPics];
 		} 
-		
+    */
+
+	} else if ([elementName isEqualToString:@"datareq"]) {
+		// inform the delegate
+		NSLog(@"end datareq");
+  
 	} else if ([elementName isEqualToString:@"clock"]) {
 		// inform the delegate
 		NSLog(@"Clock tick.");

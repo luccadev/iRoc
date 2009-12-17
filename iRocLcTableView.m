@@ -133,9 +133,9 @@
 		imageview.image = [loc getImage];
 		[cell.contentView addSubview:imageview];
 		[imageview release];
-	} /*else if( [loc hasImage]){
+	} else if( [loc hasImage]){
 		[_delegate askForLocpic:loc.locid withFilename:loc.imgname];
-	}*/
+	}
 	
 	
     return cell;

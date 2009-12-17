@@ -42,11 +42,14 @@
 	
 	BOOL readHeader;
 	BOOL debug;
+	BOOL pendingLocoPic;
 	
 	unsigned int readsize;
 	int bytesread;
 	
 	Loc *currentLocObject;
+  
+  NSMutableArray* messageQueue; 
 	
 	//IBOutlet iRocLcTableView *lcTableView;
 
@@ -76,6 +79,7 @@
 - (BOOL)stop;
 - (void)requestPlan;
 - (void)requestLocpic:(NSString*)lcid withFilename:(NSString*)filename;
+- (void)nextLocpic;
 
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode;
 
