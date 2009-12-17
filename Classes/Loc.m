@@ -11,12 +11,13 @@
 
 @implementation Loc
 
-@synthesize locid, imgname, lcimage, hasImage, imageLoaded, desc;
+@synthesize locid, imgname, lcimage, hasImage, imageLoaded, desc, imageAlreadyRequested;
 
 - (id) init {
 	[super init];	
 	imageLoaded = NO;
 	hasImage = NO;	
+  imageAlreadyRequested = FALSE;
 	return self;
 }
 

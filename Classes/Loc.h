@@ -21,6 +21,7 @@
 	
 	BOOL hasImage;
 	BOOL imageLoaded;
+  BOOL imageAlreadyRequested;
 }
 
 @property (nonatomic, retain) NSString *locid;
@@ -30,6 +31,7 @@
 @property (nonatomic, retain) UIImage *lcimage;
 @property BOOL hasImage;
 @property BOOL imageLoaded;
+@property BOOL imageAlreadyRequested;
 
 - (void) prepareImage;
 - (UIImage*) getImage;
