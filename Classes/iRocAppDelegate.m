@@ -178,6 +178,17 @@
 	[viewController.locProps setLoc:loc];
 }
 
+- (void)askForAllLocPics {
+	int i;
+	for( i = 0; i< [lcList count]; i++){	
+		Loc *loc;
+		loc = (Loc*)[lcList objectAtIndex:i];
+		if( loc.hasImage && ![loc.imgname isEqualToString:@""] ) {
+			[self askForLocpic:loc.locid withFilename:loc.imgname];
+		}
+	}	
+}
+
 - (void)askForLocpic:(NSString *)lcid withFilename:(NSString*)filename {
 	[rrconnection requestLocpic:lcid withFilename:filename];
 }

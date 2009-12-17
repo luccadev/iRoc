@@ -444,6 +444,12 @@ static NSString * const kIdElementName = @"id";
 		// inform the delegate
 		NSLog(@"The Plan arrived.");
 		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+		
+		// TEST
+		if ( [_delegate respondsToSelector:@selector(askForAllLocPics)] ) {
+			[_delegate askForAllLocPics];
+		} 
+		
 	} else if ([elementName isEqualToString:@"clock"]) {
 		// inform the delegate
 		NSLog(@"Clock tick.");

@@ -104,6 +104,7 @@
  - (void)rtListLoaded;
  - (void)swListLoaded;
  - (void)coListLoaded;
+ - (void)askForAllLocPics;
 
 @end
 
