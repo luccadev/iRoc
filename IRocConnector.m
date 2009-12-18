@@ -64,8 +64,12 @@
 		NSDate *start = [NSDate date];
     
 		// Wait for the oStream to get ready
-		while([oStream streamStatus] == NSStreamStatusOpening && [start timeIntervalSinceNow]*-1 < 5) { //![oStream streamStatus] == NSStreamStatusOpen && 
-			NSLog([NSString stringWithFormat: @"Opening I:%d, O:%d T:%f",[iStream streamStatus],[oStream streamStatus],[start timeIntervalSinceNow]]);
+    int retry = 5;
+		while([oStream streamStatus] == NSStreamStatusOpening && [start timeIntervalSinceNow]*-1 < 5 && retry > 0) { //![oStream streamStatus] == NSStreamStatusOpen && 
+			NSLog([NSString stringWithFormat: @"Opening I:%d, O:%d T:%f retry=%d",
+             [iStream streamStatus],[oStream streamStatus],[start timeIntervalSinceNow]], retry);
+      retry--;
+      [NSThread sleepForTimeInterval:1];
 		}
     
 		if( [oStream streamStatus] == NSStreamStatusOpen && [iStream streamStatus] == NSStreamStatusOpen ) {
@@ -75,10 +79,14 @@
     }
   	readyConnecting = TRUE;
 		isConnected = connectOK;
-		[[NSRunLoop currentRunLoop] run];
     
 	} 	
 	
+  if(isConnected) {
+    NSLog(@"starting currentLoop...");
+    [[NSRunLoop currentRunLoop] run];
+  }
+
 	return connectOK;
 }
 

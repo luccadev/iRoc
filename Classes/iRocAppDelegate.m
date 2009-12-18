@@ -20,7 +20,8 @@
 @synthesize rtList, swList, coList, lcList, rrconnection, menuItems, aboutView;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
-	
+  NSLog(@"applicationDidFinishLaunching");
+
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
 	
 	application.idleTimerDisabled = YES;
@@ -95,35 +96,36 @@
 	while( retry > 0 ) {
 		NSLog( @"retry=%d isConnected=%d",retry,rrconnection.isConnected);
 		retry--;  
-		if( rrconnection.isConnected ) {
-			[rrconnection requestPlan];
-			break;
-		} 
-		else if( rrconnection.readyConnecting ) {
+		if( rrconnection.readyConnecting ) {
   		NSLog( @"ready connecting: isConnected=%d",rrconnection.isConnected);
-  		if( rrconnection.isConnected )
-	  		[rrconnection requestPlan];
-	  	else {
-	  	  // no connection possible: show a message or jump to the Info Page. (Extend the info page with connection details...)
-        NSLog( @"no connection: offline");
-        [self.tabBarController setSelectedViewController:aboutView];
-	  	}
 			break;
 		} 
 		else
 			[NSThread sleepForTimeInterval:1];
 	}
 
-	[viewController setRrconnection:self.rrconnection];
+  NSLog( @"end of retry loop: isConnected=%d readyConnecting=%d",rrconnection.isConnected,rrconnection.readyConnecting);
+  if( rrconnection.isConnected ) {
+    [rrconnection requestPlan];
+  }
+  else {
+    // no connection possible: show a message or jump to the Info Page. (Extend the info page with connection details...)
+    NSLog( @"no connection: offline");
+    [self.tabBarController setSelectedViewController:aboutView];
+  }
+  
+  [viewController setRrconnection:self.rrconnection];
 }
 
 
 - (void)connectThread { 
+  NSLog( @"connectThread started");
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
 	[rrconnection connect];
 
 	[pool release]; 
+  NSLog( @"connectThread ended");
 } 
 
 // Delegate Methods
@@ -205,11 +207,13 @@
 }
 
 -(void) applicationWillResignActive:(UIApplication *)application {
+	NSLog(@"applicationWillResignActive");
 	[[self rrconnection] stop];
 	exit(0);
 }
 
 -(void) applicationDidBecomeActive:(UIApplication *)application {
+	NSLog(@"applicationDidBecomeActive");
 	//[[self rrconnection] connect];
 }
 
