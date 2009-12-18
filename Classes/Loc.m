@@ -55,9 +55,11 @@
 	
 	imageLoaded = YES;
   
+  /* App will crash: no good solution...
   if ( myrow != -1 ) {
     [_delegate lcListReloadRow:myrow];
   } 
+  */
   
 	NSLog(@"image for loc: %@ loaded ...", self.locid);
 }
