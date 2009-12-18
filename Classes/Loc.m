@@ -7,17 +7,19 @@
 //
 
 #import "Loc.h"
+#import "iRocAppDelegate.h"
 
 
 @implementation Loc
 
-@synthesize locid, imgname, lcimage, hasImage, imageLoaded, desc, imageAlreadyRequested;
+@synthesize locid, imgname, lcimage, hasImage, imageLoaded, desc, imageAlreadyRequested, myrow;
 
 - (id) init {
 	[super init];	
 	imageLoaded = NO;
 	hasImage = NO;	
   imageAlreadyRequested = FALSE;
+  myrow = -1;
 	return self;
 }
 
@@ -28,6 +30,12 @@
 	[lcimage release];
     [super dealloc];
 }
+
+- (void)setDelegate:(id)new_delegate
+{
+  _delegate = new_delegate;
+}
+
 
 - (void) prepareImage {
 	int i = 0;
@@ -46,7 +54,11 @@
 	self.lcimage = [[[UIImage alloc] initWithData:data] retain];
 	
 	imageLoaded = YES;
-	
+  
+  if ( myrow != -1 ) {
+    [_delegate lcListReloadRow:myrow];
+  } 
+  
 	NSLog(@"image for loc: %@ loaded ...", self.locid);
 }
 

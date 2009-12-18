@@ -71,6 +71,8 @@
 
 @property (nonatomic, retain) IRocConnector *rrconnection;
 
+- (void)lcListLoaded;
+- (void)lcListReloadRow:(int)row;
 
 
 @end

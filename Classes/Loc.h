@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface Loc : NSObject {
 @private 
 	NSString *locid;
 	NSString *locpicdata;
 	NSString *imgname;
 	NSString *desc;
+  int myrow;
 	
 	
 	UIImage *lcimage;
@@ -22,6 +22,10 @@
 	BOOL hasImage;
 	BOOL imageLoaded;
   BOOL imageAlreadyRequested;
+
+@public
+  id _delegate;
+
 }
 
 @property (nonatomic, retain) NSString *locid;
@@ -32,7 +36,9 @@
 @property BOOL hasImage;
 @property BOOL imageLoaded;
 @property BOOL imageAlreadyRequested;
+@property int myrow;
 
+- (void)setDelegate:(id)new_delegate;
 - (void) prepareImage;
 - (UIImage*) getImage;
 - (void) setLocpicdata:(NSString *) picdata;

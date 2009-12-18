@@ -134,6 +134,12 @@
 	[lcTableView.tableView reloadData];
 }
 
+- (void)lcListReloadRow:(int)row {
+	//NSLog(@"Reload Data in Loc View");
+  NSIndexPath* indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+  [lcTableView.tableView reloadRowsAtIndexPaths:[NSArray	arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+}
+
 - (void)rtListLoaded {
 	//NSLog(@"Reload Data in Route View");
 	[rtTableView.tableView reloadData];

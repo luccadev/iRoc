@@ -384,6 +384,7 @@ static NSString * const kIdElementName = @"id";
 			NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
 			Loc *loc = [[[Loc alloc] init] retain];
 			loc.locid = relAttribute;
+      [loc setDelegate:_delegate];
       
 			NSString *imgname = [attributeDict valueForKey:@"image"];
 			if( ![imgname isEqualToString:@""] ) {
@@ -396,6 +397,7 @@ static NSString * const kIdElementName = @"id";
 			
 			[self.locIndexList addObject:relAttribute];
 			[self.locList addObject:loc];
+      loc.myrow = [self.locList count] - 1;
 		}
 	} else if ([elementName isEqualToString:@"sw"]) {
 		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
