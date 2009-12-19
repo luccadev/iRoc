@@ -216,8 +216,7 @@
   switch(eventCode) {
     case NSStreamEventHasBytesAvailable:
     {
-    @synchronized(self) {
-        
+       
       if( debug)
         NSLog(@"stream: handle NSStreamEventHasBytesAvailable, readHeader=%d readRocdata=%d...", readHeader, readRocdata);
       
@@ -239,6 +238,7 @@
 			
 			if( readHeader ) {
         
+        @synchronized(self) {
         NSLog(@"streamStatus=%d", [(NSInputStream *)stream streamStatus]);
 				while ( len > 0 && ![header hasSuffix:@"</xmlh>"] ){
 					len = [(NSInputStream *)stream read:buf maxLength:1];
@@ -249,10 +249,14 @@
 	  				header = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
             //NSLog(@"header: %@", header);
           }
-          
+          if( [_data length] > 64*1024) {
+            NSLog(@"data length=%d; break.", [_data length]);
+            break;
+          } 
 				}
         NSLog(@"streamStatus=%d", [(NSInputStream *)stream streamStatus]);
-				
+				}
+        
 				BOOL validHeader = FALSE;
 				
 				if ( [header hasSuffix:@"</xmlh>"]){
@@ -384,8 +388,6 @@
 				NSLog(@"Something went wrong ... ");
 				
 			}
-			
-    } 
 			break;
     }
 	}
