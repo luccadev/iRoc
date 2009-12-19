@@ -249,7 +249,7 @@
 	  				header = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
             //NSLog(@"header: %@", header);
           }
-          if( [_data length] > 64*1024) {
+          if( [_data length] > 1024) {
             NSLog(@"data length=%d; break.", [_data length]);
             break;
           } 

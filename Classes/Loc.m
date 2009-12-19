@@ -57,7 +57,10 @@
   
   /* App will crash: no good solution... */
   if ( myrow != -1 ) {
-    [_delegate lcListReloadRow:myrow];
+    NSNumber* number = [NSNumber numberWithInt:myrow];
+    [_delegate performSelectorOnMainThread : @ selector(lcListReloadRow: ) withObject:number waitUntilDone:YES];
+
+    //[_delegate lcListReloadRow:myrow];
   } 
   
   
