@@ -135,7 +135,7 @@
 		[imageview release];
 	} else if( [loc hasImage] && ![loc imageAlreadyRequested]){
     loc.imageAlreadyRequested=TRUE;
-		[_delegate askForLocpic:loc.locid withFilename:loc.imgname];
+		//[_delegate askForLocpic:loc.locid withFilename:loc.imgname];
 	}
 	
 	

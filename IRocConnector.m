@@ -522,11 +522,11 @@ static NSString * const kIdElementName = @"id";
 		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 		
 		// TEST
-    /*
+    
 		if ( [_delegate respondsToSelector:@selector(askForAllLocPics)] ) {
 			[_delegate askForAllLocPics];
 		} 
-     */
+    
 
 	} else if ([elementName isEqualToString:@"datareq"]) {
 		// inform the delegate
