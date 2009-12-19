@@ -134,8 +134,8 @@
 		[cell.contentView addSubview:imageview];
 		[imageview release];
 	} else if( [loc hasImage] && ![loc imageAlreadyRequested]){
-		[_delegate askForLocpic:loc.locid withFilename:loc.imgname];
     loc.imageAlreadyRequested=TRUE;
+		[_delegate askForLocpic:loc.locid withFilename:loc.imgname];
 	}
 	
 	
