@@ -30,8 +30,8 @@
 	readsize = 0;
 	readRocdata = FALSE;
 	readHeader = TRUE;
-  _data = NULL;
-  header = NULL;
+  _data = nil;
+  header = nil;
   rocdata = NULL;
   debug = FALSE;
   pendingLocoPic = FALSE;
@@ -47,6 +47,7 @@
 	
 	CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)domain, port, (CFReadStreamRef*)&iStream, (CFWriteStreamRef*)&oStream);
 	//NSLog([NSString stringWithFormat: @"Connected?"]);	
+  NSLog(@"iStream=0x%08X oStream=0x%08X", iStream, oStream);
 	if (iStream && oStream) {
 		
 		//iStream = (NSInputStream *)readStream;
@@ -61,22 +62,22 @@
 		[oStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 		[oStream open];
     
-		NSDate *start = [NSDate date];
-    
 		// Wait for the oStream to get ready
     int retry = 5;
-		while([oStream streamStatus] == NSStreamStatusOpening && [start timeIntervalSinceNow]*-1 < 5 && retry > 0) { //![oStream streamStatus] == NSStreamStatusOpen && 
-			NSLog([NSString stringWithFormat: @"Opening I:%d, O:%d T:%f retry=%d",
-             [iStream streamStatus],[oStream streamStatus],[start timeIntervalSinceNow]], retry);
+		while([oStream streamStatus] != NSStreamStatusOpen &&
+          [iStream streamStatus] != NSStreamStatusOpen &&
+          retry > 0) 
+    {
+			NSLog([NSString stringWithFormat: @"Opening I:%d, O:%d retry=%d",
+             [iStream streamStatus],[oStream streamStatus], retry]);
       retry--;
       [NSThread sleepForTimeInterval:1];
 		}
     
 		if( [oStream streamStatus] == NSStreamStatusOpen && [iStream streamStatus] == NSStreamStatusOpen ) {
 			connectOK = TRUE;
-		} else {
-			connectOK = FALSE;
-    }
+		}
+
   	readyConnecting = TRUE;
 		isConnected = connectOK;
     
@@ -91,6 +92,7 @@
 }
 
 - (void)requestPlan {
+  NSLog(@"requestPlan...");
   [self sendMessage:@"model" message:@"<model cmd=\"plan\"/>"];
 }
 
@@ -133,6 +135,7 @@
 
 - (BOOL)stop {
 	
+  NSLog(@"shutting down connection...");
 	isConnected = FALSE;
 	
 	[iStream close];
@@ -145,6 +148,8 @@
   [oStream release];
   iStream = nil;
   oStream = nil;
+
+  NSLog(@"connection down.");
 	
 	return TRUE;
 }
@@ -157,19 +162,19 @@
 	stringToSend = [NSString stringWithFormat: @"<xmlh><xml size=\"%d\" name=\"%@\"/></xmlh>%@", [tmp length], name, msg];
 	stringToSend = [stringToSend stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	
-	//NSLog([NSString stringWithFormat: @">> %@"], stringToSend);		
+	NSLog([NSString stringWithFormat: @"%@"], stringToSend);		
 	
 	NSData * dataToSend = [stringToSend dataUsingEncoding:NSUTF8StringEncoding];
 	
 	if (isConnected && oStream) {
 		int remainingToWrite = [dataToSend length];
 		void * marker = (void *)[dataToSend bytes];
-		while (0 < remainingToWrite) {
+		while (remainingToWrite > 0) {
 			int actuallyWritten = 0;
 			actuallyWritten = [oStream write:marker maxLength:remainingToWrite];
       if( actuallyWritten > 0 ) {
   			remainingToWrite -= actuallyWritten;
-        //NSLog(@"actuallyWritten=%d remainingToWrite=%d", actuallyWritten, remainingToWrite);		
+        NSLog(@"actuallyWritten=%d remainingToWrite=%d", actuallyWritten, remainingToWrite);		
 	  		marker += actuallyWritten;
       }
 		}
@@ -202,11 +207,15 @@
 
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode {
 	
-	//NSLog(@"stream:handleEvent: is invoked...");
+  if( debug)
+	  NSLog(@"stream:handleEvent: is invoked with event=%d...", eventCode);
 	
   switch(eventCode) {
     case NSStreamEventHasBytesAvailable:
     {
+      if( debug)
+        NSLog(@"stream: handle NSStreamEventHasBytesAvailable, readHeader=%d readRocdata=%d...", readHeader, readRocdata);
+      
       if(_data == nil) {
         //NSLog(@"init data...");
         //_data = [[NSMutableData data] retain];
@@ -221,17 +230,23 @@
 			//NSLog(@"readHeader: %d ... readRocdata: %d", readHeader, readRocdata);
 			
       uint8_t buf[2048];
-      unsigned int len = 1;
+      int len = 1;
 			
 			if( readHeader ) {
         
-				while ( ![header hasSuffix:@"</xmlh>"]){
+        NSLog(@"streamStatus=%d", [(NSInputStream *)stream streamStatus]);
+				while ( len > 0 && ![header hasSuffix:@"</xmlh>"] ){
 					len = [(NSInputStream *)stream read:buf maxLength:1];
+          //NSLog(@"len=%d", len);
           
-					[_data appendBytes:(uint8_t*)buf length:len];
-					header = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
+          if( len > 0 ) {
+  					[_data appendBytes:(uint8_t*)buf length:len];
+	  				header = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
+            //NSLog(@"header: %@", header);
+          }
           
 				}
+        NSLog(@"streamStatus=%d", [(NSInputStream *)stream streamStatus]);
 				
 				BOOL validHeader = FALSE;
 				
@@ -266,6 +281,17 @@
 					  readRocdata = FALSE;
 				  }
 				}
+        else {
+          // invalid header.
+          NSLog(@"End of header not found; flush buffer: %@", header);
+          [_data release];
+          _data = nil;
+          [header release];
+          header = nil;
+          readHeader = TRUE;
+          readRocdata = FALSE;
+        }
+        
 				
 				
 				
@@ -522,11 +548,13 @@ static NSString * const kIdElementName = @"id";
     NSLog(@"### Parse Error: %@ ", [parseError localizedDescription]);
 	  if( header != nil )
 	    NSLog(@"Header:\n%@", header);
+    /*
 	  if( _data != nil ) {
       NSString* xml = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
 	    NSLog(@"Data:\n%@", xml);
       [xml release];
     }
+    */
   }	
 }
 

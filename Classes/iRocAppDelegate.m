@@ -106,6 +106,7 @@
 
   NSLog( @"end of retry loop: isConnected=%d readyConnecting=%d",rrconnection.isConnected,rrconnection.readyConnecting);
   if( rrconnection.isConnected ) {
+    NSLog( @"connected; request plan");
     [rrconnection requestPlan];
   }
   else {
