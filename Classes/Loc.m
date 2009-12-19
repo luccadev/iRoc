@@ -61,7 +61,7 @@
   } 
   
   
-	NSLog(@"image for loc: %@ loaded ...", self.locid);
+	NSLog(@"image for loc[%d]: %@ loaded ...", myrow, self.locid);
 }
 
 - (UIImage*) getImage {

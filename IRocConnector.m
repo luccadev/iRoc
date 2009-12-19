@@ -216,6 +216,8 @@
   switch(eventCode) {
     case NSStreamEventHasBytesAvailable:
     {
+    @synchronized(self) {
+        
       if( debug)
         NSLog(@"stream: handle NSStreamEventHasBytesAvailable, readHeader=%d readRocdata=%d...", readHeader, readRocdata);
       
@@ -383,7 +385,7 @@
 				
 			}
 			
-      
+    } 
 			break;
     }
 	}
