@@ -87,6 +87,9 @@
     NSLog(@"starting currentLoop...");
     [[NSRunLoop currentRunLoop] run];
   }
+  else {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+  }
 
 	return connectOK;
 }
