@@ -102,8 +102,9 @@
 - (void)requestLocpic:(NSString*)lcid withFilename:(NSString*)filename{
   
   NSLog(@"requesteLocpic: %@ - %@", lcid, filename);
+  // type 1 is for small images
   [messageQueue addObject:[[NSString alloc] 
-                           initWithString:[[NSString stringWithFormat: @"<datareq id=\"%@\" filename=\"%@\"/>",lcid,filename]retain]]];
+                           initWithString:[[NSString stringWithFormat: @"<datareq id=\"%@\" type=\"1\" filename=\"%@\"/>",lcid,filename]retain]]];
 
   [self nextLocpic:FALSE];
 }

@@ -124,11 +124,11 @@
 	if( [loc imageLoaded] && [loc hasImage]) {
 		UIImage *img = [loc getImage];
 		
-		int breite = 60*(img.size.width/img.size.height);
+		int breite = 50*(img.size.width/img.size.height);
 		
 		int diff = 150 - breite;
 		
-		CGRect imageframe = CGRectMake(160 + diff,10,breite,60);	
+		CGRect imageframe = CGRectMake(160 + diff,10,breite,50);	
 		UIImageView *imageview = [[UIImageView alloc] initWithFrame:imageframe];
 		imageview.image = [loc getImage];
 		[cell.contentView addSubview:imageview];
