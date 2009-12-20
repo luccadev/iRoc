@@ -349,9 +349,13 @@
 				[_data appendBytes:(const void *)buf length:len];
         
 				bytesread += imax;
-				//NSLog(@"readsize: %d len: %d btr: %d", readsize, len, bytesread);
+        if(debug)
+				  NSLog(@"readsize: %d len: %d btr: %d", readsize, len, bytesread);
         
-				if( len < 1024 || readsize == bytesread) {
+				if( bytesread >= readsize ) {
+          if(bytesread > readsize) {
+            NSLog(@"**Read too much! readsize=%d bytesread=%d", readsize, bytesread);
+          }
 					
 					/*
            NSLog(@"###################################################################");
