@@ -341,6 +341,9 @@
 				int imax = 1024;
 				if( readsize < imax )
 					imax = readsize;
+        
+        if( readsize - bytesread < imax )
+          imax = readsize - bytesread;
 				
 				len = [(NSInputStream *)stream read:buf maxLength:imax];
 				[_data appendBytes:(const void *)buf length:len];
