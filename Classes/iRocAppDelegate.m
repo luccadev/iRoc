@@ -139,6 +139,8 @@
 	//NSLog(@"Reload Data in Loc View");
   NSIndexPath* indexPath = [NSIndexPath indexPathForRow:[row intValue] inSection:0];
   [lcTableView.tableView reloadRowsAtIndexPaths:[NSArray	arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+  
+  [viewController.locProps imageLoaded];
 }
 
 - (void)rtListLoaded {
@@ -185,6 +187,14 @@
 	
 	// The new one:
 	[viewController.locProps setLoc:loc];
+}
+
+- (Loc*)getLoc:(NSString *)lcid {
+	NSLog(@"getLoc for: %@ 0x%08X 0x%08X", lcid, lcList, lcIndexList);
+  if( lcid != NULL )
+	  return [self.lcList objectAtIndex:[lcIndexList indexOfObject:lcid]];
+  else
+    return nil;
 }
 
 - (void)askForAllLocPics {

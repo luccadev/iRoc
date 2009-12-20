@@ -17,10 +17,13 @@
 	UILabel *idLabel;
 	UILabel *descLabel;
 	UIImageView *imageview;
+	id delegate;
 }
 
 @property(nonatomic,retain) UILabel *idLabel;
+@property (nonatomic, retain) id delegate; 
 
 - (void)setLoc:(Loc*)loci;
+- (void)imageLoaded;
 
 @end

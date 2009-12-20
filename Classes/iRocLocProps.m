@@ -7,9 +7,10 @@
 //
 
 #import "iRocLocProps.h"
+#import "iRocAppDelegate.h"
 
 @implementation iRocLocProps
-@synthesize idLabel;
+@synthesize idLabel, delegate;
 
 
 void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
@@ -107,26 +108,41 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
 	
 	
 	
-	if( imageview != NULL )
+	if( imageview != NULL ) {
+    NSLog(@"remove previous image");
 		[imageview removeFromSuperview];
+  }
 	
-	
-	if( [loc hasImage] ) {
-		UIImage *img = [loc getImage];
-		
-		int breite = 51*(img.size.width/img.size.height);
-		int diff = 150 - breite;
-		CGRect imageframe = CGRectMake(120 + diff,10 ,breite,51);	
-
-		imageview = [[UIImageView alloc] initWithFrame:imageframe];
-		imageview.image = img;
-		
-		[self addSubview:imageview];
-		
-		//[imageview release];
-	}
-	
+	[self imageLoaded];
+  
 }
+
+
+- (void)imageLoaded {
+  Loc* lc = loc;
+  if( lc == nil ) {
+    NSLog(@"imageLoaded: loco=%@...", idLabel.text);
+    lc = [delegate getLoc:idLabel.text];
+  }
+  
+	NSLog(@"imageLoaded: loco=%@(%@) hasImage=%d imageLoaded=%d...", [lc locid], idLabel.text, [lc hasImage], [lc imageLoaded]);
+  if( [lc hasImage] && [lc imageLoaded] ) {
+    NSLog(@"loaded image...");
+    UIImage *img = [lc getImage];
+    
+    int breite = 51*(img.size.width/img.size.height);
+    int diff = 150 - breite;
+    CGRect imageframe = CGRectMake(120 + diff,10 ,breite,51);	
+    
+    imageview = [[UIImageView alloc] initWithFrame:imageframe];
+    imageview.image = img;
+    
+    [self addSubview:imageview];
+    
+    //[imageview release];
+  }
+}
+
 
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

@@ -16,6 +16,7 @@
 #import "iRocMenuTableView.h"
 #import "IRocConnector.h"
 #import "iRocAboutView.h"
+#import "iRocLocProps.h"
 
 
 @class iRocViewController;
@@ -33,7 +34,7 @@
 	IBOutlet iRocMenuTableView *menuTableView;
 
 	iRocAboutView IBOutlet *aboutView;
-	
+  
 	NSMutableArray *lcList;	
 	NSMutableArray *lcIndexList;	
 	
@@ -73,6 +74,7 @@
 
 - (void)lcListLoaded;
 - (void)lcListReloadRow:(NSNumber*)row;
+- (Loc*)getLoc:(NSString *)lcid;
 
 
 @end
