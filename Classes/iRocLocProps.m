@@ -111,6 +111,7 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
 	if( imageview != NULL ) {
     NSLog(@"remove previous image");
 		[imageview removeFromSuperview];
+    imageview = nil;
   }
 	
 	[self imageLoaded];
@@ -119,6 +120,9 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
 
 
 - (void)imageLoaded {
+  if( imageview != nil )
+    return;
+  
   Loc* lc = loc;
   if( lc == nil ) {
     NSLog(@"imageLoaded: loco=%@...", idLabel.text);
