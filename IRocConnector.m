@@ -241,7 +241,7 @@
         
         @synchronized(self) {
         NSLog(@"streamStatus=%d", [(NSInputStream *)stream streamStatus]);
-				while ( len > 0 && ![header hasSuffix:@"</xmlh>"] ){
+				while ( len >= 0 && ![header hasSuffix:@"</xmlh>"] ){
 					len = [(NSInputStream *)stream read:buf maxLength:1];
           //NSLog(@"len=%d", len);
           
@@ -348,9 +348,9 @@
 				len = [(NSInputStream *)stream read:buf maxLength:imax];
 				[_data appendBytes:(const void *)buf length:len];
         
-				bytesread += imax;
+				bytesread += len;
         if(debug)
-				  NSLog(@"readsize: %d len: %d btr: %d", readsize, len, bytesread);
+				  NSLog(@"readsize: %d len: %d bytesread: %d", readsize, len, bytesread);
         
 				if( bytesread >= readsize ) {
           if(bytesread > readsize) {
@@ -440,6 +440,9 @@ static NSString * const kIdElementName = @"id";
 			[self.locList addObject:loc];
       loc.myrow = [self.locList count] - 1;
 		}
+    else {
+      NSLog(@"parser: skipping invisible loco");		
+    }
 	} else if ([elementName isEqualToString:@"sw"]) {
 		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
 		NSString *type = [attributeDict valueForKey:@"type"];
