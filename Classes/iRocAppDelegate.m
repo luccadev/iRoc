@@ -191,10 +191,12 @@
 
 - (Loc*)getLoc:(NSString *)lcid {
 	NSLog(@"getLoc for: %@ 0x%08X 0x%08X", lcid, lcList, lcIndexList);
-  if( lcid != NULL )
-	  return [self.lcList objectAtIndex:[lcIndexList indexOfObject:lcid]];
-  else
-    return nil;
+  if( lcid != NULL ) {
+    if( [lcIndexList indexOfObject:lcid] != NSNotFound ) {
+      return [self.lcList objectAtIndex:[lcIndexList indexOfObject:lcid]];
+    }
+  }
+  return nil;
 }
 
 - (void)askForAllLocPics {
