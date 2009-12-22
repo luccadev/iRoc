@@ -28,7 +28,7 @@
     [super viewDidLoad];
 		[self setTitle:@"Locomotives"];
 	
-	[self.tableView setRowHeight:80];
+	[self.tableView setRowHeight:70];
 }
 
 
