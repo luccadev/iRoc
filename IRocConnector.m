@@ -36,7 +36,7 @@
   debug = FALSE;
   pendingLocoPic = FALSE;
 	
-	NSLog([NSString stringWithFormat: @"Connect to: %@:%d ", domain, port]);	
+	NSLog(@"Connect to: %@:%d ", domain, port);	
 	
 	BOOL connectOK = FALSE;
   
@@ -68,8 +68,7 @@
           [iStream streamStatus] != NSStreamStatusOpen &&
           retry > 0) 
     {
-			NSLog([NSString stringWithFormat: @"Opening I:%d, O:%d retry=%d",
-             [iStream streamStatus],[oStream streamStatus], retry]);
+			NSLog(@"Opening I:%d, O:%d retry=%d", [iStream streamStatus],[oStream streamStatus], retry);
       retry--;
       [NSThread sleepForTimeInterval:1];
 		}
@@ -166,7 +165,8 @@
 	stringToSend = [NSString stringWithFormat: @"<xmlh><xml size=\"%d\" name=\"%@\"/></xmlh>%@", [tmp length], name, msg];
 	stringToSend = [stringToSend stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	
-	NSLog([NSString stringWithFormat: @"%@"], stringToSend);		
+  if( debug )
+	  NSLog(@"sending:\n%@", stringToSend);		
 	
 	NSData * dataToSend = [stringToSend dataUsingEncoding:NSUTF8StringEncoding];
 	
@@ -215,6 +215,45 @@
 	  NSLog(@"stream:handleEvent: is invoked with event=%d...", eventCode);
 	
   switch(eventCode) {
+  
+  
+    case NSStreamEventHasSpaceAvailable:
+    {
+      NSLog(@"stream has space open");
+      // TODO:
+      // COMPOSE DATA TO SEND
+      // SEND DATA         
+      break ;
+    }
+            
+    case NSStreamEventEndEncountered:
+    {
+      NSLog(@"stream ended; will be closed") ;
+      // MAKE SURE TO CLOSE STREAMS
+      [self stop];
+      break;
+    }
+
+    case NSStreamEventErrorOccurred:
+    {
+      // THIS IS WHERE YOU CATCH THE ERRORS
+      NSError *theError = [stream streamError];
+            
+      // MAKE SURE TO CLOSE STREAMS
+      // ALSO HERE, I SEND THE ERROR MESSAGE
+      // THIS WILL TRIGGER WHEN BAD IP/PORT IS ENTERED
+      [self stop];
+      break ;
+    } 
+                       
+    case NSStreamEventNone:
+      NSLog(@"stream null event") ;
+      break ;
+            
+    case NSStreamEventOpenCompleted:
+      NSLog(@"stream is now open") ;
+      break ;
+
     case NSStreamEventHasBytesAvailable:
     {
        
