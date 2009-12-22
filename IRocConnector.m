@@ -113,7 +113,8 @@
   NSLog(@"nextLocpic: pending=%d fromSax=%d queue=%d", pendingLocoPic, fromSax, [messageQueue count]);
   
   if( (!pendingLocoPic||fromSax) && [messageQueue count] > 0 ) {
-    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+
     pendingLocoPic = TRUE;
     NSString* msg = [messageQueue objectAtIndex:0];
     if( msg != nil ) {
@@ -132,6 +133,9 @@
   	NSLog(@"sorry, pending...");
   }
   
+  if( [messageQueue count] == 0 ) {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+  }
   
 }
 
@@ -237,7 +241,7 @@
     case NSStreamEventErrorOccurred:
     {
       // THIS IS WHERE YOU CATCH THE ERRORS
-      NSError *theError = [stream streamError];
+      // NSError *theError = [stream streamError];
             
       // MAKE SURE TO CLOSE STREAMS
       // ALSO HERE, I SEND THE ERROR MESSAGE
@@ -581,7 +585,6 @@ static NSString * const kIdElementName = @"id";
 	} else if ([elementName isEqualToString:@"datareq"]) {
 		// inform the delegate
 		NSLog(@"end datareq");
-  
 	} else if ([elementName isEqualToString:@"clock"]) {
 		// inform the delegate
 		NSLog(@"Clock tick.");
