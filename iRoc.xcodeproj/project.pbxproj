@@ -157,6 +157,7 @@
 		9CDB1D5910B57C11001442F1 /* donedown.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CDB1D5710B57C11001442F1 /* donedown.png */; };
 		9CDB1D5A10B57C11001442F1 /* doneup.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CDB1D5810B57C11001442F1 /* doneup.png */; };
 		9CDDE84610E25BAB00920C87 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CDDE84510E25BAB00920C87 /* Default.png */; };
+		9CDDE86910E2623C00920C87 /* rocrail-logo-35.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CDDE86810E2623C00920C87 /* rocrail-logo-35.png */; };
 		9CE17DD910CE857B00170A98 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE17DD810CE857B00170A98 /* Route.m */; };
 		9CFDBF6610BD081600E9E9DE /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CFDBF6510BD081600E9E9DE /* Entitlements.plist */; };
 /* End PBXBuildFile section */
@@ -333,6 +334,7 @@
 		9CDB1D5710B57C11001442F1 /* donedown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = donedown.png; sourceTree = "<group>"; };
 		9CDB1D5810B57C11001442F1 /* doneup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doneup.png; sourceTree = "<group>"; };
 		9CDDE84510E25BAB00920C87 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		9CDDE86810E2623C00920C87 /* rocrail-logo-35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rocrail-logo-35.png"; sourceTree = "<group>"; };
 		9CE17DD710CE857B00170A98 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
 		9CE17DD810CE857B00170A98 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
 		9CFDBF6510BD081600E9E9DE /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9CDDE86810E2623C00920C87 /* rocrail-logo-35.png */,
 				9CAFD95610B97B700029C16F /* Icon.png */,
 				9CBF10F610CFF14100FF29DA /* Symbols */,
 				9C6FC8AE10B7CF05009FD6FE /* tap.aif */,
@@ -753,6 +756,7 @@
 				9CBF12C310CFF15900FF29DA /* turnout-rt-4.png in Resources */,
 				9C39142510D00BE400F9C42D /* iRocCoTableView.xib in Resources */,
 				9CDDE84610E25BAB00920C87 /* Default.png in Resources */,
+				9CDDE86910E2623C00920C87 /* rocrail-logo-35.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
