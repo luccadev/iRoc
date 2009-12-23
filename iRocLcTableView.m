@@ -107,12 +107,12 @@
 	UILabel *locidLabel = [[[UILabel alloc] initWithFrame:celltextRect] autorelease];
 	locidLabel.font = [UIFont boldSystemFontOfSize:cellfontsize];
 	locidLabel.textColor = celltextcolor;
-	locidLabel.backgroundColor = cellbackcolor;
+	locidLabel.backgroundColor = [UIColor clearColor];
 	
 	UILabel *descLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 25, 100, 20)] autorelease];
 	descLabel.font = [UIFont boldSystemFontOfSize:12];
 	descLabel.textColor = celltextcolor;
-	descLabel.backgroundColor = cellbackcolor;
+	descLabel.backgroundColor = [UIColor clearColor];
     
 	[cell.contentView addSubview:descLabel];
 	[cell.contentView addSubview:locidLabel];
@@ -143,6 +143,7 @@
     UIImageView *imageview = [[UIImageView alloc] initWithFrame:imageframe];
     imageview.image = [loc getImage];
     [cell.contentView addSubview:imageview];
+    [cell.contentView bringSubviewToFront:imageview];
     [imageview release];
   } else if( [loc hasImage] && ![loc imageAlreadyRequested]){
     loc.imageAlreadyRequested=TRUE;
