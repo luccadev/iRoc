@@ -138,7 +138,9 @@
 - (void)lcListReloadRow:(NSNumber*)row {
 	//NSLog(@"Reload Data in Loc View");
   NSIndexPath* indexPath = [NSIndexPath indexPathForRow:[row intValue] inSection:0];
-  [lcTableView.tableView reloadRowsAtIndexPaths:[NSArray	arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+  [lcTableView addCellImage:indexPath];
+  
+  //[lcTableView.tableView reloadRowsAtIndexPaths:[NSArray	arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
   
   [viewController.locProps imageLoaded];
 }

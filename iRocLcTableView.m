@@ -120,27 +120,36 @@
 	locidLabel.text = loc.locid;
 	descLabel.text = loc.desc;
 	
-	
-	if( [loc imageLoaded] && [loc hasImage]) {
-		UIImage *img = [loc getImage];
-		
-		int breite = 50*(img.size.width/img.size.height);
-		
-		int diff = 150 - breite;
-		
-		CGRect imageframe = CGRectMake(160 + diff,10,breite,50);	
-		UIImageView *imageview = [[UIImageView alloc] initWithFrame:imageframe];
-		imageview.image = [loc getImage];
-		[cell.contentView addSubview:imageview];
-		[imageview release];
-	} else if( [loc hasImage] && ![loc imageAlreadyRequested]){
-    loc.imageAlreadyRequested=TRUE;
-		//[_delegate askForLocpic:loc.locid withFilename:loc.imgname];
-	}
+	[self addCellImage:indexPath];
 	
 	
-    return cell;
+  return cell;
 }
+
+- (void)addCellImage:(NSIndexPath *)indexPath{
+	Loc *loc = [lcList objectAtIndex:indexPath.row];
+	//NSString *CellIdentifier = [NSString stringWithFormat:@"Cell_%@",loc.locid];
+  //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+
+  if( [loc imageLoaded] && [loc hasImage]) {
+    UIImage *img = [loc getImage];
+    
+    int breite = 50*(img.size.width/img.size.height);
+    
+    int diff = 150 - breite;
+    
+    CGRect imageframe = CGRectMake(160 + diff,10,breite,50);	
+    UIImageView *imageview = [[UIImageView alloc] initWithFrame:imageframe];
+    imageview.image = [loc getImage];
+    [cell.contentView addSubview:imageview];
+    [imageview release];
+  } else if( [loc hasImage] && ![loc imageAlreadyRequested]){
+    loc.imageAlreadyRequested=TRUE;
+    //[_delegate askForLocpic:loc.locid withFilename:loc.imgname];
+  }
+}
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[_delegate lcAction:((Loc*) [lcList objectAtIndex:indexPath.row]).locid];

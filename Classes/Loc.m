@@ -57,7 +57,8 @@
   
   if ( myrow != -1 ) {
     NSNumber* number = [NSNumber numberWithInt:myrow];
-    [_delegate performSelectorOnMainThread : @ selector(lcListReloadRow: ) withObject:number waitUntilDone:YES];
+    NSLog(@"update image in list for loc[%d]: %@ loaded ...", myrow, self.locid);
+    [_delegate performSelectorOnMainThread : @ selector(lcListReloadRow: ) withObject:number waitUntilDone:NO];
   } 
   
   

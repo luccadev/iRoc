@@ -550,28 +550,28 @@ static NSString * const kIdElementName = @"id";
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(lcListLoaded)] ) {
 			//[_delegate lcListLoaded];
-      [_delegate performSelectorOnMainThread : @ selector(lcListLoaded ) withObject:nil waitUntilDone:YES];
+      [_delegate performSelectorOnMainThread : @ selector(lcListLoaded ) withObject:nil waitUntilDone:NO];
 		} 
 		NSLog(@"%d locs added ... ", [locList count]);
 	} else if ([elementName isEqualToString:@"stlist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(rtListLoaded)] ) {
 			//[_delegate rtListLoaded];
-      [_delegate performSelectorOnMainThread : @ selector(rtListLoaded ) withObject:nil waitUntilDone:YES];
+      [_delegate performSelectorOnMainThread : @ selector(rtListLoaded ) withObject:nil waitUntilDone:NO];
 		} 
 		NSLog(@"%d rts added ... ", [rtList count]);
 	} else if ([elementName isEqualToString:@"swlist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(swListLoaded)] ) {
 			//[_delegate swListLoaded];
-      [_delegate performSelectorOnMainThread : @ selector(swListLoaded ) withObject:nil waitUntilDone:YES];
+      [_delegate performSelectorOnMainThread : @ selector(swListLoaded ) withObject:nil waitUntilDone:NO];
 		} 
 		NSLog(@"%d sws added ... ", [swList count]);
 	} else if ([elementName isEqualToString:@"colist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(coListLoaded)] ) {
 			//[_delegate coListLoaded];
-      [_delegate performSelectorOnMainThread : @ selector(coListLoaded ) withObject:nil waitUntilDone:YES];
+      [_delegate performSelectorOnMainThread : @ selector(coListLoaded ) withObject:nil waitUntilDone:NO];
 		} 
 		NSLog(@"%d cos added ... ", [coList count]);
 	} else if ([elementName isEqualToString:@"plan"]) {
@@ -582,7 +582,8 @@ static NSString * const kIdElementName = @"id";
 		// TEST
     
 		if ( [_delegate respondsToSelector:@selector(askForAllLocPics)] ) {
-			[_delegate askForAllLocPics];
+			//[_delegate askForAllLocPics];
+      [_delegate performSelectorOnMainThread : @ selector(askForAllLocPics) withObject:nil waitUntilDone:NO];
 		} 
     
 

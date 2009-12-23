@@ -19,6 +19,7 @@
 
 - (id)delegate;
 - (void)setDelegate:(id)new_delegate;
+- (void)addCellImage:(NSIndexPath *)indexPath;
 
 @property (nonatomic, retain) NSArray *lcList;
 @property (nonatomic, retain) NSString *menuname;
