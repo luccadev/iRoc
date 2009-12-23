@@ -549,25 +549,29 @@ static NSString * const kIdElementName = @"id";
 	if ([elementName isEqualToString:@"lclist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(lcListLoaded)] ) {
-			[_delegate lcListLoaded];
+			//[_delegate lcListLoaded];
+      [_delegate performSelectorOnMainThread : @ selector(lcListLoaded ) withObject:nil waitUntilDone:YES];
 		} 
 		NSLog(@"%d locs added ... ", [locList count]);
 	} else if ([elementName isEqualToString:@"stlist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(rtListLoaded)] ) {
-			[_delegate rtListLoaded];
+			//[_delegate rtListLoaded];
+      [_delegate performSelectorOnMainThread : @ selector(rtListLoaded ) withObject:nil waitUntilDone:YES];
 		} 
 		NSLog(@"%d rts added ... ", [rtList count]);
 	} else if ([elementName isEqualToString:@"swlist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(swListLoaded)] ) {
-			[_delegate swListLoaded];
+			//[_delegate swListLoaded];
+      [_delegate performSelectorOnMainThread : @ selector(swListLoaded ) withObject:nil waitUntilDone:YES];
 		} 
 		NSLog(@"%d sws added ... ", [swList count]);
 	} else if ([elementName isEqualToString:@"colist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(coListLoaded)] ) {
-			[_delegate coListLoaded];
+			//[_delegate coListLoaded];
+      [_delegate performSelectorOnMainThread : @ selector(coListLoaded ) withObject:nil waitUntilDone:YES];
 		} 
 		NSLog(@"%d cos added ... ", [coList count]);
 	} else if ([elementName isEqualToString:@"plan"]) {
