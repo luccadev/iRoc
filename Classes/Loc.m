@@ -12,7 +12,7 @@
 
 @implementation Loc
 
-@synthesize locid, imgname, lcimage, hasImage, imageLoaded, desc, imageAlreadyRequested, myrow, roadname;
+@synthesize locid, imgname, lcimage, hasImage, imageLoaded, desc, imageAlreadyRequested, myrow, roadname, cell;
 
 - (id) init {
 	[super init];	
@@ -20,6 +20,7 @@
 	hasImage = NO;	
   imageAlreadyRequested = FALSE;
   myrow = -1;
+  cell = nil;
 	return self;
 }
 
@@ -58,7 +59,10 @@
   if ( myrow != -1 ) {
     NSNumber* number = [NSNumber numberWithInt:myrow];
     NSLog(@"update image in list for loc[%d]: %@ loaded ...", myrow, self.locid);
-    [_delegate performSelectorOnMainThread : @ selector(lcListReloadRow: ) withObject:number waitUntilDone:YES];
+    if( cell != nil )
+      [_delegate performSelectorOnMainThread : @ selector(lcListUpdateCell: ) withObject:self waitUntilDone:YES];
+    else  
+      [_delegate performSelectorOnMainThread : @ selector(lcListReloadRow: ) withObject:number waitUntilDone:YES];
   } 
   
   

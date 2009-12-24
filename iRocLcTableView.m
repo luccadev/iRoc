@@ -101,6 +101,8 @@
     if (cell == nil) {
 	cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
+  
+  loc.cell = cell;
 	
 	cell.selectionStyle = UITableViewCellSelectionStyleGray;
 	
@@ -139,6 +141,10 @@
   //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
   UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
 
+  [self addCellLocoImage:loc];
+}
+
+- (void)addCellLocoImage:(Loc *)loc {
   if( [loc imageLoaded] && [loc hasImage]) {
     UIImage *img = [loc getImage];
     
@@ -149,14 +155,15 @@
     CGRect imageframe = CGRectMake(160 + diff,10,breite,50);	
     UIImageView *imageview = [[UIImageView alloc] initWithFrame:imageframe];
     imageview.image = [loc getImage];
-    [cell.contentView addSubview:imageview];
-    [cell.contentView bringSubviewToFront:imageview];
+    [loc.cell.contentView addSubview:imageview];
+    [loc.cell.contentView bringSubviewToFront:imageview];
     [imageview release];
   } else if( [loc hasImage] && ![loc imageAlreadyRequested]){
     loc.imageAlreadyRequested=TRUE;
     //[_delegate askForLocpic:loc.locid withFilename:loc.imgname];
   }
 }
+
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

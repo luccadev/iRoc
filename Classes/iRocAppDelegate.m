@@ -147,6 +147,15 @@
   [viewController.locProps imageLoaded];
 }
 
+- (void)lcListUpdateCell:(Loc *)loc {
+	//NSLog(@"Reload Data in Loc View");
+  [lcTableView addCellLocoImage:loc];
+  
+  //[lcTableView.tableView reloadRowsAtIndexPaths:[NSArray	arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+  
+  [viewController.locProps imageLoaded];
+}
+
 - (void)rtListLoaded {
 	//NSLog(@"Reload Data in Route View");
 	[rtTableView.tableView reloadData];

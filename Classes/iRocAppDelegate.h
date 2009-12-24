@@ -81,6 +81,7 @@
 
 - (void)lcListLoaded;
 - (void)lcListReloadRow:(NSNumber*)row;
+- (void)lcListUpdateCell:(Loc *)loc;
 - (Loc*)getLoc:(NSString *)lcid;
 
 

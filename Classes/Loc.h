@@ -19,6 +19,7 @@
 	
 	
 	UIImage *lcimage;
+  UITableViewCell *cell;
 	
 	BOOL hasImage;
 	BOOL imageLoaded;
@@ -35,6 +36,7 @@
 @property (nonatomic, retain) NSString *desc;
 @property (nonatomic, retain) NSString *roadname;
 @property (nonatomic, retain) UIImage *lcimage;
+@property (nonatomic, retain) UITableViewCell *cell;
 @property BOOL hasImage;
 @property BOOL imageLoaded;
 @property BOOL imageAlreadyRequested;
