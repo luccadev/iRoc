@@ -13,36 +13,49 @@
 
 - (id) init {
 	[super init];	
-	objectList = [[NSMutableArray array] retain];
-	objectIndexList = [[NSMutableArray array] retain];
+	//objectList = [[NSMutableArray array] retain];
+	//objectIndexList = [[NSMutableArray array] retain];
+	theData = [[NSMutableDictionary dictionaryWithCapacity:100] retain];
 	NSLog(@"Container Init ...");
+	
 	return self;
 }
 
 - (void)dealloc {
-	[objectList release];
-	[objectIndexList release];
+	//[objectList release];
+	//[objectIndexList release];
+	[theData release];
     [super dealloc];
 }
 
 - (void) addObject:(NSObject *)object withId:(NSString *)oid {
-	[objectList addObject:object];
-	[objectIndexList addObject:oid];
+	//[objectList addObject:object];
+	//[objectIndexList addObject:oid];
+	[theData setValue:object forKey:oid];
 }
 
 - (NSObject*) objectWithId:(NSString*) oid {
+	
+	return [theData objectForKey:oid];
+	
+	/*
 	if( [objectIndexList indexOfObject:oid] <= [objectList count] && [objectIndexList indexOfObject:oid] < -1)
 		return [objectList objectAtIndex:[objectIndexList indexOfObject:oid]];
 	else
 		return NULL;
+	 */
 }
+
 
 - (NSObject*) objectAtIndex:(int) index {
-	return [objectList objectAtIndex:index];
+	NSArray *keys = [theData allKeys];
+	id aKey = [keys objectAtIndex:index];
+	return [theData objectForKey:aKey];
 }
 
+
 - (int) count {
-	return [objectList count];
+	return [theData count];
 }
 
 @end

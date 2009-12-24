@@ -10,8 +10,9 @@
 
 
 @interface Container : NSObject {
-	NSMutableArray *objectList;
-	NSMutableArray *objectIndexList;
+	//NSMutableArray *objectList;
+	//NSMutableArray *objectIndexList;
+	NSMutableDictionary *theData;
 }
 
 - (void) addObject:(NSObject*)object withId:(NSString*)oid;
