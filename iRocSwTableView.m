@@ -107,9 +107,7 @@
 	//rtidLabel.text = [NSString stringWithFormat:@"%@ %@", sw.swid, sw.state];
  
 	UIImage *image = [UIImage imageNamed:[sw getImgName]];
-	
-	
-	
+
 	CGRect imageframe = CGRectMake(270,15,20,20);	
 	UIImageView *imageview = [[UIImageView alloc] initWithFrame:imageframe];
 	imageview.image = image; 

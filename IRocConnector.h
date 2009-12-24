@@ -62,10 +62,11 @@
 	NSMutableArray *rtList;
 	//NSMutableArray *swList;
 	//NSMutableArray *swIndexList;
-	NSMutableArray *coList;
+	//NSMutableArray *coList;
 	
 	Container *swContainer;
 	Container *lcContainer;
+	Container *coContainer;
 	
 	id _delegate;
 }
@@ -101,7 +102,7 @@
 @property(nonatomic, retain) NSMutableArray *rtList;
 //@property(nonatomic, retain) NSMutableArray *swList;
 //@property(nonatomic, retain) NSMutableArray *swIndexList;
-@property(nonatomic, retain) NSMutableArray *coList;
+@property(nonatomic, retain) Container *coContainer;
 
 @property(nonatomic, retain) Container *swContainer;
 @property(nonatomic, retain) Container *lcContainer;

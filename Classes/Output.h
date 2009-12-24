@@ -11,8 +11,12 @@
 
 @interface Output : NSObject {
 	NSString *coid;
+	NSString *state;
 }
 
 @property (nonatomic, retain) NSString *coid;
+@property (nonatomic, retain) NSString *state;
+
+- (NSString*) getImgName;
 
 @end

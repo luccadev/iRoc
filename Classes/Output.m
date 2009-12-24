@@ -10,10 +10,22 @@
 
 
 @implementation Output
-@synthesize coid;
+@synthesize coid, state;
 
 - (void)dealloc {
     [coid release];
     [super dealloc];
 }
+
+- (NSString*) getImgName {
+	NSString *imgname = @"on.png";
+	
+	if( [self.state isEqual:@"on"])
+		imgname = @"on.png";
+	else 
+		imgname = @"off.png";
+		
+	return imgname;
+}
+
 @end

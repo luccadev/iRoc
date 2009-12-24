@@ -10,7 +10,7 @@
 
 
 @implementation iRocCoTableView
-@synthesize coList, menuname;
+@synthesize coContainer, menuname;
 
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -79,7 +79,7 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return [coList count];
+	return [coContainer count];
 }
 
 
@@ -101,18 +101,25 @@
 	idLabel.backgroundColor = cellbackcolor;
 	[cell.contentView addSubview:idLabel];
 	
-	Output *co = [coList objectAtIndex:indexPath.row];
+	Output *co = (Output*)[coContainer objectAtIndex:indexPath.row];
 	
-	NSLog(@"COID: %@", co.coid);
+	//NSLog(@"COID: %@", co.coid);
 	
     idLabel.text = co.coid;
+	
+	UIImage *image = [UIImage imageNamed:[co getImgName]];
+
+	CGRect imageframe = CGRectMake(280,10,20,20);	
+	UIImageView *imageview = [[UIImageView alloc] initWithFrame:imageframe];
+	imageview.image = image; 
+	[cell.contentView addSubview:imageview];  
 	
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	[_delegate coAction:((Output*) [coList objectAtIndex:indexPath.row]).coid];
+	[_delegate coAction:((Output*) [coContainer objectAtIndex:indexPath.row]).coid];
 }
 
 

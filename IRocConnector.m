@@ -11,7 +11,7 @@
 
 @implementation IRocConnector
 
-@synthesize header, rocdata, isConnected, readyConnecting, currentLocObject, rtList, coList;
+@synthesize header, rocdata, isConnected, readyConnecting, currentLocObject, rtList, coContainer;
 @synthesize swContainer, lcContainer;
 
 - (id) init {
@@ -509,11 +509,7 @@ static NSString * const kIdElementName = @"id";
     }
     else {
 	  NSString *state = [attributeDict valueForKey:@"state"];
-		
-	  //Switch *sw = [self.swList objectAtIndex:[self.swIndexList indexOfObject:idAttribute]];	
-	  
-	  Switch *sw = (Switch*) [self.swContainer objectWithId:idAttribute];
-		
+	  Switch *sw = (Switch*) [self.swContainer objectWithId:idAttribute];		
 	  [sw setState:state];
 		
 	  if ( [_delegate respondsToSelector:@selector(swListLoaded)] ) {
@@ -535,15 +531,23 @@ static NSString * const kIdElementName = @"id";
     }
 		
 	} else if ([elementName isEqualToString:@"co"]) {
-		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];		
+		NSString *idAttribute = [attributeDict valueForKey:kIdElementName];		
     if( parsingPlan ) {
       //NSLog(@"parser: co: %@", [attributeDict valueForKey:kIdElementName]);
       Output *co = [[[Output alloc] init] retain];
-      co.coid = relAttribute;
-      [self.coList addObject:co];
-    }
-    else {
-      NSLog(@"output event");		
+      co.coid = idAttribute;
+	  co.state = [attributeDict valueForKey:@"state"];
+	  NSLog(@"Output State: %@", co.state);
+	  [self.coContainer addObject:co withId:idAttribute];
+    } else {
+			NSString *state = [attributeDict valueForKey:@"state"];
+			Output *co = (Output*) [self.coContainer objectWithId:idAttribute];
+			[co setState:state];
+			if ( [_delegate respondsToSelector:@selector(coListLoaded)] ) {
+				[_delegate performSelectorOnMainThread : @ selector(coListLoaded ) withObject:nil waitUntilDone:NO];
+			} 
+		
+		NSLog(@"Output [%@] event state=%@", co.coid, state);	
     }
     
 	} else if ([elementName isEqualToString:@"datareq"]) {
@@ -601,7 +605,7 @@ static NSString * const kIdElementName = @"id";
 			//[_delegate coListLoaded];
       [_delegate performSelectorOnMainThread : @ selector(coListLoaded ) withObject:nil waitUntilDone:NO];
 		} 
-		NSLog(@"%d cos added ... ", [coList count]);
+		NSLog(@"%d cos added ... ", [coContainer count]);
 	} else if ([elementName isEqualToString:@"plan"]) {
 		// inform the delegate
     NSLog(@"Plan is processed.");

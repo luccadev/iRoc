@@ -17,7 +17,7 @@
 @synthesize viewController;
 @synthesize lcTableView, rtTableView, swTableView, coTableView, menuTableView;
 
-@synthesize rtList, coList, rrconnection, menuItems, aboutView, swContainer, lcContainer;
+@synthesize rtList, coContainer, rrconnection, menuItems, aboutView, swContainer, lcContainer;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
   NSLog(@"applicationDidFinishLaunching");
@@ -45,8 +45,9 @@
 	
 	swContainer = [[[Container alloc] init] retain];
 	lcContainer = [[[Container alloc] init] retain];
+	coContainer = [[[Container alloc] init] retain];
 	
-	coList = [[NSMutableArray array] retain];
+	//coList = [[NSMutableArray array] retain];
 	menuItems = [[NSMutableArray array] retain];
 	
 
@@ -69,7 +70,7 @@
 	[rtTableView setMenuname:@"Routes"];
 	
 	coTableView = [[iRocCoTableView alloc] initWithNibName:@"iRocCoTableView" bundle:nil];
-	[coTableView setCoList:self.coList];
+	[coTableView setCoContainer:self.coContainer];
 	[coTableView setDelegate:self];
 	[coTableView setMenuname:@"Outputs"];
 	
@@ -92,7 +93,7 @@
 	//[rrconnection setSwList:self.swList];
 	[rrconnection setSwContainer:swContainer];
 	//[rrconnection setSwIndexList:self.swIndexList];
-	[rrconnection setCoList:self.coList];
+	[rrconnection setCoContainer:self.coContainer];
 	viewController.textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
 	
 	// Connect Thread
@@ -181,6 +182,7 @@
 
 - (void)coAction:(NSString *)coid {	
 	NSLog(@"coAction: %@", coid);
+	// TODO: we need a flip command in rocrail ...
 	[rrconnection sendMessage:@"co" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<co id=\"%@\" cmd=\"on\"/>", coid]]];
 }
 
