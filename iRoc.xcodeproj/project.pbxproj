@@ -25,6 +25,8 @@
 		9C39142510D00BE400F9C42D /* iRocCoTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C39142310D00BE400F9C42D /* iRocCoTableView.xib */; };
 		9C4A066A10E366CB00E54D74 /* rocrail-logo-noshade-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4A066910E366CB00E54D74 /* rocrail-logo-noshade-black.png */; };
 		9C5B41ED10E37AA700355A5B /* Container.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5B41EC10E37AA700355A5B /* Container.m */; };
+		9C5B440D10E3AE9E00355A5B /* off.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C5B440B10E3AE9E00355A5B /* off.png */; };
+		9C5B440E10E3AE9E00355A5B /* on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C5B440C10E3AE9E00355A5B /* on.png */; };
 		9C5CF49C10D130720043D544 /* iRocTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5CF49B10D130720043D544 /* iRocTableView.m */; };
 		9C6FC84310B7CB0B009FD6FE /* tick.caf in Resources */ = {isa = PBXBuildFile; fileRef = 9C6FC84210B7CB0B009FD6FE /* tick.caf */; };
 		9C6FC89110B7CE8F009FD6FE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6FC89010B7CE8F009FD6FE /* AudioToolbox.framework */; };
@@ -194,6 +196,8 @@
 		9C4A066910E366CB00E54D74 /* rocrail-logo-noshade-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rocrail-logo-noshade-black.png"; sourceTree = "<group>"; };
 		9C5B41EB10E37AA700355A5B /* Container.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Container.h; sourceTree = "<group>"; };
 		9C5B41EC10E37AA700355A5B /* Container.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Container.m; sourceTree = "<group>"; };
+		9C5B440B10E3AE9E00355A5B /* off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = off.png; sourceTree = "<group>"; };
+		9C5B440C10E3AE9E00355A5B /* on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = on.png; sourceTree = "<group>"; };
 		9C5CF49A10D130720043D544 /* iRocTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocTableView.h; sourceTree = "<group>"; };
 		9C5CF49B10D130720043D544 /* iRocTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocTableView.m; sourceTree = "<group>"; };
 		9C6FC84210B7CB0B009FD6FE /* tick.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tick.caf; sourceTree = "<group>"; };
@@ -476,6 +480,8 @@
 		9CBF10F610CFF14100FF29DA /* Symbols */ = {
 			isa = PBXGroup;
 			children = (
+				9C5B440B10E3AE9E00355A5B /* off.png */,
+				9C5B440C10E3AE9E00355A5B /* on.png */,
 				9C39142310D00BE400F9C42D /* iRocCoTableView.xib */,
 				9CBF10F810CFF15900FF29DA /* 0.png */,
 				9CBF10FA10CFF15900FF29DA /* 0v.png */,
@@ -766,6 +772,8 @@
 				9CDDE84610E25BAB00920C87 /* Default.png in Resources */,
 				9CDDE86910E2623C00920C87 /* rocrail-logo-35.png in Resources */,
 				9C4A066A10E366CB00E54D74 /* rocrail-logo-noshade-black.png in Resources */,
+				9C5B440D10E3AE9E00355A5B /* off.png in Resources */,
+				9C5B440E10E3AE9E00355A5B /* on.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
