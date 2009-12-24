@@ -11,7 +11,7 @@
 
 @implementation IRocConnector
 
-@synthesize header, rocdata, isConnected, readyConnecting, currentLocObject, locList, locIndexList, rtList, swList, coList;
+@synthesize header, rocdata, isConnected, readyConnecting, currentLocObject, locList, locIndexList, rtList, swList, swIndexList, coList;
 //@synthesize locTableViewController;
 
 - (id) init {
@@ -496,18 +496,30 @@ static NSString * const kIdElementName = @"id";
       NSLog(@"loco event");		
     }
 	} else if ([elementName isEqualToString:@"sw"]) {
-    NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
+    NSString *idAttribute = [attributeDict valueForKey:kIdElementName];
     if( parsingPlan ) {
       NSString *type = [attributeDict valueForKey:@"type"];
+	  NSString *state = [attributeDict valueForKey:@"state"];
       //NSLog(@"parser: sw: %@", [attributeDict valueForKey:kIdElementName]);
       
       Switch *sw = [[[Switch alloc] init] retain];
-      sw.swid = relAttribute;
+      sw.swid = idAttribute;
       sw.type = type;
+	  sw.state = state;
+	  [self.swIndexList addObject:idAttribute];
       [self.swList addObject:sw];
     }
     else {
-      NSLog(@"switch event");		
+	  NSString *state = [attributeDict valueForKey:@"state"];
+		
+	  Switch *sw = [self.swList objectAtIndex:[self.swIndexList indexOfObject:idAttribute]];	
+	  [sw setState:state];
+		
+	  if ( [_delegate respondsToSelector:@selector(swListLoaded)] ) {
+			[_delegate performSelectorOnMainThread : @ selector(swListLoaded ) withObject:nil waitUntilDone:NO];
+	  } 
+		
+      NSLog(@"switch event state=%@", state);		
     }
     
 	} else if ([elementName isEqualToString:@"st"]) {

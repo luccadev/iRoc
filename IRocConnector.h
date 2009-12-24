@@ -59,6 +59,7 @@
     NSMutableArray *locIndexList;
 	NSMutableArray *rtList;
 	NSMutableArray *swList;
+	NSMutableArray *swIndexList;
 	NSMutableArray *coList;
 	
 	id _delegate;
@@ -94,6 +95,7 @@
 @property(nonatomic, retain) NSMutableArray *locIndexList;
 @property(nonatomic, retain) NSMutableArray *rtList;
 @property(nonatomic, retain) NSMutableArray *swList;
+@property(nonatomic, retain) NSMutableArray *swIndexList;
 @property(nonatomic, retain) NSMutableArray *coList;
 
 @property (nonatomic, retain) Loc *currentLocObject;

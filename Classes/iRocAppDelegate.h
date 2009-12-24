@@ -39,7 +39,10 @@
 	NSMutableArray *lcIndexList;	
 	
 	NSMutableArray *rtList;
+	
 	NSMutableArray *swList;
+	NSMutableArray *swIndexList;
+	
 	NSMutableArray *coList;
 	
 	NSMutableArray *menuItems;
@@ -65,7 +68,10 @@
 @property(nonatomic, retain) NSMutableArray *lcIndexList;
 
 @property(nonatomic, retain) NSMutableArray *rtList;
+
 @property(nonatomic, retain) NSMutableArray *swList;
+@property(nonatomic, retain) NSMutableArray *swIndexList;
+
 @property(nonatomic, retain) NSMutableArray *coList;
 
 @property(nonatomic, retain) NSMutableArray *menuItems;

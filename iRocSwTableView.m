@@ -104,9 +104,8 @@
 	
 	Switch *sw = [swList objectAtIndex:indexPath.row];
     rtidLabel.text = sw.swid;
-	
-
-
+	//rtidLabel.text = [NSString stringWithFormat:@"%@ %@", sw.swid, sw.state];
+ 
 	UIImage *image = [UIImage imageNamed:[sw getImgName]];
 	
 	

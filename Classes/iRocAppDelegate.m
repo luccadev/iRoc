@@ -15,7 +15,7 @@
 @synthesize window;
 @synthesize tabBarController;
 @synthesize viewController;
-@synthesize lcTableView, rtTableView, swTableView, coTableView, menuTableView, lcIndexList;
+@synthesize lcTableView, rtTableView, swTableView, coTableView, menuTableView, lcIndexList, swIndexList;
 
 @synthesize rtList, swList, coList, lcList, rrconnection, menuItems, aboutView;
 
@@ -42,7 +42,10 @@
 	lcIndexList = [[NSMutableArray array] retain];
 	
 	rtList = [[NSMutableArray array] retain];
+	
 	swList = [[NSMutableArray array] retain];
+	swIndexList = [[NSMutableArray array] retain];
+	
 	coList = [[NSMutableArray array] retain];
 	menuItems = [[NSMutableArray array] retain];
 	
@@ -84,6 +87,7 @@
 	[rrconnection setLocIndexList:self.lcIndexList];
 	[rrconnection setRtList:self.rtList];
 	[rrconnection setSwList:self.swList];
+	[rrconnection setSwIndexList:self.swIndexList];
 	[rrconnection setCoList:self.coList];
 	viewController.textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
 	

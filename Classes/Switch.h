@@ -12,10 +12,12 @@
 @interface Switch : NSObject {
 	NSString *swid;
 	NSString *type;
+	NSString *state;
  }
 
 @property (nonatomic, retain) NSString *swid;
 @property (nonatomic, retain) NSString *type;
+@property (nonatomic, retain) NSString *state;
 
 - (NSString*) getImgName;
 
