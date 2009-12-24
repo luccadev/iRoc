@@ -105,14 +105,9 @@
 	Switch *sw = [swList objectAtIndex:indexPath.row];
     rtidLabel.text = sw.swid;
 	
-	NSString *imgname = @"turnout-rs-1.png";
-	
-	if( [sw.type isEqual:@"right"])
-		imgname = @"turnout-rs-1.png";
-	else
-		imgname = @"turnout-ls-1.png";
 
-	UIImage *image = [UIImage imageNamed:imgname];
+
+	UIImage *image = [UIImage imageNamed:[sw getImgName]];
 	
 	
 	

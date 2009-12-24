@@ -17,4 +17,6 @@
 @property (nonatomic, retain) NSString *swid;
 @property (nonatomic, retain) NSString *type;
 
+- (NSString*) getImgName;
+
 @end

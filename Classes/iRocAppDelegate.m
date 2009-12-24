@@ -185,9 +185,7 @@
 	[self.tabBarController dismissModalViewControllerAnimated:YES];
 	
 	Loc *loc = [self.lcList objectAtIndex:[lcIndexList indexOfObject:lcid]];
-	
-	
-	
+
 	// The new one:
 	[viewController.locProps setLoc:loc];
 }
