@@ -15,9 +15,9 @@
 @synthesize window;
 @synthesize tabBarController;
 @synthesize viewController;
-@synthesize lcTableView, rtTableView, swTableView, coTableView, menuTableView, lcIndexList;
+@synthesize lcTableView, rtTableView, swTableView, coTableView, menuTableView;
 
-@synthesize rtList, coList, lcList, rrconnection, menuItems, aboutView, swContainer;
+@synthesize rtList, coList, rrconnection, menuItems, aboutView, swContainer, lcContainer;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
   NSLog(@"applicationDidFinishLaunching");
@@ -38,19 +38,20 @@
 	}
 	[window addSubview:tabBarController.view];	
 	
-	lcList = [[NSMutableArray array] retain];
-	lcIndexList = [[NSMutableArray array] retain];
+	//lcList = [[NSMutableArray array] retain];
+	//lcIndexList = [[NSMutableArray array] retain];
 	
 	rtList = [[NSMutableArray array] retain];
 	
 	swContainer = [[[Container alloc] init] retain];
+	lcContainer = [[[Container alloc] init] retain];
 	
 	coList = [[NSMutableArray array] retain];
 	menuItems = [[NSMutableArray array] retain];
 	
 
 	lcTableView = [[iRocLcTableView alloc] initWithNibName:@"iRocLcTableView" bundle:nil];
-	[lcTableView setLcList:self.lcList];
+	[lcTableView setLcContainer:self.lcContainer];
 	[lcTableView setDelegate:self];
 	[lcTableView setMenuname:@"Locomotives"];
 
@@ -85,8 +86,8 @@
 	[rrconnection setDomain:[defaults stringForKey:@"ip_preference"]];
 	[rrconnection setPort:[defaults integerForKey:@"port_preference"]];
 	[rrconnection setDelegate:self];
-	[rrconnection setLocList:self.lcList];
-	[rrconnection setLocIndexList:self.lcIndexList];
+	[rrconnection setLcContainer:self.lcContainer];
+	//[rrconnection setLocIndexList:self.lcIndexList];
 	[rrconnection setRtList:self.rtList];
 	//[rrconnection setSwList:self.swList];
 	[rrconnection setSwContainer:swContainer];
@@ -191,27 +192,26 @@
 	
 	[self.tabBarController dismissModalViewControllerAnimated:YES];
 	
-	Loc *loc = [self.lcList objectAtIndex:[lcIndexList indexOfObject:lcid]];
+	//Loc *loc = [self.lcList objectAtIndex:[lcIndexList indexOfObject:lcid]];
+	Loc *loc = (Loc*) [self.lcContainer objectWithId:lcid];
 
 	// The new one:
 	[viewController.locProps setLoc:loc];
 }
 
 - (Loc*)getLoc:(NSString *)lcid {
-	NSLog(@"getLoc for: %@ 0x%08X 0x%08X", lcid, lcList, lcIndexList);
+	NSLog(@"getLoc for: %@ 0x%08X", lcid, lcContainer);
   if( lcid != NULL ) {
-    if( [lcIndexList indexOfObject:lcid] != NSNotFound ) {
-      return [self.lcList objectAtIndex:[lcIndexList indexOfObject:lcid]];
-    }
+	  return (Loc*) [self.lcContainer objectWithId:lcid];
   }
   return nil;
 }
 
 - (void)askForAllLocPics {
 	int i;
-	for( i = 0; i< [lcList count]; i++){	
+	for( i = 0; i< [lcContainer count]; i++){	
 		Loc *loc;
-		loc = (Loc*)[lcList objectAtIndex:i];
+		loc = (Loc*)[lcContainer objectAtIndex:i];
 		if( loc.hasImage && ![loc.imgname isEqualToString:@""] ) {
 			[self askForLocpic:loc.locid withFilename:loc.imgname];
 		}

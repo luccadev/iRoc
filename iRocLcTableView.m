@@ -12,7 +12,7 @@
 
 @implementation iRocLcTableView
 
-@synthesize lcList, menuname;
+@synthesize lcContainer, menuname;
 
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -87,13 +87,13 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [lcList count];
+    return [lcContainer count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   
 	// Get the specific loc for this row.
-	Loc *loc = [lcList objectAtIndex:indexPath.row];
+	Loc *loc = (Loc*)[lcContainer objectAtIndex:indexPath.row];
     
 	NSString *CellIdentifier = [NSString stringWithFormat:@"Cell_%@",loc.locid];
     
@@ -127,7 +127,7 @@
 }
 
 - (void)addCellImage:(NSIndexPath *)indexPath{
-	Loc *loc = [lcList objectAtIndex:indexPath.row];
+	Loc *loc = (Loc*)[lcContainer objectAtIndex:indexPath.row];
 	//NSString *CellIdentifier = [NSString stringWithFormat:@"Cell_%@",loc.locid];
   //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
   UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
@@ -153,7 +153,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	[_delegate lcAction:((Loc*) [lcList objectAtIndex:indexPath.row]).locid];
+	[_delegate lcAction:((Loc*) [lcContainer objectAtIndex:indexPath.row]).locid];
 }
 
 - (id)delegate
@@ -167,7 +167,7 @@
 }
 
 - (void)dealloc {
-	[lcList release];
+	[lcContainer release];
     [super dealloc];
 }
 

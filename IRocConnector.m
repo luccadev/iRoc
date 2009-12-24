@@ -11,8 +11,8 @@
 
 @implementation IRocConnector
 
-@synthesize header, rocdata, isConnected, readyConnecting, currentLocObject, locList, locIndexList, rtList, coList;
-@synthesize swContainer;
+@synthesize header, rocdata, isConnected, readyConnecting, currentLocObject, rtList, coList;
+@synthesize swContainer, lcContainer;
 
 - (id) init {
 	[super init];
@@ -483,10 +483,8 @@ static NSString * const kIdElementName = @"id";
         }
         [loc setDesc:[attributeDict valueForKey:@"desc"]];
         
-        
-        [self.locIndexList addObject:relAttribute];
-        [self.locList addObject:loc];
-        loc.myrow = [self.locList count] - 1;
+		[self.lcContainer addObject:loc withId:relAttribute];
+        loc.myrow = [self.lcContainer count] - 1;
       }
       else {
         NSLog(@"parser: skipping invisible loco");		
@@ -506,12 +504,7 @@ static NSString * const kIdElementName = @"id";
       sw.swid = idAttribute;
       sw.type = type;
 	  sw.state = state;
-	  //[self.swIndexList addObject:idAttribute];
-	  //[[self.swContainer objectIndexList] addObject:idAttribute];	
-	  //[[self.swContainer objectList] addObject:sw];
-      //[self.swList addObject:sw];
-		
-		[self.swContainer addObject:sw withId:idAttribute];
+	  [self.swContainer addObject:sw withId:idAttribute];
     }
     else {
 	  NSString *state = [attributeDict valueForKey:@"state"];
@@ -558,10 +551,9 @@ static NSString * const kIdElementName = @"id";
 		NSLog(@"connector LOCPIC: %@ ",relAttribute );
     
 		NSString *data = [attributeDict valueForKey:@"data"];
-		//Loc *loc = (Loc*) [self.locList objectAtIndex:[locIndexList indexOfObject:relAttribute]];
-		[((Loc*) [self.locList objectAtIndex:[locIndexList indexOfObject:relAttribute]]) setLocpicdata:data]; 
-    [self nextLocpic:TRUE];
-    pendingLocoPic = FALSE;
+		[((Loc*) [self.lcContainer objectWithId:relAttribute]) setLocpicdata:data]; 
+		[self nextLocpic:TRUE];
+		pendingLocoPic = FALSE;
 
 	}	else if ([elementName isEqualToString:@"sys"]) {
 		NSString *relAttribute = [attributeDict valueForKey:@"cmd"];
@@ -587,7 +579,7 @@ static NSString * const kIdElementName = @"id";
 			//[_delegate lcListLoaded];
       [_delegate performSelectorOnMainThread : @ selector(lcListLoaded ) withObject:nil waitUntilDone:NO];
 		} 
-		NSLog(@"%d locs added ... ", [locList count]);
+		NSLog(@"%d locs added ... ", [lcContainer count]);
 	} else if (parsingPlan && [elementName isEqualToString:@"stlist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(rtListLoaded)] ) {

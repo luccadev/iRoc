@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "iRocTableView.h"
 #import "Loc.h"
+#import "Container.h"
 
 
 @interface iRocLcTableView : iRocTableView  <UIActionSheetDelegate> {
-	NSArray *lcList;
+	Container *lcContainer;
 	id _delegate;
 	NSString *menuname;
 }
@@ -21,7 +22,7 @@
 - (void)setDelegate:(id)new_delegate;
 - (void)addCellImage:(NSIndexPath *)indexPath;
 
-@property (nonatomic, retain) NSArray *lcList;
+@property (nonatomic, retain) Container *lcContainer;
 @property (nonatomic, retain) NSString *menuname;
 
 @end

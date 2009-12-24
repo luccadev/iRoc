@@ -14,9 +14,6 @@
 	NSMutableArray *objectIndexList;
 }
 
-//@property(nonatomic, retain) NSMutableArray *objectList;
-//@property(nonatomic, retain) NSMutableArray *objectIndexList;
-
 - (void) addObject:(NSObject*)object withId:(NSString*)oid;
 
 - (NSObject*) objectWithId:(NSString*) oid;

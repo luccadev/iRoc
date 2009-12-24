@@ -10,7 +10,6 @@
 
 
 @implementation Container
-//@synthesize objectList, objectIndexList;
 
 - (id) init {
 	[super init];	
@@ -32,7 +31,10 @@
 }
 
 - (NSObject*) objectWithId:(NSString*) oid {
-	return [objectList objectAtIndex:[objectIndexList indexOfObject:oid]];
+	if( [objectIndexList indexOfObject:oid] <= [objectList count] && [objectIndexList indexOfObject:oid] < -1)
+		return [objectList objectAtIndex:[objectIndexList indexOfObject:oid]];
+	else
+		return NULL;
 }
 
 - (NSObject*) objectAtIndex:(int) index {
