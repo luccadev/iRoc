@@ -14,7 +14,8 @@
 	NSString *locpicdata;
 	NSString *imgname;
 	NSString *desc;
-  int myrow;
+	NSString *roadname;
+    int myrow;
 	
 	
 	UIImage *lcimage;
@@ -32,6 +33,7 @@
 //@property (nonatomic, retain) NSString *locpicdata;
 @property (nonatomic, retain) NSString *imgname;
 @property (nonatomic, retain) NSString *desc;
+@property (nonatomic, retain) NSString *roadname;
 @property (nonatomic, retain) UIImage *lcimage;
 @property BOOL hasImage;
 @property BOOL imageLoaded;

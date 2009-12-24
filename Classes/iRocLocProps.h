@@ -16,6 +16,7 @@
 	Loc *loc;
 	UILabel *idLabel;
 	UILabel *descLabel;
+	UILabel *roadLabel;
 	UIImageView *imageview;
 	id delegate;
 }

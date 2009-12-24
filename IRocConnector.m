@@ -482,6 +482,7 @@ static NSString * const kIdElementName = @"id";
           loc.imgname = imgname;
         }
         [loc setDesc:[attributeDict valueForKey:@"desc"]];
+		[loc setRoadname:[attributeDict valueForKey:@"roadname"]];
         
 		[self.lcContainer addObject:loc withId:relAttribute];
         loc.myrow = [self.lcContainer count] - 1;

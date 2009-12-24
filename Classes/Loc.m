@@ -12,7 +12,7 @@
 
 @implementation Loc
 
-@synthesize locid, imgname, lcimage, hasImage, imageLoaded, desc, imageAlreadyRequested, myrow;
+@synthesize locid, imgname, lcimage, hasImage, imageLoaded, desc, imageAlreadyRequested, myrow, roadname;
 
 - (id) init {
 	[super init];	

@@ -53,17 +53,24 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
     if (self = [super initWithCoder:decoder])
     {
 
-		idLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,10, 190, 20)];
+		idLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,8, 190, 20)];
 		idLabel.font = [UIFont boldSystemFontOfSize:20];
 		idLabel.textColor = [UIColor lightGrayColor];
 		idLabel.backgroundColor = [UIColor darkGrayColor];
 		
-		descLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 30, 100, 20)] autorelease];
+		descLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 29, 100, 20)] autorelease];
 		descLabel.font = [UIFont boldSystemFontOfSize:12];
 		descLabel.textColor = [UIColor lightGrayColor];
 		descLabel.backgroundColor = [UIColor darkGrayColor];
 		
+		roadLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 44, 100, 20)] autorelease];
+		roadLabel.font = [UIFont boldSystemFontOfSize:12];
+		roadLabel.textColor = [UIColor lightGrayColor];
+		roadLabel.backgroundColor = [UIColor darkGrayColor];
+		
+		
 		[self addSubview:idLabel];
+		[self addSubview:roadLabel];
 		[self addSubview:descLabel];		
 	}
     return self;
@@ -105,7 +112,7 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
 	NSLog(@"setLoc: %@", [loc locid]);
 	idLabel.text = [loc locid];
 	descLabel.text = [loc desc];
-	
+	roadLabel.text = [loc roadname];
 	
 	
 	if( imageview != NULL ) {
