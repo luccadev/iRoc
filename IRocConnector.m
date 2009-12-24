@@ -485,6 +485,7 @@ static NSString * const kIdElementName = @"id";
 		[loc setRoadname:[attributeDict valueForKey:@"roadname"]];
         
 		[self.lcContainer addObject:loc withId:relAttribute];
+        // TODO: in a sorting container this row may become invalid!
         loc.myrow = [self.lcContainer count] - 1;
       }
       else {
