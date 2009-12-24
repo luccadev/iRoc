@@ -223,6 +223,7 @@
 }
 
 - (void)lcTextFieldAction {
+	//[lcTableView.tableView reloadData];
 	[self.tabBarController presentModalViewController:lcTableView animated:YES];
 }
 
@@ -242,7 +243,6 @@
 -(void) applicationDidBecomeActive:(UIApplication *)application {
 	NSLog(@"applicationDidBecomeActive");
 	//[[self rrconnection] connect];
-	//[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
 }
 
 

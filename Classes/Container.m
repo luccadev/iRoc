@@ -35,15 +35,7 @@
 }
 
 - (NSObject*) objectWithId:(NSString*) oid {
-	
 	return [theData objectForKey:oid];
-	
-	/*
-	if( [objectIndexList indexOfObject:oid] <= [objectList count] && [objectIndexList indexOfObject:oid] < -1)
-		return [objectList objectAtIndex:[objectIndexList indexOfObject:oid]];
-	else
-		return NULL;
-	 */
 }
 
 
