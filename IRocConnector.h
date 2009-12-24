@@ -43,6 +43,7 @@
 	BOOL readHeader;
 	BOOL debug;
 	BOOL pendingLocoPic;
+	BOOL parsingPlan;
 	
 	unsigned int readsize;
 	int bytesread;

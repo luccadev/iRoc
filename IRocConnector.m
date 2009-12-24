@@ -35,6 +35,7 @@
   rocdata = NULL;
   debug = FALSE;
   pendingLocoPic = FALSE;
+  parsingPlan = FALSE;
 	
 	NSLog(@"Connect to: %@:%d ", domain, port);	
 	
@@ -463,52 +464,75 @@ static NSString * const kIdElementName = @"id";
 		//NSLog(@"parser: xml");		
 		NSString *relAttribute = [attributeDict valueForKey:@"size"];		
 		readsize = [relAttribute intValue];
+	} else if ([elementName isEqualToString:@"plan"]) {
+		NSLog(@"start parsing plan...");
+    parsingPlan = TRUE;
 	} else if ([elementName isEqualToString:kLocElementName]) {
-		if( ![[attributeDict valueForKey:@"show"] isEqualToString:@"false"] ) {
-			NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
-			Loc *loc = [[[Loc alloc] init] retain];
-			loc.locid = relAttribute;
-      [loc setDelegate:_delegate];
-      
-			NSString *imgname = [attributeDict valueForKey:@"image"];
-			if( ![imgname isEqualToString:@""] ) {
-				NSLog(@"connector %@ : %@", relAttribute, imgname);
-				loc.hasImage = YES;
-				loc.imgname = imgname;
-			}
-			[loc setDesc:[attributeDict valueForKey:@"desc"]];
-			
-			
-			[self.locIndexList addObject:relAttribute];
-			[self.locList addObject:loc];
-      loc.myrow = [self.locList count] - 1;
-		}
+    if( parsingPlan ) {
+      if( ![[attributeDict valueForKey:@"show"] isEqualToString:@"false"] ) {
+        NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
+        Loc *loc = [[[Loc alloc] init] retain];
+        loc.locid = relAttribute;
+        [loc setDelegate:_delegate];
+        
+        NSString *imgname = [attributeDict valueForKey:@"image"];
+        if( ![imgname isEqualToString:@""] ) {
+          NSLog(@"connector %@ : %@", relAttribute, imgname);
+          loc.hasImage = YES;
+          loc.imgname = imgname;
+        }
+        [loc setDesc:[attributeDict valueForKey:@"desc"]];
+        
+        
+        [self.locIndexList addObject:relAttribute];
+        [self.locList addObject:loc];
+        loc.myrow = [self.locList count] - 1;
+      }
+      else {
+        NSLog(@"parser: skipping invisible loco");		
+      }
+    }
     else {
-      NSLog(@"parser: skipping invisible loco");		
+      NSLog(@"loco event");		
     }
 	} else if ([elementName isEqualToString:@"sw"]) {
-		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
-		NSString *type = [attributeDict valueForKey:@"type"];
-		//NSLog(@"parser: sw: %@", [attributeDict valueForKey:kIdElementName]);
-		
-		Switch *sw = [[[Switch alloc] init] retain];
-		sw.swid = relAttribute;
-		sw.type = type;
-		[self.swList addObject:sw];
+    NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
+    if( parsingPlan ) {
+      NSString *type = [attributeDict valueForKey:@"type"];
+      //NSLog(@"parser: sw: %@", [attributeDict valueForKey:kIdElementName]);
+      
+      Switch *sw = [[[Switch alloc] init] retain];
+      sw.swid = relAttribute;
+      sw.type = type;
+      [self.swList addObject:sw];
+    }
+    else {
+      NSLog(@"switch event");		
+    }
     
 	} else if ([elementName isEqualToString:@"st"]) {
 		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];		
-    
-		Route *rt = [[[Route alloc] init] retain];
-		rt.rtid = relAttribute;
-		[self.rtList addObject:rt];
+    if( parsingPlan ) {
+      Route *rt = [[[Route alloc] init] retain];
+      rt.rtid = relAttribute;
+      [self.rtList addObject:rt];
+    }
+    else {
+      NSLog(@"route event");		
+    }
 		
 	} else if ([elementName isEqualToString:@"co"]) {
 		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];		
-    //NSLog(@"parser: co: %@", [attributeDict valueForKey:kIdElementName]);
-		Output *co = [[[Output alloc] init] retain];
-		co.coid = relAttribute;
-		[self.coList addObject:co];
+    if( parsingPlan ) {
+      //NSLog(@"parser: co: %@", [attributeDict valueForKey:kIdElementName]);
+      Output *co = [[[Output alloc] init] retain];
+      co.coid = relAttribute;
+      [self.coList addObject:co];
+    }
+    else {
+      NSLog(@"output event");		
+    }
+    
 	} else if ([elementName isEqualToString:@"datareq"]) {
 		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
 		
@@ -520,15 +544,7 @@ static NSString * const kIdElementName = @"id";
     [self nextLocpic:TRUE];
     pendingLocoPic = FALSE;
 
-	} 
-	
-	else if ([elementName isEqualToString:@"lclist"]) {
-		//NSLog(@"parser: lclist");	
-	} /*else if ([elementName isEqualToString:@"exception"]) {
-     NSString *relAttribute = [attributeDict valueForKey:@"text"];		
-     NSLog(@"parser: exception = %@", relAttribute);
-     }*/ 
-	else if ([elementName isEqualToString:@"sys"]) {
+	}	else if ([elementName isEqualToString:@"sys"]) {
 		NSString *relAttribute = [attributeDict valueForKey:@"cmd"];
 		if( [relAttribute isEqualToString:@"shutdown"] ) {
 			NSLog(@"We should go down now [%@]", relAttribute);
@@ -546,28 +562,28 @@ static NSString * const kIdElementName = @"id";
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {     
-	if ([elementName isEqualToString:@"lclist"]) {
+	if (parsingPlan && [elementName isEqualToString:@"lclist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(lcListLoaded)] ) {
 			//[_delegate lcListLoaded];
       [_delegate performSelectorOnMainThread : @ selector(lcListLoaded ) withObject:nil waitUntilDone:NO];
 		} 
 		NSLog(@"%d locs added ... ", [locList count]);
-	} else if ([elementName isEqualToString:@"stlist"]) {
+	} else if (parsingPlan && [elementName isEqualToString:@"stlist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(rtListLoaded)] ) {
 			//[_delegate rtListLoaded];
       [_delegate performSelectorOnMainThread : @ selector(rtListLoaded ) withObject:nil waitUntilDone:NO];
 		} 
 		NSLog(@"%d rts added ... ", [rtList count]);
-	} else if ([elementName isEqualToString:@"swlist"]) {
+	} else if (parsingPlan && [elementName isEqualToString:@"swlist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(swListLoaded)] ) {
 			//[_delegate swListLoaded];
       [_delegate performSelectorOnMainThread : @ selector(swListLoaded ) withObject:nil waitUntilDone:NO];
 		} 
 		NSLog(@"%d sws added ... ", [swList count]);
-	} else if ([elementName isEqualToString:@"colist"]) {
+	} else if ( parsingPlan && [elementName isEqualToString:@"colist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(coListLoaded)] ) {
 			//[_delegate coListLoaded];
@@ -576,7 +592,9 @@ static NSString * const kIdElementName = @"id";
 		NSLog(@"%d cos added ... ", [coList count]);
 	} else if ([elementName isEqualToString:@"plan"]) {
 		// inform the delegate
-		NSLog(@"The Plan arrived.");
+    NSLog(@"Plan is processed.");
+    parsingPlan = FALSE;
+
 		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 		
 		// TEST
