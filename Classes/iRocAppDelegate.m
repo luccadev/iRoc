@@ -175,7 +175,7 @@
 - (void)coAction:(NSString *)coid {	
 	NSLog(@"coAction: %@", coid);
 	// TODO: we need a flip command in rocrail ...
-	[rrconnection sendMessage:@"co" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<co id=\"%@\" cmd=\"on\"/>", coid]]];
+	[rrconnection sendMessage:@"co" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<co id=\"%@\" cmd=\"flip\"/>", coid]]];
 }
 
 - (void)lcAction:(NSString *)lcid {	
