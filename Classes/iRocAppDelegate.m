@@ -37,17 +37,14 @@
 		[viewController processAllEvents:[defaults integerForKey:@"vdelta_preference"]];
 	}
 	[window addSubview:tabBarController.view];	
-	
-	//lcList = [[NSMutableArray array] retain];
-	//lcIndexList = [[NSMutableArray array] retain];
+
 	
 	rtList = [[NSMutableArray array] retain];
 	
 	swContainer = [[[Container alloc] init] retain];
 	lcContainer = [[[Container alloc] init] retain];
 	coContainer = [[[Container alloc] init] retain];
-	
-	//coList = [[NSMutableArray array] retain];
+
 	menuItems = [[NSMutableArray array] retain];
 	
 
@@ -57,8 +54,6 @@
 	[lcTableView setMenuname:@"Locomotives"];
 
 	swTableView = [[iRocSwTableView alloc] initWithNibName:@"iRocSwTableView" bundle:nil];
-	//[swTableView setSwList:self.swList];
-	//[swTableView setSwList:[swContainer objectList]];
 	[swTableView setSwContainer:self.swContainer];
 	
 	[swTableView setDelegate:self];
@@ -88,11 +83,8 @@
 	[rrconnection setPort:[defaults integerForKey:@"port_preference"]];
 	[rrconnection setDelegate:self];
 	[rrconnection setLcContainer:self.lcContainer];
-	//[rrconnection setLocIndexList:self.lcIndexList];
 	[rrconnection setRtList:self.rtList];
-	//[rrconnection setSwList:self.swList];
 	[rrconnection setSwContainer:swContainer];
-	//[rrconnection setSwIndexList:self.swIndexList];
 	[rrconnection setCoContainer:self.coContainer];
 	viewController.textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
 	
@@ -193,8 +185,6 @@
 	[[NSUserDefaults standardUserDefaults] setObject:(NSString*)[self.viewController.textfieldLoc text] forKey:@"loc_preference"];
 	
 	[self.tabBarController dismissModalViewControllerAnimated:YES];
-	
-	//Loc *loc = [self.lcList objectAtIndex:[lcIndexList indexOfObject:lcid]];
 	Loc *loc = (Loc*) [self.lcContainer objectWithId:lcid];
 
 	// The new one:

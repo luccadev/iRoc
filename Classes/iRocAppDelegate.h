@@ -69,16 +69,7 @@
 
 @property (nonatomic, retain) IBOutlet iRocAboutView *aboutView;
 
-
-//@property(nonatomic, retain) NSMutableArray *lcList;
-//@property(nonatomic, retain) NSMutableArray *lcIndexList;
-
 @property(nonatomic, retain) NSMutableArray *rtList;
-
-//@property(nonatomic, retain) NSMutableArray *swList;
-//@property(nonatomic, retain) NSMutableArray *swIndexList;
-
-//@property(nonatomic, retain) NSMutableArray *coList;
 
 @property(nonatomic, retain) Container *swContainer;
 @property(nonatomic, retain) Container *lcContainer;
