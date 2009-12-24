@@ -10,7 +10,7 @@
 
 
 @implementation iRocSwTableView
-@synthesize swList, menuname;
+@synthesize swContainer, menuname;
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
     // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -78,7 +78,7 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [swList count];
+    return [swContainer count];
 }
 
 
@@ -102,7 +102,7 @@
 	rtidLabel.backgroundColor = cellbackcolor;
 	[cell.contentView addSubview:rtidLabel];
 	
-	Switch *sw = [swList objectAtIndex:indexPath.row];
+	Switch *sw = (Switch*) [swContainer objectAtIndex:indexPath.row];
     rtidLabel.text = sw.swid;
 	//rtidLabel.text = [NSString stringWithFormat:@"%@ %@", sw.swid, sw.state];
  
@@ -120,7 +120,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	[_delegate swAction:((Switch*) [swList objectAtIndex:indexPath.row]).swid];
+	[_delegate swAction:((Switch*) [swContainer objectAtIndex:indexPath.row]).swid];
 }
 
 

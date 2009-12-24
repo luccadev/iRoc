@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "iRocTableView.h"
 #import "Switch.h"
+#import "Container.h"
 
 @interface iRocSwTableView : iRocTableView {
-	NSArray *swList;
+	//NSArray *swList;
+	Container *swContainer;
 	id _delegate;
 	NSString *menuname;
 }
@@ -19,7 +21,8 @@
 - (id)delegate;
 - (void)setDelegate:(id)new_delegate;
 
-@property (nonatomic, retain) NSArray *swList;
+//@property (nonatomic, retain) NSArray *swList;
+@property (nonatomic, retain) Container *swContainer;
 @property (nonatomic, retain) NSString *menuname;
 
 @end

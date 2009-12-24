@@ -12,6 +12,8 @@
 #import "Switch.h"
 #import "Output.h"
 
+#import "Container.h"
+
 
 #import "iRocLcTableView.h"
 #import "iRocRtTableView.h"
@@ -58,9 +60,11 @@
 	NSMutableArray *locList;
     NSMutableArray *locIndexList;
 	NSMutableArray *rtList;
-	NSMutableArray *swList;
-	NSMutableArray *swIndexList;
+	//NSMutableArray *swList;
+	//NSMutableArray *swIndexList;
 	NSMutableArray *coList;
+	
+	Container *swContainer;
 	
 	id _delegate;
 }
@@ -94,9 +98,11 @@
 @property(nonatomic, retain) NSMutableArray *locList;
 @property(nonatomic, retain) NSMutableArray *locIndexList;
 @property(nonatomic, retain) NSMutableArray *rtList;
-@property(nonatomic, retain) NSMutableArray *swList;
-@property(nonatomic, retain) NSMutableArray *swIndexList;
+//@property(nonatomic, retain) NSMutableArray *swList;
+//@property(nonatomic, retain) NSMutableArray *swIndexList;
 @property(nonatomic, retain) NSMutableArray *coList;
+
+@property(nonatomic, retain) Container *swContainer;
 
 @property (nonatomic, retain) Loc *currentLocObject;
 

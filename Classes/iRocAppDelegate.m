@@ -15,9 +15,9 @@
 @synthesize window;
 @synthesize tabBarController;
 @synthesize viewController;
-@synthesize lcTableView, rtTableView, swTableView, coTableView, menuTableView, lcIndexList, swIndexList;
+@synthesize lcTableView, rtTableView, swTableView, coTableView, menuTableView, lcIndexList;
 
-@synthesize rtList, swList, coList, lcList, rrconnection, menuItems, aboutView;
+@synthesize rtList, coList, lcList, rrconnection, menuItems, aboutView, swContainer;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
   NSLog(@"applicationDidFinishLaunching");
@@ -43,8 +43,7 @@
 	
 	rtList = [[NSMutableArray array] retain];
 	
-	swList = [[NSMutableArray array] retain];
-	swIndexList = [[NSMutableArray array] retain];
+	swContainer = [[[Container alloc] init] retain];
 	
 	coList = [[NSMutableArray array] retain];
 	menuItems = [[NSMutableArray array] retain];
@@ -56,7 +55,10 @@
 	[lcTableView setMenuname:@"Locomotives"];
 
 	swTableView = [[iRocSwTableView alloc] initWithNibName:@"iRocSwTableView" bundle:nil];
-	[swTableView setSwList:self.swList];
+	//[swTableView setSwList:self.swList];
+	//[swTableView setSwList:[swContainer objectList]];
+	[swTableView setSwContainer:self.swContainer];
+	
 	[swTableView setDelegate:self];
 	[swTableView setMenuname:@"Switches"];
 	
@@ -86,8 +88,9 @@
 	[rrconnection setLocList:self.lcList];
 	[rrconnection setLocIndexList:self.lcIndexList];
 	[rrconnection setRtList:self.rtList];
-	[rrconnection setSwList:self.swList];
-	[rrconnection setSwIndexList:self.swIndexList];
+	//[rrconnection setSwList:self.swList];
+	[rrconnection setSwContainer:swContainer];
+	//[rrconnection setSwIndexList:self.swIndexList];
 	[rrconnection setCoList:self.coList];
 	viewController.textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
 	

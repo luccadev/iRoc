@@ -11,8 +11,8 @@
 
 @implementation IRocConnector
 
-@synthesize header, rocdata, isConnected, readyConnecting, currentLocObject, locList, locIndexList, rtList, swList, swIndexList, coList;
-//@synthesize locTableViewController;
+@synthesize header, rocdata, isConnected, readyConnecting, currentLocObject, locList, locIndexList, rtList, coList;
+@synthesize swContainer;
 
 - (id) init {
 	[super init];
@@ -506,13 +506,20 @@ static NSString * const kIdElementName = @"id";
       sw.swid = idAttribute;
       sw.type = type;
 	  sw.state = state;
-	  [self.swIndexList addObject:idAttribute];
-      [self.swList addObject:sw];
+	  //[self.swIndexList addObject:idAttribute];
+	  //[[self.swContainer objectIndexList] addObject:idAttribute];	
+	  //[[self.swContainer objectList] addObject:sw];
+      //[self.swList addObject:sw];
+		
+		[self.swContainer addObject:sw withId:idAttribute];
     }
     else {
 	  NSString *state = [attributeDict valueForKey:@"state"];
 		
-	  Switch *sw = [self.swList objectAtIndex:[self.swIndexList indexOfObject:idAttribute]];	
+	  //Switch *sw = [self.swList objectAtIndex:[self.swIndexList indexOfObject:idAttribute]];	
+	  
+	  Switch *sw = (Switch*) [self.swContainer objectWithId:idAttribute];
+		
 	  [sw setState:state];
 		
 	  if ( [_delegate respondsToSelector:@selector(swListLoaded)] ) {
@@ -594,7 +601,7 @@ static NSString * const kIdElementName = @"id";
 			//[_delegate swListLoaded];
       [_delegate performSelectorOnMainThread : @ selector(swListLoaded ) withObject:nil waitUntilDone:NO];
 		} 
-		NSLog(@"%d sws added ... ", [swList count]);
+		NSLog(@"%d sws added ... ", [swContainer count]);
 	} else if ( parsingPlan && [elementName isEqualToString:@"colist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(coListLoaded)] ) {

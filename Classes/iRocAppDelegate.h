@@ -18,6 +18,8 @@
 #import "iRocAboutView.h"
 #import "iRocLocProps.h"
 
+#import "Container.h"
+
 
 @class iRocViewController;
 
@@ -40,10 +42,13 @@
 	
 	NSMutableArray *rtList;
 	
-	NSMutableArray *swList;
-	NSMutableArray *swIndexList;
+	//NSMutableArray *swList;
+	//NSMutableArray *swIndexList;
 	
 	NSMutableArray *coList;
+	
+	Container *swContainer;
+	
 	
 	NSMutableArray *menuItems;
 	
@@ -69,10 +74,12 @@
 
 @property(nonatomic, retain) NSMutableArray *rtList;
 
-@property(nonatomic, retain) NSMutableArray *swList;
-@property(nonatomic, retain) NSMutableArray *swIndexList;
+//@property(nonatomic, retain) NSMutableArray *swList;
+//@property(nonatomic, retain) NSMutableArray *swIndexList;
 
 @property(nonatomic, retain) NSMutableArray *coList;
+
+@property(nonatomic, retain) Container *swContainer;
 
 @property(nonatomic, retain) NSMutableArray *menuItems;
 
