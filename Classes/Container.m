@@ -49,7 +49,10 @@
 
 - (NSObject*) objectAtIndex:(int) index {
 	NSArray *keys = [theData allKeys];
-	id aKey = [keys objectAtIndex:index];
+	NSArray *sortedKeys = [keys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+	//NSArray *sortedKeys = [keys sortedArrayUsingSelector:@selector(compare:)];
+
+	id aKey = [sortedKeys objectAtIndex:index];
 	return [theData objectForKey:aKey];
 }
 
