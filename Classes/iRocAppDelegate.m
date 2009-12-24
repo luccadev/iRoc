@@ -23,6 +23,7 @@
   NSLog(@"applicationDidFinishLaunching");
 
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+	[[UIApplication sharedApplication] setStatusBarHidden:FALSE];
 	
 	application.idleTimerDisabled = YES;
 	
@@ -236,6 +237,7 @@
 -(void) applicationDidBecomeActive:(UIApplication *)application {
 	NSLog(@"applicationDidBecomeActive");
 	//[[self rrconnection] connect];
+	//[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
 }
 
 

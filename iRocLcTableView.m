@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-		[self setTitle:@"Locomotives"];
+	[self setTitle:NSLocalizedString(@"Locomotives", @"Title")];
 	
 	[self.tableView setRowHeight:70];
 }
