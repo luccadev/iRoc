@@ -101,7 +101,7 @@
     if (cell == nil) {
       NSLog(@"creating cell for loco %@...", loc.locid);
 	cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
+    
   
 	cell.selectionStyle = UITableViewCellSelectionStyleGray;
 	
@@ -131,7 +131,7 @@
 	
   NSLog(@"calling addCellLocoImage for loco %@...", loc.locid);
 	[self addCellLocoImage:loc];
-	
+		}
 	
   return cell;
 }
