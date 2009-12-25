@@ -80,7 +80,6 @@
 @property (nonatomic, retain) IRocConnector *rrconnection;
 
 - (void)lcListLoaded;
-- (void)lcListReloadRow:(NSNumber*)row;
 - (void)lcListUpdateCell:(Loc *)loc;
 - (Loc*)getLoc:(NSString *)lcid;
 

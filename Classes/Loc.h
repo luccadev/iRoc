@@ -15,12 +15,11 @@
 	NSString *imgname;
 	NSString *desc;
 	NSString *roadname;
-    int myrow;
 	
 	
 	UIImage *lcimage;
-  UITableViewCell *cell;
-	
+	UITableViewCell *cell;
+  
 	BOOL hasImage;
 	BOOL imageLoaded;
   BOOL imageAlreadyRequested;
@@ -40,7 +39,6 @@
 @property BOOL hasImage;
 @property BOOL imageLoaded;
 @property BOOL imageAlreadyRequested;
-@property int myrow;
 
 - (void)setDelegate:(id)new_delegate;
 - (void) prepareImage;

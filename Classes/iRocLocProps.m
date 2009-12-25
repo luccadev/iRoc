@@ -10,7 +10,7 @@
 #import "iRocAppDelegate.h"
 
 @implementation iRocLocProps
-@synthesize idLabel, delegate;
+@synthesize idLabel, delegate, imageview;
 
 
 void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
@@ -50,6 +50,7 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
 
 - (id)initWithCoder:(NSCoder *)decoder
 {
+  NSLog(@"iRocLocProps:initWithCoder");
     if (self = [super initWithCoder:decoder])
     {
 
@@ -79,10 +80,10 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
 
 
 - (id)initWithFrame:(CGRect)frame {
+  NSLog(@"iRocLocProps:initWithFrame");
 
     if (self = [super initWithFrame:frame]) {
         // Initialization code
-		NSLog(@"iRocLocProps:initWithFrame");
     }
 	
     return self;
@@ -115,7 +116,7 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
 	roadLabel.text = [loc roadname];
 	
 	
-	if( imageview != NULL ) {
+	if( imageview != nil ) {
     NSLog(@"remove previous image");
 		[imageview removeFromSuperview];
     imageview = nil;
@@ -127,8 +128,10 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
 
 
 - (void)imageLoaded {
-  if( imageview != nil )
+  if( imageview != nil ) {
+    NSLog(@"image already loaded for %@.", idLabel.text);
     return;
+  }
   
   Loc* lc = loc;
   if( lc == nil ) {

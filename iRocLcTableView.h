@@ -20,7 +20,6 @@
 
 - (id)delegate;
 - (void)setDelegate:(id)new_delegate;
-- (void)addCellImage:(NSIndexPath *)indexPath;
 - (void)addCellLocoImage:(Loc *)loc;
 
 @property (nonatomic, retain) Container *lcContainer;

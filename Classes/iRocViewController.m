@@ -245,7 +245,7 @@
 	textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
 	locProps.idLabel.text = [defaults stringForKey:@"loc_preference"];
   locProps.delegate = delegate;
-  //locProps.loc = nil;
+  locProps.imageview = nil;
 
 	
 	}

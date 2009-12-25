@@ -87,6 +87,7 @@
 	[rrconnection setSwContainer:swContainer];
 	[rrconnection setCoContainer:self.coContainer];
 	viewController.textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
+  viewController.imageviewLoc = nil;
 	
 	// Connect Thread
 	rrconnection.isConnected = FALSE;
@@ -137,22 +138,11 @@
 	[lcTableView.tableView reloadData];
 }
 
-- (void)lcListReloadRow:(NSNumber*)row {
-	//NSLog(@"Reload Data in Loc View");
-  NSIndexPath* indexPath = [NSIndexPath indexPathForRow:[row intValue] inSection:0];
-  [lcTableView addCellImage:indexPath];
-  
-  //[lcTableView.tableView reloadRowsAtIndexPaths:[NSArray	arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
-  
-  [viewController.locProps imageLoaded];
-}
-
 - (void)lcListUpdateCell:(Loc *)loc {
-	//NSLog(@"Reload Data in Loc View");
+	NSLog(@"update loco cell...");
   [lcTableView addCellLocoImage:loc];
   
-  //[lcTableView.tableView reloadRowsAtIndexPaths:[NSArray	arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
-  
+	NSLog(@"informing locProps of image...");
   [viewController.locProps imageLoaded];
 }
 

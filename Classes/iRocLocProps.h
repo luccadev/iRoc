@@ -23,6 +23,7 @@
 
 @property(nonatomic,retain) UILabel *idLabel;
 @property (nonatomic, retain) id delegate; 
+@property (nonatomic, retain) UIImageView *imageview; 
 
 - (void)setLoc:(Loc*)loci;
 - (void)imageLoaded;

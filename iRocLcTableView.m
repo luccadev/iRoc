@@ -99,11 +99,10 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
+      NSLog(@"creating cell for loco %@...", loc.locid);
 	cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
   
-  loc.cell = cell;
-	
 	cell.selectionStyle = UITableViewCellSelectionStyleGray;
 	
 	UILabel *locidLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 8, 100, 20)] autorelease];
@@ -128,25 +127,20 @@
 	locidLabel.text = loc.locid;
 	routeLabel.text = loc.roadname;
 	descLabel.text = loc.desc;
+  loc.cell = cell;
 	
-	[self addCellImage:indexPath];
+  NSLog(@"calling addCellLocoImage for loco %@...", loc.locid);
+	[self addCellLocoImage:loc];
 	
 	
   return cell;
 }
 
-- (void)addCellImage:(NSIndexPath *)indexPath{
-	Loc *loc = (Loc*)[lcContainer objectAtIndex:indexPath.row];
-	//NSString *CellIdentifier = [NSString stringWithFormat:@"Cell_%@",loc.locid];
-  //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-  UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-
-  [self addCellLocoImage:loc];
-}
-
 - (void)addCellLocoImage:(Loc *)loc {
-  if( [loc imageLoaded] && [loc hasImage]) {
+  if( [loc imageLoaded] && [loc hasImage] && loc.cell != nil) {
+    NSLog(@"addCellLocoImage for loco %@...", loc.locid);
     UIImage *img = [loc getImage];
+    UITableViewCell *cell = loc.cell;
     
     int breite = 50*(img.size.width/img.size.height);
     
@@ -155,8 +149,8 @@
     CGRect imageframe = CGRectMake(160 + diff,10,breite,50);	
     UIImageView *imageview = [[UIImageView alloc] initWithFrame:imageframe];
     imageview.image = [loc getImage];
-    [loc.cell.contentView addSubview:imageview];
-    [loc.cell.contentView bringSubviewToFront:imageview];
+    [cell.contentView addSubview:imageview];
+    [cell.contentView bringSubviewToFront:imageview];
     [imageview release];
   } else if( [loc hasImage] && ![loc imageAlreadyRequested]){
     loc.imageAlreadyRequested=TRUE;
