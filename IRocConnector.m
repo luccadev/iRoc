@@ -96,7 +96,7 @@
 
 - (void)requestPlan {
   NSLog(@"requestPlan...");
-  [self sendMessage:@"model" message:@"<model cmd=\"plan\"/>"];
+  [self sendMessage:@"model" message:@"<model cmd=\"plan\" disablemonitor=\"true\"/>"];
 }
 
 - (void)requestLocpic:(NSString*)lcid withFilename:(NSString*)filename{
