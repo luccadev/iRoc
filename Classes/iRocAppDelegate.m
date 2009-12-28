@@ -95,16 +95,8 @@
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
-	int retry = 11;
-	while( retry > 0 ) {
-		NSLog( @"retry=%d isConnected=%d",retry,rrconnection.isConnected);
-		retry--;  
-		if( rrconnection.readyConnecting ) {
-  		NSLog( @"ready connecting: isConnected=%d",rrconnection.isConnected);
-			break;
-		} 
-		else
-			[NSThread sleepForTimeInterval:1];
+	while( !rrconnection.readyConnecting ) {
+		[NSThread sleepForTimeInterval:1];
 	}
 
   NSLog( @"end of retry loop: isConnected=%d readyConnecting=%d",rrconnection.isConnected,rrconnection.readyConnecting);

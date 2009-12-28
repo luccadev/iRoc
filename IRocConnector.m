@@ -37,6 +37,22 @@
   pendingLocoPic = FALSE;
   parsingPlan = FALSE;
 	
+  BOOL connectOK = [self doConnect];
+	
+  if(isConnected) {
+    NSLog(@"starting currentLoop...");
+    [[NSRunLoop currentRunLoop] run];
+  }
+  else {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+  }
+
+	return connectOK;
+}
+
+
+- (BOOL)doConnect {
+  
 	NSLog(@"Connect to: %@:%d ", domain, port);	
 	
 	BOOL connectOK = FALSE;
@@ -77,22 +93,15 @@
 		if( [oStream streamStatus] == NSStreamStatusOpen && [iStream streamStatus] == NSStreamStatusOpen ) {
 			connectOK = TRUE;
 		}
-
+    
   	readyConnecting = TRUE;
 		isConnected = connectOK;
     
 	} 	
 	
-  if(isConnected) {
-    NSLog(@"starting currentLoop...");
-    [[NSRunLoop currentRunLoop] run];
-  }
-  else {
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-  }
-
 	return connectOK;
 }
+
 
 - (void)requestPlan {
   NSLog(@"requestPlan...");
@@ -242,12 +251,17 @@
     case NSStreamEventErrorOccurred:
     {
       // THIS IS WHERE YOU CATCH THE ERRORS
-      // NSError *theError = [stream streamError];
+      NSError *err = [stream streamError];
+      NSLog(@"Stream error: rc=%d %@", [err code], [err localizedDescription]) ;
             
       // MAKE SURE TO CLOSE STREAMS
       // ALSO HERE, I SEND THE ERROR MESSAGE
       // THIS WILL TRIGGER WHEN BAD IP/PORT IS ENTERED
+
       [self stop];
+      [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+      [self doConnect];
+      [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
       break ;
     } 
                        

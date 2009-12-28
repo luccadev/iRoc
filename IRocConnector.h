@@ -77,6 +77,7 @@
 - (void)setPort:(uint16_t)value;
 
 - (BOOL)connect;
+- (BOOL)doConnect;
 - (BOOL)stop;
 - (void)requestPlan;
 - (void)requestLocpic:(NSString*)lcid withFilename:(NSString*)filename;
