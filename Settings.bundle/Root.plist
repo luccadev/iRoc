@@ -16,7 +16,7 @@
 			<key>Key</key>
 			<string>ip_preference</string>
 			<key>DefaultValue</key>
-			<string>localhost</string>
+			<string>rocrail.dyndns.org</string>
 			<key>KeyboardType</key>
 			<string>NumbersAndPunctuation</string>
 		</dict>
@@ -28,7 +28,7 @@
 			<key>Key</key>
 			<string>port_preference</string>
 			<key>DefaultValue</key>
-			<string>62842</string>
+			<string>8080</string>
 			<key>KeyboardType</key>
 			<string>NumberPad</string>
 		</dict>
