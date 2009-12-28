@@ -44,7 +44,7 @@
 	
 	int vVal = [slideView value]*100;
   
-  if( processAll && abs( prevVVal - vVal) < VDelta )
+  if( processAll && (abs( prevVVal - vVal) < VDelta ) && vVal != 0 )
     return;
 		
 	if( prevVVal != vVal) {
