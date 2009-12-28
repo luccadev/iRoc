@@ -569,7 +569,9 @@ static NSString * const kIdElementName = @"id";
 		NSLog(@"connector LOCPIC: %@ ",relAttribute );
     
 		NSString *data = [attributeDict valueForKey:@"data"];
-		[((Loc*) [self.lcContainer objectWithId:relAttribute]) setLocpicdata:data]; 
+    if( [data length] > 0 ) {
+      [((Loc*) [self.lcContainer objectWithId:relAttribute]) setLocpicdata:data]; 
+    }
 		[self nextLocpic:TRUE];
 		pendingLocoPic = FALSE;
 
