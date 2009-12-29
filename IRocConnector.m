@@ -511,9 +511,11 @@ static NSString * const kIdElementName = @"id";
 			[lc setDir:[attributeDict valueForKey:@"dir"]];
 			[lc setVstr:[attributeDict valueForKey:@"V"]];
 			
+			/*
 			if ( [_delegate respondsToSelector:@selector(locSetSlider)] ) {
 				[_delegate performSelectorOnMainThread : @ selector(locSetSlider) withObject:nil waitUntilDone:NO];
 			} 
+			 */
 			
     }
 	} else if ([elementName isEqualToString:@"sw"]) {

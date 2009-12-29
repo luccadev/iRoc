@@ -300,6 +300,8 @@
 }
 
 - (void) setSlider:(int)v withDir:(NSString*)diri {
+	
+	/*
 	if([diri isEqualToString:@"false"] ) {
 		[buttonDir setTitle:@"<" forState:UIControlStateNormal];
 		dir = !dir;
@@ -310,7 +312,8 @@
 		stringDir = @"true";
 	}
 		 
-		 [slideView setValue:v];
+		[slideView setValue:v];
+	 */
 	
 }
 

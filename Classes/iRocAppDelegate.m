@@ -180,6 +180,7 @@
 
 	// The new one:
 	[viewController.locProps setLoc:loc];
+	//[self locSetSlider];
 }
 
 - (Loc*)getLoc:(NSString *)lcid {
@@ -211,17 +212,12 @@
 		NSLog( @"LLLLLLL: %@", ((Loc*)[viewController.locProps getLoc]).locid);
 	
 		Loc *lc = (Loc*)[viewController.locProps getLoc];
-		
-		
-		
+
 	//if( [lcidi isEqualToString:[((Loc*)[self.locProps getLoc:lcid]) getlocid])
 	
 		NSLog(@"vint: %d", [lc getVint]);
-		
-		
+
 		[viewController setSlider:[lc getVint] withDir:lc.dir];
-	
-	
 		
 	}
 	
