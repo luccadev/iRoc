@@ -23,7 +23,7 @@
 
 - (IBAction) buttonDirClicked:(id) sender { 
 	
-	/*
+	
 	if(dir) {
 		[buttonDir setTitle:@"<" forState:UIControlStateNormal];
 		dir = !dir;
@@ -33,7 +33,7 @@
 		dir = !dir;
 		stringDir = @"true";
 	}
-	 */
+	
 	
 	//AudioServicesPlaySystemSound (self.soundFileObject);
 
@@ -310,7 +310,7 @@
 		stringDir = @"true";
 	}
 		 
-		 [slider setValue:v];
+		 [slideView setValue:v];
 	
 }
 

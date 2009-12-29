@@ -142,6 +142,7 @@
 - (void)setValue:(int) val{
 	x = val;
 	[self setNeedsDisplay];
+	NSLog(@"Slider setValue: %d", val);
 }
 
 - (void)dealloc {
