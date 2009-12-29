@@ -36,6 +36,7 @@
   debug = FALSE;
   pendingLocoPic = FALSE;
   parsingPlan = FALSE;
+  connectionError = FALSE;
 	
   BOOL connectOK = [self doConnect];
 	
@@ -92,6 +93,7 @@
     
 		if( [oStream streamStatus] == NSStreamStatusOpen && [iStream streamStatus] == NSStreamStatusOpen ) {
 			connectOK = TRUE;
+      connectionError = FALSE;
 		}
     
   	readyConnecting = TRUE;
@@ -260,6 +262,16 @@
 
       [self stop];
       [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+      if( !connectionError ) {
+        connectionError = TRUE;
+        UIAlertView *alert = [[UIAlertView alloc] 
+                            initWithTitle:@"Warning" 
+                            message:@"Lost connection with the Rocrail server!" 
+                            delegate:self 
+                            cancelButtonTitle:nil 
+                            otherButtonTitles:@"OK",nil];
+        [alert show];
+      }
       [self doConnect];
       [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
       break ;

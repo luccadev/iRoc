@@ -46,6 +46,7 @@
 	BOOL debug;
 	BOOL pendingLocoPic;
 	BOOL parsingPlan;
+	BOOL connectionError;
 	
 	unsigned int readsize;
 	int bytesread;
