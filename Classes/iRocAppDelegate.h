@@ -83,6 +83,7 @@
 - (void)lcListUpdateCell:(Loc *)loc;
 - (Loc*)getLoc:(NSString *)lcid;
 
+- (void) locSetSlider;
 
 @end
 

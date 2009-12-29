@@ -205,6 +205,28 @@
 	[rrconnection requestLocpic:lcid withFilename:filename];
 }
 
+- (void)locSetSlider{
+
+	if( ((Loc*)[viewController.locProps getLoc]) != NULL) {
+		NSLog( @"LLLLLLL: %@", ((Loc*)[viewController.locProps getLoc]).locid);
+	
+		Loc *lc = (Loc*)[viewController.locProps getLoc];
+		
+		
+		
+	//if( [lcidi isEqualToString:[((Loc*)[self.locProps getLoc:lcid]) getlocid])
+	
+		NSLog(@"vint: %d", [lc getVint]);
+		
+		
+		[viewController setSlider:[lc getVint] withDir:lc.dir];
+	
+	
+		
+	}
+	
+}
+
 - (void)lcTextFieldAction {
 	//[lcTableView.tableView reloadData];
 	[self.tabBarController presentModalViewController:lcTableView animated:YES];

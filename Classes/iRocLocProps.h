@@ -26,6 +26,7 @@
 @property (nonatomic, retain) UIImageView *imageview; 
 
 - (void)setLoc:(Loc*)loci;
+- (Loc*)getLoc;
 - (void)imageLoaded;
 
 @end

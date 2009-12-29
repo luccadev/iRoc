@@ -12,13 +12,14 @@
 
 @implementation Loc
 
-@synthesize locid, imgname, lcimage, hasImage, imageLoaded, desc, imageAlreadyRequested, roadname, cell;
+@synthesize locid, imgname, lcimage, hasImage, imageLoaded, desc, imageAlreadyRequested, roadname, cell, dir, vstr;
 
 - (id) init {
 	[super init];	
 	imageLoaded = NO;
 	hasImage = NO;	
   imageAlreadyRequested = FALSE;
+	vstr = @"0";
 	return self;
 }
 
@@ -85,6 +86,12 @@
 	NSLog(@"SETLOCPICDATA FOR: %@", self.locid);
 	
 }
+
+- (int) getVint {
+	return [vstr intValue];
+}
+
+
 /*
 - (NSString*) locpicdata {
 	return locpicdata;

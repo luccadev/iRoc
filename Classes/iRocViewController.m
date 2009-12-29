@@ -22,6 +22,8 @@
 @synthesize VDelta;
 
 - (IBAction) buttonDirClicked:(id) sender { 
+	
+	/*
 	if(dir) {
 		[buttonDir setTitle:@"<" forState:UIControlStateNormal];
 		dir = !dir;
@@ -31,6 +33,7 @@
 		dir = !dir;
 		stringDir = @"true";
 	}
+	 */
 	
 	//AudioServicesPlaySystemSound (self.soundFileObject);
 
@@ -295,6 +298,22 @@
 - (IBAction) locTextTouched:(id)sender {
 	[delegate lcTextFieldAction];
 }
+
+- (void) setSlider:(int)v withDir:(NSString*)diri {
+	if([diri isEqualToString:@"false"] ) {
+		[buttonDir setTitle:@"<" forState:UIControlStateNormal];
+		dir = !dir;
+		stringDir = @"false";
+	} else {
+		[buttonDir setTitle:@">" forState:UIControlStateNormal];
+		dir = !dir;
+		stringDir = @"true";
+	}
+		 
+		 [slider setValue:v];
+	
+}
+
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.

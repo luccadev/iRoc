@@ -111,6 +111,8 @@
 - (void) prepareFNCommand:(int) fnIndex; 
 - (void) processAllEvents:(int) _VDelta; 
 
+- (void) setSlider:(int)v withDir:(NSString*)diri;
+
 @end
 
 @interface NSObject (iRocViewController)

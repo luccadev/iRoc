@@ -505,7 +505,16 @@ static NSString * const kIdElementName = @"id";
       }
     }
     else {
-      NSLog(@"loco event");		
+	    NSLog(@"loco event parser: lc: %@ - v: %@ - dir: %@", [attributeDict valueForKey:@"id"], [attributeDict valueForKey:@"V"], [attributeDict valueForKey:@"dir"]);
+			
+			Loc *lc = (Loc*)[lcContainer objectWithId:[attributeDict valueForKey:@"id"]];
+			[lc setDir:[attributeDict valueForKey:@"dir"]];
+			[lc setVstr:[attributeDict valueForKey:@"V"]];
+			
+			if ( [_delegate respondsToSelector:@selector(locSetSlider)] ) {
+				[_delegate performSelectorOnMainThread : @ selector(locSetSlider) withObject:nil waitUntilDone:NO];
+			} 
+			
     }
 	} else if ([elementName isEqualToString:@"sw"]) {
     NSString *idAttribute = [attributeDict valueForKey:kIdElementName];

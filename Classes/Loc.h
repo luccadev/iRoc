@@ -10,12 +10,13 @@
 
 @interface Loc : NSObject {
 @private 
-	NSString *locid;
 	NSString *locpicdata;
 	NSString *imgname;
 	NSString *desc;
 	NSString *roadname;
-	
+	NSString *dir;
+	NSString *vstr;
+	int vint;
 	
 	UIImage *lcimage;
 	UITableViewCell *cell;
@@ -26,6 +27,7 @@
 
 @public
   id _delegate;
+	NSString *locid;
 
 }
 
@@ -34,6 +36,8 @@
 @property (nonatomic, retain) NSString *imgname;
 @property (nonatomic, retain) NSString *desc;
 @property (nonatomic, retain) NSString *roadname;
+@property (nonatomic, retain) NSString *dir;
+@property (nonatomic, retain) NSString *vstr;
 @property (nonatomic, retain) UIImage *lcimage;
 @property (nonatomic, retain) UITableViewCell *cell;
 @property BOOL hasImage;
@@ -43,6 +47,7 @@
 - (void)setDelegate:(id)new_delegate;
 - (void) prepareImage;
 - (UIImage*) getImage;
+- (int) getVint;
 - (void) setLocpicdata:(NSString *) picdata;
 
 @end

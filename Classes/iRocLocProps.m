@@ -126,6 +126,10 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
   
 }
 
+- (Loc*)getLoc {
+	return loc;	
+}
+
 
 - (void)imageLoaded {
   if( imageview != nil ) {
