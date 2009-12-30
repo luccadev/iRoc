@@ -54,6 +54,12 @@
 
 - (BOOL)doConnect {
   
+  if( domain == nil || [domain length] == 0 ) {
+    NSLog(@"Using hard coded defaults for connection...");	
+    domain = @"rocrail.dyndns.org";
+    port = 8080;
+  }
+  
 	NSLog(@"Connect to: %@:%d ", domain, port);	
 	
 	BOOL connectOK = FALSE;
@@ -266,7 +272,7 @@
         connectionError = TRUE;
         UIAlertView *alert = [[UIAlertView alloc] 
                             initWithTitle:@"Warning" 
-                            message:@"Lost connection with the Rocrail server!" 
+                            message:[NSString stringWithFormat: @"Connection with %@:%d lost!",self.domain, self.port] 
                             delegate:self 
                             cancelButtonTitle:nil 
                             otherButtonTitles:@"OK",nil];
