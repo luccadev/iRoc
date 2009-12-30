@@ -108,9 +108,23 @@
     // no connection possible: show a message or jump to the Info Page. (Extend the info page with connection details...)
     NSLog( @"no connection: offline");
     [self.tabBarController setSelectedViewController:aboutView];
+    connectAlert = [[UIAlertView alloc] 
+                   initWithTitle:@"Warning" 
+                   message:[NSString stringWithFormat: 
+                           @"Could not connect to %@:%d.\nPlease check the Settings.\niRoc will exit.",[rrconnection domain], [rrconnection port]] 
+                   delegate:self 
+                   cancelButtonTitle:nil 
+                   otherButtonTitles:@"OK",nil];
+    [connectAlert show];
   }
   
   [viewController setRrconnection:self.rrconnection];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+  if( alertView == connectAlert ) {
+    exit(0);
+  }
 }
 
 
@@ -233,6 +247,10 @@
 	[rrconnection release];
     [window release];
     [super dealloc];
+}
+
+-(void) applicationWillTerminate:(UIApplication *)application {
+	NSLog(@"applicationWillTerminate");
 }
 
 -(void) applicationWillResignActive:(UIApplication *)application {

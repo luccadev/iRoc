@@ -55,6 +55,8 @@
 	
 	IRocConnector *rrconnection;
 	UIImageView *imageview;
+  
+  UIAlertView *connectAlert;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

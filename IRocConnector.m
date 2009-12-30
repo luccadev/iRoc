@@ -46,14 +46,6 @@
   }
   else {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    UIAlertView *alert = [[UIAlertView alloc] 
-                          initWithTitle:@"Warning" 
-                          message:[NSString stringWithFormat: @"Could not connect to %@:%d.",self.domain, self.port] 
-                          delegate:self 
-                          cancelButtonTitle:nil 
-                          otherButtonTitles:@"OK",nil];
-    [alert show];
-    
   }
 
 	return connectOK;
