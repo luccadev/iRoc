@@ -56,8 +56,9 @@
   NSMutableArray* messageQueue; 
 
 	@public
-	NSMutableArray *rtList;
+	//NSMutableArray *rtList;
 
+	Container *rtContainer;
 	Container *swContainer;
 	Container *lcContainer;
 	Container *coContainer;
@@ -92,8 +93,9 @@
 @property(copy) NSString *domain;
 @property(nonatomic, retain) NSMutableString *header;
 @property(nonatomic, retain) NSMutableString *rocdata;
-@property(nonatomic, retain) NSMutableArray *rtList;
+//@property(nonatomic, retain) NSMutableArray *rtList;
 
+@property(nonatomic, retain) Container *rtContainer;
 @property(nonatomic, retain) Container *coContainer;
 @property(nonatomic, retain) Container *swContainer;
 @property(nonatomic, retain) Container *lcContainer;

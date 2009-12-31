@@ -10,7 +10,7 @@
 
 
 @implementation iRocRtTableView
-@synthesize rtList, menuname;
+@synthesize rtContainer, menuname;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,7 +36,7 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [rtList count];
+    return [rtContainer count];
 }
 
 // Customize the appearance of table view cells.
@@ -56,7 +56,7 @@
 	rtidLabel.backgroundColor = cellbackcolor;
 	[cell.contentView addSubview:rtidLabel];
 	 	
-	Route *rt = [rtList objectAtIndex:indexPath.row];
+	Route *rt = (Route*)[rtContainer objectAtIndex:indexPath.row];
     rtidLabel.text = rt.rtid;
 
     return cell;
@@ -64,7 +64,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	[_delegate rtAction:((Route*) [rtList objectAtIndex:indexPath.row]).rtid];
+	[_delegate rtAction:((Route*) [rtContainer objectAtIndex:indexPath.row]).rtid];
 }
 
 

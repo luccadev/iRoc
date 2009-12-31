@@ -37,16 +37,7 @@
 
 	iRocAboutView IBOutlet *aboutView;
   
-	//NSMutableArray *lcList;	
-	//NSMutableArray *lcIndexList;	
-	
-	NSMutableArray *rtList;
-	
-	//NSMutableArray *swList;
-	//NSMutableArray *swIndexList;
-	
-	//NSMutableArray *coList;
-	
+	Container *rtContainer;
 	Container *swContainer;
 	Container *lcContainer;
 	Container *coContainer;
@@ -71,8 +62,7 @@
 
 @property (nonatomic, retain) IBOutlet iRocAboutView *aboutView;
 
-@property(nonatomic, retain) NSMutableArray *rtList;
-
+@property(nonatomic, retain) Container *rtContainer;
 @property(nonatomic, retain) Container *swContainer;
 @property(nonatomic, retain) Container *lcContainer;
 @property(nonatomic, retain) Container *coContainer;

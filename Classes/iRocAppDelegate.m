@@ -17,7 +17,7 @@
 @synthesize viewController;
 @synthesize lcTableView, rtTableView, swTableView, coTableView, menuTableView;
 
-@synthesize rtList, coContainer, rrconnection, menuItems, aboutView, swContainer, lcContainer;
+@synthesize coContainer, rrconnection, menuItems, aboutView, swContainer, lcContainer, rtContainer;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
   NSLog(@"applicationDidFinishLaunching");
@@ -38,9 +38,7 @@
 	}
 	[window addSubview:tabBarController.view];	
 
-	
-	rtList = [[NSMutableArray array] retain];
-	
+  rtContainer = [[[Container alloc] init] retain];
 	swContainer = [[[Container alloc] init] retain];
 	lcContainer = [[[Container alloc] init] retain];
 	coContainer = [[[Container alloc] init] retain];
@@ -60,7 +58,7 @@
 	[swTableView setMenuname:@"Switches"];
 	
 	rtTableView = [[iRocRtTableView alloc] initWithNibName:@"iRocRtTableView" bundle:nil];
-	[rtTableView setRtList:self.rtList];
+	[rtTableView setRtContainer:self.rtContainer];
 	[rtTableView setDelegate:self];
 	[rtTableView setMenuname:@"Routes"];
 	
@@ -83,8 +81,8 @@
 	[rrconnection setPort:[defaults integerForKey:@"port_preference"]];
 	[rrconnection setDelegate:self];
 	[rrconnection setLcContainer:self.lcContainer];
-	[rrconnection setRtList:self.rtList];
-	[rrconnection setSwContainer:swContainer];
+	[rrconnection setRtContainer:self.rtContainer];
+	[rrconnection setSwContainer:self.swContainer];
 	[rrconnection setCoContainer:self.coContainer];
 	viewController.textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
   viewController.imageviewLoc = nil;

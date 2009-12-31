@@ -61,12 +61,12 @@
 					<object class="IBUILabel" id="557931224">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{19, 96}, {233, 21}}</string>
+						<string key="NSFrame">{{19, 96}, {284, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
-						<string key="IBUIText">Copyright 2009, License: GPL</string>
+						<string key="IBUIText">Copyright 2009 - 2010, License: GPL</string>
 						<reference key="IBUITextColor" ref="119468323"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
@@ -226,9 +226,9 @@ LCBNQSAgMDIxMTEtMTMwNywgVVNBLg</string>
 							<reference ref="350231017"/>
 							<reference ref="1033140481"/>
 							<reference ref="1051793502"/>
-							<reference ref="557931224"/>
 							<reference ref="554511898"/>
 							<reference ref="775686042"/>
+							<reference ref="557931224"/>
 						</object>
 						<reference key="parent" ref="931955601"/>
 					</object>

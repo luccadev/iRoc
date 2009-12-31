@@ -11,8 +11,8 @@
 
 @implementation IRocConnector
 
-@synthesize header, rocdata, isConnected, readyConnecting, currentLocObject, rtList, coContainer;
-@synthesize swContainer, lcContainer;
+@synthesize header, rocdata, isConnected, readyConnecting, currentLocObject, coContainer;
+@synthesize swContainer, lcContainer, rtContainer;
 
 - (id) init {
 	[super init];
@@ -566,7 +566,8 @@ static NSString * const kIdElementName = @"id";
     if( parsingPlan ) {
       Route *rt = [[[Route alloc] init] retain];
       rt.rtid = relAttribute;
-      [self.rtList addObject:rt];
+      //[self.rtList addObject:rt];
+			[self.rtContainer addObject:rt withId:rt.rtid];
     }
     else {
       NSLog(@"route event");		
@@ -578,8 +579,8 @@ static NSString * const kIdElementName = @"id";
       //NSLog(@"parser: co: %@", [attributeDict valueForKey:kIdElementName]);
       Output *co = [[[Output alloc] init] retain];
       co.coid = idAttribute;
-	  co.state = [attributeDict valueForKey:@"state"];
-	  NSLog(@"Output State: %@", co.state);
+	    co.state = [attributeDict valueForKey:@"state"];
+	    //NSLog(@"Output State: %@", co.state);
 	  [self.coContainer addObject:co withId:idAttribute];
     } else {
 			NSString *state = [attributeDict valueForKey:@"state"];
@@ -632,21 +633,18 @@ static NSString * const kIdElementName = @"id";
 	} else if (parsingPlan && [elementName isEqualToString:@"stlist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(rtListLoaded)] ) {
-			//[_delegate rtListLoaded];
       [_delegate performSelectorOnMainThread : @ selector(rtListLoaded ) withObject:nil waitUntilDone:NO];
 		} 
-		NSLog(@"%d rts added ... ", [rtList count]);
+		NSLog(@"%d rts added ... ", [rtContainer count]);
 	} else if (parsingPlan && [elementName isEqualToString:@"swlist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(swListLoaded)] ) {
-			//[_delegate swListLoaded];
       [_delegate performSelectorOnMainThread : @ selector(swListLoaded ) withObject:nil waitUntilDone:NO];
 		} 
 		NSLog(@"%d sws added ... ", [swContainer count]);
 	} else if ( parsingPlan && [elementName isEqualToString:@"colist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(coListLoaded)] ) {
-			//[_delegate coListLoaded];
       [_delegate performSelectorOnMainThread : @ selector(coListLoaded ) withObject:nil waitUntilDone:NO];
 		} 
 		NSLog(@"%d cos added ... ", [coContainer count]);

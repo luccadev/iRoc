@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "iRocTableView.h"
 #import "Route.h"
+#import "Container.h"
 
 
 @interface iRocRtTableView : iRocTableView {
-	NSArray *rtList;
+	Container *rtContainer;
 	id _delegate;
 	NSString *menuname;
 }
@@ -20,7 +21,7 @@
 - (id)delegate;
 - (void)setDelegate:(id)new_delegate;
 
-@property (nonatomic, retain) NSArray *rtList;
+@property (nonatomic, retain) Container *rtContainer;
 @property (nonatomic, retain) NSString *menuname;
 
 @end
