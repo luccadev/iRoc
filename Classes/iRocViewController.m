@@ -22,8 +22,6 @@
 @synthesize VDelta;
 
 - (IBAction) buttonDirClicked:(id) sender { 
-	
-	
 	if(dir) {
 		[buttonDir setTitle:@"<" forState:UIControlStateNormal];
 		dir = !dir;
@@ -33,8 +31,6 @@
 		dir = !dir;
 		stringDir = @"true";
 	}
-	
-	
 	//AudioServicesPlaySystemSound (self.soundFileObject);
 
 	[slideView setValue:0];	

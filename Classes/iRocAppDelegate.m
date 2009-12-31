@@ -49,23 +49,23 @@
 	lcTableView = [[iRocLcTableView alloc] initWithNibName:@"iRocLcTableView" bundle:nil];
 	[lcTableView setLcContainer:self.lcContainer];
 	[lcTableView setDelegate:self];
-	[lcTableView setMenuname:@"Locomotives"];
+	[lcTableView setMenuname:NSLocalizedString(@"Locomotives", @"")];
 
 	swTableView = [[iRocSwTableView alloc] initWithNibName:@"iRocSwTableView" bundle:nil];
 	[swTableView setSwContainer:self.swContainer];
 	
 	[swTableView setDelegate:self];
-	[swTableView setMenuname:@"Switches"];
+	[swTableView setMenuname:NSLocalizedString(@"Switches", @"")];
 	
 	rtTableView = [[iRocRtTableView alloc] initWithNibName:@"iRocRtTableView" bundle:nil];
 	[rtTableView setRtContainer:self.rtContainer];
 	[rtTableView setDelegate:self];
-	[rtTableView setMenuname:@"Routes"];
+	[rtTableView setMenuname:NSLocalizedString(@"Routes", @"")];
 	
 	coTableView = [[iRocCoTableView alloc] initWithNibName:@"iRocCoTableView" bundle:nil];
 	[coTableView setCoContainer:self.coContainer];
 	[coTableView setDelegate:self];
-	[coTableView setMenuname:@"Outputs"];
+	[coTableView setMenuname:NSLocalizedString(@"Outputs", @"")];
 	
 	[menuItems addObject:lcTableView];
 	[menuItems addObject:rtTableView];

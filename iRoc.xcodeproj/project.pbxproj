@@ -163,6 +163,7 @@
 		9CDDE84610E25BAB00920C87 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CDDE84510E25BAB00920C87 /* Default.png */; };
 		9CDDE86910E2623C00920C87 /* rocrail-logo-35.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CDDE86810E2623C00920C87 /* rocrail-logo-35.png */; };
 		9CE17DD910CE857B00170A98 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE17DD810CE857B00170A98 /* Route.m */; };
+		9CE44AF010ECB99F00506323 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CE44AEE10ECB99F00506323 /* Localizable.strings */; };
 		9CFDBF6610BD081600E9E9DE /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CFDBF6510BD081600E9E9DE /* Entitlements.plist */; };
 /* End PBXBuildFile section */
 
@@ -346,6 +347,10 @@
 		9CDDE86810E2623C00920C87 /* rocrail-logo-35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rocrail-logo-35.png"; sourceTree = "<group>"; };
 		9CE17DD710CE857B00170A98 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
 		9CE17DD810CE857B00170A98 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
+		9CE44AEF10ECB99F00506323 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9CE44AF510ECB9BF00506323 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9CE44AFF10ECB9C900506323 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9CE44B0010ECB9D300506323 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9CFDBF6510BD081600E9E9DE /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -444,6 +449,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9CE44AEE10ECB99F00506323 /* Localizable.strings */,
 				9C4A066910E366CB00E54D74 /* rocrail-logo-noshade-black.png */,
 				9CDDE86810E2623C00920C87 /* rocrail-logo-35.png */,
 				9CAFD95610B97B700029C16F /* Icon.png */,
@@ -627,6 +633,16 @@
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "iRoc" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				de,
+				nl,
+				en,
+				fr,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -774,6 +790,7 @@
 				9C4A066A10E366CB00E54D74 /* rocrail-logo-noshade-black.png in Resources */,
 				9C5B440D10E3AE9E00355A5B /* off.png in Resources */,
 				9C5B440E10E3AE9E00355A5B /* on.png in Resources */,
+				9CE44AF010ECB99F00506323 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,6 +825,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9CE44AEE10ECB99F00506323 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9CE44AEF10ECB99F00506323 /* en */,
+				9CE44AF510ECB9BF00506323 /* nl */,
+				9CE44AFF10ECB9C900506323 /* fr */,
+				9CE44B0010ECB9D300506323 /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
