@@ -17,6 +17,7 @@
 		28D7ACF80DDB3853001CB0EB /* iRocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* iRocViewController.m */; };
 		9C00EAC610B3C5820098BA59 /* IRocConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C00EAC510B3C5820098BA59 /* IRocConnector.m */; };
 		9C00EE6210B41B490098BA59 /* thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C00EE6110B41B490098BA59 /* thumb.png */; };
+		9C1E1B4610EE701C00D9BC1E /* iRocSystemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1E1B4510EE701C00D9BC1E /* iRocSystemView.m */; };
 		9C31162E10CE624B005A009B /* iRocRtTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C31162C10CE624B005A009B /* iRocRtTableView.m */; };
 		9C31162F10CE624B005A009B /* iRocRtTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C31162D10CE624B005A009B /* iRocRtTableView.xib */; };
 		9C343D3010B900E500750B22 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9C343D2F10B900E500750B22 /* Settings.bundle */; };
@@ -185,6 +186,8 @@
 		9C00EAC510B3C5820098BA59 /* IRocConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IRocConnector.m; path = ../IRocConnector.m; sourceTree = "<group>"; };
 		9C00EE6110B41B490098BA59 /* thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb.png; sourceTree = "<group>"; };
 		9C076BB210CFDBC300CCA793 /* iRocMenuTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocMenuTableView.h; sourceTree = "<group>"; };
+		9C1E1B4410EE701C00D9BC1E /* iRocSystemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocSystemView.h; sourceTree = "<group>"; };
+		9C1E1B4510EE701C00D9BC1E /* iRocSystemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocSystemView.m; sourceTree = "<group>"; };
 		9C31162B10CE624B005A009B /* iRocRtTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocRtTableView.h; sourceTree = "<group>"; };
 		9C31162C10CE624B005A009B /* iRocRtTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocRtTableView.m; sourceTree = "<group>"; };
 		9C31162D10CE624B005A009B /* iRocRtTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = iRocRtTableView.xib; path = Classes/iRocRtTableView.xib; sourceTree = "<group>"; };
@@ -372,6 +375,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9C1E1B4410EE701C00D9BC1E /* iRocSystemView.h */,
+				9C1E1B4510EE701C00D9BC1E /* iRocSystemView.m */,
 				9C7F1BE710CBF2A900ACF0A7 /* iRocAboutView.h */,
 				9C7F1BE810CBF2A900ACF0A7 /* iRocAboutView.m */,
 				9C00EAC410B3C5820098BA59 /* IRocConnector.h */,
@@ -821,6 +826,7 @@
 				9C5CF49C10D130720043D544 /* iRocTableView.m in Sources */,
 				9C713ED310D4E1D300C222B8 /* iRocLocProps.m in Sources */,
 				9C5B41ED10E37AA700355A5B /* Container.m in Sources */,
+				9C1E1B4610EE701C00D9BC1E /* iRocSystemView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
