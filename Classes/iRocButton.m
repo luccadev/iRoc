@@ -54,6 +54,8 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
 		began = 0;
 		moved = 1;
 		ended = 2;
+      
+      color = 0;
 		
 		NSLog(@"iRocButton:initWithFrame");
     }
@@ -65,7 +67,17 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
 	[super drawRect:rect];
     context = UIGraphicsGetCurrentContext();
 
-	CGContextSetRGBFillColor(context, .3, .3, .3, 1);
+  // red
+  if( color == 1 )
+	  CGContextSetRGBFillColor(context, .6, .3, .3, 1);
+  // green
+  else if( color == 2 )
+	  CGContextSetRGBFillColor(context, .3, .6, .3, 1);
+  // default
+  else
+    CGContextSetRGBFillColor(context, .3, .3, .3, 1);
+  
+  
 	CGContextAddRoundedRectA(context, CGRectMake(0,0, CGRectGetWidth(rect), CGRectGetHeight( rect)), 5);  
 	CGContextFillPath(context);
 
@@ -109,6 +121,10 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
 	[self setNeedsDisplay];
 	
 	//NSLog(@"bstate: %d", bState);
+}
+
+- (void) setColor:(int)clr {
+	color = clr;
 }
 
 - (BOOL) getBState {

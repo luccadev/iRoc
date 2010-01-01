@@ -16,8 +16,10 @@
 	int touchState;
 	
 	BOOL bState;
+  int color; // 0 = default, 1 = red, 2 = green
 }
 
+- (void) setColor:(int) clr;
 - (void) setBState:(BOOL) staten;
 - (BOOL) getBState;
 - (void) flipBState;

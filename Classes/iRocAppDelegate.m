@@ -15,7 +15,7 @@
 @synthesize window;
 @synthesize tabBarController;
 @synthesize viewController;
-@synthesize lcTableView, rtTableView, swTableView, coTableView, menuTableView;
+@synthesize lcTableView, rtTableView, swTableView, coTableView, menuTableView, systemView;
 
 @synthesize coContainer, rrconnection, menuItems, aboutView, swContainer, lcContainer, rtContainer;
 
@@ -36,8 +36,19 @@
 	if( [defaults boolForKey:@"moveevents_preference"]) {
 		[viewController processAllEvents:[defaults integerForKey:@"vdelta_preference"]];
 	}
-	[window addSubview:tabBarController.view];	
+	
+  systemView = [[iRocSystemView alloc] init];
+  
+  NSMutableArray* views = [[NSMutableArray alloc] init];
+  [views addObjectsFromArray:tabBarController.viewControllers];
+  [views replaceObjectAtIndex:3 withObject:systemView];
+  tabBarController.viewControllers = views;
+  
+  
+	[window addSubview:tabBarController.view];
 
+  
+  
   rtContainer = [[[Container alloc] init] retain];
 	swContainer = [[[Container alloc] init] retain];
 	lcContainer = [[[Container alloc] init] retain];
@@ -86,6 +97,8 @@
 	[rrconnection setCoContainer:self.coContainer];
 	viewController.textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
   viewController.imageviewLoc = nil;
+  
+  systemView.rrconnection = rrconnection;
 	
 	// Connect Thread
 	rrconnection.isConnected = FALSE;
