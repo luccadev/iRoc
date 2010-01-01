@@ -10,3 +10,6 @@
 /* No comment provided by engineer. */
 "Switches" = "Weichen";
 
+"Power ON" = "Strom ein";
+"Power OFF" = "Strom aus";
+"Init Field" = "Initialisieren";
