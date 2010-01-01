@@ -3,3 +3,7 @@
 "Outputs" = "Uitgangen";
 "Routes" = "Rijstraten";
 "Switches" = "Wissels";
+"System" = "Systeem";
+"Power ON" = "Booster AAN";
+"Power OFF" = "Booster UIT";
+"Init Field" = "Initialiseren";

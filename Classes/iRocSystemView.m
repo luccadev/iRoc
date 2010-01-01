@@ -17,7 +17,8 @@
   self = [super init];
   if( self != nil ) {
     self.tabBarItem = [[UITabBarItem alloc] initWithTitle:
-                       [NSString stringWithFormat:@"System"] image:nil tag:4];
+                       NSLocalizedString(@"System", @"")
+                       image:[UIImage imageNamed:@"light-on.png"] tag:4];
   }
   return self;
 }
@@ -31,7 +32,7 @@
   CGRect powerONFrame = CGRectMake(25.0, 25.0, buttonWidth, 60.0);
   powerON = [[iRocButton alloc] initWithFrame:powerONFrame];
   powerON.frame = powerONFrame;
-  [powerON setTitle: @"Power ON" forState: UIControlStateNormal];
+  [powerON setTitle: NSLocalizedString(@"Power ON", @"") forState: UIControlStateNormal];
   [powerON addTarget:self action:@selector(powerONClicked:) forControlEvents:UIControlEventTouchUpInside];
   [powerON setColor:2];
   [self.view addSubview: powerON];
@@ -39,7 +40,7 @@
   CGRect powerOFFFrame = CGRectMake(buttonWidth + 50.0, 25.0, buttonWidth, 60.0);
   powerOFF = [[iRocButton alloc] initWithFrame:powerOFFFrame];
   powerOFF.frame = powerOFFFrame;
-  [powerOFF setTitle: @"Power OFF" forState: UIControlStateNormal];
+  [powerOFF setTitle: NSLocalizedString(@"Power OFF", @"") forState: UIControlStateNormal];
   [powerOFF addTarget:self action:@selector(powerOFFClicked:) forControlEvents:UIControlEventTouchUpInside];
   [powerOFF setColor:1];
   [self.view addSubview: powerOFF];
@@ -47,7 +48,7 @@
   CGRect initFieldFrame = CGRectMake(25.0, 25.0 + 60.0 + 25.0, 2 * buttonWidth + 25.0, 60.0);
   initField = [[iRocButton alloc] initWithFrame:initFieldFrame];
   initField.frame = initFieldFrame;
-  [initField setTitle: @"init Field" forState: UIControlStateNormal];
+  [initField setTitle: NSLocalizedString(@"Init Field", @"") forState: UIControlStateNormal];
   [initField addTarget:self action:@selector(initFieldClicked:) forControlEvents:UIControlEventTouchUpInside];
   [initField setColor:3];
   [self.view addSubview: initField];
@@ -55,7 +56,7 @@
   CGRect autoONFrame = CGRectMake(25.0, 3 * 25.0 + 2 * 60.0, buttonWidth, 60.0);
   autoON = [[iRocButton alloc] initWithFrame:autoONFrame];
   autoON.frame = autoONFrame;
-  [autoON setTitle: @"Auto ON" forState: UIControlStateNormal];
+  [autoON setTitle: NSLocalizedString(@"Auto ON", @"") forState: UIControlStateNormal];
   [autoON addTarget:self action:@selector(autoONClicked:) forControlEvents:UIControlEventTouchUpInside];
   [autoON setColor:3];
   [self.view addSubview: autoON];
@@ -63,7 +64,7 @@
   CGRect autoOFFFrame = CGRectMake(buttonWidth + 50.0, 3 * 25.0 + 2 * 60.0, buttonWidth, 60.0);
   autoOFF = [[iRocButton alloc] initWithFrame:autoOFFFrame];
   autoOFF.frame = autoOFFFrame;
-  [autoOFF setTitle: @"Auto OFF" forState: UIControlStateNormal];
+  [autoOFF setTitle: NSLocalizedString(@"Auto OFF", @"") forState: UIControlStateNormal];
   [autoOFF addTarget:self action:@selector(autoOFFClicked:) forControlEvents:UIControlEventTouchUpInside];
   [autoOFF setColor:3];
   [self.view addSubview: autoOFF];
@@ -71,7 +72,7 @@
   CGRect autoStartFrame = CGRectMake(25.0, 4 * 25.0 + 3 * 60.0, buttonWidth, 60.0);
   autoStart = [[iRocButton alloc] initWithFrame:autoStartFrame];
   autoStart.frame = autoStartFrame;
-  [autoStart setTitle: @"Auto Start" forState: UIControlStateNormal];
+  [autoStart setTitle: NSLocalizedString(@"Auto Start", @"") forState: UIControlStateNormal];
   [autoStart addTarget:self action:@selector(autoStartClicked:) forControlEvents:UIControlEventTouchUpInside];
   [autoStart setColor:3];
   [self.view addSubview: autoStart];
@@ -79,7 +80,7 @@
   CGRect autoStopFrame = CGRectMake(buttonWidth + 50.0, 4 * 25.0 + 3 * 60.0, buttonWidth, 60.0);
   autoStop = [[iRocButton alloc] initWithFrame:autoStopFrame];
   autoStop.frame = autoStopFrame;
-  [autoStop setTitle: @"Auto Stop" forState: UIControlStateNormal];
+  [autoStop setTitle: NSLocalizedString(@"Auto Stop", @"") forState: UIControlStateNormal];
   [autoStop addTarget:self action:@selector(autoStopClicked:) forControlEvents:UIControlEventTouchUpInside];
   [autoStop setColor:3];
   [self.view addSubview: autoStop];
