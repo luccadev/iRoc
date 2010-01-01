@@ -56,6 +56,7 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
 		ended = 2;
       
       color = 0;
+      touchState = ended;
 		
 		NSLog(@"iRocButton:initWithFrame");
     }
@@ -67,13 +68,14 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
 	[super drawRect:rect];
     context = UIGraphicsGetCurrentContext();
 
-  // red
+  float clrdepth = touchState == began ?.9:.6;
+    // red
   if( color == 1 )
-	  CGContextSetRGBFillColor(context, .6, .3, .3, 1);
-  // green
+	  CGContextSetRGBFillColor(context, clrdepth, .3, .3, 1);
+    // green
   else if( color == 2 )
-	  CGContextSetRGBFillColor(context, .3, .6, .3, 1);
-  // default
+	  CGContextSetRGBFillColor(context, .3, clrdepth, .3, 1);
+    // default
   else
     CGContextSetRGBFillColor(context, .3, .3, .3, 1);
   

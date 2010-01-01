@@ -24,6 +24,8 @@
 
 - (void)loadView {
   [super loadView];
+  [super.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0]];
+  
   CGRect bounds = self.view.bounds;
   float buttonWidth = (bounds.size.width - 75) / 2;
   CGRect powerONFrame = CGRectMake(25.0, 25.0, buttonWidth, 60.0);
