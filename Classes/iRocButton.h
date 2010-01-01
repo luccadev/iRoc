@@ -16,7 +16,7 @@
 	int touchState;
 	
 	BOOL bState;
-  int color; // 0 = default, 1 = red, 2 = green
+  int color; // 0 = default, 1 = red, 2 = green, 3 = blue
 }
 
 - (void) setColor:(int) clr;

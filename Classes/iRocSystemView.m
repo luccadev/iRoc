@@ -10,14 +10,14 @@
 
 
 @implementation iRocSystemView
-@synthesize powerON, powerOFF, rrconnection;
+@synthesize powerON, powerOFF, initField, autoON, autoOFF, rrconnection;
 
 
 - (id)init {
   self = [super init];
   if( self != nil ) {
     self.tabBarItem = [[UITabBarItem alloc] initWithTitle:
-                       [NSString stringWithFormat:@"System"] image:nil tag:2];
+                       [NSString stringWithFormat:@"System"] image:nil tag:4];
   }
   return self;
 }
@@ -43,6 +43,30 @@
   [powerOFF addTarget:self action:@selector(powerOFFClicked:) forControlEvents:UIControlEventTouchUpInside];
   [powerOFF setColor:1];
   [self.view addSubview: powerOFF];
+
+  CGRect initFieldFrame = CGRectMake(25.0, 25.0 + 60.0 + 25.0, buttonWidth, 60.0);
+  initField = [[iRocButton alloc] initWithFrame:initFieldFrame];
+  initField.frame = initFieldFrame;
+  [initField setTitle: @"init Field" forState: UIControlStateNormal];
+  [initField addTarget:self action:@selector(initFieldClicked:) forControlEvents:UIControlEventTouchUpInside];
+  [initField setColor:3];
+  [self.view addSubview: initField];
+
+  CGRect autoONFrame = CGRectMake(25.0, 3 * 25.0 + 2 * 60.0, buttonWidth, 60.0);
+  autoON = [[iRocButton alloc] initWithFrame:autoONFrame];
+  autoON.frame = autoONFrame;
+  [autoON setTitle: @"Auto ON" forState: UIControlStateNormal];
+  [autoON addTarget:self action:@selector(autoONClicked:) forControlEvents:UIControlEventTouchUpInside];
+  [autoON setColor:3];
+  [self.view addSubview: autoON];
+
+  CGRect autoOFFFrame = CGRectMake(buttonWidth + 50.0, 3 * 25.0 + 2 * 60.0, buttonWidth, 60.0);
+  autoOFF = [[iRocButton alloc] initWithFrame:autoOFFFrame];
+  autoOFF.frame = autoOFFFrame;
+  [autoOFF setTitle: @"Auto OFF" forState: UIControlStateNormal];
+  [autoOFF addTarget:self action:@selector(autoOFFClicked:) forControlEvents:UIControlEventTouchUpInside];
+  [autoOFF setColor:3];
+  [self.view addSubview: autoOFF];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -75,6 +99,24 @@
   //[powerOFF flipBState];
 	NSString * stringToSend = [[NSString alloc] initWithString: @"<sys cmd=\"stop\"/>"];
 	[rrconnection sendMessage:@"sys" message:stringToSend];
+}
+
+- (IBAction) initFieldClicked:(id) sender {
+  NSLog(@"intField");
+	NSString * stringToSend = [[NSString alloc] initWithString: @"<model cmd=\"initfield\"/>"];
+	[rrconnection sendMessage:@"model" message:stringToSend];
+}
+
+- (IBAction) autoONClicked:(id) sender {
+  NSLog(@"autoON");
+	NSString * stringToSend = [[NSString alloc] initWithString: @"<auto cmd=\"on\"/>"];
+	[rrconnection sendMessage:@"auto" message:stringToSend];
+}
+
+- (IBAction) autoOFFClicked:(id) sender {
+  NSLog(@"autoOFF");
+	NSString * stringToSend = [[NSString alloc] initWithString: @"<auto cmd=\"off\"/>"];
+	[rrconnection sendMessage:@"auto" message:stringToSend];
 }
 
 

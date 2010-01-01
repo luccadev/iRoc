@@ -45,7 +45,6 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
 }
 
 - (id)initWithFrame:(CGRect)frame {
-	touchState = ended;
 	bState = FALSE;
 	
     if (self = [super initWithFrame:frame]) {
@@ -69,6 +68,7 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
     context = UIGraphicsGetCurrentContext();
 
   float clrdepth = touchState == began ?.9:.6;
+  float graydepth = touchState == began ?.3:.3; // TODO: Seems always to be "began" for the loco controller buttons...
     // red
   if( color == 1 )
 	  CGContextSetRGBFillColor(context, clrdepth, .3, .3, 1);
@@ -76,8 +76,11 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
   else if( color == 2 )
 	  CGContextSetRGBFillColor(context, .3, clrdepth, .3, 1);
     // default
+  else if( color == 3 )
+	  CGContextSetRGBFillColor(context, .3, .3, clrdepth, 1);
+    // default
   else
-    CGContextSetRGBFillColor(context, .3, .3, .3, 1);
+    CGContextSetRGBFillColor(context, graydepth, graydepth, graydepth, 1);
   
   
 	CGContextAddRoundedRectA(context, CGRectMake(0,0, CGRectGetWidth(rect), CGRectGetHeight( rect)), 5);  
