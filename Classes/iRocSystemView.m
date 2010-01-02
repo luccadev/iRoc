@@ -7,10 +7,11 @@
 //
 
 #import "iRocSystemView.h"
+#import "globals.h"
 
 
 @implementation iRocSystemView
-@synthesize powerON, powerOFF, initField, autoON, autoOFF, autoStart, autoStop, rrconnection;
+@synthesize powerON, powerOFF, initField, autoON, autoStart, rrconnection;
 
 
 - (id)init {
@@ -28,8 +29,8 @@
   [super.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0]];
   
   CGRect bounds = self.view.bounds;
-  float buttonWidth = (bounds.size.width - 75) / 2;
-  CGRect powerONFrame = CGRectMake(25.0, 25.0, buttonWidth, 60.0);
+  float buttonWidth = (bounds.size.width - (2 * CONTENTBORDER + BUTTONGAP)) / 2;
+  CGRect powerONFrame = CGRectMake(CONTENTBORDER, CONTENTBORDER, buttonWidth, BUTTONHEIGHT);
   powerON = [[iRocButton alloc] initWithFrame:powerONFrame];
   powerON.frame = powerONFrame;
   [powerON setTitle: NSLocalizedString(@"Power ON", @"") forState: UIControlStateNormal];
@@ -37,7 +38,7 @@
   [powerON setColor:2];
   [self.view addSubview: powerON];
 
-  CGRect powerOFFFrame = CGRectMake(buttonWidth + 50.0, 25.0, buttonWidth, 60.0);
+  CGRect powerOFFFrame = CGRectMake(buttonWidth + CONTENTBORDER + BUTTONGAP, CONTENTBORDER, buttonWidth, BUTTONHEIGHT);
   powerOFF = [[iRocButton alloc] initWithFrame:powerOFFFrame];
   powerOFF.frame = powerOFFFrame;
   [powerOFF setTitle: NSLocalizedString(@"Power OFF", @"") forState: UIControlStateNormal];
@@ -45,7 +46,7 @@
   [powerOFF setColor:1];
   [self.view addSubview: powerOFF];
 
-  CGRect initFieldFrame = CGRectMake(25.0, 25.0 + 60.0 + 25.0, 2 * buttonWidth + 25.0, 60.0);
+  CGRect initFieldFrame = CGRectMake(CONTENTBORDER, CONTENTBORDER + BUTTONHEIGHT + BUTTONGAP, 2 * buttonWidth + BUTTONGAP, BUTTONHEIGHT);
   initField = [[iRocButton alloc] initWithFrame:initFieldFrame];
   initField.frame = initFieldFrame;
   [initField setTitle: NSLocalizedString(@"Init Field", @"") forState: UIControlStateNormal];
@@ -53,37 +54,22 @@
   [initField setColor:3];
   [self.view addSubview: initField];
 
-  CGRect autoONFrame = CGRectMake(25.0, 3 * 25.0 + 2 * 60.0, buttonWidth, 60.0);
+  CGRect autoONFrame = CGRectMake(CONTENTBORDER, CONTENTBORDER + 2 * BUTTONGAP + 2 * BUTTONHEIGHT, buttonWidth, BUTTONHEIGHT);
   autoON = [[iRocButton alloc] initWithFrame:autoONFrame];
   autoON.frame = autoONFrame;
   [autoON setTitle: NSLocalizedString(@"Auto ON", @"") forState: UIControlStateNormal];
   [autoON addTarget:self action:@selector(autoONClicked:) forControlEvents:UIControlEventTouchUpInside];
-  [autoON setColor:3];
+  [autoON setColor:0];
   [self.view addSubview: autoON];
 
-  CGRect autoOFFFrame = CGRectMake(buttonWidth + 50.0, 3 * 25.0 + 2 * 60.0, buttonWidth, 60.0);
-  autoOFF = [[iRocButton alloc] initWithFrame:autoOFFFrame];
-  autoOFF.frame = autoOFFFrame;
-  [autoOFF setTitle: NSLocalizedString(@"Auto OFF", @"") forState: UIControlStateNormal];
-  [autoOFF addTarget:self action:@selector(autoOFFClicked:) forControlEvents:UIControlEventTouchUpInside];
-  [autoOFF setColor:3];
-  [self.view addSubview: autoOFF];
-
-  CGRect autoStartFrame = CGRectMake(25.0, 4 * 25.0 + 3 * 60.0, buttonWidth, 60.0);
+  CGRect autoStartFrame = CGRectMake( CONTENTBORDER + buttonWidth + BUTTONGAP, CONTENTBORDER + 2 * BUTTONGAP + 2 * BUTTONHEIGHT, buttonWidth, BUTTONHEIGHT);
   autoStart = [[iRocButton alloc] initWithFrame:autoStartFrame];
   autoStart.frame = autoStartFrame;
   [autoStart setTitle: NSLocalizedString(@"Auto Start", @"") forState: UIControlStateNormal];
   [autoStart addTarget:self action:@selector(autoStartClicked:) forControlEvents:UIControlEventTouchUpInside];
-  [autoStart setColor:3];
+  [autoStart setColor:0];
   [self.view addSubview: autoStart];
   
-  CGRect autoStopFrame = CGRectMake(buttonWidth + 50.0, 4 * 25.0 + 3 * 60.0, buttonWidth, 60.0);
-  autoStop = [[iRocButton alloc] initWithFrame:autoStopFrame];
-  autoStop.frame = autoStopFrame;
-  [autoStop setTitle: NSLocalizedString(@"Auto Stop", @"") forState: UIControlStateNormal];
-  [autoStop addTarget:self action:@selector(autoStopClicked:) forControlEvents:UIControlEventTouchUpInside];
-  [autoStop setColor:3];
-  [self.view addSubview: autoStop];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -126,28 +112,19 @@
 
 - (IBAction) autoONClicked:(id) sender {
   NSLog(@"autoON");
-	NSString * stringToSend = [[NSString alloc] initWithString: @"<auto cmd=\"on\"/>"];
-	[rrconnection sendMessage:@"auto" message:stringToSend];
-}
-
-- (IBAction) autoOFFClicked:(id) sender {
-  NSLog(@"autoOFF");
-	NSString * stringToSend = [[NSString alloc] initWithString: @"<auto cmd=\"off\"/>"];
+  [autoON flipBState];
+	NSString * stringToSend = [[NSString alloc] initWithString: 
+                             [NSString stringWithFormat: @"<auto cmd=\"%@\"/>", [autoON getBState]?@"on":@"off"]];
 	[rrconnection sendMessage:@"auto" message:stringToSend];
 }
 
 - (IBAction) autoStartClicked:(id) sender {
   NSLog(@"autoStart");
-	NSString * stringToSend = [[NSString alloc] initWithString: @"<auto cmd=\"start\"/>"];
+  [autoStart flipBState];
+	NSString * stringToSend = [[NSString alloc] initWithString: 
+                             [NSString stringWithFormat: @"<auto cmd=\"%@\"/>", [autoON getBState]?@"start":@"stop"]];
 	[rrconnection sendMessage:@"auto" message:stringToSend];
 }
-
-- (IBAction) autoStopClicked:(id) sender {
-  NSLog(@"autoStop");
-	NSString * stringToSend = [[NSString alloc] initWithString: @"<auto cmd=\"stop\"/>"];
-	[rrconnection sendMessage:@"auto" message:stringToSend];
-}
-
 
 
 - (void)dealloc {

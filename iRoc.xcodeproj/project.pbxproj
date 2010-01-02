@@ -355,6 +355,7 @@
 		9CE44AFF10ECB9C900506323 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9CE44B0010ECB9D300506323 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9CFDBF6510BD081600E9E9DE /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		D478B17210EF48C100F1071F /* globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globals.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,6 +376,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D478B17210EF48C100F1071F /* globals.h */,
 				9C1E1B4410EE701C00D9BC1E /* iRocSystemView.h */,
 				9C1E1B4510EE701C00D9BC1E /* iRocSystemView.m */,
 				9C7F1BE710CBF2A900ACF0A7 /* iRocAboutView.h */,

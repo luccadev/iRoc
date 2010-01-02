@@ -17,20 +17,16 @@
   IBOutlet iRocButton *powerOFF;
   IBOutlet iRocButton *initField;
   IBOutlet iRocButton *autoON;
-  IBOutlet iRocButton *autoOFF;
   IBOutlet iRocButton *autoStart;
-  IBOutlet iRocButton *autoStop;
 	IRocConnector *rrconnection;
 }
-@property (nonatomic, retain) iRocButton *powerON, *powerOFF, *initField, *autoON, *autoOFF, *autoStart, *autoStop;
+@property (nonatomic, retain) iRocButton *powerON, *powerOFF, *initField, *autoON, *autoStart;
 @property (nonatomic, retain) IRocConnector *rrconnection;
 
 - (IBAction) powerONClicked:(id) sender; 
 - (IBAction) powerOFFClicked:(id) sender; 
 - (IBAction) initFieldClicked:(id) sender; 
 - (IBAction) autoONClicked:(id) sender; 
-- (IBAction) autoOFFClicked:(id) sender; 
 - (IBAction) autoStartClicked:(id) sender; 
-- (IBAction) autoStopClicked:(id) sender; 
 
 @end
