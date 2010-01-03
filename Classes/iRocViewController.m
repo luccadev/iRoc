@@ -130,7 +130,7 @@
 - (void) updateFnState {
   
   if( [buttonFn getBState] ) {
-    [buttonDir setTitle:@"Release" forState:UIControlStateNormal];
+    [buttonDir setTitle:NSLocalizedString(@"Release", @"") forState:UIControlStateNormal];
     [buttonF1 setTitle:@"F9" forState:UIControlStateNormal];
     [buttonF2 setTitle:@"F10" forState:UIControlStateNormal];
     [buttonF3 setTitle:@"F11" forState:UIControlStateNormal];
