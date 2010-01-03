@@ -22,6 +22,13 @@
 @synthesize VDelta;
 
 - (IBAction) buttonDirClicked:(id) sender { 
+  if([buttonFn getBState]) {
+    NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc throttleid=\"%@\" cmd=\"release\" id=\"%@\"/>", 
+                                                                 (NSString*)[[UIDevice currentDevice] name], [textfieldLoc text] ] ];
+    [rrconnection sendMessage:@"lc" message:stringToSend];
+  }
+  else {
+  
 	if(dir) {
 		[buttonDir setTitle:@"<" forState:UIControlStateNormal];
 		dir = !dir;
@@ -37,6 +44,7 @@
 	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc throttleid=\"%@\" id=\"%@\" V=\"0\" dir=\"%@\" fn=\"%@\"/>",
     (NSString*)[[UIDevice currentDevice] name],
     [textfieldLoc text], stringDir, [buttonF0 getBState]?@"true":@"false"]] ];
+  }
 }
 
 - (IBAction) sliderMoved:(id) sender { 	
@@ -81,33 +89,72 @@
 	//fnStates[0] = !fnStates[0];
 }
 - (IBAction) buttonF1Clicked:(id) sender {
-	[self prepareFNCommand:1];
+	[self prepareFNCommand:[buttonFn getBState]?9:1];
 }
 - (IBAction) buttonF2Clicked:(id) sender {
-	[self prepareFNCommand:2];
+	[self prepareFNCommand:[buttonFn getBState]?10:2];
 }
 - (IBAction) buttonF3Clicked:(id) sender {
-	[self prepareFNCommand:3];
+	[self prepareFNCommand:[buttonFn getBState]?11:3];
 }
 - (IBAction) buttonF4Clicked:(id) sender {
-	[self prepareFNCommand:4];
+	[self prepareFNCommand:[buttonFn getBState]?12:4];
 }
 - (IBAction) buttonF5Clicked:(id) sender {
-	[self prepareFNCommand:5];
+	[self prepareFNCommand:[buttonFn getBState]?13:5];
 }
 - (IBAction) buttonF6Clicked:(id) sender {
-	[self prepareFNCommand:6];
+	[self prepareFNCommand:[buttonFn getBState]?14:6];
 }
 - (IBAction) buttonF7Clicked:(id) sender {
-	[self prepareFNCommand:7];
+	[self prepareFNCommand:[buttonFn getBState]?15:7];
 }
 - (IBAction) buttonF8Clicked:(id) sender {
-	[self prepareFNCommand:8];
+	[self prepareFNCommand:[buttonFn getBState]?16:8];
 }
 - (IBAction) buttonFnClicked:(id) sender {
-	NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc throttleid=\"%@\" cmd=\"release\" id=\"%@\"/>", 
-    (NSString*)[[UIDevice currentDevice] name], [textfieldLoc text] ] ];
-	[rrconnection sendMessage:@"lc" message:stringToSend];
+  [buttonFn flipBState];
+  
+  if( [buttonFn getBState] ) {
+    [buttonDir setTitle:@"Release" forState:UIControlStateNormal];
+    [buttonF1 setTitle:@"F9" forState:UIControlStateNormal];
+    [buttonF2 setTitle:@"F10" forState:UIControlStateNormal];
+    [buttonF3 setTitle:@"F11" forState:UIControlStateNormal];
+    [buttonF4 setTitle:@"F12" forState:UIControlStateNormal];
+    [buttonF5 setTitle:@"F13" forState:UIControlStateNormal];
+    [buttonF6 setTitle:@"F14" forState:UIControlStateNormal];
+    [buttonF7 setTitle:@"F15" forState:UIControlStateNormal];
+    [buttonF8 setTitle:@"F16" forState:UIControlStateNormal];
+    [buttonF1 setBState:fnStates[9]];
+    [buttonF2 setBState:fnStates[10]];
+    [buttonF3 setBState:fnStates[11]];
+    [buttonF4 setBState:fnStates[12]];
+    [buttonF5 setBState:fnStates[13]];
+    [buttonF6 setBState:fnStates[14]];
+    [buttonF7 setBState:fnStates[15]];
+    [buttonF8 setBState:fnStates[16]];
+  }
+  else {
+    [buttonDir setTitle:dir?@">":@"<" forState:UIControlStateNormal];
+    [buttonF1 setTitle:@"F1" forState:UIControlStateNormal];
+    [buttonF2 setTitle:@"F2" forState:UIControlStateNormal];
+    [buttonF3 setTitle:@"F3" forState:UIControlStateNormal];
+    [buttonF4 setTitle:@"F4" forState:UIControlStateNormal];
+    [buttonF5 setTitle:@"F5" forState:UIControlStateNormal];
+    [buttonF6 setTitle:@"F6" forState:UIControlStateNormal];
+    [buttonF7 setTitle:@"F7" forState:UIControlStateNormal];
+    [buttonF8 setTitle:@"F8" forState:UIControlStateNormal];
+    [buttonF1 setBState:fnStates[1]];
+    [buttonF2 setBState:fnStates[2]];
+    [buttonF3 setBState:fnStates[3]];
+    [buttonF4 setBState:fnStates[4]];
+    [buttonF5 setBState:fnStates[5]];
+    [buttonF6 setBState:fnStates[6]];
+    [buttonF7 setBState:fnStates[7]];
+    [buttonF8 setBState:fnStates[8]];
+  }
+  
+  
 }
 
 - (void) processAllEvents:(int) _VDelta {
@@ -191,7 +238,8 @@
 	// read preferences
 	defaults = [[NSUserDefaults standardUserDefaults] retain];
 	
-	functionButtons = [[NSArray arrayWithObjects:buttonF0,buttonF1,buttonF2,buttonF3,buttonF4,buttonF5,buttonF6,buttonF7,buttonF8,nil] retain];
+	functionButtons = [[NSArray arrayWithObjects:buttonF0,buttonF1,buttonF2,buttonF3,buttonF4,buttonF5,buttonF6,buttonF7,buttonF8,
+                                                        buttonF1,buttonF2,buttonF3,buttonF4,buttonF5,buttonF6,buttonF7,buttonF8,nil] retain];
 	
 	
 	textfieldLoc = [[UITextField alloc] initWithFrame:CGRectMake(20, 20, 280, 71)];
@@ -230,7 +278,7 @@
 	AudioServicesCreateSystemSoundID ( soundFileURLRef, &soundFileObject);
 	
 	// Fuction states
-	for(int i = 0; i < 9; i++)
+	for(int i = 0; i < 32; i++)
 		fnStates[i] = FALSE; 
 	
 	fnStates[0] = TRUE;

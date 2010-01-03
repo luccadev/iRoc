@@ -41,7 +41,7 @@
 	NSString * stringDir; 
 	NSString * stringLcPrev; 
 		
-	BOOL fnStates[9];
+	BOOL fnStates[32];
 	BOOL connectOK;
 	BOOL processAll;
 
