@@ -123,7 +123,9 @@
 	NSLog(@"FNG: %d", tmp);
 	
 	
-	NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<fn group=\"%d\" id=\"%@\" f%d=\"%@\"/>", tmp, [textfieldLoc text], fnIndex,  fnStates[fnIndex]?@"true":@"false" ] ];
+	NSString * stringToSend = [[NSString alloc] initWithString: 
+                             [NSString stringWithFormat: @"<fn fnchanged=\"%d\" group=\"%d\" id=\"%@\" f%d=\"%@\"/>", 
+                              fnIndex, tmp, [textfieldLoc text], fnIndex,  fnStates[fnIndex]?@"true":@"false" ] ];
 	[rrconnection sendMessage:@"fn" message:stringToSend];
 	
 	/*
