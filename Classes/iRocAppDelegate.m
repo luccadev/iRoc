@@ -205,6 +205,7 @@
 
 	// The new one:
 	[viewController.locProps setLoc:loc];
+	[viewController updateFnState];
 	//[self locSetSlider];
 }
 

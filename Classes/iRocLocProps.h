@@ -19,6 +19,7 @@
 	UILabel *roadLabel;
 	UIImageView *imageview;
 	id delegate;
+
 }
 
 @property(nonatomic,retain) UILabel *idLabel;
@@ -28,5 +29,7 @@
 - (void)setLoc:(Loc*)loci;
 - (Loc*)getLoc;
 - (void)imageLoaded;
+- (BOOL)isFn:(int)fn;
+- (void)setFn:(int)fn withState:(BOOL)state;
 
 @end

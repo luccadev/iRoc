@@ -20,6 +20,10 @@
 	hasImage = NO;	
   imageAlreadyRequested = FALSE;
 	vstr = @"0";
+  // Fuction states
+  for(int i = 0; i < 32; i++)
+    fnStates[i] = FALSE; 
+  
 	return self;
 }
 
@@ -89,6 +93,14 @@
 
 - (int) getVint {
 	return [vstr intValue];
+}
+
+- (void)setFn:(int)fn withState:(BOOL)state {
+  fnStates[fn] = state;
+}
+
+- (BOOL)isFn:(int)fn {
+  return fnStates[fn];
 }
 
 

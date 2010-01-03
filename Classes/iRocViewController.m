@@ -67,18 +67,26 @@
 		prevVVal = vVal;
 }
 
+- (BOOL) flipFn:(int)fn {
+  [locProps setFn:fn withState:![locProps isFn:fn]];
+  return [locProps isFn:fn];
+}
 
 - (IBAction) buttonF0Clicked:(id) sender {	
-	fnStates[0] = !fnStates[0];
+  BOOL fnState = [self flipFn: 0];
 
-	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc throttleid=\"%@\" id=\"%@\" fn=\"%@\"/>",
-    (NSString*)[[UIDevice currentDevice] name], [textfieldLoc text], fnStates[0]?@"true":@"false"]] ];
+	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: 
+                                           [NSString stringWithFormat: @"<lc throttleid=\"%@\" id=\"%@\" fn=\"%@\"/>",
+                                           (NSString*)[[UIDevice currentDevice] name], 
+                                            [textfieldLoc text], fnState?@"true":@"false"]] ];
     	
-	NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<fn group=\"1\" id=\"%@\" f%d=\"%@\"/>", [textfieldLoc text], 0,  fnStates[0]?@"true":@"false" ] ];
+	NSString * stringToSend = [[NSString alloc] initWithString: 
+                             [NSString stringWithFormat: @"<fn group=\"1\" id=\"%@\" f%d=\"%@\"/>", 
+                              [textfieldLoc text], 0,  fnState?@"true":@"false" ] ];
 	[rrconnection sendMessage:@"fn" message:stringToSend];
 	
 	
-	[((iRocButton *)[functionButtons objectAtIndex:0]) setBState:fnStates[0]];
+	[((iRocButton *)[functionButtons objectAtIndex:0]) setBState:fnState];
 	
 	/*
 	for (int i = 0; i < 9; i++) {
@@ -112,8 +120,14 @@
 - (IBAction) buttonF8Clicked:(id) sender {
 	[self prepareFNCommand:[buttonFn getBState]?16:8];
 }
+
 - (IBAction) buttonFnClicked:(id) sender {
   [buttonFn flipBState];
+  [self updateFnState];
+  
+}
+
+- (void) updateFnState {
   
   if( [buttonFn getBState] ) {
     [buttonDir setTitle:@"Release" forState:UIControlStateNormal];
@@ -125,14 +139,15 @@
     [buttonF6 setTitle:@"F14" forState:UIControlStateNormal];
     [buttonF7 setTitle:@"F15" forState:UIControlStateNormal];
     [buttonF8 setTitle:@"F16" forState:UIControlStateNormal];
-    [buttonF1 setBState:fnStates[9]];
-    [buttonF2 setBState:fnStates[10]];
-    [buttonF3 setBState:fnStates[11]];
-    [buttonF4 setBState:fnStates[12]];
-    [buttonF5 setBState:fnStates[13]];
-    [buttonF6 setBState:fnStates[14]];
-    [buttonF7 setBState:fnStates[15]];
-    [buttonF8 setBState:fnStates[16]];
+    
+    [buttonF1 setBState:[locProps isFn:9]];
+    [buttonF2 setBState:[locProps isFn:10]];
+    [buttonF3 setBState:[locProps isFn:11]];
+    [buttonF4 setBState:[locProps isFn:12]];
+    [buttonF5 setBState:[locProps isFn:13]];
+    [buttonF6 setBState:[locProps isFn:14]];
+    [buttonF7 setBState:[locProps isFn:15]];
+    [buttonF8 setBState:[locProps isFn:16]];
   }
   else {
     [buttonDir setTitle:dir?@">":@"<" forState:UIControlStateNormal];
@@ -144,14 +159,14 @@
     [buttonF6 setTitle:@"F6" forState:UIControlStateNormal];
     [buttonF7 setTitle:@"F7" forState:UIControlStateNormal];
     [buttonF8 setTitle:@"F8" forState:UIControlStateNormal];
-    [buttonF1 setBState:fnStates[1]];
-    [buttonF2 setBState:fnStates[2]];
-    [buttonF3 setBState:fnStates[3]];
-    [buttonF4 setBState:fnStates[4]];
-    [buttonF5 setBState:fnStates[5]];
-    [buttonF6 setBState:fnStates[6]];
-    [buttonF7 setBState:fnStates[7]];
-    [buttonF8 setBState:fnStates[8]];
+    [buttonF1 setBState:[locProps isFn:1]];
+    [buttonF2 setBState:[locProps isFn:2]];
+    [buttonF3 setBState:[locProps isFn:3]];
+    [buttonF4 setBState:[locProps isFn:4]];
+    [buttonF5 setBState:[locProps isFn:5]];
+    [buttonF6 setBState:[locProps isFn:6]];
+    [buttonF7 setBState:[locProps isFn:7]];
+    [buttonF8 setBState:[locProps isFn:8]];
   }
   
   
@@ -164,7 +179,7 @@
 
 
 - (void) prepareFNCommand:(int) fnIndex {
-	fnStates[fnIndex] = !fnStates[fnIndex];
+  BOOL fnState = [self flipFn: fnIndex];
 	
 	int tmp = (fnIndex-1)/4 +1;
 	NSLog(@"FNG: %d", tmp);
@@ -172,7 +187,7 @@
 	
 	NSString * stringToSend = [[NSString alloc] initWithString: 
                              [NSString stringWithFormat: @"<fn fnchanged=\"%d\" group=\"%d\" id=\"%@\" f%d=\"%@\"/>", 
-                              fnIndex, tmp, [textfieldLoc text], fnIndex,  fnStates[fnIndex]?@"true":@"false" ] ];
+                              fnIndex, tmp, [textfieldLoc text], fnIndex,  fnState?@"true":@"false" ] ];
 	[rrconnection sendMessage:@"fn" message:stringToSend];
 	
 	/*
@@ -190,7 +205,7 @@
 	//NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<fn group=\"1\" id=\"%@\" f%d=\"%@\"/>", [textfieldLoc text], fnIndex, fnStates[fnIndex]?@"true":@"false" ] ];
 	//[rrconnection sendMessage:@"fn" message:stringToSend];
 	
-	[((iRocButton *)[functionButtons objectAtIndex:fnIndex]) setBState:fnStates[fnIndex]];
+	[((iRocButton *)[functionButtons objectAtIndex:fnIndex]) setBState:fnState];
 	
 	//AudioServicesPlaySystemSound (self.soundFileObject);
 }
@@ -215,15 +230,7 @@
 	AudioServicesPlaySystemSound (self.soundFileObject);
     [textfieldLoc resignFirstResponder];
 	
-	// Reset Fuction states TODO: this has be be later read from rr
-	for(int i = 0; i < 9; i++) {
-		fnStates[i] = FALSE; 
-		[((iRocButton *)[functionButtons objectAtIndex:i]) setBState:fnStates[i]];
-	}
-	
-	// Light on on init
-	fnStates[0] = TRUE;
-	[buttonF0 setBState:TRUE];
+  [self updateFnState];
 
 	// Save in Settings
 	[[NSUserDefaults standardUserDefaults] setObject:(NSString*)[textfieldLoc text] forKey:@"loc_preference"];
@@ -276,13 +283,6 @@
 	
 	// Create a system sound object representing the sound file
 	AudioServicesCreateSystemSoundID ( soundFileURLRef, &soundFileObject);
-	
-	// Fuction states
-	for(int i = 0; i < 32; i++)
-		fnStates[i] = FALSE; 
-	
-	fnStates[0] = TRUE;
-	[buttonF0 setBState:TRUE];
 	
 	prevVVal = 0;
 	dir = true;

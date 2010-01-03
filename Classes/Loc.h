@@ -17,7 +17,8 @@
 	NSString *dir;
 	NSString *vstr;
 	int vint;
-	
+  BOOL fnStates[32];
+
 	UIImage *lcimage;
 	UITableViewCell *cell;
   
@@ -49,5 +50,7 @@
 - (UIImage*) getImage;
 - (int) getVint;
 - (void) setLocpicdata:(NSString *) picdata;
+- (BOOL)isFn:(int)fn;
+- (void)setFn:(int)fn withState:(BOOL)state;
 
 @end

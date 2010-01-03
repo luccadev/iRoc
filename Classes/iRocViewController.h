@@ -41,7 +41,7 @@
 	NSString * stringDir; 
 	NSString * stringLcPrev; 
 		
-	BOOL fnStates[32];
+    //BOOL fnStates[32];
 	BOOL connectOK;
 	BOOL processAll;
 
@@ -117,6 +117,9 @@
 
 @interface NSObject (iRocViewController)
 
+- (void) updateFnState;
+
+- (BOOL) flipFn:(int)fn;
 - (void)lcTextFieldAction;
 
 @end

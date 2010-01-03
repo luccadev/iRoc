@@ -68,8 +68,8 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
 		roadLabel.font = [UIFont boldSystemFontOfSize:12];
 		roadLabel.textColor = [UIColor lightGrayColor];
 		roadLabel.backgroundColor = [UIColor darkGrayColor];
-		
-		
+
+    
 		[self addSubview:idLabel];
 		[self addSubview:roadLabel];
 		[self addSubview:descLabel];		
@@ -130,6 +130,13 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
 	return loc;	
 }
 
+- (void)setFn:(int)fn withState:(BOOL)state {
+  [loc setFn:fn withState:state];
+}
+
+- (BOOL)isFn:(int)fn {
+  return [loc isFn:fn];
+}
 
 - (void)imageLoaded {
   if( imageview != nil ) {
