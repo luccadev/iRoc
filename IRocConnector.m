@@ -505,6 +505,7 @@ static NSString * const kIdElementName = @"id";
         NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
         Loc *loc = [[[Loc alloc] init] retain];
         loc.locid = relAttribute;
+				loc.vmaxstr = [attributeDict valueForKey:@"V_max"];
         [loc setDelegate:_delegate];
         
         NSString *imgname = [attributeDict valueForKey:@"image"];

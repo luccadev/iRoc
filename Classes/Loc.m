@@ -12,7 +12,7 @@
 
 @implementation Loc
 
-@synthesize locid, imgname, lcimage, hasImage, imageLoaded, desc, imageAlreadyRequested, roadname, cell, dir, vstr;
+@synthesize locid, imgname, lcimage, hasImage, imageLoaded, desc, imageAlreadyRequested, roadname, cell, dir, vstr, vmaxstr;
 
 - (id) init {
 	[super init];	
@@ -93,6 +93,10 @@
 
 - (int) getVint {
 	return [vstr intValue];
+}
+
+- (int) getVmax {
+	return [vmaxstr intValue];
 }
 
 - (void)setFn:(int)fn withState:(BOOL)state {

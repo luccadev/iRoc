@@ -17,7 +17,10 @@
 	NSString *dir;
 	NSString *vstr;
 	int vint;
-  BOOL fnStates[32];
+	
+	NSString *vmaxstr;
+	int vmax;
+	BOOL fnStates[32];
 
 	UIImage *lcimage;
 	UITableViewCell *cell;
@@ -39,6 +42,7 @@
 @property (nonatomic, retain) NSString *roadname;
 @property (nonatomic, retain) NSString *dir;
 @property (nonatomic, retain) NSString *vstr;
+@property (nonatomic, retain) NSString *vmaxstr;
 @property (nonatomic, retain) UIImage *lcimage;
 @property (nonatomic, retain) UITableViewCell *cell;
 @property BOOL hasImage;
@@ -50,6 +54,7 @@
 - (UIImage*) getImage;
 - (int) getVint;
 - (void) setLocpicdata:(NSString *) picdata;
+- (int) getVmax;
 - (BOOL)isFn:(int)fn;
 - (void)setFn:(int)fn withState:(BOOL)state;
 

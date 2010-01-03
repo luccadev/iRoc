@@ -48,8 +48,8 @@
 }
 
 - (IBAction) sliderMoved:(id) sender { 	
-	
-	int vVal = [slideView value]*100;
+	Loc *lc = (Loc*)[delegate getLoc:[textfieldLoc text]];
+	int vVal = [slideView value]*100*([lc getVmax]/100.00);
   
   if( processAll && (abs( prevVVal - vVal) < VDelta ) && vVal != 0 )
     return;

@@ -13,6 +13,7 @@
 #import "iRocTouchView.h"
 #import "iRocButton.h"
 #import "iRocLocProps.h"
+#import "Loc.h"
 
 @interface iRocViewController : UIViewController <UITextFieldDelegate> {
 	IBOutlet iRocButton *buttonDir;
@@ -121,6 +122,7 @@
 
 - (BOOL) flipFn:(int)fn;
 - (void)lcTextFieldAction;
+- (Loc*)getLoc:(NSString*)lid;
 
 @end
 
