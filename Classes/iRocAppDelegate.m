@@ -54,6 +54,22 @@
                                 action: @selector(pushLcAuto)] autorelease];
   
   viewController.navigationItem.rightBarButtonItem = lcButton;
+  UIBarButtonItem *lcAutoButton = [[[UIBarButtonItem alloc]
+                                initWithTitle: @"Automatic"
+                                style:UIBarButtonItemStylePlain
+                                target: self
+                                action: @selector(pushLcAuto)] autorelease];
+  
+  viewController.navigationItem.rightBarButtonItem = lcAutoButton;
+  
+  UIBarButtonItem *lcSettingsButton = [[[UIBarButtonItem alloc]
+                                initWithTitle: @"Settings"
+                                style:UIBarButtonItemStylePlain
+                                target: self
+                                action: @selector(pushLcAuto)] autorelease];
+  
+  viewController.navigationItem.leftBarButtonItem = lcSettingsButton;
+
   viewController.title = @"Loco";
     //systemView.navigationItem.rightBarButtonItem = lcButton;
   
