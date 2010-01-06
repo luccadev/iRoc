@@ -7,7 +7,7 @@
 //
 
 #import "iRocTouchView.h"
-#import "round.h"
+#import "iRocSlider.h"
 
 @implementation iRocTouchView
 
@@ -48,13 +48,13 @@
 	
 	//Knob
 	CGContextSetRGBFillColor(context, .3, .3, .3, 1);  
-	CGContextAddRoundedRect(context, CGRectMake(x-20+off,10,40,100), 5);  
+	[iRocSlider CGContextAddRoundedRect:context withRect:CGRectMake(x-20+off,10,40,100) withRadius:5];  
 	CGContextFillPath(context);  
 	
 	//Knob border
 	CGContextSetLineWidth(context, 0.5);  
 	CGContextSetRGBStrokeColor(context, .5, .5, .5, 1);  
-	CGContextAddRoundedRect(context, CGRectMake(x-20+off,10,40,100), 5);  
+	[iRocSlider CGContextAddRoundedRect:context withRect:CGRectMake(x-20+off,10,40,100) withRadius:5 ];  
 	CGContextStrokePath(context);  
 	
 	//Knob lines

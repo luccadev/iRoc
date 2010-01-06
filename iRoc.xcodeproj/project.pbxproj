@@ -166,6 +166,8 @@
 		9CE17DD910CE857B00170A98 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE17DD810CE857B00170A98 /* Route.m */; };
 		9CE44AF010ECB99F00506323 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CE44AEE10ECB99F00506323 /* Localizable.strings */; };
 		9CFDBF6610BD081600E9E9DE /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CFDBF6510BD081600E9E9DE /* Entitlements.plist */; };
+		D4965AB710F517DD00C09B9B /* iRocLcAutoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4965AB410F517DD00C09B9B /* iRocLcAutoView.m */; };
+		D4965AB810F517DD00C09B9B /* iRocSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D4965AB610F517DD00C09B9B /* iRocSlider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -211,7 +213,6 @@
 		9C713ED210D4E1D300C222B8 /* iRocLocProps.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocLocProps.m; sourceTree = "<group>"; };
 		9C72869110B81A4200567A8A /* iRocButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocButton.h; sourceTree = "<group>"; };
 		9C72869210B81A4200567A8A /* iRocButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocButton.m; sourceTree = "<group>"; };
-		9C7286BB10B8227C00567A8A /* round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = round.h; sourceTree = "<group>"; };
 		9C7F1BE710CBF2A900ACF0A7 /* iRocAboutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocAboutView.h; sourceTree = "<group>"; };
 		9C7F1BE810CBF2A900ACF0A7 /* iRocAboutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocAboutView.m; sourceTree = "<group>"; };
 		9CA62C8110CD0AF0008E37AB /* iRocLcTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iRocLcTableView.h; path = ../iRocLcTableView.h; sourceTree = "<group>"; };
@@ -356,6 +357,10 @@
 		9CE44B0010ECB9D300506323 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9CFDBF6510BD081600E9E9DE /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		D478B17210EF48C100F1071F /* globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globals.h; sourceTree = "<group>"; };
+		D4965AB310F517DD00C09B9B /* iRocLcAutoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocLcAutoView.h; sourceTree = "<group>"; };
+		D4965AB410F517DD00C09B9B /* iRocLcAutoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocLcAutoView.m; sourceTree = "<group>"; };
+		D4965AB510F517DD00C09B9B /* iRocSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocSlider.h; sourceTree = "<group>"; };
+		D4965AB610F517DD00C09B9B /* iRocSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocSlider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -376,6 +381,10 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D4965AB310F517DD00C09B9B /* iRocLcAutoView.h */,
+				D4965AB410F517DD00C09B9B /* iRocLcAutoView.m */,
+				D4965AB510F517DD00C09B9B /* iRocSlider.h */,
+				D4965AB610F517DD00C09B9B /* iRocSlider.m */,
 				D478B17210EF48C100F1071F /* globals.h */,
 				9C1E1B4410EE701C00D9BC1E /* iRocSystemView.h */,
 				9C1E1B4510EE701C00D9BC1E /* iRocSystemView.m */,
@@ -395,7 +404,6 @@
 				9CDB1BE510B54843001442F1 /* iRocView.m */,
 				9C72869110B81A4200567A8A /* iRocButton.h */,
 				9C72869210B81A4200567A8A /* iRocButton.m */,
-				9C7286BB10B8227C00567A8A /* round.h */,
 				9C076BB210CFDBC300CCA793 /* iRocMenuTableView.h */,
 				9CBF0FDA10CFDC7E00FF29DA /* iRocMenuTableView.m */,
 				9CA62C8110CD0AF0008E37AB /* iRocLcTableView.h */,
@@ -829,6 +837,8 @@
 				9C713ED310D4E1D300C222B8 /* iRocLocProps.m in Sources */,
 				9C5B41ED10E37AA700355A5B /* Container.m in Sources */,
 				9C1E1B4610EE701C00D9BC1E /* iRocSystemView.m in Sources */,
+				D4965AB710F517DD00C09B9B /* iRocLcAutoView.m in Sources */,
+				D4965AB810F517DD00C09B9B /* iRocSlider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -881,13 +891,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rob Versluis";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CURRENT_PROJECT_VERSION = 0.2;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EFCA3D28-770A-4D9C-BFA2-E0ED8B3D6AB1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos3.1.2;
 			};
 			name = Distribution;

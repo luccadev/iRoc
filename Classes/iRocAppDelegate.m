@@ -15,7 +15,7 @@
 @synthesize window;
 @synthesize tabBarController;
 @synthesize viewController;
-@synthesize lcTableView, rtTableView, swTableView, coTableView, menuTableView, systemView;
+@synthesize lcTableView, rtTableView, swTableView, coTableView, menuTableView, systemView, lcAutoView;
 
 @synthesize coContainer, rrconnection, menuItems, aboutView, swContainer, lcContainer, rtContainer;
 
@@ -38,9 +38,26 @@
 	}
 	
   systemView = [[iRocSystemView alloc] init];
+  lcAutoView = [[iRocLcAutoView alloc] init];
+  
   
   NSMutableArray* views = [[NSMutableArray alloc] init];
   [views addObjectsFromArray:tabBarController.viewControllers];
+
+  UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:[views objectAtIndex:0]];
+  navi.navigationBar.tintColor = [UIColor blackColor];
+
+  UIBarButtonItem *lcButton = [[[UIBarButtonItem alloc]
+                                initWithTitle: @"Automatic"
+                                style:UIBarButtonItemStylePlain
+                                target: self
+                                action: @selector(pushLcAuto)] autorelease];
+  
+  viewController.navigationItem.rightBarButtonItem = lcButton;
+  viewController.title = @"Loco";
+    //systemView.navigationItem.rightBarButtonItem = lcButton;
+  
+  [views replaceObjectAtIndex:0 withObject:navi];
   [views replaceObjectAtIndex:3 withObject:systemView];
   tabBarController.viewControllers = views;
   
@@ -148,6 +165,11 @@
 	[pool release]; 
   NSLog( @"connectThread ended");
 } 
+
+
+- (void)pushLcAuto {
+  [viewController.navigationController pushViewController: lcAutoView animated:YES];
+}
 
 // Delegate Methods
 - (void)lcListLoaded {

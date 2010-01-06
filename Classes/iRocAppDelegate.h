@@ -18,6 +18,7 @@
 #import "IRocConnector.h"
 #import "iRocAboutView.h"
 #import "iRocLocProps.h"
+#import "iRocLcAutoView.h"
 
 #import "Container.h"
 
@@ -36,6 +37,7 @@
 	
 	IBOutlet iRocMenuTableView *menuTableView;
 	IBOutlet iRocSystemView *systemView;
+	IBOutlet iRocLcAutoView *lcAutoView;
 
 	iRocAboutView IBOutlet *aboutView;
   
@@ -62,6 +64,7 @@
 @property (nonatomic, retain) IBOutlet iRocCoTableView *coTableView;
 @property (nonatomic, retain) IBOutlet iRocMenuTableView *menuTableView;
 @property (nonatomic, retain) IBOutlet iRocSystemView *systemView;
+@property (nonatomic, retain) IBOutlet iRocLcAutoView *lcAutoView;
 
 @property (nonatomic, retain) IBOutlet iRocAboutView *aboutView;
 
