@@ -47,6 +47,8 @@
 	Container *swContainer;
 	Container *lcContainer;
 	Container *coContainer;
+	Container *bkContainer;
+	Container *scContainer;
 	
 	NSMutableArray *menuItems;
 	
@@ -75,6 +77,8 @@
 @property(nonatomic, retain) Container *swContainer;
 @property(nonatomic, retain) Container *lcContainer;
 @property(nonatomic, retain) Container *coContainer;
+@property(nonatomic, retain) Container *bkContainer;
+@property(nonatomic, retain) Container *scContainer;
 
 @property(nonatomic, retain) NSMutableArray *menuItems;
 

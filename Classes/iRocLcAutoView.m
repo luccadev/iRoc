@@ -8,10 +8,12 @@
 
 #import "iRocLcAutoView.h"
 #import "globals.h"
+#import "Block.h"
+#import "Schedule.h"
 
 
 @implementation iRocLcAutoView
-@synthesize schedules, blocks;
+@synthesize schedules, blocks, bkContainer, scContainer;
 
 
 
@@ -23,30 +25,7 @@
     self.title = @"Automatic";
     
     schedules = [[NSMutableArray alloc] init];
-    [schedules addObject: @"none"];
-    [schedules addObject: @"Scd 1"];
-    [schedules addObject: @"Scd 2"];
-    [schedules addObject: @"Scd 3"];
-    [schedules addObject: @"Scd 4"];
-    [schedules addObject: @"Scd 5"];
-    [schedules addObject: @"Scd 6"];
-    [schedules addObject: @"Scd 7"];
-    [schedules addObject: @"Scd 8"];
-    [schedules addObject: @"Scd 9"];
-    [schedules addObject: @"Scd 10"];
-
     blocks = [[NSMutableArray alloc] init];
-    [blocks addObject: @"none"];
-    [blocks addObject: @"Block 1"];
-    [blocks addObject: @"Block 2"];
-    [blocks addObject: @"Block 3"];
-    [blocks addObject: @"Block 4"];
-    [blocks addObject: @"Block 5"];
-    [blocks addObject: @"Block 6"];
-    [blocks addObject: @"Block 7"];
-    [blocks addObject: @"Block 8"];
-    [blocks addObject: @"Block 9"];
-    [blocks addObject: @"Block 10"];
 
   
   }
@@ -56,7 +35,25 @@
 - (void)loadView {
   [super loadView];
   [super.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0]];
-    
+
+  [blocks removeAllObjects];
+  [blocks addObject: @"none"];
+  int cnt = [bkContainer count];
+  NSLog(@"number of blocks=%d", cnt);
+  for( int i = 0; i < cnt; i++ ) {
+    Block *bk = (Block*)[bkContainer objectAtIndex:i];
+    [blocks addObject: bk.ID];
+  }
+  
+  [schedules removeAllObjects];
+  [schedules addObject: @"none"];
+  cnt = [scContainer count];
+  NSLog(@"number of schedules=%d", cnt);
+  for( int i = 0; i < cnt; i++ ) {
+    Schedule *sc = (Schedule*)[scContainer objectAtIndex:i];
+    [schedules addObject: sc.ID];
+  }
+  
   CGRect bounds = self.view.bounds;
   
   float buttonWidth = (bounds.size.width - (2 * CONTENTBORDER + BUTTONGAP)) / 2;

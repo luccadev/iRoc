@@ -11,6 +11,8 @@
 #import "Route.h"
 #import "Switch.h"
 #import "Output.h"
+#import "Block.h"
+#import "Schedule.h"
 
 #import "Container.h"
 
@@ -62,6 +64,8 @@
 	Container *swContainer;
 	Container *lcContainer;
 	Container *coContainer;
+	Container *bkContainer;
+	Container *scContainer;
 	
 	id _delegate;
 }
@@ -99,6 +103,8 @@
 @property(nonatomic, retain) Container *coContainer;
 @property(nonatomic, retain) Container *swContainer;
 @property(nonatomic, retain) Container *lcContainer;
+@property(nonatomic, retain) Container *bkContainer;
+@property(nonatomic, retain) Container *scContainer;
 
 @property (nonatomic, retain) Loc *currentLocObject;
 
@@ -111,6 +117,8 @@
  - (void)rtListLoaded;
  - (void)swListLoaded;
  - (void)coListLoaded;
+ - (void)bkListLoaded;
+ - (void)scListLoaded;
  - (void)askForAllLocPics;
 
 @end

@@ -17,7 +17,7 @@
 @synthesize viewController;
 @synthesize lcTableView, rtTableView, swTableView, coTableView, menuTableView, systemView, lcAutoView, lcSettingsView;
 
-@synthesize coContainer, rrconnection, menuItems, aboutView, swContainer, lcContainer, rtContainer;
+@synthesize coContainer, rrconnection, menuItems, aboutView, swContainer, lcContainer, rtContainer, bkContainer, scContainer;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
   NSLog(@"applicationDidFinishLaunching");
@@ -40,7 +40,6 @@
   systemView = [[iRocSystemView alloc] init];
   lcAutoView = [[iRocLcAutoView alloc] init];
   lcSettingsView = [[iRocLcSettingsView alloc] init];
-  
   
   NSMutableArray* views = [[NSMutableArray alloc] init];
   [views addObjectsFromArray:tabBarController.viewControllers];
@@ -80,6 +79,11 @@
 	swContainer = [[[Container alloc] init] retain];
 	lcContainer = [[[Container alloc] init] retain];
 	coContainer = [[[Container alloc] init] retain];
+	bkContainer = [[[Container alloc] init] retain];
+	scContainer = [[[Container alloc] init] retain];
+
+  lcAutoView.bkContainer = bkContainer;
+  lcAutoView.scContainer = scContainer;
 
 	menuItems = [[NSMutableArray array] retain];
 	
@@ -122,6 +126,8 @@
 	[rrconnection setRtContainer:self.rtContainer];
 	[rrconnection setSwContainer:self.swContainer];
 	[rrconnection setCoContainer:self.coContainer];
+	[rrconnection setBkContainer:self.bkContainer];
+	[rrconnection setScContainer:self.scContainer];
 	viewController.textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
   viewController.imageviewLoc = nil;
   
@@ -212,6 +218,12 @@
 - (void)coListLoaded {
 	//NSLog(@"Reload Data in Route View");
 	[coTableView.tableView reloadData];
+}
+
+- (void)bkListLoaded {
+}
+
+- (void)scListLoaded {
 }
 
 - (void)rtAction:(NSString *)rtid {	
