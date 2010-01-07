@@ -107,13 +107,18 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
 }
 
 
+
+- (void)updateLabels{
+	idLabel.text = [loc locid];
+	descLabel.text = [loc desc];
+	roadLabel.text = [loc roadname];
+}
+
 - (void)setLoc:(Loc*)loci {
 	loc = loci;
 	
 	NSLog(@"setLoc: %@", [loc locid]);
-	idLabel.text = [loc locid];
-	descLabel.text = [loc desc];
-	roadLabel.text = [loc roadname];
+  [self updateLabels];
 	
 	
 	if( imageview != nil ) {
@@ -148,6 +153,8 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
   if( lc == nil ) {
     NSLog(@"imageLoaded: loco=%@...", idLabel.text);
     lc = [delegate getLoc:idLabel.text];
+    loc = lc;
+    [self updateLabels];
   }
   
 	NSLog(@"imageLoaded: loco=%@(%@) hasImage=%d imageLoaded=%d...", [lc locid], idLabel.text, [lc hasImage], [lc imageLoaded]);

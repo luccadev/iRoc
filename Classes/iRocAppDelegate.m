@@ -15,7 +15,7 @@
 @synthesize window;
 @synthesize tabBarController;
 @synthesize viewController;
-@synthesize lcTableView, rtTableView, swTableView, coTableView, menuTableView, systemView, lcAutoView, lcSettingsView;
+@synthesize lcTableView, rtTableView, swTableView, coTableView, bkTableView, scTableView, menuTableView, systemView, lcAutoView, lcSettingsView;
 
 @synthesize coContainer, rrconnection, menuItems, aboutView, swContainer, lcContainer, rtContainer, bkContainer, scContainer;
 
@@ -109,10 +109,22 @@
 	[coTableView setDelegate:self];
 	[coTableView setMenuname:NSLocalizedString(@"Outputs", @"")];
 	
+	bkTableView = [[iRocBkTableView alloc] init];
+	[bkTableView setBkContainer:self.bkContainer];
+	[bkTableView setDelegate:self];
+	[bkTableView setMenuname:NSLocalizedString(@"Blocks", @"")];
+	
+	scTableView = [[iRocScTableView alloc] init];
+	[scTableView setScContainer:self.scContainer];
+	[scTableView setDelegate:self];
+	[scTableView setMenuname:NSLocalizedString(@"Schedules", @"")];
+	
 	[menuItems addObject:lcTableView];
 	[menuItems addObject:rtTableView];
 	[menuItems addObject:swTableView];
 	[menuItems addObject:coTableView];
+	[menuItems addObject:bkTableView];
+	[menuItems addObject:scTableView];
 	[menuTableView setMenuItems:menuItems];
 	
 	// read preferences
@@ -221,9 +233,11 @@
 }
 
 - (void)bkListLoaded {
+	[bkTableView.tableView reloadData];
 }
 
 - (void)scListLoaded {
+	[scTableView.tableView reloadData];
 }
 
 - (void)rtAction:(NSString *)rtid {	
@@ -240,6 +254,18 @@
 	NSLog(@"coAction: %@", coid);
 	// TODO: we need a flip command in rocrail ...
 	[rrconnection sendMessage:@"co" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<co id=\"%@\" cmd=\"flip\"/>", coid]]];
+}
+
+- (void)bkAction:(NSString *)bkid {	
+	NSLog(@"bkAction: %@", bkid);
+    // TODO: we need a flip command in rocrail ...
+    //[rrconnection sendMessage:@"co" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<co id=\"%@\" cmd=\"flip\"/>", coid]]];
+}
+
+- (void)scAction:(NSString *)scid {	
+	NSLog(@"scAction: %@", scid);
+    // TODO: we need a flip command in rocrail ...
+    //[rrconnection sendMessage:@"co" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<co id=\"%@\" cmd=\"flip\"/>", coid]]];
 }
 
 - (void)lcAction:(NSString *)lcid {	
