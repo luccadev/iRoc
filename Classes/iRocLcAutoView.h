@@ -15,6 +15,7 @@
 @interface iRocLcAutoView : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
   iRocButton *autoON;
   iRocButton *halfAutoON;
+  iRocButton *setInBlock;
   UIPickerView *schedulePicker;
   NSMutableArray *schedules;
   UIPickerView *blockPicker;
@@ -25,6 +26,7 @@
 
 - (IBAction) autoONClicked:(id) sender; 
 - (IBAction) halfAutoONClicked:(id) sender; 
+- (IBAction) setInBlockClicked:(id) sender; 
 
 
 - (id)init;

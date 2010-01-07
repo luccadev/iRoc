@@ -60,8 +60,8 @@
   CGRect bounds = self.view.bounds;
   
   float buttonWidth = (bounds.size.width - (2 * CONTENTBORDER + BUTTONGAP)) / 2;
-  CGRect autoONFrame = CGRectMake(CONTENTBORDER, CONTENTBORDER, buttonWidth, BUTTONHEIGHT);
-
+  
+  CGRect autoONFrame = CGRectMake(CONTENTBORDER, 0, buttonWidth, BUTTONHEIGHT);
   autoON = [[iRocButton alloc] initWithFrame: autoONFrame];
   autoON.frame = autoONFrame;
   [autoON setTitle: @"START" forState: UIControlStateNormal];
@@ -69,18 +69,28 @@
   [autoON setColor:0];
   [self.view addSubview: autoON];
 
-  CGRect halfAutoONFrame = CGRectMake(buttonWidth + CONTENTBORDER + BUTTONGAP, CONTENTBORDER, buttonWidth, BUTTONHEIGHT);
+  CGRect halfAutoONFrame = CGRectMake(buttonWidth + CONTENTBORDER + BUTTONGAP, 0, buttonWidth, BUTTONHEIGHT);
   halfAutoON = [[iRocButton alloc] initWithFrame: halfAutoONFrame];
   halfAutoON.frame = halfAutoONFrame;
   [halfAutoON setTitle: @"HalfAuto" forState: UIControlStateNormal];
   [halfAutoON addTarget:self action:@selector(halfAutoONClicked:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview: halfAutoON];
   
-  schedulePicker = [[UIPickerView alloc] initWithFrame: CGRectMake(0, CONTENTBORDER + BUTTONHEIGHT + BUTTONGAP, 0, 0)];
+  schedulePicker = [[UIPickerView alloc] initWithFrame: CGRectMake(0, BUTTONHEIGHT + BUTTONGAP, 0, 0)];
   schedulePicker.delegate = self;
   schedulePicker.dataSource = self;
   schedulePicker.showsSelectionIndicator = YES;
   [self.view addSubview: schedulePicker];
+
+
+  CGRect setInBlockFrame = CGRectMake( CONTENTBORDER, BUTTONHEIGHT + BUTTONGAP + 216 + BUTTONGAP, 2 * buttonWidth + BUTTONGAP, BUTTONHEIGHT);
+  setInBlock = [[iRocButton alloc] initWithFrame: setInBlockFrame];
+  setInBlock.frame = setInBlockFrame;
+  [setInBlock setTitle: @"Set in block" forState: UIControlStateNormal];
+  [setInBlock addTarget:self action:@selector(setInBlockClicked:) forControlEvents:UIControlEventTouchUpInside];
+  [setInBlock setColor:3];
+  [self.view addSubview: setInBlock];
+  
 }
 
 - (void)dealloc {
@@ -96,6 +106,10 @@
 
 - (IBAction) halfAutoONClicked:(id) sender {
   [halfAutoON flipBState];
+}
+
+
+- (IBAction) setInBlockClicked:(id) sender {
 }
 
 
