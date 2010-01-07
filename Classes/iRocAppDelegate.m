@@ -15,7 +15,7 @@
 @synthesize window;
 @synthesize tabBarController;
 @synthesize viewController;
-@synthesize lcTableView, rtTableView, swTableView, coTableView, menuTableView, systemView, lcAutoView;
+@synthesize lcTableView, rtTableView, swTableView, coTableView, menuTableView, systemView, lcAutoView, lcSettingsView;
 
 @synthesize coContainer, rrconnection, menuItems, aboutView, swContainer, lcContainer, rtContainer;
 
@@ -39,6 +39,7 @@
 	
   systemView = [[iRocSystemView alloc] init];
   lcAutoView = [[iRocLcAutoView alloc] init];
+  lcSettingsView = [[iRocLcSettingsView alloc] init];
   
   
   NSMutableArray* views = [[NSMutableArray alloc] init];
@@ -47,13 +48,6 @@
   UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:[views objectAtIndex:0]];
   navi.navigationBar.tintColor = [UIColor blackColor];
 
-  UIBarButtonItem *lcButton = [[[UIBarButtonItem alloc]
-                                initWithTitle: @"Automatic"
-                                style:UIBarButtonItemStylePlain
-                                target: self
-                                action: @selector(pushLcAuto)] autorelease];
-  
-  viewController.navigationItem.rightBarButtonItem = lcButton;
   UIBarButtonItem *lcAutoButton = [[[UIBarButtonItem alloc]
                                 initWithTitle: @"Automatic"
                                 style:UIBarButtonItemStylePlain
@@ -66,7 +60,7 @@
                                 initWithTitle: @"Settings"
                                 style:UIBarButtonItemStylePlain
                                 target: self
-                                action: @selector(pushLcAuto)] autorelease];
+                                action: @selector(pushLcSettings)] autorelease];
   
   viewController.navigationItem.leftBarButtonItem = lcSettingsButton;
 
@@ -187,7 +181,11 @@
   [viewController.navigationController pushViewController: lcAutoView animated:YES];
 }
 
-// Delegate Methods
+- (void)pushLcSettings {
+  [viewController.navigationController pushViewController: lcSettingsView animated:YES];
+}
+
+  // Delegate Methods
 - (void)lcListLoaded {
 	//NSLog(@"Reload Data in Loc View");
 	[lcTableView.tableView reloadData];

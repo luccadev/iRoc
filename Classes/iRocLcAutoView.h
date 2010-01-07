@@ -12,11 +12,9 @@
 #import "iRocSlider.h"
 
 
-@interface iRocLcAutoView : iRocTableView <UIPickerViewDelegate, UIPickerViewDataSource> {
-  iRocSlider *Vmax;
-  iRocSlider *Vmid;
-  iRocSlider *Vmin;
+@interface iRocLcAutoView : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
   iRocButton *autoON;
+  iRocButton *halfAutoON;
   UIPickerView *schedulePicker;
   NSMutableArray *schedules;
   UIPickerView *blockPicker;
@@ -26,15 +24,11 @@
 @property (nonatomic, retain) NSMutableArray *blocks;
 
 - (IBAction) autoONClicked:(id) sender; 
+- (IBAction) halfAutoONClicked:(id) sender; 
 
 
 - (id)init;
 - (void)dealloc;
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection: (NSInteger)section;
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 - (NSInteger)numberOfComponentsInPickerView:(UITableView *)tableView;
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent: (NSInteger)component;

@@ -7,6 +7,7 @@
 //
 
 #import "iRocLcAutoView.h"
+#import "globals.h"
 
 
 @implementation iRocLcAutoView
@@ -18,12 +19,8 @@
   self = [super init];
     //self = [super initWithStyle: UITableViewStyleGrouped];
   if( self != nil ) {
-    self.tableView.backgroundColor = [UIColor blackColor];
-    self.tableView.separatorColor = [UIColor blackColor];
 
     self.title = @"Automatic";
-    self.tabBarItem = [[UITabBarItem alloc] initWithTitle:
-                       [NSString stringWithFormat:@"Settings"] image:nil tag:3];
     
     schedules = [[NSMutableArray alloc] init];
     [schedules addObject: @"none"];
@@ -58,157 +55,47 @@
 
 - (void)loadView {
   [super loadView];
+  [super.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0]];
+    
+  CGRect bounds = self.view.bounds;
+  
+  float buttonWidth = (bounds.size.width - (2 * CONTENTBORDER + BUTTONGAP)) / 2;
+  CGRect autoONFrame = CGRectMake(CONTENTBORDER, CONTENTBORDER, buttonWidth, BUTTONHEIGHT);
+
+  autoON = [[iRocButton alloc] initWithFrame: autoONFrame];
+  autoON.frame = autoONFrame;
+  [autoON setTitle: @"START" forState: UIControlStateNormal];
+  [autoON addTarget:self action:@selector(autoONClicked:) forControlEvents:UIControlEventTouchUpInside];
+  [autoON setColor:0];
+  [self.view addSubview: autoON];
+
+  CGRect halfAutoONFrame = CGRectMake(buttonWidth + CONTENTBORDER + BUTTONGAP, CONTENTBORDER, buttonWidth, BUTTONHEIGHT);
+  halfAutoON = [[iRocButton alloc] initWithFrame: halfAutoONFrame];
+  halfAutoON.frame = halfAutoONFrame;
+  [halfAutoON setTitle: @"HalfAuto" forState: UIControlStateNormal];
+  [halfAutoON addTarget:self action:@selector(halfAutoONClicked:) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview: halfAutoON];
+  
+  schedulePicker = [[UIPickerView alloc] initWithFrame: CGRectMake(0, CONTENTBORDER + BUTTONHEIGHT + BUTTONGAP, 0, 0)];
+  schedulePicker.delegate = self;
+  schedulePicker.dataSource = self;
+  schedulePicker.showsSelectionIndicator = YES;
+  [self.view addSubview: schedulePicker];
 }
 
 - (void)dealloc {
-  [Vmax release];
-  [Vmid release];
-  [Vmin release];
   [super dealloc];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-  NSLog(@"sections in table");
-  return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection: (NSInteger)section {
-  NSLog(@"rows in section %d", section);
-  switch( section ) {
-    case (0):
-      return 5;
-      break;
-    case (1):
-      return 2;
-      break;
-  }
-  return 0;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-  NSLog(@"title for section %d", section);
-  /*
-  switch( section ) {
-    case (0):
-      return @"Velocity";
-      break;
-    case (1):
-      return @"Automatic";
-      break;
-  }
-   */
-  return nil;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  
-{  
-  NSLog(@"cell height for %d:%d", [indexPath indexAtPosition:0 ], [indexPath indexAtPosition:1 ]);
-  switch([indexPath indexAtPosition:1 ]) {
-    case (3):
-      return 50.0;
-      break;
-    case (4):
-      return 216.0;
-      break;
-  }
-  return 40.0; //returns floating point which will be used for a cell row height at specified row index  
-}  
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  NSLog(@"cell for %d:%d", [indexPath indexAtPosition:0 ], [indexPath indexAtPosition:1 ]);
-
-  NSString *CellIdentifier = [ NSString stringWithFormat: @"%d:%d", [indexPath indexAtPosition:0 ],
-                              [ indexPath indexAtPosition:1 ] ];
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
-  
-  if( cell == nil ) {
-    cell = [[[UITableViewCell alloc] initWithFrame: CGRectZero reuseIdentifier: CellIdentifier ] autorelease ];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-      //cell.selectionStyle = UITableViewCellSelectionStyleGray;
-
-    switch([indexPath indexAtPosition:0 ]) {
-      case (0):
-        switch([indexPath indexAtPosition:1]) {
-          case (0): {
-            Vmax = [[iRocSlider alloc] initWithFrame: CGRectMake(170, 10, 125, 30)];
-            [Vmax setValue:100];
-              //Vmax.minimumValue = 0;
-              //Vmax.maximumValue = 100;
-              //Vmax.value = 100;
-            [cell addSubview: Vmax];
-
-            UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(10, 8, 100, 20)] autorelease];
-            label.font = [UIFont boldSystemFontOfSize:cellfontsize];
-            label.textColor = celltextcolor;
-            label.backgroundColor = [UIColor clearColor];
-            label.text = @"Vmax";
-            [cell addSubview: label];
-          }
-          break;
-          case (1): {
-            Vmid = [[iRocSlider alloc] initWithFrame: CGRectMake(170, 10, 125, 30)];
-            [Vmid setValue:50];
-            [cell addSubview: Vmid];
-            UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(10, 8, 100, 20)] autorelease];
-            label.font = [UIFont boldSystemFontOfSize:cellfontsize];
-            label.textColor = celltextcolor;
-            label.backgroundColor = [UIColor clearColor];
-            label.text = @"Vmid";
-            [cell addSubview: label];
-          }
-          break;
-          case (2): {
-            Vmin = [[iRocSlider alloc] initWithFrame: CGRectMake(170, 10, 125, 30)];
-            [Vmin setValue:10];
-            [cell addSubview: Vmin];
-            UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(10, 8, 100, 20)] autorelease];
-            label.font = [UIFont boldSystemFontOfSize:cellfontsize];
-            label.textColor = celltextcolor;
-            label.backgroundColor = [UIColor clearColor];
-            label.text = @"Vmin";
-            [cell addSubview: label];
-          }
-          break;
-          //case (1):
-          //switch([indexPath indexAtPosition:1]) {
-          case (3): {
-            autoON = [[iRocButton alloc] initWithFrame: CGRectMake(170, 5, 125, 40)];
-            autoON.frame = CGRectMake(170, 5, 125, 40);
-            [autoON setTitle: @"START" forState: UIControlStateNormal];
-            [autoON addTarget:self action:@selector(autoONClicked:) forControlEvents:UIControlEventTouchUpInside];
-            
-            
-            
-            [cell addSubview:autoON];
-            UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(10, 15, 100, 20)] autorelease];
-            label.font = [UIFont boldSystemFontOfSize:cellfontsize];
-            label.textColor = celltextcolor;
-            label.backgroundColor = [UIColor clearColor];
-            label.text = @"Run";
-            [cell addSubview: label];
-          }
-          break;
-          case (4): {
-            schedulePicker = [[UIPickerView alloc] initWithFrame: CGRectMake(0, 0, 0, 0)];
-            schedulePicker.delegate = self;
-            schedulePicker.dataSource = self;
-            schedulePicker.showsSelectionIndicator = YES;
-            [cell addSubview:schedulePicker];
-              //cell.text = @"Schedule";
-          }
-            break;
-        }
-        break;
-    }
-  }
-  
-  return cell;
-}
 
 - (IBAction) autoONClicked:(id) sender {
   [autoON flipBState];
   [autoON setTitle: [autoON getBState] ? @"STOP":@"START" forState: UIControlStateNormal];
+  [autoON setColor:[autoON getBState] ? 1:0];
+}
+
+- (IBAction) halfAutoONClicked:(id) sender {
+  [halfAutoON flipBState];
 }
 
 

@@ -168,6 +168,7 @@
 		9CFDBF6610BD081600E9E9DE /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CFDBF6510BD081600E9E9DE /* Entitlements.plist */; };
 		D4965AB710F517DD00C09B9B /* iRocLcAutoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4965AB410F517DD00C09B9B /* iRocLcAutoView.m */; };
 		D4965AB810F517DD00C09B9B /* iRocSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D4965AB610F517DD00C09B9B /* iRocSlider.m */; };
+		D4D81F9010F640DA00FD09F1 /* iRocLcSettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D81F8F10F640DA00FD09F1 /* iRocLcSettingsView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -361,6 +362,8 @@
 		D4965AB410F517DD00C09B9B /* iRocLcAutoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocLcAutoView.m; sourceTree = "<group>"; };
 		D4965AB510F517DD00C09B9B /* iRocSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocSlider.h; sourceTree = "<group>"; };
 		D4965AB610F517DD00C09B9B /* iRocSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocSlider.m; sourceTree = "<group>"; };
+		D4D81F8E10F640DA00FD09F1 /* iRocLcSettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocLcSettingsView.h; sourceTree = "<group>"; };
+		D4D81F8F10F640DA00FD09F1 /* iRocLcSettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocLcSettingsView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -381,6 +384,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D4D81F8E10F640DA00FD09F1 /* iRocLcSettingsView.h */,
+				D4D81F8F10F640DA00FD09F1 /* iRocLcSettingsView.m */,
 				D4965AB310F517DD00C09B9B /* iRocLcAutoView.h */,
 				D4965AB410F517DD00C09B9B /* iRocLcAutoView.m */,
 				D4965AB510F517DD00C09B9B /* iRocSlider.h */,
@@ -839,6 +844,7 @@
 				9C1E1B4610EE701C00D9BC1E /* iRocSystemView.m in Sources */,
 				D4965AB710F517DD00C09B9B /* iRocLcAutoView.m in Sources */,
 				D4965AB810F517DD00C09B9B /* iRocSlider.m in Sources */,
+				D4D81F9010F640DA00FD09F1 /* iRocLcSettingsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
