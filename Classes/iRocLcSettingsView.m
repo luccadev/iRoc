@@ -7,6 +7,7 @@
 //
 
 #import "iRocLcSettingsView.h"
+#import "globals.h"
 
 
 @implementation iRocLcSettingsView
@@ -49,7 +50,7 @@
   NSLog(@"rows in section %d", section);
   switch( section ) {
     case (0):
-      return 3;
+      return 4;
       break;
     case (1):
       return 2;
@@ -76,15 +77,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  
 {  
   NSLog(@"cell height for %d:%d", [indexPath indexAtPosition:0 ], [indexPath indexAtPosition:1 ]);
-  switch([indexPath indexAtPosition:1 ]) {
-    case (3):
-      return 50.0;
-      break;
-    case (4):
-      return 216.0;
-      break;
-  }
-  return 40.0; //returns floating point which will be used for a cell row height at specified row index  
+  return 50.0; //returns floating point which will be used for a cell row height at specified row index  
 }  
 
 
@@ -105,13 +98,13 @@
         switch([indexPath indexAtPosition:1]) {
           case (0): {
             Vmax = [[iRocSlider alloc] initWithFrame: CGRectMake(170, 10, 125, 30)];
-            [Vmax setValue:100];
+            [Vmax setValue:[loc getVmax]];
               //Vmax.minimumValue = 0;
               //Vmax.maximumValue = 100;
               //Vmax.value = 100;
             [cell addSubview: Vmax];
 
-            UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(10, 8, 100, 20)] autorelease];
+            UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
             label.font = [UIFont boldSystemFontOfSize:cellfontsize];
             label.textColor = celltextcolor;
             label.backgroundColor = [UIColor clearColor];
@@ -121,9 +114,9 @@
           break;
           case (1): {
             Vmid = [[iRocSlider alloc] initWithFrame: CGRectMake(170, 10, 125, 30)];
-            [Vmid setValue:50];
+            [Vmid setValue:[loc getVmid]];
             [cell addSubview: Vmid];
-            UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(10, 8, 100, 20)] autorelease];
+            UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
             label.font = [UIFont boldSystemFontOfSize:cellfontsize];
             label.textColor = celltextcolor;
             label.backgroundColor = [UIColor clearColor];
@@ -133,9 +126,9 @@
           break;
           case (2): {
             Vmin = [[iRocSlider alloc] initWithFrame: CGRectMake(170, 10, 125, 30)];
-            [Vmin setValue:10];
+            [Vmin setValue:[loc getVmin]];
             [cell addSubview: Vmin];
-            UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(10, 8, 100, 20)] autorelease];
+            UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
             label.font = [UIFont boldSystemFontOfSize:cellfontsize];
             label.textColor = celltextcolor;
             label.backgroundColor = [UIColor clearColor];
@@ -143,6 +136,21 @@
             [cell addSubview: label];
           }
           break;
+          case (3): {
+            Placing = [[iRocButton alloc] initWithFrame: CGRectMake(170, 10, 125, 30)];
+            Placing.frame = CGRectMake(170, 10, 125, 30);
+            [Placing setBState: ![loc isPlacing]];
+            [Placing setTitle: [loc isPlacing] ? @"Normal":@"Swapped" forState: UIControlStateNormal];
+            [Placing addTarget:self action:@selector(placingClicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell addSubview: Placing];
+            UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
+            label.font = [UIFont boldSystemFontOfSize:cellfontsize];
+            label.textColor = celltextcolor;
+            label.backgroundColor = [UIColor clearColor];
+            label.text = @"Placing";
+            [cell addSubview: label];
+          }
+            break;
         }
         break;
     }
@@ -151,6 +159,13 @@
   return cell;
 }
 
-
+- (IBAction) placingClicked:(id) sender {
+  [Placing flipBState];
+  [Placing setTitle: [Placing getBState] ? @"Swapped":@"Normal" forState: UIControlStateNormal];
+  NSString * stringToSend = [[NSString alloc] initWithString: 
+                             [NSString stringWithFormat: @"<lc id=\"%@\" cmd=\"swap\" placing=\"%@\"/>",
+                              loc.locid, [Placing getBState]?@"false":@"true" ]];
+  [rrconnection sendMessage:@"lc" message:stringToSend];
+}  
 
 @end

@@ -18,6 +18,8 @@
   iRocSlider *Vmax;
   iRocSlider *Vmid;
   iRocSlider *Vmin;
+  iRocButton *Placing;
+
   Loc *loc;
 	IRocConnector *rrconnection;
 }

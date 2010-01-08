@@ -12,7 +12,8 @@
 
 @implementation Loc
 
-@synthesize locid, imgname, lcimage, hasImage, imageLoaded, desc, imageAlreadyRequested, roadname, cell, dir, vstr, vmaxstr;
+@synthesize locid, imgname, lcimage, hasImage, imageLoaded, desc, imageAlreadyRequested, roadname, 
+            cell, dir, vstr, vmaxstr, Vmax, Vmid, Vmin, Placing, SpCnt, Vmode, Fn;
 
 - (id) init {
 	[super init];	
@@ -99,12 +100,24 @@
 	return [vmaxstr intValue];
 }
 
+- (int) getVmid {
+	return [Vmid intValue];
+}
+
+- (int) getVmin {
+	return [Vmin intValue];
+}
+
 - (void)setFn:(int)fn withState:(BOOL)state {
   fnStates[fn] = state;
 }
 
 - (BOOL)isFn:(int)fn {
   return fnStates[fn];
+}
+
+- (BOOL)isPlacing {
+  return [Placing compare:@"true"] == NSOrderedSame ? TRUE:FALSE;
 }
 
 

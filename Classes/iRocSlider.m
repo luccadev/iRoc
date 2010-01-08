@@ -49,6 +49,10 @@
 	if( x < 0)
 		x = 0;
 
+  int kx = x;
+  if( kx < qx*2.0 )
+    kx = qx*2.0;
+  
 	// Bar
 	CGContextSetRGBFillColor(context, .1, .1, .1, 1); 
 	rectVel = CGRectMake(qx*1.9, qy*4.4, qx*22.2, qy*1.2);
@@ -60,26 +64,26 @@
   
 	//Knob
 	CGContextSetRGBFillColor(context, .3, .3, .3, 1);  
-	[iRocSlider CGContextAddRoundedRect:context withRect:CGRectMake(x, qy*.4, qx*4.0, qy*9.2) withRadius: qx*0.5];  
+	[iRocSlider CGContextAddRoundedRect:context withRect:CGRectMake(kx-qx*2.0, qy*.4, qx*4.0, qy*9.2) withRadius: qx*0.5];  
 	CGContextFillPath(context);  
 	
 	//Knob border
 	CGContextSetLineWidth(context, 0.5);  
 	CGContextSetRGBStrokeColor(context, .5, .5, .5, 1);  
-	[iRocSlider CGContextAddRoundedRect:context withRect:CGRectMake(x,qy*.4,qx*4.0,qy*9.2) withRadius:qx*0.5 ];  
+	[iRocSlider CGContextAddRoundedRect:context withRect:CGRectMake(kx-qx*2.0,qy*.4,qx*4.0,qy*9.2) withRadius:qx*0.5 ];  
 	CGContextStrokePath(context);  
 	
 	//Knob lines
   
 	CGContextSetRGBFillColor(context, .2, .2, .2, 1); 
-	CGContextFillRect(context, CGRectMake(x+qx*0.75, qy*1.4, 1, qy*7.2));
-	CGContextFillRect(context, CGRectMake(x+qx*1.75, qy*1.4, 1, qy*7.2));
-	CGContextFillRect(context, CGRectMake(x+qx*2.75, qy*1.4, 1, qy*7.2));
+	CGContextFillRect(context, CGRectMake(kx-qx*2.0+qx*0.75, qy*1.4, 1, qy*7.2));
+	CGContextFillRect(context, CGRectMake(kx-qx*2.0+qx*1.75, qy*1.4, 1, qy*7.2));
+	CGContextFillRect(context, CGRectMake(kx-qx*2.0+qx*2.75, qy*1.4, 1, qy*7.2));
 
 	CGContextSetRGBFillColor(context, .4, .4, .4, 1); 
-	CGContextFillRect(context, CGRectMake(x+qx*1.25, qy*1.4, 1, qy*7.2));
-	CGContextFillRect(context, CGRectMake(x+qx*2.25, qy*1.4, 1, qy*7.2));
-	CGContextFillRect(context, CGRectMake(x+qx*3.25, qy*1.4, 1, qy*7.2));
+	CGContextFillRect(context, CGRectMake(kx-qx*2.0+qx*1.25, qy*1.4, 1, qy*7.2));
+	CGContextFillRect(context, CGRectMake(kx-qx*2.0+qx*2.25, qy*1.4, 1, qy*7.2));
+	CGContextFillRect(context, CGRectMake(kx-qx*2.0+qx*3.25, qy*1.4, 1, qy*7.2));
 
 	
 }
@@ -110,7 +114,7 @@
 	NSLog(@"touchesMoved: (%f, %f)", x, y);
 
 	[self setNeedsDisplay];
-  [self getValue];
+    //[self getValue];
   
   // read preferences
 	defaults = [[NSUserDefaults standardUserDefaults] retain];
@@ -139,14 +143,19 @@
 
 }
 
-- (float)getValue {
+- (int)getValue {
+  if( x > maxrange)
+		x = maxrange;
+	if( x < 0)
+		x = 0;
+  
   float val = (x*(maximumValue-minimumValue))/maxrange;
-	NSLog(@"getValue maxrange=%f x=%d val=%f", maxrange, x, val);
+	NSLog(@"getValue maxrange=%f range=%f x=%f val=%f", maxrange, maximumValue-minimumValue, x, val);
 	
 	return val;
 }
 
-- (void)setValue:(float) Value{
+- (void)setValue:(int) Value{
   value = Value;
   
 	x = (maxrange/(maximumValue-minimumValue))*value;

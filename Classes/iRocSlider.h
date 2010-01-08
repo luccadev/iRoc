@@ -26,8 +26,8 @@
 + (void)CGContextAddRoundedRect:(CGContextRef)c withRect:(CGRect)rect withRadius:(int) corner_radius;
 
 
-- (void)setValue:(float) Value;
-- (float)getValue;
+- (void)setValue:(int) Value;
+- (int)getValue;
 
 @end
 

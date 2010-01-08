@@ -506,6 +506,16 @@ static NSString * const kIdElementName = @"id";
         Loc *loc = [[[Loc alloc] init] retain];
         loc.locid = relAttribute;
 				loc.vmaxstr = [attributeDict valueForKey:@"V_max"];
+        
+        [loc setVmax:[attributeDict valueForKey:@"V_max"]];
+        [loc setVmid:[attributeDict valueForKey:@"V_mid"]];
+        [loc setVmin:[attributeDict valueForKey:@"V_min"]];
+        [loc setVmode:[attributeDict valueForKey:@"V_mode"]];
+        [loc setFn:[attributeDict valueForKey:@"fn"]];
+        [loc setSpCnt:[attributeDict valueForKey:@"spcnt"]];
+        [loc setPlacing:[attributeDict valueForKey:@"placing"]];
+
+        
         [loc setDelegate:_delegate];
         
         NSString *imgname = [attributeDict valueForKey:@"image"];
@@ -529,6 +539,7 @@ static NSString * const kIdElementName = @"id";
 			Loc *lc = (Loc*)[lcContainer objectWithId:[attributeDict valueForKey:@"id"]];
 			[lc setDir:[attributeDict valueForKey:@"dir"]];
 			[lc setVstr:[attributeDict valueForKey:@"V"]];
+			[lc setPlacing:[attributeDict valueForKey:@"placing"]];
 			
 			/*
 			if ( [_delegate respondsToSelector:@selector(locSetSlider)] ) {
