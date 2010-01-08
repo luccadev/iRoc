@@ -7,16 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IRocConnector.h"
 #import "iRocTableView.h"
 #import "iRocButton.h"
 #import "iRocSlider.h"
+#import "Loc.h"
 
 
 @interface iRocLcSettingsView : iRocTableView {
   iRocSlider *Vmax;
   iRocSlider *Vmid;
   iRocSlider *Vmin;
+  Loc *loc;
+	IRocConnector *rrconnection;
 }
+@property (nonatomic, retain) IRocConnector *rrconnection;
+@property (nonatomic, retain) Loc *loc;
 
 - (id)init;
 - (void)dealloc;

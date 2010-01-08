@@ -157,6 +157,8 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
     [self updateLabels];
   }
   
+  [delegate setSelectedLoc:loc];
+  
 	NSLog(@"imageLoaded: loco=%@(%@) hasImage=%d imageLoaded=%d...", [lc locid], idLabel.text, [lc hasImage], [lc imageLoaded]);
   if( [lc hasImage] && [lc imageLoaded] ) {
     NSLog(@"loaded image...");

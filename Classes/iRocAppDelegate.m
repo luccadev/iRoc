@@ -66,8 +66,14 @@
   viewController.title = @"Loco";
     //systemView.navigationItem.rightBarButtonItem = lcButton;
   
+    // Tab 1 = Loco
+    // Tab 2 = System
+    // Tab 3 = Menu
+    // Tab 4 = Info
   [views replaceObjectAtIndex:0 withObject:navi];
-  [views replaceObjectAtIndex:3 withObject:systemView];
+  [views replaceObjectAtIndex:3 withObject:[views objectAtIndex:2]];
+  [views replaceObjectAtIndex:2 withObject:[views objectAtIndex:1]];
+  [views replaceObjectAtIndex:1 withObject:systemView];
   tabBarController.viewControllers = views;
   
   
@@ -144,6 +150,8 @@
   viewController.imageviewLoc = nil;
   
   systemView.rrconnection = rrconnection;
+  lcAutoView.rrconnection = rrconnection;
+  lcSettingsView.rrconnection = rrconnection;
 	
 	// Connect Thread
 	rrconnection.isConnected = FALSE;
@@ -215,6 +223,11 @@
   
 	NSLog(@"informing locProps of image...");
   [viewController.locProps imageLoaded];
+}
+
+- (void)setSelectedLoc:(Loc *)loc {
+  lcAutoView.loc = loc;
+  lcSettingsView.loc = loc;
 }
 
 - (void)rtListLoaded {

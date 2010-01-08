@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IRocConnector.h"
 #import "iRocTableView.h"
 #import "iRocButton.h"
 #import "iRocSlider.h"
 #import "Container.h"
+#import "Loc.h"
 
 
 @interface iRocLcAutoView : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
@@ -23,12 +25,17 @@
   NSMutableArray *blocks;
   Container *bkContainer;
 	Container *scContainer;
-
+  int blockPicked;
+  int schedulePicked;
+  Loc *loc;
+	IRocConnector *rrconnection;
 }
 @property (nonatomic, retain) NSMutableArray *schedules;
 @property (nonatomic, retain) NSMutableArray *blocks;
 @property (nonatomic, retain) Container *bkContainer;
 @property (nonatomic, retain) Container *scContainer;
+@property (nonatomic, retain) IRocConnector *rrconnection;
+@property (nonatomic, retain) Loc *loc;
 
 - (IBAction) autoONClicked:(id) sender; 
 - (IBAction) halfAutoONClicked:(id) sender; 
