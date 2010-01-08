@@ -363,5 +363,9 @@
 	//[[self rrconnection] connect];
 }
 
+- (void)setPower:(NSString *)state {
+  if( systemView != nil )
+    [systemView setPower:[state isEqualToString:@"true"]];
+}
 
 @end

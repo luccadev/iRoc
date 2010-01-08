@@ -20,6 +20,7 @@
     self.tabBarItem = [[UITabBarItem alloc] initWithTitle:
                        NSLocalizedString(@"System", @"")
                        image:[UIImage imageNamed:@"light-on.png"] tag:4];
+    self.tabBarItem.badgeValue = @"PWR";
   }
   return self;
 }
@@ -124,6 +125,13 @@
 	NSString * stringToSend = [[NSString alloc] initWithString: 
                              [NSString stringWithFormat: @"<auto cmd=\"%@\"/>", [autoON getBState]?@"start":@"stop"]];
 	[rrconnection sendMessage:@"auto" message:stringToSend];
+}
+
+- (void)setPower:(BOOL)state {
+  Power = state;
+  
+  self.tabBarItem.badgeValue = Power?nil:@"PWR";
+
 }
 
 

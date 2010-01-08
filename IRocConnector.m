@@ -7,6 +7,7 @@
 //
 
 #import "IRocConnector.h"
+#import "iRocAppDelegate.h"
 
 
 @implementation IRocConnector
@@ -645,8 +646,23 @@ static NSString * const kIdElementName = @"id";
 		if( [relAttribute isEqualToString:@"shutdown"] ) {
 			NSLog(@"We should go down now [%@]", relAttribute);
 			[self stop]; 
+      UIAlertView *alert = [[UIAlertView alloc] 
+                            initWithTitle:@"Alert" 
+                            message:[NSString stringWithFormat: @"%@:%d is shutingdown; iRoc will exit.",self.domain, self.port] 
+                            delegate:self 
+                            cancelButtonTitle:nil 
+                            otherButtonTitles:@"OK",nil];
+      [alert show];
+      
 			exit(0);
 		}
+    else {
+    }
+    
+	}	else if ([elementName isEqualToString:@"state"]) {
+		NSString *relAttribute = [attributeDict valueForKey:@"power"];
+    [_delegate performSelectorOnMainThread: @selector(setPower:) withObject:relAttribute waitUntilDone:NO];
+  
   } else if ([elementName isEqualToString:@"clock"]) {
     NSString *relAttribute = [attributeDict valueForKey:@"time"];		
     NSLog(@"clock [%@]", relAttribute);

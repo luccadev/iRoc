@@ -96,6 +96,7 @@
 - (void)setSelectedLoc:(Loc *)loc;
 
 - (void) locSetSlider;
+- (void)setPower:(NSString *)state;
 
 @end
 
