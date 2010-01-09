@@ -75,7 +75,7 @@
   
   viewController.navigationItem.leftBarButtonItem = lcSettingsButton;
 
-    //viewController.title = @"Loco";
+	viewController.title = NSLocalizedString(@"Loco", @"");
   
   
   
