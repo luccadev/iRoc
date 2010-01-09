@@ -8,5 +8,5 @@
  */
 #define BUTTONGAP 8
 #define BUTTONHEIGHT 64
-#define CONTENTBORDER 20
+#define CONTENTBORDER 8
 
