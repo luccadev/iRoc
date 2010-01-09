@@ -47,7 +47,11 @@
 
   menuTableView.tabBarItem = [[UITabBarItem alloc] initWithTitle:
                                NSLocalizedString(@"Menu", @"")
-                                                            image:[UIImage imageNamed:@"menu.png"] tag:1];
+                                                            image:[UIImage imageNamed:@"menu.png"] tag:3];
+  
+  aboutView.tabBarItem = [[UITabBarItem alloc] initWithTitle:
+                              NSLocalizedString(@"Info", @"")
+                                                           image:[UIImage imageNamed:@"info.png"] tag:4];
   
   NSMutableArray* views = [[NSMutableArray alloc] init];
   [views addObjectsFromArray:tabBarController.viewControllers];
