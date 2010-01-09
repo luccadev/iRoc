@@ -76,12 +76,6 @@
   
   viewController.navigationItem.leftBarButtonItem = lcSettingsButton;
 
-	viewController.title = NSLocalizedString(@"Loco", @"");
-  
-  
-  
-    //systemView.navigationItem.rightBarButtonItem = lcButton;
-  
     // Tab 1 = Loco
     // Tab 2 = System
     // Tab 3 = Menu
