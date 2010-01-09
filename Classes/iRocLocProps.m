@@ -166,7 +166,7 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
     
     int breite = 51*(img.size.width/img.size.height);
     int diff = 150 - breite;
-    CGRect imageframe = CGRectMake(120 + diff,10 ,breite,51);	
+    CGRect imageframe = CGRectMake(123 + diff,7 ,breite,51);	
     
     imageview = [[UIImageView alloc] initWithFrame:imageframe];
     imageview.image = img;
