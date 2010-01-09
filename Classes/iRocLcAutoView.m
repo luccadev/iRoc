@@ -22,7 +22,7 @@
     //self = [super initWithStyle: UITableViewStyleGrouped];
   if( self != nil ) {
 
-    self.title = @"Automatic";
+    self.title = NSLocalizedString(@"Automatic", @"");
     
     schedules = [[NSMutableArray alloc] init];
     blocks = [[NSMutableArray alloc] init];
@@ -78,7 +78,7 @@
   schedulePicker.dataSource = self;
   schedulePicker.showsSelectionIndicator = YES;
   [self.view addSubview: schedulePicker];
-
+	
 
   CGRect setInBlockFrame = CGRectMake( CONTENTBORDER, BUTTONHEIGHT + BUTTONGAP + 216 + BUTTONGAP, 2 * buttonWidth + BUTTONGAP, BUTTONHEIGHT);
   setInBlock = [[iRocButton alloc] initWithFrame: setInBlockFrame];
@@ -153,11 +153,11 @@
 
 
 - (IBAction) setInBlockClicked:(id) sender {
-  if ( blockPicked > 0 ) {
+  if ( blockPicked > 0 ) { 
     NSString * stringToSend = [[NSString alloc] initWithString: 
-                               [NSString stringWithFormat: @"<lc id=\"%@\" cmd=\"stop\"/>",
-                                loc.locid ]];
-    [rrconnection sendMessage:@"lc" message:stringToSend];
+                               [NSString stringWithFormat: @"<bk id=\"%@\" locid=\"%@\"/>",
+                                    [blocks objectAtIndex: blockPicked], loc.locid ]];
+    [rrconnection sendMessage:@"bk" message:stringToSend];
   }
 }
 

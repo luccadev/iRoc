@@ -48,7 +48,7 @@
   navi.navigationBar.tintColor = [UIColor blackColor];
 
   UIBarButtonItem *lcAutoButton = [[[UIBarButtonItem alloc]
-                                initWithTitle: @"Automatic"
+                                initWithTitle: NSLocalizedString(@"Automatic", @"")
                                 style:UIBarButtonItemStylePlain
                                 target: self
                                 action: @selector(pushLcAuto)] autorelease];
@@ -56,14 +56,14 @@
   viewController.navigationItem.rightBarButtonItem = lcAutoButton;
   
   UIBarButtonItem *lcSettingsButton = [[[UIBarButtonItem alloc]
-                                initWithTitle: @"Settings"
+                                initWithTitle: NSLocalizedString(@"Settings", @"")
                                 style:UIBarButtonItemStylePlain
                                 target: self
                                 action: @selector(pushLcSettings)] autorelease];
   
   viewController.navigationItem.leftBarButtonItem = lcSettingsButton;
 
-  viewController.title = @"Loco";
+  viewController.title = NSLocalizedString(@"Loco", @"");
     //systemView.navigationItem.rightBarButtonItem = lcButton;
   
     // Tab 1 = Loco

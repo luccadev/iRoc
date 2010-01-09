@@ -22,9 +22,9 @@
     self.tableView.backgroundColor = [UIColor blackColor];
     self.tableView.separatorColor = [UIColor blackColor];
 
-    self.title = @"Settings";
+    self.title = NSLocalizedString(@"Settings", @"");
     self.tabBarItem = [[UITabBarItem alloc] initWithTitle:
-                       [NSString stringWithFormat:@"Settings"] image:nil tag:3];
+                       NSLocalizedString(@"Settings", @"") image:nil tag:3];
     
   }
   return self;
