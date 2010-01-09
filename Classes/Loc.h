@@ -23,6 +23,7 @@
 	NSString *SpCnt;
 	NSString *Vmode;
 	NSString *Fn;
+	NSString *Mode;
 	int vint;
 	
 	NSString *vmaxstr;
@@ -48,7 +49,7 @@
 @property (nonatomic, retain) NSString *desc;
 @property (nonatomic, retain) NSString *roadname;
 @property (nonatomic, retain) NSString *dir;
-@property (nonatomic, retain) NSString *vstr, *Vmax, *Vmid, *Vmin, *Placing, *SpCnt, *Vmode, *Fn;
+@property (nonatomic, retain) NSString *vstr, *Vmax, *Vmid, *Vmin, *Placing, *SpCnt, *Vmode, *Fn, *Mode;
 @property (nonatomic, retain) NSString *vmaxstr;
 @property (nonatomic, retain) UIImage *lcimage;
 @property (nonatomic, retain) UITableViewCell *cell;
@@ -67,5 +68,7 @@
 - (BOOL)isPlacing;
 - (int)getVmid;
 - (int)getVmin;
+- (BOOL)isAutoMode;
+- (BOOL)isHalfAutoMode;
 
 @end

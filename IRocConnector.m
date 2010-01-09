@@ -515,6 +515,7 @@ static NSString * const kIdElementName = @"id";
         [loc setFn:[attributeDict valueForKey:@"fn"]];
         [loc setSpCnt:[attributeDict valueForKey:@"spcnt"]];
         [loc setPlacing:[attributeDict valueForKey:@"placing"]];
+        [loc setMode:[attributeDict valueForKey:@"mode"]];
 
         
         [loc setDelegate:_delegate];
@@ -541,6 +542,7 @@ static NSString * const kIdElementName = @"id";
 			[lc setDir:[attributeDict valueForKey:@"dir"]];
 			[lc setVstr:[attributeDict valueForKey:@"V"]];
 			[lc setPlacing:[attributeDict valueForKey:@"placing"]];
+      [lc setMode:[attributeDict valueForKey:@"mode"]];
 			
 			/*
 			if ( [_delegate respondsToSelector:@selector(locSetSlider)] ) {

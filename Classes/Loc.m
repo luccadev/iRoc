@@ -13,7 +13,7 @@
 @implementation Loc
 
 @synthesize locid, imgname, lcimage, hasImage, imageLoaded, desc, imageAlreadyRequested, roadname, 
-            cell, dir, vstr, vmaxstr, Vmax, Vmid, Vmin, Placing, SpCnt, Vmode, Fn;
+            cell, dir, vstr, vmaxstr, Vmax, Vmid, Vmin, Placing, SpCnt, Vmode, Fn, Mode;
 
 - (id) init {
 	[super init];	
@@ -119,6 +119,17 @@
 - (BOOL)isPlacing {
   return [Placing compare:@"true"] == NSOrderedSame ? TRUE:FALSE;
 }
+
+- (BOOL)isAutoMode {
+  BOOL autoMode = [Mode compare:@"auto"] == NSOrderedSame ? TRUE:FALSE;
+  BOOL idleMode = [Mode compare:@"idle"] == NSOrderedSame ? TRUE:FALSE;
+  return (autoMode | idleMode);
+}
+
+- (BOOL)isHalfAutoMode {
+  return [Mode compare:@"halfauto"] == NSOrderedSame ? TRUE:FALSE;
+}
+
 
 
 /*

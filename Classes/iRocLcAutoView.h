@@ -44,6 +44,8 @@
 
 - (id)init;
 - (void)dealloc;
+- (void)setLoco:(Loc*)loco;
+- (void)updateAutoButton;
 
 - (NSInteger)numberOfComponentsInPickerView:(UITableView *)tableView;
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent: (NSInteger)component;

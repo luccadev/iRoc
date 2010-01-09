@@ -293,6 +293,8 @@
 	// The new one:
 	[viewController.locProps setLoc:loc];
 	[viewController updateFnState];
+  [lcSettingsView setLoco:loc];
+  [lcAutoView setLoco:loc];
 	//[self locSetSlider];
 }
 

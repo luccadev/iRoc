@@ -41,6 +41,13 @@
   [super dealloc];
 }
 
+- (void)setLoco:(Loc*)loco {
+  self.loc = loco;
+  [Placing setBState: ![loc isPlacing]];
+  [self updatePlacing];
+}
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
   NSLog(@"sections in table");
   return 1;
@@ -161,11 +168,16 @@
 
 - (IBAction) placingClicked:(id) sender {
   [Placing flipBState];
+  [self updatePlacing];
   [Placing setTitle: [Placing getBState] ? @"Swapped":@"Normal" forState: UIControlStateNormal];
   NSString * stringToSend = [[NSString alloc] initWithString: 
                              [NSString stringWithFormat: @"<lc id=\"%@\" cmd=\"swap\" placing=\"%@\"/>",
                               loc.locid, [Placing getBState]?@"false":@"true" ]];
   [rrconnection sendMessage:@"lc" message:stringToSend];
+}  
+
+- (void) updatePlacing {
+  [Placing setTitle: [Placing getBState] ? @"Swapped":@"Normal" forState: UIControlStateNormal];
 }  
 
 @end

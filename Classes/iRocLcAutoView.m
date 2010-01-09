@@ -94,11 +94,20 @@
   [super dealloc];
 }
 
+- (void)setLoco:(Loc*)loco {
+  self.loc = loco;
+  [autoON setBState:[loc isAutoMode]];
+  [self updateAutoButton];
+}
+
+- (void)updateAutoButton{
+  [autoON setTitle: [autoON getBState] ? @"STOP":@"START" forState: UIControlStateNormal];
+  [autoON setColor:[autoON getBState] ? 1:0];
+}
 
 - (IBAction) autoONClicked:(id) sender {
   [autoON flipBState];
-  [autoON setTitle: [autoON getBState] ? @"STOP":@"START" forState: UIControlStateNormal];
-  [autoON setColor:[autoON getBState] ? 1:0];
+  [self updateAutoButton];
   if([autoON getBState]) {
       // Send optional destination block or schedule before sending the start auto command.
     if( [halfAutoON getBState] ) {

@@ -28,6 +28,8 @@
 
 - (id)init;
 - (void)dealloc;
+- (void)setLoco:(Loc*)loco;
+- (void)updatePlacing;
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection: (NSInteger)section;
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;
