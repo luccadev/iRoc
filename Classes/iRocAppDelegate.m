@@ -40,6 +40,10 @@
   systemView = [[iRocSystemView alloc] init];
   lcAutoView = [[iRocLcAutoView alloc] init];
   lcSettingsView = [[iRocLcSettingsView alloc] init];
+
+  viewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:
+                               NSLocalizedString(@"Loco", @"")
+                              image:[UIImage imageNamed:@"loco.png"] tag:1];
   
   NSMutableArray* views = [[NSMutableArray alloc] init];
   [views addObjectsFromArray:tabBarController.viewControllers];
@@ -63,7 +67,10 @@
   
   viewController.navigationItem.leftBarButtonItem = lcSettingsButton;
 
-  viewController.title = NSLocalizedString(@"Loco", @"");
+    //viewController.title = @"Loco";
+  
+  
+  
     //systemView.navigationItem.rightBarButtonItem = lcButton;
   
     // Tab 1 = Loco
