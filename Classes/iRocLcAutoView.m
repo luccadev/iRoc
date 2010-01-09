@@ -154,10 +154,10 @@
 
 - (IBAction) setInBlockClicked:(id) sender {
   if ( blockPicked > 0 ) { 
-    NSString * stringToSend = [[NSString alloc] initWithString: 
-                               [NSString stringWithFormat: @"<bk id=\"%@\" locid=\"%@\"/>",
-                                    [blocks objectAtIndex: blockPicked], loc.locid ]];
-    [rrconnection sendMessage:@"bk" message:stringToSend];
+    NSString * stringToSend = [[NSString alloc] initWithString: //<lc id=.. cmd="block" blockid=... />
+                               [NSString stringWithFormat: @"<lc id=\"%@\" cmd=\"block\" blockid=\"%@\"/>",
+                                 loc.locid, [blocks objectAtIndex: blockPicked]]];
+    [rrconnection sendMessage:@"lc" message:stringToSend];
   }
 }
 
