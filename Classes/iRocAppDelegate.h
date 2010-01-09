@@ -14,6 +14,7 @@
 #import "iRocCoTableView.h"
 #import "iRocBkTableView.h"
 #import "iRocScTableView.h"
+#import "iRocSgTableView.h"
 
 #import "iRocMenuTableView.h"
 #import "iRocSystemView.h"
@@ -39,6 +40,7 @@
 	IBOutlet iRocCoTableView *coTableView;
 	IBOutlet iRocBkTableView *bkTableView;
 	IBOutlet iRocScTableView *scTableView;
+	IBOutlet iRocSgTableView *sgTableView;
 	
 	IBOutlet iRocMenuTableView *menuTableView;
 	IBOutlet iRocSystemView *systemView;
@@ -53,6 +55,7 @@
 	Container *coContainer;
 	Container *bkContainer;
 	Container *scContainer;
+	Container *sgContainer;
 	
 	NSMutableArray *menuItems;
 	
@@ -72,6 +75,7 @@
 @property (nonatomic, retain) IBOutlet iRocCoTableView *coTableView;
 @property (nonatomic, retain) IBOutlet iRocBkTableView *bkTableView;
 @property (nonatomic, retain) IBOutlet iRocScTableView *scTableView;
+@property (nonatomic, retain) IBOutlet iRocSgTableView *sgTableView;
 @property (nonatomic, retain) IBOutlet iRocMenuTableView *menuTableView;
 @property (nonatomic, retain) IBOutlet iRocSystemView *systemView;
 @property (nonatomic, retain) IBOutlet iRocLcAutoView *lcAutoView;
@@ -85,6 +89,7 @@
 @property(nonatomic, retain) Container *coContainer;
 @property(nonatomic, retain) Container *bkContainer;
 @property(nonatomic, retain) Container *scContainer;
+@property(nonatomic, retain) Container *sgContainer;
 
 @property(nonatomic, retain) NSMutableArray *menuItems;
 

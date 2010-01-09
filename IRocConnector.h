@@ -13,6 +13,7 @@
 #import "Output.h"
 #import "Block.h"
 #import "Schedule.h"
+#import "Signal.h"
 
 #import "Container.h"
 
@@ -66,6 +67,7 @@
 	Container *coContainer;
 	Container *bkContainer;
 	Container *scContainer;
+	Container *sgContainer;
 	
 	id _delegate;
 }
@@ -105,6 +107,7 @@
 @property(nonatomic, retain) Container *lcContainer;
 @property(nonatomic, retain) Container *bkContainer;
 @property(nonatomic, retain) Container *scContainer;
+@property(nonatomic, retain) Container *sgContainer;
 
 @property (nonatomic, retain) Loc *currentLocObject;
 
@@ -119,6 +122,7 @@
  - (void)coListLoaded;
  - (void)bkListLoaded;
  - (void)scListLoaded;
+ - (void)sgListLoaded;
  - (void)askForAllLocPics;
 
 @end

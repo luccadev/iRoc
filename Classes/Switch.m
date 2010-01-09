@@ -28,6 +28,14 @@
 			else 
 				imgname = @"turnout-lt-1.png";
 	
+	} else if( [self.type isEqual:@"threeway"]) {
+    if( [self.state isEqual:@"straight"])
+      imgname = @"turnout-ls-1.png";
+    else if( [self.state isEqual:@"left"])
+      imgname = @"turnout-ls-1.png";
+    else 
+      imgname = @"turnout-lt-1.png";
+    
 	} else if( [self.type isEqual:@"dcrossing"] ){
 		imgname = @"dcross-rs-1.png";
 	} else {

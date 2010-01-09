@@ -15,9 +15,10 @@
 @synthesize window;
 @synthesize tabBarController;
 @synthesize viewController;
-@synthesize lcTableView, rtTableView, swTableView, coTableView, bkTableView, scTableView, menuTableView, systemView, lcAutoView, lcSettingsView;
+@synthesize lcTableView, rtTableView, swTableView, coTableView, bkTableView, scTableView, sgTableView, 
+      menuTableView, systemView, lcAutoView, lcSettingsView;
 
-@synthesize coContainer, rrconnection, menuItems, aboutView, swContainer, lcContainer, rtContainer, bkContainer, scContainer;
+@synthesize coContainer, rrconnection, menuItems, aboutView, swContainer, sgContainer, lcContainer, rtContainer, bkContainer, scContainer;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
   NSLog(@"applicationDidFinishLaunching");
@@ -102,6 +103,7 @@
 	coContainer = [[[Container alloc] init] retain];
 	bkContainer = [[[Container alloc] init] retain];
 	scContainer = [[[Container alloc] init] retain];
+	sgContainer = [[[Container alloc] init] retain];
 
   lcAutoView.bkContainer = bkContainer;
   lcAutoView.scContainer = scContainer;
@@ -140,9 +142,15 @@
 	[scTableView setDelegate:self];
 	[scTableView setMenuname:NSLocalizedString(@"Schedules", @"")];
 	
+	sgTableView = [[iRocSgTableView alloc] init];
+	[sgTableView setSgContainer:self.sgContainer];
+	[sgTableView setDelegate:self];
+	[sgTableView setMenuname:NSLocalizedString(@"Signals", @"")];
+	
 	[menuItems addObject:lcTableView];
 	[menuItems addObject:rtTableView];
 	[menuItems addObject:swTableView];
+	[menuItems addObject:sgTableView];
 	[menuItems addObject:coTableView];
 	[menuItems addObject:bkTableView];
 	[menuItems addObject:scTableView];
@@ -161,6 +169,7 @@
 	[rrconnection setCoContainer:self.coContainer];
 	[rrconnection setBkContainer:self.bkContainer];
 	[rrconnection setScContainer:self.scContainer];
+	[rrconnection setSgContainer:self.sgContainer];
 	viewController.textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
   viewController.imageviewLoc = nil;
   
@@ -268,6 +277,10 @@
 	[scTableView.tableView reloadData];
 }
 
+- (void)sgListLoaded {
+	[sgTableView.tableView reloadData];
+}
+
 - (void)rtAction:(NSString *)rtid {	
 	NSLog(@"rtAction: %@", rtid);
 	[rrconnection sendMessage:@"st" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<st id=\"%@\" cmd=\"go\"/>", rtid]]];
@@ -282,6 +295,12 @@
 	NSLog(@"coAction: %@", coid);
 	// TODO: we need a flip command in rocrail ...
 	[rrconnection sendMessage:@"co" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<co id=\"%@\" cmd=\"flip\"/>", coid]]];
+}
+
+- (void)sgAction:(NSString *)sgid {	
+	NSLog(@"sgAction: %@", sgid);
+	[rrconnection sendMessage:@"sg" message:[[NSString alloc] initWithString: [NSString stringWithFormat: 
+                  @"<sg id=\"%@\" cmd=\"flip\"/>", sgid]]];
 }
 
 - (void)bkAction:(NSString *)bkid {	

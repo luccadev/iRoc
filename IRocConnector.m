@@ -13,7 +13,7 @@
 @implementation IRocConnector
 
 @synthesize header, rocdata, isConnected, readyConnecting, currentLocObject, coContainer;
-@synthesize swContainer, lcContainer, rtContainer, bkContainer, scContainer;
+@synthesize swContainer, lcContainer, rtContainer, bkContainer, scContainer, sgContainer;
 
 - (id) init {
 	[super init];
@@ -576,6 +576,31 @@ static NSString * const kIdElementName = @"id";
       NSLog(@"switch event state=%@", state);		
     }
     
+	} else if ([elementName isEqualToString:@"sg"]) {
+    NSString *idAttribute = [attributeDict valueForKey:kIdElementName];
+    if( parsingPlan ) {
+      NSString *type = [attributeDict valueForKey:@"type"];
+      NSString *state = [attributeDict valueForKey:@"state"];
+        //NSLog(@"parser: sg: %@", [attributeDict valueForKey:kIdElementName]);
+      
+      Signal *sg = [[[Signal alloc] init] retain];
+      sg.ID = idAttribute;
+      sg.type = type;
+      sg.state = state;
+      [self.sgContainer addObject:sg withId:idAttribute];
+    }
+    else {
+      NSString *state = [attributeDict valueForKey:@"state"];
+      Signal *sg = (Signal*) [self.sgContainer objectWithId:idAttribute];		
+      [sg setState:state];
+      
+      if ( [_delegate respondsToSelector:@selector(sgListLoaded)] ) {
+        [_delegate performSelectorOnMainThread : @ selector(sgListLoaded ) withObject:nil waitUntilDone:NO];
+      } 
+      
+      NSLog(@"swignal event state=%@", state);		
+    }
+    
 	} else if ([elementName isEqualToString:@"st"]) {
 		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];		
     if( parsingPlan ) {
@@ -695,6 +720,12 @@ static NSString * const kIdElementName = @"id";
       [_delegate performSelectorOnMainThread : @ selector(swListLoaded ) withObject:nil waitUntilDone:NO];
 		} 
 		NSLog(@"%d sws added ... ", [swContainer count]);
+	} else if (parsingPlan && [elementName isEqualToString:@"sglist"]) {
+      // inform the delegate
+		if ( [_delegate respondsToSelector:@selector(sgListLoaded)] ) {
+      [_delegate performSelectorOnMainThread : @ selector(sgListLoaded ) withObject:nil waitUntilDone:NO];
+		} 
+		NSLog(@"%d sgs added ... ", [sgContainer count]);
 	} else if ( parsingPlan && [elementName isEqualToString:@"colist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(coListLoaded)] ) {
