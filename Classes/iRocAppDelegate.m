@@ -44,6 +44,10 @@
   viewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:
                                NSLocalizedString(@"Loco", @"")
                               image:[UIImage imageNamed:@"loco.png"] tag:1];
+
+  menuTableView.tabBarItem = [[UITabBarItem alloc] initWithTitle:
+                               NSLocalizedString(@"Menu", @"")
+                                                            image:[UIImage imageNamed:@"menu.png"] tag:1];
   
   NSMutableArray* views = [[NSMutableArray alloc] init];
   [views addObjectsFromArray:tabBarController.viewControllers];
