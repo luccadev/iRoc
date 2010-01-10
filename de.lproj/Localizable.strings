@@ -19,3 +19,11 @@
 "Automatic" = "Automatik";
 "Settings" = "Einstellungen";
 "Loco" = "Lok";
+"none" = "geen";
+"START" = "START";
+"STOP" = "STOP";
+"HalfAuto" = "HalbAutom.";
+"Set in block" = "Weiss Block zu";
+"Normal" = "Normal";
+"Swapped" = "Umgekehrt";
+"Placing" = "Platzierung";

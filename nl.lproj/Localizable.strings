@@ -10,3 +10,11 @@
 "Auto ON" = "Autom. AAN";
 "Auto Start" = "Autom. Start";
 "Release" = "Vrijgeven";
+"none" = "geen";
+"START" = "START";
+"STOP" = "STOP";
+"HalfAuto" = "HalfAuto";
+"Set in block" = "Zet in blok";
+"Normal" = "Normaal";
+"Swapped" = "Omgekeerd";
+"Placing" = "Plaatsing";

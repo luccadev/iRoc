@@ -147,14 +147,14 @@
             Placing = [[iRocButton alloc] initWithFrame: CGRectMake(170, 10, 125, 30)];
             Placing.frame = CGRectMake(170, 10, 125, 30);
             [Placing setBState: ![loc isPlacing]];
-            [Placing setTitle: [loc isPlacing] ? @"Normal":@"Swapped" forState: UIControlStateNormal];
+            [self updatePlacing];
             [Placing addTarget:self action:@selector(placingClicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell addSubview: Placing];
             UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
             label.font = [UIFont boldSystemFontOfSize:cellfontsize];
             label.textColor = celltextcolor;
             label.backgroundColor = [UIColor clearColor];
-            label.text = @"Placing";
+            label.text = NSLocalizedString(@"Placing", @"");
             [cell addSubview: label];
           }
             break;
@@ -169,7 +169,6 @@
 - (IBAction) placingClicked:(id) sender {
   [Placing flipBState];
   [self updatePlacing];
-  [Placing setTitle: [Placing getBState] ? @"Swapped":@"Normal" forState: UIControlStateNormal];
   NSString * stringToSend = [[NSString alloc] initWithString: 
                              [NSString stringWithFormat: @"<lc id=\"%@\" cmd=\"swap\" placing=\"%@\"/>",
                               loc.locid, [Placing getBState]?@"false":@"true" ]];
@@ -177,7 +176,7 @@
 }  
 
 - (void) updatePlacing {
-  [Placing setTitle: [Placing getBState] ? @"Swapped":@"Normal" forState: UIControlStateNormal];
+  [Placing setTitle: [Placing getBState] ? NSLocalizedString(@"Swapped", @""):NSLocalizedString(@"Normal", @"") forState: UIControlStateNormal];
 }  
 
 @end

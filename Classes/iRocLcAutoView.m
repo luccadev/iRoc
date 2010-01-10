@@ -38,7 +38,7 @@
   [super.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0]];
 
   [blocks removeAllObjects];
-  [blocks addObject: @"none"];
+  [blocks addObject: NSLocalizedString(@"none", @"")];
   int cnt = [bkContainer count];
   NSLog(@"number of blocks=%d", cnt);
   for( int i = 0; i < cnt; i++ ) {
@@ -47,7 +47,7 @@
   }
   
   [schedules removeAllObjects];
-  [schedules addObject: @"none"];
+  [schedules addObject: NSLocalizedString(@"none", @"")];
   cnt = [scContainer count];
   NSLog(@"number of schedules=%d", cnt);
   for( int i = 0; i < cnt; i++ ) {
@@ -62,7 +62,7 @@
   CGRect autoONFrame = CGRectMake(CONTENTBORDER, 0, buttonWidth, BUTTONHEIGHT);
   autoON = [[iRocButton alloc] initWithFrame: autoONFrame];
   autoON.frame = autoONFrame;
-  [autoON setTitle: @"START" forState: UIControlStateNormal];
+  [autoON setTitle: NSLocalizedString(@"START", @"") forState: UIControlStateNormal];
   [autoON addTarget:self action:@selector(autoONClicked:) forControlEvents:UIControlEventTouchUpInside];
   [autoON setColor:0];
   [autoON setEnabled:Auto];
@@ -71,7 +71,7 @@
   CGRect halfAutoONFrame = CGRectMake(buttonWidth + CONTENTBORDER + BUTTONGAP, 0, buttonWidth, BUTTONHEIGHT);
   halfAutoON = [[iRocButton alloc] initWithFrame: halfAutoONFrame];
   halfAutoON.frame = halfAutoONFrame;
-  [halfAutoON setTitle: @"HalfAuto" forState: UIControlStateNormal];
+  [halfAutoON setTitle: NSLocalizedString(@"HalfAuto", @"") forState: UIControlStateNormal];
   [halfAutoON addTarget:self action:@selector(halfAutoONClicked:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview: halfAutoON];
   
@@ -85,7 +85,7 @@
   CGRect setInBlockFrame = CGRectMake( CONTENTBORDER, BUTTONHEIGHT + BUTTONGAP + 216 + BUTTONGAP, 2 * buttonWidth + BUTTONGAP, BUTTONHEIGHT);
   setInBlock = [[iRocButton alloc] initWithFrame: setInBlockFrame];
   setInBlock.frame = setInBlockFrame;
-  [setInBlock setTitle: @"Set in block" forState: UIControlStateNormal];
+  [setInBlock setTitle: NSLocalizedString(@"Set in block", @"") forState: UIControlStateNormal];
   [setInBlock addTarget:self action:@selector(setInBlockClicked:) forControlEvents:UIControlEventTouchUpInside];
   [setInBlock setColor:3];
   [self.view addSubview: setInBlock];
@@ -103,7 +103,7 @@
 }
 
 - (void)updateAutoButton{
-  [autoON setTitle: [autoON getBState] ? @"STOP":@"START" forState: UIControlStateNormal];
+  [autoON setTitle: [autoON getBState] ? NSLocalizedString(@"STOP", @""):NSLocalizedString(@"START", @"") forState: UIControlStateNormal];
   [autoON setColor:[autoON getBState] ? 1:0];
 }
 
