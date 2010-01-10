@@ -108,6 +108,8 @@
 - (IBAction) autoONClicked:(id) sender {
   [autoON flipBState];
   [self updateAutoButton];
+  [halfAutoON setEnabled:![autoON getBState]];
+  [setInBlock setEnabled:![autoON getBState]];
   if([autoON getBState]) {
       // Send optional destination block or schedule before sending the start auto command.
     if( [halfAutoON getBState] ) {
