@@ -1,0 +1,26 @@
+﻿"Locomotives" = "Locomotive";
+"Outputs" = "Uscite";
+"Routes" = "Instradamenti";
+"Switches" = "Deviatoi";
+"Signals" = "Segnali";
+"Blocks" = "Blocchi";
+"Schedules" = "Schedulazioni";
+"System" = "Sistema";
+"Power ON" = "Accendi";
+"Power OFF" = "Spegni";
+"Init Field" = "Inizializzazione";
+"Auto ON" = "Accendi autom.";
+"Auto Start" = "Avvia autom.";
+"Release" = "Rilascia";
+"none" = "nessuno";
+"START" = "AVVIA";
+"STOP" = "ARRESTA";
+"HalfAuto" = "Semiautomatico";
+"Set in block" = "Imposta nel blocco";
+"Normal" = "Normale";
+"Swapped" = "Invertito";
+"Placing" = "Posizionamento";
+"Automatic" = "Automatico";
+"Settings" = "Impostazioni";
+"Loco" = "Locomotiva"; 
+
