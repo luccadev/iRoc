@@ -49,7 +49,7 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
 	
     if (self = [super initWithFrame:frame]) {
         // Initialization code
-		
+      [self setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
 		began = 0;
 		moved = 1;
 		ended = 2;
@@ -65,12 +65,18 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
 
 - (void)drawRect:(CGRect)rect {
 	[super drawRect:rect];
-    context = UIGraphicsGetCurrentContext();
-
+  BOOL enabled = [super isEnabled];
+  context = UIGraphicsGetCurrentContext();
+  
+  
   float clrdepth = touchState == began ?.9:.6;
   float graydepth = touchState == began ?.3:.3; // TODO: Seems always to be "began" for the loco controller buttons...
+  if( !enabled ) {
+    graydepth = touchState == began ?.2:.2; // TODO: Seems always to be "began" for the loco controller buttons...
+    CGContextSetRGBFillColor(context, graydepth, graydepth, graydepth, 1);
+  }
     // red
-  if( color == 1 )
+  else if( color == 1 )
 	  CGContextSetRGBFillColor(context, clrdepth, .3, .3, 1);
     // green
   else if( color == 2 )
