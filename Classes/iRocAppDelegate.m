@@ -26,13 +26,18 @@
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
 	[[UIApplication sharedApplication] setStatusBarHidden:FALSE];
 	
-	application.idleTimerDisabled = YES;
+	// read preferences
+	NSUserDefaults *defaults = [[NSUserDefaults standardUserDefaults] retain];
+	
+	//sleep_preferences
+	if( [defaults boolForKey:@"sleep_preferences"]) {
+		application.idleTimerDisabled = NO;
+	} else {
+		application.idleTimerDisabled = YES;
+	}
 	
 	[viewController setDelegate:self];
 
-    // read preferences
-	NSUserDefaults *defaults = [[NSUserDefaults standardUserDefaults] retain];
-  
     // Optional move event.
 	if( [defaults boolForKey:@"moveevents_preference"]) {
 		[viewController processAllEvents:[defaults integerForKey:@"vdelta_preference"]];
