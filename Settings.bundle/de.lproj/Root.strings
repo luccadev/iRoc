@@ -3,10 +3,10 @@ The strings files provide the localized content to display to the user for each 
 
 "IP" = "IP";
 "Port" = "Port";
-"Loc" = "Lok";
+"Loco" = "Lok";
 "Locomotives" = "Lokomotiven";
-"Numeric Keyboard" = "numerische Tastatur";
+"Keyboard" = "Tastatur";
 "Velocity Control Settings" = "Geschwindigkeitsregler Einstellungen";
 "High Sensitive" = "Hohe Auflösung";
-"Velocity Delta" = "Geschwindigkeit Delta";
-"Allow sleep" = "Sleep erlauben"
+"Velocity Delta" = "V Delta";
+"Allow sleep" = "Sleep erlauben";
