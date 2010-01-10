@@ -102,6 +102,7 @@
 
 - (void) locSetSlider;
 - (void)setPower:(NSString *)state;
+- (void)setAuto:(NSString *)state;
 
 @end
 

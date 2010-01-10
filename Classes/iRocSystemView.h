@@ -20,6 +20,7 @@
   IBOutlet iRocButton *autoStart;
 	IRocConnector *rrconnection;
   BOOL Power;
+  BOOL Auto;
 }
 @property (nonatomic, retain) iRocButton *powerON, *powerOFF, *initField, *autoON, *autoStart;
 @property (nonatomic, retain) IRocConnector *rrconnection;
@@ -31,4 +32,5 @@
 - (IBAction) autoStartClicked:(id) sender; 
 
 - (void)setPower:(BOOL)state;
+- (void)setAuto:(BOOL)state;
 @end

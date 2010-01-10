@@ -690,6 +690,10 @@ static NSString * const kIdElementName = @"id";
 		NSString *relAttribute = [attributeDict valueForKey:@"power"];
     [_delegate performSelectorOnMainThread: @selector(setPower:) withObject:relAttribute waitUntilDone:NO];
   
+	}	else if ([elementName isEqualToString:@"auto"]) {
+		NSString *relAttribute = [attributeDict valueForKey:@"cmd"];
+    [_delegate performSelectorOnMainThread: @selector(setAuto:) withObject:relAttribute waitUntilDone:NO];
+    
   } else if ([elementName isEqualToString:@"clock"]) {
     NSString *relAttribute = [attributeDict valueForKey:@"time"];		
     NSLog(@"clock [%@]", relAttribute);

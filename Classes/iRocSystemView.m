@@ -17,6 +17,8 @@
 - (id)init {
   self = [super init];
   if( self != nil ) {
+    Power = FALSE;
+    Auto = FALSE;
     self.tabBarItem = [[UITabBarItem alloc] initWithTitle:
                        NSLocalizedString(@"System", @"")
                        image:[UIImage imageNamed:@"light-on.png"] tag:4];
@@ -37,6 +39,7 @@
   [powerON setTitle: NSLocalizedString(@"Power ON", @"") forState: UIControlStateNormal];
   [powerON addTarget:self action:@selector(powerONClicked:) forControlEvents:UIControlEventTouchUpInside];
   [powerON setColor:2];
+  [powerON setBState:Power];
   [self.view addSubview: powerON];
 
   CGRect powerOFFFrame = CGRectMake(buttonWidth + CONTENTBORDER + BUTTONGAP, CONTENTBORDER, buttonWidth, BUTTONHEIGHT);
@@ -45,6 +48,7 @@
   [powerOFF setTitle: NSLocalizedString(@"Power OFF", @"") forState: UIControlStateNormal];
   [powerOFF addTarget:self action:@selector(powerOFFClicked:) forControlEvents:UIControlEventTouchUpInside];
   [powerOFF setColor:1];
+  [powerOFF setBState:!Power];
   [self.view addSubview: powerOFF];
 
   CGRect initFieldFrame = CGRectMake(CONTENTBORDER, CONTENTBORDER + BUTTONHEIGHT + BUTTONGAP, 2 * buttonWidth + BUTTONGAP, BUTTONHEIGHT);
@@ -61,6 +65,7 @@
   [autoON setTitle: NSLocalizedString(@"Auto ON", @"") forState: UIControlStateNormal];
   [autoON addTarget:self action:@selector(autoONClicked:) forControlEvents:UIControlEventTouchUpInside];
   [autoON setColor:0];
+  [autoON setBState:Auto];
   [self.view addSubview: autoON];
 
   CGRect autoStartFrame = CGRectMake( CONTENTBORDER + buttonWidth + BUTTONGAP, CONTENTBORDER + 2 * BUTTONGAP + 2 * BUTTONHEIGHT, buttonWidth, BUTTONHEIGHT);
@@ -69,6 +74,7 @@
   [autoStart setTitle: NSLocalizedString(@"Auto Start", @"") forState: UIControlStateNormal];
   [autoStart addTarget:self action:@selector(autoStartClicked:) forControlEvents:UIControlEventTouchUpInside];
   [autoStart setColor:0];
+  [autoStart setEnabled:Auto];
   [self.view addSubview: autoStart];
   
 }
@@ -129,9 +135,21 @@
 
 - (void)setPower:(BOOL)state {
   Power = state;
+
+  [powerON setBState:Power];
+  [powerOFF setBState:!Power];
   
   self.tabBarItem.badgeValue = Power?nil:@"PWR";
 
+}
+
+
+- (void)setAuto:(BOOL)state {
+  Auto = state;
+  [autoON setBState:Auto];
+  [autoStart setEnabled:Auto];
+  self.tabBarItem.badgeValue = Power?nil:@"PWR";
+  
 }
 
 

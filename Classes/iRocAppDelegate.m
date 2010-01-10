@@ -398,4 +398,9 @@
     [systemView setPower:[state isEqualToString:@"true"]];
 }
 
+- (void)setAuto:(NSString *)state {
+  if( systemView != nil )
+    [systemView setAuto:[state isEqualToString:@"on"]];
+}
+
 @end
