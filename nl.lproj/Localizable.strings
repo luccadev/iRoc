@@ -3,6 +3,9 @@
 "Outputs" = "Uitgangen";
 "Routes" = "Rijstraten";
 "Switches" = "Wissels";
+"Signals" = "Signalen";
+"Blocks" = "Blokken";
+"Schedules" = "Dienstroosters";
 "System" = "Systeem";
 "Power ON" = "Booster AAN";
 "Power OFF" = "Booster UIT";
