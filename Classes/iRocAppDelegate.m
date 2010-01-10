@@ -401,6 +401,8 @@
 - (void)setAuto:(NSString *)state {
   if( systemView != nil )
     [systemView setAuto:[state isEqualToString:@"on"]];
+  if( lcAutoView != nil )
+    [lcAutoView setAuto:[state isEqualToString:@"on"]];
 }
 
 @end

@@ -57,6 +57,7 @@
   [initField setTitle: NSLocalizedString(@"Init Field", @"") forState: UIControlStateNormal];
   [initField addTarget:self action:@selector(initFieldClicked:) forControlEvents:UIControlEventTouchUpInside];
   [initField setColor:3];
+  [initField setEnabled:!Auto];
   [self.view addSubview: initField];
 
   CGRect autoONFrame = CGRectMake(CONTENTBORDER, CONTENTBORDER + 2 * BUTTONGAP + 2 * BUTTONHEIGHT, buttonWidth, BUTTONHEIGHT);
@@ -148,6 +149,8 @@
   Auto = state;
   [autoON setBState:Auto];
   [autoStart setEnabled:Auto];
+  [initField setEnabled:!Auto];
+
   self.tabBarItem.badgeValue = Power?nil:@"PWR";
   
 }

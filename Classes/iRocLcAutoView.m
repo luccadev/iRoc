@@ -21,6 +21,7 @@
   self = [super init];
     //self = [super initWithStyle: UITableViewStyleGrouped];
   if( self != nil ) {
+    Auto = FALSE;
 
     self.title = NSLocalizedString(@"Automatic", @"");
     
@@ -64,6 +65,7 @@
   [autoON setTitle: @"START" forState: UIControlStateNormal];
   [autoON addTarget:self action:@selector(autoONClicked:) forControlEvents:UIControlEventTouchUpInside];
   [autoON setColor:0];
+  [autoON setEnabled:Auto];
   [self.view addSubview: autoON];
 
   CGRect halfAutoONFrame = CGRectMake(buttonWidth + CONTENTBORDER + BUTTONGAP, 0, buttonWidth, BUTTONHEIGHT);
@@ -197,6 +199,12 @@
       [pickerView selectRow:0 inComponent:0 animated:TRUE];
     }
   }
+}
+
+
+- (void)setAuto:(BOOL)state {
+  Auto = state;
+  [autoON setEnabled:Auto];
 }
 
 

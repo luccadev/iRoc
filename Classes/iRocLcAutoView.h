@@ -28,6 +28,7 @@
   int blockPicked;
   int schedulePicked;
   Loc *loc;
+  BOOL Auto;
 	IRocConnector *rrconnection;
 }
 @property (nonatomic, retain) NSMutableArray *schedules;
@@ -46,6 +47,7 @@
 - (void)dealloc;
 - (void)setLoco:(Loc*)loco;
 - (void)updateAutoButton;
+- (void)setAuto:(BOOL)state;
 
 - (NSInteger)numberOfComponentsInPickerView:(UITableView *)tableView;
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent: (NSInteger)component;
