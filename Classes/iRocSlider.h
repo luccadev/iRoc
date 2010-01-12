@@ -22,6 +22,8 @@
   float minimumValue;
   float value;
 }
+@property float maximumValue;
+@property float minimumValue;
 
 + (void)CGContextAddRoundedRect:(CGContextRef)c withRect:(CGRect)rect withRadius:(int) corner_radius;
 

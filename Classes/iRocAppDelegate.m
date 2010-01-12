@@ -410,4 +410,8 @@
     [lcAutoView setAuto:[state isEqualToString:@"on"]];
 }
 
+- (BOOL)sendMessage:(NSString *)name message:(NSString *)msg {
+  return [rrconnection sendMessage:name message:msg];
+}
+
 @end

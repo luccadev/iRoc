@@ -106,9 +106,10 @@
           case (0): {
             Vmax = [[iRocSlider alloc] initWithFrame: CGRectMake(170, 10, 125, 30)];
             [Vmax setValue:[loc getVmax]];
-              //Vmax.minimumValue = 0;
-              //Vmax.maximumValue = 100;
-              //Vmax.value = 100;
+            Vmax.minimumValue = 0;
+            Vmax.maximumValue = 100;
+            Vmax.value = [loc getVmax];
+            [Vmax addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
             [cell addSubview: Vmax];
 
             UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
@@ -122,6 +123,10 @@
           case (1): {
             Vmid = [[iRocSlider alloc] initWithFrame: CGRectMake(170, 10, 125, 30)];
             [Vmid setValue:[loc getVmid]];
+            Vmid.minimumValue = 0;
+            Vmid.maximumValue = 100;
+            Vmid.value = [loc getVmid];
+            [Vmid addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
             [cell addSubview: Vmid];
             UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
             label.font = [UIFont boldSystemFontOfSize:cellfontsize];
@@ -134,6 +139,10 @@
           case (2): {
             Vmin = [[iRocSlider alloc] initWithFrame: CGRectMake(170, 10, 125, 30)];
             [Vmin setValue:[loc getVmin]];
+            Vmin.minimumValue = 0;
+            Vmin.maximumValue = 100;
+            Vmin.value = [loc getVmin];
+            [Vmin addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
             [cell addSubview: Vmin];
             UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
             label.font = [UIFont boldSystemFontOfSize:cellfontsize];
@@ -178,5 +187,21 @@
 - (void) updatePlacing {
   [Placing setTitle: [Placing getBState] ? NSLocalizedString(@"Swapped", @""):NSLocalizedString(@"Normal", @"") forState: UIControlStateNormal];
 }  
+
+- (void) sliderValueChanged: (id)sender {
+  if( Vmax == sender ) {
+    NSLog(@"VMax = %d", [Vmax getValue]);
+    [loc sendVmax:[Vmax getValue]];
+  }
+  else if( Vmid == sender ) {
+    NSLog(@"VMid = %d", [Vmid getValue]);
+    [loc sendVmid:[Vmid getValue]];
+  }
+  if( Vmin == sender ) {
+    NSLog(@"VMin = %d", [Vmin getValue]);
+    [loc sendVmin:[Vmin getValue]];
+  }
+}
+
 
 @end

@@ -43,6 +43,7 @@
 
 }
 
+
 @property (nonatomic, retain) NSString *locid;
 //@property (nonatomic, retain) NSString *locpicdata;
 @property (nonatomic, retain) NSString *imgname;
@@ -70,5 +71,8 @@
 - (int)getVmin;
 - (BOOL)isAutoMode;
 - (BOOL)isHalfAutoMode;
+- (void)sendVmax:(int)V;
+- (void)sendVmid:(int)V;
+- (void)sendVmin:(int)V;
 
 @end

@@ -9,6 +9,7 @@
 #import "iRocSlider.h"
 
 @implementation iRocSlider
+@synthesize maximumValue, minimumValue;
 
 - (id)initWithFrame:(CGRect)frame {
   if (self = [super initWithFrame:frame]) {
@@ -24,7 +25,6 @@
     maxrange = qx*22.0; 
     maximumValue = 100.0;
     minimumValue = 0.0;
-    value = 0;
     
 		
 		NSLog(@"ox=%f oy=%f cx=%f cy=%f", ox,oy,cx,cy);
@@ -149,10 +149,11 @@
 	if( x < 0)
 		x = 0;
   
-  float val = (x*(maximumValue-minimumValue))/maxrange;
-	NSLog(@"getValue maxrange=%f range=%f x=%f val=%f", maxrange, maximumValue-minimumValue, x, val);
+  value = (x*(maximumValue-minimumValue))/maxrange;
+  
+	NSLog(@"getValue maxrange=%f range=%f x=%f val=%f", maxrange, maximumValue-minimumValue, x, value);
 	
-	return val;
+	return (int)value;
 }
 
 - (void)setValue:(int) Value{

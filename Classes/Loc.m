@@ -130,6 +130,29 @@
   return [Mode compare:@"halfauto"] == NSOrderedSame ? TRUE:FALSE;
 }
 
+- (void)sendVmax:(int)V {
+  Vmax = [[NSString alloc] initWithFormat:@"%d", V];
+  NSString * stringToSend = [[NSString alloc] initWithString: 
+                             [NSString stringWithFormat: @"<model cmd=\"modify\"><lc id=\"%@\" V_max=\"%d\"/></model>",
+                              locid, V]];
+  [_delegate sendMessage:@"model" message:stringToSend];
+}
+
+- (void)sendVmid:(int)V {
+  Vmid = [[NSString alloc] initWithFormat:@"%d", V];
+  NSString * stringToSend = [[NSString alloc] initWithString: 
+                             [NSString stringWithFormat: @"<model cmd=\"modify\"><lc id=\"%@\" V_mid=\"%d\"/></model>",
+                              locid, V]];
+  [_delegate sendMessage:@"model" message:stringToSend];
+}
+
+- (void)sendVmin:(int)V {
+  Vmin = [[NSString alloc] initWithFormat:@"%d", V];
+  NSString * stringToSend = [[NSString alloc] initWithString: 
+                             [NSString stringWithFormat: @"<model cmd=\"modify\"><lc id=\"%@\" V_min=\"%d\"/></model>",
+                              locid, V]];
+  [_delegate sendMessage:@"model" message:stringToSend];
+}
 
 
 /*
