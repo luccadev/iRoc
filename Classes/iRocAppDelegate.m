@@ -344,7 +344,7 @@
 	for( i = 0; i< [lcContainer count]; i++){	
 		Loc *loc;
 		loc = (Loc*)[lcContainer objectAtIndex:i];
-		if( loc.hasImage && ![loc.imgname isEqualToString:@""] ) {
+		if( loc != nil && loc.hasImage && ![loc.imgname isEqualToString:@""] ) {
 			[self askForLocpic:loc.locid withFilename:loc.imgname];
 		}
 	}	

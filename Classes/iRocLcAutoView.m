@@ -7,7 +7,7 @@
 //
 
 #import "iRocLcAutoView.h"
-#import "globals.h"
+#import "iRocGlobals.h"
 #import "Block.h"
 #import "Schedule.h"
 

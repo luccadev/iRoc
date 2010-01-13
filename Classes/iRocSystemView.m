@@ -7,7 +7,7 @@
 //
 
 #import "iRocSystemView.h"
-#import "globals.h"
+#import "iRocGlobals.h"
 
 
 @implementation iRocSystemView

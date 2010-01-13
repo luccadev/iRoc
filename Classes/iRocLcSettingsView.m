@@ -7,7 +7,7 @@
 //
 
 #import "iRocLcSettingsView.h"
-#import "globals.h"
+#import "iRocGlobals.h"
 
 
 @implementation iRocLcSettingsView
@@ -57,7 +57,7 @@
   NSLog(@"rows in section %d", section);
   switch( section ) {
     case (0):
-      return 4;
+      return 5;
       break;
     case (1):
       return 2;
@@ -166,6 +166,17 @@
             label.text = NSLocalizedString(@"Placing", @"");
             [cell addSubview: label];
           }
+            break;
+          case (4): {
+            NSArray *itemArray = [NSArray arrayWithObjects: @"Steam", @"Diesal", @"Electric", nil];
+            UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
+            segmentedControl.frame = CGRectMake(CONTENTBORDER, 10, 300, 30);
+            segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+            segmentedControl.tintColor = [UIColor grayColor];
+
+            segmentedControl.selectedSegmentIndex = 1;
+            [cell addSubview: segmentedControl];
+            }
             break;
         }
         break;

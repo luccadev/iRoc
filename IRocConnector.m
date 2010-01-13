@@ -503,33 +503,9 @@ static NSString * const kIdElementName = @"id";
 	} else if ([elementName isEqualToString:kLocElementName]) {
     if( parsingPlan ) {
       if( ![[attributeDict valueForKey:@"show"] isEqualToString:@"false"] ) {
-        NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
-        Loc *loc = [[[Loc alloc] init] retain];
-        loc.locid = relAttribute;
-				loc.vmaxstr = [attributeDict valueForKey:@"V_max"];
-        
-        [loc setVmax:[attributeDict valueForKey:@"V_max"]];
-        [loc setVmid:[attributeDict valueForKey:@"V_mid"]];
-        [loc setVmin:[attributeDict valueForKey:@"V_min"]];
-        [loc setVmode:[attributeDict valueForKey:@"V_mode"]];
-        [loc setFn:[attributeDict valueForKey:@"fn"]];
-        [loc setSpCnt:[attributeDict valueForKey:@"spcnt"]];
-        [loc setPlacing:[attributeDict valueForKey:@"placing"]];
-        [loc setMode:[attributeDict valueForKey:@"mode"]];
-
-        
+        Loc *loc = [[[Loc alloc] initWithAttributeDict:attributeDict] retain];
         [loc setDelegate:_delegate];
-        
-        NSString *imgname = [attributeDict valueForKey:@"image"];
-        if( ![imgname isEqualToString:@""] ) {
-          NSLog(@"connector %@ : %@", relAttribute, imgname);
-          loc.hasImage = YES;
-          loc.imgname = imgname;
-        }
-        [loc setDesc:[attributeDict valueForKey:@"desc"]];
-		[loc setRoadname:[attributeDict valueForKey:@"roadname"]];
-        
-		[self.lcContainer addObject:loc withId:relAttribute];
+        [self.lcContainer addObject:loc withId:loc.locid];
       }
       else {
         NSLog(@"parser: skipping invisible loco");		
@@ -539,10 +515,7 @@ static NSString * const kIdElementName = @"id";
 	    NSLog(@"loco event parser: lc: %@ - v: %@ - dir: %@", [attributeDict valueForKey:@"id"], [attributeDict valueForKey:@"V"], [attributeDict valueForKey:@"dir"]);
 			
 			Loc *lc = (Loc*)[lcContainer objectWithId:[attributeDict valueForKey:@"id"]];
-			[lc setDir:[attributeDict valueForKey:@"dir"]];
-			[lc setVstr:[attributeDict valueForKey:@"V"]];
-			[lc setPlacing:[attributeDict valueForKey:@"placing"]];
-      [lc setMode:[attributeDict valueForKey:@"mode"]];
+      [lc updateWithAttributeDict:attributeDict];
 			
 			/*
 			if ( [_delegate respondsToSelector:@selector(locSetSlider)] ) {

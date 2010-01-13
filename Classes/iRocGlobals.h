@@ -10,3 +10,11 @@
 #define BUTTONHEIGHT 64
 #define CONTENTBORDER 8
 
+#import <Foundation/Foundation.h>
+
+@interface iRocGlobals : NSObject {
+}
+
++ (NSString*)getAttribute:(NSString*)attrName fromDict:(NSDictionary *)attributeDict withDefault:(NSString *)defValue;
+
+@end

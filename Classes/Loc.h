@@ -58,6 +58,9 @@
 @property BOOL imageLoaded;
 @property BOOL imageAlreadyRequested;
 
+- (id) initWithAttributeDict: (NSDictionary *)attributeDict;
+- (void) updateWithAttributeDict: (NSDictionary *)attributeDict;
+
 - (void)setDelegate:(id)new_delegate;
 - (void) prepareImage;
 - (UIImage*) getImage;
