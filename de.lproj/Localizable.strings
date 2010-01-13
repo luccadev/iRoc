@@ -1,15 +1,9 @@
-﻿/* No comment provided by engineer. */
-"Locomotives" = "Triebfahrzeuge";
-
-/* No comment provided by engineer. */
+﻿"Locomotives" = "Triebfahrzeuge";
 "Outputs" = "Ausgänge";
-
-/* No comment provided by engineer. */
 "Routes" = "Fahrstraßen";
-
-/* No comment provided by engineer. */
 "Switches" = "Weichen";
-
+"Blocks" = "Blöcke";
+"Schedules" = "Fahrpläne";
 "Power ON" = "Strom ein";
 "Power OFF" = "Strom aus";
 "Init Field" = "Initialisieren";
