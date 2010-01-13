@@ -586,16 +586,24 @@ static NSString * const kIdElementName = @"id";
       NSLog(@"route event");		
     }
 		
-	} else if ([elementName isEqualToString:@"st"]) {
-		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];		
+	} else if ([elementName isEqualToString:@"co"]) {
+		NSString *idAttribute = [attributeDict valueForKey:kIdElementName];		
     if( parsingPlan ) {
-      Route *rt = [[[Route alloc] init] retain];
-      rt.rtid = relAttribute;
-        //[self.rtList addObject:rt];
-			[self.rtContainer addObject:rt withId:rt.rtid];
-    }
-    else {
-      NSLog(@"route event");		
+        //NSLog(@"parser: co: %@", [attributeDict valueForKey:kIdElementName]);
+      Output *co = [[[Output alloc] init] retain];
+      co.coid = idAttribute;
+	    co.state = [attributeDict valueForKey:@"state"];
+        //NSLog(@"Output State: %@", co.state);
+      [self.coContainer addObject:co withId:idAttribute];
+    } else {
+			NSString *state = [attributeDict valueForKey:@"state"];
+			Output *co = (Output*) [self.coContainer objectWithId:idAttribute];
+			[co setState:state];
+			if ( [_delegate respondsToSelector:@selector(coListLoaded)] ) {
+				[_delegate performSelectorOnMainThread : @ selector(coListLoaded ) withObject:nil waitUntilDone:NO];
+			} 
+      
+      NSLog(@"Output [%@] event state=%@", co.coid, state);	
     }
 		
 	} else if ([elementName isEqualToString:@"bk"]) {
