@@ -14,7 +14,7 @@
 @implementation Loc
 
 @synthesize locid, imgname, lcimage, hasImage, imageLoaded, desc, imageAlreadyRequested, roadname, 
-            cell, dir, vstr, vmaxstr, Vmax, Vmid, Vmin, Placing, SpCnt, Vmode, Fn, Mode;
+            cell, dir, vstr, vmaxstr, Vmax, Vmid, Vmin, Placing, SpCnt, Vmode, Fn, Fx, Mode;
 
 - (id) init {
 	[super init];	
@@ -32,13 +32,7 @@
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
   if( self = [super init] ) {
     imageLoaded = NO;
-    hasImage = NO;	
     imageAlreadyRequested = FALSE;
-    vstr = @"0";
-    imgname = @"";
-      // Fuction states
-    for(int i = 0; i < 32; i++)
-      fnStates[i] = FALSE; 
     
     locid    = [iRocGlobals getAttribute:@"id" fromDict:attributeDict withDefault:@""]; 
     Vmax     = [iRocGlobals getAttribute:@"V_max" fromDict:attributeDict withDefault:@""];
@@ -47,6 +41,7 @@
     Vmin     = [iRocGlobals getAttribute:@"V_min" fromDict:attributeDict withDefault:@""];
     Vmode    = [iRocGlobals getAttribute:@"V_mode" fromDict:attributeDict withDefault:@""];
     Fn       = [iRocGlobals getAttribute:@"fn" fromDict:attributeDict withDefault:@""];
+    Fx       = [iRocGlobals getAttribute:@"fx" fromDict:attributeDict withDefault:@""];
     SpCnt    = [iRocGlobals getAttribute:@"spcnt" fromDict:attributeDict withDefault:@""];
     Placing  = [iRocGlobals getAttribute:@"placing" fromDict:attributeDict withDefault:@""];
     Mode     = [iRocGlobals getAttribute:@"mode" fromDict:attributeDict withDefault:@""];
@@ -54,9 +49,19 @@
     desc     = [iRocGlobals getAttribute:@"desc" fromDict:attributeDict withDefault:@""];
     roadname = [iRocGlobals getAttribute:@"roadname" fromDict:attributeDict withDefault:@""];
     dir      = [iRocGlobals getAttribute:@"dir" fromDict:attributeDict withDefault:@""];
-    vstr     = [iRocGlobals getAttribute:@"V" fromDict:attributeDict withDefault:@""];
+    vstr     = [iRocGlobals getAttribute:@"V" fromDict:attributeDict withDefault:@"0"];
 
     hasImage = ![imgname isEqualToString:@""];
+    
+    fnStates[0] = [Fn isEqualToString:@"true"];
+    int iFx = [Fx intValue];
+    NSLog(@"id=%@ fx=%d", locid, iFx);
+    for(int i = 1; i < 32; i++) {
+      int mask = 1 << (i-1);
+      NSLog(@"mask=%d fx=%d function %d is %@", mask, iFx, i, ( (iFx & mask) == mask ) ?@"ON":@"OFF");
+      fnStates[i] = ( (iFx & mask) == mask ) ? TRUE:FALSE; 
+    }
+    
   }
   return self;
 }
@@ -67,6 +72,7 @@
   Vmin     = [iRocGlobals getAttribute:@"V_min"    fromDict:attributeDict withDefault:Vmin];
   Vmode    = [iRocGlobals getAttribute:@"V_mode"   fromDict:attributeDict withDefault:Vmode];
   Fn       = [iRocGlobals getAttribute:@"fn"       fromDict:attributeDict withDefault:Fn];
+  Fx       = [iRocGlobals getAttribute:@"fx"       fromDict:attributeDict withDefault:Fx];
   Placing  = [iRocGlobals getAttribute:@"placing"  fromDict:attributeDict withDefault:Placing];
   Mode     = [iRocGlobals getAttribute:@"mode"     fromDict:attributeDict withDefault:Mode];
   desc     = [iRocGlobals getAttribute:@"desc"     fromDict:attributeDict withDefault:desc];

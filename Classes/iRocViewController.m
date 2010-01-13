@@ -128,6 +128,7 @@
 }
 
 - (void) updateFnState {
+  [buttonF0 setBState:[locProps isFn:0]];
   
   if( [buttonFn getBState] ) {
     [buttonDir setTitle:NSLocalizedString(@"Release", @"") forState:UIControlStateNormal];

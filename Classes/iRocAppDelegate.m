@@ -251,6 +251,7 @@
 - (void)setSelectedLoc:(Loc *)loc {
   lcAutoView.loc = loc;
   lcSettingsView.loc = loc;
+  [viewController updateFnState];
 }
 
 - (void)rtListLoaded {
