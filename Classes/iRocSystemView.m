@@ -128,11 +128,29 @@
 
 - (IBAction) autoStartClicked:(id) sender {
   NSLog(@"autoStart");
-  [autoStart flipBState];
-	NSString * stringToSend = [[NSString alloc] initWithString: 
-                             [NSString stringWithFormat: @"<auto cmd=\"%@\"/>", [autoON getBState]?@"start":@"stop"]];
-	[rrconnection sendMessage:@"auto" message:stringToSend];
+  
+  autoStartAlert = [[UIAlertView alloc] 
+                  initWithTitle:NSLocalizedString(@"Auto Start", @"") 
+                  message:[NSString stringWithFormat: 
+                           @"This will start all trains in automatic mode!"] 
+                  delegate:self 
+                  cancelButtonTitle:@"Cancel" 
+                  otherButtonTitles:@"Start",nil];
+  [autoStartAlert show];
 }
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+  if( alertView == autoStartAlert && buttonIndex != autoStartAlert.cancelButtonIndex) {
+    [autoStart flipBState];
+    NSString * stringToSend = [[NSString alloc] initWithString: 
+                               [NSString stringWithFormat: @"<auto cmd=\"%@\"/>", [autoON getBState]?@"start":@"stop"]];
+    [rrconnection sendMessage:@"auto" message:stringToSend];
+  }
+}
+
+
+
 
 - (void)setPower:(BOOL)state {
   Power = state;

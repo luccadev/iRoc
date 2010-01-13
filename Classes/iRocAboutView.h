@@ -11,8 +11,10 @@
 
 @interface iRocAboutView : UIViewController {
 	IBOutlet UILabel *labelVersion;
+	NSString *menuname;
 }
 
 @property (nonatomic, retain) UILabel *labelVersion;
+@property (nonatomic, retain) NSString *menuname;
 
 @end

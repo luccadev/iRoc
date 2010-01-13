@@ -145,6 +145,8 @@
 	[sgTableView setSgContainer:self.sgContainer];
 	[sgTableView setDelegate:self];
 	[sgTableView setMenuname:NSLocalizedString(@"Signals", @"")];
+
+	[aboutView setMenuname:NSLocalizedString(@"Info", @"")];
 	
 	[menuItems addObject:lcTableView];
 	[menuItems addObject:rtTableView];
@@ -153,6 +155,7 @@
 	[menuItems addObject:coTableView];
 	[menuItems addObject:bkTableView];
 	[menuItems addObject:scTableView];
+	[menuItems addObject:aboutView];
 	[menuTableView setMenuItems:menuItems];
 	
 	// read preferences
@@ -194,7 +197,7 @@
   else {
     // no connection possible: show a message or jump to the Info Page. (Extend the info page with connection details...)
     NSLog( @"no connection: offline");
-    [self.tabBarController setSelectedViewController:aboutView];
+      //[self.tabBarController setSelectedViewController:aboutView];
     connectAlert = [[UIAlertView alloc] 
                    initWithTitle:@"Warning" 
                    message:[NSString stringWithFormat: 

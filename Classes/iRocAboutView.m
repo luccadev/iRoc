@@ -10,7 +10,7 @@
 
 
 @implementation iRocAboutView
-@synthesize labelVersion;
+@synthesize labelVersion, menuname;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

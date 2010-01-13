@@ -17,7 +17,7 @@
 	cellbackcolor = [UIColor darkGrayColor];
 	celltextcolor = [UIColor lightGrayColor]; //[[UIColor colorWithRed:.16 green:.20 blue:.27 alpha:1] retain];
 	cellfontsize = 20;
-	celltextRect = CGRectMake(10, 10, 190, 20);
+	celltextRect = CGRectMake(10, 10, 190, 25);
 	
 	self.navigationController.navigationBar.tintColor = [UIColor blackColor];
 	self.tableView.backgroundColor = cellbackcolor;

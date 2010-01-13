@@ -21,6 +21,7 @@
 	IRocConnector *rrconnection;
   BOOL Power;
   BOOL Auto;
+  UIAlertView *autoStartAlert;
 }
 @property (nonatomic, retain) iRocButton *powerON, *powerOFF, *initField, *autoON, *autoStart;
 @property (nonatomic, retain) IRocConnector *rrconnection;
