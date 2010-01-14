@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Item.h"
 
 
-@interface Signal : NSObject {
+@interface Signal : Item {
 	NSString *ID;
 	NSString *type;
 	NSString *state;

@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Item.h"
 
 
-@interface Switch : NSObject {
+@interface Switch : Item {
 	NSString *swid;
 	NSString *type;
 	NSString *state;

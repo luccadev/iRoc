@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Item.h"
 
 
-@interface Output : NSObject {
+@interface Output : Item {
 	NSString *coid;
 	NSString *state;
 }

@@ -7,11 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Model.h"
+#import "ZLevel.h"
+#import "iRocItem.h"
 
 
 @interface iRocLevelView : UIViewController <UIScrollViewDelegate> {
   UIScrollView *scrollView;
-  UIImageView *imageView;
+  UIImageView *imageView; // for testing only
+  
+  ZLevel *zlevel;
+  Model* model;
 }
+@property (nonatomic, retain) ZLevel *zlevel;
+@property (nonatomic, retain) Model *model;
 
 @end

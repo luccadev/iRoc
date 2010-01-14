@@ -24,6 +24,7 @@
 - (void)setDelegate:(id)new_delegate withModel:(Model *)_model {
   _delegate = new_delegate;
   model = _model;
+  levelView.model = _model;
 }
 
 
@@ -68,6 +69,7 @@
   NSLog(@"selected level is %d", indexPath.row);
 	ZLevel *level = (ZLevel*)[model.levelContainer objectAtIndex:indexPath.row];
   levelView.title = level.title;
+  levelView.zlevel = level;
   [self.navigationController pushViewController:levelView animated:YES];
 }
 

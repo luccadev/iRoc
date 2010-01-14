@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Item.h"
 
 
-@interface Block : NSObject {
+@interface Block : Item {
 	NSString *ID;
 	NSString *state;
 }

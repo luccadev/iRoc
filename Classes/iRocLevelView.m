@@ -10,6 +10,7 @@
 
 
 @implementation iRocLevelView
+@synthesize model, zlevel;
 
 - (id)init {
   if( self = [super init] ) {

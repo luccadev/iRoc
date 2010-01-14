@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Item.h"
 
 
-@interface Route : NSObject {
+@interface Route : Item {
 @private 
 	NSString *rtid;
 	

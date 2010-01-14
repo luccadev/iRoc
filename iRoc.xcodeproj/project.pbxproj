@@ -177,6 +177,8 @@
 		D4B9449310FF975400F55B64 /* iRocLevelTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B9449210FF975400F55B64 /* iRocLevelTableView.m */; };
 		D4B9452510FFA59200F55B64 /* iRocLevelView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B9452410FFA59200F55B64 /* iRocLevelView.m */; };
 		D4B9454810FFB83900F55B64 /* tracks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4B9454710FFB83900F55B64 /* tracks.jpg */; };
+		D4B9456C10FFC60700F55B64 /* iRocItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B9456B10FFC60700F55B64 /* iRocItem.m */; };
+		D4B9457110FFC6AF00F55B64 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B9457010FFC6AF00F55B64 /* Item.m */; };
 		D4C265B110F88A4F0045ED0F /* loco.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C265B010F88A4F0045ED0F /* loco.png */; };
 		D4C265CE10F894850045ED0F /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C265CD10F894850045ED0F /* menu.png */; };
 		D4C265D410F8972B0045ED0F /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C265D310F8972B0045ED0F /* info.png */; };
@@ -394,6 +396,10 @@
 		D4B9452310FFA59200F55B64 /* iRocLevelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocLevelView.h; sourceTree = "<group>"; };
 		D4B9452410FFA59200F55B64 /* iRocLevelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocLevelView.m; sourceTree = "<group>"; };
 		D4B9454710FFB83900F55B64 /* tracks.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tracks.jpg; sourceTree = "<group>"; };
+		D4B9456A10FFC60700F55B64 /* iRocItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocItem.h; sourceTree = "<group>"; };
+		D4B9456B10FFC60700F55B64 /* iRocItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocItem.m; sourceTree = "<group>"; };
+		D4B9456F10FFC6AF00F55B64 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		D4B9457010FFC6AF00F55B64 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		D4C265B010F88A4F0045ED0F /* loco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loco.png; sourceTree = "<group>"; };
 		D4C265CD10F894850045ED0F /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		D4C265D310F8972B0045ED0F /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
@@ -499,6 +505,10 @@
 				D4B9449210FF975400F55B64 /* iRocLevelTableView.m */,
 				D4B9452310FFA59200F55B64 /* iRocLevelView.h */,
 				D4B9452410FFA59200F55B64 /* iRocLevelView.m */,
+				D4B9456A10FFC60700F55B64 /* iRocItem.h */,
+				D4B9456B10FFC60700F55B64 /* iRocItem.m */,
+				D4B9456F10FFC6AF00F55B64 /* Item.h */,
+				D4B9457010FFC6AF00F55B64 /* Item.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -939,6 +949,8 @@
 				D4B9445710FF91E900F55B64 /* ZLevel.m in Sources */,
 				D4B9449310FF975400F55B64 /* iRocLevelTableView.m in Sources */,
 				D4B9452510FFA59200F55B64 /* iRocLevelView.m in Sources */,
+				D4B9456C10FFC60700F55B64 /* iRocItem.m in Sources */,
+				D4B9457110FFC6AF00F55B64 /* Item.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
