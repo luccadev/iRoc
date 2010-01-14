@@ -25,6 +25,7 @@
 #import "iRocLcSettingsView.h"
 
 #import "Container.h"
+#import "Model.h"
 
 
 @class iRocViewController;
@@ -56,7 +57,8 @@
 	Container *bkContainer;
 	Container *scContainer;
 	Container *sgContainer;
-	
+	Model *model;
+  
 	NSMutableArray *menuItems;
 	
 	IRocConnector *rrconnection;
@@ -90,6 +92,7 @@
 @property(nonatomic, retain) Container *bkContainer;
 @property(nonatomic, retain) Container *scContainer;
 @property(nonatomic, retain) Container *sgContainer;
+@property(nonatomic, retain) Model *model;
 
 @property(nonatomic, retain) NSMutableArray *menuItems;
 

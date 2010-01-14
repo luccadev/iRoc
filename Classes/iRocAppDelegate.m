@@ -18,7 +18,8 @@
 @synthesize lcTableView, rtTableView, swTableView, coTableView, bkTableView, scTableView, sgTableView, 
       menuTableView, systemView, lcAutoView, lcSettingsView;
 
-@synthesize coContainer, rrconnection, menuItems, aboutView, swContainer, sgContainer, lcContainer, rtContainer, bkContainer, scContainer;
+@synthesize coContainer, rrconnection, menuItems, aboutView, swContainer, sgContainer, lcContainer, rtContainer, 
+      bkContainer, scContainer, model;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
   NSLog(@"applicationDidFinishLaunching");
@@ -28,6 +29,9 @@
 	
 	// read preferences
 	NSUserDefaults *defaults = [[NSUserDefaults standardUserDefaults] retain];
+  
+    // the model
+  model = [Model alloc];
 	
 	//sleep_preferences
 	if( [defaults boolForKey:@"sleep_preferences"]) {

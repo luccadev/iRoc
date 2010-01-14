@@ -6,9 +6,9 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import "iRocGlobals.h"
+#import "Globals.h"
 
-@implementation iRocGlobals
+@implementation Globals
 
 + (NSString*)getAttribute:(NSString*)attrName fromDict:(NSDictionary *)attributeDict withDefault:(NSString *)defValue {
   NSString *attrVal = [attributeDict valueForKey:attrName]; 

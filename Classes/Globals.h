@@ -12,7 +12,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface iRocGlobals : NSObject {
+@interface Globals : NSObject {
 }
 
 + (NSString*)getAttribute:(NSString*)attrName fromDict:(NSDictionary *)attributeDict withDefault:(NSString *)defValue;

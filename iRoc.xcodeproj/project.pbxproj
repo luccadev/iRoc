@@ -168,7 +168,11 @@
 		9CFDBF6610BD081600E9E9DE /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CFDBF6510BD081600E9E9DE /* Entitlements.plist */; };
 		D4965AB710F517DD00C09B9B /* iRocLcAutoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4965AB410F517DD00C09B9B /* iRocLcAutoView.m */; };
 		D4965AB810F517DD00C09B9B /* iRocSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D4965AB610F517DD00C09B9B /* iRocSlider.m */; };
-		D4983B8D10FE22AB007F2D2F /* iRocGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = D4983B8C10FE22AB007F2D2F /* iRocGlobals.m */; };
+		D4B9443010FF71C200F55B64 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B9442F10FF71C200F55B64 /* Globals.m */; };
+		D4B9443C10FF71F600F55B64 /* threeway-l-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B9443910FF71F600F55B64 /* threeway-l-1.png */; };
+		D4B9443D10FF71F600F55B64 /* threeway-r-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B9443A10FF71F600F55B64 /* threeway-r-1.png */; };
+		D4B9443E10FF71F600F55B64 /* threeway-s-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B9443B10FF71F600F55B64 /* threeway-s-1.png */; };
+		D4B9445010FF72B300F55B64 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B9444F10FF72B300F55B64 /* Model.m */; };
 		D4C265B110F88A4F0045ED0F /* loco.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C265B010F88A4F0045ED0F /* loco.png */; };
 		D4C265CE10F894850045ED0F /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C265CD10F894850045ED0F /* menu.png */; };
 		D4C265D410F8972B0045ED0F /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C265D310F8972B0045ED0F /* info.png */; };
@@ -372,8 +376,13 @@
 		D4965AB410F517DD00C09B9B /* iRocLcAutoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocLcAutoView.m; sourceTree = "<group>"; };
 		D4965AB510F517DD00C09B9B /* iRocSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocSlider.h; sourceTree = "<group>"; };
 		D4965AB610F517DD00C09B9B /* iRocSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocSlider.m; sourceTree = "<group>"; };
-		D4983B7F10FE2190007F2D2F /* iRocGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocGlobals.h; sourceTree = "<group>"; };
-		D4983B8C10FE22AB007F2D2F /* iRocGlobals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocGlobals.m; sourceTree = "<group>"; };
+		D4B9442E10FF71C200F55B64 /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Globals.h; sourceTree = "<group>"; };
+		D4B9442F10FF71C200F55B64 /* Globals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Globals.m; sourceTree = "<group>"; };
+		D4B9443910FF71F600F55B64 /* threeway-l-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "threeway-l-1.png"; sourceTree = "<group>"; };
+		D4B9443A10FF71F600F55B64 /* threeway-r-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "threeway-r-1.png"; sourceTree = "<group>"; };
+		D4B9443B10FF71F600F55B64 /* threeway-s-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "threeway-s-1.png"; sourceTree = "<group>"; };
+		D4B9444E10FF72B300F55B64 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		D4B9444F10FF72B300F55B64 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		D4C265B010F88A4F0045ED0F /* loco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loco.png; sourceTree = "<group>"; };
 		D4C265CD10F894850045ED0F /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		D4C265D310F8972B0045ED0F /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
@@ -411,7 +420,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D4983B7F10FE2190007F2D2F /* iRocGlobals.h */,
+				D4B9442E10FF71C200F55B64 /* Globals.h */,
+				D4B9442F10FF71C200F55B64 /* Globals.m */,
 				D4D81F8E10F640DA00FD09F1 /* iRocLcSettingsView.h */,
 				D4D81F8F10F640DA00FD09F1 /* iRocLcSettingsView.m */,
 				D4965AB310F517DD00C09B9B /* iRocLcAutoView.h */,
@@ -470,7 +480,8 @@
 				D4C265E910F8A8220045ED0F /* Signal.m */,
 				D4C265EB10F8B0E90045ED0F /* iRocSgTableView.h */,
 				D4C265EC10F8B0E90045ED0F /* iRocSgTableView.m */,
-				D4983B8C10FE22AB007F2D2F /* iRocGlobals.m */,
+				D4B9444E10FF72B300F55B64 /* Model.h */,
+				D4B9444F10FF72B300F55B64 /* Model.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -549,6 +560,9 @@
 		9CBF10F610CFF14100FF29DA /* Symbols */ = {
 			isa = PBXGroup;
 			children = (
+				D4B9443910FF71F600F55B64 /* threeway-l-1.png */,
+				D4B9443A10FF71F600F55B64 /* threeway-r-1.png */,
+				D4B9443B10FF71F600F55B64 /* threeway-s-1.png */,
 				9C5B440B10E3AE9E00355A5B /* off.png */,
 				9C5B440C10E3AE9E00355A5B /* on.png */,
 				9C39142310D00BE400F9C42D /* iRocCoTableView.xib */,
@@ -858,6 +872,9 @@
 				D4C265B110F88A4F0045ED0F /* loco.png in Resources */,
 				D4C265CE10F894850045ED0F /* menu.png in Resources */,
 				D4C265D410F8972B0045ED0F /* info.png in Resources */,
+				D4B9443C10FF71F600F55B64 /* threeway-l-1.png in Resources */,
+				D4B9443D10FF71F600F55B64 /* threeway-r-1.png in Resources */,
+				D4B9443E10FF71F600F55B64 /* threeway-s-1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -898,7 +915,8 @@
 				D4E1B09F10F68BE80047C597 /* iRocScTableView.m in Sources */,
 				D4C265EA10F8A8220045ED0F /* Signal.m in Sources */,
 				D4C265ED10F8B0E90045ED0F /* iRocSgTableView.m in Sources */,
-				D4983B8D10FE22AB007F2D2F /* iRocGlobals.m in Sources */,
+				D4B9443010FF71C200F55B64 /* Globals.m in Sources */,
+				D4B9445010FF72B300F55B64 /* Model.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

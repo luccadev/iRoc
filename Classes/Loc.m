@@ -8,7 +8,7 @@
 
 #import "Loc.h"
 #import "iRocAppDelegate.h"
-#import "iRocGlobals.h"
+#import "Globals.h"
 
 
 @implementation Loc
@@ -34,22 +34,22 @@
     imageLoaded = NO;
     imageAlreadyRequested = FALSE;
     
-    locid    = [iRocGlobals getAttribute:@"id" fromDict:attributeDict withDefault:@""]; 
-    Vmax     = [iRocGlobals getAttribute:@"V_max" fromDict:attributeDict withDefault:@""];
-    vmaxstr  = [iRocGlobals getAttribute:@"V_max" fromDict:attributeDict withDefault:@""];
-    Vmid     = [iRocGlobals getAttribute:@"V_mid" fromDict:attributeDict withDefault:@""];
-    Vmin     = [iRocGlobals getAttribute:@"V_min" fromDict:attributeDict withDefault:@""];
-    Vmode    = [iRocGlobals getAttribute:@"V_mode" fromDict:attributeDict withDefault:@""];
-    Fn       = [iRocGlobals getAttribute:@"fn" fromDict:attributeDict withDefault:@""];
-    Fx       = [iRocGlobals getAttribute:@"fx" fromDict:attributeDict withDefault:@""];
-    SpCnt    = [iRocGlobals getAttribute:@"spcnt" fromDict:attributeDict withDefault:@""];
-    Placing  = [iRocGlobals getAttribute:@"placing" fromDict:attributeDict withDefault:@""];
-    Mode     = [iRocGlobals getAttribute:@"mode" fromDict:attributeDict withDefault:@""];
-    imgname  = [iRocGlobals getAttribute:@"image" fromDict:attributeDict withDefault:@""];
-    desc     = [iRocGlobals getAttribute:@"desc" fromDict:attributeDict withDefault:@""];
-    roadname = [iRocGlobals getAttribute:@"roadname" fromDict:attributeDict withDefault:@""];
-    dir      = [iRocGlobals getAttribute:@"dir" fromDict:attributeDict withDefault:@""];
-    vstr     = [iRocGlobals getAttribute:@"V" fromDict:attributeDict withDefault:@"0"];
+    locid    = [Globals getAttribute:@"id" fromDict:attributeDict withDefault:@""]; 
+    Vmax     = [Globals getAttribute:@"V_max" fromDict:attributeDict withDefault:@""];
+    vmaxstr  = [Globals getAttribute:@"V_max" fromDict:attributeDict withDefault:@""];
+    Vmid     = [Globals getAttribute:@"V_mid" fromDict:attributeDict withDefault:@""];
+    Vmin     = [Globals getAttribute:@"V_min" fromDict:attributeDict withDefault:@""];
+    Vmode    = [Globals getAttribute:@"V_mode" fromDict:attributeDict withDefault:@""];
+    Fn       = [Globals getAttribute:@"fn" fromDict:attributeDict withDefault:@""];
+    Fx       = [Globals getAttribute:@"fx" fromDict:attributeDict withDefault:@""];
+    SpCnt    = [Globals getAttribute:@"spcnt" fromDict:attributeDict withDefault:@""];
+    Placing  = [Globals getAttribute:@"placing" fromDict:attributeDict withDefault:@""];
+    Mode     = [Globals getAttribute:@"mode" fromDict:attributeDict withDefault:@""];
+    imgname  = [Globals getAttribute:@"image" fromDict:attributeDict withDefault:@""];
+    desc     = [Globals getAttribute:@"desc" fromDict:attributeDict withDefault:@""];
+    roadname = [Globals getAttribute:@"roadname" fromDict:attributeDict withDefault:@""];
+    dir      = [Globals getAttribute:@"dir" fromDict:attributeDict withDefault:@""];
+    vstr     = [Globals getAttribute:@"V" fromDict:attributeDict withDefault:@"0"];
 
     hasImage = ![imgname isEqualToString:@""];
     
@@ -67,18 +67,18 @@
 }
 
 - (void) updateWithAttributeDict: (NSDictionary *)attributeDict {
-  Vmax     = [iRocGlobals getAttribute:@"V_max"    fromDict:attributeDict withDefault:Vmax];
-  Vmid     = [iRocGlobals getAttribute:@"V_mid"    fromDict:attributeDict withDefault:Vmid];
-  Vmin     = [iRocGlobals getAttribute:@"V_min"    fromDict:attributeDict withDefault:Vmin];
-  Vmode    = [iRocGlobals getAttribute:@"V_mode"   fromDict:attributeDict withDefault:Vmode];
-  Fn       = [iRocGlobals getAttribute:@"fn"       fromDict:attributeDict withDefault:Fn];
-  Fx       = [iRocGlobals getAttribute:@"fx"       fromDict:attributeDict withDefault:Fx];
-  Placing  = [iRocGlobals getAttribute:@"placing"  fromDict:attributeDict withDefault:Placing];
-  Mode     = [iRocGlobals getAttribute:@"mode"     fromDict:attributeDict withDefault:Mode];
-  desc     = [iRocGlobals getAttribute:@"desc"     fromDict:attributeDict withDefault:desc];
-  roadname = [iRocGlobals getAttribute:@"roadname" fromDict:attributeDict withDefault:roadname];
-  dir      = [iRocGlobals getAttribute:@"dir"      fromDict:attributeDict withDefault:dir];
-  vstr     = [iRocGlobals getAttribute:@"V"        fromDict:attributeDict withDefault:vstr];
+  Vmax     = [Globals getAttribute:@"V_max"    fromDict:attributeDict withDefault:Vmax];
+  Vmid     = [Globals getAttribute:@"V_mid"    fromDict:attributeDict withDefault:Vmid];
+  Vmin     = [Globals getAttribute:@"V_min"    fromDict:attributeDict withDefault:Vmin];
+  Vmode    = [Globals getAttribute:@"V_mode"   fromDict:attributeDict withDefault:Vmode];
+  Fn       = [Globals getAttribute:@"fn"       fromDict:attributeDict withDefault:Fn];
+  Fx       = [Globals getAttribute:@"fx"       fromDict:attributeDict withDefault:Fx];
+  Placing  = [Globals getAttribute:@"placing"  fromDict:attributeDict withDefault:Placing];
+  Mode     = [Globals getAttribute:@"mode"     fromDict:attributeDict withDefault:Mode];
+  desc     = [Globals getAttribute:@"desc"     fromDict:attributeDict withDefault:desc];
+  roadname = [Globals getAttribute:@"roadname" fromDict:attributeDict withDefault:roadname];
+  dir      = [Globals getAttribute:@"dir"      fromDict:attributeDict withDefault:dir];
+  vstr     = [Globals getAttribute:@"V"        fromDict:attributeDict withDefault:vstr];
 }
 
 - (void)dealloc {

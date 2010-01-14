@@ -30,11 +30,11 @@
 	
 	} else if( [self.type isEqual:@"threeway"]) {
     if( [self.state isEqual:@"straight"])
-      imgname = @"turnout-ls-1.png";
+      imgname = @"threeway-s-1.png";
     else if( [self.state isEqual:@"left"])
-      imgname = @"turnout-ls-1.png";
+      imgname = @"threeway-l-1.png";
     else 
-      imgname = @"turnout-lt-1.png";
+      imgname = @"threeway-r-1.png";
     
 	} else if( [self.type isEqual:@"dcrossing"] ){
 		imgname = @"dcross-rs-1.png";

@@ -7,7 +7,7 @@
 //
 
 #import "iRocLcSettingsView.h"
-#import "iRocGlobals.h"
+#import "Globals.h"
 
 
 @implementation iRocLcSettingsView
