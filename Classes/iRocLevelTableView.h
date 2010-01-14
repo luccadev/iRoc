@@ -8,14 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "iRocTableView.h"
+#import "iRocLevelView.h"
 #import "Model.h"
 #import "ZLevel.h"
 
 
 @interface iRocLevelTableView : iRocTableView {
+  iRocLevelView *levelView;
   Model *model;
 	id _delegate;
 }
+IBOutlet iRocLevelView *levelView;
 
 - (void)setDelegate:(id)new_delegate withModel:(Model*)_model;
 

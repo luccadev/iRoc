@@ -14,6 +14,7 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   [self setTitle:@"ZLevels"];
+  levelView = [[iRocLevelView alloc] init];
 
     //self.navigationController.navigationBar.tintColor = [UIColor blackColor];
   
@@ -64,7 +65,10 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //[self.navigationController pushViewController:[menuItems objectAtIndex:indexPath.row] animated:YES];
+  NSLog(@"selected level is %d", indexPath.row);
+	ZLevel *level = (ZLevel*)[model.levelContainer objectAtIndex:indexPath.row];
+  levelView.title = level.title;
+  [self.navigationController pushViewController:levelView animated:YES];
 }
 
 
