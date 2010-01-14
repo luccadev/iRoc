@@ -66,7 +66,7 @@
                                                            image:[UIImage imageNamed:@"info.png"] tag:4];
   
   levelTableView.tabBarItem = [[UITabBarItem alloc] initWithTitle:
-                          NSLocalizedString(@"Layout", @"")
+                          NSLocalizedString(@"Plan", @"")
                                                        image:[UIImage imageNamed:@"enter.png"] tag:4];
   
   NSMutableArray* views = [[NSMutableArray alloc] init];

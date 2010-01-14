@@ -176,6 +176,7 @@
 		D4B9445710FF91E900F55B64 /* ZLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B9445610FF91E900F55B64 /* ZLevel.m */; };
 		D4B9449310FF975400F55B64 /* iRocLevelTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B9449210FF975400F55B64 /* iRocLevelTableView.m */; };
 		D4B9452510FFA59200F55B64 /* iRocLevelView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B9452410FFA59200F55B64 /* iRocLevelView.m */; };
+		D4B9454810FFB83900F55B64 /* tracks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4B9454710FFB83900F55B64 /* tracks.jpg */; };
 		D4C265B110F88A4F0045ED0F /* loco.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C265B010F88A4F0045ED0F /* loco.png */; };
 		D4C265CE10F894850045ED0F /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C265CD10F894850045ED0F /* menu.png */; };
 		D4C265D410F8972B0045ED0F /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C265D310F8972B0045ED0F /* info.png */; };
@@ -392,6 +393,7 @@
 		D4B9449210FF975400F55B64 /* iRocLevelTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocLevelTableView.m; sourceTree = "<group>"; };
 		D4B9452310FFA59200F55B64 /* iRocLevelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocLevelView.h; sourceTree = "<group>"; };
 		D4B9452410FFA59200F55B64 /* iRocLevelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocLevelView.m; sourceTree = "<group>"; };
+		D4B9454710FFB83900F55B64 /* tracks.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tracks.jpg; sourceTree = "<group>"; };
 		D4C265B010F88A4F0045ED0F /* loco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loco.png; sourceTree = "<group>"; };
 		D4C265CD10F894850045ED0F /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		D4C265D310F8972B0045ED0F /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
@@ -538,6 +540,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D4B9454710FFB83900F55B64 /* tracks.jpg */,
 				9CE44AEE10ECB99F00506323 /* Localizable.strings */,
 				9C4A066910E366CB00E54D74 /* rocrail-logo-noshade-black.png */,
 				9CDDE86810E2623C00920C87 /* rocrail-logo-35.png */,
@@ -890,6 +893,7 @@
 				D4B9443C10FF71F600F55B64 /* threeway-l-1.png in Resources */,
 				D4B9443D10FF71F600F55B64 /* threeway-r-1.png in Resources */,
 				D4B9443E10FF71F600F55B64 /* threeway-s-1.png in Resources */,
+				D4B9454810FFB83900F55B64 /* tracks.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

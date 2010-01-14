@@ -13,7 +13,7 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  [self setTitle:@"ZLevels"];
+  [self setTitle:@"Plan"];
   levelView = [[iRocLevelView alloc] init];
 
     //self.navigationController.navigationBar.tintColor = [UIColor blackColor];

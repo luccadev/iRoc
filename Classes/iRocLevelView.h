@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
-@interface iRocLevelView : UIViewController {
-
+@interface iRocLevelView : UIViewController <UIScrollViewDelegate> {
+  UIScrollView *scrollView;
+  UIImageView *imageView;
 }
 
 @end
