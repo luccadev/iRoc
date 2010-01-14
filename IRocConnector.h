@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Model.h"
 #import "Loc.h"
 #import "Route.h"
 #import "Switch.h"
@@ -70,10 +71,11 @@
 	Container *sgContainer;
 	
 	id _delegate;
+  Model *model;
 }
 
 - (id)delegate;
-- (void)setDelegate:(id)new_delegate;
+- (void)setDelegate:(id)new_delegate withModel:(Model*)_model;
 
 
 - (BOOL)sendMessage:(NSString *)name message:(NSString *)msg;

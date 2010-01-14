@@ -16,10 +16,10 @@
 @synthesize tabBarController;
 @synthesize viewController;
 @synthesize lcTableView, rtTableView, swTableView, coTableView, bkTableView, scTableView, sgTableView, 
-      menuTableView, systemView, lcAutoView, lcSettingsView;
+      menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView;
 
 @synthesize coContainer, rrconnection, menuItems, aboutView, swContainer, sgContainer, lcContainer, rtContainer, 
-      bkContainer, scContainer, model;
+      bkContainer, scContainer;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
   NSLog(@"applicationDidFinishLaunching");
@@ -31,7 +31,7 @@
 	NSUserDefaults *defaults = [[NSUserDefaults standardUserDefaults] retain];
   
     // the model
-  model = [Model alloc];
+  model = [[Model alloc] init];
 	
 	//sleep_preferences
 	if( [defaults boolForKey:@"sleep_preferences"]) {
@@ -50,6 +50,8 @@
   systemView = [[iRocSystemView alloc] init];
   lcAutoView = [[iRocLcAutoView alloc] init];
   lcSettingsView = [[iRocLcSettingsView alloc] init];
+  levelTableView = [[iRocLevelTableView alloc] init];
+  [levelTableView setDelegate:self withModel:model];
 
   viewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:
                                NSLocalizedString(@"Loco", @"")
@@ -62,6 +64,10 @@
   aboutView.tabBarItem = [[UITabBarItem alloc] initWithTitle:
                               NSLocalizedString(@"Info", @"")
                                                            image:[UIImage imageNamed:@"info.png"] tag:4];
+  
+  levelTableView.tabBarItem = [[UITabBarItem alloc] initWithTitle:
+                          NSLocalizedString(@"Layout", @"")
+                                                       image:[UIImage imageNamed:@"enter.png"] tag:4];
   
   NSMutableArray* views = [[NSMutableArray alloc] init];
   [views addObjectsFromArray:tabBarController.viewControllers];
@@ -85,12 +91,17 @@
   
   viewController.navigationItem.leftBarButtonItem = lcSettingsButton;
 
+  UINavigationController *layoutNavi = [[UINavigationController alloc] initWithRootViewController:levelTableView];
+  layoutNavi.navigationBar.tintColor = [UIColor blackColor];
+
+  
     // Tab 1 = Loco
     // Tab 2 = System
     // Tab 3 = Menu
-    // Tab 4 = Info
+    // Tab 4 = Layout
   [views replaceObjectAtIndex:0 withObject:navi];
-  [views replaceObjectAtIndex:3 withObject:[views objectAtIndex:2]];
+    //[views replaceObjectAtIndex:3 withObject:[views objectAtIndex:2]];
+  [views replaceObjectAtIndex:3 withObject:layoutNavi];
   [views replaceObjectAtIndex:2 withObject:[views objectAtIndex:1]];
   [views replaceObjectAtIndex:1 withObject:systemView];
   tabBarController.viewControllers = views;
@@ -168,7 +179,7 @@
 	rrconnection = [[IRocConnector alloc] init];
 	[rrconnection setDomain:[defaults stringForKey:@"ip_preference"]];
 	[rrconnection setPort:[defaults integerForKey:@"port_preference"]];
-	[rrconnection setDelegate:self];
+	[rrconnection setDelegate:self withModel:model];
 	[rrconnection setLcContainer:self.lcContainer];
 	[rrconnection setRtContainer:self.rtContainer];
 	[rrconnection setSwContainer:self.swContainer];
@@ -420,6 +431,11 @@
 
 - (BOOL)sendMessage:(NSString *)name message:(NSString *)msg {
   return [rrconnection sendMessage:name message:msg];
+}
+
+
+- (Model *)getModel {
+  return model;
 }
 
 @end

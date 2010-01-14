@@ -17,6 +17,7 @@
 #import "iRocSgTableView.h"
 
 #import "iRocMenuTableView.h"
+#import "iRocLevelTableView.h"
 #import "iRocSystemView.h"
 #import "IRocConnector.h"
 #import "iRocAboutView.h"
@@ -44,6 +45,7 @@
 	IBOutlet iRocSgTableView *sgTableView;
 	
 	IBOutlet iRocMenuTableView *menuTableView;
+	IBOutlet iRocLevelTableView *levelTableView;
 	IBOutlet iRocSystemView *systemView;
 	IBOutlet iRocLcAutoView *lcAutoView;
 	IBOutlet iRocLcSettingsView *lcSettingsView;
@@ -79,6 +81,7 @@
 @property (nonatomic, retain) IBOutlet iRocScTableView *scTableView;
 @property (nonatomic, retain) IBOutlet iRocSgTableView *sgTableView;
 @property (nonatomic, retain) IBOutlet iRocMenuTableView *menuTableView;
+@property (nonatomic, retain) IBOutlet iRocLevelTableView *levelTableView;
 @property (nonatomic, retain) IBOutlet iRocSystemView *systemView;
 @property (nonatomic, retain) IBOutlet iRocLcAutoView *lcAutoView;
 @property (nonatomic, retain) IBOutlet iRocLcSettingsView *lcSettingsView;
@@ -92,7 +95,6 @@
 @property(nonatomic, retain) Container *bkContainer;
 @property(nonatomic, retain) Container *scContainer;
 @property(nonatomic, retain) Container *sgContainer;
-@property(nonatomic, retain) Model *model;
 
 @property(nonatomic, retain) NSMutableArray *menuItems;
 
@@ -107,6 +109,7 @@
 - (void)setPower:(NSString *)state;
 - (void)setAuto:(NSString *)state;
 - (BOOL)sendMessage:(NSString *)name message:(NSString *)msg;
+- (Model *)getModel;
 
 @end
 

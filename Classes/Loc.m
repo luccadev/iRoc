@@ -55,10 +55,10 @@
     
     fnStates[0] = [Fn isEqualToString:@"true"];
     int iFx = [Fx intValue];
-    NSLog(@"id=%@ fx=%d", locid, iFx);
+      //NSLog(@"id=%@ fx=%d", locid, iFx);
     for(int i = 1; i < 32; i++) {
       int mask = 1 << (i-1);
-      NSLog(@"mask=%d fx=%d function %d is %@", mask, iFx, i, ( (iFx & mask) == mask ) ?@"ON":@"OFF");
+        //NSLog(@"mask=%d fx=%d function %d is %@", mask, iFx, i, ( (iFx & mask) == mask ) ?@"ON":@"OFF");
       fnStates[i] = ( (iFx & mask) == mask ) ? TRUE:FALSE; 
     }
     

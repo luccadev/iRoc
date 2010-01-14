@@ -8,6 +8,8 @@
 
 #import "IRocConnector.h"
 #import "iRocAppDelegate.h"
+#import "Model.h"
+#import "ZLevel.h"
 
 
 @implementation IRocConnector
@@ -500,6 +502,13 @@ static NSString * const kIdElementName = @"id";
 	} else if ([elementName isEqualToString:@"plan"]) {
 		NSLog(@"start parsing plan...");
     parsingPlan = TRUE;
+	} else if ([elementName isEqualToString:@"zlevel"]) {
+    if( parsingPlan ) {
+      NSLog(@"create zlevel...");
+      ZLevel *zlevel = [[[ZLevel alloc] initWithAttributeDict:attributeDict] retain];
+      NSLog(@"add zlevel to container...");
+      [model.levelContainer addObject:zlevel withId:zlevel.zlevel];
+    }  
 	} else if ([elementName isEqualToString:kLocElementName]) {
     if( parsingPlan ) {
       if( ![[attributeDict valueForKey:@"show"] isEqualToString:@"false"] ) {
@@ -786,9 +795,10 @@ static NSString * const kIdElementName = @"id";
   return _delegate;
 }
 
-- (void)setDelegate:(id)new_delegate
+- (void)setDelegate:(id)new_delegate withModel:(Model *)_model
 {
   _delegate = new_delegate;
+  model = _model;
 }
 
 

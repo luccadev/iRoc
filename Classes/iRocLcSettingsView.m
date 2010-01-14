@@ -57,7 +57,7 @@
   NSLog(@"rows in section %d", section);
   switch( section ) {
     case (0):
-      return 5;
+      return 4;
       break;
     case (1):
       return 2;

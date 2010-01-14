@@ -12,4 +12,12 @@
 @implementation Model
 @synthesize levelContainer;
 
+- (id) init {
+  if( self = [super init] ) {
+    levelContainer = [[[Container alloc] init] retain];
+  }
+  return self;
+}
+
+
 @end

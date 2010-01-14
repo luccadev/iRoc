@@ -32,6 +32,7 @@
 	//[objectList addObject:object];
 	//[objectIndexList addObject:oid];
 	[theData setValue:object forKey:oid];
+	NSLog(@"Container add %@ ...", oid);
 }
 
 - (NSObject*) objectWithId:(NSString*) oid {
