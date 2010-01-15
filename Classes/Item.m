@@ -11,7 +11,7 @@
 
 
 @implementation Item
-@synthesize x, y, z, show, ori, Id;
+@synthesize x, y, z, show, ori, Id, type, state;
 
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
@@ -28,8 +28,10 @@
     tmp = [Globals getAttribute:@"show" fromDict:attributeDict withDefault:@"true"];
     show = [tmp isEqual:@"true"];
     
-    ori = [Globals getAttribute:@"ori" fromDict:attributeDict withDefault:@"west"]; 
-    Id  = [Globals getAttribute:@"id" fromDict:attributeDict withDefault:@""]; 
+    ori   = [Globals getAttribute:@"ori"   fromDict:attributeDict withDefault:@"west"]; 
+    Id    = [Globals getAttribute:@"id"    fromDict:attributeDict withDefault:@""]; 
+    type  = [Globals getAttribute:@"type"  fromDict:attributeDict withDefault:@""]; 
+    state = [Globals getAttribute:@"state" fromDict:attributeDict withDefault:@""]; 
     
     NSLog(@"x=%d y=%d z=%d ori=%@", x, y, z, ori);
   }

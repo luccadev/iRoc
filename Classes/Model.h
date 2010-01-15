@@ -8,13 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "Container.h"
+#import "Track.h"
+#import "Sensor.h"
 
 
 @interface Model : NSObject {
 	Container *levelContainer;
 	Container *swContainer;
+	Container *tkContainer;
+	Container *fbContainer;
 
 }
-@property(nonatomic, retain) Container *levelContainer, *swContainer;
+@property(nonatomic, retain) Container *levelContainer, *swContainer, *tkContainer, *fbContainer;
 
 @end

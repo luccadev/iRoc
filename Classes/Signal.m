@@ -11,7 +11,7 @@
 
 @implementation Signal
 
-@synthesize ID, type, state;
+@synthesize ID;
 
 
 - (NSString*) getImgName {

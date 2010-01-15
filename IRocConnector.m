@@ -560,6 +560,32 @@ static NSString * const kIdElementName = @"id";
       NSLog(@"switch event state=%@", state);		
     }
     
+	} else if ([elementName isEqualToString:@"tk"]) {
+    if( parsingPlan ) {
+      Track *tk = [[[Track alloc] initWithAttributeDict:attributeDict] retain];
+      [tk setDelegate:_delegate];
+      [model.tkContainer addObject:tk withId:tk.Id];
+    }
+    else {
+      NSString *state = [attributeDict valueForKey:@"state"];
+      NSLog(@"track event state=%@", state);		
+    }
+    
+	} else if ([elementName isEqualToString:@"fb"]) {
+    if( parsingPlan ) {
+      Sensor *fb = [[[Sensor alloc] initWithAttributeDict:attributeDict] retain];
+      [fb setDelegate:_delegate];
+      [model.fbContainer addObject:fb withId:fb.Id];
+    }
+    else {
+      NSString *Id = [attributeDict valueForKey:kIdElementName];
+      NSString *state = [attributeDict valueForKey:@"state"];
+      NSLog(@"track event state=%@", state);		
+      Sensor *fb = (Sensor*) [model.fbContainer objectWithId:Id];		
+      [fb setState:state];
+      [fb updateEvent];
+    }
+    
 	} else if ([elementName isEqualToString:@"sg"]) {
     NSString *idAttribute = [attributeDict valueForKey:kIdElementName];
     if( parsingPlan ) {

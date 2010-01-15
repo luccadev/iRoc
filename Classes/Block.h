@@ -12,10 +12,8 @@
 
 @interface Block : Item {
 	NSString *ID;
-	NSString *state;
 }
 
 @property (nonatomic, retain) NSString *ID;
-@property (nonatomic, retain) NSString *state;
 
 @end

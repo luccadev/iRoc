@@ -16,12 +16,14 @@
   BOOL show;
   NSString *ori;
   NSString *Id;
+  NSString *type;
+  NSString *state;
   id delegate;
   id myview;
 }
 @property int x, y, z;
 @property BOOL show;
-@property (nonatomic, retain) NSString *ori, *Id;
+@property (nonatomic, retain) NSString *ori, *Id, *type, *state;
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict;
 - (void)setDelegate:(id)_delegate;

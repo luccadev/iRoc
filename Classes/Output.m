@@ -10,7 +10,7 @@
 
 
 @implementation Output
-@synthesize coid, state;
+@synthesize coid;
 
 - (void)dealloc {
     [coid release];

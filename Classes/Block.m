@@ -10,7 +10,7 @@
 
 
 @implementation Block
-@synthesize ID, state;
+@synthesize ID;
 
 
 - (void)dealloc {

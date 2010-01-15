@@ -16,6 +16,9 @@
 	CGRect itemframe = CGRectMake(ITEMSIZE * item.x, ITEMSIZE * item.y, ITEMSIZE, ITEMSIZE);	
   if( self = [super initWithFrame:itemframe] ) {
     NSLog(@"item image=%@ x,y=%d,%d", [item getImgName], item.x, item.y);
+    [self addTarget:self action: @selector(itemAction:)
+   forControlEvents: UIControlEventTouchDown ];
+    
   	image = [UIImage imageNamed:[item getImgName]];
     CGRect imageframe = CGRectMake(0, 0, ITEMSIZE, ITEMSIZE);	
 	  imageview = [[UIImageView alloc] initWithFrame:imageframe];
@@ -33,10 +36,16 @@
   return item.Id;
 }
 
+- (void)itemAction:(id)sender {
+  NSLog(@"action for item %@", item.Id);
+  [self setBackgroundColor:[UIColor colorWithRed:1 green:1 blue:0 alpha:1.0]];
+  [item flip];
+}
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
   NSLog(@"touches ended for item %@", item.Id);
-  [item flip];
+  [self setBackgroundColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1.0]];
+    //[item flip];
 }
 
 - (void)updateEvent {

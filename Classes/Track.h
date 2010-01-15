@@ -1,8 +1,8 @@
 //
-//  Signal.h
+//  Track.h
 //  iRoc
 //
-//  Created by Rocrail on 09.01.10.
+//  Created by Rocrail on 15.01.10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
@@ -10,12 +10,10 @@
 #import "Item.h"
 
 
-@interface Signal : Item {
-	NSString *ID;
+@interface Track : Item {
 }
 
-@property (nonatomic, retain) NSString *ID;
-
+- (id) initWithAttributeDict: (NSDictionary *)attributeDict;
 - (NSString*) getImgName;
 
 @end

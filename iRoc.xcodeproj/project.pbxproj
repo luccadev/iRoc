@@ -168,6 +168,8 @@
 		9CFDBF6610BD081600E9E9DE /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CFDBF6510BD081600E9E9DE /* Entitlements.plist */; };
 		D4965AB710F517DD00C09B9B /* iRocLcAutoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4965AB410F517DD00C09B9B /* iRocLcAutoView.m */; };
 		D4965AB810F517DD00C09B9B /* iRocSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D4965AB610F517DD00C09B9B /* iRocSlider.m */; };
+		D49897CC1100C71F006C0F2B /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = D49897CB1100C71F006C0F2B /* Track.m */; };
+		D49897F31100CBEC006C0F2B /* Sensor.m in Sources */ = {isa = PBXBuildFile; fileRef = D49897F21100CBEC006C0F2B /* Sensor.m */; };
 		D4B9443010FF71C200F55B64 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B9442F10FF71C200F55B64 /* Globals.m */; };
 		D4B9443C10FF71F600F55B64 /* threeway-l-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B9443910FF71F600F55B64 /* threeway-l-1.png */; };
 		D4B9443D10FF71F600F55B64 /* threeway-r-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B9443A10FF71F600F55B64 /* threeway-r-1.png */; };
@@ -381,6 +383,10 @@
 		D4965AB410F517DD00C09B9B /* iRocLcAutoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocLcAutoView.m; sourceTree = "<group>"; };
 		D4965AB510F517DD00C09B9B /* iRocSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocSlider.h; sourceTree = "<group>"; };
 		D4965AB610F517DD00C09B9B /* iRocSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocSlider.m; sourceTree = "<group>"; };
+		D49897CA1100C71F006C0F2B /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
+		D49897CB1100C71F006C0F2B /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
+		D49897F11100CBEC006C0F2B /* Sensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sensor.h; sourceTree = "<group>"; };
+		D49897F21100CBEC006C0F2B /* Sensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sensor.m; sourceTree = "<group>"; };
 		D4B9442E10FF71C200F55B64 /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Globals.h; sourceTree = "<group>"; };
 		D4B9442F10FF71C200F55B64 /* Globals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Globals.m; sourceTree = "<group>"; };
 		D4B9443910FF71F600F55B64 /* threeway-l-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "threeway-l-1.png"; sourceTree = "<group>"; };
@@ -507,6 +513,10 @@
 				D4B9456B10FFC60700F55B64 /* iRocItem.m */,
 				D4B9456F10FFC6AF00F55B64 /* Item.h */,
 				D4B9457010FFC6AF00F55B64 /* Item.m */,
+				D49897CA1100C71F006C0F2B /* Track.h */,
+				D49897CB1100C71F006C0F2B /* Track.m */,
+				D49897F11100CBEC006C0F2B /* Sensor.h */,
+				D49897F21100CBEC006C0F2B /* Sensor.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -947,6 +957,8 @@
 				D4B9452510FFA59200F55B64 /* iRocLevelView.m in Sources */,
 				D4B9456C10FFC60700F55B64 /* iRocItem.m in Sources */,
 				D4B9457110FFC6AF00F55B64 /* Item.m in Sources */,
+				D49897CC1100C71F006C0F2B /* Track.m in Sources */,
+				D49897F31100CBEC006C0F2B /* Sensor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

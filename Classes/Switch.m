@@ -11,7 +11,7 @@
 
 
 @implementation Switch
-@synthesize swid, type, state;
+@synthesize swid;
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
   if( self = [super initWithAttributeDict:attributeDict] ) {

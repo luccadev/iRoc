@@ -41,7 +41,7 @@
   }
     // add the items for this level
   cnt = [model.swContainer count];
-  NSLog(@"add %d items for level %@", cnt, zlevel.title);
+  NSLog(@"add %d switches for level %@", cnt, zlevel.title);
   for( int i = 0; i < cnt; i++ ) {
     Item * item = (Item *)[model.swContainer objectAtIndex:i];
     if( item.z == zlevel.level ) {
@@ -49,6 +49,27 @@
       [scrollView addSubview:it];
     }
   }
+
+  cnt = [model.tkContainer count];
+  NSLog(@"add %d tracks for level %@", cnt, zlevel.title);
+  for( int i = 0; i < cnt; i++ ) {
+    Item * item = (Item *)[model.tkContainer objectAtIndex:i];
+    if( item.z == zlevel.level ) {
+      iRocItem *it = [[iRocItem alloc] initWithItem:item];
+      [scrollView addSubview:it];
+    }
+  }
+  
+  cnt = [model.fbContainer count];
+  NSLog(@"add %d sensors for level %@", cnt, zlevel.title);
+  for( int i = 0; i < cnt; i++ ) {
+    Item * item = (Item *)[model.fbContainer objectAtIndex:i];
+    if( item.z == zlevel.level ) {
+      iRocItem *it = [[iRocItem alloc] initWithItem:item];
+      [scrollView addSubview:it];
+    }
+  }
+  
 }
 
 

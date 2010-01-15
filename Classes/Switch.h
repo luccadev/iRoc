@@ -12,13 +12,9 @@
 
 @interface Switch : Item {
 	NSString *swid;
-	NSString *type;
-	NSString *state;
  }
 
 @property (nonatomic, retain) NSString *swid;
-@property (nonatomic, retain) NSString *type;
-@property (nonatomic, retain) NSString *state;
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict;
 - (NSString*) getImgName;
