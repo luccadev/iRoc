@@ -14,7 +14,7 @@
 
 @interface iRocLevelView : UIViewController <UIScrollViewDelegate> {
   UIScrollView *scrollView;
-  
+  BOOL isLoaded;
   ZLevel *zlevel;
   Model* model;
 }

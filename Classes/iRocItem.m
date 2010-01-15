@@ -45,4 +45,12 @@
   return self;
 }
 
+- (void)dealloc {
+  [item setView:nil];
+  [imageview release];
+  [image release];
+  [super dealloc];
+}
+
+
 @end

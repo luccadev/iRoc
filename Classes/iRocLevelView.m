@@ -14,20 +14,28 @@
 
 - (id)init {
   if( self = [super init] ) {
+    NSLog(@"levelView init");
   }
   return self;
 }
 
 - (void)reView {
+  if( !isLoaded ) {
+    NSLog(@"level %@ is not jet loaded...", zlevel.title);
+    return;
+  }
   NSLog(@"reView level %@", zlevel.title);
     // remove the existing items
   NSArray *its = scrollView.subviews;
   int cnt = [its count];
   NSLog(@"remove %d items", cnt);
   for( int i = 0; i < cnt; i++ ) {
-    iRocItem* it = (iRocItem *)[its objectAtIndex:i];
-    [it removeFromSuperview];
-    [it release];
+    if( [[its objectAtIndex:i] isKindOfClass:[iRocItem class]] ) {
+      iRocItem* it = (iRocItem *)[its objectAtIndex:i];
+      it.hidden = YES;
+      [it removeFromSuperview];
+      [it release];
+    }
   }
     // add the items for this level
   cnt = [model.swContainer count];
@@ -43,6 +51,7 @@
 
 
 - (void)loadView {
+  NSLog(@"levelView loadView");
   [super loadView];
   [super.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0]];
   CGRect bounds = [[UIScreen mainScreen] applicationFrame];
@@ -52,6 +61,7 @@
   scrollView.delegate = self;
   [scrollView setBackgroundColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1.0]];
   self.view = scrollView;
+  isLoaded = TRUE;
   [self reView];
 }
 
