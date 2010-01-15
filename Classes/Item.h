@@ -20,12 +20,13 @@
   NSString *Id;
   NSString *type;
   NSString *state;
+  NSString *text;
   id delegate;
   id myview;
 }
 @property int x, y, z, cx, cy;
 @property BOOL show;
-@property (nonatomic, retain) NSString *ori, *Id, *type, *state;
+@property (nonatomic, retain) NSString *ori, *Id, *type, *state, *text;
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict;
 - (void) updateWithAttributeDict: (NSDictionary *)attributeDict;

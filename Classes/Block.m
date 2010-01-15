@@ -7,6 +7,7 @@
 //
 
 #import "Block.h"
+#import "Globals.h"
 
 
 @implementation Block
@@ -14,6 +15,7 @@
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
   if( self = [super initWithAttributeDict:attributeDict] ) {
+    text = [Globals getAttribute:@"locid"    fromDict:attributeDict withDefault:@""]; 
     cx = 4; // TODO: check ori
   }
   return self;

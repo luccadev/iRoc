@@ -11,7 +11,7 @@
 
 
 @implementation Item
-@synthesize x, y, z, cx, cy, show, ori, Id, type, state;
+@synthesize x, y, z, cx, cy, show, ori, Id, type, state, text;
 
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
@@ -40,6 +40,8 @@
     Id    = [Globals getAttribute:@"id"    fromDict:attributeDict withDefault:@""]; 
     type  = [Globals getAttribute:@"type"  fromDict:attributeDict withDefault:@""]; 
     state = [Globals getAttribute:@"state" fromDict:attributeDict withDefault:@""]; 
+    
+    text = @"";
     
     if( cx < 1 ) cx = 1;
     if( cy < 1 ) cy = 1;

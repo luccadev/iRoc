@@ -25,6 +25,15 @@
   	imageview.image = image; 
     [item setView:self];
 	  [self addSubview:imageview];  
+    
+    if( item.text != nil && [item.text length] > 0 ) {
+      UILabel* label = [[[UILabel alloc] initWithFrame:CGRectMake(5, 6, ITEMSIZE * item.cx - 10, ITEMSIZE / 2 )] autorelease];
+      label.font = [UIFont boldSystemFontOfSize:12];
+      label.textColor = [UIColor grayColor];
+      label.backgroundColor = [UIColor clearColor];
+      label.text = item.text;
+      [self addSubview:label];  
+    }
   }
   
   return self;
