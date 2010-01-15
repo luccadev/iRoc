@@ -10,12 +10,13 @@
 
 
 @implementation Model
-@synthesize levelContainer, swContainer, tkContainer, fbContainer;
+@synthesize levelContainer, swContainer, sgContainer, tkContainer, fbContainer;
 
 - (id) init {
   if( self = [super init] ) {
     levelContainer = [[[Container alloc] init] retain];
     swContainer    = [[[Container alloc] init] retain];
+    sgContainer    = [[[Container alloc] init] retain];
     tkContainer    = [[[Container alloc] init] retain];
     fbContainer    = [[[Container alloc] init] retain];
   }

@@ -593,7 +593,8 @@ static NSString * const kIdElementName = @"id";
       NSString *state = [attributeDict valueForKey:@"state"];
         //NSLog(@"parser: sg: %@", [attributeDict valueForKey:kIdElementName]);
       
-      Signal *sg = [[[Signal alloc] init] retain];
+      Signal *sg = [[[Signal alloc] initWithAttributeDict:attributeDict] retain];
+      [sg setDelegate:_delegate];
       sg.ID = idAttribute;
       sg.type = type;
       sg.state = state;
@@ -603,7 +604,8 @@ static NSString * const kIdElementName = @"id";
       NSString *state = [attributeDict valueForKey:@"state"];
       Signal *sg = (Signal*) [self.sgContainer objectWithId:idAttribute];		
       [sg setState:state];
-      
+      [sg updateEvent];
+
       if ( [_delegate respondsToSelector:@selector(sgListLoaded)] ) {
         [_delegate performSelectorOnMainThread : @ selector(sgListLoaded ) withObject:nil waitUntilDone:NO];
       } 

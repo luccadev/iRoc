@@ -7,6 +7,7 @@
 //
 
 #import "Sensor.h"
+#import "iRocAppDelegate.h"
 
 
 @implementation Sensor
@@ -26,5 +27,13 @@
 	
 	return imgname;
 }
+
+- (void)flip {
+	NSLog(@"flip fb %@", Id);
+	[delegate sendMessage:@"fb" message:[[NSString alloc] initWithString: 
+    [NSString stringWithFormat: @"<fb id=\"%@\" state=\"%@\"/>", Id, [state isEqual:@"true"]?@"false":@"true"]]];
+}
+
+
 
 @end

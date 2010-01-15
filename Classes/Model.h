@@ -15,10 +15,11 @@
 @interface Model : NSObject {
 	Container *levelContainer;
 	Container *swContainer;
+	Container *sgContainer;
 	Container *tkContainer;
 	Container *fbContainer;
 
 }
-@property(nonatomic, retain) Container *levelContainer, *swContainer, *tkContainer, *fbContainer;
+@property(nonatomic, retain) Container *levelContainer, *swContainer, *sgContainer, *tkContainer, *fbContainer;
 
 @end

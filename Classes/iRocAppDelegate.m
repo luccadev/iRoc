@@ -112,13 +112,12 @@
   
   
   rtContainer = [[[Container alloc] init] retain];
-    //swContainer = [[[Container alloc] init] retain];
 	swContainer = model.swContainer;
 	lcContainer = [[[Container alloc] init] retain];
 	coContainer = [[[Container alloc] init] retain];
 	bkContainer = [[[Container alloc] init] retain];
 	scContainer = [[[Container alloc] init] retain];
-	sgContainer = [[[Container alloc] init] retain];
+	sgContainer = model.sgContainer;
 
   lcAutoView.bkContainer = bkContainer;
   lcAutoView.scContainer = scContainer;

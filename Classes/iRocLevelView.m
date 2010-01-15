@@ -50,6 +50,16 @@
     }
   }
 
+  cnt = [model.sgContainer count];
+  NSLog(@"add %d signals for level %@", cnt, zlevel.title);
+  for( int i = 0; i < cnt; i++ ) {
+    Item * item = (Item *)[model.sgContainer objectAtIndex:i];
+    if( item.z == zlevel.level ) {
+      iRocItem *it = [[iRocItem alloc] initWithItem:item];
+      [scrollView addSubview:it];
+    }
+  }
+  
   cnt = [model.tkContainer count];
   NSLog(@"add %d tracks for level %@", cnt, zlevel.title);
   for( int i = 0; i < cnt; i++ ) {

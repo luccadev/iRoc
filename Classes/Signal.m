@@ -7,11 +7,18 @@
 //
 
 #import "Signal.h"
+#import "iRocAppDelegate.h"
 
 
 @implementation Signal
 
 @synthesize ID;
+
+- (id) initWithAttributeDict: (NSDictionary *)attributeDict {
+  if( self = [super initWithAttributeDict:attributeDict] ) {
+  }
+  return self;
+}
 
 
 - (NSString*) getImgName {
@@ -29,11 +36,22 @@
 	return imgname;
 }
 
+- (void)flip {
+	NSLog(@"flip sg %@", Id);
+	[delegate sendMessage:@"sg" message:[[NSString alloc] initWithString: 
+      [NSString stringWithFormat: @"<sg id=\"%@\" cmd=\"flip\"/>", Id]]];
+}
+
+- (void)updateEvent {
+	NSLog(@"update event sg %@", Id);
+  if( myview != nil )
+    [myview updateEvent];
+}
+
+
 
 
 - (void)dealloc {
-  [ID release];
-	[type release];
   [super dealloc];
 }
 
