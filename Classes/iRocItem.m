@@ -28,6 +28,12 @@
 
 }
 
+
+- (NSString *)getId {
+  return item.Id;
+}
+
+
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
   NSLog(@"touches ended for item %@", item.Id);
   [item flip];
@@ -45,10 +51,14 @@
   return self;
 }
 
-- (void)dealloc {
+- (void)disable {
+  imageview.hidden = YES;
   [item setView:nil];
+}
+
+- (void)dealloc {
+  [imageview removeFromSuperview];
   [imageview release];
-  [image release];
   [super dealloc];
 }
 

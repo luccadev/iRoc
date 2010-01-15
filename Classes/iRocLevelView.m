@@ -32,7 +32,9 @@
   for( int i = 0; i < cnt; i++ ) {
     if( [[its objectAtIndex:i] isKindOfClass:[iRocItem class]] ) {
       iRocItem* it = (iRocItem *)[its objectAtIndex:i];
+      NSLog(@"removing %@", [it getId]);
       it.hidden = YES;
+      [it disable];
       [it removeFromSuperview];
       [it release];
     }

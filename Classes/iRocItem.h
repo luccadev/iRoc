@@ -16,7 +16,9 @@
   UIImageView *imageview;
 }
 
+- (NSString *)getId;
 - (id)initWithItem:(Item *)_item;
 - (void)updateEvent;
+- (void)disable;
 
 @end

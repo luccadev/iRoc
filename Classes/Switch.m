@@ -58,7 +58,8 @@
 
 - (void)updateEvent {
 	NSLog(@"update event sw %@", Id);
-  [myview updateEvent];
+  if( myview != nil )
+    [myview updateEvent];
 }
 
 - (void)dealloc {

@@ -56,6 +56,9 @@
 
 - (void)updateEvent {
     // update the item
+  if( myview != nil ) {
+    [myview updateEvent];
+  }
   return;
 }
 
