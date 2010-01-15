@@ -32,6 +32,7 @@
       label.textColor = [UIColor grayColor];
       label.backgroundColor = [UIColor clearColor];
       label.text = item.text;
+      label.textAlignment = UITextAlignmentCenter;
       [self addSubview:label];  
     }
   }
