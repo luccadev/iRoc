@@ -115,7 +115,7 @@
 	swContainer = model.swContainer;
 	lcContainer = [[[Container alloc] init] retain];
 	coContainer = [[[Container alloc] init] retain];
-	bkContainer = [[[Container alloc] init] retain];
+	bkContainer = model.bkContainer;
 	scContainer = [[[Container alloc] init] retain];
 	sgContainer = model.sgContainer;
 

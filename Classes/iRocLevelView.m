@@ -80,6 +80,16 @@
     }
   }
   
+  cnt = [model.bkContainer count];
+  NSLog(@"add %d blocks for level %@", cnt, zlevel.title);
+  for( int i = 0; i < cnt; i++ ) {
+    Item * item = (Item *)[model.bkContainer objectAtIndex:i];
+    if( item.z == zlevel.level ) {
+      iRocItem *it = [[iRocItem alloc] initWithItem:item];
+      [scrollView addSubview:it];
+    }
+  }
+  
 }
 
 

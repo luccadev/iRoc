@@ -16,4 +16,7 @@
 
 @property (nonatomic, retain) NSString *ID;
 
+- (id) initWithAttributeDict: (NSDictionary *)attributeDict;
+- (NSString*) getImgName;
+
 @end

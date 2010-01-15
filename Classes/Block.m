@@ -12,6 +12,19 @@
 @implementation Block
 @synthesize ID;
 
+- (id) initWithAttributeDict: (NSDictionary *)attributeDict {
+  if( self = [super initWithAttributeDict:attributeDict] ) {
+    cx = 4; // TODO: check ori
+  }
+  return self;
+}
+
+- (NSString*) getImgName {
+	NSString *imgname = @"block-1.png";
+	
+	
+	return imgname;
+}
 
 - (void)dealloc {
   [ID release];

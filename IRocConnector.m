@@ -649,15 +649,17 @@ static NSString * const kIdElementName = @"id";
 		NSString *idAttribute = [attributeDict valueForKey:kIdElementName];		
     if( parsingPlan ) {
       //NSLog(@"parser: bk: %@", [attributeDict valueForKey:kIdElementName]);
-      Block *bk = [[[Block alloc] init] retain];
+      Block *bk = [[[Block alloc] initWithAttributeDict:attributeDict] retain];
+      [bk setDelegate:_delegate];
       bk.ID = idAttribute;
-	    bk.state = [attributeDict valueForKey:@"state"];
 	    //NSLog(@"Output State: %@", bk.state);
 	  [self.bkContainer addObject:bk withId:idAttribute];
     } else {
 			NSString *state = [attributeDict valueForKey:@"state"];
 			Block *bk = (Block*) [self.bkContainer objectWithId:idAttribute];
+      [bk updateWithAttributeDict:attributeDict];
 			[bk setState:state];
+      [bk updateEvent];
 			if ( [_delegate respondsToSelector:@selector(bkListLoaded)] ) {
 				[_delegate performSelectorOnMainThread : @ selector(bkListLoaded ) withObject:nil waitUntilDone:NO];
 			} 

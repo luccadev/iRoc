@@ -13,14 +13,14 @@
 
 - (id)initWithItem:(Item *)_item {
   item = _item;
-	CGRect itemframe = CGRectMake(ITEMSIZE * item.x, ITEMSIZE * item.y, ITEMSIZE, ITEMSIZE);	
+	CGRect itemframe = CGRectMake(ITEMSIZE * item.x, ITEMSIZE * item.y, ITEMSIZE * item.cx, ITEMSIZE * item.cy);	
   if( self = [super initWithFrame:itemframe] ) {
     NSLog(@"item image=%@ x,y=%d,%d", [item getImgName], item.x, item.y);
     [self addTarget:self action: @selector(itemAction:)
    forControlEvents: UIControlEventTouchDown ];
     
   	image = [UIImage imageNamed:[item getImgName]];
-    CGRect imageframe = CGRectMake(0, 0, ITEMSIZE, ITEMSIZE);	
+    CGRect imageframe = CGRectMake(0, 0, ITEMSIZE * item.cx, ITEMSIZE * item.cy);	
 	  imageview = [[UIImageView alloc] initWithFrame:imageframe];
   	imageview.image = image; 
     [item setView:self];

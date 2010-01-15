@@ -11,7 +11,7 @@
 
 
 @implementation Item
-@synthesize x, y, z, show, ori, Id, type, state;
+@synthesize x, y, z, cx, cy, show, ori, Id, type, state;
 
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
@@ -22,6 +22,14 @@
     tmp = [Globals getAttribute:@"y" fromDict:attributeDict withDefault:@"0"];
     y = [tmp intValue];
     [tmp release];
+
+    tmp = [Globals getAttribute:@"cx" fromDict:attributeDict withDefault:@"1"];
+    cx = [tmp intValue];
+    [tmp release];
+    tmp = [Globals getAttribute:@"cy" fromDict:attributeDict withDefault:@"1"];
+    cy = [tmp intValue];
+    [tmp release];
+    
     tmp = [Globals getAttribute:@"z" fromDict:attributeDict withDefault:@"0"];
     z = [tmp intValue];
     [tmp release];
@@ -33,9 +41,18 @@
     type  = [Globals getAttribute:@"type"  fromDict:attributeDict withDefault:@""]; 
     state = [Globals getAttribute:@"state" fromDict:attributeDict withDefault:@""]; 
     
+    if( cx < 1 ) cx = 1;
+    if( cy < 1 ) cy = 1;
+    
     NSLog(@"x=%d y=%d z=%d ori=%@", x, y, z, ori);
   }
   return self;
+}
+
+- (void) updateWithAttributeDict: (NSDictionary *)attributeDict {
+  ori   = [Globals getAttribute:@"ori"   fromDict:attributeDict withDefault:ori]; 
+  type  = [Globals getAttribute:@"type"  fromDict:attributeDict withDefault:type]; 
+  state = [Globals getAttribute:@"state" fromDict:attributeDict withDefault:state]; 
 }
 
 - (void)setDelegate:(id)_delegate {
