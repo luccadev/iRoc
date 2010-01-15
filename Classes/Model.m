@@ -10,7 +10,7 @@
 
 
 @implementation Model
-@synthesize levelContainer, swContainer, sgContainer, tkContainer, fbContainer, bkContainer;
+@synthesize levelContainer, swContainer, sgContainer, tkContainer, fbContainer, bkContainer, coContainer;
 
 - (id) init {
   if( self = [super init] ) {
@@ -20,6 +20,7 @@
     tkContainer    = [[[Container alloc] init] retain];
     fbContainer    = [[[Container alloc] init] retain];
     bkContainer    = [[[Container alloc] init] retain];
+    coContainer    = [[[Container alloc] init] retain];
   }
   return self;
 }

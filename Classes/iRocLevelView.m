@@ -90,6 +90,16 @@
     }
   }
   
+  cnt = [model.coContainer count];
+  NSLog(@"add %d outputs for level %@", cnt, zlevel.title);
+  for( int i = 0; i < cnt; i++ ) {
+    Item * item = (Item *)[model.coContainer objectAtIndex:i];
+    if( item.z == zlevel.level ) {
+      iRocItem *it = [[iRocItem alloc] initWithItem:item];
+      [scrollView addSubview:it];
+    }
+  }
+  
 }
 
 

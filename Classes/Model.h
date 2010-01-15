@@ -19,8 +19,10 @@
 	Container *tkContainer;
 	Container *fbContainer;
 	Container *bkContainer;
+	Container *coContainer;
 
 }
-@property(nonatomic, retain) Container *levelContainer, *swContainer, *sgContainer, *tkContainer, *fbContainer, *bkContainer;
+@property(nonatomic, retain) Container *levelContainer, *swContainer, *sgContainer, *tkContainer, 
+    *fbContainer, *bkContainer, *coContainer;
 
 @end

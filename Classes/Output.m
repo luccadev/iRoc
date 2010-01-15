@@ -7,10 +7,17 @@
 //
 
 #import "Output.h"
+#import "iRocAppDelegate.h"
 
 
 @implementation Output
 @synthesize coid;
+
+- (id) initWithAttributeDict: (NSDictionary *)attributeDict {
+  if( self = [super initWithAttributeDict:attributeDict] ) {
+  }
+  return self;
+}
 
 - (void)dealloc {
     [coid release];
@@ -27,5 +34,18 @@
 		
 	return imgname;
 }
+
+- (void)flip {
+	NSLog(@"flip co %@", Id);
+	[delegate sendMessage:@"co" message:[[NSString alloc] initWithString: 
+                                       [NSString stringWithFormat: @"<co id=\"%@\" cmd=\"flip\"/>", Id]]];
+}
+
+- (void)updateEvent {
+	NSLog(@"update event co %@", Id);
+  if( myview != nil )
+    [myview updateEvent];
+}
+
 
 @end

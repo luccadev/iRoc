@@ -629,7 +629,8 @@ static NSString * const kIdElementName = @"id";
 		NSString *idAttribute = [attributeDict valueForKey:kIdElementName];		
     if( parsingPlan ) {
         //NSLog(@"parser: co: %@", [attributeDict valueForKey:kIdElementName]);
-      Output *co = [[[Output alloc] init] retain];
+      Output *co = [[[Output alloc] initWithAttributeDict:attributeDict] retain];
+      [co setDelegate:_delegate];
       co.coid = idAttribute;
 	    co.state = [attributeDict valueForKey:@"state"];
         //NSLog(@"Output State: %@", co.state);
@@ -637,7 +638,9 @@ static NSString * const kIdElementName = @"id";
     } else {
 			NSString *state = [attributeDict valueForKey:@"state"];
 			Output *co = (Output*) [self.coContainer objectWithId:idAttribute];
+      [co updateWithAttributeDict:attributeDict];
 			[co setState:state];
+      [co updateEvent];
 			if ( [_delegate respondsToSelector:@selector(coListLoaded)] ) {
 				[_delegate performSelectorOnMainThread : @ selector(coListLoaded ) withObject:nil waitUntilDone:NO];
 			} 
