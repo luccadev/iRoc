@@ -11,7 +11,7 @@
 
 
 @implementation Item
-@synthesize x, y, z, show, ori;
+@synthesize x, y, z, show, ori, Id;
 
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
@@ -29,15 +29,34 @@
     show = [tmp isEqual:@"true"];
     
     ori = [Globals getAttribute:@"ori" fromDict:attributeDict withDefault:@"west"]; 
+    Id  = [Globals getAttribute:@"id" fromDict:attributeDict withDefault:@""]; 
     
     NSLog(@"x=%d y=%d z=%d ori=%@", x, y, z, ori);
   }
   return self;
 }
 
+- (void)setDelegate:(id)_delegate {
+  delegate = _delegate;
+}
+
+- (void)setView:(id)_myview {
+  myview = _myview;
+}
+
 
 - (NSString*) getImgName {
   return @"?";
+}
+
+- (void)flip {
+    // flip the item
+  return;
+}
+
+- (void)updateEvent {
+    // update the item
+  return;
 }
 
 @end

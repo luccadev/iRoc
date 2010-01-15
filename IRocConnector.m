@@ -541,6 +541,7 @@ static NSString * const kIdElementName = @"id";
       //NSLog(@"parser: sw: %@", [attributeDict valueForKey:kIdElementName]);
       
       Switch *sw = [[[Switch alloc] initWithAttributeDict:attributeDict] retain];
+      [sw setDelegate:_delegate];
       sw.swid = idAttribute;
       sw.type = type;
 	  sw.state = state;
@@ -550,6 +551,7 @@ static NSString * const kIdElementName = @"id";
 	  NSString *state = [attributeDict valueForKey:@"state"];
 	  Switch *sw = (Switch*) [self.swContainer objectWithId:idAttribute];		
 	  [sw setState:state];
+    [sw updateEvent];
 		
 	  if ( [_delegate respondsToSelector:@selector(swListLoaded)] ) {
 			[_delegate performSelectorOnMainThread : @ selector(swListLoaded ) withObject:nil waitUntilDone:NO];

@@ -17,5 +17,6 @@
 }
 
 - (id)initWithItem:(Item *)_item;
+- (void)updateEvent;
 
 @end

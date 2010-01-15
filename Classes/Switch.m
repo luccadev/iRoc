@@ -7,6 +7,7 @@
 //
 
 #import "Switch.h"
+#import "iRocAppDelegate.h"
 
 
 @implementation Switch
@@ -50,7 +51,15 @@
 	return imgname;
 }
 
+- (void)flip {
+	NSLog(@"flip sw %@", Id);
+	[delegate sendMessage:@"sw" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<sw id=\"%@\" cmd=\"flip\"/>", swid]]];
+}
 
+- (void)updateEvent {
+	NSLog(@"update event sw %@", Id);
+  [myview updateEvent];
+}
 
 - (void)dealloc {
     [swid release];

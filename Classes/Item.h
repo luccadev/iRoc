@@ -15,12 +15,19 @@
   int y;
   BOOL show;
   NSString *ori;
+  NSString *Id;
+  id delegate;
+  id myview;
 }
 @property int x, y, z;
 @property BOOL show;
-@property (nonatomic, retain) NSString* ori;
+@property (nonatomic, retain) NSString *ori, *Id;
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict;
+- (void)setDelegate:(id)_delegate;
+- (void)setView:(id)_myview;
 - (NSString*) getImgName;
+- (void)flip;
+- (void)updateEvent;
 
 @end

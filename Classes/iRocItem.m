@@ -20,11 +20,23 @@
     CGRect imageframe = CGRectMake(0, 0, ITEMSIZE, ITEMSIZE);	
 	  imageview = [[UIImageView alloc] initWithFrame:imageframe];
   	imageview.image = image; 
+    [item setView:self];
 	  [self addSubview:imageview];  
   }
   
   return self;
 
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+  NSLog(@"touches ended for item %@", item.Id);
+  [item flip];
+}
+
+- (void)updateEvent {
+  NSLog(@"update event for item %@", item.Id);
+  image = [UIImage imageNamed:[item getImgName]];
+  imageview.image = image; 
 }
 
 - (id)initWithFrame:(CGRect)frame {
