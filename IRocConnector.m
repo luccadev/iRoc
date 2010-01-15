@@ -540,7 +540,7 @@ static NSString * const kIdElementName = @"id";
 	  NSString *state = [attributeDict valueForKey:@"state"];
       //NSLog(@"parser: sw: %@", [attributeDict valueForKey:kIdElementName]);
       
-      Switch *sw = [[[Switch alloc] init] retain];
+      Switch *sw = [[[Switch alloc] initWithAttributeDict:attributeDict] retain];
       sw.swid = idAttribute;
       sw.type = type;
 	  sw.state = state;

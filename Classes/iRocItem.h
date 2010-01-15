@@ -12,8 +12,10 @@
 
 @interface iRocItem : UIControl {
   Item *item;
+  UIImage *image;
+  UIImageView *imageview;
 }
 
-- (void)setItem:(Item *)_item;
+- (id)initWithItem:(Item *)_item;
 
 @end

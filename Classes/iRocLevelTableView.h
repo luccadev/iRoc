@@ -16,10 +16,10 @@
 @interface iRocLevelTableView : iRocTableView {
   iRocLevelView *levelView;
   Model *model;
-	id _delegate;
+	id delegate;
 }
 IBOutlet iRocLevelView *levelView;
 
-- (void)setDelegate:(id)new_delegate withModel:(Model*)_model;
+- (id)initWithDelegate:(id)_delegate andModel:(Model*)_model;
 
 @end

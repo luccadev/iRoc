@@ -9,6 +9,7 @@
 #define BUTTONGAP 8
 #define BUTTONHEIGHT 64
 #define CONTENTBORDER 8
+#define ITEMSIZE 16
 
 #import <Foundation/Foundation.h>
 

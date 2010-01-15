@@ -50,8 +50,8 @@
   systemView = [[iRocSystemView alloc] init];
   lcAutoView = [[iRocLcAutoView alloc] init];
   lcSettingsView = [[iRocLcSettingsView alloc] init];
-  levelTableView = [[iRocLevelTableView alloc] init];
-  [levelTableView setDelegate:self withModel:model];
+  levelTableView = [[iRocLevelTableView alloc] initWithDelegate:self andModel:model];
+    //[levelTableView setDelegate:self withModel:model];
 
   viewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:
                                NSLocalizedString(@"Loco", @"")

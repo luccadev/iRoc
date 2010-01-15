@@ -14,17 +14,19 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   [self setTitle:@"Plan"];
-  levelView = [[iRocLevelView alloc] init];
-
     //self.navigationController.navigationBar.tintColor = [UIColor blackColor];
   
 }
 
 
-- (void)setDelegate:(id)new_delegate withModel:(Model *)_model {
-  _delegate = new_delegate;
-  model = _model;
-  levelView.model = _model;
+- (id)initWithDelegate:(id)_delegate andModel:(Model *)_model {
+  if( self = [super init] ) {
+    delegate = _delegate;
+    model = _model;
+    levelView = [[iRocLevelView alloc] init];
+    levelView.model = _model;
+  }
+  return self;
 }
 
 
@@ -70,6 +72,7 @@
 	ZLevel *level = (ZLevel*)[model.levelContainer objectAtIndex:indexPath.row];
   levelView.title = level.title;
   levelView.zlevel = level;
+  [levelView reView];
   [self.navigationController pushViewController:levelView animated:YES];
 }
 

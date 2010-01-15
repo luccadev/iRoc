@@ -14,12 +14,13 @@
 
 @interface iRocLevelView : UIViewController <UIScrollViewDelegate> {
   UIScrollView *scrollView;
-  UIImageView *imageView; // for testing only
   
   ZLevel *zlevel;
   Model* model;
 }
 @property (nonatomic, retain) ZLevel *zlevel;
 @property (nonatomic, retain) Model *model;
+
+- (void)reView;
 
 @end

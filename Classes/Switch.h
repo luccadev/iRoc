@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSString *type;
 @property (nonatomic, retain) NSString *state;
 
+- (id) initWithAttributeDict: (NSDictionary *)attributeDict;
 - (NSString*) getImgName;
 
 @end

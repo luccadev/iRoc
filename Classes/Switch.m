@@ -12,6 +12,11 @@
 @implementation Switch
 @synthesize swid, type, state;
 
+- (id) initWithAttributeDict: (NSDictionary *)attributeDict {
+  if( self = [super initWithAttributeDict:attributeDict] ) {
+  }
+  return self;
+}
 
 - (NSString*) getImgName {
 	NSString *imgname = @"turnout-rs-1.png";
