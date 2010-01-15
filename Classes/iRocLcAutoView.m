@@ -125,6 +125,10 @@
                                  [NSString stringWithFormat: @"<lc id=\"%@\" cmd=\"gotoblock\" blockid=\"%@\"/>",
                                   loc.locid, [blocks objectAtIndex: blockPicked] ]];
       [rrconnection sendMessage:@"lc" message:stringToSend];
+      stringToSend = [[NSString alloc] initWithString: 
+											[NSString stringWithFormat: @"<lc id=\"%@\" cmd=\"go\"/>",
+											 loc.locid ]];
+      [rrconnection sendMessage:@"lc" message:stringToSend];
     }
     else if( schedulePicked > 0 ) {
       NSString * stringToSend = [[NSString alloc] initWithString: 
