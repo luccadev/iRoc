@@ -173,6 +173,15 @@
 		D49898841100FA84006C0F2B /* block-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D49898821100FA84006C0F2B /* block-1.png */; };
 		D49898851100FA84006C0F2B /* block-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D49898831100FA84006C0F2B /* block-2.png */; };
 		D499E2001101A371000C2A37 /* Text.m in Sources */ = {isa = PBXBuildFile; fileRef = D499E1FF1101A371000C2A37 /* Text.m */; };
+		D499E2D911021126000C2A37 /* threeway-s-4.png in Resources */ = {isa = PBXBuildFile; fileRef = D499E2D011021126000C2A37 /* threeway-s-4.png */; };
+		D499E2DA11021126000C2A37 /* threeway-s-3.png in Resources */ = {isa = PBXBuildFile; fileRef = D499E2D111021126000C2A37 /* threeway-s-3.png */; };
+		D499E2DB11021126000C2A37 /* threeway-s-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D499E2D211021126000C2A37 /* threeway-s-2.png */; };
+		D499E2DC11021126000C2A37 /* threeway-r-4.png in Resources */ = {isa = PBXBuildFile; fileRef = D499E2D311021126000C2A37 /* threeway-r-4.png */; };
+		D499E2DD11021126000C2A37 /* threeway-r-3.png in Resources */ = {isa = PBXBuildFile; fileRef = D499E2D411021126000C2A37 /* threeway-r-3.png */; };
+		D499E2DE11021126000C2A37 /* threeway-r-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D499E2D511021126000C2A37 /* threeway-r-2.png */; };
+		D499E2DF11021126000C2A37 /* threeway-l-4.png in Resources */ = {isa = PBXBuildFile; fileRef = D499E2D611021126000C2A37 /* threeway-l-4.png */; };
+		D499E2E011021126000C2A37 /* threeway-l-3.png in Resources */ = {isa = PBXBuildFile; fileRef = D499E2D711021126000C2A37 /* threeway-l-3.png */; };
+		D499E2E111021126000C2A37 /* threeway-l-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D499E2D811021126000C2A37 /* threeway-l-2.png */; };
 		D4B9443010FF71C200F55B64 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B9442F10FF71C200F55B64 /* Globals.m */; };
 		D4B9443C10FF71F600F55B64 /* threeway-l-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B9443910FF71F600F55B64 /* threeway-l-1.png */; };
 		D4B9443D10FF71F600F55B64 /* threeway-r-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B9443A10FF71F600F55B64 /* threeway-r-1.png */; };
@@ -394,6 +403,15 @@
 		D49898831100FA84006C0F2B /* block-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "block-2.png"; sourceTree = "<group>"; };
 		D499E1FE1101A371000C2A37 /* Text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Text.h; sourceTree = "<group>"; };
 		D499E1FF1101A371000C2A37 /* Text.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Text.m; sourceTree = "<group>"; };
+		D499E2D011021126000C2A37 /* threeway-s-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "threeway-s-4.png"; sourceTree = "<group>"; };
+		D499E2D111021126000C2A37 /* threeway-s-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "threeway-s-3.png"; sourceTree = "<group>"; };
+		D499E2D211021126000C2A37 /* threeway-s-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "threeway-s-2.png"; sourceTree = "<group>"; };
+		D499E2D311021126000C2A37 /* threeway-r-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "threeway-r-4.png"; sourceTree = "<group>"; };
+		D499E2D411021126000C2A37 /* threeway-r-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "threeway-r-3.png"; sourceTree = "<group>"; };
+		D499E2D511021126000C2A37 /* threeway-r-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "threeway-r-2.png"; sourceTree = "<group>"; };
+		D499E2D611021126000C2A37 /* threeway-l-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "threeway-l-4.png"; sourceTree = "<group>"; };
+		D499E2D711021126000C2A37 /* threeway-l-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "threeway-l-3.png"; sourceTree = "<group>"; };
+		D499E2D811021126000C2A37 /* threeway-l-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "threeway-l-2.png"; sourceTree = "<group>"; };
 		D4B9442E10FF71C200F55B64 /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Globals.h; sourceTree = "<group>"; };
 		D4B9442F10FF71C200F55B64 /* Globals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Globals.m; sourceTree = "<group>"; };
 		D4B9443910FF71F600F55B64 /* threeway-l-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "threeway-l-1.png"; sourceTree = "<group>"; };
@@ -604,6 +622,15 @@
 		9CBF10F610CFF14100FF29DA /* Symbols */ = {
 			isa = PBXGroup;
 			children = (
+				D499E2D011021126000C2A37 /* threeway-s-4.png */,
+				D499E2D111021126000C2A37 /* threeway-s-3.png */,
+				D499E2D211021126000C2A37 /* threeway-s-2.png */,
+				D499E2D311021126000C2A37 /* threeway-r-4.png */,
+				D499E2D411021126000C2A37 /* threeway-r-3.png */,
+				D499E2D511021126000C2A37 /* threeway-r-2.png */,
+				D499E2D611021126000C2A37 /* threeway-l-4.png */,
+				D499E2D711021126000C2A37 /* threeway-l-3.png */,
+				D499E2D811021126000C2A37 /* threeway-l-2.png */,
 				D49898821100FA84006C0F2B /* block-1.png */,
 				D49898831100FA84006C0F2B /* block-2.png */,
 				D4B9443910FF71F600F55B64 /* threeway-l-1.png */,
@@ -923,6 +950,15 @@
 				D4B9443E10FF71F600F55B64 /* threeway-s-1.png in Resources */,
 				D49898841100FA84006C0F2B /* block-1.png in Resources */,
 				D49898851100FA84006C0F2B /* block-2.png in Resources */,
+				D499E2D911021126000C2A37 /* threeway-s-4.png in Resources */,
+				D499E2DA11021126000C2A37 /* threeway-s-3.png in Resources */,
+				D499E2DB11021126000C2A37 /* threeway-s-2.png in Resources */,
+				D499E2DC11021126000C2A37 /* threeway-r-4.png in Resources */,
+				D499E2DD11021126000C2A37 /* threeway-r-3.png in Resources */,
+				D499E2DE11021126000C2A37 /* threeway-r-2.png in Resources */,
+				D499E2DF11021126000C2A37 /* threeway-l-4.png in Resources */,
+				D499E2E011021126000C2A37 /* threeway-l-3.png in Resources */,
+				D499E2E111021126000C2A37 /* threeway-l-2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
