@@ -15,6 +15,7 @@
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
   if( self = [super initWithAttributeDict:attributeDict] ) {
+    dir = [Globals getAttribute:@"dir" fromDict:attributeDict withDefault:@"false"]; 
   }
   return self;
 }
@@ -51,9 +52,15 @@
       imgname = [NSString stringWithFormat:@"threeway-r-%d.png", orinr];
     
 	} else if( [self.type isEqual:@"dcrossing"] ){
-		imgname = [NSString stringWithFormat:@"dcross-rs-%d.png", orinr];
-	} else {
+    BOOL st = [state isEqual:@"straight"];
+    BOOL dr = [dir isEqual:@"true"];
+		imgname = [NSString stringWithFormat:@"dcross-%c%c-%d.png", dr?'r':'l', st?'s':'t', orinr];
+    cx = orinr % 2 == 0 ? 1:2; 
+    cy = orinr % 2 == 0 ? 2:1; 
+	} else if( [self.type isEqual:@"crossing"] ) {
 		imgname = @"cross.png";
+	} else if( [self.type isEqual:@"decoupler"] ) {
+		imgname = [NSString stringWithFormat: @"decoupler-%d.png", orinr % 2 == 0 ? 2:1];
 	}
 	
 	return imgname;

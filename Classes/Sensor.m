@@ -19,11 +19,15 @@
 }
 
 - (NSString*) getImgName {
-	NSString *imgname = @"sensor-off-1.png";
+  int orinr = [self getOriNr];
+	NSString *imgname = @"";
 	
 	if( [self.state isEqual:@"true"]) {
-		imgname = @"sensor-on-1.png";
+		imgname = [NSString stringWithFormat: @"sensor-on-%d.png", orinr % 2 == 0 ? 2:1];
 	}
+  else {
+		imgname = [NSString stringWithFormat: @"sensor-off-%d.png", orinr % 2 == 0 ? 2:1];
+  }
 	
 	return imgname;
 }

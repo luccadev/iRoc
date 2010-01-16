@@ -13,14 +13,16 @@
 
 - (id)initWithItem:(Item *)_item {
   item = _item;
+  NSString *imagename = [item getImgName];
+  
 	CGRect itemframe = CGRectMake(ITEMSIZE * item.x, ITEMSIZE * item.y, ITEMSIZE * item.cx, ITEMSIZE * item.cy);	
   if( self = [super initWithFrame:itemframe] ) {
-    NSLog(@"item image=%@ x,y=%d,%d", [item getImgName], item.x, item.y);
+    NSLog(@"item image=%@ x,y=%d,%d cx,cy=%d,%d", [item getImgName], item.x, item.y, item.cx, item.cy);
     [self addTarget:self action: @selector(itemAction:)
    forControlEvents: UIControlEventTouchDown ];
     
-    if( [item getImgName] != nil ) {
-  	  image = [UIImage imageNamed:[item getImgName]];
+    if( imagename != nil ) {
+  	  image = [UIImage imageNamed:imagename];
       CGRect imageframe = CGRectMake(0, 0, ITEMSIZE * item.cx, ITEMSIZE * item.cy);	
 	    imageview = [[UIImageView alloc] initWithFrame:imageframe];
   	  imageview.image = image; 
@@ -64,12 +66,6 @@
   NSLog(@"update event for item %@", item.Id);
   image = [UIImage imageNamed:[item getImgName]];
   imageview.image = image; 
-}
-
-- (id)initWithFrame:(CGRect)frame {
-  if (self = [super initWithFrame:frame]) {
-	}
-  return self;
 }
 
 - (void)disable {

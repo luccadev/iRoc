@@ -12,6 +12,7 @@
 
 @interface Switch : Item {
 	NSString *swid;
+	NSString *dir;
  }
 
 @property (nonatomic, retain) NSString *swid;
