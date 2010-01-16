@@ -19,12 +19,13 @@
 }
 
 - (NSString*) getImgName {
-	NSString *imgname = @"track-1.png";
+  int orinr = [self getOriNr];
+	NSString *imgname = @"";
 	
 	if( [self.type isEqual:@"curve"]) {
-		imgname = @"curve-1.png";
+		imgname = [NSString stringWithFormat: @"curve-%d.png", orinr];
 	} else {
-		imgname = @"track-1.png";
+		imgname = [NSString stringWithFormat: @"track-%d.png", orinr];
 	}
 	
 	return imgname;

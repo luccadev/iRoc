@@ -57,6 +57,16 @@
   state = [Globals getAttribute:@"state" fromDict:attributeDict withDefault:state]; 
 }
 
+- (int)getOriNr {
+  if([ori isEqual:@"north"])
+    return 2;
+  if([ori isEqual:@"east"])
+    return 3;
+  if([ori isEqual:@"south"])
+    return 4;
+  return 1;
+}
+
 - (void)setDelegate:(id)_delegate {
   delegate = _delegate;
 }

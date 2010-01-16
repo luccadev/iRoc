@@ -22,16 +22,17 @@
 
 
 - (NSString*) getImgName {
-	NSString *imgname = @"signal-r-4.png";
+  int orinr = [self getOriNr];
+	NSString *imgname = @"";
 	
   if( [self.state isEqual:@"red"])
-		imgname = @"signal-r-4.png";
+		imgname = [NSString stringWithFormat:@"signal-r-%d.png", orinr];
   else if( [self.state isEqual:@"green"])
-		imgname = @"signal-g-4.png";
+		imgname = [NSString stringWithFormat:@"signal-g-%d.png", orinr];
   else if( [self.state isEqual:@"yellow"])
-		imgname = @"signal-y-4.png";
+		imgname = [NSString stringWithFormat:@"signal-y-%d.png", orinr];
 	else 
-		imgname = @"signal-w-4.png";
+		imgname = [NSString stringWithFormat:@"signal-w-%d.png", orinr];
   
 	return imgname;
 }

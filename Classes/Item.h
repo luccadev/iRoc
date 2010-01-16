@@ -35,5 +35,6 @@
 - (NSString*) getImgName;
 - (void)flip;
 - (void)updateEvent;
+- (int)getOriNr;
 
 @end
