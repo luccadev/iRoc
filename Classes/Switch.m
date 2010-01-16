@@ -20,30 +20,38 @@
 }
 
 - (NSString*) getImgName {
-	NSString *imgname = @"turnout-rs-1.png";
+  int orinr = [self getOriNr];
+  
+    // symbol naming fix (see rocrail/impl/pclient.c line 250)
+  if( orinr == 1 )
+    orinr = 3;
+  else if( orinr == 3 )
+    orinr = 1;
+  
+	NSString *imgname = @"";
 	
 	if( [self.type isEqual:@"right"]) {
 		if( [self.state isEqual:@"straight"])
-			imgname = @"turnout-rs-1.png";
+			imgname = [NSString stringWithFormat:@"turnout-rs-%d.png", orinr];
 		else 
-			imgname = @"turnout-rt-1.png";
+			imgname = [NSString stringWithFormat:@"turnout-rt-%d.png", orinr];
 		
 	} else if( [self.type isEqual:@"left"]) {
 			if( [self.state isEqual:@"straight"])
-				imgname = @"turnout-ls-1.png";
+				imgname = [NSString stringWithFormat:@"turnout-ls-%d.png", orinr];
 			else 
-				imgname = @"turnout-lt-1.png";
+				imgname = [NSString stringWithFormat:@"turnout-lt-%d.png", orinr];
 	
 	} else if( [self.type isEqual:@"threeway"]) {
     if( [self.state isEqual:@"straight"])
-      imgname = @"threeway-s-1.png";
+      imgname = [NSString stringWithFormat:@"threeway-s-%d.png", orinr];
     else if( [self.state isEqual:@"left"])
-      imgname = @"threeway-l-1.png";
+      imgname = [NSString stringWithFormat:@"threeway-l-%d.png", orinr];
     else 
-      imgname = @"threeway-r-1.png";
+      imgname = [NSString stringWithFormat:@"threeway-r-%d.png", orinr];
     
 	} else if( [self.type isEqual:@"dcrossing"] ){
-		imgname = @"dcross-rs-1.png";
+		imgname = [NSString stringWithFormat:@"dcross-rs-%d.png", orinr];
 	} else {
 		imgname = @"cross.png";
 	}

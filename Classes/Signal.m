@@ -23,6 +23,13 @@
 
 - (NSString*) getImgName {
   int orinr = [self getOriNr];
+
+    // symbol naming fix (see rocrail/impl/pclient.c line 250)
+  if( orinr == 1 )
+    orinr = 3;
+  else if( orinr == 3 )
+    orinr = 1;
+  
 	NSString *imgname = @"";
 	
   if( [self.state isEqual:@"red"])
