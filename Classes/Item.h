@@ -21,11 +21,12 @@
   NSString *type;
   NSString *state;
   NSString *text;
+  BOOL textVertical;
   id delegate;
   id myview;
 }
 @property int x, y, z, cx, cy;
-@property BOOL show;
+@property BOOL show, textVertical;
 @property (nonatomic, retain) NSString *ori, *Id, *type, *state, *text;
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict;

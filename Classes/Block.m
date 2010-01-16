@@ -22,8 +22,24 @@
 }
 
 - (NSString*) getImgName {
-	NSString *imgname = @"block-1.png";
-	
+  int orinr = [self getOriNr];
+	NSString *imgname = @"";
+
+	if( orinr % 2 == 0 ) {
+      //vertical
+    cx = 1;
+    cy = 4;
+    textVertical = TRUE;
+    imgname = @"block-2.png";
+  }
+  else {
+      //horizontal
+    cx = 4;
+    cy = 1;
+    textVertical = FALSE;
+    imgname = @"block-1.png";
+  }
+  
 	
 	return imgname;
 }
