@@ -15,7 +15,7 @@
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
   if( self = [super initWithAttributeDict:attributeDict] ) {
-    locid    = [Globals getAttribute:@"locid"    fromDict:attributeDict withDefault:@""]; 
+    locid    = [Globals getAttribute:@"locid"    fromDict:attributeDict withDefault:@" "]; 
     reserved = [Globals getAttribute:@"reserved" fromDict:attributeDict withDefault:@"false"]; 
     entering = [Globals getAttribute:@"entering" fromDict:attributeDict withDefault:@"false"]; 
     text = locid;
@@ -26,8 +26,12 @@
 
 - (void)updateTextColor {
   if( [locid length] > 0 ) {
-    textBackgroundColor = [[UIColor colorWithRed:1 green:.4 blue:.4 alpha:1] retain];
-      //textBackgroundColor = [UIColor redColor];
+    if( [reserved isEqual:@"true"] )
+      textBackgroundColor = [[UIColor colorWithRed:.4 green:1 blue:1 alpha:1] retain];
+    if( [entering isEqual:@"true"] )
+      textBackgroundColor = [[UIColor colorWithRed:.4 green:.4 blue:1 alpha:1] retain];
+    else
+      textBackgroundColor = [[UIColor colorWithRed:1 green:.4 blue:.4 alpha:1] retain];
   }
   else {
     textBackgroundColor = [UIColor clearColor];
@@ -66,6 +70,12 @@
   entering = [Globals getAttribute:@"entering" fromDict:attributeDict withDefault:entering]; 
   text = locid; 
   [self updateTextColor];
+}
+
+- (void)updateEvent {
+	NSLog(@"update event bk %@", Id);
+  if( myview != nil )
+    [myview updateEvent];
 }
 
 

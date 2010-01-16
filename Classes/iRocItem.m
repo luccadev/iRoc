@@ -31,7 +31,7 @@
     }
     
     if( item.text != nil && [item.text length] > 0 ) {
-      UILabel* label = [[[UILabel alloc] initWithFrame:CGRectMake(5, 5, ITEMSIZE * item.cx - 10, ITEMSIZE * item.cy - 10 )] autorelease];
+      label = [[[UILabel alloc] initWithFrame:CGRectMake(5, 5, ITEMSIZE * item.cx - 10, ITEMSIZE * item.cy - 10 )] autorelease];
       label.font = [UIFont boldSystemFontOfSize:12];
       label.textColor = [UIColor blackColor];
       label.backgroundColor = item.textBackgroundColor;
@@ -66,6 +66,10 @@
   NSLog(@"update event for item %@", item.Id);
   image = [UIImage imageNamed:[item getImgName]];
   imageview.image = image; 
+  if( label != nil ) {
+    label.backgroundColor = item.textBackgroundColor;
+    label.text = item.text;
+  }
 }
 
 - (void)disable {

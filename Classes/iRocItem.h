@@ -14,6 +14,7 @@
   Item *item;
   UIImage *image;
   UIImageView *imageview;
+  UILabel *label;
 }
 
 - (NSString *)getId;
