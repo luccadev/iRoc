@@ -15,11 +15,25 @@
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
   if( self = [super initWithAttributeDict:attributeDict] ) {
-    text = [Globals getAttribute:@"locid"    fromDict:attributeDict withDefault:@""]; 
-    cx = 4; // TODO: check ori
+    locid    = [Globals getAttribute:@"locid"    fromDict:attributeDict withDefault:@""]; 
+    reserved = [Globals getAttribute:@"reserved" fromDict:attributeDict withDefault:@"false"]; 
+    entering = [Globals getAttribute:@"entering" fromDict:attributeDict withDefault:@"false"]; 
+    text = locid;
+    [self updateTextColor];
   }
   return self;
 }
+
+- (void)updateTextColor {
+  if( [locid length] > 0 ) {
+    textBackgroundColor = [[UIColor colorWithRed:1 green:.4 blue:.4 alpha:1] retain];
+      //textBackgroundColor = [UIColor redColor];
+  }
+  else {
+    textBackgroundColor = [UIColor clearColor];
+  }
+}
+
 
 - (NSString*) getImgName {
   int orinr = [self getOriNr];
@@ -43,6 +57,17 @@
 	
 	return imgname;
 }
+
+
+- (void) updateWithAttributeDict: (NSDictionary *)attributeDict {
+  [super updateWithAttributeDict:attributeDict]; 
+  locid    = [Globals getAttribute:@"locid"    fromDict:attributeDict withDefault:locid]; 
+  reserved = [Globals getAttribute:@"reserved" fromDict:attributeDict withDefault:reserved]; 
+  entering = [Globals getAttribute:@"entering" fromDict:attributeDict withDefault:entering]; 
+  text = locid; 
+  [self updateTextColor];
+}
+
 
 - (void)dealloc {
   [ID release];

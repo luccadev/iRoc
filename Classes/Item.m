@@ -11,7 +11,7 @@
 
 
 @implementation Item
-@synthesize x, y, z, cx, cy, show, ori, Id, type, state, text, textVertical;
+@synthesize x, y, z, cx, cy, show, ori, Id, type, state, text, textVertical, textBackgroundColor;
 
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
@@ -43,6 +43,7 @@
     
     text = @"";
     textVertical = FALSE;
+    textBackgroundColor = [UIColor clearColor];
     
     if( cx < 1 ) cx = 1;
     if( cy < 1 ) cy = 1;

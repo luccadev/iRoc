@@ -12,11 +12,15 @@
 
 @interface Block : Item {
 	NSString *ID;
+  NSString *locid;
+  NSString *reserved;
+  NSString *entering;
 }
 
 @property (nonatomic, retain) NSString *ID;
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict;
 - (NSString*) getImgName;
+- (void)updateTextColor;
 
 @end

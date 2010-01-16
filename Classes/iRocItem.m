@@ -31,8 +31,8 @@
     if( item.text != nil && [item.text length] > 0 ) {
       UILabel* label = [[[UILabel alloc] initWithFrame:CGRectMake(5, 5, ITEMSIZE * item.cx - 10, ITEMSIZE * item.cy - 10 )] autorelease];
       label.font = [UIFont boldSystemFontOfSize:12];
-      label.textColor = [UIColor grayColor];
-      label.backgroundColor = [UIColor clearColor];
+      label.textColor = [UIColor blackColor];
+      label.backgroundColor = item.textBackgroundColor;
       label.text = item.text;
       label.textAlignment = UITextAlignmentCenter;
       [self addSubview:label];  

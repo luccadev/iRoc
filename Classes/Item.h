@@ -24,10 +24,12 @@
   BOOL textVertical;
   id delegate;
   id myview;
+  UIColor *textBackgroundColor;
 }
 @property int x, y, z, cx, cy;
 @property BOOL show, textVertical;
 @property (nonatomic, retain) NSString *ori, *Id, *type, *state, *text;
+@property (nonatomic, retain) UIColor *textBackgroundColor;
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict;
 - (void) updateWithAttributeDict: (NSDictionary *)attributeDict;
