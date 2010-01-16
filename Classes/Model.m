@@ -10,7 +10,8 @@
 
 
 @implementation Model
-@synthesize levelContainer, swContainer, sgContainer, tkContainer, fbContainer, bkContainer, coContainer;
+@synthesize levelContainer, swContainer, sgContainer, tkContainer, fbContainer, bkContainer, coContainer, txContainer;
+@synthesize title, name, rocrailversion, rocguiversion;
 
 - (id) init {
   if( self = [super init] ) {
@@ -21,9 +22,19 @@
     fbContainer    = [[[Container alloc] init] retain];
     bkContainer    = [[[Container alloc] init] retain];
     coContainer    = [[[Container alloc] init] retain];
+    txContainer    = [[[Container alloc] init] retain];
   }
   return self;
 }
+
+- (void) setupWithAttributeDict: (NSDictionary *)attributeDict {
+  title          = [Globals getAttribute:@"title"          fromDict:attributeDict withDefault:@""]; 
+  name           = [Globals getAttribute:@"name"           fromDict:attributeDict withDefault:@""]; 
+  rocrailversion = [Globals getAttribute:@"rocrailversion" fromDict:attributeDict withDefault:@""]; 
+  rocguiversion  = [Globals getAttribute:@"rocguiversion"  fromDict:attributeDict withDefault:@""]; 
+  NSLog(@"plan title is %@", title);
+}
+
 
 
 @end

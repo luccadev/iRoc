@@ -100,6 +100,16 @@
     }
   }
   
+  cnt = [model.txContainer count];
+  NSLog(@"add %d texts for level %@", cnt, zlevel.title);
+  for( int i = 0; i < cnt; i++ ) {
+    Item * item = (Item *)[model.txContainer objectAtIndex:i];
+    if( item.z == zlevel.level ) {
+      iRocItem *it = [[iRocItem alloc] initWithItem:item];
+      [scrollView addSubview:it];
+    }
+  }
+  
 }
 
 

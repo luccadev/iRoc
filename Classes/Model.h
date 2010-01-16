@@ -10,9 +10,15 @@
 #import "Container.h"
 #import "Track.h"
 #import "Sensor.h"
+#import "Text.h"
 
 
 @interface Model : NSObject {
+  NSString *title;
+  NSString *name;
+  NSString *rocrailversion;
+  NSString *rocguiversion;
+  
 	Container *levelContainer;
 	Container *swContainer;
 	Container *sgContainer;
@@ -20,9 +26,14 @@
 	Container *fbContainer;
 	Container *bkContainer;
 	Container *coContainer;
+	Container *txContainer;
 
 }
 @property(nonatomic, retain) Container *levelContainer, *swContainer, *sgContainer, *tkContainer, 
-    *fbContainer, *bkContainer, *coContainer;
+    *fbContainer, *bkContainer, *coContainer, *txContainer;
+@property(nonatomic, retain) NSString *title, *name, *rocguiversion, *rocrailversion;
+
+- (void) setupWithAttributeDict: (NSDictionary *)attributeDict;
+
 
 @end

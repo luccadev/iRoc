@@ -19,12 +19,14 @@
     [self addTarget:self action: @selector(itemAction:)
    forControlEvents: UIControlEventTouchDown ];
     
-  	image = [UIImage imageNamed:[item getImgName]];
-    CGRect imageframe = CGRectMake(0, 0, ITEMSIZE * item.cx, ITEMSIZE * item.cy);	
-	  imageview = [[UIImageView alloc] initWithFrame:imageframe];
-  	imageview.image = image; 
-    [item setView:self];
-	  [self addSubview:imageview];  
+    if( [item getImgName] != nil ) {
+  	  image = [UIImage imageNamed:[item getImgName]];
+      CGRect imageframe = CGRectMake(0, 0, ITEMSIZE * item.cx, ITEMSIZE * item.cy);	
+	    imageview = [[UIImageView alloc] initWithFrame:imageframe];
+  	  imageview.image = image; 
+      [item setView:self];
+	    [self addSubview:imageview];  
+    }
     
     if( item.text != nil && [item.text length] > 0 ) {
       UILabel* label = [[[UILabel alloc] initWithFrame:CGRectMake(5, 6, ITEMSIZE * item.cx - 10, ITEMSIZE / 2 )] autorelease];

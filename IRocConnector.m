@@ -502,6 +502,7 @@ static NSString * const kIdElementName = @"id";
 	} else if ([elementName isEqualToString:@"plan"]) {
 		NSLog(@"start parsing plan...");
     parsingPlan = TRUE;
+    [model setupWithAttributeDict:attributeDict];
 	} else if ([elementName isEqualToString:@"zlevel"]) {
     if( parsingPlan ) {
       NSLog(@"create zlevel...");
@@ -668,6 +669,19 @@ static NSString * const kIdElementName = @"id";
 			} 
 		
 		NSLog(@"Block [%@] event state=%@", bk.ID, state);	
+    }
+    
+	} else if ([elementName isEqualToString:@"tx"]) {
+		NSString *idAttribute = [attributeDict valueForKey:kIdElementName];		
+    if( parsingPlan ) {
+        //NSLog(@"parser: bk: %@", [attributeDict valueForKey:kIdElementName]);
+      Text *tx = [[[Text alloc] initWithAttributeDict:attributeDict] retain];
+      [tx setDelegate:_delegate];
+      [model.txContainer addObject:tx withId:idAttribute];
+    } else {
+			Text *tx = (Text*) [model.txContainer objectWithId:idAttribute];
+      [tx updateWithAttributeDict:attributeDict];
+      [tx updateEvent];
     }
     
 	} else if ([elementName isEqualToString:@"sc"]) {

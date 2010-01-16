@@ -13,9 +13,18 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  [self setTitle:@"Plan"];
-    //self.navigationController.navigationBar.tintColor = [UIColor blackColor];
   
+  UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 40.0)];
+  [title setText:model.title];
+  [title setFont:[UIFont boldSystemFontOfSize:13.0]];
+  [title setTextAlignment:UITextAlignmentCenter];
+  title.backgroundColor = [UIColor clearColor];
+  title.textColor = [UIColor grayColor];
+
+  
+  self.navigationItem.titleView = title;
+  
+  [self setTitle:@"Plan"];
 }
 
 

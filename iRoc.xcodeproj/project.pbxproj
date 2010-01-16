@@ -172,6 +172,7 @@
 		D49897F31100CBEC006C0F2B /* Sensor.m in Sources */ = {isa = PBXBuildFile; fileRef = D49897F21100CBEC006C0F2B /* Sensor.m */; };
 		D49898841100FA84006C0F2B /* block-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D49898821100FA84006C0F2B /* block-1.png */; };
 		D49898851100FA84006C0F2B /* block-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D49898831100FA84006C0F2B /* block-2.png */; };
+		D499E2001101A371000C2A37 /* Text.m in Sources */ = {isa = PBXBuildFile; fileRef = D499E1FF1101A371000C2A37 /* Text.m */; };
 		D4B9443010FF71C200F55B64 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B9442F10FF71C200F55B64 /* Globals.m */; };
 		D4B9443C10FF71F600F55B64 /* threeway-l-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B9443910FF71F600F55B64 /* threeway-l-1.png */; };
 		D4B9443D10FF71F600F55B64 /* threeway-r-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B9443A10FF71F600F55B64 /* threeway-r-1.png */; };
@@ -391,6 +392,8 @@
 		D49897F21100CBEC006C0F2B /* Sensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sensor.m; sourceTree = "<group>"; };
 		D49898821100FA84006C0F2B /* block-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "block-1.png"; sourceTree = "<group>"; };
 		D49898831100FA84006C0F2B /* block-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "block-2.png"; sourceTree = "<group>"; };
+		D499E1FE1101A371000C2A37 /* Text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Text.h; sourceTree = "<group>"; };
+		D499E1FF1101A371000C2A37 /* Text.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Text.m; sourceTree = "<group>"; };
 		D4B9442E10FF71C200F55B64 /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Globals.h; sourceTree = "<group>"; };
 		D4B9442F10FF71C200F55B64 /* Globals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Globals.m; sourceTree = "<group>"; };
 		D4B9443910FF71F600F55B64 /* threeway-l-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "threeway-l-1.png"; sourceTree = "<group>"; };
@@ -521,6 +524,8 @@
 				D49897CB1100C71F006C0F2B /* Track.m */,
 				D49897F11100CBEC006C0F2B /* Sensor.h */,
 				D49897F21100CBEC006C0F2B /* Sensor.m */,
+				D499E1FE1101A371000C2A37 /* Text.h */,
+				D499E1FF1101A371000C2A37 /* Text.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -967,6 +972,7 @@
 				D4B9457110FFC6AF00F55B64 /* Item.m in Sources */,
 				D49897CC1100C71F006C0F2B /* Track.m in Sources */,
 				D49897F31100CBEC006C0F2B /* Sensor.m in Sources */,
+				D499E2001101A371000C2A37 /* Text.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
