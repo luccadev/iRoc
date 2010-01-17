@@ -13,6 +13,11 @@
 	//NSMutableArray *objectList;
 	//NSMutableArray *objectIndexList;
 	NSMutableDictionary *theData;
+	
+	NSArray *keys;
+	NSArray *sortedKeys;
+	
+	BOOL isSorted;
 }
 
 - (void) addObject:(id)object withId:(NSString*)oid;

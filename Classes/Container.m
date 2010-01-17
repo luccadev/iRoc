@@ -18,6 +18,8 @@
 	theData = [[NSMutableDictionary dictionaryWithCapacity:250] retain];
 	NSLog(@"Container Init ...");
 	
+	isSorted = NO;
+	
 	return self;
 }
 
@@ -41,12 +43,14 @@
 
 
 - (id) objectAtIndex:(int) index {
-	NSArray *keys = [theData allKeys];
-	NSArray *sortedKeys = [keys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-	//NSArray *sortedKeys = [keys sortedArrayUsingSelector:@selector(compare:)];
+	
+	if( !isSorted) {
+		NSLog(@"Sorting keys ... ");
+		keys = [[theData allKeys] retain];
+		sortedKeys = [[keys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] retain];
+	}
 
-	id aKey = [sortedKeys objectAtIndex:index];
-	return [theData objectForKey:aKey];
+	return [theData objectForKey:[sortedKeys objectAtIndex:index]];
 }
 
 
