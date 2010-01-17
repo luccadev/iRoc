@@ -40,7 +40,7 @@
 			}*/
 			
 			image = [UIImage imageNamed:imagename];
-			NSLog(@"item image=%@ x,y=%d,%d cx,cy=%d,%d -> %d", [item getImgName], item.x, item.y, item.cx, item.cy, image);
+			//NSLog(@"item image=%@ x,y=%d,%d cx,cy=%d,%d -> %d", [item getImgName], item.x, item.y, item.cx, item.cy, image);
 				
       CGRect imageframe = CGRectMake(0, 0, ITEMSIZE * item.cx, ITEMSIZE * item.cy);	
 	    imageview = [[UIImageView alloc] initWithFrame:imageframe];

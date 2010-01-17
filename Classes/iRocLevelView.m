@@ -40,6 +40,9 @@
     }
   }
     // add the items for this level
+	
+	NSDate *date = [NSDate date];
+	
   cnt = [model.swContainer count];
   NSLog(@"add %d switches for level %@", cnt, zlevel.title);
   for( int i = 0; i < cnt; i++ ) {
@@ -50,6 +53,9 @@
     }
   }
 
+	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/cnt*(-1));
+	date = [NSDate date];
+	
   cnt = [model.sgContainer count];
   NSLog(@"add %d signals for level %@", cnt, zlevel.title);
   for( int i = 0; i < cnt; i++ ) {
@@ -59,7 +65,11 @@
       [scrollView addSubview:it];
     }
   }
-  
+	
+
+	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/cnt*(-1));
+	date = [NSDate date];
+	
   cnt = [model.tkContainer count];
   NSLog(@"add %d tracks for level %@", cnt, zlevel.title);
   for( int i = 0; i < cnt; i++ ) {
@@ -69,7 +79,10 @@
       [scrollView addSubview:it];
     }
   }
-  
+	
+	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/cnt*(-1));
+	date = [NSDate date];
+
   cnt = [model.fbContainer count];
   NSLog(@"add %d sensors for level %@", cnt, zlevel.title);
   for( int i = 0; i < cnt; i++ ) {
@@ -79,6 +92,9 @@
       [scrollView addSubview:it];
     }
   }
+	
+	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/cnt*(-1));
+	date = [NSDate date];
   
   cnt = [model.bkContainer count];
   NSLog(@"add %d blocks for level %@", cnt, zlevel.title);
@@ -90,6 +106,9 @@
     }
   }
   
+	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/cnt*(-1));
+	date = [NSDate date];
+	
   cnt = [model.coContainer count];
   NSLog(@"add %d outputs for level %@", cnt, zlevel.title);
   for( int i = 0; i < cnt; i++ ) {
@@ -99,6 +118,9 @@
       [scrollView addSubview:it];
     }
   }
+	
+	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/cnt*(-1));
+	date = [NSDate date];
   
   cnt = [model.txContainer count];
   NSLog(@"add %d texts for level %@", cnt, zlevel.title);
@@ -109,6 +131,9 @@
       [scrollView addSubview:it];
     }
   }
+	
+	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/cnt*(-1));
+	date = [NSDate date];
   
 }
 
