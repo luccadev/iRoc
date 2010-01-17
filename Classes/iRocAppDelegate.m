@@ -41,38 +41,34 @@
 		application.idleTimerDisabled = YES;
 	}
 	
-	[viewController setDelegate:self];
+  viewController = [[iRocViewController alloc] init];
+  systemView = [[iRocSystemView alloc] init];
+  aboutView = [[iRocAboutView alloc] init];
+  menuTableView = [[iRocMenuTableView alloc] init];
+  lcAutoView = [[iRocLcAutoView alloc] init];
+  lcSettingsView = [[iRocLcSettingsView alloc] init];
+  levelTableView = [[iRocLevelTableView alloc] initWithDelegate:self andModel:model];
 
+	[viewController setDelegate:self];
+  
     // Optional move event.
 	if( [defaults boolForKey:@"moveevents_preference"]) {
 		[viewController processAllEvents:[defaults integerForKey:@"vdelta_preference"]];
 	}
 	
-  systemView = [[iRocSystemView alloc] init];
-  lcAutoView = [[iRocLcAutoView alloc] init];
-  lcSettingsView = [[iRocLcSettingsView alloc] init];
-  levelTableView = [[iRocLevelTableView alloc] initWithDelegate:self andModel:model];
-    //[levelTableView setDelegate:self withModel:model];
-
+  
   viewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:
                                NSLocalizedString(@"Loco", @"")
                               image:[UIImage imageNamed:@"loco.png"] tag:1];
 
   menuTableView.tabBarItem = [[UITabBarItem alloc] initWithTitle:
                                NSLocalizedString(@"Menu", @"")
-                                                            image:[UIImage imageNamed:@"menu.png"] tag:3];
-  
-  aboutView.tabBarItem = [[UITabBarItem alloc] initWithTitle:
-                              NSLocalizedString(@"Info", @"")
-                                                           image:[UIImage imageNamed:@"info.png"] tag:4];
+                               image:[UIImage imageNamed:@"menu.png"] tag:3];
   
   levelTableView.tabBarItem = [[UITabBarItem alloc] initWithTitle:
-                          NSLocalizedString(@"Plan", @"")
-                                                       image:[UIImage imageNamed:@"enter.png"] tag:4];
+                               NSLocalizedString(@"Plan", @"")
+                               image:[UIImage imageNamed:@"enter.png"] tag:4];
   
-  NSMutableArray* views = [[NSMutableArray alloc] init];
-  [views addObjectsFromArray:tabBarController.viewControllers];
-
   UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:viewController];
   navi.navigationBar.tintColor = [UIColor blackColor];
 
@@ -100,15 +96,6 @@
     // Tab 2 = System
     // Tab 3 = Menu
     // Tab 4 = Layout
-  [views replaceObjectAtIndex:0 withObject:navi];
-  [views replaceObjectAtIndex:3 withObject:layoutNavi];
-  [views replaceObjectAtIndex:2 withObject:[views objectAtIndex:1]];
-  [views replaceObjectAtIndex:1 withObject:systemView];
-  tabBarController.viewControllers = views;
-  
-  [window addSubview:tabBarController.view];
-
-/*  
   tabBar = [[iRocTabBar alloc] init];
   
   [tabBar addPage: (UIView *)navi];
@@ -117,7 +104,7 @@
   [tabBar addPage: (UIView *)layoutNavi];
   
 	[window addSubview:tabBar.view];
-*/
+
   
   
   lcAutoView.bkContainer = model.bkContainer;
