@@ -38,7 +38,6 @@
 		9C343D3010B900E500750B22 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9C343D2F10B900E500750B22 /* Settings.bundle */; };
 		9C39142010D00B6600F9C42D /* Output.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39141F10D00B6600F9C42D /* Output.m */; };
 		9C39142410D00BE400F9C42D /* iRocCoTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39142210D00BE400F9C42D /* iRocCoTableView.m */; };
-		9C39142510D00BE400F9C42D /* iRocCoTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C39142310D00BE400F9C42D /* iRocCoTableView.xib */; };
 		9C4A066A10E366CB00E54D74 /* rocrail-logo-noshade-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4A066910E366CB00E54D74 /* rocrail-logo-noshade-black.png */; };
 		9C5B41ED10E37AA700355A5B /* Container.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5B41EC10E37AA700355A5B /* Container.m */; };
 		9C5B440D10E3AE9E00355A5B /* off.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C5B440B10E3AE9E00355A5B /* off.png */; };
@@ -1036,7 +1035,6 @@
 				9CBF12BF10CFF15900FF29DA /* turnout-rt-2.png in Resources */,
 				9CBF12C110CFF15900FF29DA /* turnout-rt-3.png in Resources */,
 				9CBF12C310CFF15900FF29DA /* turnout-rt-4.png in Resources */,
-				9C39142510D00BE400F9C42D /* iRocCoTableView.xib in Resources */,
 				9CDDE84610E25BAB00920C87 /* Default.png in Resources */,
 				9CDDE86910E2623C00920C87 /* rocrail-logo-35.png in Resources */,
 				9C4A066A10E366CB00E54D74 /* rocrail-logo-noshade-black.png in Resources */,
