@@ -18,7 +18,7 @@
   UILabel *label;
 }
 
-static Container *imageContainer;
+//static Container *imageContainer;
 
 - (NSString *)getId;
 - (id)initWithItem:(Item *)_item;
