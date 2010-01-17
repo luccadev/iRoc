@@ -13,7 +13,6 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		2899E5220DE3E06400AC0155 /* iRocViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* iRocViewController.xib */; };
-		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* iRocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* iRocViewController.m */; };
 		9C00EAC610B3C5820098BA59 /* IRocConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C00EAC510B3C5820098BA59 /* IRocConnector.m */; };
 		9C00EE6210B41B490098BA59 /* thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C00EE6110B41B490098BA59 /* thumb.png */; };
@@ -188,7 +187,6 @@
 		9CBF12BF10CFF15900FF29DA /* turnout-rt-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF11D910CFF15900FF29DA /* turnout-rt-2.png */; };
 		9CBF12C110CFF15900FF29DA /* turnout-rt-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF11DB10CFF15900FF29DA /* turnout-rt-3.png */; };
 		9CBF12C310CFF15900FF29DA /* turnout-rt-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF11DD10CFF15900FF29DA /* turnout-rt-4.png */; };
-		9CCF669510CFD0F100F5E110 /* iRocMenuTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CCF669410CFD0F100F5E110 /* iRocMenuTableView.xib */; };
 		9CDB1B3410B533F9001442F1 /* iRocTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDB1B3310B533F9001442F1 /* iRocTouchView.m */; };
 		9CDB1BE610B54843001442F1 /* iRocView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDB1BE510B54843001442F1 /* iRocView.m */; };
 		9CDB1D5910B57C11001442F1 /* donedown.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CDB1D5710B57C11001442F1 /* donedown.png */; };
@@ -198,6 +196,7 @@
 		9CE17DD910CE857B00170A98 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE17DD810CE857B00170A98 /* Route.m */; };
 		9CE44AF010ECB99F00506323 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CE44AEE10ECB99F00506323 /* Localizable.strings */; };
 		9CFDBF6610BD081600E9E9DE /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CFDBF6510BD081600E9E9DE /* Entitlements.plist */; };
+		D442DD5A1103409400C7055C /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D442DD591103409400C7055C /* MainWindow.xib */; };
 		D496063F1102F98E00213441 /* iRocTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D496063E1102F98E00213441 /* iRocTabBar.m */; };
 		D4965AB710F517DD00C09B9B /* iRocLcAutoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4965AB410F517DD00C09B9B /* iRocLcAutoView.m */; };
 		D4965AB810F517DD00C09B9B /* iRocSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D4965AB610F517DD00C09B9B /* iRocSlider.m */; };
@@ -245,7 +244,6 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2899E5210DE3E06400AC0155 /* iRocViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = iRocViewController.xib; sourceTree = "<group>"; };
-		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		28D7ACF60DDB3853001CB0EB /* iRocViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocViewController.h; sourceTree = "<group>"; };
 		28D7ACF70DDB3853001CB0EB /* iRocViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -441,7 +439,6 @@
 		9CBF11D910CFF15900FF29DA /* turnout-rt-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "turnout-rt-2.png"; sourceTree = "<group>"; };
 		9CBF11DB10CFF15900FF29DA /* turnout-rt-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "turnout-rt-3.png"; sourceTree = "<group>"; };
 		9CBF11DD10CFF15900FF29DA /* turnout-rt-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "turnout-rt-4.png"; sourceTree = "<group>"; };
-		9CCF669410CFD0F100F5E110 /* iRocMenuTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = iRocMenuTableView.xib; sourceTree = "<group>"; };
 		9CDB1B3210B533F9001442F1 /* iRocTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocTouchView.h; sourceTree = "<group>"; };
 		9CDB1B3310B533F9001442F1 /* iRocTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocTouchView.m; sourceTree = "<group>"; };
 		9CDB1BE410B54843001442F1 /* iRocView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocView.h; sourceTree = "<group>"; };
@@ -457,6 +454,7 @@
 		9CE44AFF10ECB9C900506323 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9CE44B0010ECB9D300506323 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9CFDBF6510BD081600E9E9DE /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		D442DD591103409400C7055C /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		D496063D1102F98E00213441 /* iRocTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocTabBar.h; sourceTree = "<group>"; };
 		D496063E1102F98E00213441 /* iRocTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocTabBar.m; sourceTree = "<group>"; };
 		D4965AB310F517DD00C09B9B /* iRocLcAutoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocLcAutoView.h; sourceTree = "<group>"; };
@@ -655,6 +653,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D442DD591103409400C7055C /* MainWindow.xib */,
 				9CE44AEE10ECB99F00506323 /* Localizable.strings */,
 				9C4A066910E366CB00E54D74 /* rocrail-logo-noshade-black.png */,
 				9CDDE86810E2623C00920C87 /* rocrail-logo-35.png */,
@@ -666,10 +665,8 @@
 				9CDB1D5810B57C11001442F1 /* doneup.png */,
 				9C00EE6110B41B490098BA59 /* thumb.png */,
 				2899E5210DE3E06400AC0155 /* iRocViewController.xib */,
-				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* iRoc-Info.plist */,
 				9CAF71A410CBE78D00392643 /* iRocAboutView.xib */,
-				9CCF669410CFD0F100F5E110 /* iRocMenuTableView.xib */,
 				9CDDE84510E25BAB00920C87 /* Default.png */,
 			);
 			name = Resources;
@@ -911,7 +908,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				2899E5220DE3E06400AC0155 /* iRocViewController.xib in Resources */,
 				9C00EE6210B41B490098BA59 /* thumb.png in Resources */,
 				9CDB1D5910B57C11001442F1 /* donedown.png in Resources */,
@@ -922,7 +918,6 @@
 				9CAFD95710B97B700029C16F /* Icon.png in Resources */,
 				9CFDBF6610BD081600E9E9DE /* Entitlements.plist in Resources */,
 				9CAF71A610CBE78D00392643 /* iRocAboutView.xib in Resources */,
-				9CCF669510CFD0F100F5E110 /* iRocMenuTableView.xib in Resources */,
 				9CBF11DF10CFF15900FF29DA /* 0.png in Resources */,
 				9CBF11E110CFF15900FF29DA /* 0v.png in Resources */,
 				9CBF11E310CFF15900FF29DA /* 1.png in Resources */,
@@ -1094,6 +1089,7 @@
 				9C141F3B1103397500D8E911 /* dcrossingright-t-2.png in Resources */,
 				9C141F3C1103397500D8E911 /* dcrossingright-t-3.png in Resources */,
 				9C141F3D1103397500D8E911 /* dcrossingright-t-4.png in Resources */,
+				D442DD5A1103409400C7055C /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
