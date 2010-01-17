@@ -35,6 +35,8 @@
 		9C713ED310D4E1D300C222B8 /* iRocLocProps.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C713ED210D4E1D300C222B8 /* iRocLocProps.m */; };
 		9C72869310B81A4200567A8A /* iRocButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C72869210B81A4200567A8A /* iRocButton.m */; };
 		9C7F1BE910CBF2A900ACF0A7 /* iRocAboutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F1BE810CBF2A900ACF0A7 /* iRocAboutView.m */; };
+		9C9E9DB911030D1100E16E8A /* block-1-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C9E9DB711030D1100E16E8A /* block-1-s.png */; };
+		9C9E9DBA11030D1100E16E8A /* block-2-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C9E9DB811030D1100E16E8A /* block-2-s.png */; };
 		9CA62C8410CD0AF0008E37AB /* iRocLcTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA62C8210CD0AF0008E37AB /* iRocLcTableView.m */; };
 		9CA62C8510CD0AF0008E37AB /* iRocLcTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CA62C8310CD0AF0008E37AB /* iRocLcTableView.xib */; };
 		9CA62C9110CD0B6C008E37AB /* Loc.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA62C9010CD0B6C008E37AB /* Loc.m */; };
@@ -249,6 +251,8 @@
 		9C72869210B81A4200567A8A /* iRocButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocButton.m; sourceTree = "<group>"; };
 		9C7F1BE710CBF2A900ACF0A7 /* iRocAboutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocAboutView.h; sourceTree = "<group>"; };
 		9C7F1BE810CBF2A900ACF0A7 /* iRocAboutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocAboutView.m; sourceTree = "<group>"; };
+		9C9E9DB711030D1100E16E8A /* block-1-s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "block-1-s.png"; sourceTree = "<group>"; };
+		9C9E9DB811030D1100E16E8A /* block-2-s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "block-2-s.png"; sourceTree = "<group>"; };
 		9C9FB42E10FA555900DAB05A /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9CA62C8110CD0AF0008E37AB /* iRocLcTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iRocLcTableView.h; path = ../iRocLcTableView.h; sourceTree = "<group>"; };
 		9CA62C8210CD0AF0008E37AB /* iRocLcTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iRocLcTableView.m; path = ../iRocLcTableView.m; sourceTree = "<group>"; };
@@ -622,6 +626,8 @@
 		9CBF10F610CFF14100FF29DA /* Symbols */ = {
 			isa = PBXGroup;
 			children = (
+				9C9E9DB711030D1100E16E8A /* block-1-s.png */,
+				9C9E9DB811030D1100E16E8A /* block-2-s.png */,
 				D499E2D011021126000C2A37 /* threeway-s-4.png */,
 				D499E2D111021126000C2A37 /* threeway-s-3.png */,
 				D499E2D211021126000C2A37 /* threeway-s-2.png */,
@@ -959,6 +965,8 @@
 				D499E2DF11021126000C2A37 /* threeway-l-4.png in Resources */,
 				D499E2E011021126000C2A37 /* threeway-l-3.png in Resources */,
 				D499E2E111021126000C2A37 /* threeway-l-2.png in Resources */,
+				9C9E9DB911030D1100E16E8A /* block-1-s.png in Resources */,
+				9C9E9DBA11030D1100E16E8A /* block-2-s.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

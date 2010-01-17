@@ -11,13 +11,14 @@
 
 
 @implementation Block
-@synthesize ID;
+@synthesize ID, smallsymbol;
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
   if( self = [super initWithAttributeDict:attributeDict] ) {
-    locid    = [Globals getAttribute:@"locid"    fromDict:attributeDict withDefault:@" "]; 
-    reserved = [Globals getAttribute:@"reserved" fromDict:attributeDict withDefault:@"false"]; 
-    entering = [Globals getAttribute:@"entering" fromDict:attributeDict withDefault:@"false"]; 
+    locid       = [Globals getAttribute:@"locid"       fromDict:attributeDict withDefault:@" "]; 
+    reserved    = [Globals getAttribute:@"reserved"    fromDict:attributeDict withDefault:@"false"]; 
+    entering    = [Globals getAttribute:@"entering"    fromDict:attributeDict withDefault:@"false"]; 
+		smallsymbol = [Globals getAttribute:@"smallsymbol" fromDict:attributeDict withDefault:@"false"];
     text = locid;
     [self updateTextColor];
   }
@@ -48,14 +49,24 @@
     cx = 1;
     cy = 4;
     textVertical = TRUE;
-    imgname = @"block-2.png";
+		if( [smallsymbol isEqual:@"true"]) {
+			cy = 2;
+			imgname = @"block-2-s.png";
+		} else {
+			imgname = @"block-2.png";
+		}
   }
   else {
       //horizontal
     cx = 4;
     cy = 1;
     textVertical = FALSE;
-    imgname = @"block-1.png";
+		if( [smallsymbol isEqual:@"true"]) {
+			cx = 2;
+			imgname = @"block-1-s.png";
+		} else {
+			imgname = @"block-1.png";
+		}
   }
   
 	

@@ -15,9 +15,11 @@
   NSString *locid;
   NSString *reserved;
   NSString *entering;
+	NSString *smallsymbol;
 }
 
 @property (nonatomic, retain) NSString *ID;
+@property (nonatomic, retain) NSString *smallsymbol;
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict;
 - (NSString*) getImgName;

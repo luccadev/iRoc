@@ -656,7 +656,8 @@ static NSString * const kIdElementName = @"id";
       Block *bk = [[[Block alloc] initWithAttributeDict:attributeDict] retain];
       [bk setDelegate:_delegate];
       bk.ID = idAttribute;
-	    //NSLog(@"Output State: %@", bk.state);
+			bk.smallsymbol = [attributeDict valueForKey:@"smallsymbol"];
+	    NSLog(@"Block small symbol: %@", bk.smallsymbol);
 	  [self.bkContainer addObject:bk withId:idAttribute];
     } else {
 			NSString *state = [attributeDict valueForKey:@"state"];
