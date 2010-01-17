@@ -132,10 +132,9 @@
   lcnt = 0;
 	date = [NSDate date];
   
-  cnt = [model.txContainer count];
-  NSLog(@"add %d texts for level %@", cnt, zlevel.title);
-  for( int i = 0; i < cnt; i++ ) {
-    Item * item = (Item *)[model.txContainer objectAtIndex:i];
+	itemEnum = [model.txContainer getEnumerator];
+  item = nil;
+  while ((item = (Item*)[itemEnum nextObject])) {
     if( item.z == zlevel.level ) {
       lcnt++;
       iRocItem *it = [[iRocItem alloc] initWithItem:item];
