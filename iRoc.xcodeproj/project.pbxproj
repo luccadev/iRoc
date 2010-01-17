@@ -19,7 +19,6 @@
 		9C00EE6210B41B490098BA59 /* thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C00EE6110B41B490098BA59 /* thumb.png */; };
 		9C1E1B4610EE701C00D9BC1E /* iRocSystemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1E1B4510EE701C00D9BC1E /* iRocSystemView.m */; };
 		9C31162E10CE624B005A009B /* iRocRtTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C31162C10CE624B005A009B /* iRocRtTableView.m */; };
-		9C31162F10CE624B005A009B /* iRocRtTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C31162D10CE624B005A009B /* iRocRtTableView.xib */; };
 		9C343D3010B900E500750B22 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9C343D2F10B900E500750B22 /* Settings.bundle */; };
 		9C39142010D00B6600F9C42D /* Output.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39141F10D00B6600F9C42D /* Output.m */; };
 		9C39142410D00BE400F9C42D /* iRocCoTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39142210D00BE400F9C42D /* iRocCoTableView.m */; };
@@ -38,7 +37,6 @@
 		9C9E9DB911030D1100E16E8A /* block-1-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C9E9DB711030D1100E16E8A /* block-1-s.png */; };
 		9C9E9DBA11030D1100E16E8A /* block-2-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C9E9DB811030D1100E16E8A /* block-2-s.png */; };
 		9CA62C8410CD0AF0008E37AB /* iRocLcTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA62C8210CD0AF0008E37AB /* iRocLcTableView.m */; };
-		9CA62C8510CD0AF0008E37AB /* iRocLcTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CA62C8310CD0AF0008E37AB /* iRocLcTableView.xib */; };
 		9CA62C9110CD0B6C008E37AB /* Loc.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA62C9010CD0B6C008E37AB /* Loc.m */; };
 		9CAF71A610CBE78D00392643 /* iRocAboutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CAF71A410CBE78D00392643 /* iRocAboutView.xib */; };
 		9CAFD95710B97B700029C16F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAFD95610B97B700029C16F /* Icon.png */; };
@@ -47,7 +45,6 @@
 		9CBF0FDB10CFDC7E00FF29DA /* iRocMenuTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF0FDA10CFDC7E00FF29DA /* iRocMenuTableView.m */; };
 		9CBF100210CFE0DE00FF29DA /* Switch.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF100110CFE0DE00FF29DA /* Switch.m */; };
 		9CBF101610CFE1CA00FF29DA /* iRocSwTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF101410CFE1CA00FF29DA /* iRocSwTableView.m */; };
-		9CBF101710CFE1CA00FF29DA /* iRocSwTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF101510CFE1CA00FF29DA /* iRocSwTableView.xib */; };
 		9CBF11DF10CFF15900FF29DA /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF10F810CFF15900FF29DA /* 0.png */; };
 		9CBF11E110CFF15900FF29DA /* 0v.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF10FA10CFF15900FF29DA /* 0v.png */; };
 		9CBF11E310CFF15900FF29DA /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF10FC10CFF15900FF29DA /* 1.png */; };
@@ -231,7 +228,6 @@
 		9C1E1B4510EE701C00D9BC1E /* iRocSystemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocSystemView.m; sourceTree = "<group>"; };
 		9C31162B10CE624B005A009B /* iRocRtTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocRtTableView.h; sourceTree = "<group>"; };
 		9C31162C10CE624B005A009B /* iRocRtTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocRtTableView.m; sourceTree = "<group>"; };
-		9C31162D10CE624B005A009B /* iRocRtTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = iRocRtTableView.xib; path = Classes/iRocRtTableView.xib; sourceTree = "<group>"; };
 		9C343D2F10B900E500750B22 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		9C39141E10D00B6600F9C42D /* Output.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Output.h; sourceTree = "<group>"; };
 		9C39141F10D00B6600F9C42D /* Output.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Output.m; sourceTree = "<group>"; };
@@ -259,7 +255,6 @@
 		9C9FB42E10FA555900DAB05A /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9CA62C8110CD0AF0008E37AB /* iRocLcTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iRocLcTableView.h; path = ../iRocLcTableView.h; sourceTree = "<group>"; };
 		9CA62C8210CD0AF0008E37AB /* iRocLcTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iRocLcTableView.m; path = ../iRocLcTableView.m; sourceTree = "<group>"; };
-		9CA62C8310CD0AF0008E37AB /* iRocLcTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = iRocLcTableView.xib; sourceTree = "<group>"; };
 		9CA62C8F10CD0B6C008E37AB /* Loc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loc.h; sourceTree = "<group>"; };
 		9CA62C9010CD0B6C008E37AB /* Loc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Loc.m; sourceTree = "<group>"; };
 		9CAF71A410CBE78D00392643 /* iRocAboutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = iRocAboutView.xib; sourceTree = "<group>"; };
@@ -271,7 +266,6 @@
 		9CBF100110CFE0DE00FF29DA /* Switch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Switch.m; sourceTree = "<group>"; };
 		9CBF101310CFE1CA00FF29DA /* iRocSwTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iRocSwTableView.h; path = ../iRocSwTableView.h; sourceTree = "<group>"; };
 		9CBF101410CFE1CA00FF29DA /* iRocSwTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iRocSwTableView.m; path = ../iRocSwTableView.m; sourceTree = "<group>"; };
-		9CBF101510CFE1CA00FF29DA /* iRocSwTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = iRocSwTableView.xib; sourceTree = "<group>"; };
 		9CBF10F810CFF15900FF29DA /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
 		9CBF10FA10CFF15900FF29DA /* 0v.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0v.png; sourceTree = "<group>"; };
 		9CBF10FC10CFF15900FF29DA /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
@@ -613,9 +607,6 @@
 				8D1107310486CEB800E47090 /* iRoc-Info.plist */,
 				9CAF71A410CBE78D00392643 /* iRocAboutView.xib */,
 				9CCF669410CFD0F100F5E110 /* iRocMenuTableView.xib */,
-				9CA62C8310CD0AF0008E37AB /* iRocLcTableView.xib */,
-				9C31162D10CE624B005A009B /* iRocRtTableView.xib */,
-				9CBF101510CFE1CA00FF29DA /* iRocSwTableView.xib */,
 				9CDDE84510E25BAB00920C87 /* Default.png */,
 			);
 			name = Resources;
@@ -836,10 +827,7 @@
 				9CAFD95710B97B700029C16F /* Icon.png in Resources */,
 				9CFDBF6610BD081600E9E9DE /* Entitlements.plist in Resources */,
 				9CAF71A610CBE78D00392643 /* iRocAboutView.xib in Resources */,
-				9CA62C8510CD0AF0008E37AB /* iRocLcTableView.xib in Resources */,
-				9C31162F10CE624B005A009B /* iRocRtTableView.xib in Resources */,
 				9CCF669510CFD0F100F5E110 /* iRocMenuTableView.xib in Resources */,
-				9CBF101710CFE1CA00FF29DA /* iRocSwTableView.xib in Resources */,
 				9CBF11DF10CFF15900FF29DA /* 0.png in Resources */,
 				9CBF11E110CFF15900FF29DA /* 0v.png in Resources */,
 				9CBF11E310CFF15900FF29DA /* 1.png in Resources */,
