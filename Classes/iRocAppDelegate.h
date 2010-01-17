@@ -34,9 +34,8 @@
 @class iRocViewController;
 
 @interface iRocAppDelegate : NSObject {
-    UIWindow *window;
-    iRocViewController *viewController;
-	UITabBarController *tabBarController;
+  UIWindow *window;
+  iRocViewController *viewController;
 	iRocTabBar *tabBar;
 	
 	IBOutlet iRocLcTableView *lcTableView;
@@ -67,7 +66,6 @@
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet iRocViewController *viewController;
-@property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 @property (nonatomic, retain) IBOutlet iRocTabBar *tabBar;
 
 @property (nonatomic, retain) IBOutlet iRocLcTableView *lcTableView;

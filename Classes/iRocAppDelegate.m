@@ -15,7 +15,6 @@
 
 @synthesize window;
 @synthesize tabBar;
-@synthesize tabBarController;
 @synthesize viewController;
 @synthesize lcTableView, rtTableView, swTableView, coTableView, bkTableView, scTableView, sgTableView, 
       menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model;
@@ -316,10 +315,10 @@
 - (void)lcAction:(NSString *)lcid {	
 	NSLog(@"lcAction: %@", lcid);
 	self.viewController.textfieldLoc.text = lcid;
-	[self.tabBarController setSelectedViewController:viewController.navigationController];
+	[self.tabBar setSelectedViewController:viewController.navigationController];
 	[[NSUserDefaults standardUserDefaults] setObject:(NSString*)[self.viewController.textfieldLoc text] forKey:@"loc_preference"];
 	
-	[self.tabBarController dismissModalViewControllerAnimated:YES];
+	[self.tabBar dismissModalViewControllerAnimated:YES];
 	Loc *loc = (Loc*) [model.lcContainer objectWithId:lcid];
 
 	// The new one:
@@ -372,11 +371,11 @@
 
 - (void)lcTextFieldAction {
 	//[lcTableView.tableView reloadData];
-	[self.tabBarController presentModalViewController:lcTableView animated:YES];
+	[self.tabBar presentModalViewController:lcTableView animated:YES];
 }
 
 - (void)dealloc {
-	[tabBarController release];
+	[tabBar release];
 	[rrconnection release];
     [window release];
     [super dealloc];
