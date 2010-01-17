@@ -35,7 +35,8 @@
       textBackgroundColor = [[UIColor colorWithRed:1 green:.4 blue:.4 alpha:1] retain];
   }
   else {
-    textBackgroundColor = [UIColor clearColor];
+		text = @" ";
+    textBackgroundColor = [UIColor whiteColor];
   }
 }
 

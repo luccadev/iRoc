@@ -97,41 +97,41 @@
     
 	NSString *CellIdentifier = [NSString stringWithFormat:@"Cell_%@",loc.locid];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-      NSLog(@"creating cell for loco %@...", loc.locid);
-	cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	if (cell == nil) {
+		NSLog(@"creating cell for loco %@...", loc.locid);
+		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     
-  
-	cell.selectionStyle = UITableViewCellSelectionStyleGray;
-	
-	UILabel *locidLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 8, 100, 20)] autorelease];
-	locidLabel.font = [UIFont boldSystemFontOfSize:cellfontsize];
-	locidLabel.textColor = celltextcolor;
-	locidLabel.backgroundColor = [UIColor clearColor];
-	
-	UILabel *descLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 29, 100, 20)] autorelease];
-	descLabel.font = [UIFont boldSystemFontOfSize:12];
-	descLabel.textColor = celltextcolor;
-	descLabel.backgroundColor = [UIColor clearColor];
-	
-	UILabel *routeLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 44, 100, 20)] autorelease];
-	routeLabel.font = [UIFont boldSystemFontOfSize:12];
-	routeLabel.textColor = celltextcolor;
-	routeLabel.backgroundColor = [UIColor clearColor];
+		
+		cell.selectionStyle = UITableViewCellSelectionStyleGray;
+		
+		UILabel *locidLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 8, 100, 20)] autorelease];
+		locidLabel.font = [UIFont boldSystemFontOfSize:cellfontsize];
+		locidLabel.textColor = celltextcolor;
+		locidLabel.backgroundColor = [UIColor clearColor];
+		
+		UILabel *descLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 29, 100, 20)] autorelease];
+		descLabel.font = [UIFont boldSystemFontOfSize:12];
+		descLabel.textColor = celltextcolor;
+		descLabel.backgroundColor = [UIColor clearColor];
+		
+		UILabel *routeLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 44, 100, 20)] autorelease];
+		routeLabel.font = [UIFont boldSystemFontOfSize:12];
+		routeLabel.textColor = celltextcolor;
+		routeLabel.backgroundColor = [UIColor clearColor];
     
-	[cell.contentView addSubview:descLabel];
-	[cell.contentView addSubview:routeLabel];
-	[cell.contentView addSubview:locidLabel];
-	
-	locidLabel.text = loc.locid;
-	routeLabel.text = loc.roadname;
-	descLabel.text = loc.desc;
-  loc.cell = cell;
-	
-  NSLog(@"calling addCellLocoImage for loco %@...", loc.locid);
-	[self addCellLocoImage:loc];
-		}
+		[cell.contentView addSubview:descLabel];
+		[cell.contentView addSubview:routeLabel];
+		[cell.contentView addSubview:locidLabel];
+		
+		locidLabel.text = loc.locid;
+		routeLabel.text = loc.roadname;
+		descLabel.text = loc.desc;
+		loc.cell = cell;
+		
+		NSLog(@"calling addCellLocoImage for loco %@...", loc.locid);
+		[self addCellLocoImage:loc];
+	}
 	
   return cell;
 }
