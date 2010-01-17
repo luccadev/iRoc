@@ -35,8 +35,8 @@
 		9C1E1B4610EE701C00D9BC1E /* iRocSystemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1E1B4510EE701C00D9BC1E /* iRocSystemView.m */; };
 		9C31162E10CE624B005A009B /* iRocRtTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C31162C10CE624B005A009B /* iRocRtTableView.m */; };
 		9C343D3010B900E500750B22 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9C343D2F10B900E500750B22 /* Settings.bundle */; };
-		9C36D064110344A400DD7F82 /* ccrossing-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C36D062110344A400DD7F82 /* ccrossing-1.png */; };
-		9C36D065110344A400DD7F82 /* ccrossing-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C36D063110344A400DD7F82 /* ccrossing-2.png */; };
+		9C36D07D1103460B00DD7F82 /* ccrossing-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C36D07B1103460B00DD7F82 /* ccrossing-1.png */; };
+		9C36D07E1103460B00DD7F82 /* ccrossing-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C36D07C1103460B00DD7F82 /* ccrossing-2.png */; };
 		9C39142010D00B6600F9C42D /* Output.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39141F10D00B6600F9C42D /* Output.m */; };
 		9C39142410D00BE400F9C42D /* iRocCoTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39142210D00BE400F9C42D /* iRocCoTableView.m */; };
 		9C4A066A10E366CB00E54D74 /* rocrail-logo-noshade-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4A066910E366CB00E54D74 /* rocrail-logo-noshade-black.png */; };
@@ -276,8 +276,8 @@
 		9C31162B10CE624B005A009B /* iRocRtTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocRtTableView.h; sourceTree = "<group>"; };
 		9C31162C10CE624B005A009B /* iRocRtTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocRtTableView.m; sourceTree = "<group>"; };
 		9C343D2F10B900E500750B22 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		9C36D062110344A400DD7F82 /* ccrossing-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ccrossing-1.png"; path = "Classes/ccrossing-1.png"; sourceTree = "<group>"; };
-		9C36D063110344A400DD7F82 /* ccrossing-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ccrossing-2.png"; path = "Classes/ccrossing-2.png"; sourceTree = "<group>"; };
+		9C36D07B1103460B00DD7F82 /* ccrossing-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ccrossing-1.png"; sourceTree = "<group>"; };
+		9C36D07C1103460B00DD7F82 /* ccrossing-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ccrossing-2.png"; sourceTree = "<group>"; };
 		9C39141E10D00B6600F9C42D /* Output.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Output.h; sourceTree = "<group>"; };
 		9C39141F10D00B6600F9C42D /* Output.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Output.m; sourceTree = "<group>"; };
 		9C39142110D00BE400F9C42D /* iRocCoTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocCoTableView.h; sourceTree = "<group>"; };
@@ -690,8 +690,8 @@
 		9CBF10F610CFF14100FF29DA /* Symbols */ = {
 			isa = PBXGroup;
 			children = (
-				9C36D062110344A400DD7F82 /* ccrossing-1.png */,
-				9C36D063110344A400DD7F82 /* ccrossing-2.png */,
+				9C36D07B1103460B00DD7F82 /* ccrossing-1.png */,
+				9C36D07C1103460B00DD7F82 /* ccrossing-2.png */,
 				9C141F1E1103397500D8E911 /* dcrossingright-l-1.png */,
 				9C141F1F1103397500D8E911 /* dcrossingright-l-2.png */,
 				9C141F201103397500D8E911 /* dcrossingright-l-3.png */,
@@ -1095,12 +1095,9 @@
 				9C141F3B1103397500D8E911 /* dcrossingright-t-2.png in Resources */,
 				9C141F3C1103397500D8E911 /* dcrossingright-t-3.png in Resources */,
 				9C141F3D1103397500D8E911 /* dcrossingright-t-4.png in Resources */,
-<<<<<<< TREE
-				9C36D064110344A400DD7F82 /* ccrossing-1.png in Resources */,
-				9C36D065110344A400DD7F82 /* ccrossing-2.png in Resources */,
-=======
 				D442DD5A1103409400C7055C /* MainWindow.xib in Resources */,
->>>>>>> MERGE-SOURCE
+				9C36D07D1103460B00DD7F82 /* ccrossing-1.png in Resources */,
+				9C36D07E1103460B00DD7F82 /* ccrossing-2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
