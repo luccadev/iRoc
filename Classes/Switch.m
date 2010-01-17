@@ -52,9 +52,21 @@
       imgname = [NSString stringWithFormat:@"threeway-r-%d.png", orinr];
     
 	} else if( [self.type isEqual:@"dcrossing"] ){
-    BOOL st = [state isEqual:@"straight"];
+    //BOOL st = [state isEqual:@"straight"];
     BOOL dr = [dir isEqual:@"true"];
-		imgname = [NSString stringWithFormat:@"dcross-%c%c-%d.png", dr?'r':'l', st?'s':'t', orinr];
+		char st = 's';
+		
+		if( [state isEqual:@"straight"])
+			st = 's';
+		else if( [state isEqual:@"turnout"])
+			st = 't';
+		else if( [state isEqual:@"left"])
+			st = 'l';
+		else if( [state isEqual:@"right"])
+			st = 'r';
+		
+		imgname = [NSString stringWithFormat:@"dcrossing%@-%c-%d.png", dr?@"left":@"right", st, orinr];
+		
     cx = orinr % 2 == 0 ? 1:2; 
     cy = orinr % 2 == 0 ? 2:1; 
 	} else if( [self.type isEqual:@"crossing"] ) {
