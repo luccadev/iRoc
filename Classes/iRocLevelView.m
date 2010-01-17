@@ -123,9 +123,10 @@
   scrollView.contentSize = plansize;
   scrollView.delegate = self;
 	
-	if([[[NSUserDefaults standardUserDefaults] stringForKey:@"plancolor_preference"] isEqual:@"green"])
+	NSUserDefaults *defaults = [[NSUserDefaults standardUserDefaults] retain];
+	if([[defaults stringForKey:@"plancolor_preference"] isEqual:@"green"])
 		[scrollView setBackgroundColor:[UIColor colorWithRed:.7 green:.9 blue:.7 alpha:1.0]];
-	else if([[[NSUserDefaults standardUserDefaults] stringForKey:@"plancolor_preference"] isEqual:@"grey"])
+	else if([[defaults stringForKey:@"plancolor_preference"] isEqual:@"grey"])
 	  [scrollView setBackgroundColor:[UIColor colorWithRed:.8 green:.8 blue:.8 alpha:1.0]];
 	else
 		[scrollView setBackgroundColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1.0]];	

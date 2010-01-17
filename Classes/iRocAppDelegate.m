@@ -54,7 +54,6 @@
 	if( [defaults boolForKey:@"moveevents_preference"]) {
 		[viewController processAllEvents:[defaults integerForKey:@"vdelta_preference"]];
 	}
-	
   
   viewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:
                                NSLocalizedString(@"Loco", @"")

@@ -20,6 +20,7 @@
     self.viewControllers = views;
     self.delegate = self;
   }
+	
   return self;
 }
 
