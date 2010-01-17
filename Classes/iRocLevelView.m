@@ -45,39 +45,36 @@
 	float lcnt = 0;
 	date = [NSDate date];
 	
-  cnt = [model.swContainer count];
-  NSLog(@"add %d switches for level %@", cnt, zlevel.title);
-  for( int i = 0; i < cnt; i++ ) {
-    Item * item = (Item *)[model.swContainer objectAtIndex:i];
-    if( item.z == zlevel.level ) {
-      lcnt++;
-      iRocItem *it = [[iRocItem alloc] initWithItem:item];
-      [scrollView addSubview:it];
-    }
-  }
-
-	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/lcnt*(-1));
-  lcnt = 0;
-	date = [NSDate date];
-	
-  cnt = [model.sgContainer count];
-  NSLog(@"add %d signals for level %@", cnt, zlevel.title);
-  for( int i = 0; i < cnt; i++ ) {
-    Item * item = (Item *)[model.sgContainer objectAtIndex:i];
-    if( item.z == zlevel.level ) {
-      lcnt++;
-      iRocItem *it = [[iRocItem alloc] initWithItem:item];
-      [scrollView addSubview:it];
-    }
-  }
-	
-
-	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/lcnt*(-1));
-  lcnt = 0;
-	date = [NSDate date];
-	
   NSEnumerator * itemEnum = [model.tkContainer getEnumerator];
   Item * item = nil;
+  while ((item = (Item*)[itemEnum nextObject])) {
+    if( item.z == zlevel.level ) {
+      lcnt++;
+      iRocItem *it = [[iRocItem alloc] initWithItem:item];
+      [scrollView addSubview:it];
+    }
+  }
+
+	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/lcnt*(-1));
+  lcnt = 0;
+	date = [NSDate date];
+	
+	itemEnum = [model.sgContainer getEnumerator];
+  item = nil;
+  while ((item = (Item*)[itemEnum nextObject])) {
+    if( item.z == zlevel.level ) {
+      lcnt++;
+      iRocItem *it = [[iRocItem alloc] initWithItem:item];
+      [scrollView addSubview:it];
+    }
+  }
+	
+	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/lcnt*(-1));
+  lcnt = 0;
+	date = [NSDate date];
+	
+  itemEnum = [model.swContainer getEnumerator];
+  item = nil;
   while ((item = (Item*)[itemEnum nextObject])) {
     if( item.z == zlevel.level ) {
       lcnt++;
@@ -90,10 +87,9 @@
   lcnt = 0;
 	date = [NSDate date];
 
-  cnt = [model.fbContainer count];
-  NSLog(@"add %d sensors for level %@", cnt, zlevel.title);
-  for( int i = 0; i < cnt; i++ ) {
-    Item * item = (Item *)[model.fbContainer objectAtIndex:i];
+	itemEnum = [model.fbContainer getEnumerator];
+  item = nil;
+  while ((item = (Item*)[itemEnum nextObject])) {
     if( item.z == zlevel.level ) {
       lcnt++;
       iRocItem *it = [[iRocItem alloc] initWithItem:item];
@@ -105,31 +101,32 @@
   lcnt = 0;
 	date = [NSDate date];
   
-  cnt = [model.bkContainer count];
-  NSLog(@"add %d blocks for level %@", cnt, zlevel.title);
-  for( int i = 0; i < cnt; i++ ) {
-    Item * item = (Item *)[model.bkContainer objectAtIndex:i];
+	itemEnum = [model.bkContainer getEnumerator];
+  item = nil;
+  while ((item = (Item*)[itemEnum nextObject])) {
     if( item.z == zlevel.level ) {
       lcnt++;
       iRocItem *it = [[iRocItem alloc] initWithItem:item];
       [scrollView addSubview:it];
     }
   }
-  
+	
+	
 	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/lcnt*(-1));
   lcnt = 0;
 	date = [NSDate date];
 	
-  cnt = [model.coContainer count];
-  NSLog(@"add %d outputs for level %@", cnt, zlevel.title);
-  for( int i = 0; i < cnt; i++ ) {
-    Item * item = (Item *)[model.coContainer objectAtIndex:i];
+	
+	itemEnum = [model.coContainer getEnumerator];
+  item = nil;
+  while ((item = (Item*)[itemEnum nextObject])) {
     if( item.z == zlevel.level ) {
       lcnt++;
       iRocItem *it = [[iRocItem alloc] initWithItem:item];
       [scrollView addSubview:it];
     }
   }
+
 	
 	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/lcnt*(-1));
   lcnt = 0;
