@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Item.h"
+#import "Container.h"
 
 
 @interface iRocItem : UIControl {
@@ -16,6 +17,8 @@
   UIImageView *imageview;
   UILabel *label;
 }
+
+static Container *imageContainer;
 
 - (NSString *)getId;
 - (id)initWithItem:(Item *)_item;

@@ -14,15 +14,28 @@
 - (id)initWithItem:(Item *)_item {
   item = _item;
   NSString *imagename = [item getImgName];
+	
+	if( imageContainer == nil) {
+		imageContainer = [[[Container alloc] init] retain];
+	}
   
 	CGRect itemframe = CGRectMake(ITEMSIZE * item.x, ITEMSIZE * item.y, ITEMSIZE * item.cx, ITEMSIZE * item.cy);	
   if( self = [super initWithFrame:itemframe] ) {
-    NSLog(@"item image=%@ x,y=%d,%d cx,cy=%d,%d", [item getImgName], item.x, item.y, item.cx, item.cy);
+    //NSLog(@"item image=%@ x,y=%d,%d cx,cy=%d,%d", [item getImgName], item.x, item.y, item.cx, item.cy);
     [self addTarget:self action: @selector(itemAction:)
    forControlEvents: UIControlEventTouchDown ];
     
     if( imagename != nil ) {
-  	  image = [UIImage imageNamed:imagename];
+			
+			if ([imageContainer objectWithId:imagename] == NULL) {
+				image = [UIImage imageNamed:imagename];
+				[imageContainer addObject:image withId:imagename];
+				NSLog(@"NEW item image=%@ x,y=%d,%d cx,cy=%d,%d", [item getImgName], item.x, item.y, item.cx, item.cy);
+			} else {
+				image = (UIImage*)[imageContainer objectWithId:imagename];
+				NSLog(@"OLD item image=%@ x,y=%d,%d cx,cy=%d,%d", [item getImgName], item.x, item.y, item.cx, item.cy);
+			}
+				
       CGRect imageframe = CGRectMake(0, 0, ITEMSIZE * item.cx, ITEMSIZE * item.cy);	
 	    imageview = [[UIImageView alloc] initWithFrame:imageframe];
   	  imageview.image = image; 

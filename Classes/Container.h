@@ -15,10 +15,10 @@
 	NSMutableDictionary *theData;
 }
 
-- (void) addObject:(NSObject*)object withId:(NSString*)oid;
+- (void) addObject:(id)object withId:(NSString*)oid;
 
-- (NSObject*) objectWithId:(NSString*) oid;
-- (NSObject*) objectAtIndex:(int) index;
+- (id) objectWithId:(NSString*) oid;
+- (id) objectAtIndex:(int) index;
 - (int) count;
 
 @end

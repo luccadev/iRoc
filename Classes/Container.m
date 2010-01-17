@@ -28,19 +28,19 @@
     [super dealloc];
 }
 
-- (void) addObject:(NSObject *)object withId:(NSString *)oid {
+- (void) addObject:(id)object withId:(NSString *)oid {
 	//[objectList addObject:object];
 	//[objectIndexList addObject:oid];
 	[theData setValue:object forKey:oid];
 	NSLog(@"Container add %@ ...", oid);
 }
 
-- (NSObject*) objectWithId:(NSString*) oid {
+- (id) objectWithId:(NSString*) oid {
 	return [theData objectForKey:oid];
 }
 
 
-- (NSObject*) objectAtIndex:(int) index {
+- (id) objectAtIndex:(int) index {
 	NSArray *keys = [theData allKeys];
 	NSArray *sortedKeys = [keys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 	//NSArray *sortedKeys = [keys sortedArrayUsingSelector:@selector(compare:)];
