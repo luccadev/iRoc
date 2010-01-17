@@ -113,7 +113,7 @@
 	
 	imageLoaded = YES;
   
-  NSLog(@"update image in list for loc %@ loaded ...", self.locid);
+  //NSLog(@"update image in list for loc %@ loaded ...", self.locid);
   [_delegate performSelectorOnMainThread : @ selector(lcListUpdateCell: ) withObject:self waitUntilDone:YES];
   
   
@@ -141,7 +141,7 @@
 	
 	[self prepareImage];
 	
-	NSLog(@"SETLOCPICDATA FOR: %@", self.locid);
+	//NSLog(@"SETLOCPICDATA FOR: %@", self.locid);
 	
 }
 

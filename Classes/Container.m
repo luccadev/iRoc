@@ -15,7 +15,7 @@
 	[super init];	
 	//objectList = [[NSMutableArray array] retain];
 	//objectIndexList = [[NSMutableArray array] retain];
-	theData = [[NSMutableDictionary dictionaryWithCapacity:100] retain];
+	theData = [[NSMutableDictionary dictionaryWithCapacity:250] retain];
 	NSLog(@"Container Init ...");
 	
 	return self;
@@ -32,7 +32,7 @@
 	//[objectList addObject:object];
 	//[objectIndexList addObject:oid];
 	[theData setValue:object forKey:oid];
-	NSLog(@"Container add %@ ...", oid);
+	//NSLog(@"Container add %@ ...", oid);
 }
 
 - (id) objectWithId:(NSString*) oid {

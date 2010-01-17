@@ -130,7 +130,7 @@
 
 - (void)nextLocpic:(BOOL)fromSax{
   
-  NSLog(@"nextLocpic: pending=%d fromSax=%d queue=%d", pendingLocoPic, fromSax, [messageQueue count]);
+  //NSLog(@"nextLocpic: pending=%d fromSax=%d queue=%d", pendingLocoPic, fromSax, [messageQueue count]);
   
   if( (!pendingLocoPic||fromSax) && [messageQueue count] > 0 ) {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
@@ -140,7 +140,7 @@
     if( msg != nil ) {
       
 
-  	NSLog(@"requesting Locpic: %@", msg);
+  	//NSLog(@"requesting Locpic: %@", msg);
     
   	[self sendMessage:@"datareq" message:msg];
       [messageQueue removeObjectAtIndex:0];
@@ -516,9 +516,9 @@ static NSString * const kIdElementName = @"id";
         [loc setDelegate:_delegate];
         [model.lcContainer addObject:loc withId:loc.locid];
       }
-      else {
-        NSLog(@"parser: skipping invisible loco");		
-      }
+      //else {
+        //NSLog(@"parser: skipping invisible loco");		
+      //}
     }
     else {
 	    NSLog(@"loco event parser: lc: %@ - v: %@ - dir: %@", [attributeDict valueForKey:@"id"], [attributeDict valueForKey:@"V"], [attributeDict valueForKey:@"dir"]);
@@ -656,7 +656,7 @@ static NSString * const kIdElementName = @"id";
       [bk setDelegate:_delegate];
       bk.ID = idAttribute;
 			bk.smallsymbol = [attributeDict valueForKey:@"smallsymbol"];
-	    NSLog(@"Block small symbol: %@", bk.smallsymbol);
+	    //NSLog(@"Block small symbol: %@", bk.smallsymbol);
 	  [model.bkContainer addObject:bk withId:idAttribute];
     } else {
 			NSString *state = [attributeDict valueForKey:@"state"];
@@ -698,7 +698,7 @@ static NSString * const kIdElementName = @"id";
 	} else if ([elementName isEqualToString:@"datareq"]) {
 		NSString *relAttribute = [attributeDict valueForKey:kIdElementName];
 		
-		NSLog(@"connector LOCPIC: %@ ",relAttribute );
+		//NSLog(@"connector LOCPIC: %@ ",relAttribute );
     
 		NSString *data = [attributeDict valueForKey:@"data"];
     if( [data length] > 0 ) {
@@ -804,7 +804,7 @@ static NSString * const kIdElementName = @"id";
 
 	} else if ([elementName isEqualToString:@"datareq"]) {
 		// inform the delegate
-		NSLog(@"end datareq");
+		//NSLog(@"end datareq");
 	} else if ([elementName isEqualToString:@"clock"]) {
 		// inform the delegate
 		NSLog(@"Clock tick.");

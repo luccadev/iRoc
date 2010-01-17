@@ -48,7 +48,7 @@
     if( cx < 1 ) cx = 1;
     if( cy < 1 ) cy = 1;
     
-    NSLog(@"x=%d y=%d z=%d ori=%@", x, y, z, ori);
+    //NSLog(@"x=%d y=%d z=%d ori=%@", x, y, z, ori);
   }
   return self;
 }

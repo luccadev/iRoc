@@ -78,6 +78,8 @@
       iRocItem *it = [[iRocItem alloc] initWithItem:item];
       [scrollView addSubview:it];
     }
+		//NSLog(@"TRACK: ---------  %f", [date timeIntervalSinceNow]*(-1));
+		//date = [NSDate date];
   }
 	
 	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/cnt*(-1));

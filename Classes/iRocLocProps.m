@@ -151,7 +151,7 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
   
   Loc* lc = loc;
   if( lc == nil ) {
-    NSLog(@"imageLoaded: loco=%@...", idLabel.text);
+    //NSLog(@"imageLoaded: loco=%@...", idLabel.text);
     lc = [delegate getLoc:idLabel.text];
     loc = lc;
     [self updateLabels];
@@ -159,7 +159,7 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
   
   [delegate setSelectedLoc:loc];
   
-	NSLog(@"imageLoaded: loco=%@(%@) hasImage=%d imageLoaded=%d...", [lc locid], idLabel.text, [lc hasImage], [lc imageLoaded]);
+	//NSLog(@"imageLoaded: loco=%@(%@) hasImage=%d imageLoaded=%d...", [lc locid], idLabel.text, [lc hasImage], [lc imageLoaded]);
   if( [lc hasImage] && [lc imageLoaded] ) {
     NSLog(@"loaded image...");
     UIImage *img = [lc getImage];
