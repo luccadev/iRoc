@@ -90,6 +90,8 @@
   UINavigationController *layoutNavi = [[UINavigationController alloc] initWithRootViewController:levelTableView];
   layoutNavi.navigationBar.tintColor = [UIColor blackColor];
 
+  UINavigationController *menuNavi = [[UINavigationController alloc] initWithRootViewController:menuTableView];
+  menuNavi.navigationBar.tintColor = [UIColor blackColor];
   
     // Tab 1 = Loco
     // Tab 2 = System
@@ -99,7 +101,7 @@
   
   [tabBar addPage: (UIView *)navi];
   [tabBar addPage: (UIView *)systemView];
-  [tabBar addPage: (UIView *)menuTableView];
+  [tabBar addPage: (UIView *)menuNavi];
   [tabBar addPage: (UIView *)layoutNavi];
   
 	[window addSubview:tabBar.view];
