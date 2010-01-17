@@ -7,6 +7,7 @@
 //
 
 #import "iRocTabBar.h"
+#import "iRocViewController.h"
 
 
 @implementation iRocTabBar
@@ -30,6 +31,12 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
   NSLog(@"rotation message: will be rotated...");
+  if( self.selectedIndex == 0 ) {
+    if( toInterfaceOrientation == UIDeviceOrientationPortrait || toInterfaceOrientation == UIDeviceOrientationPortraitUpsideDown )
+    return YES;
+  else
+    return NO;
+  }
   return YES;
 }
 
