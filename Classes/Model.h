@@ -27,10 +27,14 @@
 	Container *bkContainer;
 	Container *coContainer;
 	Container *txContainer;
+  Container *rtContainer;
+	Container *lcContainer;
+	Container *scContainer;
+  
 
 }
 @property(nonatomic, retain) Container *levelContainer, *swContainer, *sgContainer, *tkContainer, 
-    *fbContainer, *bkContainer, *coContainer, *txContainer;
+    *fbContainer, *bkContainer, *coContainer, *txContainer, *rtContainer, *lcContainer, *scContainer;
 @property(nonatomic, retain) NSString *title, *name, *rocguiversion, *rocrailversion;
 
 - (void) setupWithAttributeDict: (NSDictionary *)attributeDict;

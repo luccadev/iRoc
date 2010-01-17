@@ -14,8 +14,7 @@
 
 @implementation IRocConnector
 
-@synthesize header, rocdata, isConnected, readyConnecting, currentLocObject, coContainer;
-@synthesize swContainer, lcContainer, rtContainer, bkContainer, scContainer, sgContainer;
+@synthesize header, rocdata, isConnected, readyConnecting, currentLocObject;
 
 - (id) init {
 	[super init];
@@ -515,7 +514,7 @@ static NSString * const kIdElementName = @"id";
       if( ![[attributeDict valueForKey:@"show"] isEqualToString:@"false"] ) {
         Loc *loc = [[[Loc alloc] initWithAttributeDict:attributeDict] retain];
         [loc setDelegate:_delegate];
-        [self.lcContainer addObject:loc withId:loc.locid];
+        [model.lcContainer addObject:loc withId:loc.locid];
       }
       else {
         NSLog(@"parser: skipping invisible loco");		
@@ -524,7 +523,7 @@ static NSString * const kIdElementName = @"id";
     else {
 	    NSLog(@"loco event parser: lc: %@ - v: %@ - dir: %@", [attributeDict valueForKey:@"id"], [attributeDict valueForKey:@"V"], [attributeDict valueForKey:@"dir"]);
 			
-			Loc *lc = (Loc*)[lcContainer objectWithId:[attributeDict valueForKey:@"id"]];
+			Loc *lc = (Loc*)[model.lcContainer objectWithId:[attributeDict valueForKey:@"id"]];
       [lc updateWithAttributeDict:attributeDict];
 			
 			/*
@@ -546,11 +545,11 @@ static NSString * const kIdElementName = @"id";
       sw.swid = idAttribute;
       sw.type = type;
 	  sw.state = state;
-	  [self.swContainer addObject:sw withId:idAttribute];
+	  [model.swContainer addObject:sw withId:idAttribute];
     }
     else {
 	  NSString *state = [attributeDict valueForKey:@"state"];
-	  Switch *sw = (Switch*) [self.swContainer objectWithId:idAttribute];		
+	  Switch *sw = (Switch*) [model.swContainer objectWithId:idAttribute];		
 	  [sw setState:state];
     [sw updateEvent];
 		
@@ -599,11 +598,11 @@ static NSString * const kIdElementName = @"id";
       sg.ID = idAttribute;
       sg.type = type;
       sg.state = state;
-      [self.sgContainer addObject:sg withId:idAttribute];
+      [model.sgContainer addObject:sg withId:idAttribute];
     }
     else {
       NSString *state = [attributeDict valueForKey:@"state"];
-      Signal *sg = (Signal*) [self.sgContainer objectWithId:idAttribute];		
+      Signal *sg = (Signal*) [model.sgContainer objectWithId:idAttribute];		
       [sg setState:state];
       [sg updateEvent];
 
@@ -620,7 +619,7 @@ static NSString * const kIdElementName = @"id";
       Route *rt = [[[Route alloc] init] retain];
       rt.rtid = relAttribute;
       //[self.rtList addObject:rt];
-			[self.rtContainer addObject:rt withId:rt.rtid];
+			[model.rtContainer addObject:rt withId:rt.rtid];
     }
     else {
       NSLog(@"route event");		
@@ -635,10 +634,10 @@ static NSString * const kIdElementName = @"id";
       co.coid = idAttribute;
 	    co.state = [attributeDict valueForKey:@"state"];
         //NSLog(@"Output State: %@", co.state);
-      [self.coContainer addObject:co withId:idAttribute];
+      [model.coContainer addObject:co withId:idAttribute];
     } else {
 			NSString *state = [attributeDict valueForKey:@"state"];
-			Output *co = (Output*) [self.coContainer objectWithId:idAttribute];
+			Output *co = (Output*) [model.coContainer objectWithId:idAttribute];
       [co updateWithAttributeDict:attributeDict];
 			[co setState:state];
       [co updateEvent];
@@ -658,10 +657,10 @@ static NSString * const kIdElementName = @"id";
       bk.ID = idAttribute;
 			bk.smallsymbol = [attributeDict valueForKey:@"smallsymbol"];
 	    NSLog(@"Block small symbol: %@", bk.smallsymbol);
-	  [self.bkContainer addObject:bk withId:idAttribute];
+	  [model.bkContainer addObject:bk withId:idAttribute];
     } else {
 			NSString *state = [attributeDict valueForKey:@"state"];
-			Block *bk = (Block*) [self.bkContainer objectWithId:idAttribute];
+			Block *bk = (Block*) [model.bkContainer objectWithId:idAttribute];
       [bk updateWithAttributeDict:attributeDict];
 			[bk setState:state];
       [bk updateEvent];
@@ -691,7 +690,7 @@ static NSString * const kIdElementName = @"id";
         //NSLog(@"parser: sc: %@", [attributeDict valueForKey:kIdElementName]);
       Schedule *sc = [[[Schedule alloc] init] retain];
       sc.ID = idAttribute;
-      [self.scContainer addObject:sc withId:idAttribute];
+      [model.scContainer addObject:sc withId:idAttribute];
     } else {
       NSLog(@"Schedule [%@] event");	
     }
@@ -703,7 +702,7 @@ static NSString * const kIdElementName = @"id";
     
 		NSString *data = [attributeDict valueForKey:@"data"];
     if( [data length] > 0 ) {
-      [((Loc*) [self.lcContainer objectWithId:relAttribute]) setLocpicdata:data]; 
+      [((Loc*) [model.lcContainer objectWithId:relAttribute]) setLocpicdata:data]; 
     }
 		[self nextLocpic:TRUE];
 		pendingLocoPic = FALSE;
@@ -751,43 +750,43 @@ static NSString * const kIdElementName = @"id";
 			//[_delegate lcListLoaded];
       [_delegate performSelectorOnMainThread : @ selector(lcListLoaded ) withObject:nil waitUntilDone:NO];
 		} 
-		NSLog(@"%d locs added ... ", [lcContainer count]);
+		NSLog(@"%d locs added ... ", [model.lcContainer count]);
 	} else if (parsingPlan && [elementName isEqualToString:@"stlist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(rtListLoaded)] ) {
       [_delegate performSelectorOnMainThread : @ selector(rtListLoaded ) withObject:nil waitUntilDone:NO];
 		} 
-		NSLog(@"%d rts added ... ", [rtContainer count]);
+		NSLog(@"%d rts added ... ", [model.rtContainer count]);
 	} else if (parsingPlan && [elementName isEqualToString:@"swlist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(swListLoaded)] ) {
       [_delegate performSelectorOnMainThread : @ selector(swListLoaded ) withObject:nil waitUntilDone:NO];
 		} 
-		NSLog(@"%d sws added ... ", [swContainer count]);
+		NSLog(@"%d sws added ... ", [model.swContainer count]);
 	} else if (parsingPlan && [elementName isEqualToString:@"sglist"]) {
       // inform the delegate
 		if ( [_delegate respondsToSelector:@selector(sgListLoaded)] ) {
       [_delegate performSelectorOnMainThread : @ selector(sgListLoaded ) withObject:nil waitUntilDone:NO];
 		} 
-		NSLog(@"%d sgs added ... ", [sgContainer count]);
+		NSLog(@"%d sgs added ... ", [model.sgContainer count]);
 	} else if ( parsingPlan && [elementName isEqualToString:@"colist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(coListLoaded)] ) {
       [_delegate performSelectorOnMainThread : @ selector(coListLoaded ) withObject:nil waitUntilDone:NO];
 		} 
-		NSLog(@"%d cos added ... ", [coContainer count]);
+		NSLog(@"%d cos added ... ", [model.coContainer count]);
 	} else if ( parsingPlan && [elementName isEqualToString:@"bklist"]) {
       // inform the delegate
 		if ( [_delegate respondsToSelector:@selector(bkListLoaded)] ) {
       [_delegate performSelectorOnMainThread : @ selector(bkListLoaded ) withObject:nil waitUntilDone:NO];
 		} 
-		NSLog(@"%d bks added ... ", [bkContainer count]);
+		NSLog(@"%d bks added ... ", [model.bkContainer count]);
 	} else if ( parsingPlan && [elementName isEqualToString:@"sclist"]) {
       // inform the delegate
 		if ( [_delegate respondsToSelector:@selector(scListLoaded)] ) {
       [_delegate performSelectorOnMainThread : @ selector(scListLoaded ) withObject:nil waitUntilDone:NO];
 		} 
-		NSLog(@"%d scs added ... ", [scContainer count]);
+		NSLog(@"%d scs added ... ", [model.scContainer count]);
 	} else if ([elementName isEqualToString:@"plan"]) {
 		// inform the delegate
     NSLog(@"Plan is processed.");

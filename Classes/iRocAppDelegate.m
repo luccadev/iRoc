@@ -18,10 +18,9 @@
 @synthesize tabBarController;
 @synthesize viewController;
 @synthesize lcTableView, rtTableView, swTableView, coTableView, bkTableView, scTableView, sgTableView, 
-      menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView;
+      menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model;
 
-@synthesize coContainer, rrconnection, menuItems, aboutView, swContainer, sgContainer, lcContainer, rtContainer, 
-      bkContainer, scContainer;
+@synthesize rrconnection, menuItems, aboutView;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
   NSLog(@"applicationDidFinishLaunching");
@@ -121,53 +120,45 @@
 */
   
   
-  rtContainer = [[[Container alloc] init] retain];
-	swContainer = model.swContainer;
-	lcContainer = [[[Container alloc] init] retain];
-	coContainer = model.coContainer;
-	bkContainer = model.bkContainer;
-	scContainer = [[[Container alloc] init] retain];
-	sgContainer = model.sgContainer;
-
-  lcAutoView.bkContainer = bkContainer;
-  lcAutoView.scContainer = scContainer;
+  lcAutoView.bkContainer = model.bkContainer;
+  lcAutoView.scContainer = model.scContainer;
 
 	menuItems = [[NSMutableArray array] retain];
 	
 
 	lcTableView = [[iRocLcTableView alloc] initWithNibName:@"iRocLcTableView" bundle:nil];
-	[lcTableView setLcContainer:self.lcContainer];
+	[lcTableView setLcContainer:model.lcContainer];
 	[lcTableView setDelegate:self];
 	[lcTableView setMenuname:NSLocalizedString(@"Locomotives", @"")];
 
 	swTableView = [[iRocSwTableView alloc] initWithNibName:@"iRocSwTableView" bundle:nil];
-	[swTableView setSwContainer:self.swContainer];
+	[swTableView setSwContainer:model.swContainer];
 	
 	[swTableView setDelegate:self];
 	[swTableView setMenuname:NSLocalizedString(@"Switches", @"")];
 	
 	rtTableView = [[iRocRtTableView alloc] initWithNibName:@"iRocRtTableView" bundle:nil];
-	[rtTableView setRtContainer:self.rtContainer];
+	[rtTableView setRtContainer:model.rtContainer];
 	[rtTableView setDelegate:self];
 	[rtTableView setMenuname:NSLocalizedString(@"Routes", @"")];
 	
 	coTableView = [[iRocCoTableView alloc] initWithNibName:@"iRocCoTableView" bundle:nil];
-	[coTableView setCoContainer:self.coContainer];
+	[coTableView setCoContainer:model.coContainer];
 	[coTableView setDelegate:self];
 	[coTableView setMenuname:NSLocalizedString(@"Outputs", @"")];
 	
 	bkTableView = [[iRocBkTableView alloc] init];
-	[bkTableView setBkContainer:self.bkContainer];
+	[bkTableView setBkContainer:model.bkContainer];
 	[bkTableView setDelegate:self];
 	[bkTableView setMenuname:NSLocalizedString(@"Blocks", @"")];
 	
 	scTableView = [[iRocScTableView alloc] init];
-	[scTableView setScContainer:self.scContainer];
+	[scTableView setScContainer:model.scContainer];
 	[scTableView setDelegate:self];
 	[scTableView setMenuname:NSLocalizedString(@"Schedules", @"")];
 	
 	sgTableView = [[iRocSgTableView alloc] init];
-	[sgTableView setSgContainer:self.sgContainer];
+	[sgTableView setSgContainer:model.sgContainer];
 	[sgTableView setDelegate:self];
 	[sgTableView setMenuname:NSLocalizedString(@"Signals", @"")];
 
@@ -190,13 +181,6 @@
 	[rrconnection setDomain:[defaults stringForKey:@"ip_preference"]];
 	[rrconnection setPort:[defaults integerForKey:@"port_preference"]];
 	[rrconnection setDelegate:self withModel:model];
-	[rrconnection setLcContainer:self.lcContainer];
-	[rrconnection setRtContainer:self.rtContainer];
-	[rrconnection setSwContainer:self.swContainer];
-	[rrconnection setCoContainer:self.coContainer];
-	[rrconnection setBkContainer:self.bkContainer];
-	[rrconnection setScContainer:self.scContainer];
-	[rrconnection setSgContainer:self.sgContainer];
 	viewController.textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
   viewController.imageviewLoc = nil;
   
@@ -350,7 +334,7 @@
 	[[NSUserDefaults standardUserDefaults] setObject:(NSString*)[self.viewController.textfieldLoc text] forKey:@"loc_preference"];
 	
 	[self.tabBarController dismissModalViewControllerAnimated:YES];
-	Loc *loc = (Loc*) [self.lcContainer objectWithId:lcid];
+	Loc *loc = (Loc*) [model.lcContainer objectWithId:lcid];
 
 	// The new one:
 	[viewController.locProps setLoc:loc];
@@ -361,18 +345,18 @@
 }
 
 - (Loc*)getLoc:(NSString *)lcid {
-	NSLog(@"getLoc for: %@ 0x%08X", lcid, lcContainer);
+	NSLog(@"getLoc for: %@ 0x%08X", lcid, model.lcContainer);
   if( lcid != NULL ) {
-	  return (Loc*) [self.lcContainer objectWithId:lcid];
+	  return (Loc*) [model.lcContainer objectWithId:lcid];
   }
   return nil;
 }
 
 - (void)askForAllLocPics {
 	int i;
-	for( i = 0; i< [lcContainer count]; i++){	
+	for( i = 0; i< [model.lcContainer count]; i++){	
 		Loc *loc;
-		loc = (Loc*)[lcContainer objectAtIndex:i];
+		loc = (Loc*)[model.lcContainer objectAtIndex:i];
 		if( loc != nil && loc.hasImage && ![loc.imgname isEqualToString:@""] ) {
 			[self askForLocpic:loc.locid withFilename:loc.imgname];
 		}

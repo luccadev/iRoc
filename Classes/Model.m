@@ -10,7 +10,7 @@
 
 
 @implementation Model
-@synthesize levelContainer, swContainer, sgContainer, tkContainer, fbContainer, bkContainer, coContainer, txContainer;
+@synthesize levelContainer, swContainer, sgContainer, tkContainer, fbContainer, bkContainer, coContainer, txContainer, rtContainer, scContainer, lcContainer;
 @synthesize title, name, rocrailversion, rocguiversion;
 
 - (id) init {
@@ -23,6 +23,9 @@
     bkContainer    = [[[Container alloc] init] retain];
     coContainer    = [[[Container alloc] init] retain];
     txContainer    = [[[Container alloc] init] retain];
+    rtContainer    = [[[Container alloc] init] retain];
+    lcContainer    = [[[Container alloc] init] retain];
+    scContainer    = [[[Container alloc] init] retain];
   }
   return self;
 }

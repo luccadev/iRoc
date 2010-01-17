@@ -55,13 +55,6 @@
 
 	iRocAboutView IBOutlet *aboutView;
   
-	Container *rtContainer;
-	Container *swContainer;
-	Container *lcContainer;
-	Container *coContainer;
-	Container *bkContainer;
-	Container *scContainer;
-	Container *sgContainer;
 	Model *model;
   
 	NSMutableArray *menuItems;
@@ -92,15 +85,8 @@
 
 @property (nonatomic, retain) IBOutlet iRocAboutView *aboutView;
 
-@property(nonatomic, retain) Container *rtContainer;
-@property(nonatomic, retain) Container *swContainer;
-@property(nonatomic, retain) Container *lcContainer;
-@property(nonatomic, retain) Container *coContainer;
-@property(nonatomic, retain) Container *bkContainer;
-@property(nonatomic, retain) Container *scContainer;
-@property(nonatomic, retain) Container *sgContainer;
-
 @property(nonatomic, retain) NSMutableArray *menuItems;
+@property(nonatomic, retain) Model *model;
 
 @property (nonatomic, retain) IRocConnector *rrconnection;
 
