@@ -21,6 +21,20 @@
 @synthesize ip;
 @synthesize VDelta;
 
+
+- (id)init {
+  NSLog(@"***** View Controller INIT");
+  self = [super init];
+  if( self != nil ) {
+    self.tabBarItem = [[UITabBarItem alloc] initWithTitle:
+                       NSLocalizedString(@"Loco", @"")
+                                                    image:[UIImage imageNamed:@"loco.png"] tag:1];
+  }
+  return self;
+}
+
+
+
 - (IBAction) buttonDirClicked:(id) sender { 
   if([buttonFn getBState]) {
     NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc throttleid=\"%@\" cmd=\"release\" id=\"%@\"/>", 

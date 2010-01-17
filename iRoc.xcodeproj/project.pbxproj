@@ -168,6 +168,7 @@
 		9CE17DD910CE857B00170A98 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE17DD810CE857B00170A98 /* Route.m */; };
 		9CE44AF010ECB99F00506323 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CE44AEE10ECB99F00506323 /* Localizable.strings */; };
 		9CFDBF6610BD081600E9E9DE /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CFDBF6510BD081600E9E9DE /* Entitlements.plist */; };
+		D496063F1102F98E00213441 /* iRocTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D496063E1102F98E00213441 /* iRocTabBar.m */; };
 		D4965AB710F517DD00C09B9B /* iRocLcAutoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4965AB410F517DD00C09B9B /* iRocLcAutoView.m */; };
 		D4965AB810F517DD00C09B9B /* iRocSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D4965AB610F517DD00C09B9B /* iRocSlider.m */; };
 		D49897CC1100C71F006C0F2B /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = D49897CB1100C71F006C0F2B /* Track.m */; };
@@ -395,6 +396,8 @@
 		9CE44AFF10ECB9C900506323 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9CE44B0010ECB9D300506323 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9CFDBF6510BD081600E9E9DE /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		D496063D1102F98E00213441 /* iRocTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocTabBar.h; sourceTree = "<group>"; };
+		D496063E1102F98E00213441 /* iRocTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocTabBar.m; sourceTree = "<group>"; };
 		D4965AB310F517DD00C09B9B /* iRocLcAutoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocLcAutoView.h; sourceTree = "<group>"; };
 		D4965AB410F517DD00C09B9B /* iRocLcAutoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocLcAutoView.m; sourceTree = "<group>"; };
 		D4965AB510F517DD00C09B9B /* iRocSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocSlider.h; sourceTree = "<group>"; };
@@ -548,6 +551,8 @@
 				D49897F21100CBEC006C0F2B /* Sensor.m */,
 				D499E1FE1101A371000C2A37 /* Text.h */,
 				D499E1FF1101A371000C2A37 /* Text.m */,
+				D496063D1102F98E00213441 /* iRocTabBar.h */,
+				D496063E1102F98E00213441 /* iRocTabBar.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1017,6 +1022,7 @@
 				D49897CC1100C71F006C0F2B /* Track.m in Sources */,
 				D49897F31100CBEC006C0F2B /* Sensor.m in Sources */,
 				D499E2001101A371000C2A37 /* Text.m in Sources */,
+				D496063F1102F98E00213441 /* iRocTabBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

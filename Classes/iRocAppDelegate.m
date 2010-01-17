@@ -8,11 +8,13 @@
 
 #import "iRocAppDelegate.h"
 #import "iRocViewController.h"
+#import "iRocTabBar.h"
 
 
 @implementation iRocAppDelegate
 
 @synthesize window;
+@synthesize tabBar;
 @synthesize tabBarController;
 @synthesize viewController;
 @synthesize lcTableView, rtTableView, swTableView, coTableView, bkTableView, scTableView, sgTableView, 
@@ -72,7 +74,7 @@
   NSMutableArray* views = [[NSMutableArray alloc] init];
   [views addObjectsFromArray:tabBarController.viewControllers];
 
-  UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:[views objectAtIndex:0]];
+  UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:viewController];
   navi.navigationBar.tintColor = [UIColor blackColor];
 
   UIBarButtonItem *lcAutoButton = [[[UIBarButtonItem alloc]
@@ -100,15 +102,23 @@
     // Tab 3 = Menu
     // Tab 4 = Layout
   [views replaceObjectAtIndex:0 withObject:navi];
-    //[views replaceObjectAtIndex:3 withObject:[views objectAtIndex:2]];
   [views replaceObjectAtIndex:3 withObject:layoutNavi];
   [views replaceObjectAtIndex:2 withObject:[views objectAtIndex:1]];
   [views replaceObjectAtIndex:1 withObject:systemView];
   tabBarController.viewControllers = views;
   
-  
-	[window addSubview:tabBarController.view];
+  [window addSubview:tabBarController.view];
 
+/*  
+  tabBar = [[iRocTabBar alloc] init];
+  
+  [tabBar addPage: (UIView *)navi];
+  [tabBar addPage: (UIView *)systemView];
+  [tabBar addPage: (UIView *)menuTableView];
+  [tabBar addPage: (UIView *)layoutNavi];
+  
+	[window addSubview:tabBar.view];
+*/
   
   
   rtContainer = [[[Container alloc] init] retain];

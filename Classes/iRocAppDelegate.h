@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "iRocTabBar.h"
+
 #import "iRocLcTableView.h"
 #import "iRocRtTableView.h"
 #import "iRocSwTableView.h"
@@ -35,6 +37,7 @@
     UIWindow *window;
     iRocViewController *viewController;
 	UITabBarController *tabBarController;
+	iRocTabBar *tabBar;
 	
 	IBOutlet iRocLcTableView *lcTableView;
 	IBOutlet iRocRtTableView *rtTableView;
@@ -72,6 +75,7 @@
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet iRocViewController *viewController;
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
+@property (nonatomic, retain) IBOutlet iRocTabBar *tabBar;
 
 @property (nonatomic, retain) IBOutlet iRocLcTableView *lcTableView;
 @property (nonatomic, retain) IBOutlet iRocRtTableView *rtTableView;

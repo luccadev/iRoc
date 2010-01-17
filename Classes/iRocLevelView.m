@@ -128,5 +128,15 @@
   [self reView];
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+  NSLog(@"rotation message: will be rotated...");
+  return YES;
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+  NSLog(@"rotation message: rearange the layout...");
+}
+
+
 
 @end
