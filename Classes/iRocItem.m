@@ -58,7 +58,15 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
   NSLog(@"touches ended for item %@", item.Id);
-  [self setBackgroundColor:[UIColor colorWithRed:.7 green:.9 blue:.7 alpha:1.0]];
+	
+	
+	if([[[NSUserDefaults standardUserDefaults] stringForKey:@"plancolor_preference"] isEqual:@"green"])
+		[self setBackgroundColor:[UIColor colorWithRed:.7 green:.9 blue:.7 alpha:1.0]];
+	else if([[[NSUserDefaults standardUserDefaults] stringForKey:@"plancolor_preference"] isEqual:@"grey"])
+	  [self setBackgroundColor:[UIColor colorWithRed:.8 green:.8 blue:.8 alpha:1.0]];
+	else
+		[self setBackgroundColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1.0]];	
+	
     //[item flip];
 }
 

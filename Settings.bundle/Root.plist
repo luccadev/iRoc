@@ -92,6 +92,34 @@
 			<key>KeyboardType</key>
 			<string>NumberPad</string>
 		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Interface</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Titles</key>
+			<array>
+				<string>White</string>
+				<string>Green</string>
+				<string>Grey</string>
+			</array>
+			<key>Title</key>
+			<string>Plancolor</string>
+			<key>Key</key>
+			<string>plancolor_preference</string>
+			<key>DefaultValue</key>
+			<string>Grey</string>
+			<key>Values</key>
+			<array>
+				<string>white</string>
+				<string>green</string>
+				<string>grey</string>
+			</array>
+		</dict>
 	</array>
 </dict>
 </plist>
