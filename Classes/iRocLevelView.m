@@ -25,35 +25,39 @@
     return;
   }
   NSLog(@"reView level %@", zlevel.title);
-    // remove the existing items
+  NSDate *date = [NSDate date];
+  // remove the existing items
   NSArray *its = scrollView.subviews;
   int cnt = [its count];
   NSLog(@"remove %d items", cnt);
   for( int i = 0; i < cnt; i++ ) {
     if( [[its objectAtIndex:i] isKindOfClass:[iRocItem class]] ) {
       iRocItem* it = (iRocItem *)[its objectAtIndex:i];
-      NSLog(@"removing %@", [it getId]);
       it.hidden = YES;
       [it disable];
       [it removeFromSuperview];
       [it release];
     }
   }
+	NSLog(@"Time: %f sec per deleted item", [date timeIntervalSinceNow]/(float)cnt*(-1));
+  
     // add the items for this level
-	
-	NSDate *date = [NSDate date];
+	float lcnt = 0;
+	date = [NSDate date];
 	
   cnt = [model.swContainer count];
   NSLog(@"add %d switches for level %@", cnt, zlevel.title);
   for( int i = 0; i < cnt; i++ ) {
     Item * item = (Item *)[model.swContainer objectAtIndex:i];
     if( item.z == zlevel.level ) {
+      lcnt++;
       iRocItem *it = [[iRocItem alloc] initWithItem:item];
       [scrollView addSubview:it];
     }
   }
 
-	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/cnt*(-1));
+	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/lcnt*(-1));
+  lcnt = 0;
 	date = [NSDate date];
 	
   cnt = [model.sgContainer count];
@@ -61,28 +65,29 @@
   for( int i = 0; i < cnt; i++ ) {
     Item * item = (Item *)[model.sgContainer objectAtIndex:i];
     if( item.z == zlevel.level ) {
+      lcnt++;
       iRocItem *it = [[iRocItem alloc] initWithItem:item];
       [scrollView addSubview:it];
     }
   }
 	
 
-	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/cnt*(-1));
+	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/lcnt*(-1));
+  lcnt = 0;
 	date = [NSDate date];
 	
-  cnt = [model.tkContainer count];
-  NSLog(@"add %d tracks for level %@", cnt, zlevel.title);
-  for( int i = 0; i < cnt; i++ ) {
-    Item * item = (Item *)[model.tkContainer objectAtIndex:i];
+  NSEnumerator * itemEnum = [model.tkContainer getEnumerator];
+  Item * item = nil;
+  while ((item = (Item*)[itemEnum nextObject])) {
     if( item.z == zlevel.level ) {
+      lcnt++;
       iRocItem *it = [[iRocItem alloc] initWithItem:item];
       [scrollView addSubview:it];
     }
-		//NSLog(@"TRACK: ---------  %f", [date timeIntervalSinceNow]*(-1));
-		//date = [NSDate date];
   }
 	
-	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/cnt*(-1));
+	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/lcnt*(-1));
+  lcnt = 0;
 	date = [NSDate date];
 
   cnt = [model.fbContainer count];
@@ -90,12 +95,14 @@
   for( int i = 0; i < cnt; i++ ) {
     Item * item = (Item *)[model.fbContainer objectAtIndex:i];
     if( item.z == zlevel.level ) {
+      lcnt++;
       iRocItem *it = [[iRocItem alloc] initWithItem:item];
       [scrollView addSubview:it];
     }
   }
 	
-	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/cnt*(-1));
+	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/lcnt*(-1));
+  lcnt = 0;
 	date = [NSDate date];
   
   cnt = [model.bkContainer count];
@@ -103,12 +110,14 @@
   for( int i = 0; i < cnt; i++ ) {
     Item * item = (Item *)[model.bkContainer objectAtIndex:i];
     if( item.z == zlevel.level ) {
+      lcnt++;
       iRocItem *it = [[iRocItem alloc] initWithItem:item];
       [scrollView addSubview:it];
     }
   }
   
-	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/cnt*(-1));
+	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/lcnt*(-1));
+  lcnt = 0;
 	date = [NSDate date];
 	
   cnt = [model.coContainer count];
@@ -116,12 +125,14 @@
   for( int i = 0; i < cnt; i++ ) {
     Item * item = (Item *)[model.coContainer objectAtIndex:i];
     if( item.z == zlevel.level ) {
+      lcnt++;
       iRocItem *it = [[iRocItem alloc] initWithItem:item];
       [scrollView addSubview:it];
     }
   }
 	
-	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/cnt*(-1));
+	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/lcnt*(-1));
+  lcnt = 0;
 	date = [NSDate date];
   
   cnt = [model.txContainer count];
@@ -129,12 +140,13 @@
   for( int i = 0; i < cnt; i++ ) {
     Item * item = (Item *)[model.txContainer objectAtIndex:i];
     if( item.z == zlevel.level ) {
+      lcnt++;
       iRocItem *it = [[iRocItem alloc] initWithItem:item];
       [scrollView addSubview:it];
     }
   }
 	
-	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/cnt*(-1));
+	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/lcnt*(-1));
 	date = [NSDate date];
   
 }

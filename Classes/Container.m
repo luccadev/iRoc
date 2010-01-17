@@ -50,6 +50,11 @@
 }
 
 
+- (NSEnumerator *)getEnumerator {
+  return [theData objectEnumerator];
+}
+
+
 - (int) count {
 	return [theData count];
 }

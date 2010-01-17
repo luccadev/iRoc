@@ -20,5 +20,6 @@
 - (id) objectWithId:(NSString*) oid;
 - (id) objectAtIndex:(int) index;
 - (int) count;
+- (NSEnumerator *)getEnumerator;
 
 @end
