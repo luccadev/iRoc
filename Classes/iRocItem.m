@@ -31,7 +31,7 @@
     }
     
     if( item.text != nil && [item.text length] > 0 ) {
-      label = [[[UILabel alloc] initWithFrame:CGRectMake(5, 5, ITEMSIZE * item.cx - 10, ITEMSIZE * item.cy - 10 )] autorelease];
+      label = [[[UILabel alloc] initWithFrame:CGRectMake(2, 4, ITEMSIZE * item.cx - 4, ITEMSIZE * item.cy-10 )] autorelease];
       label.font = [UIFont boldSystemFontOfSize:12];
       label.textColor = [UIColor blackColor];
       label.backgroundColor = item.textBackgroundColor;
@@ -58,7 +58,7 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
   NSLog(@"touches ended for item %@", item.Id);
-  [self setBackgroundColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1.0]];
+  [self setBackgroundColor:[UIColor colorWithRed:.7 green:.9 blue:.7 alpha:1.0]];
     //[item flip];
 }
 
