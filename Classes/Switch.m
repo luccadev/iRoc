@@ -71,6 +71,10 @@
     cy = orinr % 2 == 0 ? 2:1; 
 	} else if( [self.type isEqual:@"crossing"] ) {
 		imgname = @"cross.png";
+	} else if( [self.type isEqual:@"ccrossing"] ) {
+		imgname = [NSString stringWithFormat: @"ccrossing-%d.png", orinr % 2 == 0 ? 2:1];
+		cx = orinr % 2 == 0 ? 1:2; 
+    cy = orinr % 2 == 0 ? 2:1; 
 	} else if( [self.type isEqual:@"decoupler"] ) {
 		imgname = [NSString stringWithFormat: @"decoupler-%d.png", orinr % 2 == 0 ? 2:1];
 	}
