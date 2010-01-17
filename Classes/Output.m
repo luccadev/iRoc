@@ -25,12 +25,12 @@
 }
 
 - (NSString*) getImgName {
-	NSString *imgname = @"on.png";
+	NSString *imgname = @"button-on.png";
 	
 	if( [self.state isEqual:@"on"])
-		imgname = @"on.png";
+		imgname = @"button-on.png";
 	else 
-		imgname = @"off.png";
+		imgname = @"button-off.png";
 		
 	return imgname;
 }

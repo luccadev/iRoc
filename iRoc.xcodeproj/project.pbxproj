@@ -42,6 +42,8 @@
 		9CA62C9110CD0B6C008E37AB /* Loc.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA62C9010CD0B6C008E37AB /* Loc.m */; };
 		9CAF71A610CBE78D00392643 /* iRocAboutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CAF71A410CBE78D00392643 /* iRocAboutView.xib */; };
 		9CAFD95710B97B700029C16F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAFD95610B97B700029C16F /* Icon.png */; };
+		9CB9683A1103285400B09174 /* button-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CB968381103285400B09174 /* button-off.png */; };
+		9CB9683B1103285400B09174 /* button-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CB968391103285400B09174 /* button-on.png */; };
 		9CBF0FDB10CFDC7E00FF29DA /* iRocMenuTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF0FDA10CFDC7E00FF29DA /* iRocMenuTableView.m */; };
 		9CBF100210CFE0DE00FF29DA /* Switch.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF100110CFE0DE00FF29DA /* Switch.m */; };
 		9CBF101610CFE1CA00FF29DA /* iRocSwTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF101410CFE1CA00FF29DA /* iRocSwTableView.m */; };
@@ -262,6 +264,8 @@
 		9CA62C9010CD0B6C008E37AB /* Loc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Loc.m; sourceTree = "<group>"; };
 		9CAF71A410CBE78D00392643 /* iRocAboutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = iRocAboutView.xib; sourceTree = "<group>"; };
 		9CAFD95610B97B700029C16F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		9CB968381103285400B09174 /* button-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-off.png"; sourceTree = "<group>"; };
+		9CB968391103285400B09174 /* button-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-on.png"; sourceTree = "<group>"; };
 		9CBF0FDA10CFDC7E00FF29DA /* iRocMenuTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocMenuTableView.m; sourceTree = "<group>"; };
 		9CBF100010CFE0DE00FF29DA /* Switch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Switch.h; sourceTree = "<group>"; };
 		9CBF100110CFE0DE00FF29DA /* Switch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Switch.m; sourceTree = "<group>"; };
@@ -631,6 +635,8 @@
 		9CBF10F610CFF14100FF29DA /* Symbols */ = {
 			isa = PBXGroup;
 			children = (
+				9CB968381103285400B09174 /* button-off.png */,
+				9CB968391103285400B09174 /* button-on.png */,
 				9C9E9DB711030D1100E16E8A /* block-1-s.png */,
 				9C9E9DB811030D1100E16E8A /* block-2-s.png */,
 				D499E2D011021126000C2A37 /* threeway-s-4.png */,
@@ -972,6 +978,8 @@
 				D499E2E111021126000C2A37 /* threeway-l-2.png in Resources */,
 				9C9E9DB911030D1100E16E8A /* block-1-s.png in Resources */,
 				9C9E9DBA11030D1100E16E8A /* block-2-s.png in Resources */,
+				9CB9683A1103285400B09174 /* button-off.png in Resources */,
+				9CB9683B1103285400B09174 /* button-on.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
