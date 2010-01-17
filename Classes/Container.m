@@ -48,6 +48,7 @@
 		NSLog(@"Sorting keys ... ");
 		keys = [[theData allKeys] retain];
 		sortedKeys = [[keys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] retain];
+		isSorted = YES;
 	}
 
 	return [theData objectForKey:[sortedKeys objectAtIndex:index]];
