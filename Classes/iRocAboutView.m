@@ -7,14 +7,106 @@
 //
 
 #import "iRocAboutView.h"
+#import "Globals.h"
 
 
 @implementation iRocAboutView
-@synthesize labelVersion, menuname;
+@synthesize irocVersion, rocrailVersion, rocrailConnection, menuname;
+
+
+- (id)initWithDelegate:(id)_delegate andModel:(Model*)_model {
+  if( self = [super init] ) {
+    model = _model;
+    delegate = _delegate;
+  }
+  
+  return self;
+}
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-	[labelVersion setText:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];	
+  [super viewDidLoad];
+  
+  CGRect rect = CGRectMake(CONTENTBORDER, CONTENTBORDER, 120, 20);
+  UILabel* l = [[UILabel alloc] initWithFrame:rect];
+  l.textColor = [UIColor lightGrayColor];
+  l.backgroundColor = [UIColor clearColor];
+	[l setText:@"iRoc version"];	
+  [self.view addSubview: l];
+  
+  rect = CGRectMake(CONTENTBORDER + 120, CONTENTBORDER, 150, 20);
+  irocVersion = [[UILabel alloc] initWithFrame:rect];
+  irocVersion.textColor = [UIColor lightGrayColor];
+  irocVersion.backgroundColor = [UIColor clearColor];
+	[irocVersion setText:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];	
+  [self.view addSubview: irocVersion];
+
+  rect = CGRectMake(CONTENTBORDER, CONTENTBORDER + 30, 120, 20);
+  l = [[UILabel alloc] initWithFrame:rect];
+  l.textColor = [UIColor lightGrayColor];
+  l.backgroundColor = [UIColor clearColor];
+	[l setText:@"Rocrail version"];	
+  [self.view addSubview: l];
+  
+  rect = CGRectMake(CONTENTBORDER + 120, CONTENTBORDER + 30, 150, 20);
+  rocrailVersion = [[UILabel alloc] initWithFrame:rect];
+  rocrailVersion.textColor = [UIColor lightGrayColor];
+  rocrailVersion.backgroundColor = [UIColor clearColor];
+	[rocrailVersion setText:model.rocrailversion];
+  [self.view addSubview: rocrailVersion];
+  
+  rect = CGRectMake(CONTENTBORDER, CONTENTBORDER + 2 * 30, 120, 20);
+  l = [[UILabel alloc] initWithFrame:rect];
+  l.textColor = [UIColor lightGrayColor];
+  l.backgroundColor = [UIColor clearColor];
+	[l setText:@"Connected to"];	
+  [self.view addSubview: l];
+  
+  rect = CGRectMake(CONTENTBORDER + 120, CONTENTBORDER + 2 * 30, 180, 20);
+  rocrailConnection = [[UILabel alloc] initWithFrame:rect];
+  rocrailConnection.textColor = [UIColor lightGrayColor];
+  rocrailConnection.backgroundColor = [UIColor clearColor];
+	[rocrailConnection setText:[[NSString alloc] initWithFormat:@"%@:%d", 
+                              [[delegate getConnector]domain],
+                              [[delegate getConnector]port]]];	
+  [self.view addSubview: rocrailConnection];
+
+  rect = CGRectMake(CONTENTBORDER, CONTENTBORDER + 3 * 30, 100, 60);
+  l = [[UILabel alloc] initWithFrame:rect];
+  l.textColor = [UIColor whiteColor];
+  l.backgroundColor = [UIColor clearColor];
+  l.font = [UIFont systemFontOfSize:45.0];
+	[l setText:@"iRoc"];	
+  [self.view addSubview: l];
+  
+  rect = CGRectMake(CONTENTBORDER + 100, CONTENTBORDER + 3 * 30 + 30, 200, 20);
+  l = [[UILabel alloc] initWithFrame:rect];
+  l.textColor = [UIColor whiteColor];
+  l.font = [UIFont systemFontOfSize:11.0];
+  l.backgroundColor = [UIColor clearColor];
+	[l setText:@"a controller for the mighty Rocrail."];	
+  [self.view addSubview: l];
+  
+  rect = CGRectMake(CONTENTBORDER, CONTENTBORDER + 3 * 30 + 60, 300, 20);
+  l = [[UILabel alloc] initWithFrame:rect];
+  l.textColor = [UIColor whiteColor];
+  l.font = [UIFont systemFontOfSize:12.0];
+  l.backgroundColor = [UIColor clearColor];
+	[l setText:@"©rocrail.net by Jean-Michel Fischer and Rob Versluis."];	
+  [self.view addSubview: l];
+  
+  rect = CGRectMake(CONTENTBORDER, CONTENTBORDER + 4 * 30 + 60, 300, 40);
+  l = [[UILabel alloc] initWithFrame:rect];
+  l.textColor = [UIColor whiteColor];
+  l.backgroundColor = [UIColor clearColor];
+	[l setText:@"GNU GENERAL PUBLIC LICENSE"];	
+  [self.view addSubview: l];
+  
+  UIImage *image = [UIImage imageNamed:@"rocrail-logo-noshade-black.png"];
+  rect = CGRectMake(CONTENTBORDER + 60, CONTENTBORDER + 5 * 30 + 80, 200, 53);
+  UIImageView * iv = [[UIImageView alloc] initWithFrame:rect];
+  iv.image = image; 
+  [self.view addSubview: iv];
+  
 }
 
 - (void)didReceiveMemoryWarning {

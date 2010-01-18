@@ -98,6 +98,7 @@
 - (void)setAuto:(NSString *)state;
 - (BOOL)sendMessage:(NSString *)name message:(NSString *)msg;
 - (Model *)getModel;
+- (IRocConnector *)getConnector;
 
 @end
 

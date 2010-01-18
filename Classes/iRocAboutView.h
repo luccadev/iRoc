@@ -18,14 +18,21 @@
 
 
 #import <UIKit/UIKit.h>
-
+#import "Model.h"
 
 @interface iRocAboutView : UIViewController {
-	IBOutlet UILabel *labelVersion;
+	UILabel *irocVersion;
+	UILabel *rocrailVersion;
+  UILabel *rocrailConnection;
 	NSString *menuname;
+  Model* model;
+  id delegate;
 }
 
-@property (nonatomic, retain) UILabel *labelVersion;
+@property (nonatomic, retain) UILabel *irocVersion, *rocrailVersion, *rocrailConnection;
 @property (nonatomic, retain) NSString *menuname;
+
+
+- (id)initWithDelegate:(id)_delegate andModel:(Model*)_model;
 
 @end

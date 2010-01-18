@@ -49,7 +49,7 @@
 	
   viewController = [[iRocViewController alloc] init];
   systemView = [[iRocSystemView alloc] init];
-  aboutView = [[iRocAboutView alloc] init];
+  aboutView = [[iRocAboutView alloc] initWithDelegate:self andModel:model];
   menuTableView = [[iRocMenuTableView alloc] init];
   lcAutoView = [[iRocLcAutoView alloc] init];
   lcSettingsView = [[iRocLcSettingsView alloc] init];
@@ -425,6 +425,10 @@
 
 - (Model *)getModel {
   return model;
+}
+
+- (IRocConnector *)getConnector {
+  return rrconnection;
 }
 
 @end
