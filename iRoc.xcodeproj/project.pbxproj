@@ -53,7 +53,6 @@
 		9C9E9DBA11030D1100E16E8A /* block-2-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C9E9DB811030D1100E16E8A /* block-2-s.png */; };
 		9CA62C8410CD0AF0008E37AB /* iRocLcTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA62C8210CD0AF0008E37AB /* iRocLcTableView.m */; };
 		9CA62C9110CD0B6C008E37AB /* Loc.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA62C9010CD0B6C008E37AB /* Loc.m */; };
-		9CAF71A610CBE78D00392643 /* iRocAboutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CAF71A410CBE78D00392643 /* iRocAboutView.xib */; };
 		9CAFD95710B97B700029C16F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAFD95610B97B700029C16F /* Icon.png */; };
 		9CB9683A1103285400B09174 /* button-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CB968381103285400B09174 /* button-off.png */; };
 		9CB9683B1103285400B09174 /* button-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CB968391103285400B09174 /* button-on.png */; };
@@ -303,7 +302,6 @@
 		9CA62C8210CD0AF0008E37AB /* iRocLcTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iRocLcTableView.m; path = ../iRocLcTableView.m; sourceTree = "<group>"; };
 		9CA62C8F10CD0B6C008E37AB /* Loc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loc.h; sourceTree = "<group>"; };
 		9CA62C9010CD0B6C008E37AB /* Loc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Loc.m; sourceTree = "<group>"; };
-		9CAF71A410CBE78D00392643 /* iRocAboutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = iRocAboutView.xib; sourceTree = "<group>"; };
 		9CAFD95610B97B700029C16F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		9CB968381103285400B09174 /* button-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-off.png"; sourceTree = "<group>"; };
 		9CB968391103285400B09174 /* button-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-on.png"; sourceTree = "<group>"; };
@@ -664,7 +662,6 @@
 				9CDB1D5810B57C11001442F1 /* doneup.png */,
 				9C00EE6110B41B490098BA59 /* thumb.png */,
 				8D1107310486CEB800E47090 /* iRoc-Info.plist */,
-				9CAF71A410CBE78D00392643 /* iRocAboutView.xib */,
 				9CDDE84510E25BAB00920C87 /* Default.png */,
 			);
 			name = Resources;
@@ -916,7 +913,6 @@
 				9C343D3010B900E500750B22 /* Settings.bundle in Resources */,
 				9CAFD95710B97B700029C16F /* Icon.png in Resources */,
 				9CFDBF6610BD081600E9E9DE /* Entitlements.plist in Resources */,
-				9CAF71A610CBE78D00392643 /* iRocAboutView.xib in Resources */,
 				9CBF11DF10CFF15900FF29DA /* 0.png in Resources */,
 				9CBF11E110CFF15900FF29DA /* 0v.png in Resources */,
 				9CBF11E310CFF15900FF29DA /* 1.png in Resources */,
