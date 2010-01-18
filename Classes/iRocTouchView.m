@@ -30,10 +30,11 @@
 	CGContextFillRect(context, rect);
   
   
-	float maxval = 278.00; 
+	float maxval = 290.00; 
+	int minval = 28;
 	
-	if(x < 41)
-		x=41;
+	if(x < minval)
+		x=minval;
 	
 	if( x>maxval)
 		x=maxval;
@@ -42,10 +43,10 @@
 	
 	// Bar
 	CGContextSetRGBFillColor(context, .1, .1, .1, 1); 
-	rectVel = CGRectMake(29, 54, 262, 12);
+	rectVel = CGRectMake(20, 54, 280, 12);
 	CGContextFillRect(context, rectVel);
 	CGContextSetRGBFillColor(context, .2, .2, .2, 1); 
-	rectVel = CGRectMake(30, 55, 260, 10);
+	rectVel = CGRectMake(21, 55, 278, 10);
 	CGContextFillRect(context, rectVel);
 	
 	//Knob
@@ -127,7 +128,7 @@
 - (float)value {
 	
 	int shiftval = 30;
-	float maxval = 260.00 - shiftval;
+	float maxval = 280.00 - shiftval;
 	int xout = x - shiftval;
 		
 	if(xout < 0)
