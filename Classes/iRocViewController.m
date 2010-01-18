@@ -28,9 +28,109 @@
   if( self != nil ) {
     self.tabBarItem = [[UITabBarItem alloc] initWithTitle:
                        NSLocalizedString(@"Loco", @"")
-                                                    image:[UIImage imageNamed:@"loco.png"] tag:1];
+                      image:[UIImage imageNamed:@"loco.png"] tag:1];
+    
   }
   return self;
+}
+
+- (void)loadView {
+  NSLog(@"*** loadView");
+  [super loadView];
+  [super.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0]];
+
+  CGRect bounds = self.view.bounds;
+
+  CGRect rect = CGRectMake(0, 250, 320, 120);
+  slideView = [[iRocTouchView alloc] initWithFrame:rect];
+  [slideView addTarget:self action:@selector(sliderMoved:) forControlEvents:UIControlEventValueChanged];
+  [self.view addSubview: slideView];
+
+  rect = CGRectMake(CONTENTBORDER, 0, bounds.size.width - (2 * CONTENTBORDER), 64);
+  locProps = [[iRocLocProps alloc] initWithFrame:rect];
+  [locProps addTarget:self action:@selector(locTextTouched:) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview: locProps];
+  
+  float buttonWidth = (bounds.size.width - (2 * CONTENTBORDER + 3 * BUTTONGAP)) / 4;
+  
+  rect = CGRectMake(CONTENTBORDER, 71, buttonWidth, 55);
+  buttonF1 = [[iRocButton alloc] initWithFrame:rect];
+  buttonF1.frame = rect;
+  [buttonF1 setTitle: NSLocalizedString(@"F1", @"") forState: UIControlStateNormal];
+  [buttonF1 addTarget:self action:@selector(buttonF1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview: buttonF1];
+
+  rect = CGRectMake(CONTENTBORDER + 1 * buttonWidth + 1 * BUTTONGAP, 71, buttonWidth, 55);
+  buttonF2 = [[iRocButton alloc] initWithFrame:rect];
+  buttonF2.frame = rect;
+  [buttonF2 setTitle: NSLocalizedString(@"F2", @"") forState: UIControlStateNormal];
+  [buttonF2 addTarget:self action:@selector(buttonF2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview: buttonF2];
+  
+  rect = CGRectMake(CONTENTBORDER + 2 * buttonWidth + 2 * BUTTONGAP, 71, buttonWidth, 55);
+  buttonF3 = [[iRocButton alloc] initWithFrame:rect];
+  buttonF3.frame = rect;
+  [buttonF3 setTitle: NSLocalizedString(@"F3", @"") forState: UIControlStateNormal];
+  [buttonF3 addTarget:self action:@selector(buttonF1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview: buttonF3];
+  
+  rect = CGRectMake(CONTENTBORDER + 3 * buttonWidth + 3 * BUTTONGAP, 71, buttonWidth, 55);
+  buttonF4 = [[iRocButton alloc] initWithFrame:rect];
+  buttonF4.frame = rect;
+  [buttonF4 setTitle: NSLocalizedString(@"F4", @"") forState: UIControlStateNormal];
+  [buttonF4 addTarget:self action:@selector(buttonF1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview: buttonF4];
+  
+  rect = CGRectMake(CONTENTBORDER, 133, buttonWidth, 55);
+  buttonF5 = [[iRocButton alloc] initWithFrame:rect];
+  buttonF5.frame = rect;
+  [buttonF5 setTitle: NSLocalizedString(@"F5", @"") forState: UIControlStateNormal];
+  [buttonF5 addTarget:self action:@selector(buttonF5Clicked:) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview: buttonF5];
+  
+  rect = CGRectMake(CONTENTBORDER + 1 * buttonWidth + 1 * BUTTONGAP, 133, buttonWidth, 55);
+  buttonF6 = [[iRocButton alloc] initWithFrame:rect];
+  buttonF6.frame = rect;
+  [buttonF6 setTitle: NSLocalizedString(@"F6", @"") forState: UIControlStateNormal];
+  [buttonF6 addTarget:self action:@selector(buttonF6Clicked:) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview: buttonF6];
+  
+  rect = CGRectMake(CONTENTBORDER + 2 * buttonWidth + 2 * BUTTONGAP, 133, buttonWidth, 55);
+  buttonF7 = [[iRocButton alloc] initWithFrame:rect];
+  buttonF7.frame = rect;
+  [buttonF7 setTitle: NSLocalizedString(@"F7", @"") forState: UIControlStateNormal];
+  [buttonF7 addTarget:self action:@selector(buttonF7Clicked:) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview: buttonF7];
+  
+  rect = CGRectMake(CONTENTBORDER + 3 * buttonWidth + 3 * BUTTONGAP, 133, buttonWidth, 55);
+  buttonF8 = [[iRocButton alloc] initWithFrame:rect];
+  buttonF8.frame = rect;
+  [buttonF8 setTitle: NSLocalizedString(@"F8", @"") forState: UIControlStateNormal];
+  [buttonF8 addTarget:self action:@selector(buttonF8Clicked:) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview: buttonF8];
+
+  
+  rect = CGRectMake(CONTENTBORDER, 195, 2 * buttonWidth + BUTTONGAP, 55);
+  buttonDir = [[iRocButton alloc] initWithFrame:rect];
+  buttonDir.frame = rect;
+  [buttonDir setTitle: NSLocalizedString(@">", @"") forState: UIControlStateNormal];
+  [buttonDir addTarget:self action:@selector(buttonDirClicked:) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview: buttonDir];
+  
+  rect = CGRectMake(CONTENTBORDER + 2 * buttonWidth + 2 * BUTTONGAP, 195, buttonWidth, 55);
+  buttonF0 = [[iRocButton alloc] initWithFrame:rect];
+  buttonF0.frame = rect;
+  [buttonF0 setTitle: NSLocalizedString(@"F0", @"") forState: UIControlStateNormal];
+  [buttonF0 addTarget:self action:@selector(buttonF0Clicked:) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview: buttonF0];
+  
+  rect = CGRectMake(CONTENTBORDER + 3 * buttonWidth + 3 * BUTTONGAP, 195, buttonWidth, 55);
+  buttonFn = [[iRocButton alloc] initWithFrame:rect];
+  buttonFn.frame = rect;
+  [buttonFn setTitle: NSLocalizedString(@"Fn", @"") forState: UIControlStateNormal];
+  [buttonFn addTarget:self action:@selector(buttonFnClicked:) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview: buttonFn];
+  
 }
 
 
@@ -255,6 +355,7 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
+  NSLog(@"*** viewDidLoad");
     [super viewDidLoad];
 
 	// read preferences

@@ -48,42 +48,30 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
 }
 
 
-- (id)initWithCoder:(NSCoder *)decoder
-{
-  NSLog(@"iRocLocProps:initWithCoder");
-    if (self = [super initWithCoder:decoder])
-    {
-
-		idLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,8, 190, 20)];
-		idLabel.font = [UIFont boldSystemFontOfSize:20];
-		idLabel.textColor = [UIColor lightGrayColor];
-		idLabel.backgroundColor = [UIColor darkGrayColor];
-		
-		descLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 29, 100, 20)] autorelease];
-		descLabel.font = [UIFont boldSystemFontOfSize:12];
-		descLabel.textColor = [UIColor lightGrayColor];
-		descLabel.backgroundColor = [UIColor darkGrayColor];
-		
-		roadLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 44, 100, 20)] autorelease];
-		roadLabel.font = [UIFont boldSystemFontOfSize:12];
-		roadLabel.textColor = [UIColor lightGrayColor];
-		roadLabel.backgroundColor = [UIColor darkGrayColor];
-
-    
-		[self addSubview:idLabel];
-		[self addSubview:roadLabel];
-		[self addSubview:descLabel];		
-	}
-    return self;
-}
- 
-
-
 - (id)initWithFrame:(CGRect)frame {
   NSLog(@"iRocLocProps:initWithFrame");
 
     if (self = [super initWithFrame:frame]) {
         // Initialization code
+      idLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,8, 190, 20)];
+      idLabel.font = [UIFont boldSystemFontOfSize:20];
+      idLabel.textColor = [UIColor lightGrayColor];
+      idLabel.backgroundColor = [UIColor darkGrayColor];
+      
+      descLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 29, 100, 20)] autorelease];
+      descLabel.font = [UIFont boldSystemFontOfSize:12];
+      descLabel.textColor = [UIColor lightGrayColor];
+      descLabel.backgroundColor = [UIColor darkGrayColor];
+      
+      roadLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 44, 100, 20)] autorelease];
+      roadLabel.font = [UIFont boldSystemFontOfSize:12];
+      roadLabel.textColor = [UIColor lightGrayColor];
+      roadLabel.backgroundColor = [UIColor darkGrayColor];
+      
+      
+      [self addSubview:idLabel];
+      [self addSubview:roadLabel];
+      [self addSubview:descLabel];		
     }
 	
     return self;

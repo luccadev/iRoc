@@ -23,7 +23,14 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
   NSLog(@"applicationDidFinishLaunching");
-
+  
+  CGRect screenBounds = [[UIScreen mainScreen] bounds];
+  CGRect windowBounds = screenBounds;
+  windowBounds.origin.y = 0.0;
+  
+  self.window = [[[UIWindow alloc] initWithFrame: screenBounds] autorelease];
+  
+  
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
 	[[UIApplication sharedApplication] setStatusBarHidden:FALSE];
 	
@@ -105,7 +112,9 @@
   
 	[window addSubview:tabBar.view];
 
-  
+    // Override point for customization after application launch
+  [window makeKeyAndVisible];
+
   
   lcAutoView.bkContainer = model.bkContainer;
   lcAutoView.scContainer = model.scContainer;

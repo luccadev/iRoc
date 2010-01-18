@@ -26,8 +26,10 @@
 	
 	 // Drawing code
 	CGContextRef context = UIGraphicsGetCurrentContext(); 	
-	[super drawRect:rect];
-	
+	CGContextSetRGBFillColor(context, .0, .0, .0, 1); 
+	CGContextFillRect(context, rect);
+  
+  
 	float maxval = 278.00; 
 	
 	if(x < 41)
