@@ -32,13 +32,12 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
   NSLog(@"rotation message: will be rotated...");
-  if( self.selectedIndex == 0 ) {
-    if( toInterfaceOrientation == UIDeviceOrientationPortrait || toInterfaceOrientation == UIDeviceOrientationPortraitUpsideDown )
+  if( self.selectedIndex == 3 ) 
     return YES;
-  else
-    return NO;
-  }
-  return YES;
+  else if( toInterfaceOrientation == UIDeviceOrientationPortrait || toInterfaceOrientation == UIDeviceOrientationPortraitUpsideDown )
+    return YES;
+  
+  return NO;
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
