@@ -85,35 +85,30 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Cell";
-    
+	static NSString *CellIdentifier = @"Cell";
 	
-    UITableViewCell *cell; // = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    //if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    //}
-	
+  UITableViewCell *cell; // = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+
 	cell.selectionStyle = UITableViewCellSelectionStyleGray;
 	 
     
-	UILabel *rtidLabel = [[[UILabel alloc] initWithFrame:celltextRect] autorelease];
-	rtidLabel.font = [UIFont boldSystemFontOfSize:cellfontsize];
-	rtidLabel.textColor = celltextcolor;
-	rtidLabel.backgroundColor = cellbackcolor;
-	[cell.contentView addSubview:rtidLabel];
+	UILabel *swidLabel = [[[UILabel alloc] initWithFrame:celltextRect] autorelease];
+	swidLabel.font = [UIFont boldSystemFontOfSize:cellfontsize];
+	swidLabel.textColor = celltextcolor;
+	swidLabel.backgroundColor = cellbackcolor;
+	[cell.contentView addSubview:swidLabel];
 	
 	Switch *sw = (Switch*) [swContainer objectAtIndex:indexPath.row];
-    rtidLabel.text = sw.swid;
-	//rtidLabel.text = [NSString stringWithFormat:@"%@ %@", sw.swid, sw.state];
+	swidLabel.text = sw.swid;
  
 	UIImage *image = [UIImage imageNamed:[sw getImgName]];
-
-	CGRect imageframe = CGRectMake(270,15,20,20);	
+	CGRect imageframe = CGRectMake(300-20*sw.cx,12,20*sw.cx,20);	
 	UIImageView *imageview = [[UIImageView alloc] initWithFrame:imageframe];
 	imageview.image = image; 
 	[cell.contentView addSubview:imageview];  
 			
-    return cell;
+	return cell;
 }
 
 

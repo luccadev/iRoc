@@ -105,11 +105,13 @@
 	
 	//NSLog(@"COID: %@", co.coid);
 	
-    idLabel.text = co.coid;
+	idLabel.text = co.coid;
 	
 	UIImage *image = [UIImage imageNamed:[co getImgName]];
 
-	CGRect imageframe = CGRectMake(280,10,20,20);	
+	
+	
+	CGRect imageframe = CGRectMake(280,12,20,20);	
 	UIImageView *imageview = [[UIImageView alloc] initWithFrame:imageframe];
 	imageview.image = image; 
 	[cell.contentView addSubview:imageview];  
