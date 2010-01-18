@@ -53,18 +53,18 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
 
     if (self = [super initWithFrame:frame]) {
         // Initialization code
-      idLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,8, 190, 20)];
+      idLabel = [[UILabel alloc] initWithFrame:CGRectMake(7,6, 190, 20)];
       idLabel.font = [UIFont boldSystemFontOfSize:20];
       idLabel.textColor = [UIColor lightGrayColor];
       idLabel.backgroundColor = [UIColor darkGrayColor];
       
-      descLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 29, 100, 20)] autorelease];
-      descLabel.font = [UIFont boldSystemFontOfSize:12];
+      descLabel = [[[UILabel alloc] initWithFrame:CGRectMake(9, 24, 100, 20)] autorelease];
+      descLabel.font = [UIFont systemFontOfSize:12];
       descLabel.textColor = [UIColor lightGrayColor];
       descLabel.backgroundColor = [UIColor darkGrayColor];
       
-      roadLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 44, 100, 20)] autorelease];
-      roadLabel.font = [UIFont boldSystemFontOfSize:12];
+      roadLabel = [[[UILabel alloc] initWithFrame:CGRectMake(9, 40, 100, 20)] autorelease];
+      roadLabel.font = [UIFont systemFontOfSize:12];
       roadLabel.textColor = [UIColor lightGrayColor];
       roadLabel.backgroundColor = [UIColor darkGrayColor];
       
@@ -152,9 +152,9 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
     NSLog(@"loaded image...");
     UIImage *img = [lc getImage];
     
-    int breite = 51*(img.size.width/img.size.height);
-    int diff = 150 - breite;
-    CGRect imageframe = CGRectMake(123 + diff,7 ,breite,51);	
+    int breite = 55*(img.size.width/img.size.height);
+    int diff = 173 - breite;
+    CGRect imageframe = CGRectMake(123 + diff,7 ,breite,50);	
     
     imageview = [[UIImageView alloc] initWithFrame:imageframe];
     imageview.image = img;
