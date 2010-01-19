@@ -164,8 +164,8 @@
 	[menuItems addObject:swTableView];
 	[menuItems addObject:sgTableView];
 	[menuItems addObject:coTableView];
-	[menuItems addObject:bkTableView];
-	[menuItems addObject:scTableView];
+    //[menuItems addObject:bkTableView];
+    //[menuItems addObject:scTableView];
 	[menuItems addObject:aboutView];
 	[menuTableView setMenuItems:menuItems];
 	
