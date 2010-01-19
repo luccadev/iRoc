@@ -35,9 +35,10 @@
 
 @interface iRocAppDelegate : NSObject {
   UIWindow *window;
-  iRocViewController *viewController;
 	iRocTabBar *tabBar;
-	
+  iRocViewController *viewController;
+	UINavigationController *layoutNavi;
+  
 	IBOutlet iRocLcTableView *lcTableView;
 	IBOutlet iRocRtTableView *rtTableView;
 	IBOutlet iRocSwTableView *swTableView;

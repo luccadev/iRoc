@@ -13,23 +13,30 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  NSLog(@"did load plan level view");
   
-  UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 40.0)];
-  [title setText:model.title];
-  [title setFont:[UIFont boldSystemFontOfSize:13.0]];
-  [title setTextAlignment:UITextAlignmentCenter];
-  title.backgroundColor = [UIColor clearColor];
-  title.textColor = [UIColor grayColor];
+  planTitle = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 40.0)];
+  [planTitle setText:model.title];
+  [planTitle setFont:[UIFont boldSystemFontOfSize:13.0]];
+  [planTitle setTextAlignment:UITextAlignmentCenter];
+  planTitle.backgroundColor = [UIColor clearColor];
+  planTitle.textColor = [UIColor grayColor];
 
   
-  self.navigationItem.titleView = title;
+  self.navigationItem.titleView = planTitle;
   
   [self setTitle:@"Plan"];
+}
+
+- (void)planLoaded {
+  [self.tableView reloadData];
+  [planTitle setText:model.title];
 }
 
 
 - (id)initWithDelegate:(id)_delegate andModel:(Model *)_model {
   if( self = [super init] ) {
+    NSLog(@"init plan level view");
     delegate = _delegate;
     model = _model;
     levelView = [[iRocLevelView alloc] init];
@@ -86,6 +93,17 @@
 }
 
 
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+  return YES;
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+  NSLog(@"rotation message for LevelTableView");
+  if( fromInterfaceOrientation == UIDeviceOrientationLandscapeLeft || fromInterfaceOrientation == UIDeviceOrientationLandscapeRight ) {
+    NSLog(@"rotation message: will be rotated to portrait...");
+  }
+}
 
 
 

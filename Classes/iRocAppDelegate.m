@@ -93,7 +93,7 @@
   
   viewController.navigationItem.leftBarButtonItem = lcSettingsButton;
 
-  UINavigationController *layoutNavi = [[UINavigationController alloc] initWithRootViewController:levelTableView];
+  layoutNavi = [[UINavigationController alloc] initWithRootViewController:levelTableView];
   layoutNavi.navigationBar.tintColor = [UIColor blackColor];
 
   UINavigationController *menuNavi = [[UINavigationController alloc] initWithRootViewController:menuTableView];
@@ -103,14 +103,14 @@
     // Tab 2 = System
     // Tab 3 = Menu
     // Tab 4 = Layout
-  tabBar = [[iRocTabBar alloc] init];
+  tabBar = [[iRocTabBar alloc] initWithDelegate:self];
   
   [tabBar addPage: (UIView *)navi];
   [tabBar addPage: (UIView *)systemView];
   [tabBar addPage: (UIView *)menuNavi];
   [tabBar addPage: (UIView *)layoutNavi];
   
-	[window addSubview:tabBar.view];
+  [window addSubview:tabBar.view];
 
     // Override point for customization after application launch
   [window makeKeyAndVisible];
@@ -348,6 +348,9 @@
 }
 
 - (void)askForAllLocPics {
+    // inform some views of plan loaded
+  [levelTableView planLoaded];
+  
 	int i;
 	for( i = 0; i< [model.lcContainer count]; i++){	
 		Loc *loc;

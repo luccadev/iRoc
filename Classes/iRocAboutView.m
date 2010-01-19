@@ -15,17 +15,20 @@
 
 
 - (id)initWithDelegate:(id)_delegate andModel:(Model*)_model {
+  NSLog(@"01");
   if( self = [super init] ) {
     model = _model;
     delegate = _delegate;
   }
+  NSLog(@"02");
   
   return self;
 }
 
 - (void)viewDidLoad {
+  NSLog(@"0");
   [super viewDidLoad];
-  
+  NSLog(@"1");
   CGRect rect = CGRectMake(CONTENTBORDER, CONTENTBORDER, 120, 20);
   UILabel* l = [[UILabel alloc] initWithFrame:rect];
   l.textColor = [UIColor lightGrayColor];
@@ -40,6 +43,7 @@
 	[irocVersion setText:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];	
   [self.view addSubview: irocVersion];
 
+  NSLog(@"2");
   rect = CGRectMake(CONTENTBORDER, CONTENTBORDER + 30, 120, 20);
   l = [[UILabel alloc] initWithFrame:rect];
   l.textColor = [UIColor lightGrayColor];
@@ -53,7 +57,8 @@
   rocrailVersion.backgroundColor = [UIColor clearColor];
 	[rocrailVersion setText:model.rocrailversion];
   [self.view addSubview: rocrailVersion];
-  
+
+  NSLog(@"3");
   rect = CGRectMake(CONTENTBORDER, CONTENTBORDER + 2 * 30, 120, 20);
   l = [[UILabel alloc] initWithFrame:rect];
   l.textColor = [UIColor lightGrayColor];
@@ -70,6 +75,7 @@
                               [[delegate getConnector]port]]];	
   [self.view addSubview: rocrailConnection];
 
+  NSLog(@"4");
   rect = CGRectMake(CONTENTBORDER, CONTENTBORDER + 3 * 30, 100, 60);
   l = [[UILabel alloc] initWithFrame:rect];
   l.textColor = [UIColor whiteColor];
@@ -86,6 +92,7 @@
 	[l setText:@"a controller for the mighty Rocrail."];	
   [self.view addSubview: l];
   
+  NSLog(@"5");
   rect = CGRectMake(CONTENTBORDER, CONTENTBORDER + 3 * 30 + 60, 300, 20);
   l = [[UILabel alloc] initWithFrame:rect];
   l.textColor = [UIColor whiteColor];

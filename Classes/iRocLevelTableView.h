@@ -15,11 +15,13 @@
 
 @interface iRocLevelTableView : iRocTableView {
   iRocLevelView *levelView;
+  UILabel *planTitle;
   Model *model;
 	id delegate;
 }
 IBOutlet iRocLevelView *levelView;
 
 - (id)initWithDelegate:(id)_delegate andModel:(Model*)_model;
+- (void)planLoaded;
 
 @end
