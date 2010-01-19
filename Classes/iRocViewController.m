@@ -7,6 +7,7 @@
 //
 #import "iRocViewController.h"
 #import "iRocButton.h"
+#import "Globals.h"
 
 @implementation iRocViewController
 
@@ -130,9 +131,7 @@
   [buttonFn setTitle: NSLocalizedString(@"Fn", @"") forState: UIControlStateNormal];
   [buttonFn addTarget:self action:@selector(buttonFnClicked:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview: buttonFn];
-	
-	AudioServicesCreateSystemSoundID(CFBundleCopyResourceURL(CFBundleGetMainBundle(), CFSTR("click"), CFSTR("aif"), NULL), &click);
-  
+
 }
 
 
@@ -154,7 +153,7 @@
 		dir = !dir;
 		stringDir = @"true";
 	}
-	AudioServicesPlaySystemSound(click);
+	AudioServicesPlaySystemSound([Globals getClick]);
 
 	[slideView setValue:0];	
 	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc throttleid=\"%@\" id=\"%@\" V=\"0\" dir=\"%@\" fn=\"%@\"/>",
@@ -168,7 +167,7 @@
 	int vVal = [slideView value]*100*([lc getVmax]/100.00);
   
   if( processAll && (abs( prevVVal - vVal) < VDelta ) && vVal != 0 ) {
-		AudioServicesPlaySystemSound(click);
+		AudioServicesPlaySystemSound([Globals getClick]);
     return;
 	}
 		
@@ -180,7 +179,7 @@
                     (NSString*)[[UIDevice currentDevice] name],
                     [textfieldLoc text], vVal, stringDir, [buttonF0 getBState]?@"true":@"false"];
 		//NSLog(stringToSend);
-		AudioServicesPlaySystemSound(click);
+		AudioServicesPlaySystemSound([Globals getClick]);
 		[rrconnection sendMessage:@"lc" message:stringToSend];
 	}
 		prevVVal = vVal;

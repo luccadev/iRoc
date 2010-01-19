@@ -58,7 +58,6 @@
 	UIView* keyboard;
 	
 	IRocConnector *rrconnection;
-	SystemSoundID click;
 	
 	id delegate;
 }
