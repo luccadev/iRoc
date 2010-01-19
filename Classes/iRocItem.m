@@ -7,6 +7,7 @@
 //
 
 #import "iRocItem.h"
+#import "Globals.h"
 
 
 @implementation iRocItem
@@ -72,6 +73,7 @@
 - (void)itemAction:(id)sender {
   NSLog(@"action for item %@", item.Id);
   [self setBackgroundColor:[UIColor colorWithRed:1 green:1 blue:0 alpha:1.0]];
+	AudioServicesPlaySystemSound([Globals getClick]);
   [item flip];
 }
 

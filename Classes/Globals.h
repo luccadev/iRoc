@@ -12,10 +12,11 @@
 #define ITEMSIZE 32
 
 #import <Foundation/Foundation.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface Globals : NSObject {
 }
 
 + (NSString*)getAttribute:(NSString*)attrName fromDict:(NSDictionary *)attributeDict withDefault:(NSString *)defValue;
-
++ (SystemSoundID)getClick;
 @end

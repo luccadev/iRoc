@@ -15,5 +15,15 @@
   return attrVal==nil ? defValue:[[NSString alloc]initWithString: attrVal];
 }
 
+static SystemSoundID click = 0;
+
++ (SystemSoundID)getClick {
+  if( click == 0 ) {
+    AudioServicesCreateSystemSoundID(CFBundleCopyResourceURL(CFBundleGetMainBundle(), CFSTR("click"), CFSTR("aif"), NULL), &click);
+  }
+  
+  return click;
+}
+
 
 @end
