@@ -130,6 +130,8 @@
   [buttonFn setTitle: NSLocalizedString(@"Fn", @"") forState: UIControlStateNormal];
   [buttonFn addTarget:self action:@selector(buttonFnClicked:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview: buttonFn];
+	
+	AudioServicesCreateSystemSoundID(CFBundleCopyResourceURL(CFBundleGetMainBundle(), CFSTR("click"), CFSTR("aif"), NULL), &click);
   
 }
 
@@ -152,7 +154,7 @@
 		dir = !dir;
 		stringDir = @"true";
 	}
-	//AudioServicesPlaySystemSound (self.soundFileObject);
+	AudioServicesPlaySystemSound(click);
 
 	[slideView setValue:0];	
 	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc throttleid=\"%@\" id=\"%@\" V=\"0\" dir=\"%@\" fn=\"%@\"/>",
@@ -165,8 +167,10 @@
 	Loc *lc = (Loc*)[delegate getLoc:[textfieldLoc text]];
 	int vVal = [slideView value]*100*([lc getVmax]/100.00);
   
-  if( processAll && (abs( prevVVal - vVal) < VDelta ) && vVal != 0 )
+  if( processAll && (abs( prevVVal - vVal) < VDelta ) && vVal != 0 ) {
+		AudioServicesPlaySystemSound(click);
     return;
+	}
 		
 	if( prevVVal != vVal) {
     //NSLog(@"%@", [[UIDevice currentDevice] name]);
@@ -176,6 +180,7 @@
                     (NSString*)[[UIDevice currentDevice] name],
                     [textfieldLoc text], vVal, stringDir, [buttonF0 getBState]?@"true":@"false"];
 		//NSLog(stringToSend);
+		AudioServicesPlaySystemSound(click);
 		[rrconnection sendMessage:@"lc" message:stringToSend];
 	}
 		prevVVal = vVal;
