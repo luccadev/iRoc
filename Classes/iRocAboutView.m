@@ -7,6 +7,7 @@
 //
 
 #import "iRocAboutView.h"
+#import "iRocAppDelegate.h"
 #import "Globals.h"
 
 
@@ -70,9 +71,9 @@
   rocrailConnection = [[UILabel alloc] initWithFrame:rect];
   rocrailConnection.textColor = [UIColor lightGrayColor];
   rocrailConnection.backgroundColor = [UIColor clearColor];
-	[rocrailConnection setText:[[NSString alloc] initWithFormat:@"%@:%d", 
-                              [[delegate getConnector]domain],
-                              [[delegate getConnector]port]]];	
+  [rocrailConnection setText:[[NSString alloc] initWithFormat:@"%@:%d", 
+                              [[(iRocAppDelegate*)delegate getConnector]domain],
+                              [[(iRocAppDelegate*)delegate getConnector]port]]];	
   [self.view addSubview: rocrailConnection];
 
   NSLog(@"4");
