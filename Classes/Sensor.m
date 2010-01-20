@@ -14,7 +14,7 @@
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
   if( self = [super initWithAttributeDict:attributeDict] ) {
-    NSString *tmp = [Globals getAttribute:@"curve" fromDict:attributeDict withDefault:@"true"];
+    NSString *tmp = [Globals getAttribute:@"curve" fromDict:attributeDict withDefault:@"false"];
     curve = [tmp isEqual:@"true"];
   }
   return self;
