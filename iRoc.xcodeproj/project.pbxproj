@@ -229,6 +229,14 @@
 		D4C265D410F8972B0045ED0F /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C265D310F8972B0045ED0F /* info.png */; };
 		D4C265EA10F8A8220045ED0F /* Signal.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C265E910F8A8220045ED0F /* Signal.m */; };
 		D4C265ED10F8B0E90045ED0F /* iRocSgTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C265EC10F8B0E90045ED0F /* iRocSgTableView.m */; };
+		D4D348B911075DF9005B9D12 /* csensor-off-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D348B111075DF9005B9D12 /* csensor-off-1.png */; };
+		D4D348BA11075DF9005B9D12 /* csensor-off-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D348B211075DF9005B9D12 /* csensor-off-2.png */; };
+		D4D348BB11075DF9005B9D12 /* csensor-off-3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D348B311075DF9005B9D12 /* csensor-off-3.png */; };
+		D4D348BC11075DF9005B9D12 /* csensor-off-4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D348B411075DF9005B9D12 /* csensor-off-4.png */; };
+		D4D348BD11075DF9005B9D12 /* csensor-on-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D348B511075DF9005B9D12 /* csensor-on-1.png */; };
+		D4D348BE11075DF9005B9D12 /* csensor-on-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D348B611075DF9005B9D12 /* csensor-on-2.png */; };
+		D4D348BF11075DF9005B9D12 /* csensor-on-3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D348B711075DF9005B9D12 /* csensor-on-3.png */; };
+		D4D348C011075DF9005B9D12 /* csensor-on-4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D348B811075DF9005B9D12 /* csensor-on-4.png */; };
 		D4D81F9010F640DA00FD09F1 /* iRocLcSettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D81F8F10F640DA00FD09F1 /* iRocLcSettingsView.m */; };
 		D4D81FDC10F6684400FD09F1 /* Block.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D81FDB10F6684400FD09F1 /* Block.m */; };
 		D4D81FDF10F6684F00FD09F1 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D81FDE10F6684F00FD09F1 /* Schedule.m */; };
@@ -502,6 +510,14 @@
 		D4C265E910F8A8220045ED0F /* Signal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Signal.m; sourceTree = "<group>"; };
 		D4C265EB10F8B0E90045ED0F /* iRocSgTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocSgTableView.h; sourceTree = "<group>"; };
 		D4C265EC10F8B0E90045ED0F /* iRocSgTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocSgTableView.m; sourceTree = "<group>"; };
+		D4D348B111075DF9005B9D12 /* csensor-off-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "csensor-off-1.png"; sourceTree = "<group>"; };
+		D4D348B211075DF9005B9D12 /* csensor-off-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "csensor-off-2.png"; sourceTree = "<group>"; };
+		D4D348B311075DF9005B9D12 /* csensor-off-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "csensor-off-3.png"; sourceTree = "<group>"; };
+		D4D348B411075DF9005B9D12 /* csensor-off-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "csensor-off-4.png"; sourceTree = "<group>"; };
+		D4D348B511075DF9005B9D12 /* csensor-on-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "csensor-on-1.png"; sourceTree = "<group>"; };
+		D4D348B611075DF9005B9D12 /* csensor-on-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "csensor-on-2.png"; sourceTree = "<group>"; };
+		D4D348B711075DF9005B9D12 /* csensor-on-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "csensor-on-3.png"; sourceTree = "<group>"; };
+		D4D348B811075DF9005B9D12 /* csensor-on-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "csensor-on-4.png"; sourceTree = "<group>"; };
 		D4D81F8E10F640DA00FD09F1 /* iRocLcSettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocLcSettingsView.h; sourceTree = "<group>"; };
 		D4D81F8F10F640DA00FD09F1 /* iRocLcSettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocLcSettingsView.m; sourceTree = "<group>"; };
 		D4D81FDA10F6684400FD09F1 /* Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Block.h; sourceTree = "<group>"; };
@@ -684,6 +700,14 @@
 		9CBF10F610CFF14100FF29DA /* Symbols */ = {
 			isa = PBXGroup;
 			children = (
+				D4D348B111075DF9005B9D12 /* csensor-off-1.png */,
+				D4D348B211075DF9005B9D12 /* csensor-off-2.png */,
+				D4D348B311075DF9005B9D12 /* csensor-off-3.png */,
+				D4D348B411075DF9005B9D12 /* csensor-off-4.png */,
+				D4D348B511075DF9005B9D12 /* csensor-on-1.png */,
+				D4D348B611075DF9005B9D12 /* csensor-on-2.png */,
+				D4D348B711075DF9005B9D12 /* csensor-on-3.png */,
+				D4D348B811075DF9005B9D12 /* csensor-on-4.png */,
 				9C36D07B1103460B00DD7F82 /* ccrossing-1.png */,
 				9C36D07C1103460B00DD7F82 /* ccrossing-2.png */,
 				9C141F1E1103397500D8E911 /* dcrossingright-l-1.png */,
@@ -1090,6 +1114,14 @@
 				9C36D07D1103460B00DD7F82 /* ccrossing-1.png in Resources */,
 				9C36D07E1103460B00DD7F82 /* ccrossing-2.png in Resources */,
 				9C51BF0F110632010038CBAB /* click.aif in Resources */,
+				D4D348B911075DF9005B9D12 /* csensor-off-1.png in Resources */,
+				D4D348BA11075DF9005B9D12 /* csensor-off-2.png in Resources */,
+				D4D348BB11075DF9005B9D12 /* csensor-off-3.png in Resources */,
+				D4D348BC11075DF9005B9D12 /* csensor-off-4.png in Resources */,
+				D4D348BD11075DF9005B9D12 /* csensor-on-1.png in Resources */,
+				D4D348BE11075DF9005B9D12 /* csensor-on-2.png in Resources */,
+				D4D348BF11075DF9005B9D12 /* csensor-on-3.png in Resources */,
+				D4D348C011075DF9005B9D12 /* csensor-on-4.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

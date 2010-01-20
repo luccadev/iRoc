@@ -14,6 +14,8 @@
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
   if( self = [super initWithAttributeDict:attributeDict] ) {
+    NSString *tmp = [Globals getAttribute:@"curve" fromDict:attributeDict withDefault:@"true"];
+    curve = [tmp isEqual:@"true"];
   }
   return self;
 }
@@ -21,12 +23,18 @@
 - (NSString*) getImgName {
   int orinr = [self getOriNr];
 	NSString *imgname = @"";
+	NSString *prefix = @"";
+  
+  if( curve )
+    prefix = @"c";
+  else
+    orinr % 2 == 0 ? 2:1;
 	
 	if( [self.state isEqual:@"true"]) {
-		imgname = [NSString stringWithFormat: @"sensor-on-%d.png", orinr % 2 == 0 ? 2:1];
+		imgname = [NSString stringWithFormat: @"%@sensor-on-%d.png", prefix, orinr];
 	}
   else {
-		imgname = [NSString stringWithFormat: @"sensor-off-%d.png", orinr % 2 == 0 ? 2:1];
+		imgname = [NSString stringWithFormat: @"%@sensor-off-%d.png", prefix, orinr];
   }
 	
 	return imgname;

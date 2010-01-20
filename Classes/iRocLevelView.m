@@ -90,7 +90,7 @@
 	itemEnum = [model.fbContainer getEnumerator];
   item = nil;
   while ((item = (Item*)[itemEnum nextObject])) {
-    if( item.z == zlevel.level ) {
+    if( item.z == zlevel.level && item.show ) {
       lcnt++;
       iRocItem *it = [[iRocItem alloc] initWithItem:item];
       [scrollView addSubview:it];
