@@ -72,14 +72,14 @@
   buttonF3 = [[iRocButton alloc] initWithFrame:rect];
   buttonF3.frame = rect;
   [buttonF3 setTitle: NSLocalizedString(@"F3", @"") forState: UIControlStateNormal];
-  [buttonF3 addTarget:self action:@selector(buttonF1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+  [buttonF3 addTarget:self action:@selector(buttonF3Clicked:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview: buttonF3];
   
   rect = CGRectMake(CONTENTBORDER + 3 * buttonWidth + 3 * BUTTONGAP, 71, buttonWidth, 55);
   buttonF4 = [[iRocButton alloc] initWithFrame:rect];
   buttonF4.frame = rect;
   [buttonF4 setTitle: NSLocalizedString(@"F4", @"") forState: UIControlStateNormal];
-  [buttonF4 addTarget:self action:@selector(buttonF1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+  [buttonF4 addTarget:self action:@selector(buttonF4Clicked:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview: buttonF4];
   
   rect = CGRectMake(CONTENTBORDER, 133, buttonWidth, 55);
