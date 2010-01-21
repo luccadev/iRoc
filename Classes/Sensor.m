@@ -28,7 +28,7 @@
   if( curve )
     prefix = @"c";
   else
-    orinr % 2 == 0 ? 2:1;
+    orinr = (orinr % 2 == 0) ? 2:1;
 	
 	if( [self.state isEqual:@"true"]) {
 		imgname = [NSString stringWithFormat: @"%@sensor-on-%d.png", prefix, orinr];
