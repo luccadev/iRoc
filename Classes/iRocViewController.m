@@ -206,14 +206,9 @@
 	
 	[((iRocButton *)[functionButtons objectAtIndex:0]) setBState:fnState];
 	
-	/*
-	for (int i = 0; i < 9; i++) {
-		NSLog(@"F %d : %d", i, fnStates[i]);
-	}
-	*/
-	
-	//fnStates[0] = !fnStates[0];
+	AudioServicesPlaySystemSound([Globals getClick]);
 }
+
 - (IBAction) buttonF1Clicked:(id) sender {
 	[self prepareFNCommand:[buttonFn getBState]?9:1];
 }
@@ -242,7 +237,7 @@
 - (IBAction) buttonFnClicked:(id) sender {
   [buttonFn flipBState];
   [self updateFnState];
-  
+	AudioServicesPlaySystemSound([Globals getClick]);
 }
 
 - (void) updateFnState {
@@ -309,41 +304,13 @@
                               fnIndex, tmp, [textfieldLoc text], fnIndex,  fnState?@"true":@"false" ] ];
 	[rrconnection sendMessage:@"fn" message:stringToSend];
 	
-	/*
-	NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<fn group=\"1\" id=\"%@\" ", [textfieldLoc text]]];
-	
-	
-	for (int i = 0; i < 9; i++) {		
-		stringToSend = [stringToSend stringByAppendingString: [NSString stringWithFormat:@"f%d=\"%@\" ", i, fnStates[i]?@"true":@"false"] ];
-	}
-	stringToSend = [stringToSend stringByAppendingString: [NSString stringWithFormat:@"/>"] ];
-	*/
 	NSLog(@"FN: %@", stringToSend);
 	
 	
-	//NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<fn group=\"1\" id=\"%@\" f%d=\"%@\"/>", [textfieldLoc text], fnIndex, fnStates[fnIndex]?@"true":@"false" ] ];
-	//[rrconnection sendMessage:@"fn" message:stringToSend];
-	
 	[((iRocButton *)[functionButtons objectAtIndex:fnIndex]) setBState:fnState];
 	
-	//AudioServicesPlaySystemSound (self.soundFileObject);
+	AudioServicesPlaySystemSound([Globals getClick]);
 }
-
-/*
-// The designated initializer. Override to perform setup that is required before the view is loaded.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
-}
- */
 
 - (IBAction)doneButton:(id)sender {
 	AudioServicesPlaySystemSound (self.soundFileObject);
