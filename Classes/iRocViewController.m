@@ -190,22 +190,16 @@
   return [locProps isFn:fn];
 }
 
+
 - (IBAction) buttonF0Clicked:(id) sender {	
   BOOL fnState = [self flipFn: 0];
-
+	
 	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: 
                                            [NSString stringWithFormat: @"<lc throttleid=\"%@\" id=\"%@\" fn=\"%@\"/>",
                                            (NSString*)[[UIDevice currentDevice] name], 
                                             [textfieldLoc text], fnState?@"true":@"false"]] ];
-    	
-	NSString * stringToSend = [[NSString alloc] initWithString: 
-                             [NSString stringWithFormat: @"<fn group=\"1\" id=\"%@\" f%d=\"%@\"/>", 
-                              [textfieldLoc text], 0,  fnState?@"true":@"false" ] ];
-	[rrconnection sendMessage:@"fn" message:stringToSend];
-	
-	
-	[((iRocButton *)[functionButtons objectAtIndex:0]) setBState:fnState];
-	
+
+	[((iRocButton *)[functionButtons objectAtIndex:0]) setBState:fnState];	
 	AudioServicesPlaySystemSound([Globals getClick]);
 }
 
