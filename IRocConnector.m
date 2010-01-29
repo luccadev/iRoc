@@ -662,7 +662,7 @@ static NSString * const kIdElementName = @"id";
 			NSString *state = [attributeDict valueForKey:@"state"];
 			Block *bk = (Block*) [model.bkContainer objectWithId:idAttribute];
       [bk updateWithAttributeDict:attributeDict];
-			[bk setState:state];
+        //[bk setState:state];
       [bk updateEvent];
 			if ( [_delegate respondsToSelector:@selector(bkListLoaded)] ) {
 				[_delegate performSelectorOnMainThread : @ selector(bkListLoaded ) withObject:nil waitUntilDone:NO];
