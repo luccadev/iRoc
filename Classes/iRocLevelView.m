@@ -16,6 +16,10 @@
   if( self = [super init] ) {
     NSLog(@"levelView init");
   }
+	
+	// hide the tabs
+	self.hidesBottomBarWhenPushed = YES;
+	
   return self;
 }
 
@@ -171,13 +175,25 @@
   [self reView];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+	//NSLog(@"view will appear");
+	//[[UIApplication sharedApplication] setStatusBarHidden:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+	[super viewDidAppear:animated];
+	//NSLog(@"view will disappear");
+  //[[UIApplication sharedApplication] setStatusBarHidden:NO];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
   NSLog(@"rotation message: will be rotated...");
   return YES;
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-  NSLog(@"rotation message: rearange the layout...");
+  NSLog(@"rotation message: rearange the layout... from: %d", fromInterfaceOrientation);
 }
 
 
