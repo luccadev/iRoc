@@ -45,6 +45,9 @@
   }
 	NSLog(@"Time: %f sec per deleted item", [date timeIntervalSinceNow]/(float)cnt*(-1));
   
+  
+  int cx = 0;
+  int cy = 0;
     // add the items for this level
 	float lcnt = 0;
 	date = [NSDate date];
@@ -55,6 +58,8 @@
     if( item.z == zlevel.level ) {
       lcnt++;
       iRocItem *it = [[iRocItem alloc] initWithItem:item];
+      if( item.x + item.cx > cx ) cx = item.x + item.cx;
+      if( item.y + item.cy > cy ) cy = item.y + item.cy;
       [scrollView addSubview:it];
     }
   }
@@ -69,6 +74,8 @@
     if( item.z == zlevel.level ) {
       lcnt++;
       iRocItem *it = [[iRocItem alloc] initWithItem:item];
+      if( item.x + item.cx > cx ) cx = item.x + item.cx;
+      if( item.y + item.cy > cy ) cy = item.y + item.cy;
       [scrollView addSubview:it];
     }
   }
@@ -83,6 +90,8 @@
     if( item.z == zlevel.level ) {
       lcnt++;
       iRocItem *it = [[iRocItem alloc] initWithItem:item];
+      if( item.x + item.cx > cx ) cx = item.x + item.cx;
+      if( item.y + item.cy > cy ) cy = item.y + item.cy;
       [scrollView addSubview:it];
     }
   }
@@ -97,6 +106,8 @@
     if( item.z == zlevel.level && item.show ) {
       lcnt++;
       iRocItem *it = [[iRocItem alloc] initWithItem:item];
+      if( item.x + item.cx > cx ) cx = item.x + item.cx;
+      if( item.y + item.cy > cy ) cy = item.y + item.cy;
       [scrollView addSubview:it];
     }
   }
@@ -111,6 +122,8 @@
     if( item.z == zlevel.level ) {
       lcnt++;
       iRocItem *it = [[iRocItem alloc] initWithItem:item];
+      if( item.x + item.cx > cx ) cx = item.x + item.cx;
+      if( item.y + item.cy > cy ) cy = item.y + item.cy;
       [scrollView addSubview:it];
     }
   }
@@ -127,6 +140,8 @@
     if( item.z == zlevel.level ) {
       lcnt++;
       iRocItem *it = [[iRocItem alloc] initWithItem:item];
+      if( item.x + item.cx > cx ) cx = item.x + item.cx;
+      if( item.y + item.cy > cy ) cy = item.y + item.cy;
       [scrollView addSubview:it];
     }
   }
@@ -142,6 +157,8 @@
     if( item.z == zlevel.level ) {
       lcnt++;
       iRocItem *it = [[iRocItem alloc] initWithItem:item];
+      if( item.x + item.cx > cx ) cx = item.x + item.cx;
+      if( item.y + item.cy > cy ) cy = item.y + item.cy;
       [scrollView addSubview:it];
     }
   }
@@ -149,6 +166,9 @@
 	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/lcnt*(-1));
 	date = [NSDate date];
   
+	NSLog(@"cx=%d, cy=%d", cx, cy);
+  CGSize plansize = CGSizeMake(ITEMSIZE*cx, ITEMSIZE*cy);	
+  scrollView.contentSize = plansize;
 }
 
 
