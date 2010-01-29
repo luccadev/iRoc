@@ -16,6 +16,7 @@
 }
 
 static SystemSoundID click = 0;
+static SystemSoundID chrr = 0;
 
 + (SystemSoundID)getClick {
   if( click == 0 ) {
@@ -23,6 +24,14 @@ static SystemSoundID click = 0;
   }
   
   return click;
+}
+
++ (SystemSoundID)getChrr {
+  if( chrr == 0 ) {
+    AudioServicesCreateSystemSoundID(CFBundleCopyResourceURL(CFBundleGetMainBundle(), CFSTR("chrr"), CFSTR("aif"), NULL), &chrr);
+  }
+  
+  return chrr;
 }
 
 

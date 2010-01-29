@@ -153,7 +153,7 @@
 		dir = !dir;
 		stringDir = @"true";
 	}
-	AudioServicesPlaySystemSound([Globals getClick]);
+	AudioServicesPlaySystemSound([Globals getChrr]);
 
 	[slideView setValue:0];	
 	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc throttleid=\"%@\" id=\"%@\" V=\"0\" dir=\"%@\" fn=\"%@\"/>",
