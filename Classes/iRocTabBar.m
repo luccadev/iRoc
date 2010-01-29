@@ -38,13 +38,20 @@
     toLandscape = FALSE;
   }
   if( self.selectedIndex == 3 ) {
-      //self.tabBar.hidden = toLandscape;
+		//self.tabBar.hidden = toLandscape;
+		if( toInterfaceOrientation == UIDeviceOrientationPortrait || toInterfaceOrientation == UIDeviceOrientationPortraitUpsideDown ) {
+			self.selectedIndex = 0;
+		}
     return YES;
   }
   else if( toInterfaceOrientation == UIDeviceOrientationPortrait || toInterfaceOrientation == UIDeviceOrientationPortraitUpsideDown ) {
       //self.tabBar.hidden = FALSE;
     return YES;
+  } else if( self.selectedIndex == 0 ) {
+		self.selectedIndex = 3;
+    return YES;
   }
+	
   
   return NO;
 }
