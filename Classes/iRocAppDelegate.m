@@ -393,14 +393,16 @@
 
 - (void)presentBlockView {
 	
-	[levelTableView.levelView presentModalViewController:blockView animated:YES];
+	//[levelTableView.levelView presentModalViewController:blockView animated:YES];
 	
 	
-	//[self.viewController presentModalViewController:blockView animated:YES];
+	[self.viewController presentModalViewController:blockView animated:YES];
 }
 
 -(void) dismissModalViewController {
-	[levelTableView.levelView dismissModalViewControllerAnimated:YES];
+	//[levelTableView.levelView dismissModalViewControllerAnimated:YES];
+	
+	[self.viewController dismissModalViewControllerAnimated:YES];
 }
 
 

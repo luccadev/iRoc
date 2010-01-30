@@ -23,4 +23,5 @@
 
 @interface NSObject (iRocBlockView)
 - (void)dismissModalViewController;
+- (void)lcTextFieldAction;
 @end
