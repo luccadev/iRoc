@@ -98,6 +98,7 @@
 
 - (void)flip {
 	NSLog(@"Block Flip");
+	[delegate presentBlockView];
 }
 
 - (void)dealloc {

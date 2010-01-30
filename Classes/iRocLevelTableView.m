@@ -10,6 +10,7 @@
 
 
 @implementation iRocLevelTableView
+@synthesize levelView;
 
 - (void)viewDidLoad {
   [super viewDidLoad];

@@ -128,7 +128,7 @@
 			<key>Key</key>
 			<string>rotatetoplan</string>
 			<key>DefaultValue</key>
-			<true/>
+			<false/>
 		</dict>
 	</array>
 </dict>

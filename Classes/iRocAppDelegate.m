@@ -17,7 +17,7 @@
 @synthesize tabBar;
 @synthesize viewController;
 @synthesize lcTableView, rtTableView, swTableView, coTableView, bkTableView, scTableView, sgTableView, 
-      menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model;
+      menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, blockView;
 
 @synthesize rrconnection, menuItems, aboutView;
 
@@ -156,6 +156,10 @@
 	[sgTableView setSgContainer:model.sgContainer];
 	[sgTableView setDelegate:self];
 	[sgTableView setMenuname:NSLocalizedString(@"Signals", @"")];
+	
+	// BlockView
+	blockView = [[iRocBlockView alloc] init];
+	[blockView set_delegate:self];
 
 	[aboutView setMenuname:NSLocalizedString(@"Info", @"")];
 	
@@ -386,6 +390,19 @@
 	//[lcTableView.tableView reloadData];
 	[self.tabBar presentModalViewController:lcTableView animated:YES];
 }
+
+- (void)presentBlockView {
+	
+	[levelTableView.levelView presentModalViewController:blockView animated:YES];
+	
+	
+	//[self.viewController presentModalViewController:blockView animated:YES];
+}
+
+-(void) dismissModalViewController {
+	[levelTableView.levelView dismissModalViewControllerAnimated:YES];
+}
+
 
 - (void)dealloc {
 	[tabBar release];

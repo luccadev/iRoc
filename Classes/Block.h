@@ -26,3 +26,9 @@
 - (void)updateTextColor;
 
 @end
+
+@interface NSObject (Block)
+
+- (void)presentBlockView;
+
+@end

@@ -7,10 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "iRocButton.h"
 
 
 @interface iRocBlockView : UIViewController {
-
+  IBOutlet iRocButton *selectLoc;
+	id _delegate;
 }
+@property (nonatomic, retain) iRocButton *selectLoc;
+@property (nonatomic, retain) id _delegate;
 
+- (IBAction) selectLocClicked:(id) sender; 
+
+@end
+
+@interface NSObject (iRocBlockView)
+- (void)dismissModalViewController;
 @end

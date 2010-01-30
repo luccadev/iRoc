@@ -7,25 +7,34 @@
 //
 
 #import "iRocBlockView.h"
+#import "Globals.h"
 
 
 @implementation iRocBlockView
- 
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
+@synthesize selectLoc, _delegate;
 
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
+
 - (void)loadView {
+  [super loadView];
+  [super.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0]];
+  
+  CGRect bounds = self.view.bounds;
+  float buttonWidth = (bounds.size.width - (2 * CONTENTBORDER + BUTTONGAP)) / 2;
+  CGRect selectLocFrame = CGRectMake(CONTENTBORDER, CONTENTBORDER, buttonWidth, BUTTONHEIGHT);
+  selectLoc = [[iRocButton alloc] initWithFrame:selectLocFrame];
+  selectLoc.frame = selectLocFrame;
+  [selectLoc setTitle: NSLocalizedString(@"Set Loco", @"") forState: UIControlStateNormal];
+  [selectLoc addTarget:self action:@selector(selectLocClicked:) forControlEvents:UIControlEventTouchUpInside];
+  [selectLoc setColor:2];
+  //[selectLoc setBState:Power];
+  [self.view addSubview: selectLoc];
 }
-*/
+
+- (IBAction) selectLocClicked:(id) sender {
+	
+	[_delegate dismissModalViewController];
+	
+}
 
 /*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.

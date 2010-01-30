@@ -26,6 +26,7 @@
 #import "iRocLocProps.h"
 #import "iRocLcAutoView.h"
 #import "iRocLcSettingsView.h"
+#import "iRocBlockView.h"
 
 #import "Container.h"
 #import "Model.h"
@@ -52,6 +53,7 @@
 	IBOutlet iRocSystemView *systemView;
 	IBOutlet iRocLcAutoView *lcAutoView;
 	IBOutlet iRocLcSettingsView *lcSettingsView;
+	IBOutlet iRocBlockView *blockView;
 
 	iRocAboutView IBOutlet *aboutView;
   
@@ -81,6 +83,7 @@
 @property (nonatomic, retain) IBOutlet iRocSystemView *systemView;
 @property (nonatomic, retain) IBOutlet iRocLcAutoView *lcAutoView;
 @property (nonatomic, retain) IBOutlet iRocLcSettingsView *lcSettingsView;
+@property (nonatomic, retain) IBOutlet iRocBlockView *blockView;
 
 @property (nonatomic, retain) IBOutlet iRocAboutView *aboutView;
 
@@ -100,6 +103,8 @@
 - (BOOL)sendMessage:(NSString *)name message:(NSString *)msg;
 - (Model *)getModel;
 - (IRocConnector *)getConnector;
+- (void)presentBlockView;
+- (void)dismissModalViewController;
 
 @end
 
