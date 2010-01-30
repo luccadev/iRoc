@@ -20,4 +20,5 @@
 + (NSString*)getAttribute:(NSString*)attrName fromDict:(NSDictionary *)attributeDict withDefault:(NSString *)defValue;
 + (SystemSoundID)getClick;
 + (SystemSoundID)getChrr;
++ (NSUserDefaults*)getDefaults;
 @end

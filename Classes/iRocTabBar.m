@@ -8,7 +8,7 @@
 
 #import "iRocTabBar.h"
 #import "iRocViewController.h"
-
+#import "Globals.h"
 
 @implementation iRocTabBar
 @synthesize views;
@@ -32,33 +32,44 @@
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-  NSLog(@"rotation message: will be rotated...");
+  NSLog(@"rotation message: will be rotated... (iRocTabBar)");
   BOOL toLandscape = TRUE;
+
   if( toInterfaceOrientation == UIDeviceOrientationPortrait || toInterfaceOrientation == UIDeviceOrientationPortraitUpsideDown ) {
     toLandscape = FALSE;
   }
-  if( self.selectedIndex == 3 ) {
-		//self.tabBar.hidden = toLandscape;
-		if( toInterfaceOrientation == UIDeviceOrientationPortrait || toInterfaceOrientation == UIDeviceOrientationPortraitUpsideDown ) {
-			self.selectedIndex = 0;
-		}
-    return YES;
-  }
-  else if( toInterfaceOrientation == UIDeviceOrientationPortrait || toInterfaceOrientation == UIDeviceOrientationPortraitUpsideDown ) {
-      //self.tabBar.hidden = FALSE;
-    return YES;
-  } else if( self.selectedIndex == 0 ) {
-		self.selectedIndex = 3;
-    return YES;
-  }
 	
-  
+	if( toLandscape ) {
+		NSLog(@"TabBar rotates to landscape");
+		// The plan is allways rotating
+		if( self.selectedIndex == 3 ) {
+			return YES;
+		}
+		
+		// Rotate to Plan?
+		if( self.selectedIndex == 0 && [[Globals getDefaults] boolForKey:@"rotatetoplan"]) {
+			self.selectedIndex = 3;
+			return YES;
+		}
+		
+	} else { // Portrait
+				NSLog(@"TabBar rotates to portrait");
+		// Rotate to Throttle?
+		if ( [[Globals getDefaults] boolForKey:@"rotatetoplan"])
+		  self.selectedIndex = 0;
+		return YES;
+	}
+	  
   return NO;
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
   NSLog(@"rotation message for tabcontroller");
-  [self.selectedViewController didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+	
+	if( self.selectedIndex == 3 ) {
+		[self.selectedViewController didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+	}
+		
   if( fromInterfaceOrientation == UIDeviceOrientationPortrait || fromInterfaceOrientation == UIDeviceOrientationPortraitUpsideDown ) {
     NSLog(@"rotation message: will be rotated to landscape...");
       //self.tabBar.hidden = TRUE;
