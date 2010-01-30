@@ -96,6 +96,9 @@
     [myview updateEvent];
 }
 
+- (void)flip {
+	NSLog(@"Block Flip");
+}
 
 - (void)dealloc {
   [ID release];

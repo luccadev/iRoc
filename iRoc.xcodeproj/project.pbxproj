@@ -40,6 +40,7 @@
 		9C39142410D00BE400F9C42D /* iRocCoTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39142210D00BE400F9C42D /* iRocCoTableView.m */; };
 		9C4A066A10E366CB00E54D74 /* rocrail-logo-noshade-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4A066910E366CB00E54D74 /* rocrail-logo-noshade-black.png */; };
 		9C51BF0F110632010038CBAB /* click.aif in Resources */ = {isa = PBXBuildFile; fileRef = 9C51BF0E110632010038CBAB /* click.aif */; };
+		9C5417201113ECEF003FA1BD /* iRocBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54171F1113ECEF003FA1BD /* iRocBlockView.m */; };
 		9C5B41ED10E37AA700355A5B /* Container.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5B41EC10E37AA700355A5B /* Container.m */; };
 		9C5B440D10E3AE9E00355A5B /* off.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C5B440B10E3AE9E00355A5B /* off.png */; };
 		9C5B440E10E3AE9E00355A5B /* on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C5B440C10E3AE9E00355A5B /* on.png */; };
@@ -291,6 +292,8 @@
 		9C39142310D00BE400F9C42D /* iRocCoTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = iRocCoTableView.xib; path = Classes/iRocCoTableView.xib; sourceTree = "<group>"; };
 		9C4A066910E366CB00E54D74 /* rocrail-logo-noshade-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rocrail-logo-noshade-black.png"; sourceTree = "<group>"; };
 		9C51BF0E110632010038CBAB /* click.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = click.aif; sourceTree = "<group>"; };
+		9C54171E1113ECEF003FA1BD /* iRocBlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocBlockView.h; sourceTree = "<group>"; };
+		9C54171F1113ECEF003FA1BD /* iRocBlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocBlockView.m; sourceTree = "<group>"; };
 		9C5B41EB10E37AA700355A5B /* Container.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Container.h; sourceTree = "<group>"; };
 		9C5B41EC10E37AA700355A5B /* Container.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Container.m; sourceTree = "<group>"; };
 		9C5B440B10E3AE9E00355A5B /* off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = off.png; sourceTree = "<group>"; };
@@ -588,6 +591,8 @@
 				9C39142210D00BE400F9C42D /* iRocCoTableView.m */,
 				9C5CF49A10D130720043D544 /* iRocTableView.h */,
 				9C5CF49B10D130720043D544 /* iRocTableView.m */,
+				9C54171E1113ECEF003FA1BD /* iRocBlockView.h */,
+				9C54171F1113ECEF003FA1BD /* iRocBlockView.m */,
 				9CA62C8F10CD0B6C008E37AB /* Loc.h */,
 				9CA62C9010CD0B6C008E37AB /* Loc.m */,
 				9CE17DD710CE857B00170A98 /* Route.h */,
@@ -1177,6 +1182,7 @@
 				D49897F31100CBEC006C0F2B /* Sensor.m in Sources */,
 				D499E2001101A371000C2A37 /* Text.m in Sources */,
 				D496063F1102F98E00213441 /* iRocTabBar.m in Sources */,
+				9C5417201113ECEF003FA1BD /* iRocBlockView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
