@@ -244,6 +244,7 @@
 		D4D81FDF10F6684F00FD09F1 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D81FDE10F6684F00FD09F1 /* Schedule.m */; };
 		D4E1B07D10F685C40047C597 /* iRocBkTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E1B07C10F685C40047C597 /* iRocBkTableView.m */; };
 		D4E1B09F10F68BE80047C597 /* iRocScTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E1B09E10F68BE80047C597 /* iRocScTableView.m */; };
+		D4E404B31116068700D0FF51 /* button-active.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E404B21116068700D0FF51 /* button-active.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -289,7 +290,6 @@
 		9C39141F10D00B6600F9C42D /* Output.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Output.m; sourceTree = "<group>"; };
 		9C39142110D00BE400F9C42D /* iRocCoTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocCoTableView.h; sourceTree = "<group>"; };
 		9C39142210D00BE400F9C42D /* iRocCoTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocCoTableView.m; sourceTree = "<group>"; };
-		9C39142310D00BE400F9C42D /* iRocCoTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = iRocCoTableView.xib; path = Classes/iRocCoTableView.xib; sourceTree = "<group>"; };
 		9C4A066910E366CB00E54D74 /* rocrail-logo-noshade-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rocrail-logo-noshade-black.png"; sourceTree = "<group>"; };
 		9C51BF0E110632010038CBAB /* click.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = click.aif; sourceTree = "<group>"; };
 		9C54171E1113ECEF003FA1BD /* iRocBlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocBlockView.h; sourceTree = "<group>"; };
@@ -533,6 +533,7 @@
 		D4E1B07C10F685C40047C597 /* iRocBkTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocBkTableView.m; sourceTree = "<group>"; };
 		D4E1B09D10F68BE80047C597 /* iRocScTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocScTableView.h; sourceTree = "<group>"; };
 		D4E1B09E10F68BE80047C597 /* iRocScTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocScTableView.m; sourceTree = "<group>"; };
+		D4E404B21116068700D0FF51 /* button-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-active.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -708,6 +709,7 @@
 		9CBF10F610CFF14100FF29DA /* Symbols */ = {
 			isa = PBXGroup;
 			children = (
+				D4E404B21116068700D0FF51 /* button-active.png */,
 				D4D348B111075DF9005B9D12 /* csensor-off-1.png */,
 				D4D348B211075DF9005B9D12 /* csensor-off-2.png */,
 				D4D348B311075DF9005B9D12 /* csensor-off-3.png */,
@@ -770,7 +772,6 @@
 				D4B9443B10FF71F600F55B64 /* threeway-s-1.png */,
 				9C5B440B10E3AE9E00355A5B /* off.png */,
 				9C5B440C10E3AE9E00355A5B /* on.png */,
-				9C39142310D00BE400F9C42D /* iRocCoTableView.xib */,
 				9CBF10F810CFF15900FF29DA /* 0.png */,
 				9CBF10FA10CFF15900FF29DA /* 0v.png */,
 				9CBF10FC10CFF15900FF29DA /* 1.png */,
@@ -1131,6 +1132,7 @@
 				D4D348BF11075DF9005B9D12 /* csensor-on-3.png in Resources */,
 				D4D348C011075DF9005B9D12 /* csensor-on-4.png in Resources */,
 				9C99E02611131C2B0002FE3A /* chrr.aif in Resources */,
+				D4E404B31116068700D0FF51 /* button-active.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

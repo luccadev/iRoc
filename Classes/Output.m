@@ -29,6 +29,8 @@
 	
 	if( [self.state isEqual:@"on"])
 		imgname = @"button-on.png";
+	else if( [self.state isEqual:@"active"])
+		imgname = @"button-active.png";
 	else 
 		imgname = @"button-off.png";
 		
