@@ -337,7 +337,7 @@
 	textfieldLoc.clearsOnBeginEditing = YES;
 	[textfieldLoc setTextAlignment:UITextAlignmentCenter];
 	textfieldLoc.font = [UIFont boldSystemFontOfSize:60];
-	
+	/*
 	if( [[NSUserDefaults standardUserDefaults] boolForKey:@"locenter_preference"]) {
 		
 		[self.view addSubview:textfieldLoc];
@@ -349,9 +349,8 @@
 												 selector:@selector(keyboardWillShow:) 
 													 name:UIKeyboardWillShowNotification 
 												   object:nil];			
-		
-		
 	}
+	 */
 	
 	
 	//Sound
@@ -412,13 +411,17 @@
 // delegate method from textField
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
 	// Don't show the Keyboard
-	
+	/*
 	if( ![[NSUserDefaults standardUserDefaults] boolForKey:@"locenter_preference"]){
 		[delegate lcTextFieldAction];
 		
 	}
 	
+	
 	return [[NSUserDefaults standardUserDefaults] boolForKey:@"locenter_preference"];
+	*/
+	
+	return NO;
 }
 
 
