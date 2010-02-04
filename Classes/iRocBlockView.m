@@ -11,7 +11,7 @@
 
 
 @implementation iRocBlockView
-@synthesize selectLoc, intoOP, _delegate;
+@synthesize selectLoc, intoOP, _delegate, esc;
 
 
 - (void)loadView {
@@ -48,6 +48,14 @@
   //[intoOP setBState:[_block.state isEqual:@"closed"]];
   [self.view addSubview: intoOP];
 	
+  CGRect escFrame = CGRectMake(CONTENTBORDER+BUTTONGAP+buttonWidth, BUTTONGAP+BUTTONHEIGHT, buttonWidth, BUTTONHEIGHT);
+  esc = [[iRocButton alloc] initWithFrame:escFrame];
+  esc.frame = escFrame;
+  [esc setTitle: NSLocalizedString(@"esc", @"") forState: UIControlStateNormal];
+  [esc addTarget:self action:@selector(escClicked:) forControlEvents:UIControlEventTouchUpInside];
+  [esc setColor:0];
+  [self.view addSubview: esc];
+	
 
 }
 
@@ -71,6 +79,9 @@
 	[_delegate dismissModalViewController];
 }
 
+- (IBAction) escClicked:(id) sender {
+	[_delegate dismissModalViewController];
+}
 
 - (void) setBlock:(Block*)block {
 	_block = block;

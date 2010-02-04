@@ -14,6 +14,8 @@
 @interface iRocBlockView : UIViewController {
   IBOutlet iRocButton *selectLoc;
 	IBOutlet iRocButton *intoOP;
+	IBOutlet iRocButton *esc;
+	
 	id _delegate;
 	
 	UILabel* l;
@@ -21,11 +23,14 @@
 }
 @property (nonatomic, retain) iRocButton *selectLoc;
 @property (nonatomic, retain) iRocButton *intoOP;
+@property (nonatomic, retain) iRocButton *esc;
+
 @property (nonatomic, retain) id _delegate;
 //@property (nonatomic, retain) Block *block;
 
 - (IBAction) selectLocClicked:(id) sender;
 - (IBAction) intoOPClicked:(id) sender; 
+- (IBAction) escClicked:(id) sender; 
 
 - (void) setBlock:(Block*)block;
 
