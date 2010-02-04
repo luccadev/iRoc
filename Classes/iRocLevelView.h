@@ -22,5 +22,6 @@
 @property (nonatomic, retain) Model *model;
 
 - (void)reView;
+- (void)gotoLocoTab;
 
 @end

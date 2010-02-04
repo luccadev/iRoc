@@ -17,6 +17,8 @@
     NSLog(@"levelView init");
   }
 	
+	self.navigationItem.rightBarButtonItem=[[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Loco", @"") style:UIBarButtonItemStylePlain target:self action:@selector(gotoLocoTab)] autorelease];
+  
 	// hide the tabs
 	self.hidesBottomBarWhenPushed = YES;
 	
@@ -216,6 +218,8 @@
   NSLog(@"rotation message: rearange the layout... from: %d", fromInterfaceOrientation);
 }
 
-
+- (void)gotoLocoTab {
+	[self.tabBarController setSelectedIndex:0];
+}
 
 @end

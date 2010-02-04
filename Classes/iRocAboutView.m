@@ -102,7 +102,7 @@
 	[l setText:@"©rocrail.net by Jean-Michel Fischer and Rob Versluis."];	
   [self.view addSubview: l];
   
-  rect = CGRectMake(CONTENTBORDER, CONTENTBORDER + 4 * 30 + 60, 300, 40);
+  rect = CGRectMake(CONTENTBORDER, CONTENTBORDER + 4 * 30 + 53, 300, 40);
   l = [[UILabel alloc] initWithFrame:rect];
   l.textColor = [UIColor whiteColor];
   l.backgroundColor = [UIColor clearColor];
@@ -110,7 +110,7 @@
   [self.view addSubview: l];
   
   UIImage *image = [UIImage imageNamed:@"rocrail-logo-noshade-black.png"];
-  rect = CGRectMake(CONTENTBORDER + 60, CONTENTBORDER + 5 * 30 + 80, 200, 53);
+  rect = CGRectMake(CONTENTBORDER + 80, CONTENTBORDER + 5 * 30 + 100, 200, 53);
   UIImageView * iv = [[UIImageView alloc] initWithFrame:rect];
   iv.image = image; 
   [self.view addSubview: iv];
