@@ -75,14 +75,18 @@
   [halfAutoON addTarget:self action:@selector(halfAutoONClicked:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview: halfAutoON];
   
-  schedulePicker = [[UIPickerView alloc] initWithFrame: CGRectMake(0, BUTTONHEIGHT + BUTTONGAP, 0, 0)];
+  schedulePicker = [[UIPickerView alloc] initWithFrame: CGRectMake(0, BUTTONHEIGHT + BUTTONGAP - 5, 0, 0)];
   schedulePicker.delegate = self;
   schedulePicker.dataSource = self;
   schedulePicker.showsSelectionIndicator = YES;
   [self.view addSubview: schedulePicker];
 	
-
-  CGRect setInBlockFrame = CGRectMake( CONTENTBORDER, BUTTONHEIGHT + BUTTONGAP + 216 + BUTTONGAP, 2 * buttonWidth + BUTTONGAP, BUTTONHEIGHT);
+	// Mask for better look
+	UIImageView *maskview = [[UIImageView alloc] initWithFrame: CGRectMake(0, BUTTONHEIGHT + BUTTONGAP - 5, 320, 219)];
+	maskview.image = [UIImage imageNamed:@"mask.png"];
+	[self.view addSubview: maskview];
+	
+  CGRect setInBlockFrame = CGRectMake( CONTENTBORDER, BUTTONHEIGHT + BUTTONGAP + 210 + BUTTONGAP, 2 * buttonWidth + BUTTONGAP, BUTTONHEIGHT);
   setInBlock = [[iRocButton alloc] initWithFrame: setInBlockFrame];
   setInBlock.frame = setInBlockFrame;
   [setInBlock setTitle: NSLocalizedString(@"Set in block", @"") forState: UIControlStateNormal];

@@ -32,6 +32,7 @@
 		9C141F3C1103397500D8E911 /* dcrossingright-t-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C141F2C1103397500D8E911 /* dcrossingright-t-3.png */; };
 		9C141F3D1103397500D8E911 /* dcrossingright-t-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C141F2D1103397500D8E911 /* dcrossingright-t-4.png */; };
 		9C1E1B4610EE701C00D9BC1E /* iRocSystemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1E1B4510EE701C00D9BC1E /* iRocSystemView.m */; };
+		9C220241111AE10B00B7F4DA /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C220240111AE10B00B7F4DA /* mask.png */; };
 		9C31162E10CE624B005A009B /* iRocRtTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C31162C10CE624B005A009B /* iRocRtTableView.m */; };
 		9C343D3010B900E500750B22 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9C343D2F10B900E500750B22 /* Settings.bundle */; };
 		9C36D07D1103460B00DD7F82 /* ccrossing-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C36D07B1103460B00DD7F82 /* ccrossing-1.png */; };
@@ -281,6 +282,7 @@
 		9C141F2D1103397500D8E911 /* dcrossingright-t-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dcrossingright-t-4.png"; sourceTree = "<group>"; };
 		9C1E1B4410EE701C00D9BC1E /* iRocSystemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocSystemView.h; sourceTree = "<group>"; };
 		9C1E1B4510EE701C00D9BC1E /* iRocSystemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocSystemView.m; sourceTree = "<group>"; };
+		9C220240111AE10B00B7F4DA /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
 		9C31162B10CE624B005A009B /* iRocRtTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocRtTableView.h; sourceTree = "<group>"; };
 		9C31162C10CE624B005A009B /* iRocRtTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocRtTableView.m; sourceTree = "<group>"; };
 		9C343D2F10B900E500750B22 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -651,6 +653,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				9C220240111AE10B00B7F4DA /* mask.png */,
 				D4C265D310F8972B0045ED0F /* info.png */,
 				D4C265CD10F894850045ED0F /* menu.png */,
 				D4C265B010F88A4F0045ED0F /* loco.png */,
@@ -1133,6 +1136,7 @@
 				D4D348C011075DF9005B9D12 /* csensor-on-4.png in Resources */,
 				9C99E02611131C2B0002FE3A /* chrr.aif in Resources */,
 				D4E404B31116068700D0FF51 /* button-active.png in Resources */,
+				9C220241111AE10B00B7F4DA /* mask.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
