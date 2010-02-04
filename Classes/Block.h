@@ -25,10 +25,15 @@
 - (NSString*) getImgName;
 - (void)updateTextColor;
 
+
+
+- (void)sendOpen;
+- (void)sendClose;
+
 @end
 
 @interface NSObject (Block)
 
-- (void)presentBlockView;
+- (void)presentBlockView:(Block*)block;
 
 @end

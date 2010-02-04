@@ -53,7 +53,7 @@
 		}
 		
 	} else { // Portrait
-				NSLog(@"TabBar rotates to portrait");
+		NSLog(@"TabBar rotates to portrait");
 		// Rotate to Throttle?
 		if ( [[Globals getDefaults] boolForKey:@"rotatetoplan"])
 		  self.selectedIndex = 0;

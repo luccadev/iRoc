@@ -136,6 +136,7 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
 
 - (void) setColor:(int)clr {
 	color = clr;
+	[self setNeedsDisplay];
 }
 
 - (BOOL) getBState {

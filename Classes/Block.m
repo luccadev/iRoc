@@ -7,6 +7,7 @@
 //
 
 #import "Block.h"
+#import "iRocAppDelegate.h"
 #import "Globals.h"
 
 
@@ -98,7 +99,21 @@
 
 - (void)flip {
 	NSLog(@"Block Flip");
-	[delegate presentBlockView];
+	[delegate presentBlockView:self];
+}
+
+- (void)sendOpen {
+  NSString * stringToSend = [[NSString alloc] initWithString: 
+                             [NSString stringWithFormat: @"<bk id=\"%@\" state=\"open\"/>",
+                              ID]];
+  [delegate sendMessage:@"bk" message:stringToSend];
+}
+
+- (void)sendClose {
+  NSString * stringToSend = [[NSString alloc] initWithString: 
+                             [NSString stringWithFormat: @"<bk id=\"%@\" state=\"closed\"/>",
+                              ID]];
+  [delegate sendMessage:@"bk" message:stringToSend];
 }
 
 - (void)dealloc {

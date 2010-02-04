@@ -36,6 +36,7 @@
 }
 
 - (void)loadView {
+
   NSLog(@"*** loadView");
   [super loadView];
   [super.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0]];

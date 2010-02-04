@@ -391,10 +391,9 @@
 	[self.tabBar presentModalViewController:lcTableView animated:YES];
 }
 
-- (void)presentBlockView {
+- (void)presentBlockView:(Block*)block {
 	
-	//[levelTableView.levelView presentModalViewController:blockView animated:YES];
-	
+	[blockView setBlock:block];
 	
 	[self.viewController presentModalViewController:blockView animated:YES];
 }

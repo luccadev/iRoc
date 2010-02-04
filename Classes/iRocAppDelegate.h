@@ -30,6 +30,7 @@
 
 #import "Container.h"
 #import "Model.h"
+#import "Block.h"
 
 
 @class iRocViewController;
@@ -103,7 +104,7 @@
 - (BOOL)sendMessage:(NSString *)name message:(NSString *)msg;
 - (Model *)getModel;
 - (IRocConnector *)getConnector;
-- (void)presentBlockView;
+- (void)presentBlockView:(Block*)block;
 - (void)dismissModalViewController;
 
 @end
