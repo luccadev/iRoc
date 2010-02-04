@@ -32,7 +32,16 @@
     else if( orinr == 3 )
       orinr = 1;
     imgname = [NSString stringWithFormat: @"buffer-%d.png", orinr];
-	} else {
+	}
+	else if( [self.type isEqual:@"connector"]) {
+		// symbol naming fix (see rocrail/impl/pclient.c line 250)
+    if( orinr == 1 )
+      orinr = 3;
+    else if( orinr == 3 )
+      orinr = 1;
+    imgname = [NSString stringWithFormat: @"connector-%d.png", orinr];
+	}
+	else {
 		imgname = [NSString stringWithFormat: @"track-%d.png", orinr % 2 == 0 ? 2:1];
 	}
 	

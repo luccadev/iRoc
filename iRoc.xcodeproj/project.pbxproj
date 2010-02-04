@@ -199,6 +199,10 @@
 		9CDDE86910E2623C00920C87 /* rocrail-logo-35.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CDDE86810E2623C00920C87 /* rocrail-logo-35.png */; };
 		9CE17DD910CE857B00170A98 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE17DD810CE857B00170A98 /* Route.m */; };
 		9CE44AF010ECB99F00506323 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CE44AEE10ECB99F00506323 /* Localizable.strings */; };
+		9CF226D8111AF4C30085EBF6 /* connector-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF226D4111AF4C30085EBF6 /* connector-1.png */; };
+		9CF226D9111AF4C30085EBF6 /* connector-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF226D5111AF4C30085EBF6 /* connector-2.png */; };
+		9CF226DA111AF4C30085EBF6 /* connector-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF226D6111AF4C30085EBF6 /* connector-3.png */; };
+		9CF226DB111AF4C30085EBF6 /* connector-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF226D7111AF4C30085EBF6 /* connector-4.png */; };
 		9CFDBF6610BD081600E9E9DE /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CFDBF6510BD081600E9E9DE /* Entitlements.plist */; };
 		D496063F1102F98E00213441 /* iRocTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D496063E1102F98E00213441 /* iRocTabBar.m */; };
 		D4965AB710F517DD00C09B9B /* iRocLcAutoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4965AB410F517DD00C09B9B /* iRocLcAutoView.m */; };
@@ -469,6 +473,10 @@
 		9CE44AF510ECB9BF00506323 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9CE44AFF10ECB9C900506323 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9CE44B0010ECB9D300506323 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9CF226D4111AF4C30085EBF6 /* connector-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connector-1.png"; sourceTree = "<group>"; };
+		9CF226D5111AF4C30085EBF6 /* connector-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connector-2.png"; sourceTree = "<group>"; };
+		9CF226D6111AF4C30085EBF6 /* connector-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connector-3.png"; sourceTree = "<group>"; };
+		9CF226D7111AF4C30085EBF6 /* connector-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connector-4.png"; sourceTree = "<group>"; };
 		9CFDBF6510BD081600E9E9DE /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		D496063D1102F98E00213441 /* iRocTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocTabBar.h; sourceTree = "<group>"; };
 		D496063E1102F98E00213441 /* iRocTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocTabBar.m; sourceTree = "<group>"; };
@@ -712,6 +720,10 @@
 		9CBF10F610CFF14100FF29DA /* Symbols */ = {
 			isa = PBXGroup;
 			children = (
+				9CF226D4111AF4C30085EBF6 /* connector-1.png */,
+				9CF226D5111AF4C30085EBF6 /* connector-2.png */,
+				9CF226D6111AF4C30085EBF6 /* connector-3.png */,
+				9CF226D7111AF4C30085EBF6 /* connector-4.png */,
 				D4E404B21116068700D0FF51 /* button-active.png */,
 				D4D348B111075DF9005B9D12 /* csensor-off-1.png */,
 				D4D348B211075DF9005B9D12 /* csensor-off-2.png */,
@@ -1137,6 +1149,10 @@
 				9C99E02611131C2B0002FE3A /* chrr.aif in Resources */,
 				D4E404B31116068700D0FF51 /* button-active.png in Resources */,
 				9C220241111AE10B00B7F4DA /* mask.png in Resources */,
+				9CF226D8111AF4C30085EBF6 /* connector-1.png in Resources */,
+				9CF226D9111AF4C30085EBF6 /* connector-2.png in Resources */,
+				9CF226DA111AF4C30085EBF6 /* connector-3.png in Resources */,
+				9CF226DB111AF4C30085EBF6 /* connector-4.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
