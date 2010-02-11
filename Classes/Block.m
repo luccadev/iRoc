@@ -116,6 +116,23 @@
   [delegate sendMessage:@"bk" message:stringToSend];
 }
 
+
+- (void)setLoco: (NSString *)lcID {
+  NSString * stringToSend = [[NSString alloc] initWithString: //<lc id=.. cmd="block" blockid=... />
+                           [NSString stringWithFormat: @"<lc id=\"%@\" cmd=\"block\" blockid=\"%@\"/>",
+                            lcID, ID]];
+  [delegate sendMessage:@"lc" message:stringToSend];
+}
+
+- (void)resetLoco {
+  NSString * stringToSend = [[NSString alloc] initWithString: 
+                             [NSString stringWithFormat: @"<bk id=\"%@\" locid=\"\" cmd=\"loc\"/>",
+                              ID]];
+  [delegate sendMessage:@"bk" message:stringToSend];
+}
+
+
+
 - (void)dealloc {
   [ID release];
   [super dealloc];

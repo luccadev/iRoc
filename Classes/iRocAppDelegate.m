@@ -160,6 +160,8 @@
 	// BlockView
 	blockView = [[iRocBlockView alloc] init];
 	[blockView set_delegate:self];
+  blockView.lcContainer = model.lcContainer;
+
 
 	[aboutView setMenuname:NSLocalizedString(@"Info", @"")];
 	

@@ -29,6 +29,8 @@
 
 - (void)sendOpen;
 - (void)sendClose;
+- (void)setLoco: (NSString *)ID;
+- (void)resetLoco;
 
 @end
 

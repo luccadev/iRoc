@@ -11,13 +11,25 @@
 
 
 @implementation iRocBlockView
-@synthesize selectLoc, intoOP, _delegate, esc;
+@synthesize selectLoc, intoOP, _delegate, esc, locos, lcContainer;
 
 
 - (void)loadView {
   [super loadView];
   [super.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0]];
 	
+  locos = [[NSMutableArray alloc] init];
+
+  [locos removeAllObjects];
+  [locos addObject: NSLocalizedString(@"none", @"")];
+  int cnt = [lcContainer count];
+  NSLog(@"number of locos=%d", cnt);
+  for( int i = 0; i < cnt; i++ ) {
+    Loc *lc = (Loc*)[lcContainer objectAtIndex:i];
+    [locos addObject: lc.locid];
+  }
+  
+  
   CGRect bounds = self.view.bounds;
   float buttonWidth = (bounds.size.width - (2 * CONTENTBORDER + BUTTONGAP)) / 2;
 	CGRect rect = CGRectMake(CONTENTBORDER, CONTENTBORDER, buttonWidth, BUTTONHEIGHT);
@@ -51,11 +63,31 @@
   CGRect escFrame = CGRectMake(CONTENTBORDER+BUTTONGAP+buttonWidth, BUTTONGAP+BUTTONHEIGHT, buttonWidth, BUTTONHEIGHT);
   esc = [[iRocButton alloc] initWithFrame:escFrame];
   esc.frame = escFrame;
-  [esc setTitle: NSLocalizedString(@"esc", @"") forState: UIControlStateNormal];
+  [esc setTitle: NSLocalizedString(@"OK", @"") forState: UIControlStateNormal];
   [esc addTarget:self action:@selector(escClicked:) forControlEvents:UIControlEventTouchUpInside];
   [esc setColor:0];
   [self.view addSubview: esc];
 	
+  locoPicker = [[UIPickerView alloc] initWithFrame: CGRectMake(0, 2 * BUTTONHEIGHT + 2 * BUTTONGAP - 5, 0, 0)];
+  locoPicker.delegate = self;
+  locoPicker.dataSource = self;
+  locoPicker.showsSelectionIndicator = YES;
+  [self.view addSubview: locoPicker];
+  
+  	// Mask for better look
+	UIImageView *maskview = [[UIImageView alloc] initWithFrame: CGRectMake(0, 2 * BUTTONHEIGHT + 2 * BUTTONGAP - 5, 320, 219)];
+	maskview.image = [UIImage imageNamed:@"mask.png"];
+	[self.view addSubview: maskview];
+	
+  CGRect setInBlockFrame = CGRectMake( CONTENTBORDER, 2 * BUTTONHEIGHT + 2* BUTTONGAP + 210 + BUTTONGAP, 2 * buttonWidth + BUTTONGAP, BUTTONHEIGHT);
+  setInBlock = [[iRocButton alloc] initWithFrame: setInBlockFrame];
+  setInBlock.frame = setInBlockFrame;
+  [setInBlock setTitle: NSLocalizedString(@"Set in block", @"") forState: UIControlStateNormal];
+  [setInBlock addTarget:self action:@selector(setInBlockClicked:) forControlEvents:UIControlEventTouchUpInside];
+  [setInBlock setColor:3];
+  [self.view addSubview: setInBlock];
+  
+  
 
 }
 
@@ -135,6 +167,36 @@
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
 
 }
+
+
+- (NSInteger)numberOfComponentsInPickerView:(UITableView *)tableView {
+  return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent: (NSInteger)component {
+  NSLog(@"component=%d", component);
+  return [self.locos count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow: (NSInteger)row forComponent: (NSInteger)component {
+  NSLog(@"component=%d", component);
+  return [self.locos objectAtIndex: row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent: (NSInteger)component {
+  locoPicked = row;
+}
+
+- (IBAction) setInBlockClicked:(id) sender {
+  if ( locoPicked > 0 ) { 
+		[_block setLoco: [locos objectAtIndex: locoPicked]];
+  }
+  else {
+		[_block resetLoco];
+  }
+}
+
+
 
 
 - (void)dealloc {
