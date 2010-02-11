@@ -32,11 +32,12 @@
   
   CGRect bounds = self.view.bounds;
   float buttonWidth = (bounds.size.width - (2 * CONTENTBORDER + BUTTONGAP)) / 2;
-	CGRect rect = CGRectMake(CONTENTBORDER, CONTENTBORDER, buttonWidth, BUTTONHEIGHT);
+	CGRect rect = CGRectMake(CONTENTBORDER, CONTENTBORDER, bounds.size.width - (2 * CONTENTBORDER + BUTTONGAP), BUTTONHEIGHT);
   l = [[UILabel alloc] initWithFrame:rect];
   l.textColor = [UIColor whiteColor];
   l.backgroundColor = [UIColor clearColor];
   l.font = [UIFont systemFontOfSize:25.0];
+  l.textAlignment = UITextAlignmentCenter;
 	[l setText:_block.ID];	
   [self.view addSubview: l];
 
@@ -194,6 +195,7 @@
   else {
 		[_block resetLoco];
   }
+	[_delegate dismissModalViewController];
 }
 
 
