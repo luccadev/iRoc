@@ -330,7 +330,6 @@
 	functionButtons = [[NSArray arrayWithObjects:buttonF0,buttonF1,buttonF2,buttonF3,buttonF4,buttonF5,buttonF6,buttonF7,buttonF8,
                                                         buttonF1,buttonF2,buttonF3,buttonF4,buttonF5,buttonF6,buttonF7,buttonF8,nil] retain];
 	
-	
 	textfieldLoc = [[UITextField alloc] initWithFrame:CGRectMake(20, 20, 280, 71)];
 	[textfieldLoc setDelegate:self];
 	[textfieldLoc setBackgroundColor:[UIColor darkGrayColor]];

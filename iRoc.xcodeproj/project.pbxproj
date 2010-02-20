@@ -33,6 +33,10 @@
 		9C141F3D1103397500D8E911 /* dcrossingright-t-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C141F2D1103397500D8E911 /* dcrossingright-t-4.png */; };
 		9C1E1B4610EE701C00D9BC1E /* iRocSystemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1E1B4510EE701C00D9BC1E /* iRocSystemView.m */; };
 		9C220241111AE10B00B7F4DA /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C220240111AE10B00B7F4DA /* mask.png */; };
+		9C2A6602113019EB0074F3E7 /* signal-w-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C2A65FE113019EB0074F3E7 /* signal-w-1.png */; };
+		9C2A6603113019EB0074F3E7 /* signal-w-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C2A65FF113019EB0074F3E7 /* signal-w-2.png */; };
+		9C2A6604113019EB0074F3E7 /* signal-w-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C2A6600113019EB0074F3E7 /* signal-w-3.png */; };
+		9C2A6605113019EB0074F3E7 /* signal-w-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C2A6601113019EB0074F3E7 /* signal-w-4.png */; };
 		9C31162E10CE624B005A009B /* iRocRtTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C31162C10CE624B005A009B /* iRocRtTableView.m */; };
 		9C343D3010B900E500750B22 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9C343D2F10B900E500750B22 /* Settings.bundle */; };
 		9C36D07D1103460B00DD7F82 /* ccrossing-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C36D07B1103460B00DD7F82 /* ccrossing-1.png */; };
@@ -287,6 +291,10 @@
 		9C1E1B4410EE701C00D9BC1E /* iRocSystemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocSystemView.h; sourceTree = "<group>"; };
 		9C1E1B4510EE701C00D9BC1E /* iRocSystemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocSystemView.m; sourceTree = "<group>"; };
 		9C220240111AE10B00B7F4DA /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
+		9C2A65FE113019EB0074F3E7 /* signal-w-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signal-w-1.png"; sourceTree = "<group>"; };
+		9C2A65FF113019EB0074F3E7 /* signal-w-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signal-w-2.png"; sourceTree = "<group>"; };
+		9C2A6600113019EB0074F3E7 /* signal-w-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signal-w-3.png"; sourceTree = "<group>"; };
+		9C2A6601113019EB0074F3E7 /* signal-w-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signal-w-4.png"; sourceTree = "<group>"; };
 		9C31162B10CE624B005A009B /* iRocRtTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocRtTableView.h; sourceTree = "<group>"; };
 		9C31162C10CE624B005A009B /* iRocRtTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocRtTableView.m; sourceTree = "<group>"; };
 		9C343D2F10B900E500750B22 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -720,6 +728,10 @@
 		9CBF10F610CFF14100FF29DA /* Symbols */ = {
 			isa = PBXGroup;
 			children = (
+				9C2A65FE113019EB0074F3E7 /* signal-w-1.png */,
+				9C2A65FF113019EB0074F3E7 /* signal-w-2.png */,
+				9C2A6600113019EB0074F3E7 /* signal-w-3.png */,
+				9C2A6601113019EB0074F3E7 /* signal-w-4.png */,
 				9CF226D4111AF4C30085EBF6 /* connector-1.png */,
 				9CF226D5111AF4C30085EBF6 /* connector-2.png */,
 				9CF226D6111AF4C30085EBF6 /* connector-3.png */,
@@ -1153,6 +1165,10 @@
 				9CF226D9111AF4C30085EBF6 /* connector-2.png in Resources */,
 				9CF226DA111AF4C30085EBF6 /* connector-3.png in Resources */,
 				9CF226DB111AF4C30085EBF6 /* connector-4.png in Resources */,
+				9C2A6602113019EB0074F3E7 /* signal-w-1.png in Resources */,
+				9C2A6603113019EB0074F3E7 /* signal-w-2.png in Resources */,
+				9C2A6604113019EB0074F3E7 /* signal-w-3.png in Resources */,
+				9C2A6605113019EB0074F3E7 /* signal-w-4.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1258,15 +1274,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rob Versluis (7F9852X8U2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rob Versluis (7F9852X8U2)";
 				CURRENT_PROJECT_VERSION = 0.2;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "D28547DD-4FEC-48F0-A366-C1CEE17FC5F1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D28547DD-4FEC-48F0-A366-C1CEE17FC5F1";
 				SDKROOT = iphoneos3.1.2;
 			};
 			name = Distribution;

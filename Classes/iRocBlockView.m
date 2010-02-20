@@ -87,10 +87,15 @@
   [setInBlock addTarget:self action:@selector(setInBlockClicked:) forControlEvents:UIControlEventTouchUpInside];
   [setInBlock setColor:3];
   [self.view addSubview: setInBlock];
-  
-  
 
 }
+
+- (void)drawRect:(CGRect)rect {
+	
+	NSLog(@"iRocBlockView: drawRect");
+	
+}
+
 
 - (IBAction) selectLocClicked:(id) sender {
 	
@@ -166,7 +171,15 @@
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-
+	
+	//NSLog(@"Rotation Rotation Rotation"); 
+	
+	/*
+	CGRect setInBlockFrame = CGRectMake( CONTENTBORDER, CONTENTBORDER, BUTTONHEIGHT, BUTTONHEIGHT);
+  setInBlock.frame = setInBlockFrame;
+	 */
+	
+	
 }
 
 

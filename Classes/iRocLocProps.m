@@ -178,6 +178,11 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	[super touchesEnded:touches withEvent:event];
 	//NSLog(@"Touches E");
+	
+	
+	
+	
+	
 }
 
 
