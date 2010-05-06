@@ -175,8 +175,8 @@
 
 - (BOOL)isAutoMode {
   BOOL autoMode = [Mode compare:@"auto"] == NSOrderedSame ? TRUE:FALSE;
-  BOOL idleMode = [Mode compare:@"idle"] == NSOrderedSame ? TRUE:FALSE;
-  return (autoMode | idleMode);
+  //BOOL idleMode = [Mode compare:@"idle"] == NSOrderedSame ? TRUE:FALSE;
+  return (autoMode);// | idleMode);
 }
 
 - (BOOL)isHalfAutoMode {

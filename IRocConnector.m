@@ -435,11 +435,12 @@
             NSLog(@"**Read too much! readsize=%d bytesread=%d", readsize, bytesread);
           }
 					
-					/*
+					
            NSLog(@"###################################################################");
            NSLog([[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding]);
            NSLog(@"###################################################################");
-           */
+					 
+           
 					
 					NSXMLParser *parser = [[[NSXMLParser alloc] initWithData:_data] retain];
 					[parser setDelegate:self];
@@ -491,6 +492,7 @@ static NSString * const kIdElementName = @"id";
   
 	//NSLog(@"Parser didStartElement ... %@", elementName);
 	
+		NSLog(@"parsing : %d : element: %@ ", parsingPlan, elementName);
 	
 	if ([elementName isEqualToString:@"xmlh"]) {
 		//NSLog(@"parser: xmlh");
@@ -576,6 +578,8 @@ static NSString * const kIdElementName = @"id";
       Sensor *fb = [[[Sensor alloc] initWithAttributeDict:attributeDict] retain];
       [fb setDelegate:_delegate];
       [model.fbContainer addObject:fb withId:fb.Id];
+			
+			NSLog(@" FB: %@ ----- %@ ", fb.Id, elementName);
     }
     else {
       NSString *Id = [attributeDict valueForKey:kIdElementName];
@@ -723,6 +727,7 @@ static NSString * const kIdElementName = @"id";
 			exit(0);
 		}
     else {
+			
     }
     
 	}	else if ([elementName isEqualToString:@"state"]) {
@@ -744,6 +749,8 @@ static NSString * const kIdElementName = @"id";
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {     
+
+	
 	if (parsingPlan && [elementName isEqualToString:@"lclist"]) {
 		// inform the delegate
 		if ( [_delegate respondsToSelector:@selector(lcListLoaded)] ) {

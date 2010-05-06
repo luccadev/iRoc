@@ -69,8 +69,56 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
   context = UIGraphicsGetCurrentContext();
   
   
+	if( false ) { // new Design
+		float clrdepth = touchState == began ?.9:.6;
+		float graydepth = touchState == began ?.3:.3; // TODO: Seems always to be "began" for the loco controller buttons...
+		
+		if( bState) {
+			
+			CGContextSetRGBFillColor(context, 1, 0.7, 0.1,1);
+			CGContextAddRoundedRectA(context, CGRectMake(0,0, CGRectGetWidth(rect), CGRectGetHeight( rect)), 5);  
+			CGContextFillPath(context);
+		} 
+		
+
+		if( !enabled ) {
+			graydepth = touchState == began ?.2:.6; // TODO: Seems always to be "began" for the loco controller buttons...
+			CGContextSetRGBFillColor(context, graydepth, graydepth, graydepth, 1);
+		}
+    // red
+		else if( color == 1 )
+			CGContextSetRGBFillColor(context, clrdepth, .3, .3, 1);
+    // green
+		else if( color == 2 )
+			CGContextSetRGBFillColor(context, .3, clrdepth, .3, 1);
+    // default
+		else if( color == 3 )
+			CGContextSetRGBFillColor(context, .3, .3, clrdepth, 1);
+    // default
+		else
+			CGContextSetRGBFillColor(context, graydepth, graydepth, graydepth, 1);
+		
+		
+		CGContextAddRoundedRectA(context, CGRectMake(2,2, CGRectGetWidth(rect)-4, CGRectGetHeight( rect)-4), 5);  
+		CGContextFillPath(context);
+		
+		//border
+		CGContextSetLineWidth(context, .5);
+		CGContextSetRGBStrokeColor(context, .5, .5, .5, 1);
+		CGContextAddRoundedRectA(context, CGRectMake(0,0, CGRectGetWidth(rect), CGRectGetHeight( rect)), 5);  
+		CGContextStrokePath(context);  
+		
+		/*
+		if( bState) {
+			CGContextSetRGBFillColor(context, 1, 0.7, 0.1, 1);
+			CGContextAddEllipseInRect(context, CGRectMake(5,5,5,5));
+			CGContextFillPath(context);
+		} 
+		 */
+	
+	} else {  // old Design
   float clrdepth = touchState == began ?.9:.6;
-  float graydepth = touchState == began ?.3:.3; // TODO: Seems always to be "began" for the loco controller buttons...
+  float graydepth = touchState == began ?.6:.3; // TODO: Seems always to be "began" for the loco controller buttons...
   if( !enabled ) {
     graydepth = touchState == began ?.2:.2; // TODO: Seems always to be "began" for the loco controller buttons...
     CGContextSetRGBFillColor(context, graydepth, graydepth, graydepth, 1);
@@ -103,6 +151,7 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
 		CGContextAddEllipseInRect(context, CGRectMake(5,5,5,5));
 		CGContextFillPath(context);
 	} 
+	}  // new/old Design
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
