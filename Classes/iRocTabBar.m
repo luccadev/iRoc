@@ -32,6 +32,11 @@
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+	
+	if( ![[Globals getDefaults] boolForKey:@"allowrotation"])
+		return NO;
+	
+	
   NSLog(@"rotation message: will be rotated... (iRocTabBar)");
   BOOL toLandscape = TRUE;
 
@@ -63,7 +68,12 @@
   return NO;
 }
 
+
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+	
+	if( ![[Globals getDefaults] boolForKey:@"allowrotation"])
+		return;
+	
   NSLog(@"rotation message for tabcontroller");
 	
 	if( self.selectedIndex == 3 ) {
@@ -75,6 +85,7 @@
       //self.tabBar.hidden = TRUE;
   }
 }
+
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
 }
