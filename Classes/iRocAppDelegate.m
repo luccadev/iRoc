@@ -343,6 +343,8 @@
 	[viewController updateFnState];
   [lcSettingsView setLoco:loc];
   [lcAutoView setLoco:loc];
+	
+	[viewController setSlider:0 withDir:loc.dir];
 	//[self locSetSlider];
 }
 

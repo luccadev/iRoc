@@ -528,11 +528,11 @@ static NSString * const kIdElementName = @"id";
 			Loc *lc = (Loc*)[model.lcContainer objectWithId:[attributeDict valueForKey:@"id"]];
       [lc updateWithAttributeDict:attributeDict];
 			
-			/*
+			
 			if ( [_delegate respondsToSelector:@selector(locSetSlider)] ) {
 				[_delegate performSelectorOnMainThread : @ selector(locSetSlider) withObject:nil waitUntilDone:NO];
 			} 
-			 */
+			 
 			
     }
 	} else if ([elementName isEqualToString:@"sw"]) {

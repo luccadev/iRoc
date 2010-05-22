@@ -147,11 +147,11 @@
   
 	if(dir) {
 		[buttonDir setTitle:@"<" forState:UIControlStateNormal];
-		dir = !dir;
+		dir = FALSE;
 		stringDir = @"false";
 	} else {
 		[buttonDir setTitle:@">" forState:UIControlStateNormal];
-		dir = !dir;
+		dir = TRUE;
 		stringDir = @"true";
 	}
 	AudioServicesPlaySystemSound([Globals getChrr]);
@@ -430,18 +430,18 @@
 }
 
 - (void) setSlider:(int)v withDir:(NSString*)diri {
-	
-	/*
+
 	if([diri isEqualToString:@"false"] ) {
 		[buttonDir setTitle:@"<" forState:UIControlStateNormal];
-		dir = !dir;
+		dir = FALSE;
 		stringDir = @"false";
 	} else {
 		[buttonDir setTitle:@">" forState:UIControlStateNormal];
-		dir = !dir;
+		dir = TRUE;
 		stringDir = @"true";
 	}
-		 
+		
+	/*
 		[slideView setValue:v];
 	 */
 	
