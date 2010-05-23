@@ -142,10 +142,12 @@
 	return (xout/maxval);
 }
 
-- (void)setValue:(int) val{
-	x = val;
+- (void)setValue:(double) val{
+	x = 250*val + 30;
+	
+	
 	[self setNeedsDisplay];
-	NSLog(@"Slider setValue: %d", val);
+	NSLog(@"Slider setValue: %f", val);
 }
 
 - (void)dealloc {

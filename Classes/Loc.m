@@ -145,6 +145,10 @@
 	
 }
 
+- (double) getVpercent {
+		return [vstr doubleValue]/[vmaxstr doubleValue];
+}
+
 - (int) getVint {
 	return [vstr intValue];
 }

@@ -112,7 +112,7 @@
 - (void) prepareFNCommand:(int) fnIndex; 
 - (void) processAllEvents:(int) _VDelta; 
 
-- (void) setSlider:(int)v withDir:(NSString*)diri;
+- (void) setSlider:(double)v withDir:(NSString*)diri;
 
 @end
 

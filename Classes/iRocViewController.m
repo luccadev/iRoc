@@ -429,7 +429,7 @@
 	[delegate lcTextFieldAction];
 }
 
-- (void) setSlider:(int)v withDir:(NSString*)diri {
+- (void) setSlider:(double)v withDir:(NSString*)diri {
 
 	if([diri isEqualToString:@"false"] ) {
 		[buttonDir setTitle:@"<" forState:UIControlStateNormal];
@@ -440,12 +440,19 @@
 		dir = TRUE;
 		stringDir = @"true";
 	}
+	
+	
+	NSLog(@" V : %f ",v);
+	
 		
-	/*
-		[slideView setValue:v];
-	 */
+	
+  [slideView setValue:v];
 	
 }
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.

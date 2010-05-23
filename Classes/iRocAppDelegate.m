@@ -344,7 +344,7 @@
   [lcSettingsView setLoco:loc];
   [lcAutoView setLoco:loc];
 	
-	[viewController setSlider:0 withDir:loc.dir];
+	[viewController setSlider:[loc getVpercent] withDir:loc.dir];
 	//[self locSetSlider];
 }
 
@@ -377,7 +377,7 @@
 - (void)locSetSlider{
 
 	if( ((Loc*)[viewController.locProps getLoc]) != NULL) {
-		NSLog( @"LLLLLLL: %@", ((Loc*)[viewController.locProps getLoc]).locid);
+		//NSLog( @"LLLLLLL: %@", ((Loc*)[viewController.locProps getLoc]).locid);
 	
 		Loc *lc = (Loc*)[viewController.locProps getLoc];
 
@@ -385,7 +385,7 @@
 	
 		NSLog(@"vint: %d", [lc getVint]);
 
-		[viewController setSlider:[lc getVint] withDir:lc.dir];
+		[viewController setSlider:[lc getVpercent] withDir:lc.dir];
 		
 	}
 	

@@ -16,7 +16,7 @@
 }
 
 - (float)value;
-- (void)setValue:(int) val;
+- (void)setValue:(double) val;
 
 @end
 

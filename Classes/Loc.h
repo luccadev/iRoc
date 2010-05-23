@@ -78,5 +78,6 @@
 - (void)sendVmax:(int)V;
 - (void)sendVmid:(int)V;
 - (void)sendVmin:(int)V;
+- (double) getVpercent;
 
 @end
