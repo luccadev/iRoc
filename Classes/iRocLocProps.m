@@ -145,7 +145,7 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
 
 - (void)imageLoaded {
   if( imageview != nil ) {
-    NSLog(@"image already loaded for %@.", idLabel.text);
+    //NSLog(@"image already loaded for %@.", idLabel.text);
     return;
   }
   

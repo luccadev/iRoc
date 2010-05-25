@@ -29,7 +29,7 @@
 	//objectList = [[NSMutableArray array] retain];
 	//objectIndexList = [[NSMutableArray array] retain];
 	theData = [[NSMutableDictionary dictionaryWithCapacity:250] retain];
-	NSLog(@"Container Init ...");
+	//NSLog(@"Container Init ...");
 	
 	isSorted = NO;
 	

@@ -172,7 +172,7 @@
   value = Value;
   
 	x = (maxrange/(maximumValue-minimumValue))*value;
-	NSLog(@"Slider setValue: %d(%d)", value, x);
+	//NSLog(@"Slider setValue: %d(%d)", value, x);
 	[self setNeedsDisplay];
 }
 

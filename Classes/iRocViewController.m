@@ -37,7 +37,7 @@
 
 
 - (id)init {
-  NSLog(@"***** View Controller INIT");
+  NSLog(@"View Controller init ...");
   self = [super init];
   if( self != nil ) {
     self.tabBarItem = [[UITabBarItem alloc] initWithTitle:
@@ -453,15 +453,9 @@
 		dir = TRUE;
 		stringDir = @"true";
 	}
-	
-	
-	NSLog(@" V : %f ",v);
-
+	//NSLog(@" V : %f ",v);
   [slideView setValue:v];
-	
 }
-
-
 
 
 

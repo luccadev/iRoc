@@ -69,7 +69,7 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
       color = 0;
       touchState = ended;
 		
-		NSLog(@"iRocButton:initWithFrame");
+		//NSLog(@"iRocButton:initWithFrame");
     }
 	
     return self;

@@ -55,7 +55,7 @@
   BOOL connectOK = [self doConnect];
 	
   if(isConnected) {
-    NSLog(@"starting currentLoop...");
+    NSLog(@"starting currentRunLoop...");
     [[NSRunLoop currentRunLoop] run];
   }
   else {
@@ -162,7 +162,7 @@
 
   }
   else {
-  	NSLog(@"sorry, pending...");
+  	NSLog(@"pending ...");
   }
   
   if( [messageQueue count] == 0 ) {
