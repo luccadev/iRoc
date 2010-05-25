@@ -447,11 +447,11 @@
             NSLog(@"**Read too much! readsize=%d bytesread=%d", readsize, bytesread);
           }
 					
-					
+					/*
            NSLog(@"###################################################################");
            NSLog([[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding]);
            NSLog(@"###################################################################");
-					 
+					 */
            
 					
 					NSXMLParser *parser = [[[NSXMLParser alloc] initWithData:_data] retain];
@@ -504,7 +504,7 @@ static NSString * const kIdElementName = @"id";
   
 	//NSLog(@"Parser didStartElement ... %@", elementName);
 	
-		NSLog(@"parsing : %d : element: %@ ", parsingPlan, elementName);
+		//NSLog(@"parsing : %d : element: %@ ", parsingPlan, elementName);
 	
 	if ([elementName isEqualToString:@"xmlh"]) {
 		//NSLog(@"parser: xmlh");
@@ -591,7 +591,7 @@ static NSString * const kIdElementName = @"id";
       [fb setDelegate:_delegate];
       [model.fbContainer addObject:fb withId:fb.Id];
 			
-			NSLog(@" FB: %@ ----- %@ ", fb.Id, elementName);
+			//NSLog(@" FB: %@ ----- %@ ", fb.Id, elementName);
     }
     else {
       NSString *Id = [attributeDict valueForKey:kIdElementName];

@@ -456,9 +456,7 @@
 	
 	
 	NSLog(@" V : %f ",v);
-	
-		
-	
+
   [slideView setValue:v];
 	
 }

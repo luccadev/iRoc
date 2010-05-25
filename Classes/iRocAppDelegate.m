@@ -277,6 +277,8 @@
   lcAutoView.loc = loc;
   lcSettingsView.loc = loc;
   [viewController updateFnState];
+
+	[viewController setSlider:[loc getVpercent] withDir:loc.dir];
 }
 
 - (void)rtListLoaded {
@@ -349,9 +351,11 @@
 	
 	[self.tabBar dismissModalViewControllerAnimated:YES];
 	Loc *loc = (Loc*) [model.lcContainer objectWithId:lcid];
-
+	
 	// The new one:
 	[viewController.locProps setLoc:loc];
+	//[viewController setSlider:[loc getVpercent] withDir:loc.dir];
+	
 	[viewController updateFnState];
   [lcSettingsView setLoco:loc];
   [lcAutoView setLoco:loc];
