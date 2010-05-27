@@ -27,7 +27,8 @@
 @implementation Loc
 
 @synthesize locid, imgname, lcimage, hasImage, imageLoaded, desc, imageAlreadyRequested, roadname, 
-            cell, dir, vstr, vmaxstr, Vmax, Vmid, Vmin, Placing, SpCnt, Vmode, Fn, Fx, Mode;
+            cell, dir, vstr, vmaxstr, Vmax, Vmid, Vmin, Placing, SpCnt, Vmode, Fn, Fx, Mode, 
+						f1, f2, f3, f4 ,f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16;
 
 - (id) init {
 	[super init];	
@@ -94,15 +95,70 @@
   vstr     = [Globals getAttribute:@"V"        fromDict:attributeDict withDefault:vstr];
 	
 	
-	fnStates[0] = [Fn isEqualToString:@"true"];
-	int iFx = [Fx intValue];
-	//NSLog(@"id=%@ fx=%d", locid, iFx);
-	for(int i = 1; i < 32; i++) {
-		int mask = 1 << (i-1);
-		//NSLog(@"mask=%d fx=%d function %d is %@", mask, iFx, i, ( (iFx & mask) == mask ) ?@"ON":@"OFF");
-		fnStates[i] = ( (iFx & mask) == mask ) ? TRUE:FALSE; 
-	}
+	f1 = [Globals getAttribute:@"f1" fromDict:attributeDict withDefault:f1];
+	if( [@"true" isEqualToString:f1] || [@"false" isEqualToString:f1])
+		fnStates[1] = [@"true" isEqualToString:f1] ? TRUE:FALSE;
 	
+	f2 = [Globals getAttribute:@"f2" fromDict:attributeDict withDefault:f2];
+	if( [@"true" isEqualToString:f2] || [@"false" isEqualToString:f2])
+		fnStates[2] = [@"true" isEqualToString:f2] ? TRUE:FALSE;
+	
+	f3 = [Globals getAttribute:@"f3" fromDict:attributeDict withDefault:f3];
+	if( [@"true" isEqualToString:f3] || [@"false" isEqualToString:f3])
+		fnStates[3] = [@"true" isEqualToString:f3] ? TRUE:FALSE;
+	
+	f4 = [Globals getAttribute:@"f4" fromDict:attributeDict withDefault:f4];
+	if( [@"true" isEqualToString:f4] || [@"false" isEqualToString:f4])
+		fnStates[4] = [@"true" isEqualToString:f4] ? TRUE:FALSE;
+	
+	f5 = [Globals getAttribute:@"f5" fromDict:attributeDict withDefault:f5];
+	if( [@"true" isEqualToString:f5] || [@"false" isEqualToString:f5])
+		fnStates[5] = [@"true" isEqualToString:f5] ? TRUE:FALSE;
+	
+	f6 = [Globals getAttribute:@"f6" fromDict:attributeDict withDefault:f6];
+	if( [@"true" isEqualToString:f6] || [@"false" isEqualToString:f6])
+		fnStates[6] = [@"true" isEqualToString:f6] ? TRUE:FALSE;
+	
+	f7 = [Globals getAttribute:@"f7" fromDict:attributeDict withDefault:f7];
+	if( [@"true" isEqualToString:f7] || [@"false" isEqualToString:f7])
+		fnStates[7] = [@"true" isEqualToString:f7] ? TRUE:FALSE;
+	
+	f8 = [Globals getAttribute:@"f8" fromDict:attributeDict withDefault:f8];
+	if( [@"true" isEqualToString:f8] || [@"false" isEqualToString:f8])
+		fnStates[8] = [@"true" isEqualToString:f8] ? TRUE:FALSE;
+	
+	f9 = [Globals getAttribute:@"f9" fromDict:attributeDict withDefault:f9];
+	if( [@"true" isEqualToString:f9] || [@"false" isEqualToString:f9])
+		fnStates[9] = [@"true" isEqualToString:f9] ? TRUE:FALSE;
+	
+	f10 = [Globals getAttribute:@"f10" fromDict:attributeDict withDefault:f10];
+	if( [@"true" isEqualToString:f10] || [@"false" isEqualToString:f10])
+		fnStates[10] = [@"true" isEqualToString:f10] ? TRUE:FALSE;
+	
+	f11 = [Globals getAttribute:@"f11" fromDict:attributeDict withDefault:f11];
+	if( [@"true" isEqualToString:f11] || [@"false" isEqualToString:f11])
+		fnStates[11] = [@"true" isEqualToString:f11] ? TRUE:FALSE;
+	
+	f12 = [Globals getAttribute:@"f12" fromDict:attributeDict withDefault:f12];
+	if( [@"true" isEqualToString:f12] || [@"false" isEqualToString:f12])
+		fnStates[12] = [@"true" isEqualToString:f12] ? TRUE:FALSE;
+	
+	f13 = [Globals getAttribute:@"f13" fromDict:attributeDict withDefault:f13];
+	if( [@"true" isEqualToString:f13] || [@"false" isEqualToString:f13])
+		fnStates[13] = [@"true" isEqualToString:f13] ? TRUE:FALSE;
+	
+	f14 = [Globals getAttribute:@"f14" fromDict:attributeDict withDefault:f14];
+	if( [@"true" isEqualToString:f14] || [@"false" isEqualToString:f14])
+		fnStates[14] = [@"true" isEqualToString:f14] ? TRUE:FALSE;
+	
+	f15 = [Globals getAttribute:@"f15" fromDict:attributeDict withDefault:f15];
+	if( [@"true" isEqualToString:f15] || [@"false" isEqualToString:f15])
+		fnStates[15] = [@"true" isEqualToString:f15] ? TRUE:FALSE;
+	
+	f16 = [Globals getAttribute:@"f16" fromDict:attributeDict withDefault:f16];
+	if( [@"true" isEqualToString:f16] || [@"false" isEqualToString:f16])
+		fnStates[16] = [@"true" isEqualToString:f16] ? TRUE:FALSE;
+		
 }
 
 - (void)dealloc {

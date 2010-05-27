@@ -301,7 +301,9 @@
 
 
 - (void) prepareFNCommand:(int) fnIndex {
-  BOOL fnState = [self flipFn: fnIndex];
+  
+	// XXXX
+	BOOL fnState = ![locProps isFn:fnIndex];     //[self flipFn: fnIndex];
 	
 	int tmp = (fnIndex-1)/4 +1;
 	NSLog(@"FNG: %d", tmp);
@@ -315,7 +317,7 @@
 	NSLog(@"FN: %@", stringToSend);
 	
 	
-	[((iRocButton *)[functionButtons objectAtIndex:fnIndex]) setBState:fnState];
+	//[((iRocButton *)[functionButtons objectAtIndex:fnIndex]) setBState:fnState];
 	
 	AudioServicesPlaySystemSound([Globals getClick]);
 }

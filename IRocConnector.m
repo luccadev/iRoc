@@ -549,24 +549,25 @@ static NSString * const kIdElementName = @"id";
     }
 	} else if ([elementName isEqualToString:@"fn"]) {
     if( !parsingPlan ) {
-			NSLog(@"FN .... for: %@ : throttle: %@", [attributeDict valueForKey:@"id"], [attributeDict valueForKey:@"throttleid"]);
+			NSLog(@"FN .... for: %@ f1=%@ ", [attributeDict valueForKey:@"id"], [attributeDict valueForKey:@"f1"]);
 			
-			/*
+			//XXXX
+			
 			Loc *lc = (Loc*)[model.lcContainer objectWithId:[attributeDict valueForKey:@"id"]];
 			[lc updateWithAttributeDict:attributeDict];
 			
 			if ( [_delegate respondsToSelector:@selector(locSetSlider)] ) {
 				[_delegate performSelectorOnMainThread : @ selector(locSetSlider) withObject:nil waitUntilDone:NO];
 			} 
-			 */
+			
 			
 			
     }
 	} else if ([elementName isEqualToString:@"sw"]) {
     NSString *idAttribute = [attributeDict valueForKey:kIdElementName];
     if( parsingPlan ) {
-      NSString *type = [attributeDict valueForKey:@"type"];
-	  NSString *state = [attributeDict valueForKey:@"state"];
+			NSString *type = [attributeDict valueForKey:@"type"];
+			NSString *state = [attributeDict valueForKey:@"state"];
       //NSLog(@"parser: sw: %@", [attributeDict valueForKey:kIdElementName]);
       
       Switch *sw = [[[Switch alloc] initWithAttributeDict:attributeDict] retain];
