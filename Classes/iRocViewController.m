@@ -455,6 +455,9 @@
 	}
 	//NSLog(@" V : %f ",v);
   [slideView setValue:v];
+	
+	// XXXX
+	[self updateFnState];
 }
 
 

@@ -92,6 +92,17 @@
   roadname = [Globals getAttribute:@"roadname" fromDict:attributeDict withDefault:roadname];
   dir      = [Globals getAttribute:@"dir"      fromDict:attributeDict withDefault:dir];
   vstr     = [Globals getAttribute:@"V"        fromDict:attributeDict withDefault:vstr];
+	
+	
+	fnStates[0] = [Fn isEqualToString:@"true"];
+	int iFx = [Fx intValue];
+	//NSLog(@"id=%@ fx=%d", locid, iFx);
+	for(int i = 1; i < 32; i++) {
+		int mask = 1 << (i-1);
+		//NSLog(@"mask=%d fx=%d function %d is %@", mask, iFx, i, ( (iFx & mask) == mask ) ?@"ON":@"OFF");
+		fnStates[i] = ( (iFx & mask) == mask ) ? TRUE:FALSE; 
+	}
+	
 }
 
 - (void)dealloc {

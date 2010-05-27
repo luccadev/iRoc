@@ -501,8 +501,6 @@ static NSString * const kIdElementName = @"id";
 //#pragma mark NSXMLParser delegate methods
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
-  
-	//NSLog(@"Parser didStartElement ... %@", elementName);
 	
 		//NSLog(@"parsing : %d : element: %@ ", parsingPlan, elementName);
 	
@@ -535,16 +533,33 @@ static NSString * const kIdElementName = @"id";
       //}
     }
     else {
-	    NSLog(@"loco event parser: lc: %@ - v: %@ - dir: %@", [attributeDict valueForKey:@"id"], [attributeDict valueForKey:@"V"], [attributeDict valueForKey:@"dir"]);
+	    NSLog(@"loco event parser: lc: %@ - v: %@ - dir: %@ - throttle: %@ - fn: %@", [attributeDict valueForKey:@"id"], [attributeDict valueForKey:@"V"], 
+						[attributeDict valueForKey:@"dir"], [attributeDict valueForKey:@"throttleid"], [attributeDict valueForKey:@"fn"]);
 			
+			// Filter out our events that are coming back to us ...
+			if( ![(NSString*)[[UIDevice currentDevice] name] isEqualToString:[attributeDict valueForKey:@"throttleid"]]){
+				Loc *lc = (Loc*)[model.lcContainer objectWithId:[attributeDict valueForKey:@"id"]];
+				[lc updateWithAttributeDict:attributeDict];
+			
+				if ( [_delegate respondsToSelector:@selector(locSetSlider)] ) {
+					[_delegate performSelectorOnMainThread : @ selector(locSetSlider) withObject:nil waitUntilDone:NO];
+				} 
+			}
+			
+    }
+	} else if ([elementName isEqualToString:@"fn"]) {
+    if( !parsingPlan ) {
+			NSLog(@"FN .... for: %@ : throttle: %@", [attributeDict valueForKey:@"id"], [attributeDict valueForKey:@"throttleid"]);
+			
+			/*
 			Loc *lc = (Loc*)[model.lcContainer objectWithId:[attributeDict valueForKey:@"id"]];
-      [lc updateWithAttributeDict:attributeDict];
-			
+			[lc updateWithAttributeDict:attributeDict];
 			
 			if ( [_delegate respondsToSelector:@selector(locSetSlider)] ) {
 				[_delegate performSelectorOnMainThread : @ selector(locSetSlider) withObject:nil waitUntilDone:NO];
 			} 
-			 
+			 */
+			
 			
     }
 	} else if ([elementName isEqualToString:@"sw"]) {

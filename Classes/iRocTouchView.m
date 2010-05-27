@@ -155,13 +155,8 @@
 }
 
 - (void)setValue:(double) val{
-	int xnew = 250*val + 30;
-	
-	if( abs( x - xnew ) < 5)
-		return;
-	
-	x = xnew;
-	
+	x = 250*val + 30;
+
 	[self setNeedsDisplay];
 	//NSLog(@"Slider setValue: %f", val);
 }

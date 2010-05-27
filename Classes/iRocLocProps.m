@@ -140,6 +140,9 @@ void CGContextAddRoundedRectB(CGContextRef c, CGRect rect, int corner_radius) {
 }
 
 - (BOOL)isFn:(int)fn {
+	
+	//NSLog(@"Hello from isFn: %@ : %d : %d", loc.locid, fn, [loc isFn:fn]);
+	
   return [loc isFn:fn];
 }
 
