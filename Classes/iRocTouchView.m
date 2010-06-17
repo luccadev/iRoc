@@ -20,6 +20,7 @@
 
 #import "iRocTouchView.h"
 #import "iRocSlider.h"
+#import "Globals.h"
 
 @implementation iRocTouchView
 
@@ -127,6 +128,8 @@
 	x = [touch locationInView:self].x;
 	y = [touch locationInView:self].y;
 	//NSLog(@"iRocTouchView(%d).touchesEnded: (%d, %d)", self, x, y);
+	
+	AudioServicesPlaySystemSound([Globals getClick]);
 	
 	[self setNeedsDisplay];
 	[self sendActionsForControlEvents:UIControlEventValueChanged];

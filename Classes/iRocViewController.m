@@ -181,7 +181,6 @@
 	int vVal = [slideView value]*100*([lc getVmax]/100.00);
   
   if( processAll && (abs( prevVVal - vVal) < VDelta ) && vVal != 0 ) {
-		AudioServicesPlaySystemSound([Globals getClick]);
     return;
 	}
 		
@@ -193,7 +192,9 @@
                     (NSString*)[[UIDevice currentDevice] name],
                     [textfieldLoc text], vVal, stringDir, [buttonF0 getBState]?@"true":@"false"];
 		//NSLog(stringToSend);
-		AudioServicesPlaySystemSound([Globals getClick]);
+		
+		//AudioServicesPlaySystemSound([Globals getClick]);
+		
 		[rrconnection sendMessage:@"lc" message:stringToSend];
 	}
 		prevVVal = vVal;
