@@ -42,12 +42,13 @@
 - (void)updateTextColor {
   if( [locid length] > 0 ) {
     NSLog(@"block=%@ reserved=%@, entering=%@ state=%@", Id, reserved, entering, state);
-    if( [reserved isEqual:@"true"] )
-      textBackgroundColor = [[UIColor colorWithRed:1 green:1 blue:.5 alpha:1] retain];
-    else if( [entering isEqual:@"true"] )
-      textBackgroundColor = [[UIColor colorWithRed:.5 green:1 blue:1 alpha:1] retain];
-    else
-      textBackgroundColor = [[UIColor colorWithRed:1 green:.5 blue:.5 alpha:1] retain];
+    if( [reserved isEqual:@"true"] && [entering isEqual:@"false"] ) { // reserved
+      textBackgroundColor = [[UIColor colorWithRed:1 green:1 blue:.7 alpha:1] retain];
+    } else if( [entering isEqual:@"true"] && [reserved isEqual:@"true"] ) { // enter
+      textBackgroundColor = [[UIColor colorWithRed:.6 green:.6 blue:1 alpha:1] retain];
+    } else { // in
+      textBackgroundColor = [[UIColor colorWithRed:1 green:.7 blue:.7 alpha:1] retain];
+		}
   }
   else {
 		text = @" ";
