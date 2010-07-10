@@ -27,7 +27,7 @@
 @implementation Loc
 
 @synthesize locid, imgname, lcimage, hasImage, imageLoaded, desc, imageAlreadyRequested, roadname, 
-            cell, dir, vstr, vmaxstr, Vmax, Vmid, Vmin, Placing, SpCnt, Vmode, Fn, Fx, Mode, 
+            cell, dir, vstr, vmaxstr, Vmax, Vmid, Vmin, Placing, SpCnt, Vmode, Fn, Fx, Mode, addr, 
 						f1, f2, f3, f4 ,f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16;
 
 - (id) init {
@@ -64,6 +64,7 @@
     roadname = [Globals getAttribute:@"roadname" fromDict:attributeDict withDefault:@""];
     dir      = [Globals getAttribute:@"dir" fromDict:attributeDict withDefault:@""];
     vstr     = [Globals getAttribute:@"V" fromDict:attributeDict withDefault:@"0"];
+		addr     = [Globals getAttribute:@"addr" fromDict:attributeDict withDefault:@"0"];
 
     hasImage = ![imgname isEqualToString:@""];
     
@@ -93,6 +94,7 @@
   roadname = [Globals getAttribute:@"roadname" fromDict:attributeDict withDefault:roadname];
   dir      = [Globals getAttribute:@"dir"      fromDict:attributeDict withDefault:dir];
   vstr     = [Globals getAttribute:@"V"        fromDict:attributeDict withDefault:vstr];
+	addr     = [Globals getAttribute:@"addr" fromDict:attributeDict withDefault:addr];
 	
 	
 	f1 = [Globals getAttribute:@"f1" fromDict:attributeDict withDefault:f1];

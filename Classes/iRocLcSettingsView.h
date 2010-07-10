@@ -31,6 +31,9 @@
   iRocSlider *Vmid;
   iRocSlider *Vmin;
   iRocButton *Placing;
+	iRocButton *writeCV;
+	UITextField *textVal;
+	UITextField *textCV;
 
   Loc *loc;
 	IRocConnector *rrconnection;

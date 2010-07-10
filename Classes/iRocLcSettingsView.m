@@ -69,7 +69,7 @@
   NSLog(@"rows in section %d", section);
   switch( section ) {
     case (0):
-      return 4;
+      return 7;
       break;
     case (1):
       return 2;
@@ -180,17 +180,82 @@
           }
             break;
           case (4): {
-            NSArray *itemArray = [NSArray arrayWithObjects: @"Steam", @"Diesal", @"Electric", nil];
-            UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
-            segmentedControl.frame = CGRectMake(CONTENTBORDER, 10, 300, 30);
-            segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
-            segmentedControl.tintColor = [UIColor grayColor];
 
-            segmentedControl.selectedSegmentIndex = 1;
-            [cell addSubview: segmentedControl];
-            }
-            break;
-        }
+						UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
+            label.font = [UIFont boldSystemFontOfSize:cellfontsize];
+            label.textColor = celltextcolor;
+            label.backgroundColor = [UIColor clearColor];
+            label.text = NSLocalizedString(@"CV", @"");
+            [cell addSubview: label];
+						
+						textCV = [[[UITextField alloc] initWithFrame:CGRectMake(170, 10, 125, 30)] autorelease];						
+						
+						//textCV.adjustsFontSizeToFitWidth = YES;
+						textCV.keyboardType = UIKeyboardTypeNumberPad;
+						textCV.textColor = [UIColor blackColor];
+						textCV.backgroundColor = [UIColor whiteColor];
+						textCV.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+						textCV.textAlignment = UITextAlignmentCenter;	
+						textCV.clearsOnBeginEditing = YES;
+						
+						textCV.text = @"1";
+						[cell addSubview: textCV];
+						            break;
+					}
+					case (5): {
+						
+						UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
+            label.font = [UIFont boldSystemFontOfSize:cellfontsize];
+            label.textColor = celltextcolor;
+            label.backgroundColor = [UIColor clearColor];
+            label.text = NSLocalizedString(@"Value", @"");
+            [cell addSubview: label];
+						
+						textVal = [[[UITextField alloc] initWithFrame:CGRectMake(170, 10, 125, 30)] autorelease];						
+						
+						//textCV.adjustsFontSizeToFitWidth = YES;
+						textVal.keyboardType = UIKeyboardTypeNumberPad;
+						textVal.textColor = [UIColor blackColor];
+						textVal.backgroundColor = [UIColor whiteColor];
+						textVal.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+						textVal.textAlignment = UITextAlignmentCenter;		
+						textVal.clearsOnBeginEditing = YES;
+						
+						textVal.text = @"1";
+						[cell addSubview: textVal];
+						break;
+					}
+					case (6): {
+					
+						UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
+            label.font = [UIFont boldSystemFontOfSize:cellfontsize];
+            label.textColor = celltextcolor;
+            label.backgroundColor = [UIColor clearColor];
+            label.text = NSLocalizedString(@"Write", @"");
+            [cell addSubview: label];
+						
+						writeCV = [[iRocButton alloc] initWithFrame: CGRectMake(170, 10, 125, 30)];
+						[writeCV setTitle: NSLocalizedString(@"Write", @"") forState:UIControlStateNormal];
+						[writeCV addTarget:self action:@selector(writeClicked:) forControlEvents:UIControlEventTouchUpInside];
+						[cell addSubview: writeCV];
+						
+						break;
+					}
+						
+						
+					case (7): {
+						NSArray *itemArray = [NSArray arrayWithObjects: @"Steam", @"Diesal", @"Electric", nil];
+						UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
+						segmentedControl.frame = CGRectMake(CONTENTBORDER, 10, 300, 30);
+						segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+						segmentedControl.tintColor = [UIColor grayColor];
+				
+						segmentedControl.selectedSegmentIndex = 1;
+						[cell addSubview: segmentedControl];
+					}
+					break;
+		}
+		
         break;
     }
   }
@@ -205,6 +270,18 @@
                              [NSString stringWithFormat: @"<lc id=\"%@\" cmd=\"swap\" placing=\"%@\"/>",
                               loc.locid, [Placing getBState]?@"false":@"true" ]];
   [rrconnection sendMessage:@"lc" message:stringToSend];
+}  
+
+
+- (IBAction) writeClicked:(id) sender {
+ 
+  NSString * stringToSend = [[NSString alloc] initWithString: 
+                             [NSString stringWithFormat: @"<program cmd=\"1\" addr=\"%@\" cv=\"%@\" value=\"%@\" longaddr=\"%@\" pom=\"true\" decaddr=\"%@\" />",
+														  loc.locid, textCV.text, textVal.text, @"true", loc.addr  ]];
+  [rrconnection sendMessage:@"program" message:stringToSend];
+	
+	//NSLog(@"HUDIWUUUUUU: %@ ", stringToSend);
+	
 }  
 
 - (void) updatePlacing {

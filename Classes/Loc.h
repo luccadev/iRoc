@@ -37,6 +37,7 @@
 	NSString *Vmode;
 	NSString *Fn;
 	NSString *Fx;
+	NSString *addr;
 	
 	NSString *f1, *f2, *f3, *f4, *f5, *f6, *f7, *f8, *f9, *f10, *f11, *f12, *f13, *f14, *f15, *f16;
 	
@@ -67,7 +68,7 @@
 @property (nonatomic, retain) NSString *desc;
 @property (nonatomic, retain) NSString *roadname;
 @property (nonatomic, retain) NSString *dir;
-@property (nonatomic, retain) NSString *vstr, *Vmax, *Vmid, *Vmin, *Placing, *SpCnt, *Vmode, *Fn, *Fx, *Mode, *f1, *f2, *f3, *f4, 
+@property (nonatomic, retain) NSString *vstr, *Vmax, *Vmid, *Vmin, *Placing, *SpCnt, *Vmode, *Fn, *Fx, *Mode, *addr, *f1, *f2, *f3, *f4, 
 														*f5, *f6, *f7, *f8, *f9, *f10, *f11, *f12, *f13, *f14, *f15, *f16;
 @property (nonatomic, retain) NSString *vmaxstr;
 @property (nonatomic, retain) UIImage *lcimage;

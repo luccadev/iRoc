@@ -1283,7 +1283,7 @@
 				PREBINDING = NO;
 				PROVISIONING_PROFILE = "ED3F5577-2D13-4F62-930B-29838BE8C405";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "ED3F5577-2D13-4F62-930B-29838BE8C405";
-				SDKROOT = iphoneos3.1.2;
+				SDKROOT = iphoneos3.2;
 			};
 			name = Distribution;
 		};
@@ -1297,6 +1297,7 @@
 				GCC_PREFIX_HEADER = iRoc_Prefix.pch;
 				INFOPLIST_FILE = "iRoc-Info.plist";
 				PRODUCT_NAME = iRoc;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Distribution;
 		};
@@ -1322,7 +1323,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1.2;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Release;
 		};
