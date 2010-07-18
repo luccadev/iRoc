@@ -179,7 +179,25 @@
             [cell addSubview: label];
           }
             break;
-          case (4): {
+						
+					case (4): {
+						
+						UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
+            label.font = [UIFont boldSystemFontOfSize:cellfontsize];
+            label.textColor = celltextcolor;
+            label.backgroundColor = [UIColor clearColor];
+            label.text = NSLocalizedString(@"POM Write", @"");
+            [cell addSubview: label];
+						
+						writeCV = [[iRocButton alloc] initWithFrame: CGRectMake(170, 10, 125, 30)];
+						[writeCV setTitle: NSLocalizedString(@"Write", @"") forState:UIControlStateNormal];
+						[writeCV addTarget:self action:@selector(writeClicked:) forControlEvents:UIControlEventTouchUpInside];
+						[cell addSubview: writeCV];
+						
+						
+					}
+						break;
+          case (5): {
 
 						UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
             label.font = [UIFont boldSystemFontOfSize:cellfontsize];
@@ -200,9 +218,10 @@
 						
 						textCV.text = @"1";
 						[cell addSubview: textCV];
-						            break;
+						           
 					}
-					case (5): {
+						 break;
+					case (6): {
 						
 						UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
             label.font = [UIFont boldSystemFontOfSize:cellfontsize];
@@ -223,24 +242,9 @@
 						
 						textVal.text = @"1";
 						[cell addSubview: textVal];
-						break;
-					}
-					case (6): {
-					
-						UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
-            label.font = [UIFont boldSystemFontOfSize:cellfontsize];
-            label.textColor = celltextcolor;
-            label.backgroundColor = [UIColor clearColor];
-            label.text = NSLocalizedString(@"Write", @"");
-            [cell addSubview: label];
 						
-						writeCV = [[iRocButton alloc] initWithFrame: CGRectMake(170, 10, 125, 30)];
-						[writeCV setTitle: NSLocalizedString(@"Write", @"") forState:UIControlStateNormal];
-						[writeCV addTarget:self action:@selector(writeClicked:) forControlEvents:UIControlEventTouchUpInside];
-						[cell addSubview: writeCV];
-						
-						break;
 					}
+					break;
 						
 						
 					case (7): {
