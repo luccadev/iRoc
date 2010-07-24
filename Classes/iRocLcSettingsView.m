@@ -69,7 +69,7 @@
   NSLog(@"rows in section %d", section);
   switch( section ) {
     case (0):
-      return 7;
+      return 8;
       break;
     case (1):
       return 2;
@@ -181,6 +181,21 @@
             break;
 						
 					case (4): {
+            Dispatch = [[iRocButton alloc] initWithFrame: CGRectMake(170, 10, 125, 30)];
+            Dispatch.frame = CGRectMake(170, 10, 125, 30);
+            [Dispatch addTarget:self action:@selector(dispatchClicked:) forControlEvents:UIControlEventTouchUpInside];
+						[Dispatch setTitle: NSLocalizedString(@"Dispatch", @"") forState:UIControlStateNormal];
+            [cell addSubview: Dispatch];
+            UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
+            label.font = [UIFont boldSystemFontOfSize:cellfontsize];
+            label.textColor = celltextcolor;
+            label.backgroundColor = [UIColor clearColor];
+            label.text = NSLocalizedString(@"Fred", @"");
+            [cell addSubview: label];
+          }
+            break;
+						
+					case (5): {
 						
 						UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
             label.font = [UIFont boldSystemFontOfSize:cellfontsize];
@@ -197,7 +212,7 @@
 						
 					}
 						break;
-          case (5): {
+          case (6): {
 
 						UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
             label.font = [UIFont boldSystemFontOfSize:cellfontsize];
@@ -221,7 +236,7 @@
 						           
 					}
 						 break;
-					case (6): {
+					case (7): {
 						
 						UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
             label.font = [UIFont boldSystemFontOfSize:cellfontsize];
@@ -247,7 +262,7 @@
 					break;
 						
 						
-					case (7): {
+					case (8): {
 						NSArray *itemArray = [NSArray arrayWithObjects: @"Steam", @"Diesal", @"Electric", nil];
 						UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
 						segmentedControl.frame = CGRectMake(CONTENTBORDER, 10, 300, 30);
@@ -275,6 +290,13 @@
                               loc.locid, [Placing getBState]?@"false":@"true" ]];
   [rrconnection sendMessage:@"lc" message:stringToSend];
 }  
+
+- (IBAction) dispatchClicked:(id) sender {
+  NSString * stringToSend = [[NSString alloc] initWithString: 
+                             [NSString stringWithFormat: @"<lc id=\"%@\" cmd=\"dispatch\"/>",
+                              loc.locid]];
+  [rrconnection sendMessage:@"lc" message:stringToSend];
+} 
 
 
 - (IBAction) writeClicked:(id) sender {
