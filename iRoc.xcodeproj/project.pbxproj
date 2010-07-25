@@ -669,10 +669,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				9C220240111AE10B00B7F4DA /* mask.png */,
-				D4C265D310F8972B0045ED0F /* info.png */,
-				D4C265CD10F894850045ED0F /* menu.png */,
-				D4C265B010F88A4F0045ED0F /* loco.png */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -696,6 +692,10 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9C220240111AE10B00B7F4DA /* mask.png */,
+				D4C265D310F8972B0045ED0F /* info.png */,
+				D4C265CD10F894850045ED0F /* menu.png */,
+				D4C265B010F88A4F0045ED0F /* loco.png */,
 				9C99E02511131C2B0002FE3A /* chrr.aif */,
 				9C51BF0E110632010038CBAB /* click.aif */,
 				9CE44AEE10ECB99F00506323 /* Localizable.strings */,
@@ -1310,7 +1310,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1.2;
+				SDKROOT = iphoneos3.2;
 			};
 			name = Debug;
 		};
