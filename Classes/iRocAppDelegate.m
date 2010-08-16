@@ -229,15 +229,33 @@
                    otherButtonTitles:@"OK",nil];
     [connectAlert show];
   }
+	
+	// donkey
+	if ( false) {
+		donkeyAlert = [[UIAlertView alloc] 
+									 initWithTitle:@"Warning" 
+									 message:[NSString stringWithFormat: 
+														@"The server at %@:%d\n has no valid donation key. \n please request one at rocrail.net \niRoc will exit.",[rrconnection domain], [rrconnection port]] 
+									 delegate:self 
+									 cancelButtonTitle:nil 
+									 otherButtonTitles:@"OK",nil];
+		[donkeyAlert show];
+	}
+	
+	
+	
   
   [viewController setRrconnection:self.rrconnection];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-  if( alertView == connectAlert ) {
+  if( alertView == connectAlert || alertView == donkeyAlert) {
     exit(0);
   }
+	
 }
+
+
 
 
 - (void)connectThread { 

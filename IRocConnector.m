@@ -758,6 +758,10 @@ static NSString * const kIdElementName = @"id";
       [alert show];
       
 			exit(0);
+		} else if ([elementName isEqualToString:@"donated"]) {
+				
+			
+		
 		}
     else {
 			

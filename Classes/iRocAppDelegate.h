@@ -79,6 +79,7 @@
 	UIImageView *imageview;
   
   UIAlertView *connectAlert;
+	UIAlertView *donkeyAlert;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
