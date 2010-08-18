@@ -24,6 +24,7 @@
 #import "Block.h"
 #import "Loc.h"
 #import "Container.h"
+#import "iRocLocoPicker.h"
 
 
 @interface iRocBlockView : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
@@ -31,7 +32,9 @@
 	IBOutlet iRocButton *intoOP;
 	IBOutlet iRocButton *esc;
   iRocButton *setInBlock;
+	iRocButton *resetInBlock;
 	iRocButton *acceptIdent;
+	iRocLocoPicker *locoPickerButton;
 
   UIPickerView *locoPicker;
   NSMutableArray *locos;
@@ -57,6 +60,7 @@
 - (IBAction) intoOPClicked:(id) sender; 
 - (IBAction) escClicked:(id) sender; 
 - (IBAction) setInBlockClicked:(id) sender; 
+- (IBAction) resetInBlockClicked:(id) sender;
 - (IBAction) acceptIdentClicked:(id) sender; 
 
 - (void) setBlock:(Block*)block;

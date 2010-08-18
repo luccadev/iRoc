@@ -82,18 +82,27 @@
   [esc setColor:0];
   [self.view addSubview: esc];
 	
+	/*
   locoPicker = [[UIPickerView alloc] initWithFrame: CGRectMake(0, 2 * BUTTONHEIGHT + 2 * BUTTONGAP - 5, 0, 0)];
   locoPicker.delegate = self;
   locoPicker.dataSource = self;
   locoPicker.showsSelectionIndicator = YES;
   [self.view addSubview: locoPicker];
-  
-  	// Mask for better look
-	UIImageView *maskview = [[UIImageView alloc] initWithFrame: CGRectMake(0, 2 * BUTTONHEIGHT + 2 * BUTTONGAP - 5, 320, 219)];
-	maskview.image = [UIImage imageNamed:@"mask.png"];
-	[self.view addSubview: maskview];
+	 
+	 // Mask for better look
+	 UIImageView *maskview = [[UIImageView alloc] initWithFrame: CGRectMake(0, 2 * BUTTONHEIGHT + 2 * BUTTONGAP - 5, 320, 219)];
+	 maskview.image = [UIImage imageNamed:@"mask.png"];
+	 [self.view addSubview: maskview];
+	 */
 	
-  CGRect setInBlockFrame = CGRectMake( CONTENTBORDER, 2 * BUTTONHEIGHT + 2* BUTTONGAP + 210 + BUTTONGAP, buttonWidth, BUTTONHEIGHT);
+	CGRect locoPickerButtonFrame = CGRectMake( CONTENTBORDER, 2 * BUTTONHEIGHT + 2* BUTTONGAP, 2*buttonWidth+BUTTONGAP, BUTTONHEIGHT);
+	locoPickerButton = [[iRocLocoPicker alloc] initWithFrame: locoPickerButtonFrame];
+	locoPickerButton.delegate = self;
+	[locoPickerButton setLocContainer:lcContainer];
+  [self.view addSubview: locoPickerButton];
+
+
+  CGRect setInBlockFrame = CGRectMake( CONTENTBORDER, 3 * BUTTONHEIGHT + 2* BUTTONGAP + BUTTONGAP, buttonWidth, BUTTONHEIGHT);
   setInBlock = [[iRocButton alloc] initWithFrame: setInBlockFrame];
   setInBlock.frame = setInBlockFrame;
   [setInBlock setTitle: NSLocalizedString(@"Set in block", @"") forState: UIControlStateNormal];
@@ -101,7 +110,15 @@
   [setInBlock setColor:3];
   [self.view addSubview: setInBlock];
 	
-	CGRect accepidentFrame = CGRectMake( CONTENTBORDER+BUTTONGAP+buttonWidth, 2 * BUTTONHEIGHT + 2* BUTTONGAP + 210 + BUTTONGAP, buttonWidth, BUTTONHEIGHT);
+	CGRect resetInBlockFrame = CGRectMake( CONTENTBORDER+BUTTONGAP+buttonWidth, 3 * BUTTONHEIGHT + 2* BUTTONGAP + BUTTONGAP, buttonWidth, BUTTONHEIGHT);
+  resetInBlock = [[iRocButton alloc] initWithFrame: resetInBlockFrame];
+  resetInBlock.frame = resetInBlockFrame;
+  [resetInBlock setTitle: NSLocalizedString(@"Reset block", @"") forState: UIControlStateNormal];
+  [resetInBlock addTarget:self action:@selector(resetInBlockClicked:) forControlEvents:UIControlEventTouchUpInside];
+  [resetInBlock setColor:1];
+  [self.view addSubview: resetInBlock];
+	
+	CGRect accepidentFrame = CGRectMake( CONTENTBORDER+BUTTONGAP+buttonWidth, 4 * BUTTONHEIGHT + 4* BUTTONGAP, buttonWidth, BUTTONHEIGHT);
   acceptIdent = [[iRocButton alloc] initWithFrame: accepidentFrame];
   acceptIdent.frame = accepidentFrame;
   [acceptIdent setTitle: NSLocalizedString(@"Accept Ident", @"") forState: UIControlStateNormal];
@@ -160,7 +177,20 @@
 	NSLog(@"BlockView will appear: %@ ", _block.ID);
 	
 	BOOL isClosed = [_block.state isEqual:@"closed"];
+		
+	Loc *lc = NULL;
+	if( [_block.locid isEqualToString:@""]) {
+		lc = [[Loc alloc] retain];
+		lc.locid = NSLocalizedString(@"Block is empty",@"");
+		lc.desc = NSLocalizedString(@"select loco ...", @"");
+	} else {
+		lc = [lcContainer objectWithId:_block.locid];
+	}
 	
+	if( lc != NULL) {
+		[locoPickerButton setLoc:lc];
+	}
+		
 	[intoOP setTitle: isClosed?NSLocalizedString(@"Open", @""):NSLocalizedString(@"Close", @"") forState: UIControlStateNormal];
 	[intoOP setColor:isClosed?2:1];
 	[l setText:_block.ID];
@@ -230,12 +260,16 @@
 }
 
 - (IBAction) setInBlockClicked:(id) sender {
-  if ( locoPicked > 0 ) { 
-		[_block setLoco: [locos objectAtIndex: locoPicked]];
-  }
-  else {
-		[_block resetLoco];
-  }
+	
+	[_block setLoco:[locoPickerButton getLoc].locid];
+		
+	[_delegate dismissModalViewController];
+}
+
+- (IBAction) resetInBlockClicked:(id) sender {
+	[_block resetLoco];
+	
+		 
 	[_delegate dismissModalViewController];
 }
 

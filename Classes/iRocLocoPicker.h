@@ -18,37 +18,38 @@
  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#import <Foundation/Foundation.h>
-#import "Item.h"
 
+#import <UIKit/UIKit.h>
+#import "Loc.h"
+#import "iRocLcTableView.h"
 
-@interface Block : Item {
-	NSString *ID;
-  NSString *locid;
-  NSString *reserved;
-  NSString *entering;
-	NSString *smallsymbol;
+@class iRocLocoPicker;
+
+@interface iRocLocoPicker : UIButton {
+	CGContextRef context;
+	Loc *loc;
+	UILabel *idLabel;
+	UILabel *descLabel;
+	UILabel *roadLabel;
+	UIImageView *imageview;
+	id delegate;
+	Container *loccontainer;
+	
+	iRocLcTableView *lcTableView;
+
 }
 
-@property (nonatomic, retain) NSString *ID;
-@property (nonatomic, retain) NSString *smallsymbol;
-@property (nonatomic, retain) NSString *locid;
+@property(nonatomic,retain) UILabel *idLabel;
+@property (nonatomic, retain) id delegate; 
+@property (nonatomic, retain) UIImageView *imageview; 
+@property (nonatomic, retain) Container *lccontainer;
 
-- (id) initWithAttributeDict: (NSDictionary *)attributeDict;
-- (NSString*) getImgName;
-- (void)updateTextColor;
-
-
-- (void)sendAcceptIdent;
-- (void)sendOpen;
-- (void)sendClose;
-- (void)setLoco: (NSString *)ID;
-- (void)resetLoco;
-
-@end
-
-@interface NSObject (Block)
-
-- (void)presentBlockView:(Block*)block;
+- (void)setLoc:(Loc*)loci;
+- (void)setLocContainer:(Container*)loccontainer;
+- (Loc*)getLoc;
+- (void)imageLoaded;
+- (BOOL)isFn:(int)fn;
+- (void)setFn:(int)fn withState:(BOOL)state;
+- (void)lcAction:(NSString *)lcid;
 
 @end

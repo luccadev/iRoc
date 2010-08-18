@@ -25,7 +25,7 @@
 
 
 @implementation Block
-@synthesize ID, smallsymbol;
+@synthesize ID, smallsymbol, locid;
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
   if( self = [super initWithAttributeDict:attributeDict] ) {
@@ -140,7 +140,7 @@
 
 
 
-- (void)setLoco: (NSString *)lcID {
+- (void)setLoco: (NSString *)lcID {	
   NSString * stringToSend = [[NSString alloc] initWithString: //<lc id=.. cmd="block" blockid=... />
                            [NSString stringWithFormat: @"<lc id=\"%@\" cmd=\"block\" blockid=\"%@\"/>",
                             lcID, ID]];
