@@ -130,6 +130,15 @@
   [delegate sendMessage:@"bk" message:stringToSend];
 }
 
+- (void)sendAcceptIdent {
+  NSString * stringToSend = [[NSString alloc] initWithString: 
+                             [NSString stringWithFormat: @"<bk id=\"%@\" acceptident=\"true\"/>",
+                              ID]];
+  [delegate sendMessage:@"bk" message:stringToSend];
+}
+
+
+
 
 - (void)setLoco: (NSString *)lcID {
   NSString * stringToSend = [[NSString alloc] initWithString: //<lc id=.. cmd="block" blockid=... />

@@ -31,6 +31,7 @@
 	IBOutlet iRocButton *intoOP;
 	IBOutlet iRocButton *esc;
   iRocButton *setInBlock;
+	iRocButton *acceptIdent;
 
   UIPickerView *locoPicker;
   NSMutableArray *locos;
@@ -56,6 +57,7 @@
 - (IBAction) intoOPClicked:(id) sender; 
 - (IBAction) escClicked:(id) sender; 
 - (IBAction) setInBlockClicked:(id) sender; 
+- (IBAction) acceptIdentClicked:(id) sender; 
 
 - (void) setBlock:(Block*)block;
 

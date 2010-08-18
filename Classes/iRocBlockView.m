@@ -93,13 +93,21 @@
 	maskview.image = [UIImage imageNamed:@"mask.png"];
 	[self.view addSubview: maskview];
 	
-  CGRect setInBlockFrame = CGRectMake( CONTENTBORDER, 2 * BUTTONHEIGHT + 2* BUTTONGAP + 210 + BUTTONGAP, 2 * buttonWidth + BUTTONGAP, BUTTONHEIGHT);
+  CGRect setInBlockFrame = CGRectMake( CONTENTBORDER, 2 * BUTTONHEIGHT + 2* BUTTONGAP + 210 + BUTTONGAP, buttonWidth, BUTTONHEIGHT);
   setInBlock = [[iRocButton alloc] initWithFrame: setInBlockFrame];
   setInBlock.frame = setInBlockFrame;
   [setInBlock setTitle: NSLocalizedString(@"Set in block", @"") forState: UIControlStateNormal];
   [setInBlock addTarget:self action:@selector(setInBlockClicked:) forControlEvents:UIControlEventTouchUpInside];
   [setInBlock setColor:3];
   [self.view addSubview: setInBlock];
+	
+	CGRect accepidentFrame = CGRectMake( CONTENTBORDER+BUTTONGAP+buttonWidth, 2 * BUTTONHEIGHT + 2* BUTTONGAP + 210 + BUTTONGAP, buttonWidth, BUTTONHEIGHT);
+  acceptIdent = [[iRocButton alloc] initWithFrame: accepidentFrame];
+  acceptIdent.frame = accepidentFrame;
+  [acceptIdent setTitle: NSLocalizedString(@"Accept Ident", @"") forState: UIControlStateNormal];
+  [acceptIdent addTarget:self action:@selector(acceptIdentClicked:) forControlEvents:UIControlEventTouchUpInside];
+  [acceptIdent setColor:2];
+  [self.view addSubview: acceptIdent];
 
 }
 
@@ -114,7 +122,14 @@
 	
 	[_delegate dismissModalViewController];
 
+}
 
+- (IBAction) acceptIdentClicked:(id) sender {
+	
+	[_block sendAcceptIdent];
+	
+	[_delegate dismissModalViewController];
+	
 }
 
 - (IBAction) intoOPClicked:(id) sender {
