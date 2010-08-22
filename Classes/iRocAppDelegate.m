@@ -126,14 +126,12 @@
 
     // Override point for customization after application launch
   [window makeKeyAndVisible];
-
-  
+	
   lcAutoView.bkContainer = model.bkContainer;
   lcAutoView.scContainer = model.scContainer;
 
 	menuItems = [[NSMutableArray array] retain];
 	
-
 	lcTableView = [[iRocLcTableView alloc] init];
 	[lcTableView setLcContainer:model.lcContainer];
 	[lcTableView setDelegate:self];
@@ -189,6 +187,12 @@
 	
 	// read preferences
 	defaults = [[NSUserDefaults standardUserDefaults] retain];
+	
+	
+	//NSLog(@" ###### DEFAULTS: %@",  [defaults stringForKey:@"last_connections"]);
+	  
+	    
+	
 	
 	rrconnection = [[IRocConnector alloc] init];
 	[rrconnection setDomain:[defaults stringForKey:@"ip_preference"]];
