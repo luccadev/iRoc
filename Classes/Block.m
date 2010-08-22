@@ -132,7 +132,7 @@
 
 - (void)sendAcceptIdent {
   NSString * stringToSend = [[NSString alloc] initWithString: 
-                             [NSString stringWithFormat: @"<bk id=\"%@\" acceptident=\"true\"/>",
+                             [NSString stringWithFormat: @"<bk id=\"%@\" acceptident=\"true\"/>", 
                               ID]];
   [delegate sendMessage:@"bk" message:stringToSend];
 }

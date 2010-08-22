@@ -451,7 +451,7 @@
            NSLog(@"###################################################################");
            NSLog([[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding]);
            NSLog(@"###################################################################");
-					 */
+					*/ 
            
 					
 					NSXMLParser *parser = [[[NSXMLParser alloc] initWithData:_data] retain];
@@ -546,9 +546,10 @@ static NSString * const kIdElementName = @"id";
 				Loc *lc = (Loc*)[model.lcContainer objectWithId:[attributeDict valueForKey:@"id"]];
 				[lc updateWithAttributeDict:attributeDict];
 			
+				/*
 				if ( [_delegate respondsToSelector:@selector(locSetSlider)] ) {
 					[_delegate performSelectorOnMainThread : @ selector(locSetSlider) withObject:nil waitUntilDone:NO];
-				} 
+				}*/
 			}
 			
     }
@@ -758,11 +759,11 @@ static NSString * const kIdElementName = @"id";
       [alert show];
       
 			exit(0);
-		} else if ([elementName isEqualToString:@"donated"]) {
+		} /*else if ([elementName isEqualToString:@"donkey"]) {
 				
-			
+			NSLog(@" ############  DONKEY ###########");
 		
-		}
+		}*/
     else {
 			
     }

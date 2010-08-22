@@ -230,26 +230,11 @@
     [connectAlert show];
   }
 	
-	// donkey
-	if ( false) {
-		donkeyAlert = [[UIAlertView alloc] 
-									 initWithTitle:@"Warning" 
-									 message:[NSString stringWithFormat: 
-														@"The server at %@:%d\n has no valid donation key. \n please request one at rocrail.net \niRoc will exit.",[rrconnection domain], [rrconnection port]] 
-									 delegate:self 
-									 cancelButtonTitle:nil 
-									 otherButtonTitles:@"OK",nil];
-		[donkeyAlert show];
-	}
-	
-	
-	
-  
   [viewController setRrconnection:self.rrconnection];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-  if( alertView == connectAlert || alertView == donkeyAlert) {
+  if( alertView == connectAlert) {
     exit(0);
   }
 	
@@ -391,9 +376,21 @@
 }
 
 - (void)askForAllLocPics {
-    // inform some views of plan loaded
+	
+	// inform some views of plan loaded
   [levelTableView planLoaded];
-  
+
+	if ( [model.donkey isEqual:@"false"] ) {
+		donkeyAlert = [[UIAlertView alloc] 
+									 initWithTitle:@"Warning" 
+									 message:[NSString stringWithFormat: 
+														@"The server at %@:%d\n has no valid donation key. \n please request one at rocrail.net",[rrconnection domain], [rrconnection port]] 
+									 delegate:self 
+									 cancelButtonTitle:nil 
+									 otherButtonTitles:@"OK",nil];
+		[donkeyAlert show];
+	}
+	
 	int i;
 	for( i = 0; i< [model.lcContainer count]; i++){	
 		Loc *loc;
