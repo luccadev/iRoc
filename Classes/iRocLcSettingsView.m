@@ -196,7 +196,6 @@
             break;
 						
 					case (5): {
-						
 						UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
             label.font = [UIFont boldSystemFontOfSize:cellfontsize];
             label.textColor = celltextcolor;
@@ -207,13 +206,10 @@
 						writeCV = [[iRocButton alloc] initWithFrame: CGRectMake(170, 10, 125, 30)];
 						[writeCV setTitle: NSLocalizedString(@"Write", @"") forState:UIControlStateNormal];
 						[writeCV addTarget:self action:@selector(writeClicked:) forControlEvents:UIControlEventTouchUpInside];
-						[cell addSubview: writeCV];
-						
-						
+						[cell addSubview: writeCV];						
 					}
 						break;
           case (6): {
-
 						UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
             label.font = [UIFont boldSystemFontOfSize:cellfontsize];
             label.textColor = celltextcolor;
@@ -222,22 +218,19 @@
             [cell addSubview: label];
 						
 						textCV = [[[UITextField alloc] initWithFrame:CGRectMake(170, 10, 125, 30)] autorelease];						
-						
-						//textCV.adjustsFontSizeToFitWidth = YES;
 						textCV.keyboardType = UIKeyboardTypeNumberPad;
 						textCV.textColor = [UIColor blackColor];
 						textCV.backgroundColor = [UIColor whiteColor];
 						textCV.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 						textCV.textAlignment = UITextAlignmentCenter;	
 						textCV.clearsOnBeginEditing = YES;
+						[textCV resignFirstResponder];
 						
 						textCV.text = @"1";
 						[cell addSubview: textCV];
-						           
 					}
 						 break;
 					case (7): {
-						
 						UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
             label.font = [UIFont boldSystemFontOfSize:cellfontsize];
             label.textColor = celltextcolor;
@@ -246,21 +239,18 @@
             [cell addSubview: label];
 						
 						textVal = [[[UITextField alloc] initWithFrame:CGRectMake(170, 10, 125, 30)] autorelease];						
-						
-						//textCV.adjustsFontSizeToFitWidth = YES;
 						textVal.keyboardType = UIKeyboardTypeNumberPad;
 						textVal.textColor = [UIColor blackColor];
 						textVal.backgroundColor = [UIColor whiteColor];
 						textVal.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 						textVal.textAlignment = UITextAlignmentCenter;		
 						textVal.clearsOnBeginEditing = YES;
+						[textVal resignFirstResponder];
 						
 						textVal.text = @"1";
 						[cell addSubview: textVal];
-						
 					}
 					break;
-						
 						
 					case (8): {
 						NSArray *itemArray = [NSArray arrayWithObjects: @"Steam", @"Diesal", @"Electric", nil];
@@ -306,8 +296,9 @@
 														  loc.locid, textCV.text, textVal.text, @"true", loc.addr  ]];
   [rrconnection sendMessage:@"program" message:stringToSend];
 	
-	//NSLog(@"HUDIWUUUUUU: %@ ", stringToSend);
 	
+	[textCV resignFirstResponder];
+	[textVal resignFirstResponder];
 }  
 
 - (void) updatePlacing {
@@ -328,6 +319,7 @@
     [loc sendVmin:[Vmin getValue]];
   }
 }
+
 
 
 @end
