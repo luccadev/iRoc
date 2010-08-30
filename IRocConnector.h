@@ -72,8 +72,11 @@
   
   NSMutableArray* messageQueue; 
 
+
+	
 	@public
 	//NSMutableArray *rtList;
+	
 
 	id _delegate;
   Model *model;

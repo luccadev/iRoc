@@ -32,7 +32,7 @@
 	[super init];
 	//self.locList = [[NSMutableArray array] retain];
 	NSLog(@"Connector init ...");
-  
+	
 	return self;
 }
 

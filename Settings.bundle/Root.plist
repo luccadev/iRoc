@@ -44,18 +44,6 @@
 		</dict>
 		<dict>
 			<key>Type</key>
-			<string>PSTextFieldSpecifier</string>
-			<key>Title</key>
-			<string>Loco</string>
-			<key>Key</key>
-			<string>loc_preference</string>
-			<key>DefaultValue</key>
-			<string>618</string>
-			<key>KeyboardType</key>
-			<string>Alphabet</string>
-		</dict>
-		<dict>
-			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
 			<string>Velocity Control Settings</string>

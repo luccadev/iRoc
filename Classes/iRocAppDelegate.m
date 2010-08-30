@@ -35,7 +35,7 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
   NSLog(@"applicationDidFinishLaunching");
-  
+	
   CGRect screenBounds = [[UIScreen mainScreen] bounds];
   CGRect windowBounds = screenBounds;
   windowBounds.origin.y = 0.0;
@@ -200,7 +200,19 @@
 	[rrconnection setDelegate:self withModel:model];
 //	viewController.textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
   viewController.imageviewLoc = nil;
-  
+	
+	
+	startAlert = [[UIAlertView alloc] 
+								initWithTitle:[NSString stringWithFormat: 
+											@"\n\nConnecting to: \n%@:%d \n please wait ...", 
+															 [defaults stringForKey:@"ip_preference"], 
+															 [defaults integerForKey:@"port_preference"]] 
+								message:nil
+								delegate:self 
+								cancelButtonTitle:nil 
+								otherButtonTitles:nil];
+	[startAlert show];
+	
   systemView.rrconnection = rrconnection;
   lcAutoView.rrconnection = rrconnection;
   lcSettingsView.rrconnection = rrconnection;
@@ -381,6 +393,8 @@
 	
 	// inform some views of plan loaded
   [levelTableView planLoaded];
+	
+	[startAlert dismissWithClickedButtonIndex:0 animated:YES];
 
 	if ( [model.donkey isEqual:@"false"] ) {
 		donkeyAlert = [[UIAlertView alloc] 
@@ -449,6 +463,7 @@
 
 -(void) applicationDidBecomeActive:(UIApplication *)application {
 	NSLog(@"applicationDidBecomeActive");
+	
 	//[[self rrconnection] connect];
 }
 

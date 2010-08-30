@@ -80,6 +80,7 @@
   
   UIAlertView *connectAlert;
 	UIAlertView *donkeyAlert;
+	UIAlertView *startAlert;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

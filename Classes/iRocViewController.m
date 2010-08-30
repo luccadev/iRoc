@@ -145,7 +145,6 @@
   [buttonFn setTitle: NSLocalizedString(@"Fn", @"") forState: UIControlStateNormal];
   [buttonFn addTarget:self action:@selector(buttonFnClicked:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview: buttonFn];
-
 }
 
 
