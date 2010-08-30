@@ -114,14 +114,14 @@
 - (IBAction) powerONClicked:(id) sender {
   NSLog(@"powerON");
   //[powerON flipBState];
-	NSString * stringToSend = [[NSString alloc] initWithString: @"<sys cmd=\"go\"/>"];
+	NSString * stringToSend = [[NSString alloc] initWithString: @"<sys cmd=\"go\" informall=\"true\"/>"];
 	[rrconnection sendMessage:@"sys" message:stringToSend];
 }
 
 - (IBAction) powerOFFClicked:(id) sender {
   NSLog(@"powerOFF");
   //[powerOFF flipBState];
-	NSString * stringToSend = [[NSString alloc] initWithString: @"<sys cmd=\"stop\"/>"];
+	NSString * stringToSend = [[NSString alloc] initWithString: @"<sys cmd=\"stop\" informall=\"true\"/>"];
 	[rrconnection sendMessage:@"sys" message:stringToSend];
 }
 
