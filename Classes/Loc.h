@@ -39,7 +39,7 @@
 	NSString *Fx;
 	NSString *addr;
 	
-	NSString *f1, *f2, *f3, *f4, *f5, *f6, *f7, *f8, *f9, *f10, *f11, *f12, *f13, *f14, *f15, *f16;
+	NSString *f0, *f1, *f2, *f3, *f4, *f5, *f6, *f7, *f8, *f9, *f10, *f11, *f12, *f13, *f14, *f15, *f16;
 	
 	NSString *Mode;
 	int vint;
@@ -68,7 +68,7 @@
 @property (nonatomic, retain) NSString *desc;
 @property (nonatomic, retain) NSString *roadname;
 @property (nonatomic, retain) NSString *dir;
-@property (nonatomic, retain) NSString *vstr, *Vmax, *Vmid, *Vmin, *Placing, *SpCnt, *Vmode, *Fn, *Fx, *Mode, *addr, *f1, *f2, *f3, *f4, 
+@property (nonatomic, retain) NSString *vstr, *Vmax, *Vmid, *Vmin, *Placing, *SpCnt, *Vmode, *Fn, *Fx, *Mode, *addr, *f0, *f1, *f2, *f3, *f4, 
 														*f5, *f6, *f7, *f8, *f9, *f10, *f11, *f12, *f13, *f14, *f15, *f16;
 @property (nonatomic, retain) NSString *vmaxstr;
 @property (nonatomic, retain) UIImage *lcimage;
@@ -76,6 +76,7 @@
 @property BOOL hasImage;
 @property BOOL imageLoaded;
 @property BOOL imageAlreadyRequested;
+@property int vint;
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict;
 - (void) updateWithAttributeDict: (NSDictionary *)attributeDict;
@@ -83,7 +84,7 @@
 - (void)setDelegate:(id)new_delegate;
 - (void) prepareImage;
 - (UIImage*) getImage;
-- (int) getVint;
+//- (int) getVint;
 - (void) setLocpicdata:(NSString *) picdata;
 - (int) getVmax;
 - (BOOL)isFn:(int)fn;
@@ -93,9 +94,12 @@
 - (int)getVmin;
 - (BOOL)isAutoMode;
 - (BOOL)isHalfAutoMode;
+- (void)sendVcommand;
+- (void)sendFunctionCommand:(int)fnIndex;
 - (void)sendVmax:(int)V;
 - (void)sendVmid:(int)V;
 - (void)sendVmin:(int)V;
 - (double) getVpercent;
+- (void) setVpercent:(double) vpercent;
 
 @end

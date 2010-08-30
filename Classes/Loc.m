@@ -28,7 +28,7 @@
 
 @synthesize locid, imgname, lcimage, hasImage, imageLoaded, desc, imageAlreadyRequested, roadname, 
             cell, dir, vstr, vmaxstr, Vmax, Vmid, Vmin, Placing, SpCnt, Vmode, Fn, Fx, Mode, addr, 
-						f1, f2, f3, f4 ,f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16;
+						f0, f1, f2, f3, f4 ,f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, vint;
 
 - (id) init {
 	[super init];	
@@ -65,6 +65,8 @@
     dir      = [Globals getAttribute:@"dir" fromDict:attributeDict withDefault:@""];
     vstr     = [Globals getAttribute:@"V" fromDict:attributeDict withDefault:@"0"];
 		addr     = [Globals getAttribute:@"addr" fromDict:attributeDict withDefault:@"0"];
+		
+		vint = [vstr intValue];
 
     hasImage = ![imgname isEqualToString:@""];
     
@@ -76,7 +78,7 @@
         //NSLog(@"mask=%d fx=%d function %d is %@", mask, iFx, i, ( (iFx & mask) == mask ) ?@"ON":@"OFF");
       fnStates[i] = ( (iFx & mask) == mask ) ? TRUE:FALSE; 
     }
-    
+		
   }
   return self;
 }
@@ -96,6 +98,11 @@
   vstr     = [Globals getAttribute:@"V"        fromDict:attributeDict withDefault:vstr];
 	addr     = [Globals getAttribute:@"addr" fromDict:attributeDict withDefault:addr];
 	
+	vint = [vstr intValue];
+	
+	f0 = [Globals getAttribute:@"f0" fromDict:attributeDict withDefault:f0];
+	if( [@"true" isEqualToString:f0] || [@"false" isEqualToString:f0])
+		fnStates[0] = [@"true" isEqualToString:f0] ? TRUE:FALSE;
 	
 	f1 = [Globals getAttribute:@"f1" fromDict:attributeDict withDefault:f1];
 	if( [@"true" isEqualToString:f1] || [@"false" isEqualToString:f1])
@@ -164,11 +171,11 @@
 }
 
 - (void)dealloc {
-    [locid release];
+	[locid release];
 	[locpicdata release];
 	[imgname release];
 	[lcimage release];
-    [super dealloc];
+	[super dealloc];
 }
 
 - (void)setDelegate:(id)new_delegate
@@ -228,7 +235,18 @@
 }
 
 - (double) getVpercent {
-		return [vstr doubleValue]/[vmaxstr doubleValue];
+		return vint/[vmaxstr doubleValue];
+}
+
+- (void) setVpercent:(double) vpercent {
+	
+	vint = (int)(vpercent*[vmaxstr doubleValue]);
+	
+	NSLog(@" setVpercent: %d ", vint );
+	
+	//[vstr release];
+	//vstr = [[NSString stringWithFormat:@"%d", vtmp] retain];
+
 }
 
 - (int) getVint {
@@ -268,6 +286,23 @@
 - (BOOL)isHalfAutoMode {
   return [Mode compare:@"halfauto"] == NSOrderedSame ? TRUE:FALSE;
 }
+
+- (void) sendVcommand {
+	NSString * stringToSend = [NSString stringWithFormat: @"<lc throttleid=\"%@\" id=\"%@\" V=\"%d\" dir=\"%@\" fn=\"%@\"/>", 
+									(NSString*)[[UIDevice currentDevice] name],
+									self.locid, self.vint, self.dir, fnStates[0]?@"true":@"false"];
+																					 
+	[_delegate sendMessage:@"lc" message:stringToSend];
+}
+
+- (void)sendFunctionCommand:(int)fnIndex {
+	int tmp = (fnIndex-1)/4 +1;
+	NSString * stringToSend = [NSString stringWithFormat: @"<fn fnchanged=\"%d\" group=\"%d\" id=\"%@\" f%d=\"%@\"/>", 
+														 fnIndex, tmp, self.locid, fnIndex,  fnStates[fnIndex]?@"true":@"false"];
+	
+	[_delegate sendMessage:@"fn" message:stringToSend];
+}
+
 
 - (void)sendVmax:(int)V {
   Vmax = [[NSString alloc] initWithFormat:@"%d", V];

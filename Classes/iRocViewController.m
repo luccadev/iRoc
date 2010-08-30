@@ -26,7 +26,7 @@
 
 @synthesize buttonDir, buttonF0, buttonF1, buttonF2, buttonF3, buttonF4, buttonF5, buttonF6, buttonF7, buttonF8, buttonFn; 
 @synthesize slider; 
-@synthesize textfieldLoc, keyboard, delegate, imageviewLoc, locProps;
+@synthesize keyboard, delegate, imageviewLoc, locProps;
 @synthesize slideView;
 @synthesize soundFileURLRef;
 @synthesize soundFileObject;
@@ -153,31 +153,30 @@
 - (IBAction) buttonDirClicked:(id) sender { 
   if([buttonFn getBState]) {
     NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc throttleid=\"%@\" cmd=\"release\" id=\"%@\"/>", 
-                                                                 (NSString*)[[UIDevice currentDevice] name], [textfieldLoc text] ] ];
+                                                                 (NSString*)[[UIDevice currentDevice] name], [locProps getLoc].locid] ];
     [rrconnection sendMessage:@"lc" message:stringToSend];
   }
   else {
-  
-	if(dir) {
-		[buttonDir setTitle:@"<" forState:UIControlStateNormal];
-		dir = FALSE;
-		stringDir = @"false";
-	} else {
-		[buttonDir setTitle:@">" forState:UIControlStateNormal];
-		dir = TRUE;
-		stringDir = @"true";
-	}
-	AudioServicesPlaySystemSound([Globals getChrr]);
+		
+		if( [[locProps getLoc].dir isEqualToString:@"true"]) {
+			[locProps getLoc].dir = @"false";
+		} else {
+			[locProps getLoc].dir = @"true";
+		}
 
-	[slideView setValue:0];	
-	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc throttleid=\"%@\" id=\"%@\" V=\"0\" dir=\"%@\" fn=\"%@\"/>",
-    (NSString*)[[UIDevice currentDevice] name],
-    [textfieldLoc text], stringDir, [buttonF0 getBState]?@"true":@"false"]] ];
+		AudioServicesPlaySystemSound([Globals getChrr]);
+
+		[[locProps getLoc] setVpercent: 0];
+		[[locProps getLoc] sendVcommand];
+
+		[self updateFnState];
   }
 }
 
 - (IBAction) sliderMoved:(id) sender { 	
-	Loc *lc = (Loc*)[delegate getLoc:[textfieldLoc text]];
+	
+	Loc *lc = [locProps getLoc];
+	
 	int vVal = [slideView value]*100*([lc getVmax]/100.00);
   
   if( processAll && (abs( prevVVal - vVal) < VDelta ) && vVal != 0 ) {
@@ -185,17 +184,9 @@
 	}
 		
 	if( prevVVal != vVal) {
-    //NSLog(@"%@", [[UIDevice currentDevice] name]);
-
-		NSString * stringToSend; 			
-		stringToSend = [NSString stringWithFormat: @"<lc throttleid=\"%@\" id=\"%@\" V=\"%d\" dir=\"%@\" fn=\"%@\"/>", 
-                    (NSString*)[[UIDevice currentDevice] name],
-                    [textfieldLoc text], vVal, stringDir, [buttonF0 getBState]?@"true":@"false"];
-		//NSLog(stringToSend);
 		
-		//AudioServicesPlaySystemSound([Globals getClick]);
-		
-		[rrconnection sendMessage:@"lc" message:stringToSend];
+		[[locProps getLoc] setVpercent: [slideView value]];
+		[[locProps getLoc] sendVcommand];
 	}
 		prevVVal = vVal;
 }
@@ -207,14 +198,11 @@
 
 
 - (IBAction) buttonF0Clicked:(id) sender {	
-  BOOL fnState = [self flipFn: 0];
+  [self flipFn: 0];
 	
-	[rrconnection sendMessage:@"lc" message:[[NSString alloc] initWithString: 
-                                           [NSString stringWithFormat: @"<lc throttleid=\"%@\" id=\"%@\" fn=\"%@\"/>",
-                                           (NSString*)[[UIDevice currentDevice] name], 
-                                            [textfieldLoc text], fnState?@"true":@"false"]] ];
-
-	[((iRocButton *)[functionButtons objectAtIndex:0]) setBState:fnState];	
+  [[locProps getLoc] sendVcommand];
+	[self updateFnState];
+	
 	AudioServicesPlaySystemSound([Globals getClick]);
 }
 
@@ -290,8 +278,15 @@
     [buttonF6 setBState:[locProps isFn:6]];
     [buttonF7 setBState:[locProps isFn:7]];
     [buttonF8 setBState:[locProps isFn:8]];
+		
+		if( [[locProps getLoc].dir isEqualToString:@"true"] ) {
+			[buttonDir setTitle:@">" forState:UIControlStateNormal];
+		} else {
+			[buttonDir setTitle:@"<" forState:UIControlStateNormal];
+		}
   }
-  
+	
+	[slideView setValue: [[locProps getLoc] getVpercent]];
   
 }
 
@@ -302,27 +297,15 @@
 
 
 - (void) prepareFNCommand:(int) fnIndex {
-  
-	// XXXX
-	BOOL fnState = ![locProps isFn:fnIndex];     //[self flipFn: fnIndex];
+	[self flipFn: fnIndex];
 	
-	int tmp = (fnIndex-1)/4 +1;
-	NSLog(@"FNG: %d", tmp);
-	
-	
-	NSString * stringToSend = [[NSString alloc] initWithString: 
-                             [NSString stringWithFormat: @"<fn fnchanged=\"%d\" group=\"%d\" id=\"%@\" f%d=\"%@\"/>", 
-                              fnIndex, tmp, [textfieldLoc text], fnIndex,  fnState?@"true":@"false" ] ];
-	[rrconnection sendMessage:@"fn" message:stringToSend];
-	
-	NSLog(@"FN: %@", stringToSend);
-	
-	
-	//[((iRocButton *)[functionButtons objectAtIndex:fnIndex]) setBState:fnState];
-	
+	[[locProps getLoc] sendFunctionCommand:fnIndex];
+
+	[self updateFnState];
 	AudioServicesPlaySystemSound([Globals getClick]);
 }
 
+/*
 - (IBAction)doneButton:(id)sender {
 	AudioServicesPlaySystemSound (self.soundFileObject);
     [textfieldLoc resignFirstResponder];
@@ -331,9 +314,8 @@
 
 	// Save in Settings
 	[[NSUserDefaults standardUserDefaults] setObject:(NSString*)[textfieldLoc text] forKey:@"loc_preference"];
-	
-	
 }
+ */
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
@@ -346,6 +328,11 @@
 	functionButtons = [[NSArray arrayWithObjects:buttonF0,buttonF1,buttonF2,buttonF3,buttonF4,buttonF5,buttonF6,buttonF7,buttonF8,
                                                         buttonF1,buttonF2,buttonF3,buttonF4,buttonF5,buttonF6,buttonF7,buttonF8,nil] retain];
 	
+	
+	
+	
+	
+	/*
 	textfieldLoc = [[UITextField alloc] initWithFrame:CGRectMake(20, 20, 280, 71)];
 	[textfieldLoc setDelegate:self];
 	[textfieldLoc setBackgroundColor:[UIColor darkGrayColor]];
@@ -353,19 +340,6 @@
 	textfieldLoc.clearsOnBeginEditing = YES;
 	[textfieldLoc setTextAlignment:UITextAlignmentCenter];
 	textfieldLoc.font = [UIFont boldSystemFontOfSize:60];
-	/*
-	if( [[NSUserDefaults standardUserDefaults] boolForKey:@"locenter_preference"]) {
-		
-		[self.view addSubview:textfieldLoc];
-		
-		[textfieldLoc setKeyboardType:UIKeyboardTypeNumberPad];
-			
-		// Adding a DONE Button to the Numpad:
-		[[NSNotificationCenter defaultCenter] addObserver:self 
-												 selector:@selector(keyboardWillShow:) 
-													 name:UIKeyboardWillShowNotification 
-												   object:nil];			
-	}
 	 */
 	
 	
@@ -387,7 +361,7 @@
 	
 	ip = [defaults stringForKey:@"ip_preference"];
 	
-	textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
+	//textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
 	locProps.idLabel.text = [defaults stringForKey:@"loc_preference"];
   locProps.delegate = delegate;
   locProps.imageview = nil;
@@ -395,26 +369,6 @@
 	
 	}
 
-// Adding the DONE button to the numpad
-- (void)keyboardWillShow:(NSNotification *)note {  
-    // create custom button
-    UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    doneButton.frame = CGRectMake(0, 163, 106, 53);
-    doneButton.adjustsImageWhenHighlighted = NO;
-    [doneButton setImage:[UIImage imageNamed:@"doneup.png"] forState:UIControlStateNormal];
-    [doneButton setImage:[UIImage imageNamed:@"donedown.png"] forState:UIControlStateHighlighted];
-    [doneButton addTarget:self action:@selector(doneButton:) forControlEvents:UIControlEventTouchUpInside];
-	
-    // locate keyboard view
-    UIWindow* tempWindow = [[[UIApplication sharedApplication] windows] objectAtIndex:1];
-    //UIView* keyboard;
-    for(int i=0; i<[tempWindow.subviews count]; i++) {
-        keyboard = [tempWindow.subviews objectAtIndex:i];
-        // keyboard view found; add the custom button to it
-        if([[keyboard description] hasPrefix:@"<UIKeyboard"] == YES)
-            [keyboard addSubview:doneButton];
-    }
-}
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -446,20 +400,6 @@
 }
 
 - (void) setSlider:(double)v withDir:(NSString*)diri {
-
-	if([diri isEqualToString:@"false"] ) {
-		[buttonDir setTitle:@"<" forState:UIControlStateNormal];
-		dir = FALSE;
-		stringDir = @"false";
-	} else {
-		[buttonDir setTitle:@">" forState:UIControlStateNormal];
-		dir = TRUE;
-		stringDir = @"true";
-	}
-	//NSLog(@" V : %f ",v);
-  [slideView setValue:v];
-	
-	// XXXX
 	[self updateFnState];
 }
 

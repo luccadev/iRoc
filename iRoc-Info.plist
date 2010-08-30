@@ -24,6 +24,8 @@
 	<string>2.0.362</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIRequiresPersistentWiFi</key>
+	<true/>
 	<key>NSMainNibFile</key>
 	<string></string>
 	<key>UIStatusBarHidden</key>

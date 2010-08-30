@@ -451,7 +451,7 @@
            NSLog(@"###################################################################");
            NSLog([[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding]);
            NSLog(@"###################################################################");
-					*/ 
+					 */
            
 					
 					NSXMLParser *parser = [[[NSXMLParser alloc] initWithData:_data] retain];
@@ -524,11 +524,6 @@ static NSString * const kIdElementName = @"id";
 	} else if ([elementName isEqualToString:kLocElementName]) {
     if( parsingPlan ) {
       if( ![[attributeDict valueForKey:@"show"] isEqualToString:@"false"] ) {
-				
-				
-				//NSLog(@"############# ----> %@", [attributeDict valueForKey:@"longAddr"]);
-				
-				
         Loc *loc = [[[Loc alloc] initWithAttributeDict:attributeDict] retain];
         [loc setDelegate:_delegate];
         [model.lcContainer addObject:loc withId:loc.locid];
@@ -539,35 +534,38 @@ static NSString * const kIdElementName = @"id";
     }
     else {
 	    NSLog(@"loco event parser: lc: %@ - v: %@ - dir: %@ - throttle: %@ - fn: %@", [attributeDict valueForKey:@"id"], [attributeDict valueForKey:@"V"], 
-						[attributeDict valueForKey:@"dir"], [attributeDict valueForKey:@"throttleid"], [attributeDict valueForKey:@"fn"]);
+						[attributeDict valueForKey:@"dir"], [attributeDict valueForKey:@"throttleid"], 
+						[attributeDict valueForKey:@"fn"]);
 			
 			// Filter out our events that are coming back to us ...
 			if( ![(NSString*)[[UIDevice currentDevice] name] isEqualToString:[attributeDict valueForKey:@"throttleid"]]){
+				
 				Loc *lc = (Loc*)[model.lcContainer objectWithId:[attributeDict valueForKey:@"id"]];
 				[lc updateWithAttributeDict:attributeDict];
-			
-				/*
+				
 				if ( [_delegate respondsToSelector:@selector(locSetSlider)] ) {
 					[_delegate performSelectorOnMainThread : @ selector(locSetSlider) withObject:nil waitUntilDone:NO];
-				}*/
+				}
 			}
 			
     }
 	} else if ([elementName isEqualToString:@"fn"]) {
     if( !parsingPlan ) {
-			NSLog(@"FN .... for: %@ f1=%@ ", [attributeDict valueForKey:@"id"], [attributeDict valueForKey:@"f1"]);
+			NSLog(@"function event parser: lc: %@ fn=%@ f1=%@ ", [attributeDict valueForKey:@"id"],[attributeDict valueForKey:@"fn"],
+						[attributeDict valueForKey:@"f1"]);
 			
-			//XXXX
+		
+			// Filter out our events that are coming back to us ...
+			if( ![(NSString*)[[UIDevice currentDevice] name] isEqualToString:[attributeDict valueForKey:@"throttleid"]]){
 			
-			Loc *lc = (Loc*)[model.lcContainer objectWithId:[attributeDict valueForKey:@"id"]];
-			[lc updateWithAttributeDict:attributeDict];
-			
-			if ( [_delegate respondsToSelector:@selector(locSetSlider)] ) {
-				[_delegate performSelectorOnMainThread : @ selector(locSetSlider) withObject:nil waitUntilDone:NO];
-			} 
-			
-			
-			
+				Loc *lc = (Loc*)[model.lcContainer objectWithId:[attributeDict valueForKey:@"id"]];
+				[lc updateWithAttributeDict:attributeDict];
+				
+				if ( [_delegate respondsToSelector:@selector(locSetSlider)] ) {
+					[_delegate performSelectorOnMainThread : @ selector(locSetSlider) withObject:nil waitUntilDone:NO];
+				} 
+			}
+			 			
     }
 	} else if ([elementName isEqualToString:@"sw"]) {
     NSString *idAttribute = [attributeDict valueForKey:kIdElementName];

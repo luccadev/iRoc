@@ -198,7 +198,7 @@
 	[rrconnection setDomain:[defaults stringForKey:@"ip_preference"]];
 	[rrconnection setPort:[defaults integerForKey:@"port_preference"]];
 	[rrconnection setDelegate:self withModel:model];
-	viewController.textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
+//	viewController.textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
   viewController.imageviewLoc = nil;
   
   systemView.rrconnection = rrconnection;
@@ -352,23 +352,21 @@
 - (void)lcAction:(NSString *)lcid {	
 	NSLog(@"lcAction: %@", lcid);
 	
-	self.viewController.textfieldLoc.text = lcid;
+	//self.viewController.textfieldLoc.text = lcid;
 	[self.tabBar setSelectedViewController:viewController.navigationController];
-	[[NSUserDefaults standardUserDefaults] setObject:(NSString*)[self.viewController.textfieldLoc text] forKey:@"loc_preference"];
+	[[NSUserDefaults standardUserDefaults] setObject:(NSString*)lcid forKey:@"loc_preference"];
 	
 	[self.tabBar dismissModalViewControllerAnimated:YES];
 	Loc *loc = (Loc*) [model.lcContainer objectWithId:lcid];
 	
 	// The new one:
 	[viewController.locProps setLoc:loc];
-	//[viewController setSlider:[loc getVpercent] withDir:loc.dir];
-	
+
 	[viewController updateFnState];
   [lcSettingsView setLoco:loc];
   [lcAutoView setLoco:loc];
 	
 	[viewController setSlider:[loc getVpercent] withDir:loc.dir];
-	//[self locSetSlider];
 }
 
 - (Loc*)getLoc:(NSString *)lcid {
@@ -409,23 +407,8 @@
 	[rrconnection requestLocpic:lcid withFilename:filename];
 }
 
-- (void)locSetSlider{
-
-	if( ((Loc*)[viewController.locProps getLoc]) != NULL) {
-
-	
-		Loc *lc = (Loc*)[viewController.locProps getLoc];
-
-	
-		NSLog(@"vint: %d", [lc getVint]);
-		
-
-
-		[viewController setSlider:[lc getVpercent] withDir:lc.dir];
-		
-		
-	}
-	
+- (void)locSetSlider {
+	[viewController setSlider:0 withDir:@"true"];
 }
 
 - (void)lcTextFieldAction {

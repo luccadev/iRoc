@@ -40,7 +40,7 @@
 	IBOutlet iRocButton *buttonF8;
 	IBOutlet iRocButton *buttonFn;
 	IBOutlet UISlider *slider;
-	IBOutlet UITextField *textfieldLoc;
+	//IBOutlet UITextField *textfieldLoc;
 	IBOutlet UIImageView *imageviewLoc;
 	IBOutlet iRocTouchView *slideView;
 	IBOutlet iRocLocProps *locProps;
@@ -93,7 +93,7 @@
 @property (nonatomic, retain) IRocConnector *rrconnection;
 
 @property (nonatomic, retain) UISlider *slider;
-@property (nonatomic, retain) UITextField *textfieldLoc;
+//@property (nonatomic, retain) UITextField *textfieldLoc;
 @property (nonatomic, retain) iRocTouchView *slideView;
 @property (nonatomic, retain) UIImageView *imageviewLoc;
 @property (nonatomic, retain) iRocLocProps *locProps;
@@ -116,7 +116,7 @@
 - (IBAction) buttonF8Clicked:(id) sender;
 - (IBAction) buttonFnClicked:(id) sender;
 - (IBAction) sliderMoved:(id) sender;
-- (IBAction) doneButton:(id)sender;
+//- (IBAction) doneButton:(id)sender;
 - (IBAction) locTextTouched:(id)sender;
 
 //- (IBAction) textFieldDone:(id) sender;

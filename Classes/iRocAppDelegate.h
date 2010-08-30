@@ -112,7 +112,7 @@
 - (Loc*)getLoc:(NSString *)lcid;
 - (void)setSelectedLoc:(Loc *)loc;
 
-- (void) locSetSlider;
+- (void)locSetSlider;
 - (void)setPower:(NSString *)state;
 - (void)setAuto:(NSString *)state;
 - (BOOL)sendMessage:(NSString *)name message:(NSString *)msg;
