@@ -203,15 +203,23 @@
 	
 	
 	startAlert = [[UIAlertView alloc] 
-								initWithTitle:[NSString stringWithFormat: 
-											@"\n\nConnecting to: \n%@:%d \n please wait ...", 
-															 [defaults stringForKey:@"ip_preference"], 
-															 [defaults integerForKey:@"port_preference"]] 
-								message:nil
+								initWithTitle:nil
+								message:[NSString stringWithFormat: 
+												 @"Connecting to: \n%@:%d \n", 
+												 [defaults stringForKey:@"ip_preference"], 
+												 [defaults integerForKey:@"port_preference"]]
 								delegate:self 
 								cancelButtonTitle:nil 
 								otherButtonTitles:nil];
 	[startAlert show];
+	
+	UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+	indicator.center = CGPointMake(startAlert.bounds.size.width * 0.5f, startAlert.bounds.size.height * 0.65f);
+	
+	[indicator startAnimating];
+	[startAlert addSubview:indicator];
+	[indicator release];
+	
 	
   systemView.rrconnection = rrconnection;
   lcAutoView.rrconnection = rrconnection;
