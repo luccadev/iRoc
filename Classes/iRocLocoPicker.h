@@ -53,6 +53,7 @@
 - (void)lcAction:(NSString *)lcid;
 
 - (void)setText:(NSString *)text;
+- (void)updateLabels;
 
 @end
 

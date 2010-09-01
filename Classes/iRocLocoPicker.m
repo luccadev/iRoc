@@ -67,17 +67,17 @@ void CGContextAddRoundedRectC(CGContextRef c, CGRect rect, int corner_radius) {
 	
     if (self = [super initWithFrame:frame]) {
         // Initialization code
-      idLabel = [[UILabel alloc] initWithFrame:CGRectMake(7,6, 190, 20)];
+      idLabel = [[UILabel alloc] initWithFrame:CGRectMake(7,5, 190, 20)];
       idLabel.font = [UIFont boldSystemFontOfSize:20];
       idLabel.textColor = [UIColor lightGrayColor];
       idLabel.backgroundColor = [UIColor darkGrayColor];
       
-      descLabel = [[[UILabel alloc] initWithFrame:CGRectMake(9, 24, 100, 20)] autorelease];
+      descLabel = [[[UILabel alloc] initWithFrame:CGRectMake(9, 25, 100, 20)] autorelease];
       descLabel.font = [UIFont systemFontOfSize:12];
       descLabel.textColor = [UIColor lightGrayColor];
       descLabel.backgroundColor = [UIColor darkGrayColor];
       
-      roadLabel = [[[UILabel alloc] initWithFrame:CGRectMake(9, 40, 100, 20)] autorelease];
+      roadLabel = [[[UILabel alloc] initWithFrame:CGRectMake(9, 41, 100, 20)] autorelease];
       roadLabel.font = [UIFont systemFontOfSize:12];
       roadLabel.textColor = [UIColor lightGrayColor];
       roadLabel.backgroundColor = [UIColor darkGrayColor];
@@ -113,10 +113,16 @@ void CGContextAddRoundedRectC(CGContextRef c, CGRect rect, int corner_radius) {
 
 
 
-- (void)updateLabels{
+- (void) updateLabels {
 	
 	if( loc != NULL) {	
-		idLabel.text = [loc locid];
+		
+		if ( [[loc consist] isEqualToString:@""] ) {
+			idLabel.text = [loc locid];
+		} else {
+			idLabel.text = [NSString stringWithFormat:@"%@ + [%@]", loc.locid, loc.consist];
+		}
+	
 		descLabel.text = [loc desc];
 		roadLabel.text = [loc roadname];
 	} else {

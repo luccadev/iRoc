@@ -409,6 +409,11 @@
 	[clearConsist setEnabled:YES];
 	[setConsist setEnabled:NO];
 	
+	
+	[delegate updateLabels];
+	
+	//[delegate. view    locProps updateLabels];
+	
 	//[[delegate.viewController.locProps] updateLabels];
 } 
 
@@ -427,7 +432,9 @@
 	[locoPickerButton setLoc:NULL];
 	[locoPickerButton setText:NSLocalizedString(@"No consist loco.",@"")];
 	
-	//[delegate.delegate.locProps updateLabels];
+	//[delegate.locProps updateLabels];
+
+	[delegate updateLabels];
 }
 
 - (IBAction) locoPickerClicked:(id) sender {

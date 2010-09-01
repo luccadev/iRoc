@@ -413,6 +413,7 @@
 }
 
 - (void) setSlider:(double)v withDir:(NSString*)diri {
+	[locProps updateLabels];
 	[self updateFnState];
 }
 

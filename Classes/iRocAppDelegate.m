@@ -389,21 +389,12 @@
 		
 	
   [viewController updateFnState];
-	
 	[viewController setSlider:[loc getVpercent] withDir:loc.dir];
-	
 }
 
-/*
-- (Loc*)getLoc:(NSString *)lcid {
-	NSLog(@"getLoc for: %@ 0x%08X", lcid, model.lcContainer);
-  if( lcid != NULL ) {
-	  return (Loc*) [model.lcContainer objectWithId:lcid];
-  }
-  return nil;
+- (void)updateLabels {
+	[viewController.locProps updateLabels];	
 }
- */
-
 
 /* CALLED WHEN PLAN IS PROCESSED */
 - (void)askForAllLocPics {

@@ -536,16 +536,19 @@ static NSString * const kIdElementName = @"id";
       //}
     }
     else {
-	    NSLog(@"loco event parser: lc: %@ - v: %@ - dir: %@ - throttle: %@ - fn: %@", [attributeDict valueForKey:@"id"], [attributeDict valueForKey:@"V"], 
+	    NSLog(@"loco event parser: lc: %@ - v: %@ - dir: %@ - throttle: %@ - fn: %@ - consist: %@", [attributeDict valueForKey:@"id"], [attributeDict valueForKey:@"V"], 
 						[attributeDict valueForKey:@"dir"], [attributeDict valueForKey:@"throttleid"], 
-						[attributeDict valueForKey:@"fn"]);
+						[attributeDict valueForKey:@"fn"], [attributeDict valueForKey:@"consist"]);
+			
+			Loc *lc = (Loc*)[model.lcContainer objectWithId:[attributeDict valueForKey:@"id"]];
+			[lc updateWithAttributeDict:attributeDict];
+			
+			if ( [_delegate respondsToSelector:@selector(updateLabels)] ) {
+				[_delegate performSelectorOnMainThread : @ selector(updateLabels) withObject:nil waitUntilDone:NO];
+			}
 			
 			// Filter out our events that are coming back to us ...
 			if( ![(NSString*)[[UIDevice currentDevice] name] isEqualToString:[attributeDict valueForKey:@"throttleid"]]){
-				
-				Loc *lc = (Loc*)[model.lcContainer objectWithId:[attributeDict valueForKey:@"id"]];
-				[lc updateWithAttributeDict:attributeDict];
-				
 				if ( [_delegate respondsToSelector:@selector(locSetSlider)] ) {
 					[_delegate performSelectorOnMainThread : @ selector(locSetSlider) withObject:nil waitUntilDone:NO];
 				}

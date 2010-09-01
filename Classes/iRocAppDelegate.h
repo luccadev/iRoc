@@ -112,6 +112,7 @@
 //- (Loc*)getLoc:(NSString *)lcid;
 //- (void)setSelectedLoc:(Loc *)loc;
 
+- (void)updateLabels;
 - (void)locSetSlider;
 - (void)setPower:(NSString *)state;
 - (void)setAuto:(NSString *)state;
