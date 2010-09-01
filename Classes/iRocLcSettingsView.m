@@ -277,7 +277,7 @@
 					break;
 						
 					case (8): {
-						UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
+						UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 200, 30)] autorelease];
             label.font = [UIFont boldSystemFontOfSize:cellfontsize];
             label.textColor = celltextcolor;
             label.backgroundColor = [UIColor clearColor];
@@ -288,7 +288,7 @@
 							
 					case (9): {
 						
-						CGRect locoPickerButtonFrame = CGRectMake(CONTENTBORDER, 10, 290, 64);
+						CGRect locoPickerButtonFrame = CGRectMake(CONTENTBORDER, 10, 287, 64);
 						locoPickerButton = [[iRocLocoPicker alloc] initWithFrame: locoPickerButtonFrame];
 						locoPickerButton.delegate = self;						
 						[locoPickerButton setLocContainer:model.lcContainer];
@@ -349,23 +349,8 @@
         break;
     }
   }
-  /*
-	if( [indexPath indexAtPosition:1] == 9) {
-		Loc *consistLoco = [model.lcContainer objectWithId:loc.consist];
-		if( consistLoco != NULL) {
-			[locoPickerButton setLoc:consistLoco];
-			[clearConsist setEnabled:YES];
-			[setConsist setEnabled:NO];
-		} else {
-			[locoPickerButton setLoc:NULL];
-			[locoPickerButton setText:NSLocalizedString(@"No consist loco.",@"")];
-			[setConsist setEnabled:NO];
-			[clearConsist setEnabled:NO];
-		}
-	} 
-	 */
-	
-  return cell;
+
+	return cell;
 }
 
 - (IBAction) placingClicked:(id) sender {
