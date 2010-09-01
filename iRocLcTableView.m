@@ -136,7 +136,13 @@
 		[cell.contentView addSubview:routeLabel];
 		[cell.contentView addSubview:locidLabel];
 		
-		locidLabel.text = loc.locid;
+		if ( [[loc consist] isEqualToString:@""] ) {
+			locidLabel.text = [loc locid];
+		} else {
+			locidLabel.text = [NSString stringWithFormat:@"%@ + [%@]", loc.locid, loc.consist];
+		}
+		
+		
 		routeLabel.text = loc.roadname;
 		descLabel.text = loc.desc;
 		loc.cell = cell;

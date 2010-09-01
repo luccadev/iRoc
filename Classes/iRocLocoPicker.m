@@ -194,9 +194,6 @@ void CGContextAddRoundedRectC(CGContextRef c, CGRect rect, int corner_radius) {
 }
 
 - (BOOL)isFn:(int)fn {
-	
-	//NSLog(@"Hello from isFn: %@ : %d : %d", loc.locid, fn, [loc isFn:fn]);
-	
   return [loc isFn:fn];
 }
 
@@ -214,9 +211,6 @@ void CGContextAddRoundedRectC(CGContextRef c, CGRect rect, int corner_radius) {
     [self updateLabels];
   }
   
-  //[delegate setSelectedLoc:loc];
-  
-	//NSLog(@"imageLoaded: loco=%@(%@) hasImage=%d imageLoaded=%d...", [lc locid], idLabel.text, [lc hasImage], [lc imageLoaded]);
   if( [lc hasImage] && [lc imageLoaded] ) {
     NSLog(@"loaded image...");
     UIImage *img = [lc getImage];
@@ -230,8 +224,6 @@ void CGContextAddRoundedRectC(CGContextRef c, CGRect rect, int corner_radius) {
     imageview.image = img;
     
     [self addSubview:imageview];
-    
-    //[imageview release];
   }
 }
 
@@ -253,12 +245,9 @@ void CGContextAddRoundedRectC(CGContextRef c, CGRect rect, int corner_radius) {
 }
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	[super touchesEnded:touches withEvent:event];
-	NSLog(@"Touches E");
-	
+	//NSLog(@"Touches E");
 	
 	[delegate presentModalViewController:lcTableView animated:YES];
-
-	
 }
 
 
