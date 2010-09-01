@@ -36,7 +36,6 @@
 #import "iRocSystemView.h"
 #import "IRocConnector.h"
 #import "iRocAboutView.h"
-#import "iRocLocProps.h"
 #import "iRocLcAutoView.h"
 #import "iRocLcSettingsView.h"
 #import "iRocBlockView.h"
@@ -110,8 +109,8 @@
 
 - (void)lcListLoaded;
 - (void)lcListUpdateCell:(Loc *)loc;
-- (Loc*)getLoc:(NSString *)lcid;
-- (void)setSelectedLoc:(Loc *)loc;
+//- (Loc*)getLoc:(NSString *)lcid;
+//- (void)setSelectedLoc:(Loc *)loc;
 
 - (void)locSetSlider;
 - (void)setPower:(NSString *)state;

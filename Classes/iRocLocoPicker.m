@@ -61,7 +61,7 @@ void CGContextAddRoundedRectC(CGContextRef c, CGRect rect, int corner_radius) {
 
 
 - (id)initWithFrame:(CGRect)frame {
-  NSLog(@"iRocLocProps:initWithFrame");
+  NSLog(@"iRocLocoPicker:initWithFrame");
 
 	//rect = frame;
 	
@@ -150,10 +150,12 @@ void CGContextAddRoundedRectC(CGContextRef c, CGRect rect, int corner_radius) {
 	
 	[lcTableView dismissModalViewControllerAnimated:YES];
 	
-	
 	Loc *lc = [loccontainer objectWithId:lcid];
 	[self setLoc:lc];
 	
+	if ( [delegate respondsToSelector:@selector(lcAction)] ) {
+		[delegate lcAction];
+	}
 }
 
 - (void)setLoc:(Loc*)loci {
@@ -201,8 +203,8 @@ void CGContextAddRoundedRectC(CGContextRef c, CGRect rect, int corner_radius) {
   Loc* lc = loc;
   if( lc == nil ) {
     //NSLog(@"imageLoaded: loco=%@...", idLabel.text);
-    lc = [delegate getLoc:idLabel.text];
-    loc = lc;
+    //lc = [delegate getLoc:idLabel.text];
+    //loc = lc;
     [self updateLabels];
   }
   

@@ -839,11 +839,8 @@ static NSString * const kIdElementName = @"id";
     parsingPlan = FALSE;
 
 		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-		
-		// TEST
-    
+
 		if ( [_delegate respondsToSelector:@selector(askForAllLocPics)] ) {
-			//[_delegate askForAllLocPics];
       [_delegate performSelectorOnMainThread : @ selector(askForAllLocPics) withObject:nil waitUntilDone:NO];
 		} 
     

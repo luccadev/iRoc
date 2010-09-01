@@ -55,3 +55,7 @@
 - (void)setText:(NSString *)text;
 
 @end
+
+@interface NSObject (iRocLocoPicker)
+- (void)lcAction;
+@end

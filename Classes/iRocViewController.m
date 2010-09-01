@@ -26,7 +26,7 @@
 
 @synthesize buttonDir, buttonF0, buttonF1, buttonF2, buttonF3, buttonF4, buttonF5, buttonF6, buttonF7, buttonF8, buttonFn; 
 @synthesize slider; 
-@synthesize keyboard, delegate, imageviewLoc, locProps;
+@synthesize keyboard, delegate, imageviewLoc, locProps, model;
 @synthesize slideView;
 @synthesize soundFileURLRef;
 @synthesize soundFileObject;
@@ -35,16 +35,21 @@
 @synthesize ip;
 @synthesize VDelta;
 
-
-- (id)init {
-  NSLog(@"View Controller init ...");
-  self = [super init];
-  if( self != nil ) {
+- (id)initWithDelegate:(id)_delegate andModel:(Model*)_model {
+  NSLog(@"01");
+  if( self = [super init] ) {
+    model = _model;
+    delegate = _delegate;
+  }
+  NSLog(@"02");
+	
+	if( self != nil ) {
     self.tabBarItem = [[UITabBarItem alloc] initWithTitle:
                        NSLocalizedString(@"Loco", @"")
-                      image:[UIImage imageNamed:@"loco.png"] tag:1];
+																										image:[UIImage imageNamed:@"loco.png"] tag:1];
     
   }
+  
   return self;
 }
 
@@ -62,7 +67,9 @@
   [self.view addSubview: slideView];
 
   rect = CGRectMake(CONTENTBORDER, 0, bounds.size.width - (2 * CONTENTBORDER), 64);
-  locProps = [[iRocLocProps alloc] initWithFrame:rect];
+  locProps = [[iRocLocoPicker alloc] initWithFrame:rect];
+	locProps.delegate = self;
+	[locProps setLocContainer:model.lcContainer];
   [locProps addTarget:self action:@selector(locTextTouched:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview: locProps];
   
@@ -294,6 +301,15 @@
   processAll = TRUE;
 } 
 
+/*
+- (Loc*)getLoc:(NSString *)lcid {
+	NSLog(@"getLoc for: %@ 0x%08X", lcid, [delegate getModel].lcContainer);
+  if( lcid != NULL ) {
+	  return (Loc*) [[delegate getModel] lcContainer objectWithId:lcid];
+  }
+  return nil;
+}
+ */
 
 - (void) prepareFNCommand:(int) fnIndex {
 	[self flipFn: fnIndex];
@@ -362,10 +378,8 @@
 	
 	//textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
 	locProps.idLabel.text = [defaults stringForKey:@"loc_preference"];
-  locProps.delegate = delegate;
   locProps.imageview = nil;
 
-	
 	}
 
 
@@ -395,13 +409,18 @@
 
 
 - (IBAction) locTextTouched:(id)sender {
-	[delegate lcTextFieldAction];
+	//[delegate lcTextFieldAction];
 }
 
 - (void) setSlider:(double)v withDir:(NSString*)diri {
 	[self updateFnState];
 }
 
+- (void) lcAction {
+	NSLog(@"lcAction (ViewController)");
+	
+	[delegate lcAction: [locProps getLoc].locid];
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -414,7 +433,6 @@
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
-	//[rrconnection stop];
 }
 
 

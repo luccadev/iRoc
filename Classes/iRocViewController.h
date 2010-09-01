@@ -24,7 +24,7 @@
 #import "IRocConnector.h"
 #import "iRocTouchView.h"
 #import "iRocButton.h"
-#import "iRocLocProps.h"
+#import "iRocLocoPicker.h"
 #import "Loc.h"
 
 @interface iRocViewController : UIViewController <UITextFieldDelegate> {
@@ -40,10 +40,9 @@
 	IBOutlet iRocButton *buttonF8;
 	IBOutlet iRocButton *buttonFn;
 	IBOutlet UISlider *slider;
-	//IBOutlet UITextField *textfieldLoc;
 	IBOutlet UIImageView *imageviewLoc;
 	IBOutlet iRocTouchView *slideView;
-	IBOutlet iRocLocProps *locProps;
+	iRocLocoPicker *locProps;
 	
     int VDelta;
 	
@@ -71,7 +70,8 @@
 	
 	IRocConnector *rrconnection;
 	
-	id delegate;
+  Model* model;
+  id delegate;
 }
 @property (nonatomic, retain) iRocButton *buttonDir; 
 @property (nonatomic, retain) iRocButton *buttonF0;
@@ -86,6 +86,8 @@
 @property (nonatomic, retain) iRocButton *buttonFn; 
 @property (nonatomic, retain) id delegate; 
 
+@property (nonatomic, retain) Model* model;
+
 @property (nonatomic, retain) UIView* keyboard;
 
 @property (nonatomic, retain) NSArray * functionButtons;
@@ -93,10 +95,9 @@
 @property (nonatomic, retain) IRocConnector *rrconnection;
 
 @property (nonatomic, retain) UISlider *slider;
-//@property (nonatomic, retain) UITextField *textfieldLoc;
 @property (nonatomic, retain) iRocTouchView *slideView;
 @property (nonatomic, retain) UIImageView *imageviewLoc;
-@property (nonatomic, retain) iRocLocProps *locProps;
+@property (nonatomic, retain) iRocLocoPicker *locProps;
 
 @property(nonatomic, retain) NSString *ip;
 
@@ -126,6 +127,10 @@
 
 - (void) setSlider:(double)v withDir:(NSString*)diri;
 
+//- (Loc*)getLoc:(NSString *)lcid;
+
+- (id)initWithDelegate:(id)_delegate andModel:(Model*)_model;
+
 @end
 
 @interface NSObject (iRocViewController)
@@ -135,6 +140,7 @@
 - (BOOL) flipFn:(int)fn;
 - (void)lcTextFieldAction;
 - (Loc*)getLoc:(NSString*)lid;
+- (void)lcAction;
 
 @end
 

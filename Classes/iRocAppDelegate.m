@@ -59,18 +59,14 @@
 		application.idleTimerDisabled = YES;
 	}
 	
-  viewController = [[iRocViewController alloc] init];
+  viewController = [[iRocViewController alloc] initWithDelegate:self andModel:model];
   systemView = [[iRocSystemView alloc] init];
   aboutView = [[iRocAboutView alloc] initWithDelegate:self andModel:model];
   menuTableView = [[iRocMenuTableView alloc] init];
-  lcAutoView = [[iRocLcAutoView alloc] init];
-  
-	//lcSettingsView = [[iRocLcSettingsView alloc] init];
-	
+  lcAutoView = [[iRocLcAutoView alloc] init];	
 	lcSettingsView = [[iRocLcSettingsView alloc] initWithDelegate:self andModel:model];
   levelTableView = [[iRocLevelTableView alloc] initWithDelegate:self andModel:model];
 
-	[viewController setDelegate:self];
   
     // Optional move event.
 	if( [defaults boolForKey:@"moveevents_preference"]) {
@@ -191,12 +187,6 @@
 	// read preferences
 	defaults = [[NSUserDefaults standardUserDefaults] retain];
 	
-	
-	//NSLog(@" ###### DEFAULTS: %@",  [defaults stringForKey:@"last_connections"]);
-	  
-	    
-	
-	
 	rrconnection = [[IRocConnector alloc] init];
 	[rrconnection setDomain:[defaults stringForKey:@"ip_preference"]];
 	[rrconnection setPort:[defaults integerForKey:@"port_preference"]];
@@ -268,9 +258,6 @@
 	
 }
 
-
-
-
 - (void)connectThread { 
   NSLog( @"connectThread started");
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
@@ -304,6 +291,7 @@
   [viewController.locProps imageLoaded];
 }
 
+/*
 - (void)setSelectedLoc:(Loc *)loc {
 	
 	[lcSettingsView dealloc];
@@ -316,6 +304,7 @@
 
 	[viewController setSlider:[loc getVpercent] withDir:loc.dir];
 }
+ */
 
 - (void)rtListLoaded {
 	//NSLog(@"Reload Data in Route View");
@@ -379,25 +368,33 @@
 }
 
 - (void)lcAction:(NSString *)lcid {	
-	NSLog(@"lcAction: %@", lcid);
+	NSLog(@"lcAction (AppDelegate): %@", lcid);
 	
 	//self.viewController.textfieldLoc.text = lcid;
-	[self.tabBar setSelectedViewController:viewController.navigationController];
+	//[self.tabBar setSelectedViewController:viewController.navigationController];
 	[[NSUserDefaults standardUserDefaults] setObject:(NSString*)lcid forKey:@"loc_preference"];
 	
-	[self.tabBar dismissModalViewControllerAnimated:YES];
+	//[self.tabBar dismissModalViewControllerAnimated:YES];
 	Loc *loc = (Loc*) [model.lcContainer objectWithId:lcid];
-	
-	// The new one:
-	[viewController.locProps setLoc:loc];
 
 	[viewController updateFnState];
-  [lcSettingsView setLoco:loc];
+  //[lcSettingsView setLoco:loc];
   [lcAutoView setLoco:loc];
 	
+	
+	[lcSettingsView dealloc];
+	lcSettingsView = [[iRocLcSettingsView alloc] initWithDelegate:self andModel:model];
+	lcSettingsView.rrconnection = rrconnection;
+	[lcSettingsView setLoco:loc];
+		
+	
+  [viewController updateFnState];
+	
 	[viewController setSlider:[loc getVpercent] withDir:loc.dir];
+	
 }
 
+/*
 - (Loc*)getLoc:(NSString *)lcid {
 	NSLog(@"getLoc for: %@ 0x%08X", lcid, model.lcContainer);
   if( lcid != NULL ) {
@@ -405,9 +402,17 @@
   }
   return nil;
 }
+ */
 
+
+/* CALLED WHEN PLAN IS PROCESSED */
 - (void)askForAllLocPics {
 	
+	// inform the locoPicker
+	Loc *lc = [model.lcContainer objectWithId:[[Globals getDefaults] stringForKey:@"loc_preference"]];
+	[viewController.locProps setLoc:lc];
+	[self lcAction: [viewController.locProps getLoc].locid];
+		
 	// inform some views of plan loaded
   [levelTableView planLoaded];
 	
@@ -444,7 +449,7 @@
 
 - (void)lcTextFieldAction {
 	//[lcTableView.tableView reloadData];
-	[self.tabBar presentModalViewController:lcTableView animated:YES];
+	//[self.tabBar presentModalViewController:lcTableView animated:YES];
 }
 
 - (void)presentBlockView:(Block*)block {
@@ -480,8 +485,6 @@
 
 -(void) applicationDidBecomeActive:(UIApplication *)application {
 	NSLog(@"applicationDidBecomeActive");
-	
-	//[[self rrconnection] connect];
 }
 
 - (void)setPower:(NSString *)state {
