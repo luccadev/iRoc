@@ -45,7 +45,7 @@
 @property (nonatomic, retain) Container *lccontainer;
 
 - (void)setLoc:(Loc*)loci;
-- (void)setLocContainer:(Container*)loccontainer;
+- (void)setLocContainer:(Container*)_lccontainer;
 - (Loc*)getLoc;
 - (void)imageLoaded;
 - (BOOL)isFn:(int)fn;

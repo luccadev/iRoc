@@ -24,7 +24,7 @@
 
 @implementation iRocLcSettingsView
 
-@synthesize rrconnection, loc;
+@synthesize rrconnection, loc, lcContainer;
 
 
 - (id)init {

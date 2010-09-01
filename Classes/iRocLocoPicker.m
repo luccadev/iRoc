@@ -22,7 +22,7 @@
 #import "iRocAppDelegate.h"
 
 @implementation iRocLocoPicker
-@synthesize idLabel, delegate, imageview;
+@synthesize idLabel, delegate, imageview, lccontainer;
 
 
 void CGContextAddRoundedRectC(CGContextRef c, CGRect rect, int corner_radius) {
@@ -133,12 +133,12 @@ void CGContextAddRoundedRectC(CGContextRef c, CGRect rect, int corner_radius) {
 
 }
 
-- (void)setLocContainer:(Container*)lccontainer {
-	loccontainer = lccontainer;
+- (void)setLocContainer:(Container*)_lccontainer {
+	loccontainer = _lccontainer;
 	
 		NSLog( @" setLocContainer : ");
 	
-	lcTableView.lcContainer = lccontainer;
+	lcTableView.lcContainer = _lccontainer;
 	[lcTableView setDelegate:self];
 	[lcTableView setMenuname:NSLocalizedString(@"Locomotives", @"")];
 	

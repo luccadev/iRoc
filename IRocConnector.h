@@ -38,7 +38,7 @@
 
 @class Loc;
 
-@interface IRocConnector : NSObject {
+@interface IRocConnector : NSObject <NSStreamDelegate, NSXMLParserDelegate>{
 @private
     NSString *domain;
     uint16_t port;
