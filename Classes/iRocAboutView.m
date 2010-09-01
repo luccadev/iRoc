@@ -29,20 +29,16 @@
 
 
 - (id)initWithDelegate:(id)_delegate andModel:(Model*)_model {
-  NSLog(@"01");
   if( self = [super init] ) {
     model = _model;
     delegate = _delegate;
-  }
-  NSLog(@"02");
-  
+  }  
   return self;
 }
 
 - (void)viewDidLoad {
-  NSLog(@"0");
   [super viewDidLoad];
-  NSLog(@"1");
+	
   CGRect rect = CGRectMake(CONTENTBORDER, CONTENTBORDER, 120, 20);
   UILabel* l = [[UILabel alloc] initWithFrame:rect];
   l.textColor = [UIColor lightGrayColor];

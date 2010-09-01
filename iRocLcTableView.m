@@ -50,11 +50,11 @@
 }
 */
 
-/*
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }
- */
+
 
 /*
 - (void)viewWillDisappear:(BOOL)animated {
@@ -136,11 +136,11 @@
 		[cell.contentView addSubview:routeLabel];
 		[cell.contentView addSubview:locidLabel];
 		
-		if ( [[loc consist] isEqualToString:@""] ) {
+		//if ( [[loc consist] isEqualToString:@""] ) {
 			locidLabel.text = [loc locid];
-		} else {
-			locidLabel.text = [NSString stringWithFormat:@"%@ + [%@]", loc.locid, loc.consist];
-		}
+		//} else {
+		//	locidLabel.text = [NSString stringWithFormat:@"%@ + [%@]", loc.locid, loc.consist];
+		//}
 		
 		
 		routeLabel.text = loc.roadname;
