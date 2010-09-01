@@ -28,7 +28,7 @@
 
 @synthesize locid, imgname, lcimage, hasImage, imageLoaded, desc, imageAlreadyRequested, roadname, 
             cell, dir, vstr, vmaxstr, Vmax, Vmid, Vmin, Placing, SpCnt, Vmode, Fn, Fx, Mode, addr, 
-						f0, f1, f2, f3, f4 ,f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, vint;
+						f0, f1, f2, f3, f4 ,f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, vint, consist;
 
 - (id) init {
 	[super init];	
@@ -65,6 +65,7 @@
     dir      = [Globals getAttribute:@"dir" fromDict:attributeDict withDefault:@""];
     vstr     = [Globals getAttribute:@"V" fromDict:attributeDict withDefault:@"0"];
 		addr     = [Globals getAttribute:@"addr" fromDict:attributeDict withDefault:@"0"];
+		consist  = [Globals getAttribute:@"consist" fromDict:attributeDict withDefault:@""];
 		
 		vint = [vstr intValue];
 
@@ -96,7 +97,8 @@
   roadname = [Globals getAttribute:@"roadname" fromDict:attributeDict withDefault:roadname];
   dir      = [Globals getAttribute:@"dir"      fromDict:attributeDict withDefault:dir];
   vstr     = [Globals getAttribute:@"V"        fromDict:attributeDict withDefault:vstr];
-	addr     = [Globals getAttribute:@"addr" fromDict:attributeDict withDefault:addr];
+	addr     = [Globals getAttribute:@"addr"     fromDict:attributeDict withDefault:addr];
+	consist  = [Globals getAttribute:@"consist"  fromDict:attributeDict withDefault:consist];
 	
 	vint = [vstr intValue];
 	

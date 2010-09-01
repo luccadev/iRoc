@@ -38,6 +38,7 @@
 	NSString *Fn;
 	NSString *Fx;
 	NSString *addr;
+	NSString *consist;
 	
 	NSString *f0, *f1, *f2, *f3, *f4, *f5, *f6, *f7, *f8, *f9, *f10, *f11, *f12, *f13, *f14, *f15, *f16;
 	
@@ -70,7 +71,7 @@
 @property (nonatomic, retain) NSString *dir;
 @property (nonatomic, retain) NSString *vstr, *Vmax, *Vmid, *Vmin, *Placing, *SpCnt, *Vmode, *Fn, *Fx, *Mode, *addr, *f0, *f1, *f2, *f3, *f4, 
 														*f5, *f6, *f7, *f8, *f9, *f10, *f11, *f12, *f13, *f14, *f15, *f16;
-@property (nonatomic, retain) NSString *vmaxstr;
+@property (nonatomic, retain) NSString *vmaxstr, *consist;
 @property (nonatomic, retain) UIImage *lcimage;
 @property (nonatomic, retain) UITableViewCell *cell;
 @property BOOL hasImage;

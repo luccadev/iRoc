@@ -36,7 +36,7 @@
 	Container *loccontainer;
 	
 	iRocLcTableView *lcTableView;
-
+  //CGRect rect;
 }
 
 @property(nonatomic,retain) UILabel *idLabel;
@@ -51,5 +51,7 @@
 - (BOOL)isFn:(int)fn;
 - (void)setFn:(int)fn withState:(BOOL)state;
 - (void)lcAction:(NSString *)lcid;
+
+- (void)setText:(NSString *)text;
 
 @end

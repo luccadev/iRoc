@@ -37,7 +37,24 @@
     self.title = NSLocalizedString(@"Settings", @"");
     self.tabBarItem = [[UITabBarItem alloc] initWithTitle:
                        NSLocalizedString(@"Settings", @"") image:nil tag:3];
-    
+
+  }
+  return self;
+}
+
+- (id)initWithDelegate:(id)_delegate andModel:(Model *)_model {
+  if( self = [super init] ) {
+    NSLog(@"init loco settings view");
+    delegate = _delegate;
+    model = _model;
+		
+		self.tableView.backgroundColor = [UIColor blackColor];
+    self.tableView.separatorColor = [UIColor blackColor];
+		
+    self.title = NSLocalizedString(@"Settings", @"");
+    self.tabBarItem = [[UITabBarItem alloc] initWithTitle:
+                       NSLocalizedString(@"Settings", @"") image:nil tag:3];
+		
   }
   return self;
 }
@@ -69,7 +86,7 @@
   NSLog(@"rows in section %d", section);
   switch( section ) {
     case (0):
-      return 8;
+      return 11;
       break;
     case (1):
       return 2;
@@ -95,18 +112,25 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  
 {  
-  NSLog(@"cell height for %d:%d", [indexPath indexAtPosition:0 ], [indexPath indexAtPosition:1 ]);
-  return 50.0; //returns floating point which will be used for a cell row height at specified row index  
+  //NSLog(@"cell height for %d:%d", [indexPath indexAtPosition:0 ], [indexPath indexAtPosition:1 ]);
+	
+	if ([indexPath indexAtPosition:1 ] == 9) {
+		return 80;
+	} else {
+		return 50.0; //returns floating point which will be used for a cell row height at specified row index  
+	}
+  
 }  
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  NSLog(@"cell for %d:%d", [indexPath indexAtPosition:0 ], [indexPath indexAtPosition:1 ]);
+  //NSLog(@"cell for %d:%d", [indexPath indexAtPosition:0 ], [indexPath indexAtPosition:1 ]);
 
   NSString *CellIdentifier = [ NSString stringWithFormat: @"%d:%d", [indexPath indexAtPosition:0 ],
                               [ indexPath indexAtPosition:1 ] ];
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
-  
+  	
+	
   if( cell == nil ) {
     cell = [[[UITableViewCell alloc] initWithFrame: CGRectZero reuseIdentifier: CellIdentifier ] autorelease ];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -253,6 +277,63 @@
 					break;
 						
 					case (8): {
+						UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
+            label.font = [UIFont boldSystemFontOfSize:cellfontsize];
+            label.textColor = celltextcolor;
+            label.backgroundColor = [UIColor clearColor];
+            label.text = NSLocalizedString(@"Consist:", @"");
+            [cell addSubview: label];
+					}
+						break;
+							
+					case (9): {
+						
+						CGRect locoPickerButtonFrame = CGRectMake(CONTENTBORDER, 10, 290, 64);
+						locoPickerButton = [[iRocLocoPicker alloc] initWithFrame: locoPickerButtonFrame];
+						locoPickerButton.delegate = self;						
+						[locoPickerButton setLocContainer:model.lcContainer];
+						[locoPickerButton addTarget:self action:@selector(locoPickerClicked:) forControlEvents:UIControlEventTouchUpInside];
+						[cell addSubview: locoPickerButton];
+						
+						Loc *consistLoco = [model.lcContainer objectWithId:loc.consist];
+						if( consistLoco != NULL) {
+							[locoPickerButton setLoc:consistLoco];
+							[clearConsist setEnabled:YES];
+							[setConsist setEnabled:NO];
+						} else {
+							[locoPickerButton setLoc:NULL];
+							[locoPickerButton setText:NSLocalizedString(@"No consist loco.",@"")];
+							[setConsist setEnabled:NO];
+							[clearConsist setEnabled:NO];
+						}
+					
+					}
+						break;
+						
+					case (10): {
+						
+						setConsist = [[iRocButton alloc] initWithFrame: CGRectMake(CONTENTBORDER, 10, 135, 30)];
+						[setConsist setTitle: NSLocalizedString(@"Set consist", @"") forState:UIControlStateNormal];
+						[setConsist addTarget:self action:@selector(setConsistClicked:) forControlEvents:UIControlEventTouchUpInside];
+						[cell addSubview: setConsist];
+												
+						clearConsist = [[iRocButton alloc] initWithFrame: CGRectMake(160, 10, 135, 30)];
+						[clearConsist setTitle: NSLocalizedString(@"Clear consist", @"") forState:UIControlStateNormal];
+						[clearConsist addTarget:self action:@selector(clearConsistClicked:) forControlEvents:UIControlEventTouchUpInside];
+						[cell addSubview: clearConsist];
+						
+						if( [locoPickerButton getLoc] != NULL ){
+							[clearConsist setEnabled:YES];
+							[setConsist setEnabled:NO];
+						} else {
+							[setConsist setEnabled:NO];
+							[clearConsist setEnabled:NO];
+						}
+
+					}
+						break;
+						
+					case (11): {
 						NSArray *itemArray = [NSArray arrayWithObjects: @"Steam", @"Diesal", @"Electric", nil];
 						UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
 						segmentedControl.frame = CGRectMake(CONTENTBORDER, 10, 300, 30);
@@ -268,7 +349,22 @@
         break;
     }
   }
-  
+  /*
+	if( [indexPath indexAtPosition:1] == 9) {
+		Loc *consistLoco = [model.lcContainer objectWithId:loc.consist];
+		if( consistLoco != NULL) {
+			[locoPickerButton setLoc:consistLoco];
+			[clearConsist setEnabled:YES];
+			[setConsist setEnabled:NO];
+		} else {
+			[locoPickerButton setLoc:NULL];
+			[locoPickerButton setText:NSLocalizedString(@"No consist loco.",@"")];
+			[setConsist setEnabled:NO];
+			[clearConsist setEnabled:NO];
+		}
+	} 
+	 */
+	
   return cell;
 }
 
@@ -300,6 +396,43 @@
 	[textCV resignFirstResponder];
 	[textVal resignFirstResponder];
 }  
+
+- (IBAction) setConsistClicked:(id) sender {
+	
+	NSString * stringToSend = [[NSString alloc] initWithString: 
+                             [NSString stringWithFormat: @"<model cmd=\"modify\"><lc id=\"%@\" consist=\"%@\"/></model>",
+														  loc.locid, [locoPickerButton getLoc].locid ]];
+  [rrconnection sendMessage:@"model" message:stringToSend];
+	
+	NSLog(@"setConsist: %@", stringToSend);
+	
+	[clearConsist setEnabled:YES];
+	[setConsist setEnabled:NO];
+} 
+
+- (IBAction) clearConsistClicked:(id) sender {
+	
+	NSString * stringToSend = [[NSString alloc] initWithString: 
+                             [NSString stringWithFormat: @"<model cmd=\"modify\"><lc id=\"%@\" consist=\"\"/></model>",
+														  loc.locid]];
+  [rrconnection sendMessage:@"model" message:stringToSend];
+	
+	
+	NSLog(@"clearConsist: %@", stringToSend);
+	
+	[setConsist setEnabled:NO];
+	[clearConsist setEnabled:NO];
+	[locoPickerButton setLoc:NULL];
+	[locoPickerButton setText:NSLocalizedString(@"No consist loco.",@"")];
+}
+
+- (IBAction) locoPickerClicked:(id) sender {
+	NSLog(@"locoPickerClicked ...");
+	
+	[setConsist setEnabled:YES];
+}
+
+
 
 - (void) updatePlacing {
   [Placing setTitle: [Placing getBState] ? NSLocalizedString(@"Swapped", @""):NSLocalizedString(@"Normal", @"") forState: UIControlStateNormal];

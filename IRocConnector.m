@@ -524,6 +524,9 @@ static NSString * const kIdElementName = @"id";
 	} else if ([elementName isEqualToString:kLocElementName]) {
     if( parsingPlan ) {
       if( ![[attributeDict valueForKey:@"show"] isEqualToString:@"false"] ) {
+				
+				//NSLog(@"loco parser: lc: %@ - consist: %@", [attributeDict valueForKey:@"id"], [attributeDict valueForKey:@"consist"]);
+				
         Loc *loc = [[[Loc alloc] initWithAttributeDict:attributeDict] retain];
         [loc setDelegate:_delegate];
         [model.lcContainer addObject:loc withId:loc.locid];

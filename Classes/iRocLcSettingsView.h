@@ -24,6 +24,8 @@
 #import "iRocButton.h"
 #import "iRocSlider.h"
 #import "Loc.h"
+#import "Container.h"
+#import "iRocLocoPicker.h"
 
 
 @interface iRocLcSettingsView : iRocTableView {
@@ -33,16 +35,27 @@
   iRocButton *Placing;
 	iRocButton *Dispatch;
 	iRocButton *writeCV;
+	iRocButton *setConsist;
+	iRocButton *clearConsist;
 	UITextField *textVal;
 	UITextField *textCV;
+	
+	iRocLocoPicker *locoPickerButton;
+	Container *lcContainer;
 
   Loc *loc;
 	IRocConnector *rrconnection;
+	
+	Model *model;
+	id delegate;	
+	
 }
 @property (nonatomic, retain) IRocConnector *rrconnection;
 @property (nonatomic, retain) Loc *loc;
+@property (nonatomic, retain) Container *lcContainer;
 
 - (id)init;
+- (id)initWithDelegate:(id)_delegate andModel:(Model*)_model;
 - (void)dealloc;
 - (void)setLoco:(Loc*)loco;
 - (void)updatePlacing;

@@ -63,6 +63,8 @@ void CGContextAddRoundedRectC(CGContextRef c, CGRect rect, int corner_radius) {
 - (id)initWithFrame:(CGRect)frame {
   NSLog(@"iRocLocProps:initWithFrame");
 
+	//rect = frame;
+	
     if (self = [super initWithFrame:frame]) {
         // Initialization code
       idLabel = [[UILabel alloc] initWithFrame:CGRectMake(7,6, 190, 20)];
@@ -112,9 +114,23 @@ void CGContextAddRoundedRectC(CGContextRef c, CGRect rect, int corner_radius) {
 
 
 - (void)updateLabels{
-	idLabel.text = [loc locid];
-	descLabel.text = [loc desc];
-	roadLabel.text = [loc roadname];
+	
+	if( loc != NULL) {	
+		idLabel.text = [loc locid];
+		descLabel.text = [loc desc];
+		roadLabel.text = [loc roadname];
+	} else {
+		idLabel.text = @"";
+		descLabel.text = @"";
+		roadLabel.text = @"";
+		if( imageview != nil ) {
+			NSLog(@"remove previous image");
+			[imageview removeFromSuperview];
+			imageview = nil;
+		}
+		
+	}
+
 }
 
 - (void)setLocContainer:(Container*)lccontainer {
@@ -143,18 +159,22 @@ void CGContextAddRoundedRectC(CGContextRef c, CGRect rect, int corner_radius) {
 - (void)setLoc:(Loc*)loci {
 	loc = loci;
 	
-	NSLog(@"setLoc: %@", [loc locid]);
-  [self updateLabels];
+	[self updateLabels];
+	
+	if (loci != NULL) {
+
+		NSLog(@"setLoc: %@", [loc locid]);
+		[self updateLabels];
 	
 	
-	if( imageview != nil ) {
-    NSLog(@"remove previous image");
-		[imageview removeFromSuperview];
-    imageview = nil;
+		if( imageview != nil ) {
+			NSLog(@"remove previous image");
+			[imageview removeFromSuperview];
+			imageview = nil;
+		}
+	
+		[self imageLoaded];
   }
-	
-	[self imageLoaded];
-  
 }
 
 - (Loc*)getLoc {
@@ -192,10 +212,11 @@ void CGContextAddRoundedRectC(CGContextRef c, CGRect rect, int corner_radius) {
   if( [lc hasImage] && [lc imageLoaded] ) {
     NSLog(@"loaded image...");
     UIImage *img = [lc getImage];
+		
+		NSLog(@" %f x %f ", CGRectGetWidth( [super frame]), CGRectGetHeight( [super frame]) );
     
     int breite = 55*(img.size.width/img.size.height);
-    int diff = 173 - breite;
-    CGRect imageframe = CGRectMake(123 + diff,7 ,breite,50);	
+    CGRect imageframe = CGRectMake(CGRectGetWidth( [super frame])-breite-7 ,7 ,breite, 50);	
     
     imageview = [[UIImageView alloc] initWithFrame:imageframe];
     imageview.image = img;
@@ -206,6 +227,12 @@ void CGContextAddRoundedRectC(CGContextRef c, CGRect rect, int corner_radius) {
   }
 }
 
+- (void)setText:(NSString *)text {
+	
+	idLabel.text = text;
+	descLabel.text = NSLocalizedString(@"select loco ...", @"");
+	
+}
 
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

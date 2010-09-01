@@ -64,7 +64,10 @@
   aboutView = [[iRocAboutView alloc] initWithDelegate:self andModel:model];
   menuTableView = [[iRocMenuTableView alloc] init];
   lcAutoView = [[iRocLcAutoView alloc] init];
-  lcSettingsView = [[iRocLcSettingsView alloc] init];
+  
+	//lcSettingsView = [[iRocLcSettingsView alloc] init];
+	
+	lcSettingsView = [[iRocLcSettingsView alloc] initWithDelegate:self andModel:model];
   levelTableView = [[iRocLevelTableView alloc] initWithDelegate:self andModel:model];
 
 	[viewController setDelegate:self];
@@ -225,6 +228,7 @@
   lcAutoView.rrconnection = rrconnection;
   lcSettingsView.rrconnection = rrconnection;
 	
+	
 	// Connect Thread
 	rrconnection.isConnected = FALSE;
 	[NSThread detachNewThreadSelector:@selector(connectThread) toTarget:self withObject:nil]; 
@@ -301,6 +305,11 @@
 }
 
 - (void)setSelectedLoc:(Loc *)loc {
+	
+	[lcSettingsView dealloc];
+	lcSettingsView = [[iRocLcSettingsView alloc] initWithDelegate:self andModel:model];
+	lcSettingsView.rrconnection = rrconnection;
+	
   lcAutoView.loc = loc;
   lcSettingsView.loc = loc;
   [viewController updateFnState];
