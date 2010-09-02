@@ -215,7 +215,7 @@ void CGContextAddRoundedRectC(CGContextRef c, CGRect rect, int corner_radius) {
     NSLog(@"loaded image...");
     UIImage *img = [lc getImage];
 		
-		NSLog(@" %f x %f ", CGRectGetWidth( [super frame]), CGRectGetHeight( [super frame]) );
+		//NSLog(@" %f x %f ", CGRectGetWidth( [super frame]), CGRectGetHeight( [super frame]) );
     
     int breite = 55*(img.size.width/img.size.height);
     CGRect imageframe = CGRectMake(CGRectGetWidth( [super frame])-breite-7 ,7 ,breite, 50);	

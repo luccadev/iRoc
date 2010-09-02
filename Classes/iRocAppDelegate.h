@@ -122,5 +122,7 @@
 - (void)presentBlockView:(Block*)block;
 - (void)dismissModalViewController;
 
+- (void) allLocpicsLoaded;
+
 @end
 

@@ -196,6 +196,7 @@
 
 
 - (void) prepareImage {
+		
 	int i = 0;
 	int len = [locpicdata length]; // StrOp.len(s);
 	unsigned char b[len/2 + 1];
@@ -219,6 +220,8 @@
   
 	NSLog(@"image for loc %@ prepared ...", self.locid);
 	[self addCellLocoImage];
+		
+	
 }
 
 - (UIImage*) getImage {
@@ -302,20 +305,12 @@
   } else if( [self hasImage] && ![self imageAlreadyRequested]){
     self.imageAlreadyRequested=TRUE;
     //[_delegate askForLocpic:loc.locid withFilename:loc.imgname];
-  }
-	
-	
-	
-	
+  }	
 }
  
 - (void) setLocpicdata:(NSString *) picdata {	
 	locpicdata = picdata;
-	
 	[self prepareImage];
-
-	//NSLog(@"SETLOCPICDATA FOR: %@", self.locid);
-	
 }
 
 - (double) getVpercent {

@@ -399,6 +399,8 @@
 /* CALLED WHEN PLAN IS PROCESSED */
 - (void)askForAllLocPics {
 	
+	[startAlert dismissWithClickedButtonIndex:0 animated:YES];
+	
 	// inform the locoPicker
 	Loc *lc = [model.lcContainer objectWithId:[[Globals getDefaults] stringForKey:@"loc_preference"]];
 	[viewController.locProps setLoc:lc];
@@ -407,8 +409,6 @@
 	// inform some views of plan loaded
   [levelTableView planLoaded];
 	
-	[startAlert dismissWithClickedButtonIndex:0 animated:YES];
-
 	if ( [model.donkey isEqual:@"false"] ) {
 		donkeyAlert = [[UIAlertView alloc] 
 									 initWithTitle:@"Warning" 
@@ -429,6 +429,21 @@
 		}
 	}	
 }
+
+- (void) allLocpicsLoaded {
+	NSLog(@"All locpics loaded ...");
+	/*
+	int i;
+	for( i = 0; i< [model.lcContainer count]; i++){	
+		Loc *loc;
+		loc = (Loc*)[model.lcContainer objectAtIndex:i];
+		if( loc != nil ) {
+			[loc prepareImage];
+		}
+	}
+	*/
+}
+
 
 - (void)askForLocpic:(NSString *)lcid withFilename:(NSString*)filename {
 	[rrconnection requestLocpic:lcid withFilename:filename];

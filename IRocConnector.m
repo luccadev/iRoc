@@ -52,6 +52,8 @@
   parsingPlan = FALSE;
   connectionError = FALSE;
 	
+	locpiccounter = 0;
+	
   BOOL connectOK = [self doConnect];
 	
   if(isConnected) {
@@ -137,6 +139,8 @@
   [messageQueue addObject:[[NSString alloc] 
                            initWithString:[[NSString stringWithFormat: @"<datareq id=\"%@\" type=\"1\" filename=\"%@\"/>",lcid,filename]retain]]];
 
+	locpiccounter++;
+	
   [self nextLocpic:FALSE];
 }
 
@@ -746,6 +750,15 @@ static NSString * const kIdElementName = @"id";
     if( [data length] > 0 ) {
 			Loc* lc = [model.lcContainer objectWithId:relAttribute];
       [lc setLocpicdata:data]; 
+			
+			locpiccounter--;
+			NSLog(@"remaining pics: %d", locpiccounter);
+			if( locpiccounter == 0) {
+				if ( [_delegate respondsToSelector:@selector(allLocpicsLoaded)] ) {
+					[_delegate performSelectorOnMainThread : @ selector(allLocpicsLoaded ) withObject:nil waitUntilDone:NO];
+				} 
+			}
+			
     }
 
 		[self nextLocpic:TRUE];
@@ -758,19 +771,14 @@ static NSString * const kIdElementName = @"id";
 			[self stop]; 
       UIAlertView *alert = [[UIAlertView alloc] 
                             initWithTitle:@"Alert" 
-                            message:[NSString stringWithFormat: @"%@:%d is shutingdown; iRoc will exit.",self.domain, self.port] 
+                            message:[NSString stringWithFormat: @"the server %@:%d is shutingdown; \n iRoc will exit.",self.domain, self.port] 
                             delegate:self 
                             cancelButtonTitle:nil 
                             otherButtonTitles:@"OK",nil];
       [alert show];
       
 			exit(0);
-		} /*else if ([elementName isEqualToString:@"donkey"]) {
-				
-			NSLog(@" ############  DONKEY ###########");
-		
-		}*/
-    else {
+		} else {
 			
     }
     

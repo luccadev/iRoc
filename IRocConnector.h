@@ -40,9 +40,11 @@
 
 @interface IRocConnector : NSObject <NSStreamDelegate, NSXMLParserDelegate>{
 @private
-    NSString *domain;
-    uint16_t port;
+	NSString *domain;
+	uint16_t port;
 	int connectTimeout;
+	
+	int locpiccounter;
 	
 	NSOutputStream *  oStream;
 	NSInputStream *   iStream;
