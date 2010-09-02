@@ -744,8 +744,10 @@ static NSString * const kIdElementName = @"id";
     
 		NSString *data = [attributeDict valueForKey:@"data"];
     if( [data length] > 0 ) {
-      [((Loc*) [model.lcContainer objectWithId:relAttribute]) setLocpicdata:data]; 
+			Loc* lc = [model.lcContainer objectWithId:relAttribute];
+      [lc setLocpicdata:data]; 
     }
+
 		[self nextLocpic:TRUE];
 		pendingLocoPic = FALSE;
 

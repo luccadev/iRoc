@@ -55,7 +55,12 @@
 	BOOL hasImage;
 	BOOL imageLoaded;
   BOOL imageAlreadyRequested;
-
+	
+	UIColor *cellbackcolor;
+	UIColor *celltextcolor;
+	int cellfontsize;
+	CGRect celltextRect;
+	
 @public
   id _delegate;
 	NSString *locid;
@@ -102,5 +107,9 @@
 - (void)sendVmin:(int)V;
 - (double) getVpercent;
 - (void) setVpercent:(double) vpercent;
+
+- (UITableViewCell*) getCell;
+- (void) createCell;
+- (void)addCellLocoImage;
 
 @end

@@ -409,7 +409,7 @@
 
 
 - (IBAction) locTextTouched:(id)sender {
-	//[delegate lcTextFieldAction];
+	[delegate lcTextFieldAction];
 }
 
 - (void) setSlider:(double)v withDir:(NSString*)diri {

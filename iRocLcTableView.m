@@ -107,6 +107,9 @@
 	// Get the specific loc for this row.
 	Loc *loc = (Loc*)[lcContainer objectAtIndex:indexPath.row];
     
+	
+	
+	/*
 	NSString *CellIdentifier = [NSString stringWithFormat:@"Cell_%@",loc.locid];
     
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -149,12 +152,15 @@
 		
 		NSLog(@"calling addCellLocoImage for loco %@...", loc.locid);
 		[self addCellLocoImage:loc];
-	}
+	}*/
 	
-  return cell;
+  return loc.cell; 
 }
 
 - (void)addCellLocoImage:(Loc *)loc {
+	
+	NSLog(@"iRocLcTableView.addCellLocoImage DEPRECATED");
+	/*
   if( [loc imageLoaded] && [loc hasImage] && loc.cell != nil) {
     NSLog(@"addCellLocoImage for loco %@...", loc.locid);
     UIImage *img = [loc getImage];
@@ -174,6 +180,7 @@
     loc.imageAlreadyRequested=TRUE;
     //[_delegate askForLocpic:loc.locid withFilename:loc.imgname];
   }
+	 */
 }
 
 

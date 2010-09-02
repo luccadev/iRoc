@@ -81,6 +81,15 @@
     }
 		
   }
+	
+	cellbackcolor = [UIColor darkGrayColor];
+	celltextcolor = [UIColor lightGrayColor]; //[[UIColor colorWithRed:.16 green:.20 blue:.27 alpha:1] retain];
+	cellfontsize = 18;
+	celltextRect = CGRectMake(10, 10, 190, 25);
+	
+	cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] retain];
+	[self createCell];
+	
   return self;
 }
 
@@ -208,7 +217,8 @@
   [_delegate performSelectorOnMainThread : @ selector(lcListUpdateCell: ) withObject:self waitUntilDone:YES];
   
   
-	NSLog(@"image for loc %@ loaded ...", self.locid);
+	NSLog(@"image for loc %@ prepared ...", self.locid);
+	[self addCellLocoImage];
 }
 
 - (UIImage*) getImage {
@@ -226,12 +236,84 @@
 	}
 }
 
+- (UITableViewCell*) getCell {
+	return self.cell;	
+} 
 
+- (void) createCell {
+	
+	NSLog(@"creating cell for loco %@...", self.locid);
+	
+	
+	cell.selectionStyle = UITableViewCellSelectionStyleGray;
+	
+	UILabel *locidLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 8, 100, 20)] autorelease];
+	locidLabel.font = [UIFont boldSystemFontOfSize:cellfontsize];
+	locidLabel.textColor = celltextcolor;
+	locidLabel.backgroundColor = [UIColor clearColor];
+	
+	UILabel *descLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 29, 100, 20)] autorelease];
+	descLabel.font = [UIFont boldSystemFontOfSize:12];
+	descLabel.textColor = celltextcolor;
+	descLabel.backgroundColor = [UIColor clearColor];
+	
+	UILabel *routeLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 44, 100, 20)] autorelease];
+	routeLabel.font = [UIFont boldSystemFontOfSize:12];
+	routeLabel.textColor = celltextcolor;
+	routeLabel.backgroundColor = [UIColor clearColor];
+	
+	[cell.contentView addSubview:descLabel];
+	[cell.contentView addSubview:routeLabel];
+	[cell.contentView addSubview:locidLabel];
+	
+	//if ( [[loc consist] isEqualToString:@""] ) {
+	locidLabel.text = [self locid];
+	//} else {
+	//	locidLabel.text = [NSString stringWithFormat:@"%@ + [%@]", loc.locid, loc.consist];
+	//}
+	
+	
+	routeLabel.text = self.roadname;
+	descLabel.text = self.desc;
+	//loc.cell = cell;
+	
+	//NSLog(@"calling addCellLocoImage for loco %@...", self.locid);
+	//[self addCellLocoImage];
+	 
+}
+
+- (void)addCellLocoImage {
+  if( [self imageLoaded] && [self hasImage] && self.cell != nil) {
+    NSLog(@"addCellLocoImage for loco %@...", self.locid);
+    UIImage *img = [self getImage];
+    //UITableViewCell *cell = loc.cell;
+    
+    int breite = 50*(img.size.width/img.size.height);
+    
+    int diff = 150 - breite;
+    
+    CGRect imageframe = CGRectMake(160 + diff,10,breite,50);	
+    UIImageView *imageview = [[UIImageView alloc] initWithFrame:imageframe];
+    imageview.image = [self getImage];
+				
+    [self.cell.contentView addSubview:imageview];
+    [self.cell.contentView bringSubviewToFront:imageview];
+    [imageview release];
+  } else if( [self hasImage] && ![self imageAlreadyRequested]){
+    self.imageAlreadyRequested=TRUE;
+    //[_delegate askForLocpic:loc.locid withFilename:loc.imgname];
+  }
+	
+	
+	
+	
+}
+ 
 - (void) setLocpicdata:(NSString *) picdata {	
 	locpicdata = picdata;
 	
 	[self prepareImage];
-	
+
 	//NSLog(@"SETLOCPICDATA FOR: %@", self.locid);
 	
 }

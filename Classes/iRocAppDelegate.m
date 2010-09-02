@@ -285,7 +285,7 @@
 
 - (void)lcListUpdateCell:(Loc *)loc {
 	//NSLog(@"update loco cell...");
-  [lcTableView addCellLocoImage:loc];
+  //[lcTableView addCellLocoImage:loc];
   
 	//NSLog(@"informing locProps of image...");
   [viewController.locProps imageLoaded];
