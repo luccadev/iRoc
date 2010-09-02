@@ -46,7 +46,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
 	
-	if( ![[Globals getDefaults] boolForKey:@"allowrotation"])
+	//if( ![[Globals getDefaults] boolForKey:@"allowrotation"])
 		return NO;
 	
 	
@@ -64,19 +64,19 @@
 			return YES;
 		}
 		
-		// Rotate to Plan?
+		/* Rotate to Plan?
 		if( self.selectedIndex == 0 && [[Globals getDefaults] boolForKey:@"rotatetoplan"]) {
 			self.selectedIndex = 3;
 			return YES;
-		}
+		}*/
 		
 	} else { // Portrait
 		NSLog(@"TabBar rotates to portrait");
-		// Rotate to Throttle?
+		/* Rotate to Throttle?
 		if ( [[Globals getDefaults] boolForKey:@"rotatetoplan"])
 		  self.selectedIndex = 0;
-		return YES;
-	}
+		return YES;*/
+	} 
 	  
   return NO;
 }
@@ -84,8 +84,8 @@
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
 	
-	if( ![[Globals getDefaults] boolForKey:@"allowrotation"])
-		return;
+	//if( ![[Globals getDefaults] boolForKey:@"allowrotation"])
+  return;
 	
   NSLog(@"rotation message for tabcontroller");
 	

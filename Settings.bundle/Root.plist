@@ -98,26 +98,6 @@
 				<string>grey</string>
 			</array>
 		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
-			<key>Title</key>
-			<string>Rotate to plan</string>
-			<key>Key</key>
-			<string>rotatetoplan</string>
-			<key>DefaultValue</key>
-			<false/>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
-			<key>Title</key>
-			<string>Allow Rotation</string>
-			<key>Key</key>
-			<string>allowrotation</string>
-			<key>DefaultValue</key>
-			<false/>
-		</dict>
 	</array>
 </dict>
 </plist>
