@@ -86,7 +86,7 @@
   NSLog(@"rows in section %d", section);
   switch( section ) {
     case (0):
-      return 11;
+      return 12;
       break;
     case (1):
       return 2;
@@ -204,7 +204,7 @@
           }
             break;
 						
-					case (4): {
+					case (4): { 
             Dispatch = [[iRocButton alloc] initWithFrame: CGRectMake(170, 10, 125, 30)];
             Dispatch.frame = CGRectMake(170, 10, 125, 30);
             [Dispatch addTarget:self action:@selector(dispatchClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -220,6 +220,22 @@
             break;
 						
 					case (5): {
+            Commuter = [[iRocButton alloc] initWithFrame: CGRectMake(170, 10, 125, 30)];
+            Commuter.frame = CGRectMake(170, 10, 125, 30);
+						[Commuter setBState: [loc isCommuter]];
+            [Commuter addTarget:self action:@selector(commuterClicked:) forControlEvents:UIControlEventTouchUpInside];
+						[Commuter setTitle: NSLocalizedString(@"Commuter", @"") forState:UIControlStateNormal];
+            [cell addSubview: Commuter];
+            UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
+            label.font = [UIFont boldSystemFontOfSize:cellfontsize];
+            label.textColor = celltextcolor;
+            label.backgroundColor = [UIColor clearColor];
+            label.text = NSLocalizedString(@"Commuter", @"");
+            [cell addSubview: label];
+          }
+            break;
+						
+					case (6): {
 						UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
             label.font = [UIFont boldSystemFontOfSize:cellfontsize];
             label.textColor = celltextcolor;
@@ -233,7 +249,7 @@
 						[cell addSubview: writeCV];						
 					}
 						break;
-          case (6): {
+          case (7): {
 						UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
             label.font = [UIFont boldSystemFontOfSize:cellfontsize];
             label.textColor = celltextcolor;
@@ -254,7 +270,7 @@
 						[cell addSubview: textCV];
 					}
 						 break;
-					case (7): {
+					case (8): {
 						UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 100, 30)] autorelease];
             label.font = [UIFont boldSystemFontOfSize:cellfontsize];
             label.textColor = celltextcolor;
@@ -276,7 +292,7 @@
 					}
 					break;
 						
-					case (8): {
+					case (9): {
 						UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 10, 200, 30)] autorelease];
             label.font = [UIFont boldSystemFontOfSize:cellfontsize];
             label.textColor = celltextcolor;
@@ -286,7 +302,7 @@
 					}
 						break;
 							
-					case (9): {
+					case (10): {
 						
 						CGRect locoPickerButtonFrame = CGRectMake(CONTENTBORDER, 10, 287, 64);
 						locoPickerButton = [[iRocLocoPicker alloc] initWithFrame: locoPickerButtonFrame];
@@ -310,7 +326,7 @@
 					}
 						break;
 						
-					case (10): {
+					case (11): {
 						
 						setConsist = [[iRocButton alloc] initWithFrame: CGRectMake(CONTENTBORDER, 10, 135, 30)];
 						[setConsist setTitle: NSLocalizedString(@"Set consist", @"") forState:UIControlStateNormal];
@@ -333,7 +349,7 @@
 					}
 						break;
 						
-					case (11): {
+					case (12): {
 						NSArray *itemArray = [NSArray arrayWithObjects: @"Steam", @"Diesal", @"Electric", nil];
 						UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
 						segmentedControl.frame = CGRectMake(CONTENTBORDER, 10, 300, 30);
@@ -369,6 +385,14 @@
   [rrconnection sendMessage:@"lc" message:stringToSend];
 } 
 
+- (IBAction) commuterClicked:(id) sender {
+	[Commuter flipBState];
+  [self updateCommuter];
+  NSString * stringToSend = [[NSString alloc] initWithString: 
+                             [NSString stringWithFormat: @"<model cmd=\"modify\"><lc id=\"%@\" commuter=\"%@\"/></model>",
+                              loc.locid, [Commuter getBState]?@"true":@"false"]];
+  [rrconnection sendMessage:@"model" message:stringToSend];
+} 
 
 - (IBAction) writeClicked:(id) sender {
  
@@ -397,9 +421,6 @@
 	
 	[delegate updateLabels];
 	
-	//[delegate. view    locProps updateLabels];
-	
-	//[[delegate.viewController.locProps] updateLabels];
 } 
 
 - (IBAction) clearConsistClicked:(id) sender {
@@ -433,6 +454,10 @@
 - (void) updatePlacing {
   [Placing setTitle: [Placing getBState] ? NSLocalizedString(@"Swapped", @""):NSLocalizedString(@"Normal", @"") forState: UIControlStateNormal];
 }  
+
+- (void) updateCommuter {
+  [Commuter setTitle: [Commuter getBState] ? NSLocalizedString(@"Commuter", @""):NSLocalizedString(@"Normal", @"") forState: UIControlStateNormal];
+}
 
 - (void) sliderValueChanged: (id)sender {
   if( Vmax == sender ) {

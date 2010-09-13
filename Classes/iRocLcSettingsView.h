@@ -33,6 +33,7 @@
   iRocSlider *Vmid;
   iRocSlider *Vmin;
   iRocButton *Placing;
+	iRocButton *Commuter;
 	iRocButton *Dispatch;
 	iRocButton *writeCV;
 	iRocButton *setConsist;
@@ -59,6 +60,7 @@
 - (void)dealloc;
 - (void)setLoco:(Loc*)loco;
 - (void)updatePlacing;
+- (void)updateCommuter;
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection: (NSInteger)section;
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;

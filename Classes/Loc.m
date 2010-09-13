@@ -58,6 +58,7 @@
     Fx       = [Globals getAttribute:@"fx" fromDict:attributeDict withDefault:@""];
     SpCnt    = [Globals getAttribute:@"spcnt" fromDict:attributeDict withDefault:@""];
     Placing  = [Globals getAttribute:@"placing" fromDict:attributeDict withDefault:@""];
+		Commuter = [Globals getAttribute:@"commuter" fromDict:attributeDict withDefault:@""];
     Mode     = [Globals getAttribute:@"mode" fromDict:attributeDict withDefault:@""];
     imgname  = [Globals getAttribute:@"image" fromDict:attributeDict withDefault:@""];
     desc     = [Globals getAttribute:@"desc" fromDict:attributeDict withDefault:@""];
@@ -101,6 +102,7 @@
   Fn       = [Globals getAttribute:@"fn"       fromDict:attributeDict withDefault:Fn];
   Fx       = [Globals getAttribute:@"fx"       fromDict:attributeDict withDefault:Fx];
   Placing  = [Globals getAttribute:@"placing"  fromDict:attributeDict withDefault:Placing];
+	Commuter = [Globals getAttribute:@"commuter" fromDict:attributeDict withDefault:Commuter];
   Mode     = [Globals getAttribute:@"mode"     fromDict:attributeDict withDefault:Mode];
   desc     = [Globals getAttribute:@"desc"     fromDict:attributeDict withDefault:desc];
   roadname = [Globals getAttribute:@"roadname" fromDict:attributeDict withDefault:roadname];
@@ -354,6 +356,10 @@
 
 - (BOOL)isPlacing {
   return [Placing compare:@"true"] == NSOrderedSame ? TRUE:FALSE;
+}
+
+- (BOOL)isCommuter {
+  return [Commuter compare:@"true"] == NSOrderedSame ? TRUE:FALSE;
 }
 
 - (BOOL)isAutoMode {

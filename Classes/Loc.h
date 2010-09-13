@@ -30,6 +30,7 @@
 	NSString *dir;
 	NSString *vstr;
 	NSString *Placing;
+	NSString *Commuter;
 	NSString *Vmax;
 	NSString *Vmid;
 	NSString *Vmin;
@@ -96,6 +97,7 @@
 - (BOOL)isFn:(int)fn;
 - (void)setFn:(int)fn withState:(BOOL)state;
 - (BOOL)isPlacing;
+- (BOOL)isCommuter;
 - (int)getVmid;
 - (int)getVmin;
 - (BOOL)isAutoMode;
