@@ -114,7 +114,7 @@
 {  
   //NSLog(@"cell height for %d:%d", [indexPath indexAtPosition:0 ], [indexPath indexAtPosition:1 ]);
 	
-	if ([indexPath indexAtPosition:1 ] == 9) {
+	if ([indexPath indexAtPosition:1 ] == 10) {
 		return 80;
 	} else {
 		return 50.0; //returns floating point which will be used for a cell row height at specified row index  
@@ -240,7 +240,7 @@
             label.font = [UIFont boldSystemFontOfSize:cellfontsize];
             label.textColor = celltextcolor;
             label.backgroundColor = [UIColor clearColor];
-            label.text = NSLocalizedString(@"POM Write", @"");
+            label.text = NSLocalizedString(@"POM", @"");
             [cell addSubview: label];
 						
 						writeCV = [[iRocButton alloc] initWithFrame: CGRectMake(170, 10, 125, 30)];

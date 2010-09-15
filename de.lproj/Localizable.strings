@@ -23,3 +23,8 @@
 "Swapped" = "Umgekehrt";
 "Placing" = "Platzierung";
 "Consist:" = "Doppeltraktion:";
+"Block is empty" = "Block ist frei";
+"select loco ..." = "wähle Lok ...";
+"No consist loco." = "Keine DTR";
+"Commuter" = "Pendelzug";
+"Write" = "Schreiben";
