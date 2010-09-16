@@ -52,8 +52,6 @@
     // the model
   model = [[Model alloc] init];
 	
-	prevclocktime = 0;
-	
 	//sleep_preferences
 	if( [defaults boolForKey:@"sleep_preferences"]) {
 		application.idleTimerDisabled = NO;
@@ -422,6 +420,9 @@
 		[donkeyAlert show];
 	}
 
+	
+	clockIsRuning = YES;
+	
 	int i;
 	for( i = 0; i< [model.lcContainer count]; i++){	
 		Loc *loc;
@@ -508,9 +509,19 @@
 }
 
 - (void)setClock:(NSString *)state { 
-	//NSLog(@"AppDelegate CLOCK: %@",  state);
-	
 	clocktime = [state intValue];
+}   
+
+- (void)setClockState:(NSString *)state { 
+	
+	if ([state isEqualToString:@"freeze"]) {
+		clockIsRuning = NO;
+	} else if ( [state isEqualToString:@"sync"] && clockIsRuning ) {
+		clockIsRuning = YES;
+	} else if ( [state isEqualToString:@"go"]) {
+		clockIsRuning = YES;
+	}
+
 }   
 
 - (void)setClockDivider:(NSString *)state { 
@@ -518,8 +529,10 @@
 	
 	clockdivider = [state intValue];
 	
-	if (![clockTicker isValid]) {
+	if (![clockTicker isValid] || prevclockdivider != clockdivider) {
+		[clockTicker invalidate];
 		[self runTimer];
+		prevclockdivider = clockdivider;
 	}
 	
 }
@@ -537,8 +550,12 @@
 }
 
 - (void)showActivity {
-  clockDate = [NSDate dateWithTimeIntervalSince1970: clocktime++];
-	[systemView setClock:clockDate];
+	if (clockIsRuning) {
+	
+		clockDate = [NSDate dateWithTimeIntervalSince1970: clocktime++];
+		[systemView setClock:clockDate];
+		
+	}
 }
 
 

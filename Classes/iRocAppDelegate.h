@@ -85,9 +85,12 @@
 	NSTimer *clockTicker;
 	NSDate *clockDate;
 	
+	bool clockIsRuning;
+	
+	int prevclockdivider;
 	int clockdivider;
 	int clocktime;
-	int prevclocktime;
+
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

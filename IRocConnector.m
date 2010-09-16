@@ -453,10 +453,10 @@
 					
 					/*
            NSLog(@"###################################################################");
-           NSLog([[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding]);
+					 NSLog([[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding]);
            NSLog(@"###################################################################");
-					 */
-           
+					}
+           */
 					
 					NSXMLParser *parser = [[[NSXMLParser alloc] initWithData:_data] retain];
 					[parser setDelegate:self];
@@ -794,7 +794,13 @@ static NSString * const kIdElementName = @"id";
     NSString *relAttribute = [attributeDict valueForKey:@"time"];		
 		[_delegate performSelectorOnMainThread: @selector(setClock:) withObject:relAttribute waitUntilDone:NO];
 		[_delegate performSelectorOnMainThread: @selector(setClockDivider:) withObject:[attributeDict valueForKey:@"divider"] waitUntilDone:NO];
-    NSLog(@"clock [%@] divider: [%@]", relAttribute, [attributeDict valueForKey:@"divider"]);
+		
+		[_delegate performSelectorOnMainThread: @selector(setClockState:) withObject:[attributeDict valueForKey:@"cmd"] waitUntilDone:NO];
+		
+    NSLog(@"clock [%@] divider: [%@] cmd: [%@]", 
+					relAttribute, 
+					[attributeDict valueForKey:@"divider"],
+					[attributeDict valueForKey:@"cmd"]);
   }
   else {
     if( debug )
