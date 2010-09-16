@@ -24,7 +24,7 @@
 
 @implementation Model
 @synthesize levelContainer, swContainer, sgContainer, tkContainer, fbContainer, bkContainer, coContainer, txContainer, rtContainer, scContainer, lcContainer;
-@synthesize title, name, rocrailversion, rocguiversion, donkey;
+@synthesize title, name, rocrailversion, rocguiversion, donkey, clockdivider;
 
 - (id) init {
   if( self = [super init] ) {
@@ -48,9 +48,11 @@
   name           = [Globals getAttribute:@"name"           fromDict:attributeDict withDefault:@""]; 
   rocrailversion = [Globals getAttribute:@"rocrailversion" fromDict:attributeDict withDefault:@""]; 
   rocguiversion  = [Globals getAttribute:@"rocguiversion"  fromDict:attributeDict withDefault:@""]; 
-	donkey  = [Globals getAttribute:@"donkey"         fromDict:attributeDict withDefault:@""]; 
+	donkey  =        [Globals getAttribute:@"donkey"         fromDict:attributeDict withDefault:@""]; 
+	clockdivider = [Globals getAttribute:@"divider"         fromDict:attributeDict withDefault:@""]; 
   NSLog(@"plan title is %@", title);
 	NSLog(@"donkey is %@", donkey);
+	NSLog(@"clockdivider is %@", clockdivider);
 }
 
 

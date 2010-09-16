@@ -52,6 +52,8 @@
     // the model
   model = [[Model alloc] init];
 	
+	prevclocktime = 0;
+	
 	//sleep_preferences
 	if( [defaults boolForKey:@"sleep_preferences"]) {
 		application.idleTimerDisabled = NO;
@@ -419,7 +421,7 @@
 									 otherButtonTitles:@"OK",nil];
 		[donkeyAlert show];
 	}
-	
+
 	int i;
 	for( i = 0; i< [model.lcContainer count]; i++){	
 		Loc *loc;
@@ -504,6 +506,41 @@
   if( lcAutoView != nil )
     [lcAutoView setAuto:[state isEqualToString:@"on"]];
 }
+
+- (void)setClock:(NSString *)state { 
+	//NSLog(@"AppDelegate CLOCK: %@",  state);
+	
+	clocktime = [state intValue];
+}   
+
+- (void)setClockDivider:(NSString *)state { 
+	//NSLog(@"AppDelegate CLOCKDIVIDER: %@",  state);
+	
+	clockdivider = [state intValue];
+	
+	if (![clockTicker isValid]) {
+		[self runTimer];
+	}
+	
+}
+
+
+- (void)runTimer {
+	
+	double timeint = 1.0/(float)clockdivider;
+	
+  clockTicker = [NSTimer scheduledTimerWithTimeInterval: timeint
+																								 target: self
+																							 selector: @selector(showActivity)
+																							 userInfo: nil
+																								repeats: YES];
+}
+
+- (void)showActivity {
+  clockDate = [NSDate dateWithTimeIntervalSince1970: clocktime++];
+	[systemView setClock:clockDate];
+}
+
 
 - (BOOL)sendMessage:(NSString *)name message:(NSString *)msg {
   return [rrconnection sendMessage:name message:msg];

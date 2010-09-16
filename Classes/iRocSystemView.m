@@ -96,6 +96,8 @@
   [self.view addSubview: clock];
 }
 
+
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
   NSLog(@"rotation message: will be rotated...");
   return YES;
@@ -187,6 +189,11 @@
 
   self.tabBarItem.badgeValue = Power?nil:@"PWR";
   
+}
+
+
+- (void)setClock:(NSDate*)date {
+	[clock clockTick:date];
 }
 
 

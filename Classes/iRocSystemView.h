@@ -48,4 +48,5 @@
 
 - (void)setPower:(BOOL)state;
 - (void)setAuto:(BOOL)state;
+- (void)setClock:(NSDate*) date;
 @end

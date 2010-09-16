@@ -12,7 +12,7 @@
 @interface iRocClock : UIView {
 	CGRect m_rect;
 	CGContextRef context;
-	NSTimer *clockTicker;
+
 	
 	UIImage *image;
 	UIImageView *imageview;
@@ -22,8 +22,7 @@
 	double x,y,z;
 }
 
-- (void) runTimer;
-- (void) showActivity;
+- (void)clockTick:(NSDate*) date;
 
 
 @end

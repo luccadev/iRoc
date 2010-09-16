@@ -79,8 +79,7 @@ double h_angle(int m, int n)
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
-			first = NO;
-			[self runTimer];
+			//[self runTimer];
     }
     return self;
 }
@@ -172,7 +171,9 @@ double h_angle(int m, int n)
 	CGContextAddEllipseInRect(context, CGRectMake(c-2, c-2, 4, 4));
 	CGContextFillPath(context);
 }
+ 
 
+/*
 - (void)runTimer {
   clockTicker = [NSTimer scheduledTimerWithTimeInterval: 1
 																							target: self
@@ -180,12 +181,13 @@ double h_angle(int m, int n)
 																						userInfo: nil
 																						 repeats: YES];
 	
-}
+}*/
 
-- (void)showActivity {
+- (void)clockTick:(NSDate*) date{
+
+	//NSDate *date = [NSDate date];
 	
-
-	NSDate *date = [NSDate date];
+	//self.date = date;
 	
 	NSDateFormatter *date_formater=[[NSDateFormatter alloc]init];
 	

@@ -39,6 +39,7 @@
 #import "iRocLcAutoView.h"
 #import "iRocLcSettingsView.h"
 #import "iRocBlockView.h"
+#import "iRocClock.h"
 
 #import "Container.h"
 #import "Model.h"
@@ -80,6 +81,13 @@
   UIAlertView *connectAlert;
 	UIAlertView *donkeyAlert;
 	UIAlertView *startAlert;
+
+	NSTimer *clockTicker;
+	NSDate *clockDate;
+	
+	int clockdivider;
+	int clocktime;
+	int prevclocktime;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -116,6 +124,7 @@
 - (void)locSetSlider;
 - (void)setPower:(NSString *)state;
 - (void)setAuto:(NSString *)state;
+- (void)setClock:(NSString *)state;
 - (BOOL)sendMessage:(NSString *)name message:(NSString *)msg;
 - (Model *)getModel;
 - (IRocConnector *)getConnector;
@@ -123,6 +132,9 @@
 - (void)dismissModalViewController;
 
 - (void) allLocpicsLoaded;
+
+- (void) runTimer;
+- (void) showActivity;
 
 @end
 

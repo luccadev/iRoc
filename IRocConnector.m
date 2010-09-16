@@ -792,7 +792,9 @@ static NSString * const kIdElementName = @"id";
     
   } else if ([elementName isEqualToString:@"clock"]) {
     NSString *relAttribute = [attributeDict valueForKey:@"time"];		
-    NSLog(@"clock [%@]", relAttribute);
+		[_delegate performSelectorOnMainThread: @selector(setClock:) withObject:relAttribute waitUntilDone:NO];
+		[_delegate performSelectorOnMainThread: @selector(setClockDivider:) withObject:[attributeDict valueForKey:@"divider"] waitUntilDone:NO];
+    NSLog(@"clock [%@] divider: [%@]", relAttribute, [attributeDict valueForKey:@"divider"]);
   }
   else {
     if( debug )
