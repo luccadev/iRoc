@@ -22,6 +22,7 @@
 #import <UIKit/UIKit.h>
 #import "IRocConnector.h"
 #import "iRocButton.h"
+#import "iRocClock.h"
 
 
 @interface iRocSystemView : UIViewController{
@@ -34,6 +35,7 @@
   BOOL Power;
   BOOL Auto;
   UIAlertView *autoStartAlert;
+	iRocClock *clock;
 }
 @property (nonatomic, retain) iRocButton *powerON, *powerOFF, *initField, *autoON, *autoStart;
 @property (nonatomic, retain) IRocConnector *rrconnection;

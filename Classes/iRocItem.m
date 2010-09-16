@@ -33,7 +33,7 @@
   if( self = [super initWithFrame:itemframe] ) {
       //NSLog(@"item image=%@ x,y=%d,%d cx,cy=%d,%d", [item getImgName], item.x, item.y, item.cx, item.cy);
     [self addTarget:self action: @selector(itemAction:)
-   forControlEvents: UIControlEventTouchDown ];
+			forControlEvents: UIControlEventTouchDown ];
     
     if( imagename != nil ) {
 			

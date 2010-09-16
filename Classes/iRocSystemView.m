@@ -90,7 +90,10 @@
   [autoStart setColor:0];
   [autoStart setEnabled:Auto];
   [self.view addSubview: autoStart];
-  
+	
+	CGRect clockFrame = CGRectMake(160-150/2, CONTENTBORDER + 3 * BUTTONGAP + 3 * BUTTONHEIGHT + 15, 150, 150);
+	clock = [[iRocClock alloc] initWithFrame:clockFrame];
+  [self.view addSubview: clock];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
