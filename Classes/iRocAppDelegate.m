@@ -550,12 +550,16 @@
 }
 
 - (void)showActivity {
-	if (clockIsRuning) {
-	
+	/*
+	if (clockIsRuning && clockdivider > 1) {
 		clockDate = [NSDate dateWithTimeIntervalSince1970: clocktime++];
-		[systemView setClock:clockDate];
-		
-	}
+	} else {
+		clockDate = [NSDate date];
+	}*/
+
+	clockDate = [NSDate dateWithTimeIntervalSince1970: clocktime++];
+	
+	[systemView setClock:clockDate];
 }
 
 
