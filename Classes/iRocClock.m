@@ -162,27 +162,12 @@ double h_angle(int m, int n)
 	CGContextAddEllipseInRect(context, CGRectMake((c - 4 + 0.58 * c * cos(x)), (c - 4 - 0.58 * c * sin(x)), 8, 8));
 	CGContextFillPath(context);
 	
-	
-	
-	
-	
 	CGContextSetLineWidth(context, 0);
-	CGContextSetRGBFillColor(context, 0, 0, 0, 1);
+	CGContextSetRGBFillColor(context, .5, .5, .5, 1);
 	CGContextAddEllipseInRect(context, CGRectMake(c-2, c-2, 4, 4));
 	CGContextFillPath(context);
 }
  
-
-/*
-- (void)runTimer {
-  clockTicker = [NSTimer scheduledTimerWithTimeInterval: 1
-																							target: self
-																						selector: @selector(showActivity)
-																						userInfo: nil
-																						 repeats: YES];
-	
-}*/
-
 - (void)clockTick:(NSDate*) date{
 
 	//NSDate *date = [NSDate date];

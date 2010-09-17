@@ -217,7 +217,7 @@
 	
 	// date 
 	date_formater=[[NSDateFormatter alloc]init];
-	[date_formater setDateFormat:@"hh:mm:ss"];
+	[date_formater setDateFormat:@"HH:mm:ss"];
 	
   systemView.rrconnection = rrconnection;
   lcAutoView.rrconnection = rrconnection;
