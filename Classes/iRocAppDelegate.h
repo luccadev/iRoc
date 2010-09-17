@@ -121,8 +121,7 @@
 
 - (void)lcListLoaded;
 - (void)lcListUpdateCell:(Loc *)loc;
-//- (Loc*)getLoc:(NSString *)lcid;
-//- (void)setSelectedLoc:(Loc *)loc;
+
 
 - (void)updateLabels;
 - (void)locSetSlider;
@@ -141,4 +140,6 @@
 - (void) showActivity;
 
 @end
+
+
 

@@ -34,7 +34,12 @@
     self.tableView.backgroundColor = [UIColor blackColor];
     self.tableView.separatorColor = [UIColor blackColor];
 
+		
+		
+		
+		
     self.title = NSLocalizedString(@"Settings", @"");
+
     self.tabBarItem = [[UITabBarItem alloc] initWithTitle:
                        NSLocalizedString(@"Settings", @"") image:nil tag:3];
 
@@ -50,6 +55,8 @@
 		
 		self.tableView.backgroundColor = [UIColor blackColor];
     self.tableView.separatorColor = [UIColor blackColor];
+		
+		
 		
     self.title = NSLocalizedString(@"Settings", @"");
     self.tabBarItem = [[UITabBarItem alloc] initWithTitle:
@@ -74,6 +81,11 @@
   self.loc = loco;
   [Placing setBState: ![loc isPlacing]];
   [self updatePlacing];
+	
+	self.title = [NSString stringWithFormat:@"%@ [%@]", 
+											NSLocalizedString(@"Settings", @""),
+											[loc locid]];
+	 
 }
 
 

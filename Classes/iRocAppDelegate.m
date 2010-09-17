@@ -359,19 +359,15 @@
 
 - (void)lcAction:(NSString *)lcid {	
 	NSLog(@"lcAction (AppDelegate): %@", lcid);
-	
-	//self.viewController.textfieldLoc.text = lcid;
-	//[self.tabBar setSelectedViewController:viewController.navigationController];
+
 	[[NSUserDefaults standardUserDefaults] setObject:(NSString*)lcid forKey:@"loc_preference"];
 	
 	//[self.tabBar dismissModalViewControllerAnimated:YES];
 	Loc *loc = (Loc*) [model.lcContainer objectWithId:lcid];
 
 	[viewController updateFnState];
-  //[lcSettingsView setLoco:loc];
   [lcAutoView setLoco:loc];
-	
-	
+		
 	[lcSettingsView dealloc];
 	lcSettingsView = [[iRocLcSettingsView alloc] initWithDelegate:self andModel:model];
 	lcSettingsView.rrconnection = rrconnection;
@@ -540,11 +536,9 @@
 	viewController.navigationItem.title = clock;
 }
 
-
 - (BOOL)sendMessage:(NSString *)name message:(NSString *)msg {
   return [rrconnection sendMessage:name message:msg];
 }
-
 
 - (Model *)getModel {
   return model;
@@ -553,5 +547,7 @@
 - (IRocConnector *)getConnector {
   return rrconnection;
 }
+
+
 
 @end

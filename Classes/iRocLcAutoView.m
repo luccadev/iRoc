@@ -116,6 +116,10 @@
   self.loc = loco;
   [autoON setBState:[loc isAutoMode]];
   [self updateAutoButton];
+	
+	self.title = [NSString stringWithFormat:@"%@ [%@]", 
+								NSLocalizedString(@"Automatic", @""),
+								[loc locid]];
 }
 
 - (void)updateAutoButton{
