@@ -154,8 +154,6 @@
   [self.view addSubview: buttonFn];
 }
 
-
-
 - (IBAction) buttonDirClicked:(id) sender { 
   if([buttonFn getBState]) {
     NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc throttleid=\"%@\" cmd=\"release\" id=\"%@\"/>", 
@@ -301,16 +299,6 @@
   processAll = TRUE;
 } 
 
-/*
-- (Loc*)getLoc:(NSString *)lcid {
-	NSLog(@"getLoc for: %@ 0x%08X", lcid, [delegate getModel].lcContainer);
-  if( lcid != NULL ) {
-	  return (Loc*) [[delegate getModel] lcContainer objectWithId:lcid];
-  }
-  return nil;
-}
- */
-
 - (void) prepareFNCommand:(int) fnIndex {
 	[self flipFn: fnIndex];
 	
@@ -320,19 +308,7 @@
 	AudioServicesPlaySystemSound([Globals getClick]);
 }
 
-/*
-- (IBAction)doneButton:(id)sender {
-	AudioServicesPlaySystemSound (self.soundFileObject);
-    [textfieldLoc resignFirstResponder];
-	
-  [self updateFnState];
 
-	// Save in Settings
-	[[NSUserDefaults standardUserDefaults] setObject:(NSString*)[textfieldLoc text] forKey:@"loc_preference"];
-}
- */
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
   NSLog(@"*** viewDidLoad");
     [super viewDidLoad];
@@ -342,21 +318,6 @@
 	
 	functionButtons = [[NSArray arrayWithObjects:buttonF0,buttonF1,buttonF2,buttonF3,buttonF4,buttonF5,buttonF6,buttonF7,buttonF8,
                                                         buttonF1,buttonF2,buttonF3,buttonF4,buttonF5,buttonF6,buttonF7,buttonF8,nil] retain];
-	
-	
-	
-	
-	
-	/*
-	textfieldLoc = [[UITextField alloc] initWithFrame:CGRectMake(20, 20, 280, 71)];
-	[textfieldLoc setDelegate:self];
-	[textfieldLoc setBackgroundColor:[UIColor darkGrayColor]];
-	[textfieldLoc setTextColor:[UIColor lightGrayColor]];
-	textfieldLoc.clearsOnBeginEditing = YES;
-	[textfieldLoc setTextAlignment:UITextAlignmentCenter];
-	textfieldLoc.font = [UIFont boldSystemFontOfSize:60];
-	 */
-	
 	
 	//Sound
 	// Get the main bundle for the app

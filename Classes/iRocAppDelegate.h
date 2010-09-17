@@ -84,6 +84,7 @@
 
 	NSTimer *clockTicker;
 	NSDate *clockDate;
+	NSDateFormatter *date_formater;
 	
 	bool clockIsRuning;
 	

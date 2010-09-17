@@ -103,6 +103,8 @@
                                 action: @selector(pushLcSettings)] autorelease];
   
   viewController.navigationItem.leftBarButtonItem = lcSettingsButton;
+	
+
 
   layoutNavi = [[UINavigationController alloc] initWithRootViewController:levelTableView];
   layoutNavi.navigationBar.tintColor = [UIColor blackColor];
@@ -123,7 +125,7 @@
   
   [window addSubview:tabBar.view];
 
-    // Override point for customization after application launch
+	// Override point for customization after application launch
   [window makeKeyAndVisible];
 	
   lcAutoView.bkContainer = model.bkContainer;
@@ -213,6 +215,9 @@
 	[startAlert addSubview:indicator];
 	[indicator release];
 	
+	// date 
+	date_formater=[[NSDateFormatter alloc]init];
+	[date_formater setDateFormat:@"hh:mm:ss"];
 	
   systemView.rrconnection = rrconnection;
   lcAutoView.rrconnection = rrconnection;
@@ -290,21 +295,6 @@
 	//NSLog(@"informing locProps of image...");
   [viewController.locProps imageLoaded];
 }
-
-/*
-- (void)setSelectedLoc:(Loc *)loc {
-	
-	[lcSettingsView dealloc];
-	lcSettingsView = [[iRocLcSettingsView alloc] initWithDelegate:self andModel:model];
-	lcSettingsView.rrconnection = rrconnection;
-	
-  lcAutoView.loc = loc;
-  lcSettingsView.loc = loc;
-  [viewController updateFnState];
-
-	[viewController setSlider:[loc getVpercent] withDir:loc.dir];
-}
- */
 
 - (void)rtListLoaded {
 	//NSLog(@"Reload Data in Route View");
@@ -435,16 +425,6 @@
 
 - (void) allLocpicsLoaded {
 	NSLog(@"All locpics loaded ...");
-	/*
-	int i;
-	for( i = 0; i< [model.lcContainer count]; i++){	
-		Loc *loc;
-		loc = (Loc*)[model.lcContainer objectAtIndex:i];
-		if( loc != nil ) {
-			[loc prepareImage];
-		}
-	}
-	*/
 }
 
 
@@ -457,8 +437,7 @@
 }
 
 - (void)lcTextFieldAction {
-	//[lcTableView.tableView reloadData];
-	//[self.tabBar presentModalViewController:lcTableView animated:YES];
+
 }
 
 - (void)presentBlockView:(Block*)block {
@@ -469,8 +448,6 @@
 }
 
 -(void) dismissModalViewController {
-	//[levelTableView.levelView dismissModalViewControllerAnimated:YES];
-	
 	[self.viewController dismissModalViewControllerAnimated:YES];
 }
 
@@ -525,8 +502,7 @@
 }   
 
 - (void)setClockDivider:(NSString *)state { 
-	//NSLog(@"AppDelegate CLOCKDIVIDER: %@",  state);
-	
+
 	clockdivider = [state intValue];
 	
 	if (![clockTicker isValid] || prevclockdivider != clockdivider) {
@@ -550,16 +526,18 @@
 }
 
 - (void)showActivity {
-	/*
-	if (clockIsRuning && clockdivider > 1) {
-		clockDate = [NSDate dateWithTimeIntervalSince1970: clocktime++];
-	} else {
-		clockDate = [NSDate date];
-	}*/
-
-	clockDate = [NSDate dateWithTimeIntervalSince1970: clocktime++];
-	
+	clockDate = [NSDate dateWithTimeIntervalSince1970: clocktime++];	
 	[systemView setClock:clockDate];
+	
+	
+	NSString *clock = @"";
+	if (clockdivider > 1) {
+		clock = [NSString stringWithFormat:@".%@.",[date_formater stringFromDate:clockDate]];
+	} else {
+		clock = [date_formater stringFromDate:clockDate];
+	}
+
+	viewController.navigationItem.title = clock;
 }
 
 
