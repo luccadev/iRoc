@@ -771,7 +771,7 @@ static NSString * const kIdElementName = @"id";
 			[self stop]; 
       UIAlertView *alert = [[UIAlertView alloc] 
                             initWithTitle:@"Alert" 
-                            message:[NSString stringWithFormat: @"the server %@:%d is shutingdown; \n iRoc will exit.",self.domain, self.port] 
+                            message:[NSString stringWithFormat: @"the server %@:%d is shutingdown; \n iRoc will exit!",self.domain, self.port] 
                             delegate:self 
                             cancelButtonTitle:nil 
                             otherButtonTitles:@"OK",nil];

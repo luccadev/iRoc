@@ -92,6 +92,7 @@
 	int clockdivider;
 	int clocktime;
 
+	bool offline;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

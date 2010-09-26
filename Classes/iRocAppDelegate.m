@@ -42,6 +42,7 @@
   
   self.window = [[[UIWindow alloc] initWithFrame: screenBounds] autorelease];
   
+	offline = FALSE;
   
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
 	[[UIApplication sharedApplication] setStatusBarHidden:FALSE];
@@ -206,7 +207,6 @@
 								delegate:self 
 								cancelButtonTitle:nil 
 								otherButtonTitles:nil];
-	[startAlert show];
 	
 	UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
 	indicator.center = CGPointMake(startAlert.bounds.size.width * 0.5f, startAlert.bounds.size.height * 0.65f);
@@ -237,6 +237,7 @@
   NSLog( @"end of retry loop: isConnected=%d readyConnecting=%d",rrconnection.isConnected,rrconnection.readyConnecting);
   if( rrconnection.isConnected ) {
     NSLog( @"connected; request plan");
+		[startAlert show];
     [rrconnection requestPlan];
   }
   else {
@@ -259,6 +260,10 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
   if( alertView == connectAlert) {
     exit(0);
+		
+		// TODO ... demo mode ...
+		//NSLog( @"OFFLINE");
+		//offline = TRUE;
   }
 	
 }
