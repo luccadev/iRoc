@@ -132,6 +132,13 @@
   [self sendMessage:@"model" message:@"<model cmd=\"plan\" disablemonitor=\"true\"/>"];
 }
 
+- (void)requestLcList {
+  NSLog(@"requestLcList...");
+  [self sendMessage:@"model" message:@"<model cmd=\"lclist\" disablemonitor=\"true\"/>"];
+}
+
+
+
 - (void)requestLocpic:(NSString*)lcid withFilename:(NSString*)filename{
   
   NSLog(@"requesteLocpic: %@ - %@", lcid, filename);

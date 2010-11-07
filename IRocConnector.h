@@ -100,6 +100,7 @@
 - (BOOL)doConnect;
 - (BOOL)stop;
 - (void)requestPlan;
+- (void)requestLcList;
 - (void)requestLocpic:(NSString*)lcid withFilename:(NSString*)filename;
 - (void)nextLocpic:(BOOL)fromSax;
 

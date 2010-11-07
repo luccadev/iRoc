@@ -209,8 +209,10 @@
 								otherButtonTitles:nil];
 	
 	UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-	indicator.center = CGPointMake(startAlert.bounds.size.width * 0.5f, startAlert.bounds.size.height * 0.65f);
+	//indicator.center = CGPointMake(startAlert.bounds.size.width * 0.5f, startAlert.bounds.size.height * 0.65f);
 	
+	
+	indicator.center = CGPointMake(143,90);
 	[indicator startAnimating];
 	[startAlert addSubview:indicator];
 	[indicator release];
@@ -239,6 +241,7 @@
     NSLog( @"connected; request plan");
 		[startAlert show];
     [rrconnection requestPlan];
+		//[rrconnection requestLcList];
   }
   else {
     // no connection possible: show a message or jump to the Info Page. (Extend the info page with connection details...)
@@ -260,10 +263,9 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
   if( alertView == connectAlert) {
     exit(0);
-		
-		// TODO ... demo mode ...
-		//NSLog( @"OFFLINE");
-		//offline = TRUE;
+  }
+	if( alertView == donkeyAlert) {
+    exit(0);
   }
 	
 }
@@ -409,6 +411,8 @@
 									 cancelButtonTitle:nil 
 									 otherButtonTitles:@"OK",nil];
 		[donkeyAlert show];
+		
+		// end of discussion.
 	}
 
 	
