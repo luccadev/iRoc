@@ -265,7 +265,7 @@
     exit(0);
   }
 	if( alertView == donkeyAlert) {
-    exit(0);
+    //exit(0);
   }
 	
 }
@@ -402,6 +402,7 @@
 	// inform some views of plan loaded
   [levelTableView planLoaded];
 	
+	/*
 	if ( [model.donkey isEqual:@"false"] ) {
 		donkeyAlert = [[UIAlertView alloc] 
 									 initWithTitle:@"Warning" 
@@ -413,7 +414,7 @@
 		[donkeyAlert show];
 		
 		// end of discussion.
-	}
+	}*/
 
 	
 	clockIsRuning = YES;
