@@ -170,10 +170,10 @@
 
 		AudioServicesPlaySystemSound([Globals getChrr]);
 
+		[self updateFnState];
+		
 		[[locProps getLoc] setVpercent: 0];
 		[[locProps getLoc] sendVcommand];
-
-		[self updateFnState];
   }
 }
 
@@ -204,8 +204,10 @@
 - (IBAction) buttonF0Clicked:(id) sender {	
   [self flipFn: 0];
 	
-  [[locProps getLoc] sendVcommand];
+	
 	[self updateFnState];
+  [[locProps getLoc] sendVcommand];
+	
 	
 	AudioServicesPlaySystemSound([Globals getClick]);
 }
