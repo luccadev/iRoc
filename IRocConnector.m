@@ -450,20 +450,21 @@
 				[_data appendBytes:(const void *)buf length:len];
         
 				bytesread += len;
-        if(debug)
+        if(debug) {
 				  NSLog(@"readsize: %d len: %d bytesread: %d", readsize, len, bytesread);
-        
+				}
+				
+				
 				if( bytesread >= readsize ) {
           if(bytesread > readsize) {
             NSLog(@"**Read too much! readsize=%d bytesread=%d", readsize, bytesread);
           }
 					
 					/*
-           NSLog(@"###################################################################");
-					 NSLog([[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding]);
-           NSLog(@"###################################################################");
-					}
-           */
+					NSLog(@"###################################################################");
+				  NSLog(@"%@",[[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding]);
+				  NSLog(@"###################################################################");
+					*/
 					
 					NSXMLParser *parser = [[[NSXMLParser alloc] initWithData:_data] retain];
 					[parser setDelegate:self];

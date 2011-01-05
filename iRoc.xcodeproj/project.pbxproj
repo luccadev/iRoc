@@ -62,6 +62,7 @@
 		9C9E9DBA11030D1100E16E8A /* block-2-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C9E9DB811030D1100E16E8A /* block-2-s.png */; };
 		9CA62C8410CD0AF0008E37AB /* iRocLcTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA62C8210CD0AF0008E37AB /* iRocLcTableView.m */; };
 		9CA62C9110CD0B6C008E37AB /* Loc.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA62C9010CD0B6C008E37AB /* Loc.m */; };
+		9CADD3B112D4B3D000724EF5 /* mgv136.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CADD3B012D4B3D000724EF5 /* mgv136.m */; };
 		9CAFD95710B97B700029C16F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAFD95610B97B700029C16F /* Icon.png */; };
 		9CB9683A1103285400B09174 /* button-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CB968381103285400B09174 /* button-off.png */; };
 		9CB9683B1103285400B09174 /* button-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CB968391103285400B09174 /* button-on.png */; };
@@ -334,6 +335,8 @@
 		9CA62C8210CD0AF0008E37AB /* iRocLcTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iRocLcTableView.m; path = ../iRocLcTableView.m; sourceTree = "<group>"; };
 		9CA62C8F10CD0B6C008E37AB /* Loc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loc.h; sourceTree = "<group>"; };
 		9CA62C9010CD0B6C008E37AB /* Loc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Loc.m; sourceTree = "<group>"; };
+		9CADD3AF12D4B3D000724EF5 /* mgv136.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mgv136.h; sourceTree = "<group>"; };
+		9CADD3B012D4B3D000724EF5 /* mgv136.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mgv136.m; sourceTree = "<group>"; };
 		9CAFD95610B97B700029C16F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		9CB968381103285400B09174 /* button-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-off.png"; sourceTree = "<group>"; };
 		9CB968391103285400B09174 /* button-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-on.png"; sourceTree = "<group>"; };
@@ -660,6 +663,8 @@
 				D496063E1102F98E00213441 /* iRocTabBar.m */,
 				9C7EA5491242193400FD86DB /* iRocClock.h */,
 				9C7EA54A1242193400FD86DB /* iRocClock.m */,
+				9CADD3AF12D4B3D000724EF5 /* mgv136.h */,
+				9CADD3B012D4B3D000724EF5 /* mgv136.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1230,6 +1235,7 @@
 				D496063F1102F98E00213441 /* iRocTabBar.m in Sources */,
 				9C5417201113ECEF003FA1BD /* iRocBlockView.m in Sources */,
 				9C7EA54B1242193400FD86DB /* iRocClock.m in Sources */,
+				9CADD3B112D4B3D000724EF5 /* mgv136.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1295,7 +1301,7 @@
 				PREBINDING = NO;
 				PROVISIONING_PROFILE = "BCD0E136-8CB1-40F2-AD79-3C5E69159DB1";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BCD0E136-8CB1-40F2-AD79-3C5E69159DB1";
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Distribution;
@@ -1327,7 +1333,7 @@
 				PREBINDING = NO;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -1344,7 +1350,7 @@
 				PREBINDING = NO;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};

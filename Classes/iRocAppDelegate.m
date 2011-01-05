@@ -29,7 +29,7 @@
 @synthesize tabBar;
 @synthesize viewController;
 @synthesize lcTableView, rtTableView, swTableView, coTableView, bkTableView, scTableView, sgTableView, 
-      menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, blockView;
+      menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, blockView, mgv136View;
 
 @synthesize rrconnection, menuItems, aboutView;
 
@@ -67,7 +67,7 @@
   lcAutoView = [[iRocLcAutoView alloc] init];	
 	lcSettingsView = [[iRocLcSettingsView alloc] initWithDelegate:self andModel:model];
   levelTableView = [[iRocLevelTableView alloc] initWithDelegate:self andModel:model];
-
+  mgv136View = [[mgv136 alloc] init];
   
     // Optional move event.
 	if( [defaults boolForKey:@"moveevents_preference"]) {
@@ -177,6 +177,8 @@
 
 	[aboutView setMenuname:NSLocalizedString(@"Info", @"")];
 	
+	[mgv136View setMenuname:NSLocalizedString(@"MGV136", @"")];
+	
 	[menuItems addObject:lcTableView];
 	[menuItems addObject:rtTableView];
 	[menuItems addObject:swTableView];
@@ -184,7 +186,9 @@
 	[menuItems addObject:coTableView];
     //[menuItems addObject:bkTableView];
     //[menuItems addObject:scTableView];
+	[menuItems addObject:mgv136View];
 	[menuItems addObject:aboutView];
+	
 	[menuTableView setMenuItems:menuItems];
 	
 	// read preferences
@@ -224,7 +228,7 @@
   systemView.rrconnection = rrconnection;
   lcAutoView.rrconnection = rrconnection;
   lcSettingsView.rrconnection = rrconnection;
-	
+	mgv136View.rrconnection = rrconnection;
 	
 	// Connect Thread
 	rrconnection.isConnected = FALSE;

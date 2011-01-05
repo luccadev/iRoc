@@ -40,6 +40,7 @@
 #import "iRocLcSettingsView.h"
 #import "iRocBlockView.h"
 #import "iRocClock.h"
+#import "mgv136.h"
 
 #import "Container.h"
 #import "Model.h"
@@ -68,6 +69,8 @@
 	IBOutlet iRocLcAutoView *lcAutoView;
 	IBOutlet iRocLcSettingsView *lcSettingsView;
 	IBOutlet iRocBlockView *blockView;
+	
+	IBOutlet mgv136 *mgv136View;
 
 	iRocAboutView IBOutlet *aboutView;
   
@@ -114,6 +117,9 @@
 @property (nonatomic, retain) IBOutlet iRocBlockView *blockView;
 
 @property (nonatomic, retain) IBOutlet iRocAboutView *aboutView;
+
+@property (nonatomic, retain) IBOutlet mgv136 *mgv136View;
+
 
 @property(nonatomic, retain) NSMutableArray *menuItems;
 @property(nonatomic, retain) Model *model;
