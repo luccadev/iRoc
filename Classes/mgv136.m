@@ -13,9 +13,12 @@
 @synthesize reset, start, stop, rrconnection, menuname, leftPlus, leftMinus, rightPlus, rightMinus,
 speedPlus, speedMinus, testPlus, testMinus;
 
-- (id)init {
+- (id)initWithDelegate:(id)_delegate {
   if( self = [super init] ) {
+    delegate = _delegate;
 		
+		servoView = [[mgv136servo alloc] initWithDelegate:delegate];
+
   }  
   return self;
 }
@@ -161,10 +164,14 @@ speedPlus, speedMinus, testPlus, testMinus;
 
 - (IBAction) startClicked:(id) sender {
 	[self anyButtonClicked];
+	/*
   NSLog(@"start");
 	NSString * stringToSend = [NSString stringWithFormat: @"<sw iid=\"%@\" addr1=\"%@\" port1=\"%@\" cmd=\"turnout\"/>",
 														 [textIID text], [textAddr text], [textPort text]];
 	[rrconnection sendMessage:@"sw" message:stringToSend];
+	 */
+	
+	[delegate presentModalViewController:servoView animated:YES];
 	
 }
 

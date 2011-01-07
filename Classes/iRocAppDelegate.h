@@ -139,12 +139,16 @@
 - (Model *)getModel;
 - (IRocConnector *)getConnector;
 - (void)presentBlockView:(Block*)block;
+
+- (void)presentModalViewController:(UIViewController*)view animated:(BOOL)ani;
 - (void)dismissModalViewController;
 
 - (void) allLocpicsLoaded;
 
 - (void) runTimer;
 - (void) showActivity;
+
+
 
 @end
 

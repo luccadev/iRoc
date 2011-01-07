@@ -67,7 +67,7 @@
   lcAutoView = [[iRocLcAutoView alloc] init];	
 	lcSettingsView = [[iRocLcSettingsView alloc] initWithDelegate:self andModel:model];
   levelTableView = [[iRocLevelTableView alloc] initWithDelegate:self andModel:model];
-  mgv136View = [[mgv136 alloc] init];
+  mgv136View = [[mgv136 alloc] initWithDelegate:self];
   
     // Optional move event.
 	if( [defaults boolForKey:@"moveevents_preference"]) {
@@ -455,6 +455,10 @@
 	[blockView setBlock:block];
 	
 	[self.viewController presentModalViewController:blockView animated:YES];
+}
+
+- (void)presentModalViewController:(UIViewController*)view animated:(BOOL)ani{
+	[self.viewController presentModalViewController:view animated:ani];
 }
 
 -(void) dismissModalViewController {

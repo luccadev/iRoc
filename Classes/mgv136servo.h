@@ -1,7 +1,7 @@
 /*
  Rocrail - Model Railroad Software
  
- Copyright (C) 2009-2010 - Rob Versluis <r.j.versluis@rocrail.net>, Jean-Michel Fischer <jmf@polygonpunkt.de>
+ Copyright (C) 2009-2011 - Rob Versluis <r.j.versluis@rocrail.net>, Jean-Michel Fischer <jmf@polygonpunkt.de>
  
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License
@@ -24,12 +24,8 @@
 #import "iRocButton.h"
 #import "iRocClock.h"
 
-#import "mgv136servo.h"
 
-
-@interface mgv136 : UIViewController {
-	IBOutlet iRocButton *reset;
-	IBOutlet iRocButton *start;
+@interface mgv136servo : UIViewController {
 	IBOutlet iRocButton *stop;
 	
 	IBOutlet iRocButton *leftPlus;
@@ -47,17 +43,11 @@
 	IRocConnector *rrconnection;
 	NSString *menuname;
 	
-	UITextField *textIID;
-	UITextField *textAddr;
-	UITextField *textPort;
-	
-	mgv136servo *servoView;
-	
 	id delegate;
 }
 
-@property (nonatomic, retain) iRocButton *reset, *start, *stop, *leftPlus, *leftMinus, *rightPlus, *rightMinus,
-															*speedPlus, *speedMinus, *testPlus, *testMinus;
+@property (nonatomic, retain) iRocButton *stop, *leftPlus, *leftMinus, *rightPlus, *rightMinus,
+*speedPlus, *speedMinus, *testPlus, *testMinus;
 @property (nonatomic, retain) IRocConnector *rrconnection;
 @property (nonatomic, retain) NSString *menuname;
 
@@ -84,4 +74,9 @@
 
 - (void) anyButtonClicked;
 
+@end
+
+
+@interface NSObject (mgv136servo)
+- (void)dismissModalViewController;
 @end
