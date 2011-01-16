@@ -28,6 +28,11 @@
 @interface mgv136servo : UIViewController {
 	IBOutlet iRocButton *stop;
 	
+	IBOutlet iRocButton *servo1;
+	IBOutlet iRocButton *servo2;
+	IBOutlet iRocButton *servo3;
+	IBOutlet iRocButton *servo4;
+	
 	IBOutlet iRocButton *leftPlus;
 	IBOutlet iRocButton *leftMinus;
 	
@@ -47,7 +52,7 @@
 }
 
 @property (nonatomic, retain) iRocButton *stop, *leftPlus, *leftMinus, *rightPlus, *rightMinus,
-*speedPlus, *speedMinus, *testPlus, *testMinus;
+*speedPlus, *speedMinus, *testPlus, *testMinus, *servo1, *servo2, *servo3, *servo4;
 @property (nonatomic, retain) IRocConnector *rrconnection;
 @property (nonatomic, retain) NSString *menuname;
 
@@ -66,6 +71,11 @@
 
 - (IBAction) testPlusClicked:(id) sender; 
 - (IBAction) testMinusClicked:(id) sender; 
+
+- (IBAction) servo1Clicked:(id) sender; 
+- (IBAction) servo2Clicked:(id) sender; 
+- (IBAction) servo3Clicked:(id) sender; 
+- (IBAction) servo4Clicked:(id) sender; 
 
 - (id)initWithDelegate:(id)_delegate;
 

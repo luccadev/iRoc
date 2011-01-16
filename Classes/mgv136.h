@@ -1,7 +1,7 @@
 /*
  Rocrail - Model Railroad Software
  
- Copyright (C) 2009-2010 - Rob Versluis <r.j.versluis@rocrail.net>, Jean-Michel Fischer <jmf@polygonpunkt.de>
+ Copyright (C) 2009-2011 - Rob Versluis <r.j.versluis@rocrail.net>, Jean-Michel Fischer <jmf@polygonpunkt.de>
  
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License
@@ -48,8 +48,14 @@
 	NSString *menuname;
 	
 	UITextField *textIID;
-	UITextField *textAddr;
-	UITextField *textPort;
+	UITextField *textAddr1;
+	UITextField *textPort1;
+	UITextField *textAddr2;
+	UITextField *textPort2;
+	UITextField *textAddr3;
+	UITextField *textPort3;
+	UITextField *textAddr4;
+	UITextField *textPort4;
 	
 	mgv136servo *servoView;
 	
@@ -65,6 +71,7 @@
 - (IBAction) startClicked:(id) sender; 
 - (IBAction) stopClicked:(id) sender; 
 
+/*
 - (IBAction) leftPlusClicked:(id) sender; 
 - (IBAction) leftMinusClicked:(id) sender; 
 
@@ -76,6 +83,7 @@
 
 - (IBAction) testPlusClicked:(id) sender; 
 - (IBAction) testMinusClicked:(id) sender; 
+*/
 
 - (id)initWithDelegate:(id)_delegate;
 
