@@ -78,6 +78,7 @@
   rect = CGRectMake(CONTENTBORDER, 71, buttonWidth, 55);
   buttonF1 = [[iRocButton alloc] initWithFrame:rect];
   buttonF1.frame = rect;
+	[buttonF1 setLED];
   [buttonF1 setTitle: NSLocalizedString(@"F1", @"") forState: UIControlStateNormal];
   [buttonF1 addTarget:self action:@selector(buttonF1Clicked:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview: buttonF1];
@@ -85,6 +86,7 @@
   rect = CGRectMake(CONTENTBORDER + 1 * buttonWidth + 1 * BUTTONGAP, 71, buttonWidth, 55);
   buttonF2 = [[iRocButton alloc] initWithFrame:rect];
   buttonF2.frame = rect;
+	[buttonF2 setLED];
   [buttonF2 setTitle: NSLocalizedString(@"F2", @"") forState: UIControlStateNormal];
   [buttonF2 addTarget:self action:@selector(buttonF2Clicked:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview: buttonF2];
@@ -92,6 +94,7 @@
   rect = CGRectMake(CONTENTBORDER + 2 * buttonWidth + 2 * BUTTONGAP, 71, buttonWidth, 55);
   buttonF3 = [[iRocButton alloc] initWithFrame:rect];
   buttonF3.frame = rect;
+	[buttonF3 setLED];
   [buttonF3 setTitle: NSLocalizedString(@"F3", @"") forState: UIControlStateNormal];
   [buttonF3 addTarget:self action:@selector(buttonF3Clicked:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview: buttonF3];
@@ -99,6 +102,7 @@
   rect = CGRectMake(CONTENTBORDER + 3 * buttonWidth + 3 * BUTTONGAP, 71, buttonWidth, 55);
   buttonF4 = [[iRocButton alloc] initWithFrame:rect];
   buttonF4.frame = rect;
+	[buttonF4 setLED];
   [buttonF4 setTitle: NSLocalizedString(@"F4", @"") forState: UIControlStateNormal];
   [buttonF4 addTarget:self action:@selector(buttonF4Clicked:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview: buttonF4];
@@ -106,6 +110,7 @@
   rect = CGRectMake(CONTENTBORDER, 133, buttonWidth, 55);
   buttonF5 = [[iRocButton alloc] initWithFrame:rect];
   buttonF5.frame = rect;
+	[buttonF5 setLED];
   [buttonF5 setTitle: NSLocalizedString(@"F5", @"") forState: UIControlStateNormal];
   [buttonF5 addTarget:self action:@selector(buttonF5Clicked:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview: buttonF5];
@@ -113,6 +118,7 @@
   rect = CGRectMake(CONTENTBORDER + 1 * buttonWidth + 1 * BUTTONGAP, 133, buttonWidth, 55);
   buttonF6 = [[iRocButton alloc] initWithFrame:rect];
   buttonF6.frame = rect;
+	[buttonF6 setLED];
   [buttonF6 setTitle: NSLocalizedString(@"F6", @"") forState: UIControlStateNormal];
   [buttonF6 addTarget:self action:@selector(buttonF6Clicked:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview: buttonF6];
@@ -120,6 +126,7 @@
   rect = CGRectMake(CONTENTBORDER + 2 * buttonWidth + 2 * BUTTONGAP, 133, buttonWidth, 55);
   buttonF7 = [[iRocButton alloc] initWithFrame:rect];
   buttonF7.frame = rect;
+	[buttonF7 setLED];
   [buttonF7 setTitle: NSLocalizedString(@"F7", @"") forState: UIControlStateNormal];
   [buttonF7 addTarget:self action:@selector(buttonF7Clicked:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview: buttonF7];
@@ -127,6 +134,7 @@
   rect = CGRectMake(CONTENTBORDER + 3 * buttonWidth + 3 * BUTTONGAP, 133, buttonWidth, 55);
   buttonF8 = [[iRocButton alloc] initWithFrame:rect];
   buttonF8.frame = rect;
+	[buttonF8 setLED];
   [buttonF8 setTitle: NSLocalizedString(@"F8", @"") forState: UIControlStateNormal];
   [buttonF8 addTarget:self action:@selector(buttonF8Clicked:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview: buttonF8];
@@ -142,6 +150,7 @@
   rect = CGRectMake(CONTENTBORDER + 2 * buttonWidth + 2 * BUTTONGAP, 195, buttonWidth, 55);
   buttonF0 = [[iRocButton alloc] initWithFrame:rect];
   buttonF0.frame = rect;
+	[buttonF0 setLED];
   [buttonF0 setTitle: NSLocalizedString(@"F0", @"") forState: UIControlStateNormal];
   [buttonF0 addTarget:self action:@selector(buttonF0Clicked:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview: buttonF0];

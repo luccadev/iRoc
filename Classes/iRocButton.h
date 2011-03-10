@@ -28,6 +28,8 @@
 	int began, moved, ended;
 	int touchState;
 	
+	BOOL hasLED;
+	
 	BOOL bState;
   int color; // 0 = default, 1 = red, 2 = green, 3 = blue
 }
@@ -36,6 +38,7 @@
 - (void) setBState:(BOOL) staten;
 - (BOOL) getBState;
 - (void) flipBState;
+- (void) setLED;
 
 //@property (nonatomic) BOOL state; 
 

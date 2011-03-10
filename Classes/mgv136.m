@@ -38,6 +38,15 @@ speedPlus, speedMinus, testPlus, testMinus;
 - (void)viewDidLoad {
   [super viewDidLoad];
 	
+		/**VON**/
+	CGRect bounds1 = [[UIScreen mainScreen] applicationFrame];
+	scrollView = [[UIScrollView alloc] initWithFrame: bounds1];
+	CGSize plansize = CGSizeMake(ITEMSIZE*80, ITEMSIZE*60);	
+	scrollView.contentSize = plansize;
+	scrollView.delegate = self;
+		/**BIS**/
+
+	
 	CGRect bounds = self.view.bounds;
 	float buttonWidth = (bounds.size.width - (3 * CONTENTBORDER + BUTTONGAP)) / 3;
 	double textHeight = 30;
@@ -47,7 +56,7 @@ speedPlus, speedMinus, testPlus, testMinus;
 	NSString * addr = [[Globals getDefaults] stringForKey:@"mgv136addr"];
 	NSString * port = [[Globals getDefaults] stringForKey:@"mgv136port"];
 
-	double w0 = CONTENTBORDER;
+	//double w0 = CONTENTBORDER;
 	double w1 = (buttonWidth) + CONTENTBORDER + BUTTONGAP;
 	double w2 = (buttonWidth*2) + CONTENTBORDER + BUTTONGAP *2;
   	

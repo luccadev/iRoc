@@ -49,6 +49,7 @@
   CGRect powerONFrame = CGRectMake(CONTENTBORDER, CONTENTBORDER, buttonWidth, BUTTONHEIGHT);
   powerON = [[iRocButton alloc] initWithFrame:powerONFrame];
   powerON.frame = powerONFrame;
+	[powerON setLED];
   [powerON setTitle: NSLocalizedString(@"Power ON", @"") forState: UIControlStateNormal];
   [powerON addTarget:self action:@selector(powerONClicked:) forControlEvents:UIControlEventTouchUpInside];
   [powerON setColor:2];
@@ -58,6 +59,7 @@
   CGRect powerOFFFrame = CGRectMake(buttonWidth + CONTENTBORDER + BUTTONGAP, CONTENTBORDER, buttonWidth, BUTTONHEIGHT);
   powerOFF = [[iRocButton alloc] initWithFrame:powerOFFFrame];
   powerOFF.frame = powerOFFFrame;
+	[powerOFF setLED];
   [powerOFF setTitle: NSLocalizedString(@"Power OFF", @"") forState: UIControlStateNormal];
   [powerOFF addTarget:self action:@selector(powerOFFClicked:) forControlEvents:UIControlEventTouchUpInside];
   [powerOFF setColor:1];
@@ -69,13 +71,14 @@
   initField.frame = initFieldFrame;
   [initField setTitle: NSLocalizedString(@"Init Field", @"") forState: UIControlStateNormal];
   [initField addTarget:self action:@selector(initFieldClicked:) forControlEvents:UIControlEventTouchUpInside];
-  [initField setColor:3];
+  [initField setColor:0];
   [initField setEnabled:!Auto];
   [self.view addSubview: initField];
 
   CGRect autoONFrame = CGRectMake(CONTENTBORDER, CONTENTBORDER + 2 * BUTTONGAP + 2 * BUTTONHEIGHT, buttonWidth, BUTTONHEIGHT);
   autoON = [[iRocButton alloc] initWithFrame:autoONFrame];
   autoON.frame = autoONFrame;
+	[autoON setLED];
   [autoON setTitle: NSLocalizedString(@"Auto ON", @"") forState: UIControlStateNormal];
   [autoON addTarget:self action:@selector(autoONClicked:) forControlEvents:UIControlEventTouchUpInside];
   [autoON setColor:0];

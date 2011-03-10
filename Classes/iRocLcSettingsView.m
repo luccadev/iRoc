@@ -53,7 +53,7 @@
     delegate = _delegate;
     model = _model;
 		
-		self.tableView.backgroundColor = [UIColor blackColor];
+	self.tableView.backgroundColor = [UIColor blackColor];
     self.tableView.separatorColor = [UIColor blackColor];
 		
 		

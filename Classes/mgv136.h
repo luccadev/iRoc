@@ -27,7 +27,7 @@
 #import "mgv136servo.h"
 
 
-@interface mgv136 : UIViewController {
+@interface mgv136 : UIViewController <UIScrollViewDelegate> {
 	IBOutlet iRocButton *reset;
 	IBOutlet iRocButton *start;
 	IBOutlet iRocButton *stop;
@@ -60,6 +60,8 @@
 	mgv136servo *servoView;
 	
 	id delegate;
+	
+	UIScrollView *scrollView;
 }
 
 @property (nonatomic, retain) iRocButton *reset, *start, *stop, *leftPlus, *leftMinus, *rightPlus, *rightMinus,
