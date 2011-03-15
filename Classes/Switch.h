@@ -26,6 +26,7 @@
 @interface Switch : Item {
 	NSString *swid;
 	NSString *dir;
+    NSString *rectcrossing;
  }
 
 @property (nonatomic, retain) NSString *swid;

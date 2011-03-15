@@ -27,8 +27,9 @@
 @synthesize swid;
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
-  if( self = [super initWithAttributeDict:attributeDict] ) {
+  if( (self = [super initWithAttributeDict:attributeDict]) ) {
     dir = [Globals getAttribute:@"dir" fromDict:attributeDict withDefault:@"false"]; 
+    rectcrossing = [Globals getAttribute:@"rectcrossing" fromDict:attributeDict withDefault:@"true"]; 
   }
   return self;
 }
@@ -83,13 +84,29 @@
     cx = orinr % 2 == 0 ? 1:2; 
     cy = orinr % 2 == 0 ? 2:1; 
 	} else if( [self.type isEqual:@"crossing"] ) {
-		imgname = @"cross.png";
+    if( [rectcrossing isEqual:@"true"] )
+      imgname = @"cross.png";
+    else {
+      BOOL dr = [dir isEqual:@"true"];
+      char st = 's';
+      
+      if( [state isEqual:@"turnout"])
+        st = 't';
+            
+      imgname = [NSString stringWithFormat:@"crossing%@-%c-%d.png", dr?@"left":@"right", st, orinr];
+      
+      cx = orinr % 2 == 0 ? 1:2; 
+      cy = orinr % 2 == 0 ? 2:1; 
+    }
 	} else if( [self.type isEqual:@"ccrossing"] ) {
 		imgname = [NSString stringWithFormat: @"ccrossing-%d.png", orinr % 2 == 0 ? 2:1];
 		cx = orinr % 2 == 0 ? 1:2; 
     cy = orinr % 2 == 0 ? 2:1; 
 	} else if( [self.type isEqual:@"decoupler"] ) {
-		imgname = [NSString stringWithFormat: @"decoupler-%d.png", orinr % 2 == 0 ? 2:1];
+		BOOL st = false;
+		if( [state isEqual:@"turnout"])
+			st = true;
+		imgname = [NSString stringWithFormat: @"decoupler-%s-%d.png", st?@"on":@"off", orinr % 2 == 0 ? 2:1];
 	}
 	
 	return imgname;
