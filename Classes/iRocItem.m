@@ -48,6 +48,32 @@
     }
     
     if( item.text != nil && [item.text length] > 0 ) {
+      float _2 = (2.0/32.0)*ITEMSIZE;
+      float _4 = (4.0/32.0)*ITEMSIZE;
+      float _6 = (6.0/32.0)*ITEMSIZE;
+      float _10 = (10.0/32.0)*ITEMSIZE;
+      float _24 = (24.0/32.0)*ITEMSIZE;
+      float _38 = (38.0/32.0)*ITEMSIZE;
+      
+      if( item.textVertical ) {
+        int xoff = -((ITEMSIZE * item.cy - _38) / 2);
+        int yoff = (ITEMSIZE * item.cy - _24) / 2;
+        label = [[[UILabel alloc] initWithFrame:CGRectMake(xoff, yoff, ITEMSIZE * item.cy - _6, ITEMSIZE * item.cx - _10 )] autorelease];
+        label.transform = CGAffineTransformMakeRotation( M_PI/2 );
+      }
+      else {
+        label = [[[UILabel alloc] initWithFrame:CGRectMake(_2, _4, ITEMSIZE * item.cx - _4, ITEMSIZE * item.cy - _10 )] autorelease];
+      }
+      label.font = [UIFont boldSystemFontOfSize:(int)((12.0/32.0)*ITEMSIZE)];
+      label.textColor = [UIColor blackColor];
+      label.backgroundColor = item.textBackgroundColor;
+      label.text = item.text;
+      label.textAlignment = UITextAlignmentCenter;
+      [self addSubview:label];  
+
+      
+      /* Original code
+      
       label = [[[UILabel alloc] initWithFrame:CGRectMake(2, 4, ITEMSIZE * item.cx - 4, ITEMSIZE * item.cy-10 )] autorelease];
       label.font = [UIFont boldSystemFontOfSize:12];
       label.textColor = [UIColor blackColor];
@@ -55,6 +81,7 @@
       label.text = item.text;
       label.textAlignment = UITextAlignmentCenter;
       [self addSubview:label];  
+       */
     }
   }
   
