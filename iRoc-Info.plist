@@ -21,13 +21,13 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>2.5.1</string>
+	<string>2.5.2</string>
 	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>UIRequiresPersistentWiFi</key>
 	<true/>
 	<key>NSMainNibFile</key>
 	<string></string>
+	<key>UIRequiresPersistentWiFi</key>
+	<true/>
 	<key>UIStatusBarHidden</key>
 	<true/>
 </dict>
