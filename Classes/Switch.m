@@ -106,7 +106,7 @@
 		BOOL st = false;
 		if( [state isEqual:@"turnout"])
 			st = true;
-		imgname = [NSString stringWithFormat: @"decoupler-%s-%d.png", st?@"on":@"off", orinr % 2 == 0 ? 2:1];
+		imgname = [NSString stringWithFormat: @"decoupler-%@-%d.png", st?@"on":@"off", orinr % 2 == 0 ? 2:1];
 	}
 	
 	return imgname;
