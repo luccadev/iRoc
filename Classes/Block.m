@@ -32,12 +32,12 @@
     locid       = [Globals getAttribute:@"locid"       fromDict:attributeDict withDefault:@" "]; 
     reserved    = [Globals getAttribute:@"reserved"    fromDict:attributeDict withDefault:@"false"]; 
     entering    = [Globals getAttribute:@"entering"    fromDict:attributeDict withDefault:@"false"]; 
-		smallsymbol = [Globals getAttribute:@"smallsymbol" fromDict:attributeDict withDefault:@"false"];
+    smallsymbol = [Globals getAttribute:@"smallsymbol" fromDict:attributeDict withDefault:@"false"];
     text = locid;
     [self updateTextColor];
   }
     
-    NSLog(@" Block ------>  %@", self.ID);
+   
     
   return self;
 }
@@ -106,6 +106,7 @@
   entering = [Globals getAttribute:@"entering" fromDict:attributeDict withDefault:entering]; 
   text = locid; 
   [self updateTextColor];
+    
 }
 
 - (void)updateEvent {

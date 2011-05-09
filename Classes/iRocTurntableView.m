@@ -31,6 +31,12 @@
 
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+	
+	NSLog(@"TurntableView will appear: %@ ", _tt.ID);
+    
+}
+
 
 - (void) setTurntable:(Turntable *)tt {
 	_tt = tt;

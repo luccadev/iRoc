@@ -24,9 +24,9 @@
 
 @interface Block : Item {
 	NSString *ID;
-  NSString *locid;
-  NSString *reserved;
-  NSString *entering;
+    NSString *locid;
+    NSString *reserved;
+    NSString *entering;
 	NSString *smallsymbol;
 }
 
@@ -48,7 +48,5 @@
 @end
 
 @interface NSObject (Block)
-
 - (void)presentBlockView:(Block*)block;
-
 @end

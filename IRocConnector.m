@@ -715,7 +715,7 @@ static NSString * const kIdElementName = @"id";
     } else {
 			NSString *state = [attributeDict valueForKey:@"state"];
 			Block *bk = (Block*) [model.bkContainer objectWithId:idAttribute];
-      [bk updateWithAttributeDict:attributeDict];
+         [bk updateWithAttributeDict:attributeDict];
         //[bk setState:state];
       [bk updateEvent];
 			if ( [_delegate respondsToSelector:@selector(bkListLoaded)] ) {
@@ -741,14 +741,15 @@ static NSString * const kIdElementName = @"id";
     } else if ([elementName isEqualToString:@"tt"]) {
 	NSString *idAttribute = [attributeDict valueForKey:kIdElementName];		
     if( parsingPlan ) {
-            NSLog(@"parser: tt: %@ ********************", [attributeDict valueForKey:kIdElementName]);
+            NSLog(@"parser: tt: %@ ", [attributeDict valueForKey:kIdElementName]);
             Turntable *tt = [[[Turntable alloc] initWithAttributeDict:attributeDict] retain];
+            tt.ID = idAttribute;
             [tt setDelegate:_delegate];
             [model.ttContainer addObject:tt withId:idAttribute];
     } else {
-			/*Text *tx = (Text*) [model.txContainer objectWithId:idAttribute];
-            [tx updateWithAttributeDict:attributeDict];
-            [tx updateEvent];*/
+			Turntable *tt = (Turntable*) [model.ttContainer objectWithId:idAttribute];
+            [tt updateWithAttributeDict:attributeDict];
+            [tt updateEvent];
     }
 
     

@@ -10,7 +10,7 @@
 #import "iRocButton.h"
 #import "Turntable.h"
 
-@interface iRocTurntableView : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
+@interface iRocTurntableView : UIViewController {
     
     IBOutlet iRocButton *esc;
     id _delegate;

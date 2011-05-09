@@ -14,12 +14,18 @@
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
     if( (self = [super initWithAttributeDict:attributeDict]) ) {
+        
+        
     }
     
     
     NSLog(@" TT ------>  %@", self.ID);
     
     return self;
+}
+
+- (void) updateWithAttributeDict: (NSDictionary *)attributeDict {
+    [super updateWithAttributeDict:attributeDict]; 
 }
 
 

@@ -11,12 +11,17 @@
 
 @interface Turntable : Item {
     NSString *ID;
-    
 }
 
 @property (nonatomic, retain) NSString *ID;
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict;
 - (NSString*) getImgName;
+
+@end
+
+@interface NSObject (Turntable)
+
+- (void)presentTurntableView:(Turntable*)tt;
 
 @end
