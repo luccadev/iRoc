@@ -30,7 +30,7 @@
   NSString *imagename = [item getImgName];
 	
 	CGRect itemframe = CGRectMake(ITEMSIZE * item.x, ITEMSIZE * item.y, ITEMSIZE * item.cx, ITEMSIZE * item.cy);	
-  if( self = [super initWithFrame:itemframe] ) {
+  if( (self = [super initWithFrame:itemframe]) ) {
       //NSLog(@"item image=%@ x,y=%d,%d cx,cy=%d,%d", [item getImgName], item.x, item.y, item.cx, item.cy);
     [self addTarget:self action: @selector(itemAction:)
 			forControlEvents: UIControlEventTouchDown ];
@@ -97,7 +97,7 @@
 - (void)itemAction:(id)sender {
   NSLog(@"action for item %@", item.Id);
   [self setBackgroundColor:[UIColor colorWithRed:1 green:1 blue:0 alpha:1.0]];
-	AudioServicesPlaySystemSound([Globals getClick]);
+  AudioServicesPlaySystemSound([Globals getClick]);
   [item flip];
 }
 

@@ -87,7 +87,7 @@
 	
 	CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)domain, port, (CFReadStreamRef*)&iStream, (CFWriteStreamRef*)&oStream);
 	//NSLog([NSString stringWithFormat: @"Connected?"]);	
-  NSLog(@"iStream=0x%08X oStream=0x%08X", iStream, oStream);
+    NSLog(@"iStream=0x%08X oStream=0x%08X", iStream, oStream);
 	if (iStream && oStream) {
 		
 		//iStream = (NSInputStream *)readStream;
@@ -737,6 +737,20 @@ static NSString * const kIdElementName = @"id";
       [tx updateWithAttributeDict:attributeDict];
       [tx updateEvent];
     }
+        
+    } else if ([elementName isEqualToString:@"tt"]) {
+	NSString *idAttribute = [attributeDict valueForKey:kIdElementName];		
+    if( parsingPlan ) {
+            NSLog(@"parser: tt: %@ ********************", [attributeDict valueForKey:kIdElementName]);
+            Turntable *tt = [[[Turntable alloc] initWithAttributeDict:attributeDict] retain];
+            [tt setDelegate:_delegate];
+            [model.ttContainer addObject:tt withId:idAttribute];
+    } else {
+			/*Text *tx = (Text*) [model.txContainer objectWithId:idAttribute];
+            [tx updateWithAttributeDict:attributeDict];
+            [tx updateEvent];*/
+    }
+
     
 	} else if ([elementName isEqualToString:@"sc"]) {
 		NSString *idAttribute = [attributeDict valueForKey:kIdElementName];		

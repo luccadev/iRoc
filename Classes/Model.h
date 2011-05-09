@@ -42,14 +42,15 @@
 	Container *bkContainer;
 	Container *coContainer;
 	Container *txContainer;
-  Container *rtContainer;
+    Container *rtContainer;
 	Container *lcContainer;
 	Container *scContainer;
+    Container *ttContainer;
   
 
 }
 @property(nonatomic, retain) Container *levelContainer, *swContainer, *sgContainer, *tkContainer, 
-    *fbContainer, *bkContainer, *coContainer, *txContainer, *rtContainer, *lcContainer, *scContainer;
+    *fbContainer, *bkContainer, *coContainer, *txContainer, *rtContainer, *lcContainer, *scContainer, *ttContainer ;
 @property(nonatomic, retain) NSString *title, *name, *rocguiversion, *rocrailversion, *donkey, *clockdivider;
 
 - (void) setupWithAttributeDict: (NSDictionary *)attributeDict;

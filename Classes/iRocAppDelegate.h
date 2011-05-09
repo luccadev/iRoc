@@ -39,6 +39,7 @@
 #import "iRocLcAutoView.h"
 #import "iRocLcSettingsView.h"
 #import "iRocBlockView.h"
+#import "iRocTurntableView.h"
 #import "iRocClock.h"
 #import "mgv136.h"
 
@@ -69,6 +70,7 @@
 	IBOutlet iRocLcAutoView *lcAutoView;
 	IBOutlet iRocLcSettingsView *lcSettingsView;
 	IBOutlet iRocBlockView *blockView;
+    IBOutlet iRocTurntableView *ttView;
 	
 	IBOutlet mgv136 *mgv136View;
 
@@ -115,6 +117,7 @@
 @property (nonatomic, retain) IBOutlet iRocLcAutoView *lcAutoView;
 @property (nonatomic, retain) IBOutlet iRocLcSettingsView *lcSettingsView;
 @property (nonatomic, retain) IBOutlet iRocBlockView *blockView;
+@property (nonatomic, retain) IBOutlet iRocTurntableView *turntableView;
 
 @property (nonatomic, retain) IBOutlet iRocAboutView *aboutView;
 
@@ -139,6 +142,7 @@
 - (Model *)getModel;
 - (IRocConnector *)getConnector;
 - (void)presentBlockView:(Block*)block;
+- (void)presentTurntableView:(Turntable*)tt;
 
 - (void)presentModalViewController:(UIViewController*)view animated:(BOOL)ani;
 - (void)dismissModalViewController;

@@ -28,18 +28,18 @@
 
 
 @interface iRocBlockView : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
-  IBOutlet iRocButton *selectLoc;
-	IBOutlet iRocButton *intoOP;
-	IBOutlet iRocButton *esc;
-  iRocButton *setInBlock;
+    IBOutlet iRocButton *selectLoc;
+    IBOutlet iRocButton *intoOP;
+    IBOutlet iRocButton *esc;
+    iRocButton *setInBlock;
 	iRocButton *resetInBlock;
 	iRocButton *acceptIdent;
 	iRocLocoPicker *locoPickerButton;
-
-  UIPickerView *locoPicker;
-  NSMutableArray *locos;
-  int locoPicked;
-  Loc *loc;
+    
+    UIPickerView *locoPicker;
+    NSMutableArray *locos;
+    int locoPicked;
+    Loc *loc;
 	Container *lcContainer;
 
 	id _delegate;

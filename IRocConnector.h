@@ -28,6 +28,7 @@
 #import "Block.h"
 #import "Schedule.h"
 #import "Signal.h"
+#import "Turntable.h"
 
 #import "Container.h"
 

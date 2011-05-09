@@ -61,6 +61,8 @@
 		9CA62C8410CD0AF0008E37AB /* iRocLcTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA62C8210CD0AF0008E37AB /* iRocLcTableView.m */; };
 		9CA62C9110CD0B6C008E37AB /* Loc.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA62C9010CD0B6C008E37AB /* Loc.m */; };
 		9CADD3B112D4B3D000724EF5 /* mgv136.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CADD3B012D4B3D000724EF5 /* mgv136.m */; };
+		9CAFA545137870D000DE8DB4 /* iRocTurntableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAFA542137870D000DE8DB4 /* iRocTurntableView.m */; };
+		9CAFA546137870D000DE8DB4 /* Turntable.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAFA544137870D000DE8DB4 /* Turntable.m */; };
 		9CAFD95710B97B700029C16F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAFD95610B97B700029C16F /* Icon.png */; };
 		9CB9683A1103285400B09174 /* button-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CB968381103285400B09174 /* button-off.png */; };
 		9CB9683B1103285400B09174 /* button-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CB968391103285400B09174 /* button-on.png */; };
@@ -287,6 +289,10 @@
 		9CA62C9010CD0B6C008E37AB /* Loc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Loc.m; sourceTree = "<group>"; };
 		9CADD3AF12D4B3D000724EF5 /* mgv136.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mgv136.h; sourceTree = "<group>"; };
 		9CADD3B012D4B3D000724EF5 /* mgv136.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mgv136.m; sourceTree = "<group>"; };
+		9CAFA541137870D000DE8DB4 /* iRocTurntableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocTurntableView.h; sourceTree = "<group>"; };
+		9CAFA542137870D000DE8DB4 /* iRocTurntableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocTurntableView.m; sourceTree = "<group>"; };
+		9CAFA543137870D000DE8DB4 /* Turntable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turntable.h; sourceTree = "<group>"; };
+		9CAFA544137870D000DE8DB4 /* Turntable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turntable.m; sourceTree = "<group>"; };
 		9CAFD95610B97B700029C16F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		9CB968381103285400B09174 /* button-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-off.png"; sourceTree = "<group>"; };
 		9CB968391103285400B09174 /* button-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-on.png"; sourceTree = "<group>"; };
@@ -517,6 +523,10 @@
 				9C31162B10CE624B005A009B /* iRocRtTableView.h */,
 				9C31162C10CE624B005A009B /* iRocRtTableView.m */,
 				9CBF101310CFE1CA00FF29DA /* iRocSwTableView.h */,
+				9CAFA541137870D000DE8DB4 /* iRocTurntableView.h */,
+				9CAFA542137870D000DE8DB4 /* iRocTurntableView.m */,
+				9CAFA543137870D000DE8DB4 /* Turntable.h */,
+				9CAFA544137870D000DE8DB4 /* Turntable.m */,
 				9CBF101410CFE1CA00FF29DA /* iRocSwTableView.m */,
 				9C39142110D00BE400F9C42D /* iRocCoTableView.h */,
 				9C39142210D00BE400F9C42D /* iRocCoTableView.m */,
@@ -1046,6 +1056,8 @@
 				9C7EA54B1242193400FD86DB /* iRocClock.m in Sources */,
 				9CADD3B112D4B3D000724EF5 /* mgv136.m in Sources */,
 				9CD44B8012D6FC2700771CD1 /* mgv136servo.m in Sources */,
+				9CAFA545137870D000DE8DB4 /* iRocTurntableView.m in Sources */,
+				9CAFA546137870D000DE8DB4 /* Turntable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

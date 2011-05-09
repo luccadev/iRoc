@@ -23,11 +23,11 @@
 
 
 @implementation Model
-@synthesize levelContainer, swContainer, sgContainer, tkContainer, fbContainer, bkContainer, coContainer, txContainer, rtContainer, scContainer, lcContainer;
+@synthesize levelContainer, swContainer, sgContainer, tkContainer, fbContainer, bkContainer, coContainer, txContainer, rtContainer, scContainer, lcContainer, ttContainer;
 @synthesize title, name, rocrailversion, rocguiversion, donkey, clockdivider;
 
 - (id) init {
-  if( self = [super init] ) {
+  if( (self = [super init]) ) {
     levelContainer = [[[Container alloc] init] retain];
     swContainer    = [[[Container alloc] init] retain];
     sgContainer    = [[[Container alloc] init] retain];
@@ -39,6 +39,7 @@
     rtContainer    = [[[Container alloc] init] retain];
     lcContainer    = [[[Container alloc] init] retain];
     scContainer    = [[[Container alloc] init] retain];
+    ttContainer    = [[[Container alloc] init] retain];
   }
   return self;
 }

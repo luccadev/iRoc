@@ -28,7 +28,7 @@
 @synthesize ID, smallsymbol, locid;
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
-  if( self = [super initWithAttributeDict:attributeDict] ) {
+  if( (self = [super initWithAttributeDict:attributeDict]) ) {
     locid       = [Globals getAttribute:@"locid"       fromDict:attributeDict withDefault:@" "]; 
     reserved    = [Globals getAttribute:@"reserved"    fromDict:attributeDict withDefault:@"false"]; 
     entering    = [Globals getAttribute:@"entering"    fromDict:attributeDict withDefault:@"false"]; 
@@ -36,6 +36,9 @@
     text = locid;
     [self updateTextColor];
   }
+    
+    NSLog(@" Block ------>  %@", self.ID);
+    
   return self;
 }
 

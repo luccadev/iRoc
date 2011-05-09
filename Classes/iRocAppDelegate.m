@@ -172,8 +172,12 @@
 	// BlockView
 	blockView = [[iRocBlockView alloc] init];
 	[blockView set_delegate:self];
-  blockView.lcContainer = model.lcContainer;
-
+    blockView.lcContainer = model.lcContainer;
+    
+    // TurntableView
+	ttView = [[iRocTurntableView alloc] init];
+	[ttView set_delegate:self];
+    
 
 	[aboutView setMenuname:NSLocalizedString(@"Info", @"")];
 	
@@ -455,6 +459,13 @@
 	[blockView setBlock:block];
 	
 	[self.viewController presentModalViewController:blockView animated:YES];
+}
+
+- (void)presentTurntableView:(Turntable*)tt {
+	
+	[ttView setTurntable:tt];
+	
+	[self.viewController presentModalViewController:ttView animated:YES];
 }
 
 - (void)presentModalViewController:(UIViewController*)view animated:(BOOL)ani{

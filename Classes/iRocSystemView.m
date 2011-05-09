@@ -79,7 +79,7 @@
   autoON = [[iRocButton alloc] initWithFrame:autoONFrame];
   autoON.frame = autoONFrame;
 	[autoON setLED];
-  [autoON setTitle: NSLocalizedString(@"Auto ON", @"") forState: UIControlStateNormal];
+  [autoON setTitle: NSLocalizedString(@"Automode", @"") forState: UIControlStateNormal];
   [autoON addTarget:self action:@selector(autoONClicked:) forControlEvents:UIControlEventTouchUpInside];
   [autoON setColor:0];
   [autoON setBState:Auto];

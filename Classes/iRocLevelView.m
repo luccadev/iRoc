@@ -26,7 +26,7 @@
 @synthesize model, zlevel;
 
 - (id)init {
-  if( self = [super init] ) {
+  if( (self = [super init]) ) {
     NSLog(@"levelView init");
   }
 	
@@ -177,6 +177,22 @@
       [scrollView addSubview:it];
     }
   }
+    
+    NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/lcnt*(-1));
+    lcnt = 0;
+	date = [NSDate date];
+    
+	itemEnum = [model.ttContainer getEnumerator];
+    item = nil;
+    while ((item = (Item*)[itemEnum nextObject])) {
+        if( item.z == zlevel.level ) {
+            lcnt++;
+            iRocItem *it = [[iRocItem alloc] initWithItem:item];
+            if( item.x + item.cx > cx ) cx = item.x + item.cx;
+            if( item.y + item.cy > cy ) cy = item.y + item.cy;
+            [scrollView addSubview:it];
+        }
+    }
 	
 	NSLog(@"Time: %f sec per item", [date timeIntervalSinceNow]/lcnt*(-1));
 	date = [NSDate date];
