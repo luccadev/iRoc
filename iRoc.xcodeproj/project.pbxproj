@@ -31,6 +31,7 @@
 		9C141F3B1103397500D8E911 /* dcrossingright-t-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C141F2B1103397500D8E911 /* dcrossingright-t-2.png */; };
 		9C141F3C1103397500D8E911 /* dcrossingright-t-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C141F2C1103397500D8E911 /* dcrossingright-t-3.png */; };
 		9C141F3D1103397500D8E911 /* dcrossingright-t-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C141F2D1103397500D8E911 /* dcrossingright-t-4.png */; };
+		9C192BC21379D58B00DFC760 /* TtTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C192BC11379D58B00DFC760 /* TtTrack.m */; };
 		9C1E1B4610EE701C00D9BC1E /* iRocSystemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1E1B4510EE701C00D9BC1E /* iRocSystemView.m */; };
 		9C220241111AE10B00B7F4DA /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C220240111AE10B00B7F4DA /* mask.png */; };
 		9C2A6602113019EB0074F3E7 /* signal-w-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C2A65FE113019EB0074F3E7 /* signal-w-1.png */; };
@@ -244,6 +245,8 @@
 		9C141F2B1103397500D8E911 /* dcrossingright-t-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dcrossingright-t-2.png"; sourceTree = "<group>"; };
 		9C141F2C1103397500D8E911 /* dcrossingright-t-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dcrossingright-t-3.png"; sourceTree = "<group>"; };
 		9C141F2D1103397500D8E911 /* dcrossingright-t-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dcrossingright-t-4.png"; sourceTree = "<group>"; };
+		9C192BC01379D58B00DFC760 /* TtTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TtTrack.h; sourceTree = "<group>"; };
+		9C192BC11379D58B00DFC760 /* TtTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TtTrack.m; sourceTree = "<group>"; };
 		9C1E1B4410EE701C00D9BC1E /* iRocSystemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocSystemView.h; sourceTree = "<group>"; };
 		9C1E1B4510EE701C00D9BC1E /* iRocSystemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocSystemView.m; sourceTree = "<group>"; };
 		9C220240111AE10B00B7F4DA /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
@@ -615,6 +618,8 @@
 				D4D81FDB10F6684400FD09F1 /* Block.m */,
 				9CAFA543137870D000DE8DB4 /* Turntable.h */,
 				9CAFA544137870D000DE8DB4 /* Turntable.m */,
+				9C192BC01379D58B00DFC760 /* TtTrack.h */,
+				9C192BC11379D58B00DFC760 /* TtTrack.m */,
 				D4D81FDD10F6684F00FD09F1 /* Schedule.h */,
 				D4D81FDE10F6684F00FD09F1 /* Schedule.m */,
 			);
@@ -1074,6 +1079,7 @@
 				9CD44B8012D6FC2700771CD1 /* mgv136servo.m in Sources */,
 				9CAFA545137870D000DE8DB4 /* iRocTurntableView.m in Sources */,
 				9CAFA546137870D000DE8DB4 /* Turntable.m in Sources */,
+				9C192BC21379D58B00DFC760 /* TtTrack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

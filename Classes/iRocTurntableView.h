@@ -22,7 +22,16 @@
 #import "iRocButton.h"
 #import "Turntable.h"
 
-@interface iRocTurntableView : UIViewController {
+@interface iRocTurntableView : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
+    
+    iRocButton *openItem;
+	iRocButton *prevTrack;
+	iRocButton *nextTrack;
+	iRocButton *gotoTrack;
+    UIPickerView *trackPicker;
+    Container *tracks;
+    NSString *trackPicked;
+    
     
     IBOutlet iRocButton *esc;
     id _delegate;
@@ -36,6 +45,11 @@
 
 - (IBAction) escClicked:(id) sender; 
 - (void) setTurntable:(Turntable*)tt;
+
+- (IBAction) openItemClicked:(id) sender; 
+- (IBAction) prevTrackClicked:(id) sender; 
+- (IBAction) nextTrackClicked:(id) sender; 
+- (IBAction) gotoTrackClicked:(id) sender; 
 
 @end
 

@@ -29,6 +29,20 @@
     if( (self = [super initWithAttributeDict:attributeDict]) ) {
         
         
+        NSString *tmp = [Globals getAttribute:@"bridgepos" fromDict:attributeDict withDefault:@"0"]; 
+        bridgepos = [tmp intValue];
+        [tmp release];
+        tmp = [Globals getAttribute:@"state1" fromDict:attributeDict withDefault:@"false"]; 
+        sensor1 = [tmp isEqual:@"true"];
+        [tmp release];
+        tmp = [Globals getAttribute:@"state2" fromDict:attributeDict withDefault:@"false"]; 
+        sensor2 = [tmp isEqual:@"true"];
+        [tmp release];
+        
+        ttTracks = [[[Container alloc] init] retain];
+        
+        
+        smallsymbol = [Globals getAttribute:@"smallsymbol" fromDict:attributeDict withDefault:@"false"];
     }
     
     return self;
@@ -41,13 +55,15 @@
 
 - (NSString*) getImgName {
 	NSString *imgname = @"";
-    
+
+    if ( smallsymbol ) {
         cx = 2;
         cy = 2;
-        //imgname = @"button-active.png"; // TODO: correct symbol!
+    } else {
+        cx = 5;
+        cy = 5;
+    }
     
-    
-   	
 	return imgname;
 }
 
@@ -132,6 +148,8 @@
 }
 
 - (void)gotoTrack:(NSString *)_trackNr {
+
+    
     [delegate sendMessage:@"seltab" message:[[NSString alloc] 
                                            initWithString: [NSString stringWithFormat: @"<tt id=\"%@\" cmd=\"%@\"/>", Id, _trackNr]]];
 }

@@ -65,7 +65,7 @@ void CGContextAddRoundedRectC(CGContextRef c, CGRect rect, int corner_radius) {
 
 	//rect = frame;
 	
-    if (self = [super initWithFrame:frame]) {
+    if ((self = [super initWithFrame:frame])) {
 			// Initialization code
       idLabel = [[UILabel alloc] initWithFrame:CGRectMake(7,5, 190, 20)];
       idLabel.font = [UIFont boldSystemFontOfSize:20];

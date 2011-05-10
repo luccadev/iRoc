@@ -29,24 +29,60 @@
     [super.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0]];
     
     CGRect bounds = self.view.bounds;
-    float buttonWidth = (bounds.size.width - (2 * CONTENTBORDER + BUTTONGAP)) / 2;
+    float width = 320.0;
     
-    CGRect rect = CGRectMake(CONTENTBORDER, CONTENTBORDER, bounds.size.width - (2 * CONTENTBORDER + BUTTONGAP), BUTTONHEIGHT);
-    l = [[UILabel alloc] initWithFrame:rect];
+    float buttonWidth = (bounds.size.width - (2 * CONTENTBORDER + BUTTONGAP)) / 2;
+    CGRect tmpFrame = CGRectMake(CONTENTBORDER, CONTENTBORDER, width - (2 * CONTENTBORDER + BUTTONGAP), BUTTONHEIGHT);
+    l = [[UILabel alloc] initWithFrame:tmpFrame];
     l.textColor = [UIColor whiteColor];
     l.backgroundColor = [UIColor clearColor];
     l.font = [UIFont systemFontOfSize:25.0];
     l.textAlignment = UITextAlignmentCenter;
-    [l setText:_tt.ID];	
+	//[l setText:((Item *)itemWithTracks).Id];	
     [self.view addSubview: l];
+
+	tmpFrame = CGRectMake(CONTENTBORDER, BUTTONGAP+BUTTONHEIGHT, 2*buttonWidth+BUTTONGAP, BUTTONHEIGHT);
+    openItem = [[iRocButton alloc] initWithFrame:tmpFrame];
+    openItem.frame = tmpFrame;
+    [openItem setTitle: NSLocalizedString(@"esc", @"esc") forState: UIControlStateNormal];
+    [openItem addTarget:self action:@selector(escClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [openItem setColor:1];
+    //[openItem setBState:[((Item *)itemWithTracks).state isEqual:@"closed"]];
+    [self.view addSubview: openItem];
+	
+    /*
+	tmpFrame = CGRectMake(CONTENTBORDER, 2*BUTTONGAP+2*BUTTONHEIGHT, buttonWidth, BUTTONHEIGHT);
+    prevTrack = [[iRocButton alloc] initWithFrame:tmpFrame];
+    prevTrack.frame = tmpFrame;
+    [prevTrack setTitle: NSLocalizedString(@"Previous", @"") forState: UIControlStateNormal];
+    [prevTrack addTarget:self action:@selector(prevTrackClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [prevTrack setColor:3];
+    [self.view addSubview: prevTrack];
+	
+	tmpFrame = CGRectMake(CONTENTBORDER + buttonWidth + BUTTONGAP, 2*BUTTONGAP+2*BUTTONHEIGHT, buttonWidth, BUTTONHEIGHT);
+    nextTrack = [[iRocButton alloc] initWithFrame:tmpFrame];
+    nextTrack.frame = tmpFrame;
+    [nextTrack setTitle: NSLocalizedString(@"Next", @"") forState: UIControlStateNormal];
+    [nextTrack addTarget:self action:@selector(nextTrackClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [nextTrack setColor:3];
+    [self.view addSubview: nextTrack];
+	*/
     
-    CGRect escFrame = CGRectMake(CONTENTBORDER+BUTTONGAP+buttonWidth, BUTTONGAP+BUTTONHEIGHT, buttonWidth, BUTTONHEIGHT);
-    esc = [[iRocButton alloc] initWithFrame:escFrame];
-    esc.frame = escFrame;
-    [esc setTitle: NSLocalizedString(@"esc", @"") forState: UIControlStateNormal];
-    [esc addTarget:self action:@selector(escClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [esc setColor:0];
-    [self.view addSubview: esc];
+    tmpFrame = CGRectMake(CONTENTBORDER, 2 * BUTTONHEIGHT + 2* BUTTONGAP, 2*buttonWidth+BUTTONGAP, 2*BUTTONHEIGHT);
+    trackPicker = [[UIPickerView alloc] initWithFrame: tmpFrame];
+    trackPicker.delegate = self;
+    trackPicker.dataSource = self;
+    trackPicker.showsSelectionIndicator = YES;
+    [self.view addSubview: trackPicker];
+     
+    
+	tmpFrame = CGRectMake(CONTENTBORDER, 4*BUTTONGAP+5*BUTTONHEIGHT, 2*buttonWidth+BUTTONGAP, BUTTONHEIGHT);
+    gotoTrack = [[iRocButton alloc] initWithFrame:tmpFrame];
+    gotoTrack.frame = tmpFrame;
+    [gotoTrack setTitle: NSLocalizedString(@"Goto track", @"") forState: UIControlStateNormal];
+    [gotoTrack addTarget:self action:@selector(gotoTrackClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [gotoTrack setColor:3];
+    [self.view addSubview: gotoTrack];
 
 }
 
@@ -64,6 +100,63 @@
 
 - (IBAction) escClicked:(id) sender {
 	[_delegate dismissModalViewController];
+}
+
+- (IBAction) openItemClicked:(id) sender {
+    //[itemWithTracks closeMe:[openItem getBState]];
+    //[itemWithTracks dismissPopover];
+}
+
+- (IBAction) prevTrackClicked:(id) sender {
+    [_tt prevTrack];
+    //[itemWithTracks dismissPopover];
+}
+
+- (IBAction) nextTrackClicked:(id) sender {
+    [_tt nextTrack];
+    //[itemWithTracks dismissPopover];
+}
+
+- (IBAction) gotoTrackClicked:(id) sender {
+    
+    trackPicked = [NSString stringWithFormat: @"%d", [trackPicker selectedRowInComponent:0]+1];
+         
+    NSLog(@"gotoTrack...");
+    NSLog(@"gotoTrack=%@", trackPicked);
+    
+
+    [_tt gotoTrack:trackPicked];
+    [_delegate dismissModalViewController];
+}
+
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent: (NSInteger)component {
+    NSLog(@"component=%d", component);
+    //return [tracks count];
+    
+    return 8;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow: (NSInteger)row forComponent: (NSInteger)component {
+    NSLog(@"component=%d", component);
+    /*
+    TtTrack *t = (TtTrack*)[tracks objectAtIndex:row];
+    if( row == 0 )
+        trackPicked = [t getKey];
+    return [t getKey];
+     */
+    
+    return [NSString stringWithFormat: @"%d", row+1];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent: (NSInteger)component {
+    TtTrack *t = (TtTrack*)[tracks objectAtIndex:row];
+    NSLog(@"selected track=%d,%@", row, [t getKey]);
+    //trackPicked = [[NSString alloc] initWithString:[t getKey]];
 }
 
 @end

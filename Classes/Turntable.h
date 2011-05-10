@@ -20,9 +20,17 @@
 
 #import <Foundation/Foundation.h>
 #import "Item.h"
+#import "Container.h"
+#import "TtTrack.h"
 
 @interface Turntable : Item {
     NSString *ID;
+    NSString *smallsymbol;
+    
+    int bridgepos;
+    BOOL sensor1;
+    BOOL sensor2;
+    Container *ttTracks;
 }
 
 @property (nonatomic, retain) NSString *ID;
