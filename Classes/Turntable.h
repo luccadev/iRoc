@@ -34,6 +34,7 @@
 - (void)gotoTrack:(NSString *)_trackNr;
 - (void)prevTrack;
 - (void)nextTrack;
+- (void)rotateBridge: (double)pos inContext: (CGContextRef)context;
 
 @end
 

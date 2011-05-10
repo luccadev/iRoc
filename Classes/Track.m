@@ -26,7 +26,7 @@
 @implementation Track
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
-  if( self = [super initWithAttributeDict:attributeDict] ) {
+  if( (self = [super initWithAttributeDict:attributeDict]) ) {
   }
   return self;
 }
@@ -60,6 +60,5 @@
 	
 	return imgname;
 }
-
 
 @end

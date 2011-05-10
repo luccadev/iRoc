@@ -53,4 +53,6 @@
 - (void)updateEvent;
 - (int)getOriNr;
 
+- (void)paint: (CGRect)rect inContext:(CGContextRef)context;
+
 @end

@@ -28,7 +28,7 @@
 
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
-  if( self = [super init] ) {
+  if( (self = [super init]) ) {
     NSString *tmp = [Globals getAttribute:@"x" fromDict:attributeDict withDefault:@"0"];
     x = [tmp intValue];
     [tmp release];
@@ -106,6 +106,10 @@
     [myview updateEvent];
   }
   return;
+}
+
+- (void)paint: (CGRect)rect inContext: (CGContextRef)context {
+  
 }
 
 @end

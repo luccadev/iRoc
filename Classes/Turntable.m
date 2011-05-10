@@ -44,10 +44,81 @@
     
         cx = 2;
         cy = 2;
-        imgname = @"button-active.png"; // TODO: correct symbol!
+        //imgname = @"button-active.png"; // TODO: correct symbol!
+    
+    
    	
 	return imgname;
 }
+
+
+
+- (void)paint: (CGRect)rect inContext: (CGContextRef)context {
+    NSLog(@"paint the turn table");		
+	
+    /*
+    int xC = 80;
+    int yC = 80 ;
+    double dBridgepos = 0;
+     */
+    
+    CGContextSetShouldAntialias(context, YES);
+    
+    CGContextSetRGBFillColor(context, .7, .7, .7 ,1);
+    CGContextSetRGBStrokeColor(context, 0, 0, 0, 1);	
+    CGContextSetLineWidth(context, 1);
+    
+    
+	/* Begin! */
+	CGContextBeginPath(context);
+    CGContextAddEllipseInRect(context, CGRectMake(1, 1, cx * 30, cy * 30));
+    CGContextClosePath(context);
+    CGContextStrokePath(context);
+    
+    
+    int dBridgepos = 0;
+    [self rotateBridge:dBridgepos inContext:context];
+    
+    
+}
+
+
+- (void)rotateBridge: (double)pos inContext: (CGContextRef)context {
+    CGContextSetRGBStrokeColor(context, 0, 0, 0, 1);	
+    CGContextBeginPath(context);
+    
+    float originX = 0;
+    float originY = 0;
+    double bp[4] = { 10.0, 170.0, 190.0, 350.0 };
+    
+    for( int i = 0; i < 4; i++ ) {
+        double angle = pos+bp[i];
+        if( angle > 360.0 )
+            angle = angle -360.0;
+        double a = (angle*M_PI)/180;
+        double xa = cos(a) * 30.0;
+        double ya = sin(a) * 30.0;
+        
+        int delta = 31;
+        
+        if( i == 0 ) {
+            originX = delta + (int)xa;
+            originY = delta - (int)ya;
+            CGContextMoveToPoint(context, delta + (int)xa, delta - (int)ya );
+        }
+        else {
+            CGContextAddLineToPoint(context, delta + (int)xa, delta - (int)ya );
+        }
+    }
+    
+    // end point to close the polygon
+    CGContextAddLineToPoint(context, (int)originX, (int)originY );
+    
+    CGContextClosePath(context);
+    CGContextStrokePath(context);
+    
+}
+
 
 - (void)flip {
 	NSLog(@"Turntable Flip");

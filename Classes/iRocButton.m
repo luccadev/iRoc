@@ -60,7 +60,7 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
 	bState = FALSE;
 	hasLED = FALSE;
 	
-    if (self = [super initWithFrame:frame]) {
+    if ((self = [super initWithFrame:frame])) {
         // Initialization code
 		[self setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
 	

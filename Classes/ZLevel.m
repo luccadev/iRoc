@@ -28,7 +28,7 @@
 
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
-  if( self = [super init] ) {
+  if( (self = [super init]) ) {
     
     zlevel = [Globals getAttribute:@"z"     fromDict:attributeDict withDefault:@""]; 
     title  = [Globals getAttribute:@"title" fromDict:attributeDict withDefault:@""]; 
