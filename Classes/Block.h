@@ -38,7 +38,6 @@
 - (NSString*) getImgName;
 - (void)updateTextColor;
 
-
 - (void)sendAcceptIdent;
 - (void)sendOpen;
 - (void)sendClose;

@@ -29,29 +29,29 @@
 @synthesize tabBar;
 @synthesize viewController;
 @synthesize lcTableView, rtTableView, swTableView, coTableView, bkTableView, scTableView, sgTableView, 
-      menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, blockView, turntableView, mgv136View;
+menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, blockView, turntableView, mgv136View;
 
 @synthesize rrconnection, menuItems, aboutView;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
-  NSLog(@"applicationDidFinishLaunching");
+    NSLog(@"applicationDidFinishLaunching");
 	
-  CGRect screenBounds = [[UIScreen mainScreen] bounds];
-  CGRect windowBounds = screenBounds;
-  windowBounds.origin.y = 0.0;
-  
-  self.window = [[[UIWindow alloc] initWithFrame: screenBounds] autorelease];
-  
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    CGRect windowBounds = screenBounds;
+    windowBounds.origin.y = 0.0;
+    
+    self.window = [[[UIWindow alloc] initWithFrame: screenBounds] autorelease];
+    
 	offline = FALSE;
-  
+    
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
 	[[UIApplication sharedApplication] setStatusBarHidden:FALSE];
 	
 	// read preferences
 	NSUserDefaults *defaults = [[NSUserDefaults standardUserDefaults] retain];
-  
+    
     // the model
-  model = [[Model alloc] init];
+    model = [[Model alloc] init];
 	
 	//sleep_preferences
 	if( [defaults boolForKey:@"sleep_preferences"]) {
@@ -60,85 +60,85 @@
 		application.idleTimerDisabled = YES;
 	}
 	
-  viewController = [[iRocViewController alloc] initWithDelegate:self andModel:model];
-  systemView = [[iRocSystemView alloc] init];
-  aboutView = [[iRocAboutView alloc] initWithDelegate:self andModel:model];
-  menuTableView = [[iRocMenuTableView alloc] init];
-  lcAutoView = [[iRocLcAutoView alloc] init];	
+    viewController = [[iRocViewController alloc] initWithDelegate:self andModel:model];
+    systemView = [[iRocSystemView alloc] init];
+    aboutView = [[iRocAboutView alloc] initWithDelegate:self andModel:model];
+    menuTableView = [[iRocMenuTableView alloc] init];
+    lcAutoView = [[iRocLcAutoView alloc] init];	
 	lcSettingsView = [[iRocLcSettingsView alloc] initWithDelegate:self andModel:model];
-  levelTableView = [[iRocLevelTableView alloc] initWithDelegate:self andModel:model];
-  mgv136View = [[mgv136 alloc] initWithDelegate:self];
-  
+    levelTableView = [[iRocLevelTableView alloc] initWithDelegate:self andModel:model];
+    mgv136View = [[mgv136 alloc] initWithDelegate:self];
+    
     // Optional move event.
 	if( [defaults boolForKey:@"moveevents_preference"]) {
 		[viewController processAllEvents:[defaults integerForKey:@"vdelta_preference"]];
 	}
-  
-  viewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:
-                               NSLocalizedString(@"Loco", @"")
-                              image:[UIImage imageNamed:@"loco.png"] tag:1];
-
-  menuTableView.tabBarItem = [[UITabBarItem alloc] initWithTitle:
-                               NSLocalizedString(@"Menu", @"")
-                               image:[UIImage imageNamed:@"menu.png"] tag:3];
-  
-  levelTableView.tabBarItem = [[UITabBarItem alloc] initWithTitle:
-                               NSLocalizedString(@"Plan", @"")
-                               image:[UIImage imageNamed:@"enter.png"] tag:4];
-  
-  UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:viewController];
-  navi.navigationBar.tintColor = [UIColor blackColor];
-
-  UIBarButtonItem *lcAutoButton = [[[UIBarButtonItem alloc]
-                                initWithTitle: NSLocalizedString(@"Automatic", @"")
-                                style:UIBarButtonItemStylePlain
-                                target: self
-                                action: @selector(pushLcAuto)] autorelease];
-  
-  viewController.navigationItem.rightBarButtonItem = lcAutoButton;
-  
-  UIBarButtonItem *lcSettingsButton = [[[UIBarButtonItem alloc]
-                                initWithTitle: NSLocalizedString(@"Settings", @"")
-                                style:UIBarButtonItemStylePlain
-                                target: self
-                                action: @selector(pushLcSettings)] autorelease];
-  
-  viewController.navigationItem.leftBarButtonItem = lcSettingsButton;
+    
+    viewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:
+                                 NSLocalizedString(@"Loco", @"")
+                                                              image:[UIImage imageNamed:@"loco.png"] tag:1];
+    
+    menuTableView.tabBarItem = [[UITabBarItem alloc] initWithTitle:
+                                NSLocalizedString(@"Menu", @"")
+                                                             image:[UIImage imageNamed:@"menu.png"] tag:3];
+    
+    levelTableView.tabBarItem = [[UITabBarItem alloc] initWithTitle:
+                                 NSLocalizedString(@"Plan", @"")
+                                                              image:[UIImage imageNamed:@"enter.png"] tag:4];
+    
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:viewController];
+    navi.navigationBar.tintColor = [UIColor blackColor];
+    
+    UIBarButtonItem *lcAutoButton = [[[UIBarButtonItem alloc]
+                                      initWithTitle: NSLocalizedString(@"Automatic", @"")
+                                      style:UIBarButtonItemStylePlain
+                                      target: self
+                                      action: @selector(pushLcAuto)] autorelease];
+    
+    viewController.navigationItem.rightBarButtonItem = lcAutoButton;
+    
+    UIBarButtonItem *lcSettingsButton = [[[UIBarButtonItem alloc]
+                                          initWithTitle: NSLocalizedString(@"Settings", @"")
+                                          style:UIBarButtonItemStylePlain
+                                          target: self
+                                          action: @selector(pushLcSettings)] autorelease];
+    
+    viewController.navigationItem.leftBarButtonItem = lcSettingsButton;
 	
-
-
-  layoutNavi = [[UINavigationController alloc] initWithRootViewController:levelTableView];
-  layoutNavi.navigationBar.tintColor = [UIColor blackColor];
-
-  UINavigationController *menuNavi = [[UINavigationController alloc] initWithRootViewController:menuTableView];
-  menuNavi.navigationBar.tintColor = [UIColor blackColor];
-  
+    
+    
+    layoutNavi = [[UINavigationController alloc] initWithRootViewController:levelTableView];
+    layoutNavi.navigationBar.tintColor = [UIColor blackColor];
+    
+    UINavigationController *menuNavi = [[UINavigationController alloc] initWithRootViewController:menuTableView];
+    menuNavi.navigationBar.tintColor = [UIColor blackColor];
+    
     // Tab 1 = Loco
     // Tab 2 = System
     // Tab 3 = Menu
     // Tab 4 = Layout
-  tabBar = [[iRocTabBar alloc] initWithDelegate:self];
-  
-  [tabBar addPage: (UIView *)navi];
-  [tabBar addPage: (UIView *)systemView];
-  [tabBar addPage: (UIView *)menuNavi];
-  [tabBar addPage: (UIView *)layoutNavi];
-  
-  [window addSubview:tabBar.view];
-
+    tabBar = [[iRocTabBar alloc] initWithDelegate:self];
+    
+    [tabBar addPage: (UIView *)navi];
+    [tabBar addPage: (UIView *)systemView];
+    [tabBar addPage: (UIView *)menuNavi];
+    [tabBar addPage: (UIView *)layoutNavi];
+    
+    [window addSubview:tabBar.view];
+    
 	// Override point for customization after application launch
-  [window makeKeyAndVisible];
+    [window makeKeyAndVisible];
 	
-  lcAutoView.bkContainer = model.bkContainer;
-  lcAutoView.scContainer = model.scContainer;
-
+    lcAutoView.bkContainer = model.bkContainer;
+    lcAutoView.scContainer = model.scContainer;
+    
 	menuItems = [[NSMutableArray array] retain];
 	
 	lcTableView = [[iRocLcTableView alloc] init];
 	[lcTableView setLcContainer:model.lcContainer];
 	[lcTableView setDelegate:self];
 	[lcTableView setMenuname:NSLocalizedString(@"Locomotives", @"")];
-
+    
 	swTableView = [[iRocSwTableView alloc] init];
 	[swTableView setSwContainer:model.swContainer];
 	[swTableView setDelegate:self];
@@ -178,7 +178,7 @@
 	ttView = [[iRocTurntableView alloc] init];
 	[ttView set_delegate:self];
     
-
+    
 	[aboutView setMenuname:NSLocalizedString(@"Info", @"")];
 	
 	[mgv136View setMenuname:NSLocalizedString(@"MGV136", @"")];
@@ -202,19 +202,19 @@
 	[rrconnection setDomain:[defaults stringForKey:@"ip_preference"]];
 	[rrconnection setPort:[defaults integerForKey:@"port_preference"]];
 	[rrconnection setDelegate:self withModel:model];
-//	viewController.textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
-  viewController.imageviewLoc = nil;
+    //	viewController.textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
+    viewController.imageviewLoc = nil;
 	
 	
 	startAlert = [[UIAlertView alloc] 
-								initWithTitle:nil
-								message:[NSString stringWithFormat: 
-												 @"Connecting to: \n%@:%d \n", 
-												 [defaults stringForKey:@"ip_preference"], 
-												 [defaults integerForKey:@"port_preference"]]
-								delegate:self 
-								cancelButtonTitle:nil 
-								otherButtonTitles:nil];
+                  initWithTitle:nil
+                  message:[NSString stringWithFormat: 
+                           @"Connecting to: \n%@:%d \n", 
+                           [defaults stringForKey:@"ip_preference"], 
+                           [defaults integerForKey:@"port_preference"]]
+                  delegate:self 
+                  cancelButtonTitle:nil 
+                  otherButtonTitles:nil];
 	
 	UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
 	//indicator.center = CGPointMake(startAlert.bounds.size.width * 0.5f, startAlert.bounds.size.height * 0.65f);
@@ -229,9 +229,9 @@
 	date_formater=[[NSDateFormatter alloc]init];
 	[date_formater setDateFormat:@"HH:mm:ss"];
 	
-  systemView.rrconnection = rrconnection;
-  lcAutoView.rrconnection = rrconnection;
-  lcSettingsView.rrconnection = rrconnection;
+    systemView.rrconnection = rrconnection;
+    lcAutoView.rrconnection = rrconnection;
+    lcSettingsView.rrconnection = rrconnection;
 	mgv136View.rrconnection = rrconnection;
 	
 	// Connect Thread
@@ -243,61 +243,61 @@
 	while( !rrconnection.readyConnecting ) {
 		[NSThread sleepForTimeInterval:1];
 	}
-
-  NSLog( @"end of retry loop: isConnected=%d readyConnecting=%d",rrconnection.isConnected,rrconnection.readyConnecting);
-  if( rrconnection.isConnected ) {
-    NSLog( @"connected; request plan");
+    
+    NSLog( @"end of retry loop: isConnected=%d readyConnecting=%d",rrconnection.isConnected,rrconnection.readyConnecting);
+    if( rrconnection.isConnected ) {
+        NSLog( @"connected; request plan");
 		[startAlert show];
-    [rrconnection requestPlan];
+        [rrconnection requestPlan];
 		//[rrconnection requestLcList];
-  }
-  else {
-    // no connection possible: show a message or jump to the Info Page. (Extend the info page with connection details...)
-    NSLog( @"no connection: offline");
-      //[self.tabBarController setSelectedViewController:aboutView];
-    connectAlert = [[UIAlertView alloc] 
-                   initWithTitle:@"Warning" 
-                   message:[NSString stringWithFormat: 
-                           @"Could not connect to %@:%d.\nPlease check the Settings.\niRoc will exit.",[rrconnection domain], [rrconnection port]] 
-                   delegate:self 
-                   cancelButtonTitle:nil 
-                   otherButtonTitles:@"OK",nil];
-    [connectAlert show];
-  }
+    }
+    else {
+        // no connection possible: show a message or jump to the Info Page. (Extend the info page with connection details...)
+        NSLog( @"no connection: offline");
+        //[self.tabBarController setSelectedViewController:aboutView];
+        connectAlert = [[UIAlertView alloc] 
+                        initWithTitle:@"Warning" 
+                        message:[NSString stringWithFormat: 
+                                 @"Could not connect to %@:%d.\nPlease check the Settings.\niRoc will exit.",[rrconnection domain], [rrconnection port]] 
+                        delegate:self 
+                        cancelButtonTitle:nil 
+                        otherButtonTitles:@"OK",nil];
+        [connectAlert show];
+    }
 	
-  [viewController setRrconnection:self.rrconnection];
+    [viewController setRrconnection:self.rrconnection];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-  if( alertView == connectAlert) {
-    exit(0);
-  }
+    if( alertView == connectAlert) {
+        exit(0);
+    }
 	if( alertView == donkeyAlert) {
-    //exit(0);
-  }
+        //exit(0);
+    }
 	
 }
 
 - (void)connectThread { 
-  NSLog( @"connectThread started");
+    NSLog( @"connectThread started");
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
 	[rrconnection connect];
-
+    
 	[pool release]; 
-  NSLog( @"connectThread ended");
+    NSLog( @"connectThread ended");
 } 
 
 
 - (void)pushLcAuto {
-  [viewController.navigationController pushViewController: lcAutoView animated:YES];
+    [viewController.navigationController pushViewController: lcAutoView animated:YES];
 }
 
 - (void)pushLcSettings {
-  [viewController.navigationController pushViewController: lcSettingsView animated:YES];
+    [viewController.navigationController pushViewController: lcSettingsView animated:YES];
 }
 
-  // Delegate Methods
+// Delegate Methods
 - (void)lcListLoaded {
 	//NSLog(@"Reload Data in Loc View");
 	[lcTableView.tableView reloadData];
@@ -305,10 +305,10 @@
 
 - (void)lcListUpdateCell:(Loc *)loc {
 	//NSLog(@"update loco cell...");
-  //[lcTableView addCellLocoImage:loc];
-  
+    //[lcTableView addCellLocoImage:loc];
+    
 	//NSLog(@"informing locProps of image...");
-  [viewController.locProps imageLoaded];
+    [viewController.locProps imageLoaded];
 }
 
 - (void)rtListLoaded {
@@ -357,7 +357,7 @@
 - (void)sgAction:(NSString *)sgid {	
 	NSLog(@"sgAction: %@", sgid);
 	[rrconnection sendMessage:@"sg" message:[[NSString alloc] initWithString: [NSString stringWithFormat: 
-                  @"<sg id=\"%@\" cmd=\"flip\"/>", sgid]]];
+                                                                               @"<sg id=\"%@\" cmd=\"flip\"/>", sgid]]];
 }
 
 - (void)bkAction:(NSString *)bkid {	
@@ -374,22 +374,22 @@
 
 - (void)lcAction:(NSString *)lcid {	
 	NSLog(@"lcAction (AppDelegate): %@", lcid);
-
+    
 	[[NSUserDefaults standardUserDefaults] setObject:(NSString*)lcid forKey:@"loc_preference"];
 	
 	//[self.tabBar dismissModalViewControllerAnimated:YES];
 	Loc *loc = (Loc*) [model.lcContainer objectWithId:lcid];
-
+    
 	[viewController updateFnState];
-  [lcAutoView setLoco:loc];
-		
+    [lcAutoView setLoco:loc];
+    
 	[lcSettingsView dealloc];
 	lcSettingsView = [[iRocLcSettingsView alloc] initWithDelegate:self andModel:model];
 	lcSettingsView.rrconnection = rrconnection;
 	[lcSettingsView setLoco:loc];
-		
+    
 	
-  [viewController updateFnState];
+    [viewController updateFnState];
 	[viewController setSlider:[loc getVpercent] withDir:loc.dir];
 }
 
@@ -406,24 +406,24 @@
 	Loc *lc = [model.lcContainer objectWithId:[[Globals getDefaults] stringForKey:@"loc_preference"]];
 	[viewController.locProps setLoc:lc];
 	[self lcAction: [viewController.locProps getLoc].locid];
-		
+    
 	// inform some views of plan loaded
-  [levelTableView planLoaded];
+    [levelTableView planLoaded];
 	
 	/*
-	if ( [model.donkey isEqual:@"false"] ) {
-		donkeyAlert = [[UIAlertView alloc] 
-									 initWithTitle:@"Warning" 
-									 message:[NSString stringWithFormat: 
-														@"The server at %@:%d\n has no valid donation key. \n please request one at rocrail.net",[rrconnection domain], [rrconnection port]] 
-									 delegate:self 
-									 cancelButtonTitle:nil 
-									 otherButtonTitles:@"OK",nil];
-		[donkeyAlert show];
-		
-		// end of discussion.
-	}*/
-
+     if ( [model.donkey isEqual:@"false"] ) {
+     donkeyAlert = [[UIAlertView alloc] 
+     initWithTitle:@"Warning" 
+     message:[NSString stringWithFormat: 
+     @"The server at %@:%d\n has no valid donation key. \n please request one at rocrail.net",[rrconnection domain], [rrconnection port]] 
+     delegate:self 
+     cancelButtonTitle:nil 
+     otherButtonTitles:@"OK",nil];
+     [donkeyAlert show];
+     
+     // end of discussion.
+     }*/
+    
 	
 	clockIsRuning = YES;
 	
@@ -451,7 +451,7 @@
 }
 
 - (void)lcTextFieldAction {
-
+    
 }
 
 - (void)presentBlockView:(Block*)block {
@@ -499,15 +499,15 @@
 }
 
 - (void)setPower:(NSString *)state {
-  if( systemView != nil )
-    [systemView setPower:[state isEqualToString:@"true"]];
+    if( systemView != nil )
+        [systemView setPower:[state isEqualToString:@"true"]];
 }
 
 - (void)setAuto:(NSString *)state {
-  if( systemView != nil )
-    [systemView setAuto:[state isEqualToString:@"on"]];
-  if( lcAutoView != nil )
-    [lcAutoView setAuto:[state isEqualToString:@"on"]];
+    if( systemView != nil )
+        [systemView setAuto:[state isEqualToString:@"on"]];
+    if( lcAutoView != nil )
+        [lcAutoView setAuto:[state isEqualToString:@"on"]];
 }
 
 - (void)setClock:(NSString *)state { 
@@ -523,11 +523,11 @@
 	} else if ( [state isEqualToString:@"go"]) {
 		clockIsRuning = YES;
 	}
-
+    
 }   
 
 - (void)setClockDivider:(NSString *)state { 
-
+    
 	clockdivider = [state intValue];
 	
 	if (![clockTicker isValid] || prevclockdivider != clockdivider) {
@@ -543,11 +543,11 @@
 	
 	double timeint = 1.0/(float)clockdivider;
 	
-  clockTicker = [NSTimer scheduledTimerWithTimeInterval: timeint
-																								 target: self
-																							 selector: @selector(showActivity)
-																							 userInfo: nil
-																								repeats: YES];
+    clockTicker = [NSTimer scheduledTimerWithTimeInterval: timeint
+                                                   target: self
+                                                 selector: @selector(showActivity)
+                                                 userInfo: nil
+                                                  repeats: YES];
 }
 
 - (void)showActivity {
@@ -561,20 +561,20 @@
 	} else {
 		clock = [date_formater stringFromDate:clockDate];
 	}
-
+    
 	viewController.navigationItem.title = clock;
 }
 
 - (BOOL)sendMessage:(NSString *)name message:(NSString *)msg {
-  return [rrconnection sendMessage:name message:msg];
+    return [rrconnection sendMessage:name message:msg];
 }
 
 - (Model *)getModel {
-  return model;
+    return model;
 }
 
 - (IRocConnector *)getConnector {
-  return rrconnection;
+    return rrconnection;
 }
 
 

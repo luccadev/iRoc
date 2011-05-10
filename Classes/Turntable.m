@@ -19,6 +19,7 @@
  */
 
 #import "Turntable.h"
+#import "iRocAppDelegate.h"
 
 
 @implementation Turntable
@@ -53,5 +54,30 @@
 	[delegate presentTurntableView:self];
 }
 
+- (void)closeMe:(BOOL)_close {
+    [delegate sendMessage:@"seltab" message:[[NSString alloc] 
+                                           initWithString: [NSString stringWithFormat: @"<tt id=\"%@\" state=\"%@\"/>", Id, [state isEqual:@"closed"]?@"open":@"closed"]]];
+    
+}
+
+- (void)gotoTrack:(NSString *)_trackNr {
+    [delegate sendMessage:@"seltab" message:[[NSString alloc] 
+                                           initWithString: [NSString stringWithFormat: @"<tt id=\"%@\" cmd=\"%@\"/>", Id, _trackNr]]];
+}
+
+- (void)prevTrack {
+    [delegate sendMessage:@"seltab" message:[[NSString alloc] 
+                                           initWithString: [NSString stringWithFormat: @"<tt id=\"%@\" cmd=\"prev\"/>", Id]]];
+}
+
+- (void)nextTrack {
+    [delegate sendMessage:@"seltab" message:[[NSString alloc] 
+                                           initWithString: [NSString stringWithFormat: @"<tt id=\"%@\" cmd=\"next\"/>", Id]]];
+}
+
+- (void)dealloc {
+    [ID release];
+    [super dealloc];
+}
 
 @end

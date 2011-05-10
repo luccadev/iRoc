@@ -30,6 +30,11 @@
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict;
 - (NSString*) getImgName;
 
+- (void)closeMe:(BOOL)_close;
+- (void)gotoTrack:(NSString *)_trackNr;
+- (void)prevTrack;
+- (void)nextTrack;
+
 @end
 
 @interface NSObject (Turntable)
