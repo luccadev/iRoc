@@ -29,7 +29,7 @@
 @synthesize tabBar;
 @synthesize viewController;
 @synthesize lcTableView, rtTableView, swTableView, coTableView, bkTableView, scTableView, sgTableView, 
-      menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, blockView, mgv136View;
+      menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, blockView, turntableView, mgv136View;
 
 @synthesize rrconnection, menuItems, aboutView;
 

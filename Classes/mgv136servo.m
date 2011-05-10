@@ -27,7 +27,7 @@ speedPlus, speedMinus, testPlus, testMinus, servo1, servo2, servo3, servo4;
 
 
 - (id)initWithDelegate:(id)_delegate {
-  if( self = [super init] ) {
+  if( (self = [super init]) ) {
     delegate = _delegate;
   }  
   return self;
@@ -39,7 +39,7 @@ speedPlus, speedMinus, testPlus, testMinus, servo1, servo2, servo3, servo4;
 	CGRect bounds = self.view.bounds;
 	float buttonWidth = (bounds.size.width - (3 * CONTENTBORDER + BUTTONGAP)) / 3;
 	float buttonWidth4 = (bounds.size.width - (4 * CONTENTBORDER + BUTTONGAP)) / 4;
-	double textHeight = 30;
+	//double textHeight = 30;
 	double buttonheight = 55;
 	
 	double w2 = (buttonWidth*2) + CONTENTBORDER + BUTTONGAP *2;	

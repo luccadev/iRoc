@@ -82,7 +82,7 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
   
   
 	if( false ) { // new Design
-		float clrdepth = touchState == began ?.9:.6;
+		//float clrdepth = touchState == began ?.9:.6;
 		float graydepth = touchState == began ?.3:.3; // TODO: Seems always to be "began" for the loco controller buttons...
 		
 		
@@ -156,7 +156,7 @@ void CGContextAddRoundedRectA(CGContextRef c, CGRect rect, int corner_radius) {
 				
 			
 	} else {  // old Design
-		float clrdepth = touchState == began ?.9:.6;
+		//float clrdepth = touchState == began ?.9:.6;
 		float graydepth = touchState == began ?.6:.3; // TODO: Seems always to be "began" for the loco controller buttons...
 		if( !enabled ) {
 			graydepth = touchState == began ?.2:.2; // TODO: Seems always to be "began" for the loco controller buttons...

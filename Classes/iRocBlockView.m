@@ -45,13 +45,13 @@
   
   CGRect bounds = self.view.bounds;
   float buttonWidth = (bounds.size.width - (2 * CONTENTBORDER + BUTTONGAP)) / 2;
-	CGRect rect = CGRectMake(CONTENTBORDER, CONTENTBORDER, bounds.size.width - (2 * CONTENTBORDER + BUTTONGAP), BUTTONHEIGHT);
+  CGRect rect = CGRectMake(CONTENTBORDER, CONTENTBORDER, bounds.size.width - (2 * CONTENTBORDER + BUTTONGAP), BUTTONHEIGHT);
   l = [[UILabel alloc] initWithFrame:rect];
   l.textColor = [UIColor whiteColor];
   l.backgroundColor = [UIColor clearColor];
   l.font = [UIFont systemFontOfSize:25.0];
   l.textAlignment = UITextAlignmentCenter;
-	[l setText:_block.ID];	
+  [l setText:_block.ID];	
   [self.view addSubview: l];
 
 	/*
@@ -81,24 +81,11 @@
   [esc addTarget:self action:@selector(escClicked:) forControlEvents:UIControlEventTouchUpInside];
   [esc setColor:0];
   [self.view addSubview: esc];
-	
-	/*
-  locoPicker = [[UIPickerView alloc] initWithFrame: CGRectMake(0, 2 * BUTTONHEIGHT + 2 * BUTTONGAP - 5, 0, 0)];
-  locoPicker.delegate = self;
-  locoPicker.dataSource = self;
-  locoPicker.showsSelectionIndicator = YES;
-  [self.view addSubview: locoPicker];
-	 
-	 // Mask for better look
-	 UIImageView *maskview = [[UIImageView alloc] initWithFrame: CGRectMake(0, 2 * BUTTONHEIGHT + 2 * BUTTONGAP - 5, 320, 219)];
-	 maskview.image = [UIImage imageNamed:@"mask.png"];
-	 [self.view addSubview: maskview];
-	 */
-	
-	CGRect locoPickerButtonFrame = CGRectMake( CONTENTBORDER, 2 * BUTTONHEIGHT + 2* BUTTONGAP, 2*buttonWidth+BUTTONGAP, BUTTONHEIGHT);
-	locoPickerButton = [[iRocLocoPicker alloc] initWithFrame: locoPickerButtonFrame];
-	locoPickerButton.delegate = self;
-	[locoPickerButton setLocContainer:lcContainer];
+		
+  CGRect locoPickerButtonFrame = CGRectMake( CONTENTBORDER, 2 * BUTTONHEIGHT + 2* BUTTONGAP, 2*buttonWidth+BUTTONGAP, BUTTONHEIGHT);
+  locoPickerButton = [[iRocLocoPicker alloc] initWithFrame: locoPickerButtonFrame];
+  locoPickerButton.delegate = self;
+  [locoPickerButton setLocContainer:lcContainer];
   [self.view addSubview: locoPickerButton];
 
 
@@ -118,7 +105,7 @@
   [resetInBlock setColor:1];
   [self.view addSubview: resetInBlock];
 	
-	CGRect accepidentFrame = CGRectMake( CONTENTBORDER+BUTTONGAP+buttonWidth, 4 * BUTTONHEIGHT + 4* BUTTONGAP, buttonWidth, BUTTONHEIGHT);
+  CGRect accepidentFrame = CGRectMake( CONTENTBORDER+BUTTONGAP+buttonWidth, 4 * BUTTONHEIGHT + 4* BUTTONGAP, buttonWidth, BUTTONHEIGHT);
   acceptIdent = [[iRocButton alloc] initWithFrame: accepidentFrame];
   acceptIdent.frame = accepidentFrame;
   [acceptIdent setTitle: NSLocalizedString(@"Accept Ident", @"") forState: UIControlStateNormal];
