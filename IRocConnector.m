@@ -743,6 +743,7 @@ static NSString * const kIdElementName = @"id";
     if( parsingPlan ) {
             NSLog(@"parser: tt: %@ ", [attributeDict valueForKey:kIdElementName]);
             Turntable *tt = [[[Turntable alloc] initWithAttributeDict:attributeDict] retain];
+            currentTT = tt;
             tt.ID = idAttribute;
             [tt setDelegate:_delegate];
             [model.ttContainer addObject:tt withId:idAttribute];
@@ -750,7 +751,14 @@ static NSString * const kIdElementName = @"id";
 			Turntable *tt = (Turntable*) [model.ttContainer objectWithId:idAttribute];
             [tt updateWithAttributeDict:attributeDict];
             [tt updateEvent];
+        
+        
+            NSLog(@"parser: tt: %@ ", [attributeDict valueForKey:@"cmd"]);
     }
+        
+    } else if ([elementName isEqualToString:@"track"] && currentTT != nil ) {
+        [currentTT addTrack:attributeDict];
+    
 
     
 	} else if ([elementName isEqualToString:@"sc"]) {

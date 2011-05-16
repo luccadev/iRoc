@@ -22,7 +22,14 @@
 
 
 @implementation iRocTurntableView
-@synthesize _delegate, esc;
+@synthesize _delegate, esc, itemWithTracks, tracks;
+
+/*- (id) initWithItem:(id)_itemWithTracks andTracks:(Container *)_tracks {
+    self = [super init];
+    self.itemWithTracks = _itemWithTracks;
+    self.tracks = _tracks;
+    return self;
+}*/
 
 - (void)loadView {
     [super loadView];
@@ -75,8 +82,13 @@
     trackPicker.showsSelectionIndicator = YES;
     [self.view addSubview: trackPicker];
      
+    // Mask for better look
+	UIImageView *maskview = [[UIImageView alloc] 
+                             initWithFrame: CGRectMake(0, 2 * BUTTONHEIGHT + 2* BUTTONGAP, width, 219)];
+	maskview.image = [UIImage imageNamed:@"mask.png"];
+	[self.view addSubview: maskview];
     
-	tmpFrame = CGRectMake(CONTENTBORDER, 4*BUTTONGAP+5*BUTTONHEIGHT, 2*buttonWidth+BUTTONGAP, BUTTONHEIGHT);
+	tmpFrame = CGRectMake(CONTENTBORDER, 5*BUTTONGAP+5*BUTTONHEIGHT, 2*buttonWidth+BUTTONGAP, BUTTONHEIGHT);
     gotoTrack = [[iRocButton alloc] initWithFrame:tmpFrame];
     gotoTrack.frame = tmpFrame;
     [gotoTrack setTitle: NSLocalizedString(@"Goto track", @"") forState: UIControlStateNormal];
@@ -87,13 +99,16 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-	NSLog(@"TurntableView will appear: %@ ", _tt.ID);
-    [l setText:_tt.ID];
+	//NSLog(@"TurntableView will appear: %@ ", _tt.ID);
+    //[l setText:_tt.ID];
 }
 
 
 - (void) setTurntable:(Turntable *)tt {
 	_tt = tt;
+    
+    self.tracks = _tt.ttTracks;
+    
 	NSLog(@"TurntableView setTurntable: %@ ", _tt.ID);
 }
 
@@ -108,24 +123,22 @@
 }
 
 - (IBAction) prevTrackClicked:(id) sender {
-    [_tt prevTrack];
+    //[_tt prevTrack];
     //[itemWithTracks dismissPopover];
 }
 
 - (IBAction) nextTrackClicked:(id) sender {
-    [_tt nextTrack];
+    //[_tt nextTrack];
     //[itemWithTracks dismissPopover];
 }
 
 - (IBAction) gotoTrackClicked:(id) sender {
     
-    trackPicked = [NSString stringWithFormat: @"%d", [trackPicker selectedRowInComponent:0]+1];
-         
-    NSLog(@"gotoTrack...");
-    NSLog(@"gotoTrack=%@", trackPicked);
+    //trackPicked = [NSString stringWithFormat: @"%d", [trackPicker selectedRowInComponent:0]];
+    NSLog(@"gotoTrack= (pickedIndex) %d", [trackPicker selectedRowInComponent:0]);
     
 
-    [_tt gotoTrack:trackPicked];
+    [_tt gotoTrack:[trackPicker selectedRowInComponent:0]];
     [_delegate dismissModalViewController];
 }
 
@@ -136,26 +149,22 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent: (NSInteger)component {
     NSLog(@"component=%d", component);
-    //return [tracks count];
-    
-    return 8;
+    return [tracks count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow: (NSInteger)row forComponent: (NSInteger)component {
     NSLog(@"component=%d", component);
-    /*
-    TtTrack *t = (TtTrack*)[tracks objectAtIndex:row];
-    if( row == 0 )
-        trackPicked = [t getKey];
-    return [t getKey];
-     */
     
-    return [NSString stringWithFormat: @"%d", row+1];
+    TtTrack *t = (TtTrack*)[tracks objectAtIndex:row];
+    return t.desc;
+     
+    
+    //return [NSString stringWithFormat: @"%d", row+1];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent: (NSInteger)component {
     TtTrack *t = (TtTrack*)[tracks objectAtIndex:row];
-    NSLog(@"selected track=%d,%@", row, [t getKey]);
+    NSLog(@"selected track=%d,%@,  desc:%@", row, [t getKey], t.desc);
     //trackPicked = [[NSString alloc] initWithString:[t getKey]];
 }
 

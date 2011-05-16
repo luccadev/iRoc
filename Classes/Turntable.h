@@ -23,10 +23,10 @@
 #import "Container.h"
 #import "TtTrack.h"
 
+
 @interface Turntable : Item {
-    NSString *ID;
-    NSString *smallsymbol;
-    
+    NSString *ID;    
+    int symbolsize;
     int bridgepos;
     BOOL sensor1;
     BOOL sensor2;
@@ -34,18 +34,20 @@
 }
 
 @property (nonatomic, retain) NSString *ID;
+@property (nonatomic, retain) Container *ttTracks;
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict;
+- (void) addTrack: (NSDictionary *)attributeDict;
 - (NSString*) getImgName;
 
 - (void)closeMe:(BOOL)_close;
-- (void)gotoTrack:(NSString *)_trackNr;
+- (void)gotoTrack:(int)_trackID;
 - (void)prevTrack;
 - (void)nextTrack;
 - (void)rotateBridge: (double)pos inContext: (CGContextRef)context;
 
 @end
 
-@interface NSObject (Turntable)
-- (void)presentTurntableView:(Turntable*)tt;
-@end
+//@interface NSObject (Turntable)
+//- (void)presentTurntableView:(iRocTurntableView*)tt;
+//@end

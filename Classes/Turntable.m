@@ -23,7 +23,7 @@
 
 
 @implementation Turntable
-@synthesize ID;
+@synthesize ID, ttTracks;
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
     if( (self = [super initWithAttributeDict:attributeDict]) ) {
@@ -42,7 +42,13 @@
         ttTracks = [[[Container alloc] init] retain];
         
         
-        smallsymbol = [Globals getAttribute:@"smallsymbol" fromDict:attributeDict withDefault:@"false"];
+        tmp = [Globals getAttribute:@"symbolsize" fromDict:attributeDict withDefault:@"5"]; 
+        symbolsize = [tmp intValue];
+        
+        
+        ttTracks = [[[Container alloc] init] retain];
+        
+         
     }
     
     return self;
@@ -50,19 +56,35 @@
 
 - (void) updateWithAttributeDict: (NSDictionary *)attributeDict {
     [super updateWithAttributeDict:attributeDict]; 
+    NSString *tmp = [Globals getAttribute:@"bridgepos" fromDict:attributeDict withDefault:[NSString stringWithFormat:@"%d", bridgepos]]; 
+    bridgepos = [tmp intValue];
+    [tmp release];
+    tmp = [Globals getAttribute:@"state1" fromDict:attributeDict withDefault:(sensor1?@"true":@"false")]; 
+    sensor1 = [tmp isEqual:@"true"];
+    [tmp release];
+    tmp = [Globals getAttribute:@"state2" fromDict:attributeDict withDefault:(sensor2?@"true":@"false")]; 
+    sensor2 = [tmp isEqual:@"true"];
+    [tmp release];
+    
+    NSEnumerator * trackEnum = [ttTracks getEnumerator];
+    TtTrack * track = nil;
+    while ((track = (TtTrack*)[trackEnum nextObject])) {
+        track.state = (track.nr == bridgepos);
+    }
 }
 
+- (void) addTrack: (NSDictionary *)attributeDict {
+    TtTrack *track = [[TtTrack alloc] initWithAttributeDict:attributeDict];
+    NSLog(@"tt track %d", track.nr);		
+    
+    [ttTracks addObject:track withId:[track getKey]];
+}
 
 - (NSString*) getImgName {
 	NSString *imgname = @"";
 
-    if ( smallsymbol ) {
-        cx = 2;
-        cy = 2;
-    } else {
-        cx = 5;
-        cy = 5;
-    }
+    cx = symbolsize;
+    cy = cx;
     
 	return imgname;
 }
@@ -72,29 +94,89 @@
 - (void)paint: (CGRect)rect inContext: (CGContextRef)context {
     NSLog(@"paint the turn table");		
 	
-    /*
-    int xC = 80;
-    int yC = 80 ;
-    double dBridgepos = 0;
-     */
-    
+   
     CGContextSetShouldAntialias(context, YES);
     
     CGContextSetRGBFillColor(context, .7, .7, .7 ,1);
     CGContextSetRGBStrokeColor(context, 0, 0, 0, 1);	
     CGContextSetLineWidth(context, 1);
     
+    int diam = (symbolsize * ITEMSIZE)-2;
     
-	/* Begin! */
+    int xC = (diam+2)/2;
+    int yC = (diam+2)/2;
+    double dBridgepos = 0;
+
 	CGContextBeginPath(context);
-    CGContextAddEllipseInRect(context, CGRectMake(1, 1, cx * 30, cy * 30));
+    double circ = diam-diam/2.5;
+    
+    CGContextAddEllipseInRect(context, CGRectMake(xC-circ/2, yC-circ/2, circ, circ));
+    CGContextAddEllipseInRect(context, CGRectMake(xC-circ/2+2, yC-circ/2+2, circ-4, circ-4));
     CGContextClosePath(context);
     CGContextStrokePath(context);
     
-    
-    int dBridgepos = 0;
+    NSEnumerator * trackEnum = [ttTracks getEnumerator];
+    TtTrack * track = nil;
+    while ((track = (TtTrack*)[trackEnum nextObject])) {
+        double degr = 7.5 * track.nr;
+        double a = (degr*2*M_PI)/360;
+        double xa = cos(a) * (xC-0);
+        double ya = sin(a) * (yC-0);
+        int xx = xC + (int)xa;
+        int yy = yC - (int)ya;
+        
+        double xaa = cos(a) * (xC- (diam/5));
+        double yaa = sin(a) * (yC- (diam/5));
+        int xxa = xC + (int)xaa;
+        int yya = yC - (int)yaa;
+        
+        CGContextBeginPath(context);
+        
+        
+        if( track.show ) {
+            CGContextSetRGBStrokeColor(context, 0, 0, 0 ,1);
+            CGContextSetLineWidth(context, 8);
+            CGContextMoveToPoint(context, xxa, yya );
+            CGContextAddLineToPoint(context, xx, yy );
+        }
+        
+        CGContextClosePath(context);
+        CGContextStrokePath(context);
+        
+        CGContextBeginPath(context);
+        
+        if( track.state || (bridgepos == track.nr) ) {
+            CGContextSetRGBStrokeColor(context, 1, 1, 0 ,1);
+            CGContextSetLineWidth(context, 4);
+            dBridgepos = degr;
+        }
+        else {
+            CGContextSetRGBStrokeColor(context, 0.75, 0.75, 0.75 ,1);
+            CGContextSetLineWidth(context, 4);
+        }
+        
+        xa = cos(a) * (xC-(diam/5)/4);
+        ya = sin(a) * (yC-(diam/5)/4);
+        xx = xC + (int)xa;
+        yy = yC - (int)ya;
+        
+        xaa = cos(a) * (xC- (diam/5)+(diam/5)/4);
+        yaa = sin(a) * (yC- (diam/5)+(diam/5)/4);
+        xxa = xC + (int)xaa;
+        yya = yC - (int)yaa;
+        
+        if( track.show ) {
+            CGContextMoveToPoint(context, xxa, yya );
+            CGContextAddLineToPoint(context, xx, yy );
+        }
+        
+        CGContextClosePath(context);
+        CGContextStrokePath(context);
+        
+    }    
+       
+    CGContextSetLineWidth(context, 1);
     [self rotateBridge:dBridgepos inContext:context];
-    
     
 }
 
@@ -103,19 +185,26 @@
     CGContextSetRGBStrokeColor(context, 0, 0, 0, 1);	
     CGContextBeginPath(context);
     
+    int ang = 8;
+    int l = (symbolsize * ITEMSIZE)/4;
+    
     float originX = 0;
     float originY = 0;
-    double bp[4] = { 10.0, 170.0, 190.0, 350.0 };
+    double bp[4] = { ang, 180-ang, 180+ang, 360-ang, };
     
     for( int i = 0; i < 4; i++ ) {
         double angle = pos+bp[i];
         if( angle > 360.0 )
             angle = angle -360.0;
-        double a = (angle*M_PI)/180;
-        double xa = cos(a) * 30.0;
-        double ya = sin(a) * 30.0;
         
-        int delta = 31;
+        double a = (angle*M_PI)/180;
+        
+        
+        
+        double xa = cos(a) * l;
+        double ya = sin(a) * l;
+        
+        int delta = (symbolsize * ITEMSIZE)/2;
         
         if( i == 0 ) {
             originX = delta + (int)xa;
@@ -125,6 +214,7 @@
         else {
             CGContextAddLineToPoint(context, delta + (int)xa, delta - (int)ya );
         }
+        
     }
     
     // end point to close the polygon
@@ -132,12 +222,13 @@
     
     CGContextClosePath(context);
     CGContextStrokePath(context);
-    
+        
 }
 
 
 - (void)flip {
 	NSLog(@"Turntable Flip");
+ 
 	[delegate presentTurntableView:self];
 }
 
@@ -147,11 +238,15 @@
     
 }
 
-- (void)gotoTrack:(NSString *)_trackNr {
-
+- (void)gotoTrack:(int)_trackID {
     
+    //int trackID = [_trackNr intValue]; 
+    TtTrack *ttTrack = [ttTracks objectAtIndex:_trackID];
+                   
+    NSLog(@"Turntable gotoTrack [%d] -> %d ",_trackID, ttTrack.nr);
+
     [delegate sendMessage:@"seltab" message:[[NSString alloc] 
-                                           initWithString: [NSString stringWithFormat: @"<tt id=\"%@\" cmd=\"%@\"/>", Id, _trackNr]]];
+                                             initWithString: [NSString stringWithFormat: @"<tt id=\"%@\" cmd=\"%d\"/>", Id,  ttTrack.nr]]];
 }
 
 - (void)prevTrack {

@@ -32,16 +32,20 @@
     Container *tracks;
     NSString *trackPicked;
     
+    Turntable *_tt;
     
     IBOutlet iRocButton *esc;
     id _delegate;
     
     UILabel* l;
-    Turntable *_tt;
+
+    //id itemWithTracks;
 }
 
+@property (nonatomic, retain) id itemWithTracks;
 @property (nonatomic, retain) id _delegate;
 @property (nonatomic, retain) iRocButton *esc;
+@property (nonatomic, retain) Container *tracks;
 
 - (IBAction) escClicked:(id) sender; 
 - (void) setTurntable:(Turntable*)tt;
@@ -50,6 +54,8 @@
 - (IBAction) prevTrackClicked:(id) sender; 
 - (IBAction) nextTrackClicked:(id) sender; 
 - (IBAction) gotoTrackClicked:(id) sender; 
+
+//- (id) initWithItem:(id)_itemWithTracks andTracks:(Container *)_tracks;
 
 @end
 

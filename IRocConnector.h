@@ -73,10 +73,10 @@
 	
 	Loc *currentLocObject;
   
-  NSMutableArray* messageQueue; 
+    NSMutableArray* messageQueue; 
 
+    Turntable *currentTT;
 
-	
 	@public
 	//NSMutableArray *rtList;
 	

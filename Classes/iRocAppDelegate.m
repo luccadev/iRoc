@@ -466,6 +466,7 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
 	[ttView setTurntable:tt];
 	
 	[self.viewController presentModalViewController:ttView animated:YES];
+    
 }
 
 - (void)presentModalViewController:(UIViewController*)view animated:(BOOL)ani{
