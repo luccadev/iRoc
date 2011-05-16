@@ -38,8 +38,6 @@
     id _delegate;
     
     UILabel* l;
-
-    //id itemWithTracks;
 }
 
 @property (nonatomic, retain) id itemWithTracks;
@@ -50,12 +48,9 @@
 - (IBAction) escClicked:(id) sender; 
 - (void) setTurntable:(Turntable*)tt;
 
-- (IBAction) openItemClicked:(id) sender; 
 - (IBAction) prevTrackClicked:(id) sender; 
 - (IBAction) nextTrackClicked:(id) sender; 
 - (IBAction) gotoTrackClicked:(id) sender; 
-
-//- (id) initWithItem:(id)_itemWithTracks andTracks:(Container *)_tracks;
 
 @end
 
