@@ -45,6 +45,7 @@
 - (void)prevTrack;
 - (void)nextTrack;
 - (void)rotateBridge: (double)pos inContext: (CGContextRef)context;
+- (void)rotateBridgeSensors: (double)pos inContext: (CGContextRef)context;
 
 @end
 

@@ -176,7 +176,17 @@
     }    
        
     CGContextSetLineWidth(context, 1);
+    CGContextSetRGBFillColor(context, 0, 0, 0, 1);
     [self rotateBridge:dBridgepos inContext:context];
+    
+    if( sensor1 && sensor2 )
+        CGContextSetRGBFillColor(context, 1, 0, 0, 1);	
+    else if( sensor1 || sensor2 )
+        CGContextSetRGBFillColor(context, 1, 1, 0, 1);	
+    else
+        CGContextSetRGBFillColor(context, 0, 1, 0, 1);	
+    
+    [self rotateBridgeSensors:dBridgepos inContext:context];
     
 }
 
@@ -198,9 +208,6 @@
             angle = angle -360.0;
         
         double a = (angle*M_PI)/180;
-        
-        
-        
         double xa = cos(a) * l;
         double ya = sin(a) * l;
         
@@ -221,8 +228,44 @@
     CGContextAddLineToPoint(context, (int)originX, (int)originY );
     
     CGContextClosePath(context);
-    CGContextStrokePath(context);
+    CGContextStrokePath(context);    
+}
+
+- (void)rotateBridgeSensors: (double)pos inContext: (CGContextRef)context {
+    CGContextSetRGBStrokeColor(context, 0, 0, 0, 1);	
+    CGContextBeginPath(context);
+    
+    int ang = 8;
+    int l = (symbolsize * ITEMSIZE)/6;
+    
+    float originX = 0;
+    float originY = 0;
+    double bp[4] = { ang, 180-ang, 180+ang, 360-ang, };
+    
+    for( int i = 0; i < 4; i++ ) {
+        double angle = pos+bp[i];
+        if( angle > 360.0 )
+            angle = angle -360.0;
+        double a = (angle*2*M_PI)/360;
+        double xa = cos(a) * l;
+        double ya = sin(a) * l;
         
+        int delta = (symbolsize * ITEMSIZE)/2;
+        if( i == 0 ) {
+            originX = delta + (int)xa;
+            originY = delta - (int)ya;
+            CGContextMoveToPoint(context, delta + (int)xa, delta - (int)ya );
+        }
+        else {
+            CGContextAddLineToPoint(context, delta + (int)xa, delta - (int)ya );
+        }
+    }
+    // end point to close the polygon
+    CGContextAddLineToPoint(context, (int)originX, (int)originY );
+    
+    CGContextClosePath(context);
+    CGContextFillPath(context);
+    
 }
 
 
