@@ -73,7 +73,7 @@
   if( domain == nil || [domain length] == 0 ) {
     NSLog(@"Using hard coded defaults for connection...");	
     domain = @"rocrail.dyndns.org";
-    port = 8080;
+    port = 8051;
   }
   
 	NSLog(@"Connect to: %@:%d ", domain, port);	

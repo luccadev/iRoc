@@ -28,7 +28,7 @@
 			<key>Key</key>
 			<string>port_preference</string>
 			<key>DefaultValue</key>
-			<string>8080</string>
+			<string>8051</string>
 			<key>KeyboardType</key>
 			<string>NumberPad</string>
 		</dict>
