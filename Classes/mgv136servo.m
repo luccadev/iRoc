@@ -30,6 +30,7 @@ speedPlus, speedMinus, testPlus, testMinus, servo1, servo2, servo3, servo4;
   if( (self = [super init]) ) {
     delegate = _delegate;
   }  
+    
   return self;
 }
 
@@ -134,6 +135,12 @@ speedPlus, speedMinus, testPlus, testMinus, servo1, servo2, servo3, servo4;
 	[stop addTarget:self action:@selector(stopClicked:) forControlEvents:UIControlEventTouchUpInside];
 	//[stop setColor:1];
 	[self.view addSubview: stop];
+    
+    
+    [servo1 setLED];
+    [servo2 setLED];
+    [servo3 setLED];
+    [servo4 setLED];
 	
 }
 
@@ -187,6 +194,8 @@ speedPlus, speedMinus, testPlus, testMinus, servo1, servo2, servo3, servo4;
 	[servo2 setBState:false];
 	[servo3 setBState:false];
 	[servo4 setBState:false];
+    
+
 }
 - (IBAction) servo2Clicked:(id) sender {
 	[servo1 setBState:false];

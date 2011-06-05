@@ -190,7 +190,7 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
 	[menuItems addObject:coTableView];
     //[menuItems addObject:bkTableView];
     //[menuItems addObject:scTableView];
-	//[menuItems addObject:mgv136View];
+	[menuItems addObject:mgv136View];
 	[menuItems addObject:aboutView];
 	
 	[menuTableView setMenuItems:menuItems];
