@@ -46,10 +46,6 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
 	
-	//if( ![[Globals getDefaults] boolForKey:@"allowrotation"])
-		return NO;
-	
-	
   NSLog(@"rotation message: will be rotated... (iRocTabBar)");
   BOOL toLandscape = TRUE;
 
@@ -57,35 +53,20 @@
     toLandscape = FALSE;
   }
 	
-	if( toLandscape ) {
+	if( toLandscape && self.selectedIndex == 3) {
 		NSLog(@"TabBar rotates to landscape");
 		// The plan is allways rotating
-		if( self.selectedIndex == 3 ) {
-			return YES;
-		}
-		
-		/* Rotate to Plan?
-		if( self.selectedIndex == 0 && [[Globals getDefaults] boolForKey:@"rotatetoplan"]) {
-			self.selectedIndex = 3;
-			return YES;
-		}*/
-		
-	} else { // Portrait
-		NSLog(@"TabBar rotates to portrait");
-		/* Rotate to Throttle?
-		if ( [[Globals getDefaults] boolForKey:@"rotatetoplan"])
-		  self.selectedIndex = 0;
-		return YES;*/
-	} 
+		return YES;
+  }
+  else if( !toLandscape ) {
+    return YES;
+  }
 	  
   return NO;
 }
 
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-	
-	//if( ![[Globals getDefaults] boolForKey:@"allowrotation"])
-  return;
 	
   NSLog(@"rotation message for tabcontroller");
 	
