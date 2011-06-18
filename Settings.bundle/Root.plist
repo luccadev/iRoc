@@ -2,95 +2,101 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>StringsTable</key>
-	<string>Root</string>
-	<key>Title</key>
-	<string>iRoc</string>
 	<key>PreferenceSpecifiers</key>
 	<array>
 		<dict>
-			<key>Type</key>
-			<string>PSTextFieldSpecifier</string>
-			<key>Title</key>
-			<string>IP</string>
-			<key>Key</key>
-			<string>ip_preference</string>
 			<key>DefaultValue</key>
 			<string>rocrail.dyndns.org</string>
+			<key>Key</key>
+			<string>ip_preference</string>
 			<key>KeyboardType</key>
 			<string>NumbersAndPunctuation</string>
-		</dict>
-		<dict>
+			<key>Title</key>
+			<string>IP</string>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
-			<key>Title</key>
-			<string>Port</string>
-			<key>Key</key>
-			<string>port_preference</string>
+		</dict>
+		<dict>
 			<key>DefaultValue</key>
 			<string>8051</string>
+			<key>Key</key>
+			<string>port_preference</string>
 			<key>KeyboardType</key>
 			<string>NumberPad</string>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>Allow sleep</string>
-			<key>Key</key>
-			<string>sleep_preferences</string>
-			<key>DefaultValue</key>
-			<false/>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-			<key>Title</key>
-			<string>Velocity Control Settings</string>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
-			<key>Title</key>
-			<string>High Sensitive</string>
-			<key>Key</key>
-			<string>moveevents_preference</string>
-			<key>DefaultValue</key>
-			<false/>
-		</dict>
-		<dict>
+			<string>Port</string>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
-			<key>Title</key>
-			<string>Velocity Delta</string>
-			<key>Key</key>
-			<string>vdelta_preference</string>
-			<key>DefaultValue</key>
-			<string>4</string>
-			<key>KeyboardType</key>
-			<string>NumberPad</string>
 		</dict>
 		<dict>
+			<key>DefaultValue</key>
+			<false/>
+			<key>Key</key>
+			<string>sleep_preferences</string>
+			<key>Title</key>
+			<string>Allow sleep</string>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Rotate to Plan</string>
+			<key>Key</key>
+			<string>rotatetoplan</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Velocity Control Settings</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
-			<key>Title</key>
-			<string>Interface</string>
 		</dict>
 		<dict>
+			<key>DefaultValue</key>
+			<false/>
+			<key>Key</key>
+			<string>moveevents_preference</string>
+			<key>Title</key>
+			<string>High Sensitive</string>
 			<key>Type</key>
-			<string>PSMultiValueSpecifier</string>
+			<string>PSToggleSwitchSpecifier</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>4</string>
+			<key>Key</key>
+			<string>vdelta_preference</string>
+			<key>KeyboardType</key>
+			<string>NumberPad</string>
+			<key>Title</key>
+			<string>Velocity Delta</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Interface</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>Grey</string>
+			<key>Key</key>
+			<string>plancolor_preference</string>
+			<key>Title</key>
+			<string>Plancolor</string>
 			<key>Titles</key>
 			<array>
 				<string>White</string>
 				<string>Green</string>
 				<string>Grey</string>
 			</array>
-			<key>Title</key>
-			<string>Plancolor</string>
-			<key>Key</key>
-			<string>plancolor_preference</string>
-			<key>DefaultValue</key>
-			<string>Grey</string>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
 			<key>Values</key>
 			<array>
 				<string>white</string>
@@ -99,5 +105,9 @@
 			</array>
 		</dict>
 	</array>
+	<key>StringsTable</key>
+	<string>Root</string>
+	<key>Title</key>
+	<string>iRoc</string>
 </dict>
 </plist>
