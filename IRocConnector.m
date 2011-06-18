@@ -71,8 +71,11 @@
 - (BOOL)doConnect {
   
   if( domain == nil || [domain length] == 0 ) {
-    NSLog(@"Using hard coded defaults for connection...");	
+    NSLog(@"Using hard coded defaults for connection (DOMAIN)...");	
     domain = @"rocrail.dyndns.org";
+  }
+  if( port == 0 ) {
+    NSLog(@"Using hard coded defaults for connection (PORT)...");	
     port = 8051;
   }
   
@@ -87,7 +90,7 @@
 	
 	CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)domain, port, (CFReadStreamRef*)&iStream, (CFWriteStreamRef*)&oStream);
 	//NSLog([NSString stringWithFormat: @"Connected?"]);	
-    NSLog(@"iStream=0x%08X oStream=0x%08X", iStream, oStream);
+    //NSLog(@"iStream=0x%08X oStream=0x%08X", iStream, oStream);
 	if (iStream && oStream) {
 		
 		//iStream = (NSInputStream *)readStream;
