@@ -37,7 +37,7 @@
 
 - (id)initWithDelegate:(id)_delegate andModel:(Model*)_model {
   NSLog(@"01");
-  if( self = [super init] ) {
+  if( (self = [super init]) ) {
     model = _model;
     delegate = _delegate;
   }
