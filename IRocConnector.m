@@ -23,6 +23,7 @@
 #import "Model.h"
 #import "ZLevel.h"
 
+#import "Globals.h"
 
 @implementation IRocConnector
 
@@ -131,16 +132,21 @@
 
 
 - (void)requestPlan {
-  NSLog(@"requestPlan...");
-  [self sendMessage:@"model" message:@"<model cmd=\"plan\" disablemonitor=\"true\"/>"];
+    NSString *controlcode = [[Globals getDefaults] stringForKey:@"controlcode_preference"];
+    
+    NSLog(@"controlcode: %@",controlcode);
+    NSLog(@"requestPlan ... ");
+
+    NSString * stringToSend; 			
+	stringToSend = [NSString stringWithFormat: @"<model cmd=\"plan\" controlcode=\"%@\"disablemonitor=\"true\"/>", controlcode];
+
+    [self sendMessage:@"model" message:stringToSend];
 }
 
 - (void)requestLcList {
   NSLog(@"requestLcList...");
   [self sendMessage:@"model" message:@"<model cmd=\"lclist\" disablemonitor=\"true\"/>"];
 }
-
-
 
 - (void)requestLocpic:(NSString*)lcid withFilename:(NSString*)filename{
   
@@ -772,7 +778,7 @@ static NSString * const kIdElementName = @"id";
       sc.ID = idAttribute;
       [model.scContainer addObject:sc withId:idAttribute];
     } else {
-      NSLog(@"Schedule [%@] event");	
+      NSLog(@"Schedule event");	
     }
     
 	} else if ([elementName isEqualToString:@"datareq"]) {
