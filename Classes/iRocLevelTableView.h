@@ -32,7 +32,7 @@
   Model *model;
 	id delegate;
 }
-IBOutlet iRocLevelView *levelView;
+//IBOutlet iRocLevelView *levelView;
 @property (nonatomic, retain) iRocLevelView *levelView;
 
 - (id)initWithDelegate:(id)_delegate andModel:(Model*)_model;

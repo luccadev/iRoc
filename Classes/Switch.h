@@ -27,6 +27,7 @@
 	NSString *swid;
 	NSString *dir;
     NSString *rectcrossing;
+  int AccNr;
  }
 
 @property (nonatomic, retain) NSString *swid;

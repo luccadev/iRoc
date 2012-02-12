@@ -29,6 +29,8 @@
 
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict {
   if( self = [super initWithAttributeDict:attributeDict] ) {
+    NSString *tmp = [Globals getAttribute:@"aspects" fromDict:attributeDict withDefault:@"3"];
+    Aspects = [tmp intValue];
   }
   return self;
 }
@@ -44,15 +46,24 @@
     orinr = 1;
   
 	NSString *imgname = @"";
-	
-  if( [self.state isEqual:@"red"])
-		imgname = [NSString stringWithFormat:@"signal-r-%d.png", orinr];
-  else if( [self.state isEqual:@"green"])
-		imgname = [NSString stringWithFormat:@"signal-g-%d.png", orinr];
-  else if( [self.state isEqual:@"yellow"])
-		imgname = [NSString stringWithFormat:@"signal-y-%d.png", orinr];
-	else 
-		imgname = [NSString stringWithFormat:@"signal-w-%d.png", orinr];
+	if( Aspects == 2 ) {
+    if( [self.state isEqual:@"red"])
+	    imgname = [NSString stringWithFormat:@"signal2_r_%d.png", orinr];
+    else if( [self.state isEqual:@"green"])
+      imgname = [NSString stringWithFormat:@"signal2_g_%d.png", orinr];
+    else
+		  imgname = [NSString stringWithFormat:@"signal2_y_%d.png", orinr];
+  }
+  else {
+    if( [self.state isEqual:@"red"])
+	    imgname = [NSString stringWithFormat:@"signal-r-%d.png", orinr];
+    else if( [self.state isEqual:@"green"])
+      imgname = [NSString stringWithFormat:@"signal-g-%d.png", orinr];
+    else if( [self.state isEqual:@"yellow"])
+		  imgname = [NSString stringWithFormat:@"signal-y-%d.png", orinr];
+    else 
+		  imgname = [NSString stringWithFormat:@"signal-w-%d.png", orinr];
+  }
   
 	return imgname;
 }

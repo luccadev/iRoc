@@ -30,6 +30,9 @@
   if( (self = [super initWithAttributeDict:attributeDict]) ) {
     dir = [Globals getAttribute:@"dir" fromDict:attributeDict withDefault:@"false"]; 
     rectcrossing = [Globals getAttribute:@"rectcrossing" fromDict:attributeDict withDefault:@"true"]; 
+
+    NSString *tmp = [Globals getAttribute:@"accnr" fromDict:attributeDict withDefault:@"0"];
+    AccNr = [tmp intValue];
   }
   return self;
 }
@@ -44,8 +47,14 @@
     orinr = 1;
   
 	NSString *imgname = @"";
-	
-	if( [self.type isEqual:@"right"]) {
+  
+  if( AccNr > 0 ) {
+		if( [self.state isEqual:@"turnout"])
+      imgname = [NSString stringWithFormat:@"accessory_%d_on_%d.png", AccNr, orinr];
+    else
+      imgname = [NSString stringWithFormat:@"accessory_%d_off_%d.png", AccNr, orinr];
+  }
+	else if( [self.type isEqual:@"right"]) {
 		if( [self.state isEqual:@"straight"])
 			imgname = [NSString stringWithFormat:@"turnout-rs-%d.png", orinr];
 		else 
