@@ -48,11 +48,26 @@
   
 	NSString *imgname = @"";
   
-  if( AccNr > 0 ) {
-		if( [self.state isEqual:@"turnout"])
-      imgname = [NSString stringWithFormat:@"accessory_%d_on_%d.png", AccNr, orinr];
+  if( [self.type isEqual:@"accessory"] ) {
+    int l_orinr = orinr;
+    if (orinr % 2 == 0)
+      l_orinr = 2;
     else
-      imgname = [NSString stringWithFormat:@"accessory_%d_off_%d.png", AccNr, orinr];
+      l_orinr = 1;
+    switch (AccNr) {
+      case 1:
+        cx = (l_orinr == 1 ? 1 : 2);
+        cy = (l_orinr == 1 ? 2 : 1);
+        break;
+      case 40:
+        cx = (l_orinr == 1 ? 4 : 2);
+        cy = (l_orinr == 1 ? 2 : 4);
+        break;
+    }
+		if( [self.state isEqual:@"turnout"])
+      imgname = [NSString stringWithFormat:@"accessory_%d_off_%d.png", AccNr, l_orinr];
+    else
+      imgname = [NSString stringWithFormat:@"accessory_%d_on_%d.png", AccNr, l_orinr];
   }
 	else if( [self.type isEqual:@"right"]) {
 		if( [self.state isEqual:@"straight"])

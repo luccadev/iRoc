@@ -195,9 +195,6 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
 	
 	[menuTableView setMenuItems:menuItems];
 	
-	// read preferences
-	defaults = [[NSUserDefaults standardUserDefaults] retain];
-	
 	rrconnection = [[IRocConnector alloc] init];
 	[rrconnection setDomain:[defaults stringForKey:@"ip_preference"]];
 	[rrconnection setPort:[defaults integerForKey:@"port_preference"]];
@@ -205,13 +202,24 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
     //	viewController.textfieldLoc.text = [defaults stringForKey:@"loc_preference"];
     viewController.imageviewLoc = nil;
 	
-	
+  NSString* domain = [defaults stringForKey:@"ip_preference"];
+  int port = [defaults integerForKey:@"port_preference"];
+  
+  if( domain == nil || [domain length] == 0 ) {
+    domain = @"rocrail.dyndns.org";
+  }
+  if( port == 0 ) {
+    port = 8051;
+  }
+
+	NSString* l_message = [NSString stringWithFormat: 
+                         @"Connecting to:\n%@:%d", 
+                         domain, 
+                         port];
+  
 	startAlert = [[UIAlertView alloc] 
                   initWithTitle:nil
-                  message:[NSString stringWithFormat: 
-                           @"Connecting to: \n%@:%d \n", 
-                           [defaults stringForKey:@"ip_preference"], 
-                           [defaults integerForKey:@"port_preference"]]
+                  message:l_message
                   delegate:self 
                   cancelButtonTitle:nil 
                   otherButtonTitles:nil];
