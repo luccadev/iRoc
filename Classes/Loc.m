@@ -200,7 +200,7 @@
 - (void) prepareImage {
 		
 	int i = 0;
-	int len = [locpicdata length]; // StrOp.len(s);
+	int len = (int)[locpicdata length]; // StrOp.len(s);
 	unsigned char b[len/2 + 1];
 	for( i = 0; i < len; i+=2 ) {
 		char val[3] = {0};

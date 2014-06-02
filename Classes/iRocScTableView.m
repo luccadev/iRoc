@@ -76,7 +76,7 @@
 	idLabel.backgroundColor = cellbackcolor;
 	[cell.contentView addSubview:idLabel];
 	
-	Schedule *sc = (Schedule*)[scContainer objectAtIndex:indexPath.row];
+	Schedule *sc = (Schedule*)[scContainer objectAtIndex:(int)indexPath.row];
 	
     //NSLog(@"COID: %@", bk.ID);
 	
@@ -88,7 +88,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	[_delegate bkAction:((Schedule*) [scContainer objectAtIndex:indexPath.row]).ID];
+	[_delegate bkAction:((Schedule*) [scContainer objectAtIndex:(int)indexPath.row]).ID];
 }
 
 

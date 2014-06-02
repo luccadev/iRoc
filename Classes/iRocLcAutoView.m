@@ -170,7 +170,7 @@
   else {
     NSString * stringToSend = [[NSString alloc] initWithString: 
                                [NSString stringWithFormat: @"<lc id=\"%@\" cmd=\"stop\"/>",
-                                loc.locid, [blocks objectAtIndex: blockPicked] ]];
+                                loc.locid ]];
     [rrconnection sendMessage:@"lc" message:stringToSend];
   }
 }
@@ -195,12 +195,12 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent: (NSInteger)component {
-  NSLog(@"component=%d", component);
+  NSLog(@"component=%d", (int)component);
   return component == 1 ? [self.schedules count]:[self.blocks count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow: (NSInteger)row forComponent: (NSInteger)component {
-  NSLog(@"component=%d", component);
+  NSLog(@"component=%d", (int)component);
   return component == 1 ? [self.schedules objectAtIndex: row]:[self.blocks objectAtIndex: row];
 }
 
@@ -210,14 +210,14 @@
     [pickerView selectRow:0 inComponent:1 animated:TRUE];
   }
   else if( component == 0 ) {
-    blockPicked = row;
+    blockPicked = (int)row;
     if( row > 0 ) {
       schedulePicked = 0;
       [pickerView selectRow:0 inComponent:1 animated:TRUE];
     }
   }
   else if( component == 1 ) {
-    schedulePicked = row;
+    schedulePicked = (int)row;
     if( row > 0 ) {
       blockPicked = 0;
       [pickerView selectRow:0 inComponent:0 animated:TRUE];

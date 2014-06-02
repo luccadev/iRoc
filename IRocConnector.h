@@ -55,7 +55,7 @@
 	NSMutableData* _data;
 	NSNumber* bytesRead;
 	
-	NSMutableString *header;
+	NSString *header;
 	NSMutableString *rocdata;
 	
 	BOOL isConnected;
@@ -111,7 +111,7 @@
 @property(readwrite) BOOL readyConnecting;
 
 @property(copy) NSString *domain;
-@property(nonatomic, retain) NSMutableString *header;
+@property(nonatomic, retain) NSString *header;
 @property(nonatomic, retain) NSMutableString *rocdata;
 //@property(nonatomic, retain) NSMutableArray *rtList;
 

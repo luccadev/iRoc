@@ -71,7 +71,7 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
     
     // Optional move event.
 	if( [defaults boolForKey:@"moveevents_preference"]) {
-		[viewController processAllEvents:[defaults integerForKey:@"vdelta_preference"]];
+		[viewController processAllEvents:(int)[defaults integerForKey:@"vdelta_preference"]];
 	}
     
     viewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:
@@ -203,7 +203,7 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
     viewController.imageviewLoc = nil;
 	
   NSString* domain = [defaults stringForKey:@"ip_preference"];
-  int port = [defaults integerForKey:@"port_preference"];
+  int port = (int)[defaults integerForKey:@"port_preference"];
   
   if( domain == nil || [domain length] == 0 ) {
     domain = @"rocrail.dyndns.org";
@@ -418,25 +418,25 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
 	// inform some views of plan loaded
     [levelTableView planLoaded];
 	
-	/*
-     if ( [model.donkey isEqual:@"false"] ) {
-     donkeyAlert = [[UIAlertView alloc] 
-     initWithTitle:@"Warning" 
-     message:[NSString stringWithFormat: 
-     @"The server at %@:%d\n has no valid donation key. \n please request one at rocrail.net",[rrconnection domain], [rrconnection port]] 
-     delegate:self 
-     cancelButtonTitle:nil 
-     otherButtonTitles:@"OK",nil];
-     [donkeyAlert show];
-     
-     // end of discussion.
-     }*/
-    
+ if ( [model.donkey isEqual:@"false"] ) {
+   donkeyAlert = [[UIAlertView alloc]
+   initWithTitle:@"Support"
+   message:[NSString stringWithFormat:
+   @"Rocrail runs entirely on volunteer labor. \n "
+   "However, Rocrail also needs contributions of money. \n "
+   "Your continued support is vital for keeping Rocrail available. \n "
+   "If you already did donate you can ask a key to disable this on startup dialog: supportkey@rocrail.net"]
+   delegate:self
+   cancelButtonTitle:nil
+   otherButtonTitles:@"OK",nil];
+   [donkeyAlert show];
+ }
+  
 	
 	clockIsRuning = YES;
 	
 	int i;
-	for( i = 0; i< [model.lcContainer count]; i++){	
+	for( i = 0; i< [model.lcContainer count]; i++){
 		Loc *loc;
 		loc = (Loc*)[model.lcContainer objectAtIndex:i];
 		if( loc != nil && loc.hasImage && ![loc.imgname isEqualToString:@""] ) {

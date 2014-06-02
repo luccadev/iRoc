@@ -95,7 +95,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection: (NSInteger)section {
-  NSLog(@"rows in section %d", section);
+  NSLog(@"rows in section %d", (int)section);
   switch( section ) {
     case (0):
       return 12;
@@ -108,7 +108,7 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-  NSLog(@"title for section %d", section);
+  NSLog(@"title for section %d", (int)section);
   /*
   switch( section ) {
     case (0):
@@ -138,13 +138,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   //NSLog(@"cell for %d:%d", [indexPath indexAtPosition:0 ], [indexPath indexAtPosition:1 ]);
 
-  NSString *CellIdentifier = [ NSString stringWithFormat: @"%d:%d", [indexPath indexAtPosition:0 ],
-                              [ indexPath indexAtPosition:1 ] ];
+  NSString *CellIdentifier = [ NSString stringWithFormat: @"%d:%d", (int)[indexPath indexAtPosition:0 ],
+                              (int)[ indexPath indexAtPosition:1 ] ];
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
   	
 	
   if( cell == nil ) {
-    cell = [[[UITableViewCell alloc] initWithFrame: CGRectZero reuseIdentifier: CellIdentifier ] autorelease ];
+    cell = [[[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: CellIdentifier ] autorelease ];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
       //cell.selectionStyle = UITableViewCellSelectionStyleGray;
 

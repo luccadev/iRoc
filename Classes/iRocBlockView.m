@@ -233,17 +233,17 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent: (NSInteger)component {
-  NSLog(@"component=%d", component);
+  NSLog(@"component=%d", (int)component);
   return [self.locos count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow: (NSInteger)row forComponent: (NSInteger)component {
-  NSLog(@"component=%d", component);
+  NSLog(@"component=%d", (int)component);
   return [self.locos objectAtIndex: row];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent: (NSInteger)component {
-  locoPicked = row;
+  locoPicked = (int)row;
 }
 
 - (IBAction) setInBlockClicked:(id) sender {

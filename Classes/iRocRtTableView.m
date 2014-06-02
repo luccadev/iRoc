@@ -69,7 +69,7 @@
 	rtidLabel.backgroundColor = cellbackcolor;
 	[cell.contentView addSubview:rtidLabel];
 	 	
-	Route *rt = (Route*)[rtContainer objectAtIndex:indexPath.row];
+	Route *rt = (Route*)[rtContainer objectAtIndex:(int)indexPath.row];
     rtidLabel.text = rt.rtid;
 
     return cell;
@@ -77,7 +77,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	[_delegate rtAction:((Route*) [rtContainer objectAtIndex:indexPath.row]).rtid];
+	[_delegate rtAction:((Route*) [rtContainer objectAtIndex:(int)indexPath.row]).rtid];
 }
 
 

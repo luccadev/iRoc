@@ -112,7 +112,7 @@
           [iStream streamStatus] != NSStreamStatusOpen &&
           retry > 0) 
     {
-			NSLog(@"Opening I:%d, O:%d retry=%d", [iStream streamStatus],[oStream streamStatus], retry);
+			NSLog(@"Opening I:%lu, O:%lu retry=%d", (unsigned long)[iStream streamStatus], (unsigned long)[oStream streamStatus], retry);
       retry--;
       [NSThread sleepForTimeInterval:1];
 		}
@@ -218,7 +218,7 @@
 	
 	NSData * tmp = [msg dataUsingEncoding:NSUTF8StringEncoding];
 	NSString * stringToSend; 			
-	stringToSend = [NSString stringWithFormat: @"<xmlh><xml size=\"%d\" name=\"%@\"/></xmlh>%@", [tmp length], name, msg];
+	stringToSend = [NSString stringWithFormat: @"<xmlh><xml size=\"%d\" name=\"%@\"/></xmlh>%@", (int)[tmp length], name, msg];
 	stringToSend = [stringToSend stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	
   if( debug )
@@ -227,11 +227,11 @@
 	NSData * dataToSend = [stringToSend dataUsingEncoding:NSUTF8StringEncoding];
 	
 	if (isConnected && oStream) {
-		int remainingToWrite = [dataToSend length];
+		int remainingToWrite = (int)[dataToSend length];
 		void * marker = (void *)[dataToSend bytes];
 		while (remainingToWrite > 0) {
 			int actuallyWritten = 0;
-			actuallyWritten = [oStream write:marker maxLength:remainingToWrite];
+			actuallyWritten = (int)[oStream write:marker maxLength:remainingToWrite];
       if( actuallyWritten > 0 ) {
   			remainingToWrite -= actuallyWritten;
         NSLog(@"actuallyWritten=%d remainingToWrite=%d", actuallyWritten, remainingToWrite);		
@@ -268,7 +268,7 @@
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode {
 	
   if( debug)
-	  NSLog(@"stream:handleEvent: is invoked with event=%d...", eventCode);
+	  NSLog(@"stream:handleEvent: is invoked with event=%d...", (int)eventCode);
 	
   switch(eventCode) {
   
@@ -294,7 +294,7 @@
     {
       // THIS IS WHERE YOU CATCH THE ERRORS
       NSError *err = [stream streamError];
-      NSLog(@"Stream error: rc=%d %@", [err code], [err localizedDescription]) ;
+      NSLog(@"Stream error: rc=%d %@", (int)[err code], [err localizedDescription]) ;
             
       // MAKE SURE TO CLOSE STREAMS
       // ALSO HERE, I SEND THE ERROR MESSAGE
@@ -350,9 +350,9 @@
 			if( readHeader ) {
         
         @synchronized(self) {
-        NSLog(@"streamStatus=%d", [(NSInputStream *)stream streamStatus]);
+        NSLog(@"streamStatus=%d", (int)[(NSInputStream *)stream streamStatus]);
 				while ( len >= 0 && ![header hasSuffix:@"</xmlh>"] ){
-					len = [(NSInputStream *)stream read:buf maxLength:1];
+					len = (int)[(NSInputStream *)stream read:buf maxLength:1];
           //NSLog(@"len=%d", len);
           
           if( len > 0 ) {
@@ -361,11 +361,11 @@
             //NSLog(@"header: %@", header);
           }
           if( [_data length] > 1024) {
-            NSLog(@"data length=%d; break.", [_data length]);
+            NSLog(@"data length=%d; break.", (int)[_data length]);
             break;
           } 
 				}
-        NSLog(@"streamStatus=%d", [(NSInputStream *)stream streamStatus]);
+        NSLog(@"streamStatus=%d", (int)[(NSInputStream *)stream streamStatus]);
 				}
         
 				BOOL validHeader = FALSE;
@@ -377,7 +377,7 @@
           NSUInteger start = [header rangeOfString:@"<?xml"].location;
 				  if (start != NSNotFound) {
             if( start != 0 ) {
-              NSLog(@"Start of header found at %d\n%@", start, header);
+              NSLog(@"Start of header found at %d\n%@", (int)start, header);
               NSRange range;
               range.location = start;
               range.length = [_data length]-start;
@@ -455,7 +455,7 @@
         if( readsize - bytesread < imax )
           imax = readsize - bytesread;
 				
-				len = [(NSInputStream *)stream read:buf maxLength:imax];
+				len = (int)[(NSInputStream *)stream read:buf maxLength:imax];
 				[_data appendBytes:(const void *)buf length:len];
         
 				bytesread += len;

@@ -74,7 +74,7 @@
 
 
 - (int) count {
-	return [theData count];
+	return (int)[theData count];
 }
 
 @end

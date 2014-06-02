@@ -112,7 +112,7 @@
 	swidLabel.backgroundColor = cellbackcolor;
 	[cell.contentView addSubview:swidLabel];
 	
-	Switch *sw = (Switch*) [swContainer objectAtIndex:indexPath.row];
+	Switch *sw = (Switch*) [swContainer objectAtIndex:(int)indexPath.row];
 	swidLabel.text = sw.swid;
  
 	UIImage *image = [UIImage imageNamed:[sw getImgName]];
@@ -126,7 +126,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	[_delegate swAction:((Switch*) [swContainer objectAtIndex:indexPath.row]).swid];
+	[_delegate swAction:((Switch*) [swContainer objectAtIndex:(int)indexPath.row]).swid];
 }
 
 

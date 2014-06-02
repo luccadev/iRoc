@@ -117,7 +117,7 @@
 }
 
 - (IBAction) gotoTrackClicked:(id) sender {
-    [_tt gotoTrack:[trackPicker selectedRowInComponent:0]];
+    [_tt gotoTrack:(int)[trackPicker selectedRowInComponent:0]];
     [_delegate dismissModalViewController];
 }
 
@@ -127,13 +127,13 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent: (NSInteger)component {
-    NSLog(@"component=%d", component);
+    NSLog(@"component=%d", (int)component);
     return [tracks count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow: (NSInteger)row forComponent: (NSInteger)component {
-    NSLog(@"component=%d", component);
-    TtTrack *t = (TtTrack*)[tracks objectAtIndex:row];
+    NSLog(@"component=%d", (int)component);
+    TtTrack *t = (TtTrack*)[tracks objectAtIndex:(int)row];
     return t.desc;
 }
 

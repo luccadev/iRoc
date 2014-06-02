@@ -90,7 +90,7 @@
 	idLabel.textColor = celltextcolor;
 	idLabel.backgroundColor = cellbackcolor;
 	[cell.contentView addSubview:idLabel];
-	ZLevel *level = (ZLevel*)[model.levelContainer objectAtIndex:indexPath.row];
+	ZLevel *level = (ZLevel*)[model.levelContainer objectAtIndex:(int)indexPath.row];
 	idLabel.text = [level menuname];
 	
   return cell;
@@ -98,8 +98,8 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  NSLog(@"selected level is %d", indexPath.row);
-	ZLevel *level = (ZLevel*)[model.levelContainer objectAtIndex:indexPath.row];
+  NSLog(@"selected level is %d", (int)indexPath.row);
+	ZLevel *level = (ZLevel*)[model.levelContainer objectAtIndex:(int)indexPath.row];
   levelView.title = level.title;
   levelView.zlevel = level;
   [levelView reView];

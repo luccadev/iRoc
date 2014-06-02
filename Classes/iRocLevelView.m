@@ -47,7 +47,7 @@
   NSDate *date = [NSDate date];
   // remove the existing items
   NSArray *its = scrollView.subviews;
-  int cnt = [its count];
+  int cnt = (int)[its count];
   NSLog(@"remove %d items", cnt);
   for( int i = 0; i < cnt; i++ ) {
     if( [[its objectAtIndex:i] isKindOfClass:[iRocItem class]] ) {
@@ -244,7 +244,7 @@
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-  NSLog(@"rotation message: rearange the layout... from: %d", fromInterfaceOrientation);
+  NSLog(@"rotation message: rearange the layout... from: %d", (int)fromInterfaceOrientation);
 }
 
 - (void)gotoLocoTab {

@@ -75,7 +75,7 @@
 	idLabel.backgroundColor = cellbackcolor;
 	[cell.contentView addSubview:idLabel];
 	
-	Signal *sg = (Signal*)[sgContainer objectAtIndex:indexPath.row];
+	Signal *sg = (Signal*)[sgContainer objectAtIndex:(int)indexPath.row];
 	
   idLabel.text = sg.ID;
 	
@@ -91,7 +91,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	[_delegate sgAction:((Signal*) [sgContainer objectAtIndex:indexPath.row]).ID];
+	[_delegate sgAction:((Signal*) [sgContainer objectAtIndex:(int)indexPath.row]).ID];
 }
 
 

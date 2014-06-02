@@ -76,7 +76,7 @@
 	idLabel.backgroundColor = cellbackcolor;
 	[cell.contentView addSubview:idLabel];
 	
-	Block *bk = (Block*)[bkContainer objectAtIndex:indexPath.row];
+	Block *bk = (Block*)[bkContainer objectAtIndex:(int)indexPath.row];
 	
     //NSLog(@"COID: %@", bk.ID);
 	
@@ -88,7 +88,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	[_delegate bkAction:((Block*) [bkContainer objectAtIndex:indexPath.row]).ID];
+	[_delegate bkAction:((Block*) [bkContainer objectAtIndex:(int)indexPath.row]).ID];
 }
 
 

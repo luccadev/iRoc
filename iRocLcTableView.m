@@ -70,7 +70,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   
 	// Get the specific loc for this row.
-	Loc *loc = (Loc*)[lcContainer objectAtIndex:indexPath.row];
+	Loc *loc = (Loc*)[lcContainer objectAtIndex:(int)indexPath.row];
   return loc.cell; 
 }
 
@@ -81,7 +81,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	[_delegate lcAction:((Loc*) [lcContainer objectAtIndex:indexPath.row]).locid];
+	[_delegate lcAction:((Loc*) [lcContainer objectAtIndex:(int)indexPath.row]).locid];
 }
 
 - (id)delegate
