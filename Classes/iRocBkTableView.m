@@ -72,8 +72,8 @@
 	
 	UILabel *idLabel = [[[UILabel alloc] initWithFrame:celltextRect] autorelease];
 	idLabel.font = [UIFont boldSystemFontOfSize:cellfontsize];
-	idLabel.textColor = celltextcolor;
-	idLabel.backgroundColor = cellbackcolor;
+	idLabel.textColor = [Globals getTextColor];
+	idLabel.backgroundColor = [UIColor clearColor];
 	[cell.contentView addSubview:idLabel];
 	
 	Block *bk = (Block*)[bkContainer objectAtIndex:(int)indexPath.row];

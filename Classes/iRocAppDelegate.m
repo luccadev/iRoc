@@ -71,6 +71,7 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
   
   if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
 	  viewController.edgesForExtendedLayout = UIRectEdgeNone;
+	  systemView.edgesForExtendedLayout = UIRectEdgeNone;
   }
 
     // Optional move event.
@@ -112,10 +113,10 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
     
     
     layoutNavi = [[UINavigationController alloc] initWithRootViewController:levelTableView];
-    layoutNavi.navigationBar.tintColor = [UIColor blackColor];
+    //layoutNavi.navigationBar.tintColor = [UIColor blackColor];
     
     UINavigationController *menuNavi = [[UINavigationController alloc] initWithRootViewController:menuTableView];
-    menuNavi.navigationBar.tintColor = [UIColor blackColor];
+    //menuNavi.navigationBar.tintColor = [UIColor blackColor];
     
     // Tab 1 = Loco
     // Tab 2 = System

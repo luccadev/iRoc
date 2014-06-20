@@ -38,7 +38,8 @@
     maximumValue = 100.0;
     minimumValue = 0.0;
     
-		
+    self.backgroundColor = [UIColor clearColor];
+	
 		NSLog(@"ox=%f oy=%f cx=%f cy=%f", ox,oy,cx,cy);
 	}
     return self;
@@ -51,8 +52,8 @@
 	CGContextRef context = UIGraphicsGetCurrentContext(); 	
     //[super drawRect:rect];
 
-	CGContextSetRGBFillColor(context, .0, .0, .0, 1); 
-	CGContextFillRect(context, rect);
+	//CGContextSetRGBFillColor(context, .0, .0, .0, 1);
+	//CGContextFillRect(context, rect);
 	
   NSLog(@"qx=%f qy=%f x=%f value=%f maxrange=%f", qx,qy,x,value, maxrange);
 	

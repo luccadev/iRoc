@@ -56,6 +56,12 @@ static NSUserDefaults *defaults = 0;
 }
 
 
++ (UIColor*)getTextColor {
+  if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)
+    return [UIColor darkTextColor];
+  else
+    return [UIColor lightTextColor];
+}
 
 
 @end

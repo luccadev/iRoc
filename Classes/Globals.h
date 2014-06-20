@@ -32,4 +32,6 @@
 + (SystemSoundID)getClick;
 + (SystemSoundID)getChrr;
 + (NSUserDefaults*)getDefaults;
++ (UIColor*)getTextColor;
+
 @end

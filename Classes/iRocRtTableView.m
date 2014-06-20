@@ -65,8 +65,8 @@
 
 	UILabel *rtidLabel = [[[UILabel alloc] initWithFrame:celltextRect] autorelease];
 	rtidLabel.font = [UIFont boldSystemFontOfSize:cellfontsize];
-	rtidLabel.textColor = celltextcolor;
-	rtidLabel.backgroundColor = cellbackcolor;
+	rtidLabel.textColor = [Globals getTextColor];
+	rtidLabel.backgroundColor = [UIColor clearColor];
 	[cell.contentView addSubview:rtidLabel];
 	 	
 	Route *rt = (Route*)[rtContainer objectAtIndex:(int)indexPath.row];

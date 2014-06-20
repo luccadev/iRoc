@@ -108,8 +108,8 @@
     
 	UILabel *swidLabel = [[[UILabel alloc] initWithFrame:celltextRect] autorelease];
 	swidLabel.font = [UIFont boldSystemFontOfSize:cellfontsize];
-	swidLabel.textColor = celltextcolor;
-	swidLabel.backgroundColor = cellbackcolor;
+	swidLabel.textColor = [Globals getTextColor];
+	swidLabel.backgroundColor = [UIColor clearColor];
 	[cell.contentView addSubview:swidLabel];
 	
 	Switch *sw = (Switch*) [swContainer objectAtIndex:(int)indexPath.row];
