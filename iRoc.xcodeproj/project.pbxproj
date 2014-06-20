@@ -145,7 +145,6 @@
 		9CF226D9111AF4C30085EBF6 /* connector-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF226D5111AF4C30085EBF6 /* connector-2.png */; };
 		9CF226DA111AF4C30085EBF6 /* connector-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF226D6111AF4C30085EBF6 /* connector-3.png */; };
 		9CF226DB111AF4C30085EBF6 /* connector-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF226D7111AF4C30085EBF6 /* connector-4.png */; };
-		9CFDBF6610BD081600E9E9DE /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CFDBF6510BD081600E9E9DE /* Entitlements.plist */; };
 		D496063F1102F98E00213441 /* iRocTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D496063E1102F98E00213441 /* iRocTabBar.m */; };
 		D4965AB710F517DD00C09B9B /* iRocLcAutoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4965AB410F517DD00C09B9B /* iRocLcAutoView.m */; };
 		D4965AB810F517DD00C09B9B /* iRocSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D4965AB610F517DD00C09B9B /* iRocSlider.m */; };
@@ -416,7 +415,6 @@
 		9CF226D5111AF4C30085EBF6 /* connector-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connector-2.png"; sourceTree = "<group>"; };
 		9CF226D6111AF4C30085EBF6 /* connector-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connector-3.png"; sourceTree = "<group>"; };
 		9CF226D7111AF4C30085EBF6 /* connector-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connector-4.png"; sourceTree = "<group>"; };
-		9CFDBF6510BD081600E9E9DE /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		D496063D1102F98E00213441 /* iRocTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocTabBar.h; sourceTree = "<group>"; };
 		D496063E1102F98E00213441 /* iRocTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocTabBar.m; sourceTree = "<group>"; };
 		D4965AB310F517DD00C09B9B /* iRocLcAutoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocLcAutoView.h; sourceTree = "<group>"; };
@@ -595,7 +593,6 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				9C343D2F10B900E500750B22 /* Settings.bundle */,
-				9CFDBF6510BD081600E9E9DE /* Entitlements.plist */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -970,7 +967,6 @@
 				9C6FC8AF10B7CF05009FD6FE /* tap.aif in Resources */,
 				9C343D3010B900E500750B22 /* Settings.bundle in Resources */,
 				9CAFD95710B97B700029C16F /* Icon.png in Resources */,
-				9CFDBF6610BD081600E9E9DE /* Entitlements.plist in Resources */,
 				9CBF121910CFF15900FF29DA /* buffer-1.png in Resources */,
 				9CBF121B10CFF15900FF29DA /* buffer-2.png in Resources */,
 				9CBF121D10CFF15900FF29DA /* buffer-3.png in Resources */,
@@ -1229,11 +1225,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					"$(ARCHS_STANDARD)",
-					"$(ARCHS_UNIVERSAL_IPHONE_OS)",
-				);
-				CODE_SIGN_ENTITLEMENTS = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1242,6 +1233,7 @@
 				GCC_PREFIX_HEADER = iRoc_Prefix.pch;
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "iRoc-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = iRoc;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				VALID_ARCHS = "armv7 armv7s";
@@ -1252,16 +1244,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					"$(ARCHS_STANDARD)",
-					"$(ARCHS_UNIVERSAL_IPHONE_OS)",
-				);
-				CODE_SIGN_ENTITLEMENTS = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iRoc_Prefix.pch;
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "iRoc-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = iRoc;
 				VALID_ARCHS = "armv7 armv7s";
 			};
@@ -1323,17 +1311,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					"$(ARCHS_STANDARD)",
-					"$(ARCHS_UNIVERSAL_IPHONE_OS)",
-				);
-				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iRoc_Prefix.pch;
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "iRoc-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = iRoc;
 				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s";

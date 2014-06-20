@@ -68,7 +68,11 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
 	lcSettingsView = [[iRocLcSettingsView alloc] initWithDelegate:self andModel:model];
     levelTableView = [[iRocLevelTableView alloc] initWithDelegate:self andModel:model];
     mgv136View = [[mgv136 alloc] initWithDelegate:self];
-    
+  
+  if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
+	  viewController.edgesForExtendedLayout = UIRectEdgeNone;
+  }
+
     // Optional move event.
 	if( [defaults boolForKey:@"moveevents_preference"]) {
 		[viewController processAllEvents:(int)[defaults integerForKey:@"vdelta_preference"]];
