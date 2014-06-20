@@ -72,7 +72,7 @@
   CGRect rect = CGRectMake(CONTENTBORDER, BUTTONGAP + 0 * BUTTONHEIGHT, buttonWidth, TEXTHEIGHT);
   UILabel *label = [[UILabel alloc] initWithFrame:rect];
   label.font = [UIFont boldSystemFontOfSize:18];
-  label.textColor = [Globals getTextColor];
+  label.textColor = [UIColor lightTextColor];
   label.backgroundColor = [UIColor clearColor];
   label.text = NSLocalizedString(@"Address",@"");
   [self.view addSubview:label];
@@ -93,7 +93,7 @@
   
   label = [[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 2 * BUTTONGAP + 1 * BUTTONHEIGHT, buttonWidth, TEXTHEIGHT)];
   label.font = [UIFont boldSystemFontOfSize:18];
-  label.textColor = [Globals getTextColor];
+  label.textColor = [UIColor lightTextColor];
   label.backgroundColor = [UIColor clearColor];
   label.text = NSLocalizedString(@"Short ID",@"");
   [self.view addSubview:label];
@@ -112,7 +112,7 @@
   
   label = [[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 3 * BUTTONGAP + 2 * BUTTONHEIGHT, buttonWidth, TEXTHEIGHT)];
   label.font = [UIFont boldSystemFontOfSize:18];
-  label.textColor = [Globals getTextColor];
+  label.textColor = [UIColor lightTextColor];
   label.backgroundColor = [UIColor clearColor];
   label.text = NSLocalizedString(@"Speed steps",@"");
   [self.view addSubview:label];
@@ -129,7 +129,7 @@
   
   label = [[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 4 * BUTTONGAP + 3 * BUTTONHEIGHT, buttonWidth, TEXTHEIGHT)];
   label.font = [UIFont boldSystemFontOfSize:18];
-  label.textColor = [Globals getTextColor];
+  label.textColor = [UIColor lightTextColor];
   label.backgroundColor = [UIColor clearColor];
   label.text = NSLocalizedString(@"Protocol",@"");
   [self.view addSubview:label];
