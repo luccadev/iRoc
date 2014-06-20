@@ -25,7 +25,7 @@
 
 @class DetailView;
 
-@interface GuestLocoView : UIViewController <UITextFieldDelegate> {
+@interface GuestLocoView : UIViewController <UITextFieldDelegate, UIScrollViewDelegate> {
 	IRocConnector *rrconnection;
   Model *model;
   id delegate;
@@ -40,6 +40,7 @@
   NSString* speedStepsText;
   NSString* protocolText;
   NSString *menuname;
+	UIScrollView *scrollView;
 
 }
 @property (nonatomic, retain) DetailView *detailView;

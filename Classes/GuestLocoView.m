@@ -59,19 +59,18 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  
+  CGRect bounds1 = [[UIScreen mainScreen] applicationFrame];
+	scrollView = [[UIScrollView alloc] initWithFrame: bounds1];
+	CGSize plansize = CGSizeMake(ITEMSIZE*80, ITEMSIZE*60);
+	scrollView.contentSize = plansize;
+	scrollView.delegate = self;
+
   CGRect bounds = self.view.bounds;
-  float width = bounds.size.width;
   float buttonWidth = (bounds.size.width - (2 * CONTENTBORDER + BUTTONGAP)) / 2;
   
-  UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake((width-buttonWidth)/2, BUTTONGAP, buttonWidth, BUTTONHEIGHT)];
-  label.font = [UIFont boldSystemFontOfSize:22];
-  //label.textColor = celltextcolor;
-  label.backgroundColor = [UIColor clearColor];
-  label.textAlignment = UITextAlignmentCenter;
-  label.text = NSLocalizedString(@"Guest Loco",@"");
-  [self.view addSubview:label];
-  
-  label = [[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, BUTTONGAP + 1 * BUTTONHEIGHT, buttonWidth, TEXTHEIGHT)];
+  CGRect rect = CGRectMake(CONTENTBORDER, BUTTONGAP + 0 * BUTTONHEIGHT, buttonWidth, TEXTHEIGHT);
+  UILabel *label = [[UILabel alloc] initWithFrame:rect];
   label.font = [UIFont boldSystemFontOfSize:18];
   label.textColor = [Globals getTextColor];
   label.backgroundColor = [UIColor clearColor];
@@ -79,7 +78,7 @@
   [self.view addSubview:label];
   
   
-  textAddr = [[[UITextField alloc] initWithFrame:CGRectMake(CONTENTBORDER + BUTTONGAP + buttonWidth, BUTTONGAP + 1 * BUTTONHEIGHT, buttonWidth, TEXTHEIGHT )] autorelease];
+  textAddr = [[[UITextField alloc] initWithFrame:CGRectMake(CONTENTBORDER + BUTTONGAP + buttonWidth, BUTTONGAP + 0 * BUTTONHEIGHT, buttonWidth, TEXTHEIGHT )] autorelease];
 	textAddr.keyboardType = UIKeyboardTypeNumberPad;
 	//textAddr.textColor = [Globals getTextColor];
 	textAddr.backgroundColor = [UIColor whiteColor];
@@ -92,14 +91,14 @@
 	[self.view addSubview: textAddr];
 	
   
-  label = [[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 2 * BUTTONGAP + 2 * BUTTONHEIGHT, buttonWidth, TEXTHEIGHT)];
+  label = [[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 2 * BUTTONGAP + 1 * BUTTONHEIGHT, buttonWidth, TEXTHEIGHT)];
   label.font = [UIFont boldSystemFontOfSize:18];
   label.textColor = [Globals getTextColor];
   label.backgroundColor = [UIColor clearColor];
   label.text = NSLocalizedString(@"Short ID",@"");
   [self.view addSubview:label];
   
-  textID = [[[UITextField alloc] initWithFrame:CGRectMake(CONTENTBORDER + BUTTONGAP + buttonWidth, 2 * BUTTONGAP + 2 * BUTTONHEIGHT, buttonWidth, TEXTHEIGHT )] autorelease];
+  textID = [[[UITextField alloc] initWithFrame:CGRectMake(CONTENTBORDER + BUTTONGAP + buttonWidth, 2 * BUTTONGAP + 1 * BUTTONHEIGHT, buttonWidth, TEXTHEIGHT )] autorelease];
 	textID.keyboardType = UIKeyboardTypeAlphabet;
 	//textID.textColor = [UIColor blackColor];
 	textID.backgroundColor = [UIColor whiteColor];
@@ -111,7 +110,7 @@
 	textID.text = @"";
 	[self.view addSubview: textID];
   
-  label = [[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 3 * BUTTONGAP + 3 * BUTTONHEIGHT, buttonWidth, TEXTHEIGHT)];
+  label = [[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 3 * BUTTONGAP + 2 * BUTTONHEIGHT, buttonWidth, TEXTHEIGHT)];
   label.font = [UIFont boldSystemFontOfSize:18];
   label.textColor = [Globals getTextColor];
   label.backgroundColor = [UIColor clearColor];
@@ -120,7 +119,7 @@
   
   NSArray *itemArray = [NSArray arrayWithObjects: @"14", @"28", @"128", nil];
   speedSteps = [[UISegmentedControl alloc] initWithItems:itemArray];
-  speedSteps.frame = CGRectMake(CONTENTBORDER + BUTTONGAP + buttonWidth, 3 * BUTTONGAP + 3 * BUTTONHEIGHT, buttonWidth, TEXTHEIGHT);
+  speedSteps.frame = CGRectMake(CONTENTBORDER + BUTTONGAP + buttonWidth, 3 * BUTTONGAP + 2 * BUTTONHEIGHT, buttonWidth, TEXTHEIGHT);
   speedSteps.segmentedControlStyle = UISegmentedControlStylePlain;
   speedSteps.selectedSegmentIndex = 1;
   [speedSteps addTarget:self action:@selector(speedStepsClicked:) forControlEvents:UIControlEventValueChanged];
@@ -128,7 +127,7 @@
   [self.view addSubview:speedSteps];
   speedStepsText = @"28";
   
-  label = [[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 4 * BUTTONGAP + 4 * BUTTONHEIGHT, buttonWidth, TEXTHEIGHT)];
+  label = [[UILabel alloc] initWithFrame:CGRectMake(CONTENTBORDER, 4 * BUTTONGAP + 3 * BUTTONHEIGHT, buttonWidth, TEXTHEIGHT)];
   label.font = [UIFont boldSystemFontOfSize:18];
   label.textColor = [Globals getTextColor];
   label.backgroundColor = [UIColor clearColor];
@@ -137,7 +136,7 @@
   
   NSArray *protocolArray = [NSArray arrayWithObjects: @"DCC", @"MM", nil];
   protocol = [[UISegmentedControl alloc] initWithItems:protocolArray];
-  protocol.frame = CGRectMake(CONTENTBORDER + BUTTONGAP + buttonWidth, 4 * BUTTONGAP + 4 * BUTTONHEIGHT, buttonWidth, TEXTHEIGHT);
+  protocol.frame = CGRectMake(CONTENTBORDER + BUTTONGAP + buttonWidth, 4 * BUTTONGAP + 3 * BUTTONHEIGHT, buttonWidth, TEXTHEIGHT);
   protocol.segmentedControlStyle = UISegmentedControlStylePlain;
   protocol.selectedSegmentIndex = 0;
   [protocol addTarget:self action:@selector(protocolClicked:) forControlEvents:UIControlEventValueChanged];
@@ -145,7 +144,7 @@
   [self.view addSubview:protocol];
   protocolText = @"DCC";
   
-  CGRect rect = CGRectMake(CONTENTBORDER, 5 * BUTTONGAP + 5 * BUTTONHEIGHT, buttonWidth * 2 + BUTTONGAP, BUTTONHEIGHT);
+  rect = CGRectMake(CONTENTBORDER, 5 * BUTTONGAP + 4 * BUTTONHEIGHT, buttonWidth * 2 + BUTTONGAP, BUTTONHEIGHT);
   buttonAdd = [[iRocButton alloc] initWithFrame:rect];
   buttonAdd.frame = rect;
   [buttonAdd setTitle: NSLocalizedString(@"Add", @"") forState: UIControlStateNormal];

@@ -73,7 +73,7 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
   if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
 	  viewController.edgesForExtendedLayout = UIRectEdgeNone;
 	  aboutView.edgesForExtendedLayout = UIRectEdgeNone;
-	  //guestLocoView.edgesForExtendedLayout = UIRectEdgeNone;
+	  guestLocoView.edgesForExtendedLayout = UIRectEdgeNone;
   }
 
     // Optional move event.
@@ -196,8 +196,8 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
 	[menuItems addObject:swTableView];
 	[menuItems addObject:sgTableView];
 	[menuItems addObject:coTableView];
-    //[menuItems addObject:bkTableView];
-    //[menuItems addObject:scTableView];
+  //[menuItems addObject:bkTableView];
+  //[menuItems addObject:scTableView];
 	//[menuItems addObject:mgv136View];
 	[menuItems addObject:guestLocoView];
 	[menuItems addObject:aboutView];
