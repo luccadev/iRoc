@@ -145,6 +145,7 @@
 		9CF226D9111AF4C30085EBF6 /* connector-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF226D5111AF4C30085EBF6 /* connector-2.png */; };
 		9CF226DA111AF4C30085EBF6 /* connector-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF226D6111AF4C30085EBF6 /* connector-3.png */; };
 		9CF226DB111AF4C30085EBF6 /* connector-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF226D7111AF4C30085EBF6 /* connector-4.png */; };
+		D424FBEE1954366B001F583F /* GuestLocoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D424FBED1954366B001F583F /* GuestLocoView.m */; };
 		D496063F1102F98E00213441 /* iRocTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D496063E1102F98E00213441 /* iRocTabBar.m */; };
 		D4965AB710F517DD00C09B9B /* iRocLcAutoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4965AB410F517DD00C09B9B /* iRocLcAutoView.m */; };
 		D4965AB810F517DD00C09B9B /* iRocSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D4965AB610F517DD00C09B9B /* iRocSlider.m */; };
@@ -415,6 +416,8 @@
 		9CF226D5111AF4C30085EBF6 /* connector-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connector-2.png"; sourceTree = "<group>"; };
 		9CF226D6111AF4C30085EBF6 /* connector-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connector-3.png"; sourceTree = "<group>"; };
 		9CF226D7111AF4C30085EBF6 /* connector-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connector-4.png"; sourceTree = "<group>"; };
+		D424FBEC1954366B001F583F /* GuestLocoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuestLocoView.h; sourceTree = "<group>"; };
+		D424FBED1954366B001F583F /* GuestLocoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuestLocoView.m; sourceTree = "<group>"; };
 		D496063D1102F98E00213441 /* iRocTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocTabBar.h; sourceTree = "<group>"; };
 		D496063E1102F98E00213441 /* iRocTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocTabBar.m; sourceTree = "<group>"; };
 		D4965AB310F517DD00C09B9B /* iRocLcAutoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocLcAutoView.h; sourceTree = "<group>"; };
@@ -551,6 +554,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D424FBEC1954366B001F583F /* GuestLocoView.h */,
+				D424FBED1954366B001F583F /* GuestLocoView.m */,
 				9CA419DE13794D9F008F8EF7 /* Items */,
 				D4B9442E10FF71C200F55B64 /* Globals.h */,
 				D4B9442F10FF71C200F55B64 /* Globals.m */,
@@ -1155,6 +1160,7 @@
 				1D3623260D0F684500981E51 /* iRocAppDelegate.m in Sources */,
 				28D7ACF80DDB3853001CB0EB /* iRocViewController.m in Sources */,
 				9C00EAC610B3C5820098BA59 /* IRocConnector.m in Sources */,
+				D424FBEE1954366B001F583F /* GuestLocoView.m in Sources */,
 				9CDB1B3410B533F9001442F1 /* iRocTouchView.m in Sources */,
 				9CDB1BE610B54843001442F1 /* iRocView.m in Sources */,
 				9C72869310B81A4200567A8A /* iRocButton.m in Sources */,

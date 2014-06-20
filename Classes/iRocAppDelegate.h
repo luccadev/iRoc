@@ -42,6 +42,7 @@
 #import "iRocTurntableView.h"
 #import "iRocClock.h"
 #import "mgv136.h"
+#import "GuestLocoView.h"
 
 #import "Container.h"
 #import "Model.h"
@@ -75,6 +76,7 @@
 	IBOutlet mgv136 *mgv136View;
 
 	iRocAboutView IBOutlet *aboutView;
+	GuestLocoView IBOutlet *guestLocoView;
   
 	Model *model;
   
@@ -120,6 +122,7 @@
 @property (nonatomic, retain) IBOutlet iRocTurntableView *turntableView;
 
 @property (nonatomic, retain) IBOutlet iRocAboutView *aboutView;
+@property (nonatomic, retain) IBOutlet GuestLocoView *guestLocoView;
 
 @property (nonatomic, retain) IBOutlet mgv136 *mgv136View;
 

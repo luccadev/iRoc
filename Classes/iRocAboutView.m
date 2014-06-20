@@ -43,14 +43,16 @@
   UILabel* l = [[UILabel alloc] initWithFrame:rect];
   l.textColor = [UIColor lightGrayColor];
   l.backgroundColor = [UIColor clearColor];
-	[l setText:@"iRoc version"];	
+  l.font = [UIFont systemFontOfSize:11.0];
+	[l setText:@"iRoc version"];
   [self.view addSubview: l];
   
   rect = CGRectMake(CONTENTBORDER + 120, CONTENTBORDER, 150, 20);
   irocVersion = [[UILabel alloc] initWithFrame:rect];
   irocVersion.textColor = [UIColor lightGrayColor];
   irocVersion.backgroundColor = [UIColor clearColor];
-	[irocVersion setText:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];	
+  irocVersion.font = [UIFont systemFontOfSize:11.0];
+	[irocVersion setText:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];
   [self.view addSubview: irocVersion];
 
   NSLog(@"2");
@@ -58,13 +60,15 @@
   l = [[UILabel alloc] initWithFrame:rect];
   l.textColor = [UIColor lightGrayColor];
   l.backgroundColor = [UIColor clearColor];
-	[l setText:@"Rocrail version"];	
+  l.font = [UIFont systemFontOfSize:11.0];
+	[l setText:@"Rocrail version"];
   [self.view addSubview: l];
   
   rect = CGRectMake(CONTENTBORDER + 120, CONTENTBORDER + 30, 150, 20);
   rocrailVersion = [[UILabel alloc] initWithFrame:rect];
   rocrailVersion.textColor = [UIColor lightGrayColor];
   rocrailVersion.backgroundColor = [UIColor clearColor];
+  rocrailVersion.font = [UIFont systemFontOfSize:11.0];
 	[rocrailVersion setText:model.rocrailversion];
   [self.view addSubview: rocrailVersion];
 
@@ -73,14 +77,16 @@
   l = [[UILabel alloc] initWithFrame:rect];
   l.textColor = [UIColor lightGrayColor];
   l.backgroundColor = [UIColor clearColor];
-	[l setText:@"Connected to"];	
+  l.font = [UIFont systemFontOfSize:11.0];
+	[l setText:@"Connected to"];
   [self.view addSubview: l];
   
   rect = CGRectMake(CONTENTBORDER + 120, CONTENTBORDER + 2 * 30, 180, 20);
   rocrailConnection = [[UILabel alloc] initWithFrame:rect];
   rocrailConnection.textColor = [UIColor lightGrayColor];
   rocrailConnection.backgroundColor = [UIColor clearColor];
-  [rocrailConnection setText:[[NSString alloc] initWithFormat:@"%@:%d", 
+  rocrailConnection.font = [UIFont systemFontOfSize:11.0];
+  [rocrailConnection setText:[[NSString alloc] initWithFormat:@"%@:%d",
                               [[(iRocAppDelegate*)delegate getConnector]domain],
                               [[(iRocAppDelegate*)delegate getConnector]port]]];	
   [self.view addSubview: rocrailConnection];

@@ -31,7 +31,7 @@
 @synthesize lcTableView, rtTableView, swTableView, coTableView, bkTableView, scTableView, sgTableView, 
 menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, blockView, turntableView, mgv136View;
 
-@synthesize rrconnection, menuItems, aboutView;
+@synthesize rrconnection, menuItems, aboutView, guestLocoView;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
     NSLog(@"applicationDidFinishLaunching");
@@ -63,6 +63,7 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
     viewController = [[iRocViewController alloc] initWithDelegate:self andModel:model];
     systemView = [[iRocSystemView alloc] init];
     aboutView = [[iRocAboutView alloc] initWithDelegate:self andModel:model];
+  guestLocoView = [[GuestLocoView alloc] initWithDelegate:self andModel:model];
     menuTableView = [[iRocMenuTableView alloc] init];
     lcAutoView = [[iRocLcAutoView alloc] init];	
 	lcSettingsView = [[iRocLcSettingsView alloc] initWithDelegate:self andModel:model];
@@ -71,7 +72,8 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
   
   if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
 	  viewController.edgesForExtendedLayout = UIRectEdgeNone;
-	  systemView.edgesForExtendedLayout = UIRectEdgeNone;
+	  aboutView.edgesForExtendedLayout = UIRectEdgeNone;
+	  //guestLocoView.edgesForExtendedLayout = UIRectEdgeNone;
   }
 
     // Optional move event.
@@ -185,6 +187,7 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
     
     
 	[aboutView setMenuname:NSLocalizedString(@"Info", @"")];
+	[guestLocoView setMenuname:NSLocalizedString(@"Guest loco", @"")];
 	
 	[mgv136View setMenuname:NSLocalizedString(@"MGV136", @"")];
 	
@@ -196,6 +199,7 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
     //[menuItems addObject:bkTableView];
     //[menuItems addObject:scTableView];
 	//[menuItems addObject:mgv136View];
+	[menuItems addObject:guestLocoView];
 	[menuItems addObject:aboutView];
 	
 	[menuTableView setMenuItems:menuItems];
@@ -246,6 +250,7 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
     lcAutoView.rrconnection = rrconnection;
     lcSettingsView.rrconnection = rrconnection;
 	mgv136View.rrconnection = rrconnection;
+	guestLocoView.rrconnection = rrconnection;
 	
 	// Connect Thread
 	rrconnection.isConnected = FALSE;

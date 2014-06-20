@@ -21,6 +21,7 @@
 #define BUTTONHEIGHT 64
 #define CONTENTBORDER 8
 #define ITEMSIZE 32
+#define TEXTHEIGHT 40
 
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
