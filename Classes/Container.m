@@ -47,7 +47,8 @@
 	//[objectList addObject:object];
 	//[objectIndexList addObject:oid];
 	[theData setValue:object forKey:oid];
-	//NSLog(@"Container add %@ ...", oid);
+	NSLog(@"Container added %@ count=%d", oid, [theData count]);
+  isSorted = NO;
 }
 
 - (id) objectWithId:(NSString*) oid {

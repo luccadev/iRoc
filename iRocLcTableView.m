@@ -45,6 +45,8 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+	NSLog(@"viewDidAppear");
+  [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,6 +59,7 @@
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
+	NSLog(@"viewDidUnload");
 }
 
 
@@ -64,6 +67,7 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	NSLog(@"numberOfRowsInSection=%d", [lcContainer count]);
     return [lcContainer count];
 }
 

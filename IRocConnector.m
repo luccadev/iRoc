@@ -564,8 +564,17 @@ static NSString * const kIdElementName = @"id";
 			// Filter out our events that are coming back to us ...
 			if( ![(NSString*)[[UIDevice currentDevice] name] isEqualToString:[attributeDict valueForKey:@"throttleid"]]){
 				Loc *lc = (Loc*)[model.lcContainer objectWithId:[attributeDict valueForKey:@"id"]];
-				[lc updateWithAttributeDict:attributeDict];
-				
+        if( lc != nil ) {
+				  [lc updateWithAttributeDict:attributeDict];
+        }
+        else {
+          if( ![[attributeDict valueForKey:@"show"] isEqualToString:@"false"] ) {
+            Loc *loc = [[[Loc alloc] initWithAttributeDict:attributeDict] retain];
+            [loc setDelegate:_delegate];
+            [model.lcContainer addObject:loc withId:loc.locid];
+          }
+        }
+
 				if ( [_delegate respondsToSelector:@selector(updateLabels)] ) {
 					[_delegate performSelectorOnMainThread : @ selector(updateLabels) withObject:nil waitUntilDone:NO];
 				}

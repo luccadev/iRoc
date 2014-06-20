@@ -74,6 +74,7 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
 	  viewController.edgesForExtendedLayout = UIRectEdgeNone;
 	  aboutView.edgesForExtendedLayout = UIRectEdgeNone;
 	  guestLocoView.edgesForExtendedLayout = UIRectEdgeNone;
+	  //systemView.edgesForExtendedLayout = UIRectEdgeNone;
   }
 
     // Optional move event.
