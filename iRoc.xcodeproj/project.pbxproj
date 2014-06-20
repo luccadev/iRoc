@@ -146,6 +146,7 @@
 		9CF226DA111AF4C30085EBF6 /* connector-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF226D6111AF4C30085EBF6 /* connector-3.png */; };
 		9CF226DB111AF4C30085EBF6 /* connector-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF226D7111AF4C30085EBF6 /* connector-4.png */; };
 		D424FBEE1954366B001F583F /* GuestLocoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D424FBED1954366B001F583F /* GuestLocoView.m */; };
+		D45EE7641954796200E7E23C /* Icon~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D45EE7631954796200E7E23C /* Icon~iphone.png */; };
 		D496063F1102F98E00213441 /* iRocTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D496063E1102F98E00213441 /* iRocTabBar.m */; };
 		D4965AB710F517DD00C09B9B /* iRocLcAutoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4965AB410F517DD00C09B9B /* iRocLcAutoView.m */; };
 		D4965AB810F517DD00C09B9B /* iRocSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D4965AB610F517DD00C09B9B /* iRocSlider.m */; };
@@ -418,6 +419,7 @@
 		9CF226D7111AF4C30085EBF6 /* connector-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connector-4.png"; sourceTree = "<group>"; };
 		D424FBEC1954366B001F583F /* GuestLocoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuestLocoView.h; sourceTree = "<group>"; };
 		D424FBED1954366B001F583F /* GuestLocoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuestLocoView.m; sourceTree = "<group>"; };
+		D45EE7631954796200E7E23C /* Icon~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon~iphone.png"; sourceTree = "<group>"; };
 		D496063D1102F98E00213441 /* iRocTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocTabBar.h; sourceTree = "<group>"; };
 		D496063E1102F98E00213441 /* iRocTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocTabBar.m; sourceTree = "<group>"; };
 		D4965AB310F517DD00C09B9B /* iRocLcAutoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocLcAutoView.h; sourceTree = "<group>"; };
@@ -614,6 +616,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D45EE7631954796200E7E23C /* Icon~iphone.png */,
 				9C4299E31381BF620008E899 /* mask_1.png */,
 				9C220240111AE10B00B7F4DA /* mask.png */,
 				D4C265D310F8972B0045ED0F /* info.png */,
@@ -1077,6 +1080,7 @@
 				9C141F3D1103397500D8E911 /* dcrossingright-t-4.png in Resources */,
 				9C36D07D1103460B00DD7F82 /* ccrossing-1.png in Resources */,
 				9C36D07E1103460B00DD7F82 /* ccrossing-2.png in Resources */,
+				D45EE7641954796200E7E23C /* Icon~iphone.png in Resources */,
 				9C51BF0F110632010038CBAB /* click.aif in Resources */,
 				D4D348B911075DF9005B9D12 /* csensor-off-1.png in Resources */,
 				D4D348BA11075DF9005B9D12 /* csensor-off-2.png in Resources */,
