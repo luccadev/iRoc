@@ -138,7 +138,7 @@
 
 - (void)flip {
 	NSLog(@"flip sw %@", Id);
-	[delegate sendMessage:@"sw" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<sw id=\"%@\" cmd=\"flip\"/>", swid]]];
+	[delegate sendMessage:@"sw" message:[[NSString alloc] initWithString: [NSString stringWithFormat: @"<sw id=\"%@\" manualcmd=\"true\" cmd=\"flip\"/>", swid]]];
 }
 
 - (void)updateEvent {
