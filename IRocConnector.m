@@ -595,8 +595,9 @@ static NSString * const kIdElementName = @"id";
 			if( ![(NSString*)[[UIDevice currentDevice] name] isEqualToString:[attributeDict valueForKey:@"throttleid"]]){
 			
 				Loc *lc = (Loc*)[model.lcContainer objectWithId:[attributeDict valueForKey:@"id"]];
-				[lc updateWithAttributeDict:attributeDict];
-				
+        if( lc != nil ) {
+				  [lc updateWithAttributeDict:attributeDict];
+				}
 				if ( [_delegate respondsToSelector:@selector(locSetSlider)] ) {
 					[_delegate performSelectorOnMainThread : @ selector(locSetSlider) withObject:nil waitUntilDone:NO];
 				} 
@@ -618,14 +619,15 @@ static NSString * const kIdElementName = @"id";
 	  [model.swContainer addObject:sw withId:idAttribute];
     }
     else {
-	  NSString *state = [attributeDict valueForKey:@"state"];
-	  Switch *sw = (Switch*) [model.swContainer objectWithId:idAttribute];		
-	  [sw setState:state];
-    [sw updateEvent];
-		
-	  if ( [_delegate respondsToSelector:@selector(swListLoaded)] ) {
-			[_delegate performSelectorOnMainThread : @ selector(swListLoaded ) withObject:nil waitUntilDone:NO];
-	  } 
+	    NSString *state = [attributeDict valueForKey:@"state"];
+	    Switch *sw = (Switch*) [model.swContainer objectWithId:idAttribute];
+      if( sw != nil ) {
+	      [sw setState:state];
+        [sw updateEvent];
+      }
+	    if ( [_delegate respondsToSelector:@selector(swListLoaded)] ) {
+			  [_delegate performSelectorOnMainThread : @ selector(swListLoaded ) withObject:nil waitUntilDone:NO];
+	    }
 		
       NSLog(@"switch event state=%@", state);		
     }
@@ -653,9 +655,11 @@ static NSString * const kIdElementName = @"id";
       NSString *Id = [attributeDict valueForKey:kIdElementName];
       NSString *state = [attributeDict valueForKey:@"state"];
       NSLog(@"track event state=%@", state);		
-      Sensor *fb = (Sensor*) [model.fbContainer objectWithId:Id];		
-      [fb setState:state];
-      [fb updateEvent];
+      Sensor *fb = (Sensor*) [model.fbContainer objectWithId:Id];
+      if( fb != nil ) {
+        [fb setState:state];
+        [fb updateEvent];
+      }
     }
     
 	} else if ([elementName isEqualToString:@"sg"]) {
@@ -674,10 +678,11 @@ static NSString * const kIdElementName = @"id";
     }
     else {
       NSString *state = [attributeDict valueForKey:@"state"];
-      Signal *sg = (Signal*) [model.sgContainer objectWithId:idAttribute];		
-      [sg setState:state];
-      [sg updateEvent];
-
+      Signal *sg = (Signal*) [model.sgContainer objectWithId:idAttribute];
+      if( sg != nil ) {
+        [sg setState:state];
+        [sg updateEvent];
+      }
       if ( [_delegate respondsToSelector:@selector(sgListLoaded)] ) {
         [_delegate performSelectorOnMainThread : @ selector(sgListLoaded ) withObject:nil waitUntilDone:NO];
       } 
@@ -710,9 +715,11 @@ static NSString * const kIdElementName = @"id";
     } else {
 			NSString *state = [attributeDict valueForKey:@"state"];
 			Output *co = (Output*) [model.coContainer objectWithId:idAttribute];
-      [co updateWithAttributeDict:attributeDict];
-			[co setState:state];
-      [co updateEvent];
+      if( co != nil ) {
+        [co updateWithAttributeDict:attributeDict];
+			  [co setState:state];
+        [co updateEvent];
+      }
 			if ( [_delegate respondsToSelector:@selector(coListLoaded)] ) {
 				[_delegate performSelectorOnMainThread : @ selector(coListLoaded ) withObject:nil waitUntilDone:NO];
 			} 
@@ -733,9 +740,11 @@ static NSString * const kIdElementName = @"id";
     } else {
 			NSString *state = [attributeDict valueForKey:@"state"];
 			Block *bk = (Block*) [model.bkContainer objectWithId:idAttribute];
-         [bk updateWithAttributeDict:attributeDict];
+      if( bk != nil ) {
+        [bk updateWithAttributeDict:attributeDict];
         //[bk setState:state];
-      [bk updateEvent];
+        [bk updateEvent];
+      }
 			if ( [_delegate respondsToSelector:@selector(bkListLoaded)] ) {
 				[_delegate performSelectorOnMainThread : @ selector(bkListLoaded ) withObject:nil waitUntilDone:NO];
 			} 
@@ -752,8 +761,10 @@ static NSString * const kIdElementName = @"id";
       [model.txContainer addObject:tx withId:idAttribute];
     } else {
 			Text *tx = (Text*) [model.txContainer objectWithId:idAttribute];
-      [tx updateWithAttributeDict:attributeDict];
-      [tx updateEvent];
+      if( tx != nil ) {
+        [tx updateWithAttributeDict:attributeDict];
+        [tx updateEvent];
+      }
     }
         
     } else if ([elementName isEqualToString:@"tt"]) {
@@ -767,11 +778,11 @@ static NSString * const kIdElementName = @"id";
             [model.ttContainer addObject:tt withId:idAttribute];
     } else {
 			Turntable *tt = (Turntable*) [model.ttContainer objectWithId:idAttribute];
-            [tt updateWithAttributeDict:attributeDict];
-            [tt updateEvent];
-        
-        
-            NSLog(@"parser: tt: %@ ", [attributeDict valueForKey:@"cmd"]);
+      if( tt != nil ) {
+        [tt updateWithAttributeDict:attributeDict];
+        [tt updateEvent];
+         NSLog(@"parser: tt: %@ ", [attributeDict valueForKey:@"cmd"]);
+      }
     }
         
     } else if ([elementName isEqualToString:@"track"] && currentTT != nil ) {
@@ -798,8 +809,9 @@ static NSString * const kIdElementName = @"id";
 		NSString *data = [attributeDict valueForKey:@"data"];
     if( [data length] > 0 ) {
 			Loc* lc = [model.lcContainer objectWithId:relAttribute];
-      [lc setLocpicdata:data]; 
-			
+      if( lc != nil ) {
+        [lc setLocpicdata:data]; 
+			}
 			locpiccounter--;
 			NSLog(@"remaining pics: %d", locpiccounter);
 			if( locpiccounter == 0) {
