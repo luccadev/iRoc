@@ -26,6 +26,9 @@
 @interface Signal : Item {
 	NSString *ID;
   int Aspects;
+	NSString *SignalType;
+  Boolean Distant;
+  Boolean Shunting;
 }
 
 @property (nonatomic, retain) NSString *ID;

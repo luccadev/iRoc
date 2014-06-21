@@ -31,6 +31,9 @@
   if( self = [super initWithAttributeDict:attributeDict] ) {
     NSString *tmp = [Globals getAttribute:@"aspects" fromDict:attributeDict withDefault:@"3"];
     Aspects = [tmp intValue];
+    SignalType = [Globals getAttribute:@"signal" fromDict:attributeDict withDefault:@"main"];
+    Distant = [SignalType isEqual:@"distant"];
+    Shunting = [SignalType isEqual:@"shunting"];
   }
   return self;
 }
@@ -44,25 +47,35 @@
     orinr = 3;
   else if( orinr == 3 )
     orinr = 1;
-  
+
+  NSString *statetype = @"";
 	NSString *imgname = @"";
-	if( Aspects == 2 ) {
+  
+  if( Distant) {
     if( [self.state isEqual:@"red"])
-	    imgname = [NSString stringWithFormat:@"signal2_r_%d.png", orinr];
+	  	imgname = [NSString stringWithFormat:@"signaldistant_r_%@%d.png", statetype, orinr];
     else if( [self.state isEqual:@"green"])
-      imgname = [NSString stringWithFormat:@"signal2_g_%d.png", orinr];
-    else
-		  imgname = [NSString stringWithFormat:@"signal2_y_%d.png", orinr];
+		  imgname = [NSString stringWithFormat:@"signaldistant_g_%@%d.png", statetype, orinr];
+    else if( [self.state isEqual:@"yellow"])
+		  imgname = [NSString stringWithFormat:@"signaldistant_y_%@%d.png", statetype, orinr];
+	  else
+		  imgname = [NSString stringWithFormat:@"signaldistant_w_%@%d.png", statetype, orinr];
+  }
+  else if( Shunting) {
+    if( [self.state isEqual:@"red"])
+	  	imgname = [NSString stringWithFormat:@"signalshunting_r_%@%d.png", statetype, orinr];
+	  else
+		  imgname = [NSString stringWithFormat:@"signalshunting_w_%@%d.png", statetype, orinr];
   }
   else {
     if( [self.state isEqual:@"red"])
-	    imgname = [NSString stringWithFormat:@"signal-r-%d.png", orinr];
+	  	imgname = [NSString stringWithFormat:@"signal%d_r_%@%d.png", Aspects, statetype, orinr];
     else if( [self.state isEqual:@"green"])
-      imgname = [NSString stringWithFormat:@"signal-g-%d.png", orinr];
+		  imgname = [NSString stringWithFormat:@"signal%d_g_%@%d.png", Aspects, statetype, orinr];
     else if( [self.state isEqual:@"yellow"])
-		  imgname = [NSString stringWithFormat:@"signal-y-%d.png", orinr];
-    else 
-		  imgname = [NSString stringWithFormat:@"signal-w-%d.png", orinr];
+		  imgname = [NSString stringWithFormat:@"signal%d_y_%@%d.png", Aspects, statetype, orinr];
+	  else
+		  imgname = [NSString stringWithFormat:@"signal%d_w_%@%d.png", Aspects, statetype, orinr];
   }
   
 	return imgname;

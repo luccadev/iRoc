@@ -224,6 +224,114 @@
 		D4AF4901195556CE00B66544 /* accessory_54_off_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF48E1195556CE00B66544 /* accessory_54_off_2.png */; };
 		D4AF4902195556CE00B66544 /* accessory_54_on_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF48E2195556CE00B66544 /* accessory_54_on_1.png */; };
 		D4AF4903195556CE00B66544 /* accessory_54_on_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF48E3195556CE00B66544 /* accessory_54_on_2.png */; };
+		D4AF494C19555FFB00B66544 /* signaldistant_g_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF490419555FFA00B66544 /* signaldistant_g_1.png */; };
+		D4AF494D19555FFB00B66544 /* signaldistant_g_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF490519555FFA00B66544 /* signaldistant_g_2.png */; };
+		D4AF494E19555FFB00B66544 /* signaldistant_g_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF490619555FFA00B66544 /* signaldistant_g_3.png */; };
+		D4AF494F19555FFB00B66544 /* signaldistant_g_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF490719555FFA00B66544 /* signaldistant_g_4.png */; };
+		D4AF495019555FFB00B66544 /* signaldistant_g_occ_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF490819555FFA00B66544 /* signaldistant_g_occ_1.png */; };
+		D4AF495119555FFB00B66544 /* signaldistant_g_occ_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF490919555FFA00B66544 /* signaldistant_g_occ_2.png */; };
+		D4AF495219555FFB00B66544 /* signaldistant_g_occ_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF490A19555FFA00B66544 /* signaldistant_g_occ_3.png */; };
+		D4AF495319555FFB00B66544 /* signaldistant_g_occ_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF490B19555FFA00B66544 /* signaldistant_g_occ_4.png */; };
+		D4AF495419555FFB00B66544 /* signaldistant_g_route_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF490C19555FFA00B66544 /* signaldistant_g_route_1.png */; };
+		D4AF495519555FFB00B66544 /* signaldistant_g_route_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF490D19555FFA00B66544 /* signaldistant_g_route_2.png */; };
+		D4AF495619555FFB00B66544 /* signaldistant_g_route_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF490E19555FFA00B66544 /* signaldistant_g_route_3.png */; };
+		D4AF495719555FFB00B66544 /* signaldistant_g_route_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF490F19555FFA00B66544 /* signaldistant_g_route_4.png */; };
+		D4AF495819555FFB00B66544 /* signaldistant_r_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF491019555FFA00B66544 /* signaldistant_r_1.png */; };
+		D4AF495919555FFB00B66544 /* signaldistant_r_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF491119555FFA00B66544 /* signaldistant_r_2.png */; };
+		D4AF495A19555FFB00B66544 /* signaldistant_r_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF491219555FFA00B66544 /* signaldistant_r_3.png */; };
+		D4AF495B19555FFB00B66544 /* signaldistant_r_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF491319555FFA00B66544 /* signaldistant_r_4.png */; };
+		D4AF495C19555FFB00B66544 /* signaldistant_r_occ_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF491419555FFA00B66544 /* signaldistant_r_occ_1.png */; };
+		D4AF495D19555FFB00B66544 /* signaldistant_r_occ_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF491519555FFA00B66544 /* signaldistant_r_occ_2.png */; };
+		D4AF495E19555FFB00B66544 /* signaldistant_r_occ_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF491619555FFA00B66544 /* signaldistant_r_occ_3.png */; };
+		D4AF495F19555FFB00B66544 /* signaldistant_r_occ_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF491719555FFA00B66544 /* signaldistant_r_occ_4.png */; };
+		D4AF496019555FFB00B66544 /* signaldistant_r_route_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF491819555FFA00B66544 /* signaldistant_r_route_1.png */; };
+		D4AF496119555FFB00B66544 /* signaldistant_r_route_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF491919555FFA00B66544 /* signaldistant_r_route_2.png */; };
+		D4AF496219555FFB00B66544 /* signaldistant_r_route_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF491A19555FFA00B66544 /* signaldistant_r_route_3.png */; };
+		D4AF496319555FFB00B66544 /* signaldistant_r_route_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF491B19555FFA00B66544 /* signaldistant_r_route_4.png */; };
+		D4AF496419555FFB00B66544 /* signaldistant_w_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF491C19555FFA00B66544 /* signaldistant_w_1.png */; };
+		D4AF496519555FFB00B66544 /* signaldistant_w_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF491D19555FFA00B66544 /* signaldistant_w_2.png */; };
+		D4AF496619555FFB00B66544 /* signaldistant_w_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF491E19555FFA00B66544 /* signaldistant_w_3.png */; };
+		D4AF496719555FFB00B66544 /* signaldistant_w_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF491F19555FFA00B66544 /* signaldistant_w_4.png */; };
+		D4AF496819555FFB00B66544 /* signaldistant_w_occ_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF492019555FFA00B66544 /* signaldistant_w_occ_1.png */; };
+		D4AF496919555FFB00B66544 /* signaldistant_w_occ_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF492119555FFA00B66544 /* signaldistant_w_occ_2.png */; };
+		D4AF496A19555FFB00B66544 /* signaldistant_w_occ_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF492219555FFA00B66544 /* signaldistant_w_occ_3.png */; };
+		D4AF496B19555FFB00B66544 /* signaldistant_w_occ_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF492319555FFA00B66544 /* signaldistant_w_occ_4.png */; };
+		D4AF496C19555FFB00B66544 /* signaldistant_w_route_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF492419555FFA00B66544 /* signaldistant_w_route_1.png */; };
+		D4AF496D19555FFB00B66544 /* signaldistant_w_route_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF492519555FFA00B66544 /* signaldistant_w_route_2.png */; };
+		D4AF496E19555FFB00B66544 /* signaldistant_w_route_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF492619555FFA00B66544 /* signaldistant_w_route_3.png */; };
+		D4AF496F19555FFB00B66544 /* signaldistant_w_route_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF492719555FFA00B66544 /* signaldistant_w_route_4.png */; };
+		D4AF497019555FFB00B66544 /* signaldistant_y_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF492819555FFA00B66544 /* signaldistant_y_1.png */; };
+		D4AF497119555FFB00B66544 /* signaldistant_y_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF492919555FFA00B66544 /* signaldistant_y_2.png */; };
+		D4AF497219555FFB00B66544 /* signaldistant_y_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF492A19555FFA00B66544 /* signaldistant_y_3.png */; };
+		D4AF497319555FFB00B66544 /* signaldistant_y_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF492B19555FFA00B66544 /* signaldistant_y_4.png */; };
+		D4AF497419555FFB00B66544 /* signaldistant_y_occ_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF492C19555FFA00B66544 /* signaldistant_y_occ_1.png */; };
+		D4AF497519555FFB00B66544 /* signaldistant_y_occ_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF492D19555FFA00B66544 /* signaldistant_y_occ_2.png */; };
+		D4AF497619555FFB00B66544 /* signaldistant_y_occ_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF492E19555FFA00B66544 /* signaldistant_y_occ_3.png */; };
+		D4AF497719555FFB00B66544 /* signaldistant_y_occ_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF492F19555FFA00B66544 /* signaldistant_y_occ_4.png */; };
+		D4AF497819555FFB00B66544 /* signaldistant_y_route_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF493019555FFA00B66544 /* signaldistant_y_route_1.png */; };
+		D4AF497919555FFB00B66544 /* signaldistant_y_route_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF493119555FFA00B66544 /* signaldistant_y_route_2.png */; };
+		D4AF497A19555FFB00B66544 /* signaldistant_y_route_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF493219555FFA00B66544 /* signaldistant_y_route_3.png */; };
+		D4AF497B19555FFB00B66544 /* signaldistant_y_route_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF493319555FFA00B66544 /* signaldistant_y_route_4.png */; };
+		D4AF497C19555FFB00B66544 /* signalshunting_r_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF493419555FFA00B66544 /* signalshunting_r_1.png */; };
+		D4AF497D19555FFB00B66544 /* signalshunting_r_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF493519555FFA00B66544 /* signalshunting_r_2.png */; };
+		D4AF497E19555FFB00B66544 /* signalshunting_r_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF493619555FFA00B66544 /* signalshunting_r_3.png */; };
+		D4AF497F19555FFB00B66544 /* signalshunting_r_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF493719555FFA00B66544 /* signalshunting_r_4.png */; };
+		D4AF498019555FFB00B66544 /* signalshunting_r_occ_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF493819555FFA00B66544 /* signalshunting_r_occ_1.png */; };
+		D4AF498119555FFB00B66544 /* signalshunting_r_occ_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF493919555FFA00B66544 /* signalshunting_r_occ_2.png */; };
+		D4AF498219555FFB00B66544 /* signalshunting_r_occ_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF493A19555FFA00B66544 /* signalshunting_r_occ_3.png */; };
+		D4AF498319555FFB00B66544 /* signalshunting_r_occ_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF493B19555FFA00B66544 /* signalshunting_r_occ_4.png */; };
+		D4AF498419555FFB00B66544 /* signalshunting_r_route_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF493C19555FFA00B66544 /* signalshunting_r_route_1.png */; };
+		D4AF498519555FFB00B66544 /* signalshunting_r_route_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF493D19555FFA00B66544 /* signalshunting_r_route_2.png */; };
+		D4AF498619555FFB00B66544 /* signalshunting_r_route_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF493E19555FFA00B66544 /* signalshunting_r_route_3.png */; };
+		D4AF498719555FFB00B66544 /* signalshunting_r_route_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF493F19555FFA00B66544 /* signalshunting_r_route_4.png */; };
+		D4AF498819555FFB00B66544 /* signalshunting_w_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF494019555FFA00B66544 /* signalshunting_w_1.png */; };
+		D4AF498919555FFB00B66544 /* signalshunting_w_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF494119555FFA00B66544 /* signalshunting_w_2.png */; };
+		D4AF498A19555FFB00B66544 /* signalshunting_w_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF494219555FFA00B66544 /* signalshunting_w_3.png */; };
+		D4AF498B19555FFB00B66544 /* signalshunting_w_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF494319555FFA00B66544 /* signalshunting_w_4.png */; };
+		D4AF498C19555FFB00B66544 /* signalshunting_w_occ_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF494419555FFA00B66544 /* signalshunting_w_occ_1.png */; };
+		D4AF498D19555FFB00B66544 /* signalshunting_w_occ_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF494519555FFA00B66544 /* signalshunting_w_occ_2.png */; };
+		D4AF498E19555FFB00B66544 /* signalshunting_w_occ_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF494619555FFA00B66544 /* signalshunting_w_occ_3.png */; };
+		D4AF498F19555FFB00B66544 /* signalshunting_w_occ_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF494719555FFA00B66544 /* signalshunting_w_occ_4.png */; };
+		D4AF499019555FFB00B66544 /* signalshunting_w_route_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF494819555FFA00B66544 /* signalshunting_w_route_1.png */; };
+		D4AF499119555FFB00B66544 /* signalshunting_w_route_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF494919555FFA00B66544 /* signalshunting_w_route_2.png */; };
+		D4AF499219555FFB00B66544 /* signalshunting_w_route_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF494A19555FFA00B66544 /* signalshunting_w_route_3.png */; };
+		D4AF499319555FFB00B66544 /* signalshunting_w_route_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF494B19555FFA00B66544 /* signalshunting_w_route_4.png */; };
+		D4AF49B8195560A000B66544 /* signal3_g_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF4994195560A000B66544 /* signal3_g_1.png */; };
+		D4AF49B9195560A000B66544 /* signal3_g_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF4995195560A000B66544 /* signal3_g_2.png */; };
+		D4AF49BA195560A000B66544 /* signal3_g_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF4996195560A000B66544 /* signal3_g_3.png */; };
+		D4AF49BB195560A000B66544 /* signal3_g_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF4997195560A000B66544 /* signal3_g_4.png */; };
+		D4AF49BC195560A000B66544 /* signal3_g_occ_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF4998195560A000B66544 /* signal3_g_occ_1.png */; };
+		D4AF49BD195560A000B66544 /* signal3_g_occ_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF4999195560A000B66544 /* signal3_g_occ_2.png */; };
+		D4AF49BE195560A000B66544 /* signal3_g_occ_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF499A195560A000B66544 /* signal3_g_occ_3.png */; };
+		D4AF49BF195560A000B66544 /* signal3_g_occ_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF499B195560A000B66544 /* signal3_g_occ_4.png */; };
+		D4AF49C0195560A000B66544 /* signal3_g_route_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF499C195560A000B66544 /* signal3_g_route_1.png */; };
+		D4AF49C1195560A000B66544 /* signal3_g_route_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF499D195560A000B66544 /* signal3_g_route_2.png */; };
+		D4AF49C2195560A000B66544 /* signal3_g_route_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF499E195560A000B66544 /* signal3_g_route_3.png */; };
+		D4AF49C3195560A000B66544 /* signal3_g_route_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF499F195560A000B66544 /* signal3_g_route_4.png */; };
+		D4AF49C4195560A000B66544 /* signal3_r_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49A0195560A000B66544 /* signal3_r_1.png */; };
+		D4AF49C5195560A000B66544 /* signal3_r_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49A1195560A000B66544 /* signal3_r_2.png */; };
+		D4AF49C6195560A000B66544 /* signal3_r_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49A2195560A000B66544 /* signal3_r_3.png */; };
+		D4AF49C7195560A000B66544 /* signal3_r_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49A3195560A000B66544 /* signal3_r_4.png */; };
+		D4AF49C8195560A000B66544 /* signal3_r_occ_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49A4195560A000B66544 /* signal3_r_occ_1.png */; };
+		D4AF49C9195560A000B66544 /* signal3_r_occ_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49A5195560A000B66544 /* signal3_r_occ_2.png */; };
+		D4AF49CA195560A000B66544 /* signal3_r_occ_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49A6195560A000B66544 /* signal3_r_occ_3.png */; };
+		D4AF49CB195560A000B66544 /* signal3_r_occ_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49A7195560A000B66544 /* signal3_r_occ_4.png */; };
+		D4AF49CC195560A000B66544 /* signal3_r_route_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49A8195560A000B66544 /* signal3_r_route_1.png */; };
+		D4AF49CD195560A000B66544 /* signal3_r_route_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49A9195560A000B66544 /* signal3_r_route_2.png */; };
+		D4AF49CE195560A000B66544 /* signal3_r_route_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49AA195560A000B66544 /* signal3_r_route_3.png */; };
+		D4AF49CF195560A000B66544 /* signal3_r_route_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49AB195560A000B66544 /* signal3_r_route_4.png */; };
+		D4AF49D0195560A000B66544 /* signal3_y_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49AC195560A000B66544 /* signal3_y_1.png */; };
+		D4AF49D1195560A000B66544 /* signal3_y_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49AD195560A000B66544 /* signal3_y_2.png */; };
+		D4AF49D2195560A000B66544 /* signal3_y_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49AE195560A000B66544 /* signal3_y_3.png */; };
+		D4AF49D3195560A000B66544 /* signal3_y_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49AF195560A000B66544 /* signal3_y_4.png */; };
+		D4AF49D4195560A000B66544 /* signal3_y_occ_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49B0195560A000B66544 /* signal3_y_occ_1.png */; };
+		D4AF49D5195560A000B66544 /* signal3_y_occ_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49B1195560A000B66544 /* signal3_y_occ_2.png */; };
+		D4AF49D6195560A000B66544 /* signal3_y_occ_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49B2195560A000B66544 /* signal3_y_occ_3.png */; };
+		D4AF49D7195560A000B66544 /* signal3_y_occ_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49B3195560A000B66544 /* signal3_y_occ_4.png */; };
+		D4AF49D8195560A000B66544 /* signal3_y_route_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49B4195560A000B66544 /* signal3_y_route_1.png */; };
+		D4AF49D9195560A000B66544 /* signal3_y_route_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49B5195560A000B66544 /* signal3_y_route_2.png */; };
+		D4AF49DA195560A000B66544 /* signal3_y_route_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49B6195560A000B66544 /* signal3_y_route_3.png */; };
+		D4AF49DB195560A000B66544 /* signal3_y_route_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AF49B7195560A000B66544 /* signal3_y_route_4.png */; };
 		D4B9443010FF71C200F55B64 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B9442F10FF71C200F55B64 /* Globals.m */; };
 		D4B9443C10FF71F600F55B64 /* threeway-l-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B9443910FF71F600F55B64 /* threeway-l-1.png */; };
 		D4B9443D10FF71F600F55B64 /* threeway-r-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B9443A10FF71F600F55B64 /* threeway-r-1.png */; };
@@ -535,6 +643,114 @@
 		D4AF48E1195556CE00B66544 /* accessory_54_off_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accessory_54_off_2.png; sourceTree = "<group>"; };
 		D4AF48E2195556CE00B66544 /* accessory_54_on_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accessory_54_on_1.png; sourceTree = "<group>"; };
 		D4AF48E3195556CE00B66544 /* accessory_54_on_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accessory_54_on_2.png; sourceTree = "<group>"; };
+		D4AF490419555FFA00B66544 /* signaldistant_g_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_g_1.png; sourceTree = "<group>"; };
+		D4AF490519555FFA00B66544 /* signaldistant_g_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_g_2.png; sourceTree = "<group>"; };
+		D4AF490619555FFA00B66544 /* signaldistant_g_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_g_3.png; sourceTree = "<group>"; };
+		D4AF490719555FFA00B66544 /* signaldistant_g_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_g_4.png; sourceTree = "<group>"; };
+		D4AF490819555FFA00B66544 /* signaldistant_g_occ_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_g_occ_1.png; sourceTree = "<group>"; };
+		D4AF490919555FFA00B66544 /* signaldistant_g_occ_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_g_occ_2.png; sourceTree = "<group>"; };
+		D4AF490A19555FFA00B66544 /* signaldistant_g_occ_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_g_occ_3.png; sourceTree = "<group>"; };
+		D4AF490B19555FFA00B66544 /* signaldistant_g_occ_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_g_occ_4.png; sourceTree = "<group>"; };
+		D4AF490C19555FFA00B66544 /* signaldistant_g_route_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_g_route_1.png; sourceTree = "<group>"; };
+		D4AF490D19555FFA00B66544 /* signaldistant_g_route_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_g_route_2.png; sourceTree = "<group>"; };
+		D4AF490E19555FFA00B66544 /* signaldistant_g_route_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_g_route_3.png; sourceTree = "<group>"; };
+		D4AF490F19555FFA00B66544 /* signaldistant_g_route_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_g_route_4.png; sourceTree = "<group>"; };
+		D4AF491019555FFA00B66544 /* signaldistant_r_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_r_1.png; sourceTree = "<group>"; };
+		D4AF491119555FFA00B66544 /* signaldistant_r_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_r_2.png; sourceTree = "<group>"; };
+		D4AF491219555FFA00B66544 /* signaldistant_r_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_r_3.png; sourceTree = "<group>"; };
+		D4AF491319555FFA00B66544 /* signaldistant_r_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_r_4.png; sourceTree = "<group>"; };
+		D4AF491419555FFA00B66544 /* signaldistant_r_occ_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_r_occ_1.png; sourceTree = "<group>"; };
+		D4AF491519555FFA00B66544 /* signaldistant_r_occ_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_r_occ_2.png; sourceTree = "<group>"; };
+		D4AF491619555FFA00B66544 /* signaldistant_r_occ_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_r_occ_3.png; sourceTree = "<group>"; };
+		D4AF491719555FFA00B66544 /* signaldistant_r_occ_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_r_occ_4.png; sourceTree = "<group>"; };
+		D4AF491819555FFA00B66544 /* signaldistant_r_route_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_r_route_1.png; sourceTree = "<group>"; };
+		D4AF491919555FFA00B66544 /* signaldistant_r_route_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_r_route_2.png; sourceTree = "<group>"; };
+		D4AF491A19555FFA00B66544 /* signaldistant_r_route_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_r_route_3.png; sourceTree = "<group>"; };
+		D4AF491B19555FFA00B66544 /* signaldistant_r_route_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_r_route_4.png; sourceTree = "<group>"; };
+		D4AF491C19555FFA00B66544 /* signaldistant_w_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_w_1.png; sourceTree = "<group>"; };
+		D4AF491D19555FFA00B66544 /* signaldistant_w_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_w_2.png; sourceTree = "<group>"; };
+		D4AF491E19555FFA00B66544 /* signaldistant_w_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_w_3.png; sourceTree = "<group>"; };
+		D4AF491F19555FFA00B66544 /* signaldistant_w_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_w_4.png; sourceTree = "<group>"; };
+		D4AF492019555FFA00B66544 /* signaldistant_w_occ_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_w_occ_1.png; sourceTree = "<group>"; };
+		D4AF492119555FFA00B66544 /* signaldistant_w_occ_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_w_occ_2.png; sourceTree = "<group>"; };
+		D4AF492219555FFA00B66544 /* signaldistant_w_occ_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_w_occ_3.png; sourceTree = "<group>"; };
+		D4AF492319555FFA00B66544 /* signaldistant_w_occ_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_w_occ_4.png; sourceTree = "<group>"; };
+		D4AF492419555FFA00B66544 /* signaldistant_w_route_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_w_route_1.png; sourceTree = "<group>"; };
+		D4AF492519555FFA00B66544 /* signaldistant_w_route_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_w_route_2.png; sourceTree = "<group>"; };
+		D4AF492619555FFA00B66544 /* signaldistant_w_route_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_w_route_3.png; sourceTree = "<group>"; };
+		D4AF492719555FFA00B66544 /* signaldistant_w_route_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_w_route_4.png; sourceTree = "<group>"; };
+		D4AF492819555FFA00B66544 /* signaldistant_y_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_y_1.png; sourceTree = "<group>"; };
+		D4AF492919555FFA00B66544 /* signaldistant_y_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_y_2.png; sourceTree = "<group>"; };
+		D4AF492A19555FFA00B66544 /* signaldistant_y_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_y_3.png; sourceTree = "<group>"; };
+		D4AF492B19555FFA00B66544 /* signaldistant_y_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_y_4.png; sourceTree = "<group>"; };
+		D4AF492C19555FFA00B66544 /* signaldistant_y_occ_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_y_occ_1.png; sourceTree = "<group>"; };
+		D4AF492D19555FFA00B66544 /* signaldistant_y_occ_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_y_occ_2.png; sourceTree = "<group>"; };
+		D4AF492E19555FFA00B66544 /* signaldistant_y_occ_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_y_occ_3.png; sourceTree = "<group>"; };
+		D4AF492F19555FFA00B66544 /* signaldistant_y_occ_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_y_occ_4.png; sourceTree = "<group>"; };
+		D4AF493019555FFA00B66544 /* signaldistant_y_route_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_y_route_1.png; sourceTree = "<group>"; };
+		D4AF493119555FFA00B66544 /* signaldistant_y_route_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_y_route_2.png; sourceTree = "<group>"; };
+		D4AF493219555FFA00B66544 /* signaldistant_y_route_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_y_route_3.png; sourceTree = "<group>"; };
+		D4AF493319555FFA00B66544 /* signaldistant_y_route_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signaldistant_y_route_4.png; sourceTree = "<group>"; };
+		D4AF493419555FFA00B66544 /* signalshunting_r_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_r_1.png; sourceTree = "<group>"; };
+		D4AF493519555FFA00B66544 /* signalshunting_r_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_r_2.png; sourceTree = "<group>"; };
+		D4AF493619555FFA00B66544 /* signalshunting_r_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_r_3.png; sourceTree = "<group>"; };
+		D4AF493719555FFA00B66544 /* signalshunting_r_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_r_4.png; sourceTree = "<group>"; };
+		D4AF493819555FFA00B66544 /* signalshunting_r_occ_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_r_occ_1.png; sourceTree = "<group>"; };
+		D4AF493919555FFA00B66544 /* signalshunting_r_occ_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_r_occ_2.png; sourceTree = "<group>"; };
+		D4AF493A19555FFA00B66544 /* signalshunting_r_occ_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_r_occ_3.png; sourceTree = "<group>"; };
+		D4AF493B19555FFA00B66544 /* signalshunting_r_occ_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_r_occ_4.png; sourceTree = "<group>"; };
+		D4AF493C19555FFA00B66544 /* signalshunting_r_route_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_r_route_1.png; sourceTree = "<group>"; };
+		D4AF493D19555FFA00B66544 /* signalshunting_r_route_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_r_route_2.png; sourceTree = "<group>"; };
+		D4AF493E19555FFA00B66544 /* signalshunting_r_route_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_r_route_3.png; sourceTree = "<group>"; };
+		D4AF493F19555FFA00B66544 /* signalshunting_r_route_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_r_route_4.png; sourceTree = "<group>"; };
+		D4AF494019555FFA00B66544 /* signalshunting_w_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_w_1.png; sourceTree = "<group>"; };
+		D4AF494119555FFA00B66544 /* signalshunting_w_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_w_2.png; sourceTree = "<group>"; };
+		D4AF494219555FFA00B66544 /* signalshunting_w_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_w_3.png; sourceTree = "<group>"; };
+		D4AF494319555FFA00B66544 /* signalshunting_w_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_w_4.png; sourceTree = "<group>"; };
+		D4AF494419555FFA00B66544 /* signalshunting_w_occ_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_w_occ_1.png; sourceTree = "<group>"; };
+		D4AF494519555FFA00B66544 /* signalshunting_w_occ_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_w_occ_2.png; sourceTree = "<group>"; };
+		D4AF494619555FFA00B66544 /* signalshunting_w_occ_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_w_occ_3.png; sourceTree = "<group>"; };
+		D4AF494719555FFA00B66544 /* signalshunting_w_occ_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_w_occ_4.png; sourceTree = "<group>"; };
+		D4AF494819555FFA00B66544 /* signalshunting_w_route_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_w_route_1.png; sourceTree = "<group>"; };
+		D4AF494919555FFA00B66544 /* signalshunting_w_route_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_w_route_2.png; sourceTree = "<group>"; };
+		D4AF494A19555FFA00B66544 /* signalshunting_w_route_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_w_route_3.png; sourceTree = "<group>"; };
+		D4AF494B19555FFA00B66544 /* signalshunting_w_route_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signalshunting_w_route_4.png; sourceTree = "<group>"; };
+		D4AF4994195560A000B66544 /* signal3_g_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_g_1.png; sourceTree = "<group>"; };
+		D4AF4995195560A000B66544 /* signal3_g_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_g_2.png; sourceTree = "<group>"; };
+		D4AF4996195560A000B66544 /* signal3_g_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_g_3.png; sourceTree = "<group>"; };
+		D4AF4997195560A000B66544 /* signal3_g_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_g_4.png; sourceTree = "<group>"; };
+		D4AF4998195560A000B66544 /* signal3_g_occ_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_g_occ_1.png; sourceTree = "<group>"; };
+		D4AF4999195560A000B66544 /* signal3_g_occ_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_g_occ_2.png; sourceTree = "<group>"; };
+		D4AF499A195560A000B66544 /* signal3_g_occ_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_g_occ_3.png; sourceTree = "<group>"; };
+		D4AF499B195560A000B66544 /* signal3_g_occ_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_g_occ_4.png; sourceTree = "<group>"; };
+		D4AF499C195560A000B66544 /* signal3_g_route_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_g_route_1.png; sourceTree = "<group>"; };
+		D4AF499D195560A000B66544 /* signal3_g_route_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_g_route_2.png; sourceTree = "<group>"; };
+		D4AF499E195560A000B66544 /* signal3_g_route_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_g_route_3.png; sourceTree = "<group>"; };
+		D4AF499F195560A000B66544 /* signal3_g_route_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_g_route_4.png; sourceTree = "<group>"; };
+		D4AF49A0195560A000B66544 /* signal3_r_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_r_1.png; sourceTree = "<group>"; };
+		D4AF49A1195560A000B66544 /* signal3_r_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_r_2.png; sourceTree = "<group>"; };
+		D4AF49A2195560A000B66544 /* signal3_r_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_r_3.png; sourceTree = "<group>"; };
+		D4AF49A3195560A000B66544 /* signal3_r_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_r_4.png; sourceTree = "<group>"; };
+		D4AF49A4195560A000B66544 /* signal3_r_occ_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_r_occ_1.png; sourceTree = "<group>"; };
+		D4AF49A5195560A000B66544 /* signal3_r_occ_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_r_occ_2.png; sourceTree = "<group>"; };
+		D4AF49A6195560A000B66544 /* signal3_r_occ_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_r_occ_3.png; sourceTree = "<group>"; };
+		D4AF49A7195560A000B66544 /* signal3_r_occ_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_r_occ_4.png; sourceTree = "<group>"; };
+		D4AF49A8195560A000B66544 /* signal3_r_route_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_r_route_1.png; sourceTree = "<group>"; };
+		D4AF49A9195560A000B66544 /* signal3_r_route_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_r_route_2.png; sourceTree = "<group>"; };
+		D4AF49AA195560A000B66544 /* signal3_r_route_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_r_route_3.png; sourceTree = "<group>"; };
+		D4AF49AB195560A000B66544 /* signal3_r_route_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_r_route_4.png; sourceTree = "<group>"; };
+		D4AF49AC195560A000B66544 /* signal3_y_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_y_1.png; sourceTree = "<group>"; };
+		D4AF49AD195560A000B66544 /* signal3_y_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_y_2.png; sourceTree = "<group>"; };
+		D4AF49AE195560A000B66544 /* signal3_y_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_y_3.png; sourceTree = "<group>"; };
+		D4AF49AF195560A000B66544 /* signal3_y_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_y_4.png; sourceTree = "<group>"; };
+		D4AF49B0195560A000B66544 /* signal3_y_occ_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_y_occ_1.png; sourceTree = "<group>"; };
+		D4AF49B1195560A000B66544 /* signal3_y_occ_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_y_occ_2.png; sourceTree = "<group>"; };
+		D4AF49B2195560A000B66544 /* signal3_y_occ_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_y_occ_3.png; sourceTree = "<group>"; };
+		D4AF49B3195560A000B66544 /* signal3_y_occ_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_y_occ_4.png; sourceTree = "<group>"; };
+		D4AF49B4195560A000B66544 /* signal3_y_route_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_y_route_1.png; sourceTree = "<group>"; };
+		D4AF49B5195560A000B66544 /* signal3_y_route_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_y_route_2.png; sourceTree = "<group>"; };
+		D4AF49B6195560A000B66544 /* signal3_y_route_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_y_route_3.png; sourceTree = "<group>"; };
+		D4AF49B7195560A000B66544 /* signal3_y_route_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal3_y_route_4.png; sourceTree = "<group>"; };
 		D4B9442E10FF71C200F55B64 /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Globals.h; sourceTree = "<group>"; };
 		D4B9442F10FF71C200F55B64 /* Globals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Globals.m; sourceTree = "<group>"; };
 		D4B9443910FF71F600F55B64 /* threeway-l-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "threeway-l-1.png"; sourceTree = "<group>"; };
@@ -808,6 +1024,114 @@
 		9CBF10F610CFF14100FF29DA /* Symbols */ = {
 			isa = PBXGroup;
 			children = (
+				D4AF4994195560A000B66544 /* signal3_g_1.png */,
+				D4AF4995195560A000B66544 /* signal3_g_2.png */,
+				D4AF4996195560A000B66544 /* signal3_g_3.png */,
+				D4AF4997195560A000B66544 /* signal3_g_4.png */,
+				D4AF4998195560A000B66544 /* signal3_g_occ_1.png */,
+				D4AF4999195560A000B66544 /* signal3_g_occ_2.png */,
+				D4AF499A195560A000B66544 /* signal3_g_occ_3.png */,
+				D4AF499B195560A000B66544 /* signal3_g_occ_4.png */,
+				D4AF499C195560A000B66544 /* signal3_g_route_1.png */,
+				D4AF499D195560A000B66544 /* signal3_g_route_2.png */,
+				D4AF499E195560A000B66544 /* signal3_g_route_3.png */,
+				D4AF499F195560A000B66544 /* signal3_g_route_4.png */,
+				D4AF49A0195560A000B66544 /* signal3_r_1.png */,
+				D4AF49A1195560A000B66544 /* signal3_r_2.png */,
+				D4AF49A2195560A000B66544 /* signal3_r_3.png */,
+				D4AF49A3195560A000B66544 /* signal3_r_4.png */,
+				D4AF49A4195560A000B66544 /* signal3_r_occ_1.png */,
+				D4AF49A5195560A000B66544 /* signal3_r_occ_2.png */,
+				D4AF49A6195560A000B66544 /* signal3_r_occ_3.png */,
+				D4AF49A7195560A000B66544 /* signal3_r_occ_4.png */,
+				D4AF49A8195560A000B66544 /* signal3_r_route_1.png */,
+				D4AF49A9195560A000B66544 /* signal3_r_route_2.png */,
+				D4AF49AA195560A000B66544 /* signal3_r_route_3.png */,
+				D4AF49AB195560A000B66544 /* signal3_r_route_4.png */,
+				D4AF49AC195560A000B66544 /* signal3_y_1.png */,
+				D4AF49AD195560A000B66544 /* signal3_y_2.png */,
+				D4AF49AE195560A000B66544 /* signal3_y_3.png */,
+				D4AF49AF195560A000B66544 /* signal3_y_4.png */,
+				D4AF49B0195560A000B66544 /* signal3_y_occ_1.png */,
+				D4AF49B1195560A000B66544 /* signal3_y_occ_2.png */,
+				D4AF49B2195560A000B66544 /* signal3_y_occ_3.png */,
+				D4AF49B3195560A000B66544 /* signal3_y_occ_4.png */,
+				D4AF49B4195560A000B66544 /* signal3_y_route_1.png */,
+				D4AF49B5195560A000B66544 /* signal3_y_route_2.png */,
+				D4AF49B6195560A000B66544 /* signal3_y_route_3.png */,
+				D4AF49B7195560A000B66544 /* signal3_y_route_4.png */,
+				D4AF490419555FFA00B66544 /* signaldistant_g_1.png */,
+				D4AF490519555FFA00B66544 /* signaldistant_g_2.png */,
+				D4AF490619555FFA00B66544 /* signaldistant_g_3.png */,
+				D4AF490719555FFA00B66544 /* signaldistant_g_4.png */,
+				D4AF490819555FFA00B66544 /* signaldistant_g_occ_1.png */,
+				D4AF490919555FFA00B66544 /* signaldistant_g_occ_2.png */,
+				D4AF490A19555FFA00B66544 /* signaldistant_g_occ_3.png */,
+				D4AF490B19555FFA00B66544 /* signaldistant_g_occ_4.png */,
+				D4AF490C19555FFA00B66544 /* signaldistant_g_route_1.png */,
+				D4AF490D19555FFA00B66544 /* signaldistant_g_route_2.png */,
+				D4AF490E19555FFA00B66544 /* signaldistant_g_route_3.png */,
+				D4AF490F19555FFA00B66544 /* signaldistant_g_route_4.png */,
+				D4AF491019555FFA00B66544 /* signaldistant_r_1.png */,
+				D4AF491119555FFA00B66544 /* signaldistant_r_2.png */,
+				D4AF491219555FFA00B66544 /* signaldistant_r_3.png */,
+				D4AF491319555FFA00B66544 /* signaldistant_r_4.png */,
+				D4AF491419555FFA00B66544 /* signaldistant_r_occ_1.png */,
+				D4AF491519555FFA00B66544 /* signaldistant_r_occ_2.png */,
+				D4AF491619555FFA00B66544 /* signaldistant_r_occ_3.png */,
+				D4AF491719555FFA00B66544 /* signaldistant_r_occ_4.png */,
+				D4AF491819555FFA00B66544 /* signaldistant_r_route_1.png */,
+				D4AF491919555FFA00B66544 /* signaldistant_r_route_2.png */,
+				D4AF491A19555FFA00B66544 /* signaldistant_r_route_3.png */,
+				D4AF491B19555FFA00B66544 /* signaldistant_r_route_4.png */,
+				D4AF491C19555FFA00B66544 /* signaldistant_w_1.png */,
+				D4AF491D19555FFA00B66544 /* signaldistant_w_2.png */,
+				D4AF491E19555FFA00B66544 /* signaldistant_w_3.png */,
+				D4AF491F19555FFA00B66544 /* signaldistant_w_4.png */,
+				D4AF492019555FFA00B66544 /* signaldistant_w_occ_1.png */,
+				D4AF492119555FFA00B66544 /* signaldistant_w_occ_2.png */,
+				D4AF492219555FFA00B66544 /* signaldistant_w_occ_3.png */,
+				D4AF492319555FFA00B66544 /* signaldistant_w_occ_4.png */,
+				D4AF492419555FFA00B66544 /* signaldistant_w_route_1.png */,
+				D4AF492519555FFA00B66544 /* signaldistant_w_route_2.png */,
+				D4AF492619555FFA00B66544 /* signaldistant_w_route_3.png */,
+				D4AF492719555FFA00B66544 /* signaldistant_w_route_4.png */,
+				D4AF492819555FFA00B66544 /* signaldistant_y_1.png */,
+				D4AF492919555FFA00B66544 /* signaldistant_y_2.png */,
+				D4AF492A19555FFA00B66544 /* signaldistant_y_3.png */,
+				D4AF492B19555FFA00B66544 /* signaldistant_y_4.png */,
+				D4AF492C19555FFA00B66544 /* signaldistant_y_occ_1.png */,
+				D4AF492D19555FFA00B66544 /* signaldistant_y_occ_2.png */,
+				D4AF492E19555FFA00B66544 /* signaldistant_y_occ_3.png */,
+				D4AF492F19555FFA00B66544 /* signaldistant_y_occ_4.png */,
+				D4AF493019555FFA00B66544 /* signaldistant_y_route_1.png */,
+				D4AF493119555FFA00B66544 /* signaldistant_y_route_2.png */,
+				D4AF493219555FFA00B66544 /* signaldistant_y_route_3.png */,
+				D4AF493319555FFA00B66544 /* signaldistant_y_route_4.png */,
+				D4AF493419555FFA00B66544 /* signalshunting_r_1.png */,
+				D4AF493519555FFA00B66544 /* signalshunting_r_2.png */,
+				D4AF493619555FFA00B66544 /* signalshunting_r_3.png */,
+				D4AF493719555FFA00B66544 /* signalshunting_r_4.png */,
+				D4AF493819555FFA00B66544 /* signalshunting_r_occ_1.png */,
+				D4AF493919555FFA00B66544 /* signalshunting_r_occ_2.png */,
+				D4AF493A19555FFA00B66544 /* signalshunting_r_occ_3.png */,
+				D4AF493B19555FFA00B66544 /* signalshunting_r_occ_4.png */,
+				D4AF493C19555FFA00B66544 /* signalshunting_r_route_1.png */,
+				D4AF493D19555FFA00B66544 /* signalshunting_r_route_2.png */,
+				D4AF493E19555FFA00B66544 /* signalshunting_r_route_3.png */,
+				D4AF493F19555FFA00B66544 /* signalshunting_r_route_4.png */,
+				D4AF494019555FFA00B66544 /* signalshunting_w_1.png */,
+				D4AF494119555FFA00B66544 /* signalshunting_w_2.png */,
+				D4AF494219555FFA00B66544 /* signalshunting_w_3.png */,
+				D4AF494319555FFA00B66544 /* signalshunting_w_4.png */,
+				D4AF494419555FFA00B66544 /* signalshunting_w_occ_1.png */,
+				D4AF494519555FFA00B66544 /* signalshunting_w_occ_2.png */,
+				D4AF494619555FFA00B66544 /* signalshunting_w_occ_3.png */,
+				D4AF494719555FFA00B66544 /* signalshunting_w_occ_4.png */,
+				D4AF494819555FFA00B66544 /* signalshunting_w_route_1.png */,
+				D4AF494919555FFA00B66544 /* signalshunting_w_route_2.png */,
+				D4AF494A19555FFA00B66544 /* signalshunting_w_route_3.png */,
+				D4AF494B19555FFA00B66544 /* signalshunting_w_route_4.png */,
 				D4AF48C4195556CE00B66544 /* accessory_10_off_1.png */,
 				D4AF48C5195556CE00B66544 /* accessory_10_off_2.png */,
 				D4AF48C6195556CE00B66544 /* accessory_10_on_1.png */,
@@ -1065,30 +1389,48 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C00EE6210B41B490098BA59 /* thumb.png in Resources */,
+				D4AF49BC195560A000B66544 /* signal3_g_occ_1.png in Resources */,
 				9CDB1D5910B57C11001442F1 /* donedown.png in Resources */,
 				9CDB1D5A10B57C11001442F1 /* doneup.png in Resources */,
+				D4AF49D5195560A000B66544 /* signal3_y_occ_2.png in Resources */,
 				9C6FC84310B7CB0B009FD6FE /* tick.caf in Resources */,
+				D4AF496F19555FFB00B66544 /* signaldistant_w_route_4.png in Resources */,
+				D4AF494D19555FFB00B66544 /* signaldistant_g_2.png in Resources */,
 				9C6FC8AF10B7CF05009FD6FE /* tap.aif in Resources */,
 				D4AF48EB195556CE00B66544 /* accessory_11_off_4.png in Resources */,
 				9C343D3010B900E500750B22 /* Settings.bundle in Resources */,
 				9CAFD95710B97B700029C16F /* Icon.png in Resources */,
+				D4AF49B9195560A000B66544 /* signal3_g_2.png in Resources */,
 				9CBF121910CFF15900FF29DA /* buffer-1.png in Resources */,
 				9CBF121B10CFF15900FF29DA /* buffer-2.png in Resources */,
 				9CBF121D10CFF15900FF29DA /* buffer-3.png in Resources */,
 				9CBF121F10CFF15900FF29DA /* buffer-4.png in Resources */,
+				D4AF498C19555FFB00B66544 /* signalshunting_w_occ_1.png in Resources */,
+				D4AF497919555FFB00B66544 /* signaldistant_y_route_2.png in Resources */,
 				9CBF122510CFF15900FF29DA /* cross.png in Resources */,
 				9CBF122710CFF15900FF29DA /* curve-3.png in Resources */,
+				D4AF496319555FFB00B66544 /* signaldistant_r_route_4.png in Resources */,
+				D4AF496919555FFB00B66544 /* signaldistant_w_occ_2.png in Resources */,
+				D4AF49BE195560A000B66544 /* signal3_g_occ_3.png in Resources */,
 				9CBF122910CFF15900FF29DA /* curve-2.png in Resources */,
 				9CBF122B10CFF15900FF29DA /* curve-1.png in Resources */,
 				9CBF122D10CFF15900FF29DA /* curve-4.png in Resources */,
+				D4AF49D6195560A000B66544 /* signal3_y_occ_3.png in Resources */,
 				9CBF125510CFF15900FF29DA /* enter.png in Resources */,
 				9CBF126510CFF15900FF29DA /* light-on.png in Resources */,
 				9CBF127D10CFF15900FF29DA /* sensor-off-1.png in Resources */,
+				D4AF497D19555FFB00B66544 /* signalshunting_r_2.png in Resources */,
+				D4AF496619555FFB00B66544 /* signaldistant_w_3.png in Resources */,
+				D4AF495C19555FFB00B66544 /* signaldistant_r_occ_1.png in Resources */,
+				D4AF496219555FFB00B66544 /* signaldistant_r_route_3.png in Resources */,
+				D4AF498519555FFB00B66544 /* signalshunting_r_route_2.png in Resources */,
 				D4AF48E4195556CE00B66544 /* accessory_10_off_1.png in Resources */,
 				9CBF127F10CFF15900FF29DA /* sensor-off-2.png in Resources */,
 				9CBF128110CFF15900FF29DA /* sensor-on-1.png in Resources */,
+				D4AF495719555FFB00B66544 /* signaldistant_g_route_4.png in Resources */,
 				9CBF128310CFF15900FF29DA /* sensor-on-2.png in Resources */,
 				9CBF128510CFF15900FF29DA /* signal-g-1.png in Resources */,
+				D4AF49C3195560A000B66544 /* signal3_g_route_4.png in Resources */,
 				9CBF128710CFF15900FF29DA /* signal-g-2.png in Resources */,
 				9CBF128910CFF15900FF29DA /* signal-g-3.png in Resources */,
 				D4AF48EC195556CE00B66544 /* accessory_11_on_1.png in Resources */,
@@ -1100,35 +1442,50 @@
 				D4AF48FB195556CE00B66544 /* accessory_52_on_2.png in Resources */,
 				9CBF129510CFF15900FF29DA /* signal-y-1.png in Resources */,
 				D4AF48F0195556CE00B66544 /* accessory_12_off_1.png in Resources */,
+				D4AF495D19555FFB00B66544 /* signaldistant_r_occ_2.png in Resources */,
 				9CBF129710CFF15900FF29DA /* signal-y-2.png in Resources */,
 				9CBF129910CFF15900FF29DA /* signal-y-3.png in Resources */,
+				D4AF495A19555FFB00B66544 /* signaldistant_r_3.png in Resources */,
 				9CBF129B10CFF15900FF29DA /* signal-y-4.png in Resources */,
+				D4AF495519555FFB00B66544 /* signaldistant_g_route_2.png in Resources */,
 				9CBF12A110CFF15900FF29DA /* track-1.png in Resources */,
 				D4AF48FC195556CE00B66544 /* accessory_53_off_1.png in Resources */,
 				9CBF12A310CFF15900FF29DA /* track-2.png in Resources */,
 				9CBF12A510CFF15900FF29DA /* turnout-ls-1.png in Resources */,
 				9CBF12A710CFF15900FF29DA /* turnout-ls-2.png in Resources */,
+				D4AF497019555FFB00B66544 /* signaldistant_y_1.png in Resources */,
+				D4AF495919555FFB00B66544 /* signaldistant_r_2.png in Resources */,
 				9CBF12A910CFF15900FF29DA /* turnout-ls-3.png in Resources */,
+				D4AF497119555FFB00B66544 /* signaldistant_y_2.png in Resources */,
 				D4AF48F3195556CE00B66544 /* accessory_12_on_2.png in Resources */,
 				9CBF12AB10CFF15900FF29DA /* turnout-ls-4.png in Resources */,
 				9CBF12AD10CFF15900FF29DA /* turnout-lt-1.png in Resources */,
 				9CBF12AF10CFF15900FF29DA /* turnout-lt-2.png in Resources */,
+				D4AF49BF195560A000B66544 /* signal3_g_occ_4.png in Resources */,
 				9CBF12B110CFF15900FF29DA /* turnout-lt-3.png in Resources */,
 				9CBF12B310CFF15900FF29DA /* turnout-lt-4.png in Resources */,
 				9CBF12B510CFF15900FF29DA /* turnout-rs-1.png in Resources */,
+				D4AF496C19555FFB00B66544 /* signaldistant_w_route_1.png in Resources */,
 				9CBF12B710CFF15900FF29DA /* turnout-rs-2.png in Resources */,
 				9CBF12B910CFF15900FF29DA /* turnout-rs-3.png in Resources */,
 				9CBF12BB10CFF15900FF29DA /* turnout-rs-4.png in Resources */,
+				D4AF495319555FFB00B66544 /* signaldistant_g_occ_4.png in Resources */,
 				9CBF12BD10CFF15900FF29DA /* turnout-rt-1.png in Resources */,
 				9CBF12BF10CFF15900FF29DA /* turnout-rt-2.png in Resources */,
 				9CBF12C110CFF15900FF29DA /* turnout-rt-3.png in Resources */,
+				D4AF497319555FFB00B66544 /* signaldistant_y_4.png in Resources */,
 				9CBF12C310CFF15900FF29DA /* turnout-rt-4.png in Resources */,
+				D4AF496119555FFB00B66544 /* signaldistant_r_route_2.png in Resources */,
+				D4AF498819555FFB00B66544 /* signalshunting_w_1.png in Resources */,
+				D4AF494E19555FFB00B66544 /* signaldistant_g_3.png in Resources */,
 				9CDDE84610E25BAB00920C87 /* Default.png in Resources */,
+				D4AF495219555FFB00B66544 /* signaldistant_g_occ_3.png in Resources */,
 				9CDDE86910E2623C00920C87 /* rocrail-logo-35.png in Resources */,
 				9C4A066A10E366CB00E54D74 /* rocrail-logo-noshade-black.png in Resources */,
 				9CE44AF010ECB99F00506323 /* Localizable.strings in Resources */,
 				D4C265B110F88A4F0045ED0F /* loco.png in Resources */,
 				D4AF48F9195556CE00B66544 /* accessory_52_off_2.png in Resources */,
+				D4AF495B19555FFB00B66544 /* signaldistant_r_4.png in Resources */,
 				D4C265CE10F894850045ED0F /* menu.png in Resources */,
 				D4C265D410F8972B0045ED0F /* info.png in Resources */,
 				D4B9443C10FF71F600F55B64 /* threeway-l-1.png in Resources */,
@@ -1138,11 +1495,15 @@
 				D4FA0F63193C7174005EEB06 /* Default-568h@2x.png in Resources */,
 				D4B9443D10FF71F600F55B64 /* threeway-r-1.png in Resources */,
 				D4B9443E10FF71F600F55B64 /* threeway-s-1.png in Resources */,
+				D4AF49BD195560A000B66544 /* signal3_g_occ_2.png in Resources */,
 				D49898841100FA84006C0F2B /* block-1.png in Resources */,
 				D49898851100FA84006C0F2B /* block-2.png in Resources */,
+				D4AF495F19555FFB00B66544 /* signaldistant_r_occ_4.png in Resources */,
+				D4AF498019555FFB00B66544 /* signalshunting_r_occ_1.png in Resources */,
 				D499E2D911021126000C2A37 /* threeway-s-4.png in Resources */,
 				D499E2DA11021126000C2A37 /* threeway-s-3.png in Resources */,
 				D499E2DB11021126000C2A37 /* threeway-s-2.png in Resources */,
+				D4AF498419555FFB00B66544 /* signalshunting_r_route_1.png in Resources */,
 				D499E2DC11021126000C2A37 /* threeway-r-4.png in Resources */,
 				D499E2DD11021126000C2A37 /* threeway-r-3.png in Resources */,
 				D499E2DE11021126000C2A37 /* threeway-r-2.png in Resources */,
@@ -1150,12 +1511,19 @@
 				D4AF48F7195556CE00B66544 /* accessory_51_on_2.png in Resources */,
 				D499E2E011021126000C2A37 /* threeway-l-3.png in Resources */,
 				D499E2E111021126000C2A37 /* threeway-l-2.png in Resources */,
+				D4AF498A19555FFB00B66544 /* signalshunting_w_3.png in Resources */,
 				9C9E9DB911030D1100E16E8A /* block-1-s.png in Resources */,
 				9C9E9DBA11030D1100E16E8A /* block-2-s.png in Resources */,
+				D4AF499119555FFB00B66544 /* signalshunting_w_route_2.png in Resources */,
+				D4AF498119555FFB00B66544 /* signalshunting_r_occ_2.png in Resources */,
 				9CB9683A1103285400B09174 /* button-off.png in Resources */,
 				D4AF48FD195556CE00B66544 /* accessory_53_off_2.png in Resources */,
+				D4AF49C2195560A000B66544 /* signal3_g_route_3.png in Resources */,
+				D4AF499019555FFB00B66544 /* signalshunting_w_route_1.png in Resources */,
+				D4AF49DB195560A000B66544 /* signal3_y_route_4.png in Resources */,
 				9CB9683B1103285400B09174 /* button-on.png in Resources */,
 				9CB968DD11032E3500B09174 /* dcrossingleft-l-3.png in Resources */,
+				D4AF498219555FFB00B66544 /* signalshunting_r_occ_3.png in Resources */,
 				9CB968DE11032E3500B09174 /* dcrossingleft-l-2.png in Resources */,
 				9CB968DF11032E3500B09174 /* dcrossingleft-l-1.png in Resources */,
 				9CB968E011032E3500B09174 /* dcrossingleft-l-4.png in Resources */,
@@ -1168,40 +1536,62 @@
 				9CB968E711032E3500B09174 /* dcrossingleft-s-3.png in Resources */,
 				9CB968E811032E3500B09174 /* dcrossingleft-s-4.png in Resources */,
 				D4AF4903195556CE00B66544 /* accessory_54_on_2.png in Resources */,
+				D4AF49CD195560A000B66544 /* signal3_r_route_2.png in Resources */,
+				D4AF499319555FFB00B66544 /* signalshunting_w_route_4.png in Resources */,
 				9CB968E911032E3500B09174 /* dcrossingleft-t-1.png in Resources */,
+				D4AF49D3195560A000B66544 /* signal3_y_4.png in Resources */,
 				9CB968EA11032E3500B09174 /* dcrossingleft-t-2.png in Resources */,
 				D4AF4901195556CE00B66544 /* accessory_54_off_2.png in Resources */,
+				D4AF49C4195560A000B66544 /* signal3_r_1.png in Resources */,
 				9CB968EB11032E3500B09174 /* dcrossingleft-t-3.png in Resources */,
+				D4AF498F19555FFB00B66544 /* signalshunting_w_occ_4.png in Resources */,
+				D4AF49BA195560A000B66544 /* signal3_g_3.png in Resources */,
+				D4AF49C1195560A000B66544 /* signal3_g_route_2.png in Resources */,
 				D4AF48FA195556CE00B66544 /* accessory_52_on_1.png in Resources */,
+				D4AF495E19555FFB00B66544 /* signaldistant_r_occ_3.png in Resources */,
 				9CB968EC11032E3500B09174 /* dcrossingleft-t-4.png in Resources */,
 				9C141F2E1103397500D8E911 /* dcrossingright-l-1.png in Resources */,
+				D4AF49CE195560A000B66544 /* signal3_r_route_3.png in Resources */,
 				D4AF48ED195556CE00B66544 /* accessory_11_on_2.png in Resources */,
+				D4AF49D2195560A000B66544 /* signal3_y_3.png in Resources */,
 				9C141F2F1103397500D8E911 /* dcrossingright-l-2.png in Resources */,
 				9C141F301103397500D8E911 /* dcrossingright-l-3.png in Resources */,
 				9C141F311103397500D8E911 /* dcrossingright-l-4.png in Resources */,
 				9C141F321103397500D8E911 /* dcrossingright-r-1.png in Resources */,
 				D4AF48EE195556CE00B66544 /* accessory_11_on_3.png in Resources */,
+				D4AF498D19555FFB00B66544 /* signalshunting_w_occ_2.png in Resources */,
 				D4AF48EA195556CE00B66544 /* accessory_11_off_3.png in Resources */,
 				9C141F331103397500D8E911 /* dcrossingright-r-2.png in Resources */,
 				9C141F341103397500D8E911 /* dcrossingright-r-3.png in Resources */,
+				D4AF49B8195560A000B66544 /* signal3_g_1.png in Resources */,
+				D4AF49CF195560A000B66544 /* signal3_r_route_4.png in Resources */,
+				D4AF498B19555FFB00B66544 /* signalshunting_w_4.png in Resources */,
 				9C141F351103397500D8E911 /* dcrossingright-r-4.png in Resources */,
 				D4AF48F8195556CE00B66544 /* accessory_52_off_1.png in Resources */,
+				D4AF497619555FFB00B66544 /* signaldistant_y_occ_3.png in Resources */,
 				9C141F361103397500D8E911 /* dcrossingright-s-1.png in Resources */,
 				9C141F371103397500D8E911 /* dcrossingright-s-2.png in Resources */,
 				9C141F381103397500D8E911 /* dcrossingright-s-3.png in Resources */,
 				9C141F391103397500D8E911 /* dcrossingright-s-4.png in Resources */,
+				D4AF497719555FFB00B66544 /* signaldistant_y_occ_4.png in Resources */,
+				D4AF49DA195560A000B66544 /* signal3_y_route_3.png in Resources */,
 				D4AF48EF195556CE00B66544 /* accessory_11_on_4.png in Resources */,
 				D4AF48F1195556CE00B66544 /* accessory_12_off_2.png in Resources */,
 				9C141F3A1103397500D8E911 /* dcrossingright-t-1.png in Resources */,
 				9C141F3B1103397500D8E911 /* dcrossingright-t-2.png in Resources */,
 				D4AF48E9195556CE00B66544 /* accessory_11_off_2.png in Resources */,
 				9C141F3C1103397500D8E911 /* dcrossingright-t-3.png in Resources */,
+				D4AF497819555FFB00B66544 /* signaldistant_y_route_1.png in Resources */,
 				9C141F3D1103397500D8E911 /* dcrossingright-t-4.png in Resources */,
 				9C36D07D1103460B00DD7F82 /* ccrossing-1.png in Resources */,
+				D4AF49D0195560A000B66544 /* signal3_y_1.png in Resources */,
 				D4AF48FF195556CE00B66544 /* accessory_53_on_2.png in Resources */,
 				9C36D07E1103460B00DD7F82 /* ccrossing-2.png in Resources */,
 				D45EE7641954796200E7E23C /* Icon~iphone.png in Resources */,
+				D4AF497F19555FFB00B66544 /* signalshunting_r_4.png in Resources */,
+				D4AF495619555FFB00B66544 /* signaldistant_g_route_3.png in Resources */,
 				9C51BF0F110632010038CBAB /* click.aif in Resources */,
+				D4AF496719555FFB00B66544 /* signaldistant_w_4.png in Resources */,
 				D4D348B911075DF9005B9D12 /* csensor-off-1.png in Resources */,
 				D4D348BA11075DF9005B9D12 /* csensor-off-2.png in Resources */,
 				D4D348BB11075DF9005B9D12 /* csensor-off-3.png in Resources */,
@@ -1209,8 +1599,11 @@
 				D4D348BD11075DF9005B9D12 /* csensor-on-1.png in Resources */,
 				D4D348BE11075DF9005B9D12 /* csensor-on-2.png in Resources */,
 				D4D348BF11075DF9005B9D12 /* csensor-on-3.png in Resources */,
+				D4AF497E19555FFB00B66544 /* signalshunting_r_3.png in Resources */,
 				D4D348C011075DF9005B9D12 /* csensor-on-4.png in Resources */,
 				9C99E02611131C2B0002FE3A /* chrr.aif in Resources */,
+				D4AF496519555FFB00B66544 /* signaldistant_w_2.png in Resources */,
+				D4AF49C9195560A000B66544 /* signal3_r_occ_2.png in Resources */,
 				D4E404B31116068700D0FF51 /* button-active.png in Resources */,
 				9C220241111AE10B00B7F4DA /* mask.png in Resources */,
 				9CF226D8111AF4C30085EBF6 /* connector-1.png in Resources */,
@@ -1222,6 +1615,7 @@
 				9C2A6603113019EB0074F3E7 /* signal-w-2.png in Resources */,
 				9C2A6604113019EB0074F3E7 /* signal-w-3.png in Resources */,
 				9C2A6605113019EB0074F3E7 /* signal-w-4.png in Resources */,
+				D4AF497B19555FFB00B66544 /* signaldistant_y_route_4.png in Resources */,
 				D4AF48F6195556CE00B66544 /* accessory_51_on_1.png in Resources */,
 				D4DF3A8C133CB72500CF0F3A /* crossingleft-s-1.png in Resources */,
 				D4DF3A8D133CB72500CF0F3A /* crossingleft-s-2.png in Resources */,
@@ -1232,51 +1626,89 @@
 				D4DF3A92133CB72500CF0F3A /* crossingleft-t-3.png in Resources */,
 				D4DF3A93133CB72500CF0F3A /* crossingleft-t-4.png in Resources */,
 				D4DF3A94133CB72500CF0F3A /* crossingright-s-1.png in Resources */,
+				D4AF498E19555FFB00B66544 /* signalshunting_w_occ_3.png in Resources */,
 				D4DF3A95133CB72500CF0F3A /* crossingright-s-2.png in Resources */,
 				D4DF3A96133CB72500CF0F3A /* crossingright-s-3.png in Resources */,
+				D4AF49D4195560A000B66544 /* signal3_y_occ_1.png in Resources */,
 				D4AF48F5195556CE00B66544 /* accessory_51_off_2.png in Resources */,
 				D4DF3A97133CB72500CF0F3A /* crossingright-s-4.png in Resources */,
 				D4DF3A98133CB72500CF0F3A /* crossingright-t-1.png in Resources */,
+				D4AF497C19555FFB00B66544 /* signalshunting_r_1.png in Resources */,
+				D4AF49C6195560A000B66544 /* signal3_r_3.png in Resources */,
 				D4DF3A99133CB72500CF0F3A /* crossingright-t-2.png in Resources */,
+				D4AF496419555FFB00B66544 /* signaldistant_w_1.png in Resources */,
+				D4AF497219555FFB00B66544 /* signaldistant_y_3.png in Resources */,
+				D4AF494F19555FFB00B66544 /* signaldistant_g_4.png in Resources */,
+				D4AF49C0195560A000B66544 /* signal3_g_route_1.png in Resources */,
+				D4AF498919555FFB00B66544 /* signalshunting_w_2.png in Resources */,
+				D4AF49C7195560A000B66544 /* signal3_r_4.png in Resources */,
+				D4AF498619555FFB00B66544 /* signalshunting_r_route_3.png in Resources */,
 				D4DF3A9A133CB72500CF0F3A /* crossingright-t-3.png in Resources */,
 				D4DF3A9B133CB72500CF0F3A /* crossingright-t-4.png in Resources */,
 				D4F4C57D13460E71009E8C24 /* decoupler-off-1.png in Resources */,
 				D4F4C57E13460E71009E8C24 /* decoupler-off-2.png in Resources */,
+				D4AF495819555FFB00B66544 /* signaldistant_r_1.png in Resources */,
 				D4F4C57F13460E71009E8C24 /* decoupler-on-1.png in Resources */,
+				D4AF494C19555FFB00B66544 /* signaldistant_g_1.png in Resources */,
+				D4AF499219555FFB00B66544 /* signalshunting_w_route_3.png in Resources */,
+				D4AF49BB195560A000B66544 /* signal3_g_4.png in Resources */,
 				D4F4C58013460E71009E8C24 /* decoupler-on-2.png in Resources */,
+				D4AF498319555FFB00B66544 /* signalshunting_r_occ_4.png in Resources */,
 				9C4299E41381BF620008E899 /* mask_1.png in Resources */,
 				D4A32A0014E7B32D001A2BFA /* signal2_g_1.png in Resources */,
 				D4AF48F2195556CE00B66544 /* accessory_12_on_1.png in Resources */,
 				D4A32A0114E7B32D001A2BFA /* signal2_g_2.png in Resources */,
 				D4A32A0214E7B32D001A2BFA /* signal2_g_3.png in Resources */,
+				D4AF49C8195560A000B66544 /* signal3_r_occ_1.png in Resources */,
 				D4A32A0314E7B32D001A2BFA /* signal2_g_4.png in Resources */,
 				D4AF48E6195556CE00B66544 /* accessory_10_on_1.png in Resources */,
 				D4A32A0414E7B32D001A2BFA /* signal2_r_1.png in Resources */,
+				D4AF495119555FFB00B66544 /* signaldistant_g_occ_2.png in Resources */,
 				D4A32A0514E7B32D001A2BFA /* signal2_r_2.png in Resources */,
 				D4A32A0614E7B32D001A2BFA /* signal2_r_3.png in Resources */,
+				D4AF496B19555FFB00B66544 /* signaldistant_w_occ_4.png in Resources */,
+				D4AF495019555FFB00B66544 /* signaldistant_g_occ_1.png in Resources */,
+				D4AF496819555FFB00B66544 /* signaldistant_w_occ_1.png in Resources */,
 				D4A32A0714E7B32D001A2BFA /* signal2_r_4.png in Resources */,
 				D4A32A0814E7B32D001A2BFA /* signal2_y_1.png in Resources */,
 				D4A32A0914E7B32D001A2BFA /* signal2_y_2.png in Resources */,
+				D4AF49D8195560A000B66544 /* signal3_y_route_1.png in Resources */,
+				D4AF496A19555FFB00B66544 /* signaldistant_w_occ_3.png in Resources */,
+				D4AF496019555FFB00B66544 /* signaldistant_r_route_1.png in Resources */,
 				D4AF48FE195556CE00B66544 /* accessory_53_on_1.png in Resources */,
 				D4A32A0A14E7B32D001A2BFA /* signal2_y_3.png in Resources */,
+				D4AF497A19555FFB00B66544 /* signaldistant_y_route_3.png in Resources */,
+				D4AF495419555FFB00B66544 /* signaldistant_g_route_1.png in Resources */,
 				D4A32A0B14E7B32D001A2BFA /* signal2_y_4.png in Resources */,
 				D4A32A1C14E7B340001A2BFA /* accessory_1_off_1.png in Resources */,
+				D4AF496E19555FFB00B66544 /* signaldistant_w_route_3.png in Resources */,
+				D4AF498719555FFB00B66544 /* signalshunting_r_route_4.png in Resources */,
 				D4A32A1D14E7B340001A2BFA /* accessory_1_off_2.png in Resources */,
 				D4AF48E8195556CE00B66544 /* accessory_11_off_1.png in Resources */,
 				D4A32A1E14E7B340001A2BFA /* accessory_1_on_1.png in Resources */,
 				D4A32A1F14E7B340001A2BFA /* accessory_1_on_2.png in Resources */,
+				D4AF497419555FFB00B66544 /* signaldistant_y_occ_1.png in Resources */,
+				D4AF49D1195560A000B66544 /* signal3_y_2.png in Resources */,
+				D4AF49CA195560A000B66544 /* signal3_r_occ_3.png in Resources */,
 				D4A32A2014E7B340001A2BFA /* accessory_2_off_1.png in Resources */,
 				D4A32A2114E7B340001A2BFA /* accessory_2_off_2.png in Resources */,
 				D4A32A2214E7B340001A2BFA /* accessory_2_on_1.png in Resources */,
 				D4A32A2314E7B340001A2BFA /* accessory_2_on_2.png in Resources */,
+				D4AF49D9195560A000B66544 /* signal3_y_route_2.png in Resources */,
 				D4A32A2414E7B340001A2BFA /* accessory_3_off_1.png in Resources */,
 				D4AF48E5195556CE00B66544 /* accessory_10_off_2.png in Resources */,
+				D4AF49CB195560A000B66544 /* signal3_r_occ_4.png in Resources */,
+				D4AF49D7195560A000B66544 /* signal3_y_occ_4.png in Resources */,
+				D4AF496D19555FFB00B66544 /* signaldistant_w_route_2.png in Resources */,
 				D4A32A2514E7B340001A2BFA /* accessory_3_off_2.png in Resources */,
 				D4A32A2614E7B340001A2BFA /* accessory_3_on_1.png in Resources */,
+				D4AF49C5195560A000B66544 /* signal3_r_2.png in Resources */,
 				D4A32A2714E7B340001A2BFA /* accessory_3_on_2.png in Resources */,
 				D4A32A2814E7B340001A2BFA /* accessory_40_off_1.png in Resources */,
 				D4A32A2914E7B340001A2BFA /* accessory_40_off_2.png in Resources */,
 				D4A32A2A14E7B340001A2BFA /* accessory_40_on_1.png in Resources */,
+				D4AF49CC195560A000B66544 /* signal3_r_route_1.png in Resources */,
+				D4AF497519555FFB00B66544 /* signaldistant_y_occ_2.png in Resources */,
 				D4A32A2B14E7B340001A2BFA /* accessory_40_on_2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
