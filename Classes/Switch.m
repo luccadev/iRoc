@@ -54,6 +54,7 @@
       l_orinr = 2;
     else
       l_orinr = 1;
+
     switch (AccNr) {
       case 1:
         cx = (l_orinr == 1 ? 1 : 2);
@@ -63,7 +64,25 @@
         cx = (l_orinr == 1 ? 4 : 2);
         cy = (l_orinr == 1 ? 2 : 4);
         break;
+      case 51:
+        cx = (l_orinr == 1 ? 4 : 2);
+        cy = (l_orinr == 1 ? 2 : 4);
+        break;
+      case 52:
+        cx = (l_orinr == 1 ? 4 : 1);
+        cy = (l_orinr == 1 ? 1 : 4);
+        break;
+      case 53:
+        cx = 2;
+        cy = 2;
+        break;
+      case 54:
+        cx = (l_orinr == 1 ? 3 : 2);
+        cy = (l_orinr == 1 ? 2 : 3);
+        break;
     }
+    NSLog(@"sw=%@ accnr=%d ori=%d cx=%d cy=%d", Id, AccNr, l_orinr, cx, cy);
+    
 		if( [self.state isEqual:@"turnout"])
       imgname = [NSString stringWithFormat:@"accessory_%d_off_%d.png", AccNr, l_orinr];
     else

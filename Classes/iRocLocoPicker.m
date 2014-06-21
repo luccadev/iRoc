@@ -245,8 +245,9 @@ void CGContextAddRoundedRectC(CGContextRef c, CGRect rect, int corner_radius) {
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	[super touchesEnded:touches withEvent:event];
 	//NSLog(@"Touches E");
-	
-	[delegate presentModalViewController:lcTableView animated:YES];
+	if( [loccontainer count] > 0 ) {
+	  [delegate presentModalViewController:lcTableView animated:YES];
+  }
 }
 
 
