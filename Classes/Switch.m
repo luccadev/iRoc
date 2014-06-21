@@ -102,7 +102,12 @@
 			st = 'l';
 		else if( [state isEqual:@"right"])
 			st = 'r';
-		
+
+    if (orinr == 2)
+      orinr = 4;
+    else if (orinr == 4)
+      orinr = 2;
+
 		imgname = [NSString stringWithFormat:@"dcrossing%@-%c-%d.png", dr?@"left":@"right", st, orinr];
 		
     cx = orinr % 2 == 0 ? 1:2; 
