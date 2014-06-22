@@ -46,15 +46,19 @@
         self.opaque = YES;
         [self setBackgroundColor:[UIColor clearColor]];
 
-        if( imagename != nil ) {
-			
-			image = [UIImage imageNamed:imagename];
-			
+        if( imagename != nil  || [item hasImage] ) {
+          if( imagename != nil )
+            image = [UIImage imageNamed:imagename];
+          else if([item hasImage]) {
+            image = [item getImage:false];
+          }
+
             CGRect imageframe = CGRectMake(0, 0, ITEMSIZE * item.cx, ITEMSIZE * item.cy);	
             imageview = [[UIImageView alloc] initWithFrame:imageframe];
             imageview.image = image; 
             [item setView:self];
-            [self addSubview:imageview];  
+            imageview.contentMode = UIViewContentModeScaleAspectFit;
+            [self addSubview:imageview];
         }
         
         if( item.text != nil && [item.text length] > 0 ) {
@@ -136,13 +140,37 @@
 
 - (void)updateEvent {
     NSLog(@"update event for item %@", item.Id);
+  /*
     image = [UIImage imageNamed:[item getImgName]];
     imageview.image = image; 
     if( label != nil ) {
         label.backgroundColor = item.textBackgroundColor;
         label.text = item.text;
     }
-    
+  */
+  if( [item getImgName] != nil ) {
+    image = [UIImage imageNamed:[item getImgName]];
+    imageview.hidden = NO;
+    imageview.opaque = YES;
+    imageview.image = image;
+  }
+  else if( [item getImage:false] != nil ) {
+    image = [item getImage:false];
+    imageview.hidden = NO;
+    imageview.opaque = YES;
+    imageview.image = image;
+    imageview.contentMode = UIViewContentModeScaleAspectFit;
+  }
+  else {
+    imageview.hidden = YES;
+  }
+  
+  if( label != nil ) {
+    label.backgroundColor = item.textBackgroundColor;
+    label.text = item.text;
+  }
+
+  
     [self setNeedsDisplay];
 }
 

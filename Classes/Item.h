@@ -38,6 +38,7 @@
   id delegate;
   id myview;
   UIColor *textBackgroundColor;
+  UIColor *textForgroundColor;
 }
 @property int x, y, z, cx, cy;
 @property BOOL show, textVertical;
@@ -52,6 +53,8 @@
 - (void)flip;
 - (void)updateEvent;
 - (int)getOriNr;
+- (Boolean) hasImage;
+- (UIImage*) getImage: (BOOL)_modPlan;
 
 - (void)paint: (CGRect)rect inContext:(CGContextRef)context;
 

@@ -112,4 +112,14 @@
   
 }
 
+- (Boolean) hasImage {
+  return false;
+}
+
+- (UIImage*) getImage: (BOOL)_modPlan {
+  return NULL;
+}
+
+
+
 @end

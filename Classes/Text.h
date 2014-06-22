@@ -24,7 +24,26 @@
 
 
 @interface Text : Item {
+  int red;
+  int green;
+  int blue;
+  int backred;
+  int backgreen;
+  int backblue;
+  int origCx;
+  int origCy;
 
+	NSString *imgname;
+	NSString *txpicdata;
+  UIImage *textimage;
+	BOOL hasImage;
+	BOOL imageLoaded;
+  BOOL imageAlreadyRequested;
 }
+- (void) prepareImage;
+- (UIImage*) getImage: (BOOL)_modPlan;
+- (void) setPicdata:(NSString *) picdata;
+- (Boolean) hasImage;
+- (void)updateTextColor;
 
 @end

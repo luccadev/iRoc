@@ -812,6 +812,13 @@ static NSString * const kIdElementName = @"id";
       if( lc != nil ) {
         [lc setLocpicdata:data]; 
 			}
+      else {
+        Text* tx = [model.txContainer objectWithId:relAttribute];
+        if( tx != nil ) {
+          [tx setPicdata:data];
+          [tx updateEvent];
+        }
+      }
 			locpiccounter--;
 			NSLog(@"remaining pics: %d", locpiccounter);
 			if( locpiccounter == 0) {
