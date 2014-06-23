@@ -36,7 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	[self setTitle:@"Outputs"];
+	[self setTitle:NSLocalizedString(@"Outputs", @"")];
 }
 
 

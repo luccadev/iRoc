@@ -36,7 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	[self setTitle:@"Switches"];
+	[self setTitle:NSLocalizedString(@"Switches", @"")];
 }
 
 

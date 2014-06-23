@@ -585,7 +585,8 @@ static NSString * const kIdElementName = @"id";
 			}
 			
     }
-	} else if ([elementName isEqualToString:@"fn"]) {
+	}
+  else if ([elementName isEqualToString:@"fn"]) {
     if( !parsingPlan ) {
 			NSLog(@"function event parser: lc: %@ fn=%@ f1=%@ ", [attributeDict valueForKey:@"id"],[attributeDict valueForKey:@"fn"],
 						[attributeDict valueForKey:@"f1"]);
@@ -604,7 +605,8 @@ static NSString * const kIdElementName = @"id";
 			}
 			 			
     }
-	} else if ([elementName isEqualToString:@"sw"]) {
+	}
+  else if ([elementName isEqualToString:@"sw"]) {
     NSString *idAttribute = [attributeDict valueForKey:kIdElementName];
     if( parsingPlan ) {
 			NSString *type = [attributeDict valueForKey:@"type"];

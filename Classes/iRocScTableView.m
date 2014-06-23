@@ -29,7 +29,7 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-	[self setTitle:@"Schedules"];
+	[self setTitle:NSLocalizedString(@"Schedules", @"")];
 }
 
 - (void)didReceiveMemoryWarning {

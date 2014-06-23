@@ -35,6 +35,7 @@
   if( self = [super init] ) {
     self.delegate = _delegate;
     model = _model;
+    [self setTitle:NSLocalizedString(@"Guest loco", @"")];
   }
   return self;
 }

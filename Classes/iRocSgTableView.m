@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-	[self setTitle:@"Signals"];
+	[self setTitle:NSLocalizedString(@"Signals", @"")];
 }
 
 

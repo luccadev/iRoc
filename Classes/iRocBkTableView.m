@@ -29,7 +29,7 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-	[self setTitle:@"Blocks"];
+	[self setTitle:NSLocalizedString(@"Block", @"")];
 }
 
 - (void)didReceiveMemoryWarning {

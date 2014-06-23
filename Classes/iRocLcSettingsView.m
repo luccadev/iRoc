@@ -226,7 +226,7 @@
             label.font = [UIFont boldSystemFontOfSize:cellfontsize];
             label.textColor = celltextcolor;
             label.backgroundColor = [UIColor clearColor];
-            label.text = NSLocalizedString(@"Fred", @"");
+            label.text = NSLocalizedString(@"Throttle", @"");
             [cell addSubview: label];
           }
             break;

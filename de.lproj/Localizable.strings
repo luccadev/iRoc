@@ -28,3 +28,15 @@
 "No consist loco." = "Keine DTR";
 "Commuter" = "Pendelzug";
 "Write" = "Schreiben";
+"Value" = "Wert";
+"Set consist" = "DTR kuppeln";
+"Clear consist" = "DTR auflösen";
+"Address" = "Adresse";
+"Short ID" = "Kennung";
+"Speed steps" = "Fahrstufen";
+"Protocol" = "Protokoll";
+"Add" = "Hinzufügen";
+"Menu" = "Menü";
+"Guest loco" = "Gastlok";
+"Dispatch" = "Bereitstellen";
+"Throttle" = "Regler";

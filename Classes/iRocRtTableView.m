@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	[self setTitle:@"Routes"];
+	[self setTitle:NSLocalizedString(@"Routes", @"")];
 }
 
 - (void)didReceiveMemoryWarning {
