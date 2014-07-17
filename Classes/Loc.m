@@ -382,8 +382,8 @@
 
 - (void)sendFunctionCommand:(int)fnIndex {
 	int tmp = (fnIndex-1)/4 +1;
-	NSString * stringToSend = [NSString stringWithFormat: @"<fn fnchanged=\"%d\" group=\"%d\" id=\"%@\" f%d=\"%@\"/>", 
-														 fnIndex, tmp, self.locid, fnIndex,  fnStates[fnIndex]?@"true":@"false"];
+	NSString * stringToSend = [NSString stringWithFormat: @"<fn fnchanged=\"%d\" group=\"%d\" id=\"%@\" f%d=\"%@\" fnchangedstate=\"%@\"/>",
+														 fnIndex, tmp, self.locid, fnIndex, fnStates[fnIndex]?@"true":@"false", fnStates[fnIndex]?@"true":@"false"];
 	
 	[_delegate sendMessage:@"fn" message:stringToSend];
 }
