@@ -238,6 +238,10 @@
   //[[UIApplication sharedApplication] setStatusBarHidden:NO];
 }
 
+- (NSInteger)supportedInterfaceOrientations {
+  return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft;
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
   NSLog(@"rotation message: will be rotated...");
   return YES;
