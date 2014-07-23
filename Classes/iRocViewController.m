@@ -40,6 +40,7 @@
   if( (self = [super init]) ) {
     model = _model;
     delegate = _delegate;
+    fnLongClick = false;
   }
   NSLog(@"02");
 	
@@ -161,9 +162,31 @@
   [buttonFn setTitle: NSLocalizedString(@"Fn", @"") forState: UIControlStateNormal];
   [buttonFn addTarget:self action:@selector(buttonFnClicked:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview: buttonFn];
+  
+  UILongPressGestureRecognizer *longpressGesture =
+  [[UILongPressGestureRecognizer alloc] initWithTarget:self
+                                                action:@selector(longPressFn:)];
+  longpressGesture.minimumPressDuration = 1;
+  longpressGesture.cancelsTouchesInView = NO;
+  [longpressGesture setDelegate:self];
+  [self.buttonFn addGestureRecognizer:longpressGesture];
+  [longpressGesture release];
+  
 }
 
-- (IBAction) buttonDirClicked:(id) sender { 
+- (void)longPressFn:(UILongPressGestureRecognizer *)sender {
+  if (sender.state == UIGestureRecognizerStateEnded) {
+    NSLog(@"Long press Fn button Ended");
+  }
+  else if (sender.state == UIGestureRecognizerStateBegan) {
+    NSLog(@"Long press Fn button detected -> EBreak");
+    fnLongClick = true;
+    NSString * stringToSend = [[NSString alloc] initWithString: @"<sys cmd=\"ebreak\"/>" ];
+    [rrconnection sendMessage:@"sys" message:stringToSend];
+  }
+}
+
+- (IBAction) buttonDirClicked:(id) sender {
   if([buttonFn getBState]) {
     NSString * stringToSend = [[NSString alloc] initWithString: [NSString stringWithFormat: @"<lc throttleid=\"%@\" cmd=\"release\" id=\"%@\"/>", 
                                                                  (NSString*)[[UIDevice currentDevice] name], [locProps getLoc].locid] ];
@@ -247,6 +270,10 @@
 }
 
 - (IBAction) buttonFnClicked:(id) sender {
+  if( fnLongClick ) {
+    fnLongClick = false;
+    return;
+  }
   [buttonFn flipBState];
   [self updateFnState];
 	AudioServicesPlaySystemSound([Globals getClick]);

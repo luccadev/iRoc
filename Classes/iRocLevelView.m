@@ -238,7 +238,7 @@
   //[[UIApplication sharedApplication] setStatusBarHidden:NO];
 }
 
-- (NSInteger)supportedInterfaceOrientations {
+- (NSUInteger)supportedInterfaceOrientations {
   return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft;
 }
 

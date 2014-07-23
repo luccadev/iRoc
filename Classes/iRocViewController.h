@@ -27,7 +27,7 @@
 #import "iRocLocoPicker.h"
 #import "Loc.h"
 
-@interface iRocViewController : UIViewController <UITextFieldDelegate> {
+@interface iRocViewController : UIViewController <UITextFieldDelegate, UIGestureRecognizerDelegate>  {
 	IBOutlet iRocButton *buttonDir;
 	IBOutlet iRocButton *buttonF0;
 	IBOutlet iRocButton *buttonF1;
@@ -56,6 +56,7 @@
     //BOOL fnStates[32];
 	BOOL connectOK;
 	BOOL processAll;
+  BOOL fnLongClick;
 
 	UIColor * fnButtonOnColor;
 	UIColor * fnButtonOffColor;
