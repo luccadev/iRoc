@@ -121,7 +121,7 @@
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation // iOS 6 autorotation fix
 {
-  return UIInterfaceOrientationMaskAllButUpsideDown;
+  return UIInterfaceOrientationPortrait;
 }
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {

@@ -47,7 +47,7 @@
 
 - (NSUInteger)supportedInterfaceOrientations {
   NSLog(@"iRocTableView: supportedInterfaceOrientations");
-  return UIInterfaceOrientationMaskAllButUpsideDown;
+  return UIInterfaceOrientationMaskAll;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -58,7 +58,7 @@
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation // iOS 6 autorotation fix
 {
   NSLog(@"iRocTableView: preferredInterfaceOrientationForPresentation");
-  return UIInterfaceOrientationMaskAllButUpsideDown;
+  return UIInterfaceOrientationMaskAll;
 }
 
 

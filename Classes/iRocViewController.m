@@ -450,7 +450,7 @@
 
 - (NSUInteger)supportedInterfaceOrientations {
   NSLog(@"iRocViewController: supportedInterfaceOrientations");
-  return UIInterfaceOrientationPortrait;
+  return UIInterfaceOrientationMaskPortrait;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {

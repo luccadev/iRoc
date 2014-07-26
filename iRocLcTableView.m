@@ -103,6 +103,27 @@
     [super dealloc];
 }
 
+- (BOOL)shouldAutorotate {
+  NSLog(@"iRocViewController: shouldAutorotate");
+  return NO;
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+  NSLog(@"iRocViewController: supportedInterfaceOrientations");
+  return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+  NSLog(@"iRocViewController: shouldAutorotateToInterfaceOrientation");
+  return YES;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation // iOS 6 autorotation fix
+{
+  NSLog(@"iRocViewController: preferredInterfaceOrientationForPresentation");
+  return UIInterfaceOrientationPortrait;
+}
+
 
 @end
 

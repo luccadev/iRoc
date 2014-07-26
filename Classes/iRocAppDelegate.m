@@ -132,12 +132,10 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
     [tabBar addPage: (UIView *)menuNavi];
     [tabBar addPage: (UIView *)layoutNavi];
   
-    //[window addSubview:tabBar.view];
-    //[self.window setRootViewController:navi];
   [self.window setRootViewController:tabBar];
 
 	// Override point for customization after application launch
-    [window makeKeyAndVisible];
+  [window makeKeyAndVisible];
 	
     lcAutoView.bkContainer = model.bkContainer;
     lcAutoView.scContainer = model.scContainer;
