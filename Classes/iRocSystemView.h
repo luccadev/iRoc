@@ -36,6 +36,8 @@
   BOOL Auto;
   UIAlertView *autoStartAlert;
 	iRocClock *clock;
+  UIScrollView *scrollView;
+
 }
 @property (nonatomic, retain) iRocButton *powerON, *powerOFF, *initField, *autoON, *autoStart;
 @property (nonatomic, retain) IRocConnector *rrconnection;

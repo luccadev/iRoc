@@ -88,6 +88,9 @@ void CGContextAddRoundedRectC(CGContextRef c, CGRect rect, int corner_radius) {
       [self addSubview:descLabel];
 			
 			lcTableView = [[iRocLcTableView alloc] init];
+      if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
+        lcTableView.edgesForExtendedLayout = UIRectEdgeNone;
+      }
 
     }
     return self;

@@ -76,7 +76,8 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
 	  viewController.edgesForExtendedLayout = UIRectEdgeNone;
 	  aboutView.edgesForExtendedLayout = UIRectEdgeNone;
 	  guestLocoView.edgesForExtendedLayout = UIRectEdgeNone;
-	  //systemView.edgesForExtendedLayout = UIRectEdgeNone;
+	  systemView.edgesForExtendedLayout = UIRectEdgeNone;
+	  lcAutoView.edgesForExtendedLayout = UIRectEdgeNone;
   }
 
     // Optional move event.
@@ -98,7 +99,10 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
     
     iRocNavigationController *navi = [[iRocNavigationController alloc] initWithRootViewController:viewController];
     navi.navigationBar.tintColor = [UIColor blackColor];
-    
+
+  iRocNavigationController *sysnavi = [[iRocNavigationController alloc] initWithRootViewController:systemView];
+  sysnavi.navigationBar.tintColor = [UIColor blackColor];
+  
     UIBarButtonItem *lcAutoButton = [[[UIBarButtonItem alloc]
                                       initWithTitle: NSLocalizedString(@"Automatic", @"")
                                       style:UIBarButtonItemStylePlain
@@ -128,7 +132,7 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
     tabBar = [[iRocTabBar alloc] initWithDelegate:self];
     
     [tabBar addPage: (UIView *)navi];
-    [tabBar addPage: (UIView *)systemView];
+    [tabBar addPage: (UIView *)sysnavi];
     [tabBar addPage: (UIView *)menuNavi];
     [tabBar addPage: (UIView *)layoutNavi];
   

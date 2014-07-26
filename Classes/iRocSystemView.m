@@ -94,7 +94,7 @@
   [autoStart setEnabled:Auto];
   [self.view addSubview: autoStart];
 	
-	CGRect clockFrame = CGRectMake(160-150/2, CONTENTBORDER + 3 * BUTTONGAP + 3 * BUTTONHEIGHT + 15, 150, 150);
+	CGRect clockFrame = CGRectMake(160-150/2, CONTENTBORDER + 3 * BUTTONGAP + 3 * BUTTONHEIGHT, 150, 150);
 	clock = [[iRocClock alloc] initWithFrame:clockFrame];
   [self.view addSubview: clock];
 }
@@ -112,6 +112,15 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  UILabel* planTitle = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 40.0)];
+  [planTitle setText:NSLocalizedString(@"System", @"")];
+  [planTitle setFont:[UIFont boldSystemFontOfSize:13.0]];
+  [planTitle setTextAlignment:UITextAlignmentCenter];
+  planTitle.backgroundColor = [UIColor clearColor];
+  planTitle.textColor = [UIColor grayColor];
+  
+  
+  self.navigationItem.titleView = planTitle;
 }
 
 - (void)didReceiveMemoryWarning {

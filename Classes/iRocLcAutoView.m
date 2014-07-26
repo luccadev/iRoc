@@ -47,7 +47,10 @@
 
 - (void)loadView {
   [super loadView];
-  [super.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0]];
+  if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)
+    [super.view setBackgroundColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1.0]];
+  else
+    [super.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0]];
 
   [blocks removeAllObjects];
   [blocks addObject: NSLocalizedString(@"none", @"")];
@@ -71,34 +74,38 @@
   
   float buttonWidth = (bounds.size.width - (2 * CONTENTBORDER + BUTTONGAP)) / 2;
   
-  CGRect autoONFrame = CGRectMake(CONTENTBORDER, 0, buttonWidth, BUTTONHEIGHT);
+  CGRect autoONFrame = CGRectMake(CONTENTBORDER, BUTTONGAP, buttonWidth, BUTTONHEIGHT);
   autoON = [[iRocButton alloc] initWithFrame: autoONFrame];
   autoON.frame = autoONFrame;
   [autoON setTitle: NSLocalizedString(@"START", @"") forState: UIControlStateNormal];
   [autoON addTarget:self action:@selector(autoONClicked:) forControlEvents:UIControlEventTouchUpInside];
-  [autoON setColor:0];
+  [autoON setColor:3];
   [autoON setEnabled:Auto];
   [self.view addSubview: autoON];
 
-  CGRect halfAutoONFrame = CGRectMake(buttonWidth + CONTENTBORDER + BUTTONGAP, 0, buttonWidth, BUTTONHEIGHT);
+  CGRect halfAutoONFrame = CGRectMake(buttonWidth + CONTENTBORDER + BUTTONGAP, BUTTONGAP, buttonWidth, BUTTONHEIGHT);
   halfAutoON = [[iRocButton alloc] initWithFrame: halfAutoONFrame];
   halfAutoON.frame = halfAutoONFrame;
   [halfAutoON setTitle: NSLocalizedString(@"HalfAuto", @"") forState: UIControlStateNormal];
   [halfAutoON addTarget:self action:@selector(halfAutoONClicked:) forControlEvents:UIControlEventTouchUpInside];
+  [halfAutoON setColor:3];
   [self.view addSubview: halfAutoON];
   
-  schedulePicker = [[UIPickerView alloc] initWithFrame: CGRectMake(0, BUTTONHEIGHT + BUTTONGAP - 5, 0, 0)];
+  schedulePicker = [[UIPickerView alloc] initWithFrame: CGRectMake(CONTENTBORDER, BUTTONHEIGHT + 2* BUTTONGAP, 2 * buttonWidth + BUTTONGAP, 2*BUTTONHEIGHT)];
   schedulePicker.delegate = self;
   schedulePicker.dataSource = self;
   schedulePicker.showsSelectionIndicator = YES;
+  schedulePicker.backgroundColor = [UIColor clearColor];
   [self.view addSubview: schedulePicker];
 	
-	// Mask for better look
-	UIImageView *maskview = [[UIImageView alloc] initWithFrame: CGRectMake(0, BUTTONHEIGHT + BUTTONGAP - 5, 320, 219)];
-	maskview.image = [UIImage imageNamed:@"mask.png"];
-	[self.view addSubview: maskview];
-	
-  CGRect setInBlockFrame = CGRectMake( CONTENTBORDER, BUTTONHEIGHT + BUTTONGAP + 210 + BUTTONGAP, 2 * buttonWidth + BUTTONGAP, BUTTONHEIGHT);
+  if ([[[UIDevice currentDevice] systemVersion] floatValue] <= 6) {
+  	// Mask for better look
+	  UIImageView *maskview = [[UIImageView alloc] initWithFrame: CGRectMake(0, BUTTONHEIGHT + BUTTONGAP - 5, 320, 219)];
+	  maskview.image = [UIImage imageNamed:@"mask.png"];
+	  [self.view addSubview: maskview];
+	}
+  
+  CGRect setInBlockFrame = CGRectMake( CONTENTBORDER, 4 * BUTTONHEIGHT + 3 * BUTTONGAP, 2 * buttonWidth + BUTTONGAP, BUTTONHEIGHT);
   setInBlock = [[iRocButton alloc] initWithFrame: setInBlockFrame];
   setInBlock.frame = setInBlockFrame;
   [setInBlock setTitle: NSLocalizedString(@"Set in block", @"") forState: UIControlStateNormal];
