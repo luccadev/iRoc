@@ -108,7 +108,18 @@
 
 
 
+- (BOOL)shouldAutorotate {
+  NSLog(@"iRocLevelTableView: shouldAutorotate");
+  return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+  NSLog(@"iRocLevelTableView: supportedInterfaceOrientations");
+  return UIInterfaceOrientationMaskAllButUpsideDown;
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+  NSLog(@"iRocLevelTableView: shouldAutorotateToInterfaceOrientation");
   return YES;
 }
 
@@ -117,6 +128,12 @@
   if( fromInterfaceOrientation == UIDeviceOrientationLandscapeLeft || fromInterfaceOrientation == UIDeviceOrientationLandscapeRight ) {
     NSLog(@"rotation message: will be rotated to portrait...");
   }
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation // iOS 6 autorotation fix
+{
+  NSLog(@"iRocLevelTableView: preferredInterfaceOrientationForPresentation");
+  return UIInterfaceOrientationMaskAllButUpsideDown;
 }
 
 

@@ -347,6 +347,7 @@
 		D4C265D410F8972B0045ED0F /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C265D310F8972B0045ED0F /* info.png */; };
 		D4C265EA10F8A8220045ED0F /* Signal.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C265E910F8A8220045ED0F /* Signal.m */; };
 		D4C265ED10F8B0E90045ED0F /* iRocSgTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C265EC10F8B0E90045ED0F /* iRocSgTableView.m */; };
+		D4CCC19119836B7D008FCD4D /* iRocNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC19019836B7D008FCD4D /* iRocNavigationController.m */; };
 		D4D348B911075DF9005B9D12 /* csensor-off-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D348B111075DF9005B9D12 /* csensor-off-1.png */; };
 		D4D348BA11075DF9005B9D12 /* csensor-off-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D348B211075DF9005B9D12 /* csensor-off-2.png */; };
 		D4D348BB11075DF9005B9D12 /* csensor-off-3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D348B311075DF9005B9D12 /* csensor-off-3.png */; };
@@ -775,6 +776,8 @@
 		D4C265E910F8A8220045ED0F /* Signal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Signal.m; sourceTree = "<group>"; };
 		D4C265EB10F8B0E90045ED0F /* iRocSgTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocSgTableView.h; sourceTree = "<group>"; };
 		D4C265EC10F8B0E90045ED0F /* iRocSgTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocSgTableView.m; sourceTree = "<group>"; };
+		D4CCC18F19836B7D008FCD4D /* iRocNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRocNavigationController.h; sourceTree = "<group>"; };
+		D4CCC19019836B7D008FCD4D /* iRocNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRocNavigationController.m; sourceTree = "<group>"; };
 		D4D348B111075DF9005B9D12 /* csensor-off-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "csensor-off-1.png"; sourceTree = "<group>"; };
 		D4D348B211075DF9005B9D12 /* csensor-off-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "csensor-off-2.png"; sourceTree = "<group>"; };
 		D4D348B311075DF9005B9D12 /* csensor-off-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "csensor-off-3.png"; sourceTree = "<group>"; };
@@ -858,6 +861,8 @@
 				9CADD3B012D4B3D000724EF5 /* mgv136.m */,
 				9CD44B7E12D6FC2700771CD1 /* mgv136servo.h */,
 				9CD44B7F12D6FC2700771CD1 /* mgv136servo.m */,
+				D4CCC18F19836B7D008FCD4D /* iRocNavigationController.h */,
+				D4CCC19019836B7D008FCD4D /* iRocNavigationController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1764,6 +1769,7 @@
 				D496063F1102F98E00213441 /* iRocTabBar.m in Sources */,
 				9C5417201113ECEF003FA1BD /* iRocBlockView.m in Sources */,
 				9C7EA54B1242193400FD86DB /* iRocClock.m in Sources */,
+				D4CCC19119836B7D008FCD4D /* iRocNavigationController.m in Sources */,
 				9CADD3B112D4B3D000724EF5 /* mgv136.m in Sources */,
 				9CD44B8012D6FC2700771CD1 /* mgv136servo.m in Sources */,
 				9CAFA545137870D000DE8DB4 /* iRocTurntableView.m in Sources */,

@@ -40,5 +40,26 @@
 	self.tableView.rowHeight = 45.0;
 }
 
+- (BOOL)shouldAutorotate {
+  NSLog(@"iRocTableView: shouldAutorotate");
+  return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+  NSLog(@"iRocTableView: supportedInterfaceOrientations");
+  return UIInterfaceOrientationMaskAllButUpsideDown;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+  NSLog(@"iRocTableView: shouldAutorotateToInterfaceOrientation");
+  return YES;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation // iOS 6 autorotation fix
+{
+  NSLog(@"iRocTableView: preferredInterfaceOrientationForPresentation");
+  return UIInterfaceOrientationMaskAllButUpsideDown;
+}
+
 
 @end

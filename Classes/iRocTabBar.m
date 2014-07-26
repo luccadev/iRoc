@@ -89,6 +89,22 @@
 }
 
 
+- (BOOL)shouldAutorotate {
+  NSLog(@"iRocTabBar: shouldAutorotate");
+  if( self.selectedIndex == 3 )
+    return YES;
+  else
+    return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+  NSLog(@"iRocTabBar: supportedInterfaceOrientations");
+  if( self.selectedIndex == 3 )
+    return UIInterfaceOrientationMaskAllButUpsideDown;
+  else
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
 	
   NSLog(@"rotation message for tabcontroller");
@@ -103,6 +119,10 @@
   }
 }
 
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation // iOS 6 autorotation fix
+{
+  return UIInterfaceOrientationMaskAllButUpsideDown;
+}
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
 }

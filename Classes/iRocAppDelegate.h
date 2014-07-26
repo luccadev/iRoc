@@ -47,6 +47,7 @@
 #import "Container.h"
 #import "Model.h"
 #import "Block.h"
+#import "iRocNavigationController.h"
 
 
 @class iRocViewController;
@@ -55,7 +56,7 @@
   UIWindow *window;
 	iRocTabBar *tabBar;
   iRocViewController *viewController;
-	UINavigationController *layoutNavi;
+	iRocNavigationController *layoutNavi;
   
 	IBOutlet iRocLcTableView *lcTableView;
 	IBOutlet iRocRtTableView *rtTableView;

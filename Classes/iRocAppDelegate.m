@@ -21,6 +21,7 @@
 #import "iRocAppDelegate.h"
 #import "iRocViewController.h"
 #import "iRocTabBar.h"
+#import "iRocNavigationController.h"
 
 
 @implementation iRocAppDelegate
@@ -33,15 +34,16 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
 
 @synthesize rrconnection, menuItems, aboutView, guestLocoView;
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+//- (void)applicationDidFinishLaunching:(UIApplication *)application {
     NSLog(@"applicationDidFinishLaunching");
 	
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     CGRect windowBounds = screenBounds;
     windowBounds.origin.y = 0.0;
     
-    self.window = [[[UIWindow alloc] initWithFrame: screenBounds] autorelease];
-    
+  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
 	offline = FALSE;
     
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
@@ -94,7 +96,7 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
                                  NSLocalizedString(@"Plan", @"")
                                                               image:[UIImage imageNamed:@"enter.png"] tag:4];
     
-    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:viewController];
+    iRocNavigationController *navi = [[iRocNavigationController alloc] initWithRootViewController:viewController];
     navi.navigationBar.tintColor = [UIColor blackColor];
     
     UIBarButtonItem *lcAutoButton = [[[UIBarButtonItem alloc]
@@ -112,13 +114,11 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
                                           action: @selector(pushLcSettings)] autorelease];
     
     viewController.navigationItem.leftBarButtonItem = lcSettingsButton;
-	
-    
-    
-    layoutNavi = [[UINavigationController alloc] initWithRootViewController:levelTableView];
+	 
+    layoutNavi = [[iRocNavigationController alloc] initWithRootViewController:levelTableView];
     //layoutNavi.navigationBar.tintColor = [UIColor blackColor];
     
-    UINavigationController *menuNavi = [[UINavigationController alloc] initWithRootViewController:menuTableView];
+    iRocNavigationController *menuNavi = [[iRocNavigationController alloc] initWithRootViewController:menuTableView];
     //menuNavi.navigationBar.tintColor = [UIColor blackColor];
     
     // Tab 1 = Loco
@@ -131,9 +131,11 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
     [tabBar addPage: (UIView *)systemView];
     [tabBar addPage: (UIView *)menuNavi];
     [tabBar addPage: (UIView *)layoutNavi];
-    
-    [window addSubview:tabBar.view];
-    
+  
+    //[window addSubview:tabBar.view];
+    //[self.window setRootViewController:navi];
+  [self.window setRootViewController:tabBar];
+
 	// Override point for customization after application launch
     [window makeKeyAndVisible];
 	
@@ -204,7 +206,10 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
 	[menuItems addObject:aboutView];
 	
 	[menuTableView setMenuItems:menuItems];
-	
+  
+  
+  
+  
 	rrconnection = [[IRocConnector alloc] init];
 	[rrconnection setDomain:[defaults stringForKey:@"ip_preference"]];
 	[rrconnection setPort:[defaults integerForKey:@"port_preference"]];
@@ -285,6 +290,7 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
     }
 	
     [viewController setRrconnection:self.rrconnection];
+  return YES;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -597,6 +603,10 @@ menuTableView, levelTableView, systemView, lcAutoView, lcSettingsView, model, bl
     return rrconnection;
 }
 
-
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window  // iOS 6 autorotation fix
+{
+	NSLog(@"iRocAppDelegate: supportedInterfaceOrientationsForWindow");
+  return UIInterfaceOrientationMaskAll;
+}
 
 @end

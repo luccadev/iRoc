@@ -238,18 +238,31 @@
   //[[UIApplication sharedApplication] setStatusBarHidden:NO];
 }
 
+- (BOOL)shouldAutorotate {
+  NSLog(@"iRocLevelView: shouldAutorotate");
+  return YES;
+}
+
 - (NSUInteger)supportedInterfaceOrientations {
-  return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft;
+  NSLog(@"iRocLevelView: supportedInterfaceOrientations");
+  return UIInterfaceOrientationMaskAll;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-  NSLog(@"rotation message: will be rotated...");
+  NSLog(@"iRocLevelView: shouldAutorotateToInterfaceOrientation");
   return YES;
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
   NSLog(@"rotation message: rearange the layout... from: %d", (int)fromInterfaceOrientation);
 }
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation // iOS 6 autorotation fix
+{
+  NSLog(@"iRocLevelView: preferredInterfaceOrientationForPresentation");
+  return UIInterfaceOrientationPortrait;
+}
+
 
 - (void)gotoLocoTab {
 	[self.tabBarController setSelectedIndex:0];
