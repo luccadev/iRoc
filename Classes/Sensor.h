@@ -25,6 +25,7 @@
 
 @interface Sensor : Item {
   BOOL curve;
+  int accnr;
 
 }
 - (id) initWithAttributeDict: (NSDictionary *)attributeDict;

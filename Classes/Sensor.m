@@ -29,6 +29,8 @@
   if( self = [super initWithAttributeDict:attributeDict] ) {
     NSString *tmp = [Globals getAttribute:@"curve" fromDict:attributeDict withDefault:@"false"];
     curve = [tmp isEqual:@"true"];
+    tmp = [Globals getAttribute:@"accnr" fromDict:attributeDict withDefault:@"0"];
+    accnr = [tmp intValue];
 	}
   return self;
 }
@@ -44,10 +46,16 @@
     orinr = (orinr % 2 == 0) ? 2:1;
 	
 	if( [self.state isEqual:@"true"]) {
-		imgname = [NSString stringWithFormat: @"%@sensor-on-%d.png", prefix, orinr];
+    if( accnr > 0 )
+      imgname = [NSString stringWithFormat: @"accessory_%d_on_%d.png", accnr, 1];
+    else
+      imgname = [NSString stringWithFormat: @"%@sensor-on-%d.png", prefix, orinr];
 	}
   else {
-		imgname = [NSString stringWithFormat: @"%@sensor-off-%d.png", prefix, orinr];
+    if( accnr > 0 )
+      imgname = [NSString stringWithFormat: @"accessory_%d_off_%d.png", accnr, 1];
+    else
+		  imgname = [NSString stringWithFormat: @"%@sensor-off-%d.png", prefix, orinr];
   }
 	
 	return imgname;
