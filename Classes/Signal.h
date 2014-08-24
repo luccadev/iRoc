@@ -29,10 +29,18 @@
 	NSString *SignalType;
   Boolean Distant;
   Boolean Shunting;
+  int usepatterns;
+  int greennr;
+  int rednr;
+  int yellownr;
+  int whitenr;
+  int nr;
 }
 
 @property (nonatomic, retain) NSString *ID;
 
+- (id) initWithAttributeDict: (NSDictionary *)attributeDict;
+- (void) updateWithAttributeDict: (NSDictionary *)attributeDict;
 - (NSString*) getImgName;
 
 @end

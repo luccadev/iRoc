@@ -31,11 +31,34 @@
   if( self = [super initWithAttributeDict:attributeDict] ) {
     NSString *tmp = [Globals getAttribute:@"aspects" fromDict:attributeDict withDefault:@"3"];
     Aspects = [tmp intValue];
+    [tmp release];
+    tmp = [Globals getAttribute:@"usepatterns" fromDict:attributeDict withDefault:@"0"];
+    usepatterns = [tmp intValue];
+    [tmp release];
+    tmp = [Globals getAttribute:@"greennr" fromDict:attributeDict withDefault:@"0"];
+    greennr = [tmp intValue];
+    [tmp release];
+    tmp = [Globals getAttribute:@"rednr" fromDict:attributeDict withDefault:@"0"];
+    rednr = [tmp intValue];
+    [tmp release];
+    tmp = [Globals getAttribute:@"yellownr" fromDict:attributeDict withDefault:@"0"];
+    yellownr = [tmp intValue];
+    [tmp release];
+    tmp = [Globals getAttribute:@"aspect" fromDict:attributeDict withDefault:@"-1"];
+    nr = [tmp intValue];
+    [tmp release];
     SignalType = [Globals getAttribute:@"signal" fromDict:attributeDict withDefault:@"main"];
     Distant = [SignalType isEqual:@"distant"];
     Shunting = [SignalType isEqual:@"shunting"];
   }
   return self;
+}
+
+- (void) updateWithAttributeDict: (NSDictionary *)attributeDict {
+  [super updateWithAttributeDict:attributeDict];
+  NSString *tmp = [Globals getAttribute:@"aspect" fromDict:attributeDict withDefault:@"-1"];
+  nr = [tmp intValue];
+  [tmp release];
 }
 
 
@@ -50,6 +73,24 @@
 
   NSString *statetype = @"";
 	NSString *imgname = @"";
+  
+  if( usepatterns == 2 ) {
+    if( nr == -1 )
+      nr = 0;
+    
+    if( nr >= 0 && nr < 5 ) {
+      if( greennr == nr )
+        state = @"green";
+      else if( rednr == nr )
+        state = @"red";
+      else if( yellownr == nr )
+        state = @"yellow";
+      else if( whitenr == nr )
+        state = @"white";
+      else
+        state = @"red";
+    }
+  }
   
   if( Distant) {
     if( [self.state isEqual:@"red"])

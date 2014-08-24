@@ -683,6 +683,7 @@ static NSString * const kIdElementName = @"id";
       Signal *sg = (Signal*) [model.sgContainer objectWithId:idAttribute];
       if( sg != nil ) {
         [sg setState:state];
+        [sg updateWithAttributeDict:attributeDict];
         [sg updateEvent];
       }
       if ( [_delegate respondsToSelector:@selector(sgListLoaded)] ) {
