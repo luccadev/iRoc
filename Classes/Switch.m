@@ -152,7 +152,7 @@
     cy = orinr % 2 == 0 ? 2:1; 
 	} else if( [self.type isEqual:@"decoupler"] ) {
 		BOOL st = false;
-		if( [state isEqual:@"turnout"])
+		if( [state isEqual:@"straight"])
 			st = true;
 		imgname = [NSString stringWithFormat: @"decoupler-%@-%d.png", st?@"on":@"off", orinr % 2 == 0 ? 2:1];
 	}
